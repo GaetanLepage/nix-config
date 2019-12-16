@@ -1,11 +1,54 @@
 # i3 config file (v4)
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
+####################
+# GLOBAL VARIABLES #
+####################
+
 # Set mod key (Mod1=<Alt>, Mod4=<Super>)
 set $mod Mod4
+set $terminal kitty
+set $polybar_script "~/.config/polybar/launch.sh"
+
+
+####################
+# GENERAL SETTINGS #
+####################
 
 # set default desktop layout (default is tiling)
 # workspace_layout tabbed <stacking|tabbed>
+
+# Font for window titles. Will also be used by the bar unless a different font
+# is used in the bar {} block below.
+font xft:URWGothic-Book 11
+
+# Use Mouse+$mod to drag floating windows
+floating_modifier $mod
+
+# focus_follows_mouse no
+
+# switch to workspace with urgent window automatically
+# for_window [urgent=latest] focus
+
+
+##########
+# COLORS #
+##########
+
+# Theme colors
+# class                   border  backgr. text    indic.   child_border
+  client.focused          #ffffff #ffffff #1c1c1c #FDF6E3
+  client.focused_inactive #1c1c1c #1c1c1c #ffffff #454948
+  client.unfocused        #1c1c1c #1c1c1c #ffffff #454948
+  client.urgent           #BD2C40 #BD2C40 #ffffff #268BD2
+  client.placeholder      #000000 #0c0c0c #ffffff #000000
+
+  client.background       #2B2C2B
+
+
+###########
+# BORDERS #
+###########
 
 # Configure border style <normal|1pixel|pixel xx|none|pixel>
 default_border pixel 2
@@ -19,73 +62,27 @@ bindsym $mod+u border none
 bindsym $mod+y border pixel 1
 bindsym $mod+n border normal
 
-# Font for window titles. Will also be used by the bar unless a different font
-# is used in the bar {} block below.
-font xft:URWGothic-Book 11
 
-# Use Mouse+$mod to drag floating windows
-floating_modifier $mod
+###########################
+# GENERAL i3 KEY BINDINGS #
+###########################
 
-# start a terminal
-bindsym $mod+Return exec $terminal
+# reload the configuration file
+bindsym $mod+Shift+c reload
+
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+r restart; exec $polybar_script
+
+# exit i3 (logs you out of your X session)
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+
+
+################################
+# GENERAL WINDOWS KEY BINDINGS #
+################################
 
 # kill focused window
 bindsym $mod+a kill
-
-# start program launcher
-# bindsym $mod+d exec --no-startup-id dmenu_recency
-# bindsym $mod+d exec rofi -show run -lines 3 -eh 2 -width 1000 -padding 800 -opacity 85 -bw 0 -bc "$bg-color" -bg "$bg-color" -fg "$text-color" -hlbg "$bg-color" -hlfg "#9575cd"
-bindsym $mod+d exec rofi -show run
-
-# launch categorized menu
-bindsym $mod+i exec --no-startup-id morc_menu
-
-set $terminal kitty
-set $polybar_script "~/.config/polybar/launch.sh"
-
-# exec --no-startup-id volumeicon
-# bindsym $mod+Ctrl+m exec terminal -e 'alsamixer'
-# exec --no-startup-id pulseaudio --start
-# exec --no-startup-id pa-applet
-bindsym $mod+Ctrl+m exec pavucontrol
-
-# Volume controls
-bindsym XF86AudioRaiseVolume exec pavolume volup --noshow #increase sound volume
-bindsym XF86AudioLowerVolume exec pavolume voldown --noshow #decrease sound volume
-bindsym XF86AudioMute exec pactl set-sink-mute 0 toggle # mute sound
-
-# Screen brightness controls
-bindsym XF86MonBrightnessUp exec "xbacklight -inc 10"
-bindsym XF86MonBrightnessDown exec "xbacklight -dec 10"
-
-# Start Applications
-bindsym $mod+Ctrl+b exec $terminal -e 'bmenu'
-bindsym $mod+F2 exec chromium
-bindsym $mod+F3 exec pcmanfm
-bindsym $mod+F6 exec $polybar_script
-bindsym $mod+F7 exec pkill megasync && megasync
-bindsym $mod+F8 exec mons -n right; exec $polybar_script
-bindsym $mod+F9 exec nmcli radio wifi on
-bindsym $mod+Shift+F9 exec nmcli radio wifi off
-bindsym $mod+F10 exec rfkill unblock bluetooth
-bindsym $mod+Shift+F10 exec rfkill block bluetooth
-
-
-bindsym $mod+t exec --no-startup-id pkill compton
-bindsym $mod+Ctrl+t exec --no-startup-id compton -b
-bindsym $mod+Shift+d --release exec "killall dunst; exec notify-send 'restart dunst'"
-bindsym Print exec --no-startup-id flameshot gui
-bindsym $mod+Print --release exec --no-startup-id i3-scrot -w
-bindsym $mod+Shift+Print --release exec --no-startup-id i3-scrot -s
-bindsym $mod+Ctrl+x --release exec --no-startup-id xkill
-
-# Media player controls
-bindsym XF86AudioPlay exec playerctl play-pause
-bindsym XF86AudioPause exec playerctl pause
-bindsym XF86AudioNext exec playerctl next
-bindsym XF86AudioPrev exec playerctl previous
-
-# focus_follows_mouse no
 
 # change focus
 bindsym $mod+h focus left
@@ -142,92 +139,10 @@ bindsym $mod+Shift+s sticky toggle
 # focus the parent container
 bindsym $mod+q focus parent
 
-# Moving workspaces between screens
-bindsym $mod+p move workspace to output right
 
-# move the currently focused window to the scratchpad
-bindsym $mod+Shift+comma move scratchpad
-
-# Show the next scratchpad window or hide the focused scratchpad window.
-# If there are multiple scratchpad windows, this command cycles through them.
-bindsym $mod+comma scratchpad show
-
-#navigate workspaces next / previous [MOD+CTRL+ARROWS]
-bindsym $mod+Ctrl+Right workspace next
-bindsym $mod+Ctrl+Left workspace prev
-bindsym $mod+Ctrl+Up workspace prev
-bindsym $mod+Ctrl+Down workspace next
-
-#navigate workspaces next / previous [MOD+ALT+ARROWS]
-bindsym $mod+Mod1+Right workspace next
-bindsym $mod+Mod1+Left workspace prev
-bindsym $mod+Mod1+Up workspace prev
-bindsym $mod+Mod1+Down workspace next
-
-#navigate workspaces next / previous [CTRL+MOD+ARROWS]
-bindsym Ctrl+Mod1+Right workspace next
-bindsym Ctrl+Mod1+Left workspace prev
-bindsym Ctrl+Mod1+Up workspace prev
-bindsym Ctrl+Mod1+Down workspace next
-
-#navigate workspaces next / previous [MOD+CTRL+HJKL]
-bindsym $mod+Ctrl+l workspace next
-bindsym $mod+Ctrl+h workspace prev
-bindsym $mod+Ctrl+k workspace prev
-bindsym $mod+Ctrl+j workspace next
-
-#navigate workspaces next / previous [MOD+ALT+HJKL]
-bindsym $mod+Mod1+l workspace next
-bindsym $mod+Mod1+h workspace prev
-bindsym $mod+Mod1+k workspace prev
-bindsym $mod+Mod1+j workspace next
-
-#navigate workspaces next / previous [CTRL+MOD+HJKL]
-bindsym Ctrl+Mod1+l workspace next
-bindsym Ctrl+Mod1+h workspace prev
-bindsym Ctrl+Mod1+k workspace prev
-bindsym Ctrl+Mod1+j workspace next
-
-# Workspace names
-# to display names or symbols instead of plain workspace numbers you can use
-# something like: set $ws1 1:mail
-#                 set $ws2 2:
-set $ws1 "1 : "
-set $ws2 "2 : "
-set $ws3 "3 : "
-set $ws4 "4 : "
-set $ws5 "5 : "
-set $ws6 "6 : "
-set $ws7 "7 : "
-set $ws8 "8 : "
-set $ws9 "9 : "
-set $ws10 "10 : "
-
-# Workspace assigning
-assign [class=$terminal] $ws1
-assign [class="Chromium"] $ws2
-assign [class="code-oss"] $ws3
-assign [class="jetbrains-pycharm"] $ws3
-assign [class="java-lang-Thread"] $ws3
-assign [class="Welcome to PyCharm"] $ws3
-assign [class="MATLAB R2019b - primary and secondary school use"] $ws3
-assign [class="SNAP"] $ws3
-assign [class="Thunderbird"] $ws4
-assign [class="Slack"] $ws5
-assign [class="Franz"] $ws5
-assign [class="TelegramDesktop"] $ws5
-assign [class="Gnome-system-monitor"] $ws6
-assign [class="Discord"] $ws8
-for_window [class="Spotify"] move to workspace $ws10
-
-# guake-like shortcut
-bindsym F12 workspace $ws1
-
-# left-hand friendly shortcuts for workspaces
-bindsym XF86Calculator workspace $ws1
-bindsym XF86Mail workspace $ws2
-bindsym XF86HomePage workspace $ws3
-bindsym XF86Sleep workspace $ws4
+##################################
+# GENERAL WORKSPACE KEY BINDINGS #
+##################################
 
 # switch to workspace
 bindsym $mod+ampersand workspace $ws1
@@ -252,6 +167,210 @@ bindsym $mod+Shift+egrave move container to workspace $ws7
 bindsym $mod+Shift+8 move container to workspace $ws8
 bindsym $mod+Shift+ccedilla move container to workspace $ws9
 bindsym $mod+Shift+agrave move container to workspace $ws10
+
+# Moving workspaces between screens
+bindsym $mod+p move workspace to output right
+
+# move the currently focused window to the scratchpad
+bindsym $mod+Shift+comma move scratchpad
+
+# Show the next scratchpad window or hide the focused scratchpad window.
+# If there are multiple scratchpad windows, this command cycles through them.
+bindsym $mod+comma scratchpad show
+
+# navigate workspaces next / previous [MOD+CTRL+ARROWS]
+bindsym $mod+Ctrl+Right workspace next
+bindsym $mod+Ctrl+Left workspace prev
+bindsym $mod+Ctrl+Up workspace prev
+bindsym $mod+Ctrl+Down workspace next
+
+# navigate workspaces next / previous [MOD+ALT+ARROWS]
+bindsym $mod+Mod1+Right workspace next
+bindsym $mod+Mod1+Left workspace prev
+bindsym $mod+Mod1+Up workspace prev
+bindsym $mod+Mod1+Down workspace next
+
+# navigate workspaces next / previous [CTRL+MOD+ARROWS]
+bindsym Ctrl+Mod1+Right workspace next
+bindsym Ctrl+Mod1+Left workspace prev
+bindsym Ctrl+Mod1+Up workspace prev
+bindsym Ctrl+Mod1+Down workspace next
+
+# navigate workspaces next / previous [MOD+CTRL+HJKL]
+bindsym $mod+Ctrl+l workspace next
+bindsym $mod+Ctrl+h workspace prev
+bindsym $mod+Ctrl+k workspace prev
+bindsym $mod+Ctrl+j workspace next
+
+# navigate workspaces next / previous [MOD+ALT+HJKL]
+bindsym $mod+Mod1+l workspace next
+bindsym $mod+Mod1+h workspace prev
+bindsym $mod+Mod1+k workspace prev
+bindsym $mod+Mod1+j workspace next
+
+# navigate workspaces next / previous [CTRL+MOD+HJKL]
+bindsym Ctrl+Mod1+l workspace next
+bindsym Ctrl+Mod1+h workspace prev
+bindsym Ctrl+Mod1+k workspace prev
+bindsym Ctrl+Mod1+j workspace next
+
+
+#######################
+# CUSTOM KEY BINDINGS #
+#######################
+
+# start a terminal
+bindsym $mod+Return exec $terminal
+
+# start program launcher
+bindsym $mod+d exec rofi -show run
+
+# launch categorized menu
+bindsym $mod+i exec --no-startup-id morc_menu
+
+# Start Applications
+bindsym $mod+F2 exec chromium
+bindsym $mod+F3 exec pcmanfm
+bindsym $mod+F6 exec $polybar_script
+bindsym $mod+F7 exec pkill megasync && megasync
+bindsym $mod+F9 exec nmcli radio wifi on
+bindsym $mod+Shift+F9 exec nmcli radio wifi off
+bindsym $mod+F10 exec rfkill unblock bluetooth
+bindsym $mod+Shift+F10 exec rfkill block bluetooth
+
+
+bindsym $mod+t exec --no-startup-id pkill compton
+bindsym $mod+Ctrl+t exec --no-startup-id compton -b
+bindsym $mod+Shift+d --release exec "killall dunst; exec notify-send 'restart dunst'"
+bindsym Print exec --no-startup-id flameshot gui
+bindsym $mod+Ctrl+x --release exec --no-startup-id xkill
+
+
+############################
+# SYSTEM/LAPTOP BEHAVIOURS #
+############################
+
+# wallpaper
+#exec_always feh --bg-scale ~/Pictures/yosemite.jpg
+exec --no-startup-id nitrogen --restore; sleep 1; compton -b
+
+# Lock screen
+bindsym $mod+m exec --no-startup-id blurlock
+#exec --no-startup-id xss-lock --transfer-sleep-lock -- blurlock --nofork
+
+### VOLUME SETTINGS ###
+# exec --no-startup-id pa-applet
+bindsym $mod+Ctrl+m exec pavucontrol
+# Volume controls
+bindsym XF86AudioRaiseVolume exec pavolume volup --noshow #increase sound volume
+bindsym XF86AudioLowerVolume exec pavolume voldown --noshow #decrease sound volume
+bindsym XF86AudioMute exec pavolume mutetoggle --noshow # mute sound
+
+# Media player controls
+bindsym XF86AudioPlay exec playerctl play-pause
+bindsym XF86AudioPause exec playerctl pause
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
+
+# monitor management
+bindsym $mod+F8 exec mons -n right; exec $polybar_script
+bindsym $mod+Shift+m exec "~/.config/i3/dual_screen.sh"
+bindsym $mod+c exec "~/.config/i3/laptop_screen_only.sh"
+
+# Screen brightness controls
+bindsym XF86MonBrightnessUp exec "xbacklight -inc 10"
+bindsym XF86MonBrightnessDown exec "xbacklight -dec 10"
+
+# Set shut down, restart and locking features
+bindsym $mod+0 mode "$mode_system"
+set $mode_system (l)ock, (e)xit, switch_(u)ser, (s)uspend, (h)ibernate, (r)eboot, (Shift+s)hutdown
+mode "$mode_system" {
+    bindsym l exec --no-startup-id i3exit lock, mode "default"
+    bindsym s exec --no-startup-id i3exit suspend, mode "default"
+    bindsym u exec --no-startup-id i3exit switch_user, mode "default"
+    bindsym e exec --no-startup-id i3exit logout, mode "default"
+    bindsym h exec --no-startup-id i3exit hibernate, mode "default"
+    bindsym r exec --no-startup-id i3exit reboot, mode "default"
+    bindsym Shift+s exec --no-startup-id i3exit shutdown, mode "default"
+
+    # exit system mode: "Enter" or "Escape"
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+
+##########################
+# AUTOSTART APPLICATIONS #
+##########################
+
+# Main graphical applications
+exec --no-startup-id $terminal
+exec --no-startup-id chromium
+exec --no-startup-id megasync
+for_window [class = "Chromium"] layout tabbed
+for_window [class = "Thunderbird"] layout tabbed
+exec --no-startup-id thunderbird
+
+# System/i3 related applications
+exec --no-startup-id $polybar_script
+exec --no-startup-id udiskie
+# exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+
+# Tray applets
+exec --no-startup-id pamac-tray
+exec --no-startup-id nm-applet
+exec --no-startup-id blueman-applet
+exec --no-startup-id mopidy
+
+
+##############
+# WORKSPACES #
+##############
+
+# Workspace names
+set $ws1 "1 : "
+set $ws2 "2 : "
+set $ws3 "3 : "
+set $ws4 "4 : "
+set $ws5 "5 : "
+set $ws6 "6 : "
+set $ws7 "7 : "
+set $ws8 "8 : "
+set $ws9 "9 : "
+set $ws10 "10 : "
+
+# Workspace assigning
+# WS1
+assign [class=$terminal] $ws1
+# WS2
+assign [class="Chromium"] $ws2
+# WS3
+assign [class="code-oss"] $ws3
+assign [class="jetbrains-pycharm"] $ws3
+assign [class="java-lang-Thread"] $ws3
+assign [class="Welcome to PyCharm"] $ws3
+assign [class="MATLAB R2019b - primary and secondary school use"] $ws3
+assign [class="SNAP"] $ws3
+# WS4
+assign [class="Thunderbird"] $ws4
+# WS5
+for_window [title=".*Messenger.*"] move to workspace $ws5
+assign [class="Slack"] $ws5
+assign [class="Franz"] $ws5
+assign [class="TelegramDesktop"] $ws5
+# WS6
+assign [class="Gnome-system-monitor"] $ws6
+# WS7
+# WS8
+assign [class="Discord"] $ws8
+# WS9
+# WS10
+for_window [class="Spotify"] move to workspace $ws10
+
+
+#################
+# FLOATING MODE #
+#################
 
 # Open specific applications in floating mode
 for_window [title="alsamixer"] floating enable border pixel 1
@@ -290,38 +409,10 @@ for_window [class="Gnome-tweaks"] floating enable
 for_window [class="Matplotlib"] floating enable
 for_window [class="java-lang-Thread"] floating enable
 
-# switch to workspace with urgent window automatically
-# for_window [urgent=latest] focus
 
-# monitor management
-bindsym $mod+Shift+m exec "~/.config/i3/dual_screen.sh"
-bindsym $mod+c exec "~/.config/i3/laptop_screen_only.sh"
-
-# reload the configuration file
-bindsym $mod+Shift+c reload
-
-# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-bindsym $mod+Shift+r restart; exec $polybar_script
-
-# exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
-
-# Set shut down, restart and locking features
-bindsym $mod+0 mode "$mode_system"
-set $mode_system (l)ock, (e)xit, switch_(u)ser, (s)uspend, (h)ibernate, (r)eboot, (Shift+s)hutdown
-mode "$mode_system" {
-    bindsym l exec --no-startup-id i3exit lock, mode "default"
-    bindsym s exec --no-startup-id i3exit suspend, mode "default"
-    bindsym u exec --no-startup-id i3exit switch_user, mode "default"
-    bindsym e exec --no-startup-id i3exit logout, mode "default"
-    bindsym h exec --no-startup-id i3exit hibernate, mode "default"
-    bindsym r exec --no-startup-id i3exit reboot, mode "default"
-    bindsym Shift+s exec --no-startup-id i3exit shutdown, mode "default"
-
-    # exit system mode: "Enter" or "Escape"
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
-}
+##########
+# RESIZE #
+##########
 
 # Resize window (you can also use the mouse for that)
 bindsym $mod+r mode "resize"
@@ -354,84 +445,10 @@ mode "resize" {
         bindsym $mod+r mode "default"
 }
 
-# wallpaper
-exec_always feh --bg-scale ~/Pictures/yosemite.jpg
 
-# Lock screen
-bindsym $mod+m exec --no-startup-id blurlock
-
-# Autostart applications
-exec --no-startup-id megasync
-exec --no-startup-id $terminal
-exec --no-startup-id chromium
-for_window [class = "Chromium"] layout tabbed
-for_window [class = "Thunderbird"] layout tabbed
-for_window [title=".*Messenger.*"] move to workspace $ws5
-exec --no-startup-id thunderbird
-# exec --no-startup-id franz
-exec --no-startup-id $polybar_script
-exec --no-startup-id udiskie
-# exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-#exec --no-startup-id nitrogen --restore; sleep 1; compton -b
-#exec --no-startup-id manjaro-hello
-exec --no-startup-id nm-applet
-exec --no-startup-id xfce4-power-manager
-exec --no-startup-id pamac-tray
-exec --no-startup-id blueman-applet
-exec --no-startup-id mopidy
-# exec --no-startup-id telegram-desktop
-# exec_always --no-startup-id sbxkb
-# exec --no-startup-id start_conky_maia
-# exec --no-startup-id start_conky_green
-#exec --no-startup-id xss-lock --transfer-sleep-lock -- blurlock --nofork
-exec_always --no-startup-id ff-theme-util
-exec_always --no-startup-id fix_xcursor
-
-# Color palette used for the terminal ( ~/.Xresources file )
-# Colors are gathered based on the documentation:
-# https://i3wm.org/docs/userguide.html#xresources
-# Change the variable name at the place you want to match the color
-# of your terminal like this:
-# [example]
-# If you want your bar to have the same background color as your
-# terminal background change the line 362 from:
-# background #14191D
-# to:
-# background $term_background
-# Same logic applied to everything else.
-set_from_resource $term_background background
-set_from_resource $term_foreground foreground
-set_from_resource $term_color0     color0
-set_from_resource $term_color1     color1
-set_from_resource $term_color2     color2
-set_from_resource $term_color3     color3
-set_from_resource $term_color4     color4
-set_from_resource $term_color5     color5
-set_from_resource $term_color6     color6
-set_from_resource $term_color7     color7
-set_from_resource $term_color8     color8
-set_from_resource $term_color9     color9
-set_from_resource $term_color10    color10
-set_from_resource $term_color11    color11
-set_from_resource $term_color12    color12
-set_from_resource $term_color13    color13
-set_from_resource $term_color14    color14
-set_from_resource $term_color15    color15
-
-
-# Theme colors
-# class                   border  backgr. text    indic.   child_border
-  client.focused          #ffffff #ffffff #1c1c1c #FDF6E3
-  client.focused_inactive #1c1c1c #1c1c1c #ffffff #454948
-  client.unfocused        #1c1c1c #1c1c1c #ffffff #454948
-  client.urgent           #BD2C40 #BD2C40 #ffffff #268BD2
-  client.placeholder      #000000 #0c0c0c #ffffff #000000
-
-  client.background       #2B2C2B
-
-#############################
-### settings for i3-gaps: ###
-#############################
+########
+# GAPS #
+########
 
 # Set inner/outer gaps
 # gaps inner 14
