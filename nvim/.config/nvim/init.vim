@@ -31,6 +31,7 @@ Plug 'vim-airline/vim-airline' " status bar (needs special fonts)
 Plug 'vim-airline/vim-airline-themes'
 Plug 'morhetz/gruvbox' " very nice and soft color theme
 Plug 'ryanoasis/vim-devicons' " various symbols (linux, rust, python, ...)
+Plug 'deviantfero/wpgtk.vim' " Automatic theme based on wallpaper
 
 " essential plugins
 " see for example https://github.com/autozimu/LanguageClient-neovim/issues/35#issuecomment-288731665
@@ -92,26 +93,29 @@ inoremap <expr> <cr> pumvisible() ? "\<C-y>\<cr>" : "\<cr>"
 
 " ultisnips default bindings compete with completor's tab
 " so we need to remap them
-let g:UltiSnipsExpandTrigger="<c-t>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+" let g:UltiSnipsExpandTrigger="<c-t>"
+" let g:UltiSnipsJumpForwardTrigger="<c-b>"
+" let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
+" color cheme
+colorscheme wpgtkAlt
+au VimEnter * exec 'AirlineTheme wpgtk'
+" au VimEnter * exec 'AirlineTheme hybrid'
+" au VimEnter * exec 'AirlineTheme deus'
+" au VimEnter * exec 'AirlineTheme dark'
+" au VimEnter * exec 'AirlineTheme luna'
+" au VimEnter * exec 'AirlineTheme bubblegum'
 
 " airline :
 " for terminology you will need either to export TERM='xterm-256color'
 " or run it with '-2' option
 let g:airline_powerline_fonts = 1
 set laststatus=2
-" au VimEnter * exec 'AirlineTheme hybrid'
-" au VimEnter * exec 'AirlineTheme deus'
-" au VimEnter * exec 'AirlineTheme dark'
-" au VimEnter * exec 'AirlineTheme luna'
-au VimEnter * exec 'AirlineTheme bubblegum'
 set encoding=utf-8
 
 syntax on
 
 let g:gruvbox_italic=1
-colorscheme gruvbox
 set background=dark
 set rnu nu " hybrid line numbers
 augroup numbertoggle
