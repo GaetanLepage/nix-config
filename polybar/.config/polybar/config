@@ -17,7 +17,6 @@
 ;==========================================================
 
 [colors]
-;background = ${xrdb:color0:#222}
 background = #ff1c1c1c
 background-alt = #444
 ;foreground = ${xrdb:color7:#222}
@@ -76,8 +75,9 @@ modules-right = xbacklight pulseaudio memory cpu wlan eth1 eth2 battery temperat
 
 tray-position = right
 tray-padding = 1
-;tray-background = #0063ff
-tray-tFransparent = false
+tray-background = #bb1c1c1c
+;tray-background = ${colors.background}
+tray-tFransparent = true
 
 wm-restack = i3
 

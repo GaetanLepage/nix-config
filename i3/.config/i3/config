@@ -251,8 +251,9 @@ bindsym $mod+Ctrl+x --release exec --no-startup-id xkill
 ############################
 
 # wallpaper
-#exec_always feh --bg-scale ~/Pictures/yosemite.jpg
-exec --no-startup-id nitrogen --restore; sleep 1; compton -b
+# exec_always feh --bg-scale ~/Pictures/yosemite.jpg
+# exec --no-startup-id nitrogen --restore
+exec --no-startup-id nitrogen --restore
 
 # Lock screen
 bindsym $mod+m exec --no-startup-id blurlock
@@ -302,6 +303,9 @@ mode "$mode_system" {
 ##########################
 # AUTOSTART APPLICATIONS #
 ##########################
+
+exec --no-startup-id compton -b
+ecec --no-startup nmcli radio wifi on
 
 # Main graphical applications
 exec --no-startup-id $terminal
@@ -451,10 +455,10 @@ mode "resize" {
 ########
 
 # Set inner/outer gaps
-# gaps inner 14
-# gaps outer -2
-gaps inner 0
-gaps outer 0
+gaps inner 14
+gaps outer -2
+# gaps inner 0
+# gaps outer 0
 
 # Additionally, you can issue commands with the following syntax. This is useful to bind keys to changing the gap size.
 # gaps inner|outer current|all set|plus|minus <px>
