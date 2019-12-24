@@ -183,12 +183,13 @@ context = ctrl+mod1+c
 # Otherwise the "#" and following would be interpreted as a comment.
 background = "#1c1c1c"
 foreground = "#ffffff"
-timeout = 5
+timeout = 2
+
 
 [urgency_normal]
 background = "#1c1c1c"
 foreground = "#ffffff"
-timeout = 5
+timeout = 2
 
 [urgency_critical]
 background = "#D62929"

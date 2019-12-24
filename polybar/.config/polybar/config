@@ -235,7 +235,7 @@ bar-volume-empty-foreground = ${colors.foreground-alt}
 type = internal/memory
 format = <label> <bar-used>
 label =  %percentage_used%%
-label-font = 4
+;label-font = 4
 format-underline = #ffffff
 
 bar-used-width = 10
@@ -332,7 +332,7 @@ format-disconnected =
 ################################################################
 [module/eth2]
 type = internal/network
-interface = enp57s0u1u4
+interface = enp0s31f6
 interval = 0.5
 
 format-connected-underline = #ffffff
