@@ -17,7 +17,7 @@
 ;==========================================================
 
 [colors]
-background = #ff1c1c1c
+background = #cc1c1c1c
 background-alt = #444
 ;foreground = ${xrdb:color7:#222}
 foreground = #dfdfdf
@@ -75,8 +75,8 @@ modules-right = xbacklight pulseaudio memory cpu wlan eth1 eth2 battery temperat
 
 tray-position = right
 tray-padding = 1
-tray-background = #bb1c1c1c
-;tray-background = ${colors.background}
+;tray-background = #1c1c1c1c
+tray-background = ${colors.background}
 tray-tFransparent = true
 
 wm-restack = i3
@@ -235,7 +235,7 @@ bar-volume-empty-foreground = ${colors.foreground-alt}
 type = internal/memory
 format = <label> <bar-used>
 label =  %percentage_used%%
-;label-font = 4
+label-font = 4
 format-underline = #ffffff
 
 bar-used-width = 10
@@ -332,7 +332,7 @@ format-disconnected =
 ################################################################
 [module/eth2]
 type = internal/network
-interface = enp0s31f6
+interface = enp57s0u1u4
 interval = 0.5
 
 format-connected-underline = #ffffff

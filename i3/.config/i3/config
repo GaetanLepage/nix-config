@@ -181,38 +181,38 @@ bindsym $mod+comma scratchpad show
 # navigate workspaces next / previous [MOD+CTRL+ARROWS]
 bindsym $mod+Ctrl+Right workspace next
 bindsym $mod+Ctrl+Left workspace prev
-bindsym $mod+Ctrl+Up workspace prev
-bindsym $mod+Ctrl+Down workspace next
+bindsym $mod+Ctrl+Up workspace next
+bindsym $mod+Ctrl+Down workspace prev
 
 # navigate workspaces next / previous [MOD+ALT+ARROWS]
 bindsym $mod+Mod1+Right workspace next
 bindsym $mod+Mod1+Left workspace prev
-bindsym $mod+Mod1+Up workspace prev
-bindsym $mod+Mod1+Down workspace next
+bindsym $mod+Mod1+Up workspace next
+bindsym $mod+Mod1+Down workspace prev
 
 # navigate workspaces next / previous [CTRL+MOD+ARROWS]
 bindsym Ctrl+Mod1+Right workspace next
 bindsym Ctrl+Mod1+Left workspace prev
-bindsym Ctrl+Mod1+Up workspace prev
-bindsym Ctrl+Mod1+Down workspace next
+bindsym Ctrl+Mod1+Up workspace next
+bindsym Ctrl+Mod1+Down workspace prev
 
 # navigate workspaces next / previous [MOD+CTRL+HJKL]
 bindsym $mod+Ctrl+l workspace next
 bindsym $mod+Ctrl+h workspace prev
-bindsym $mod+Ctrl+k workspace prev
-bindsym $mod+Ctrl+j workspace next
+bindsym $mod+Ctrl+k workspace next
+bindsym $mod+Ctrl+j workspace prev
 
 # navigate workspaces next / previous [MOD+ALT+HJKL]
 bindsym $mod+Mod1+l workspace next
 bindsym $mod+Mod1+h workspace prev
-bindsym $mod+Mod1+k workspace prev
-bindsym $mod+Mod1+j workspace next
+bindsym $mod+Mod1+k workspace next
+bindsym $mod+Mod1+j workspace prev
 
 # navigate workspaces next / previous [CTRL+MOD+HJKL]
 bindsym Ctrl+Mod1+l workspace next
 bindsym Ctrl+Mod1+h workspace prev
-bindsym Ctrl+Mod1+k workspace prev
-bindsym Ctrl+Mod1+j workspace next
+bindsym Ctrl+Mod1+k workspace next
+bindsym Ctrl+Mod1+j workspace prev
 
 
 #######################
@@ -239,6 +239,7 @@ bindsym $mod+F10 exec rfkill unblock bluetooth
 bindsym $mod+Shift+F10 exec rfkill block bluetooth
 
 
+bindsym $mod+m exec --no-startup-id blueman-manager
 bindsym $mod+t exec --no-startup-id pkill compton
 bindsym $mod+Ctrl+t exec --no-startup-id compton -b
 bindsym $mod+Shift+d --release exec "killall dunst; exec notify-send 'restart dunst'"
@@ -250,13 +251,14 @@ bindsym $mod+Ctrl+x --release exec --no-startup-id xkill
 # SYSTEM/LAPTOP BEHAVIOURS #
 ############################
 
-# wallpaper
+# wallpaper & theme
 # exec_always feh --bg-scale ~/Pictures/yosemite.jpg
 # exec --no-startup-id nitrogen --restore
 exec --no-startup-id nitrogen --restore
+# exec --no-startup-id ~/.config/wpg/wp_init.sh
 
 # Lock screen
-bindsym $mod+m exec --no-startup-id blurlock
+bindsym $mod+o exec --no-startup-id blurlock
 #exec --no-startup-id xss-lock --transfer-sleep-lock -- blurlock --nofork
 
 ### VOLUME SETTINGS ###
@@ -305,7 +307,7 @@ mode "$mode_system" {
 ##########################
 
 exec --no-startup-id compton -b
-ecec --no-startup nmcli radio wifi on
+exec --no-startup nmcli radio wifi on
 
 # Main graphical applications
 exec --no-startup-id $terminal
@@ -318,10 +320,11 @@ exec --no-startup-id thunderbird
 # System/i3 related applications
 exec --no-startup-id $polybar_script
 exec --no-startup-id udiskie
+exec --no-startup-id xfce4-power-manager
 # exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 
 # Tray applets
-exec --no-startup-id pamac-tray
+# exec --no-startup-id pamac-tray
 exec --no-startup-id nm-applet
 exec --no-startup-id blueman-applet
 exec --no-startup-id mopidy
