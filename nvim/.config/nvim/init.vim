@@ -46,6 +46,7 @@ Plug 'autozimu/LanguageClient-neovim', {
             \ 'do': 'bash install.sh',
             \ } " as of july 2018 this branch is needed for vim8
 
+Plug 'tpope/vim-sensible'
 
 Plug 'tpope/vim-fugitive' " git
 Plug 'scrooloose/nerdtree' " browse files tree
@@ -230,7 +231,7 @@ autocmd FileType yaml setlocal shiftwidth=2 softtabstop=2 expandtab
 " Latex live preview conf
 autocmd FileType tex setl updatetime=1000
 let g:livepreview_engine = 'pdflatex'
-let g:livepreview_previewer = 'evince'
+let g:livepreview_previewer = 'zathura'
 
 " Quick indentation formatting for the whole file
 map <F7> gg=G''

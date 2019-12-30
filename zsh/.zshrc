@@ -116,6 +116,8 @@ alias c="cd"
 alias vim="nvim"
 alias vi="nvim"
 
+alias z="zathura"
+
 alias todo="grep -r \"TODO\""
 
 export PATH=${PATH}:"/home/gaetan/.local/android-studio/bin"
