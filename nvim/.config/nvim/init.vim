@@ -41,12 +41,12 @@ Plug 'drewtempelmeyer/palenight.vim' "nice colorscheme
 
 " essential plugins
 Plug 'maralla/completor.vim' " auto-complete
+Plug 'zxqfl/tabnine-vim' " auto-complete
 Plug 'autozimu/LanguageClient-neovim', {
             \ 'branch': 'next',
             \ 'do': 'bash install.sh',
             \ } " as of july 2018 this branch is needed for vim8
 
-Plug 'tpope/vim-sensible'
 
 Plug 'tpope/vim-fugitive' " git
 Plug 'scrooloose/nerdtree' " browse files tree
@@ -132,6 +132,8 @@ augroup END
 if !exists('g:airline_symbols')
     let g:airline_symbols = {}
 endif
+
+let g:hardtime_default_on = 1
 
 " replace tabs
 set tabstop=4

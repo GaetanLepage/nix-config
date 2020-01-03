@@ -8,6 +8,7 @@
 # Set mod key (Mod1=<Alt>, Mod4=<Super>)
 set $mod Mod4
 set $terminal kitty
+set $browser firefox
 set $polybar_script "~/.config/polybar/launch.sh"
 
 
@@ -229,8 +230,9 @@ bindsym $mod+d exec rofi -show run
 bindsym $mod+i exec --no-startup-id morc_menu
 
 # Start Applications
-bindsym $mod+F2 exec chromium
+bindsym $mod+F2 exec $browser
 bindsym $mod+F3 exec pcmanfm
+bindsym $mod+F4 exec zathura
 bindsym $mod+F6 exec $polybar_script
 bindsym $mod+F7 exec pkill megasync && megasync
 bindsym $mod+F9 exec nmcli radio wifi on
@@ -255,6 +257,7 @@ bindsym $mod+Ctrl+x --release exec --no-startup-id xkill
 # exec_always feh --bg-scale ~/Pictures/yosemite.jpg
 # exec --no-startup-id nitrogen --restore
 exec --no-startup-id nitrogen --restore
+exec --no-startup-id ~/.conky/conky_startup.sh
 # exec --no-startup-id ~/.config/wpg/wp_init.sh
 
 # Lock screen
@@ -306,14 +309,15 @@ mode "$mode_system" {
 # AUTOSTART APPLICATIONS #
 ##########################
 
-exec --no-startup-id compton -b
+# exec --no-startup-id compton -b
 exec --no-startup nmcli radio wifi on
 
 # Main graphical applications
 exec --no-startup-id $terminal
-exec --no-startup-id chromium
+exec --no-startup-id $browser
 exec --no-startup-id megasync
 for_window [class = "Chromium"] layout tabbed
+for_window [class = "firefox"] layout tabbed
 for_window [class = "Thunderbird"] layout tabbed
 exec --no-startup-id thunderbird
 
@@ -336,11 +340,12 @@ exec --no-startup-id mopidy
 
 # Workspace names
 set $ws1 "1 : "
-set $ws2 "2 : "
+set $ws2 "2 : "
 set $ws3 "3 : "
 set $ws4 "4 : "
-set $ws5 "5 : "
-set $ws6 "6 : "
+# set $ws5 "5 : "
+set $ws5 "5 : "
+set $ws6 "6 : "
 set $ws7 "7 : "
 set $ws8 "8 : "
 set $ws9 "9 : "
@@ -351,6 +356,7 @@ set $ws10 "10 : "
 assign [class=$terminal] $ws1
 # WS2
 assign [class="Chromium"] $ws2
+assign [class="firefox"] $ws2
 # WS3
 assign [class="code-oss"] $ws3
 assign [class="jetbrains-pycharm"] $ws3
@@ -361,15 +367,16 @@ assign [class="SNAP"] $ws3
 # WS4
 assign [class="Thunderbird"] $ws4
 # WS5
-for_window [title=".*Messenger.*"] move to workspace $ws5
 assign [class="Slack"] $ws5
 assign [class="Franz"] $ws5
 assign [class="TelegramDesktop"] $ws5
+assign [class="Zathura"] $ws5
 # WS6
-assign [class="Gnome-system-monitor"] $ws6
+# assign [class="Zathura"] $ws6
 # WS7
+assign [class="Discord"] $ws7
+assign [class="Teamspeak 3"] $ws7
 # WS8
-assign [class="Discord"] $ws8
 # WS9
 # WS10
 for_window [class="Spotify"] move to workspace $ws10
