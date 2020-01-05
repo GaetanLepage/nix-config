@@ -90,6 +90,9 @@ Plug 'vim-scripts/clips.vim'
 Plug 'vim-latex/vim-latex'
 Plug 'xuhdev/vim-latex-live-preview', {'for':'tex'} " Live preview of LaTeX PDF output
 
+" Jupyter
+Plug 'szymonmaszke/vimpyter' "vim-plug
+
 call plug#end()
 
 
