@@ -305,7 +305,7 @@ mode "$mode_system" {
 ##########################
 
 exec --no-startup-id compton -b
-ecec --no-startup nmcli radio wifi on
+exec --no-startup nmcli radio wifi on
 
 # Main graphical applications
 exec --no-startup-id $terminal
