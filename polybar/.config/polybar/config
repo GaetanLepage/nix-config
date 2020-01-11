@@ -75,8 +75,8 @@ modules-right = xbacklight pulseaudio memory cpu wlan eth1 eth2 battery temperat
 
 tray-position = right
 tray-padding = 1
-tray-background = #bb1c1c1c
-;tray-background = ${colors.background}
+;tray-background = #1c1c1c1c
+tray-background = ${colors.background}
 tray-tFransparent = true
 
 wm-restack = i3
@@ -235,7 +235,7 @@ bar-volume-empty-foreground = ${colors.foreground-alt}
 type = internal/memory
 format = <label> <bar-used>
 label =  %percentage_used%%
-;label-font = 4
+label-font = 4
 format-underline = #ffffff
 
 bar-used-width = 10
@@ -332,7 +332,7 @@ format-disconnected =
 ################################################################
 [module/eth2]
 type = internal/network
-interface = enp0s31f6
+interface = enp57s0u1u4
 interval = 0.5
 
 format-connected-underline = #ffffff
@@ -468,183 +468,4 @@ margin-top = 5
 margin-bottom = 5
 
 ; vim:ft=dosini
-
-
-
-################################################################
-################################################################
-DISABLED MODULES
-################################################################
-################################################################
-
-################################################################
-# FILESYSTEM
-################################################################
-[module/filesystem]
-type = internal/fs
-interval = 25
-
-mount-0 = /
-
-label-mounted = %{F#0a81f5}%mountpoint%%{F-}: %percentage_used%%
-label-unmounted = %mountpoint% not mounted
-label-unmounted-foreground = ${colors.foreground-alt}
-
-################################################################
-# BSPWN
-################################################################
-[module/bspwm]
-type = internal/bspwm
-
-label-focused = %index%
-label-focused-background = ${colors.background-alt}
-label-focused-underline= ${colors.primary}
-label-focused-padding = 2
-
-label-occupied = %index%
-label-occupied-padding = 2
-
-label-urgent = %index%!
-label-urgent-background = ${colors.alert}
-label-urgent-padding = 2
-
-label-empty = %index%
-label-empty-foreground = ${colors.foreground-alt}
-label-empty-padding = 2
-
-; Separator in between workspaces
-; label-separator = |
-
-
-################################################################
-# MPD
-################################################################
-[module/mpd]
-type = internal/mpd
-format-online = <icon-prev> <icon-stop> <toggle> <icon-next>  <icon-repeat> <icon-random>  <bar-progress> <label-time>  <label-song>
-
-format-offline =
-
-host = 127.0.0.1
-port = 6600
-
-icon-play = 
-icon-pause = 
-icon-stop = 栗
-icon-prev = 玲
-icon-next = 怜
-icon-random = 咽
-icon-repeat = 凌
-
-toggle-on-foreground =
-toggle-off-foreground = #55
-
-bar-progress-width = 45
-bar-progress-format = %{A4:mpdseek+2: A5:mpdseek-2:}%fill%%indicator%%empty%%{A A}
-bar-progress-indicator = |
-bar-progress-indicator-foreground = #ff
-bar-progress-indicator-font = 3
-bar-progress-fill = ─
-bar-progress-fill-foreground = #bb
-bar-progress-fill-font = 3
-bar-progress-empty = ─
-bar-progress-empty-font = 3
-bar-progress-empty-foreground = #44
-
-################################################################
-# WLAN IP
-################################################################
-[module/wlan_ip]
-type = internal/network
-interface = wlp58s0
-interval = 0.5
-click-left = nm-connection-editor
-
-format-connected = <label-connected>
-format-connected-underline = #ffffff
-label-connected =  %local_ip%
-
-format-disconnected =
-
-
-################################################################
-# MPD
-################################################################
-[module/mpd_old]
-type = internal/mpd
-format-online = <label-song>  <icon-prev> <icon-stop> <toggle> <icon-next>
-
-icon-prev = 
-icon-stop = 
-icon-play = 
-icon-pause = 
-icon-next = 
-
-label-song-maxlen = 25
-label-song-ellipsis = true
-
-################################################################
-# ALSA
-################################################################
-[module/alsa]
-type = internal/alsa
-
-format-volume = <label-volume> <bar-volume>
-format-underline = #ffffff
-label-volume = 
-label-volume-foreground = ${root.foreground}
-
-format-muted-prefix = " "
-format-muted-foreground = ${colors.foreground-alt}
-label-muted = sound muted
-
-bar-volume-width = 10
-bar-volume-foreground-0 = #55aa55
-bar-volume-foreground-1 = #55aa55
-bar-volume-foreground-2 = #55aa55
-bar-volume-foreground-3 = #55aa55
-bar-volume-foreground-4 = #55aa55
-bar-volume-foreground-5 = #f5a70a
-bar-volume-foreground-6 = #ff5555
-bar-volume-gradient = false
-bar-volume-indicator = |
-bar-volume-indicator-font = 2
-bar-volume-fill = ─
-bar-volume-fill-font = 2
-bar-volume-empty = ─
-bar-volume-empty-font = 2
-bar-volume-empty-foreground = ${colors.foreground-alt}
-
-################################################################
-# POWERMENU
-################################################################
-[module/powermenu]
-type = custom/menu
-
-expand-right = true
-
-format-spacing = 1
-
-label-open = 
-label-open-foreground = ${colors.secondary}
-label-close =  cancel
-label-close-foreground = ${colors.secondary}
-label-separator = |
-label-separator-foreground = ${colors.foreground-alt}
-
-menu-0-0 = reboot
-menu-0-0-exec = menu-open-1
-menu-0-1 = power off
-menu-0-1-exec = menu-open-2
-
-menu-1-0 = cancel
-menu-1-0-exec = menu-open-0
-menu-1-1 = reboot
-menu-1-1-exec = sudo reboot
-
-menu-2-0 = power off
-menu-2-0-exec = sudo poweroff
-menu-2-1 = cancel
-menu-2-1-exec = menu-open-0
-
 

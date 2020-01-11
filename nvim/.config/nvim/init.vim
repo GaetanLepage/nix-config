@@ -1,4 +1,4 @@
-"" Théo Larue's vim config file, intended to use with neovim but surely
+"" Gaetan Lepage's vim config file, intended to use with neovim but surely
 "" compatible with vim
 "" Originally based on the vim 8 config file by Ensimag
 
@@ -20,35 +20,36 @@
 set nocompatible
 filetype off
 
-" call plug#begin('/etc/vim/plugged') " at ensimag
-" call plug#begin('~/.vim/plugged') " on your own machine
+"""""""""""""
+"""""""""""""
+"" PLUGINS ""
+"""""""""""""
+"""""""""""""
 call plug#begin('~/.config/nvim/plugged') " for neovim
 
 Plug 'tpope/vim-sensible' " sane defaults
 
+""""""""""""""
+" APPEARANCE "
+""""""""""""""
 " eye candy
 Plug 'vim-airline/vim-airline' " status bar (needs special fonts)
 Plug 'vim-airline/vim-airline-themes'
-Plug 'morhetz/gruvbox' " very nice and soft color theme
 Plug 'ryanoasis/vim-devicons' " various symbols (linux, rust, python, ...)
 Plug 'deviantfero/wpgtk.vim' " Automatic theme based on wallpaper
+Plug 'drewtempelmeyer/palenight.vim' "nice colorscheme
 
 " essential plugins
-" see for example https://github.com/autozimu/LanguageClient-neovim/issues/35#issuecomment-288731665
 Plug 'maralla/completor.vim' " auto-complete
+Plug 'zxqfl/tabnine-vim' " auto-complete
 Plug 'autozimu/LanguageClient-neovim', {
             \ 'branch': 'next',
             \ 'do': 'bash install.sh',
             \ } " as of july 2018 this branch is needed for vim8
 
-" rust
-Plug 'rust-lang/rust.vim' " syntax highlighting
-Plug 'mattn/webapi-vim' " used for rust playpen
 
-" not essential
 Plug 'tpope/vim-fugitive' " git
 Plug 'scrooloose/nerdtree' " browse files tree
-" Plug 'junegunn/fzf' " fuzzy files finding
 
 " snippets allow to easily 'fill' common patterns
 Plug 'SirVer/ultisnips'
@@ -56,6 +57,14 @@ Plug 'honza/vim-snippets'
 
 " For stats on the code
 Plug 'https://gitlab.com/code-stats/code-stats-vim.git'
+
+"""""""""""""""""""""
+" LANGUAGES SUPPORT "
+"""""""""""""""""""""
+
+" rust
+Plug 'rust-lang/rust.vim' " syntax highlighting
+Plug 'mattn/webapi-vim' " used for rust playpen
 
 " For R editing and execution
 Plug 'jalvesaq/Nvim-R' " for working in R
@@ -78,11 +87,23 @@ Plug 'euclio/vim-markdown-composer', { 'do': function('BuildComposer') }
 Plug 'vim-scripts/clips.vim'
 
 " LaTeX editing
-Plug 'vim-latex/vim-latex'
-Plug 'xuhdev/vim-latex-live-preview', {'for':'tex'} " Live preview of LaTeX PDF output
+" Plug 'vim-latex/vim-latex'
+Plug 'lervag/vimtex'
+" Plug 'xuhdev/vim-latex-live-preview', {'for':'tex'} " Live preview of LaTeX PDF output
+
+" Jupyter
+Plug 'szymonmaszke/vimpyter' "vim-plug
 
 call plug#end()
 
+
+
+
+"""""""""""""""""
+"""""""""""""""""
+"" Remaps & co ""
+"""""""""""""""""
+"""""""""""""""""
 filetype plugin indent on
 
 " configure maralla/completor to use tab
@@ -91,31 +112,19 @@ inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 inoremap <expr> <cr> pumvisible() ? "\<C-y>\<cr>" : "\<cr>"
 
-" ultisnips default bindings compete with completor's tab
-" so we need to remap them
-" let g:UltiSnipsExpandTrigger="<c-t>"
-" let g:UltiSnipsJumpForwardTrigger="<c-b>"
-" let g:UltiSnipsJumpBackwardTrigger="<c-z>"
-
-" color cheme
-colorscheme wpgtkAlt
-au VimEnter * exec 'AirlineTheme wpgtk'
-" au VimEnter * exec 'AirlineTheme hybrid'
-" au VimEnter * exec 'AirlineTheme deus'
-" au VimEnter * exec 'AirlineTheme dark'
-" au VimEnter * exec 'AirlineTheme luna'
-" au VimEnter * exec 'AirlineTheme bubblegum'
-
 " airline :
 " for terminology you will need either to export TERM='xterm-256color'
 " or run it with '-2' option
-let g:airline_powerline_fonts = 1
 set laststatus=2
 set encoding=utf-8
 
 syntax on
 
-let g:gruvbox_italic=1
+""""""""""""""
+" APPEARANCE "
+""""""""""""""
+let g:airline_powerline_fonts = 1
+colorscheme palenight
 set background=dark
 set rnu nu " hybrid line numbers
 augroup numbertoggle
@@ -127,6 +136,8 @@ augroup END
 if !exists('g:airline_symbols')
     let g:airline_symbols = {}
 endif
+
+let g:hardtime_default_on = 1
 
 " replace tabs
 set tabstop=4
@@ -149,7 +160,7 @@ let g:rustfmt_autosave = 1
 let g:rust_conceal = 1
 set hidden
 au BufEnter,BufNewFile,BufRead *.rs syntax match rustEquality "==\ze[^>]" conceal cchar=â‰Ÿ
-au BufEnter,BufNewFile,BufRead *.rs syntax match rustInequality "!=\ze[^>]" conceal cchar=â‰ 
+au BufEnter,BufNewFile,BufRead *.rs syntax match rustInequality "!=\ze[^>]" conceal cchar=â‰
 
 " let's autoindent c files
 au BufWrite *.c call LanguageClient#textDocument_formatting()
@@ -191,6 +202,9 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
+" esc to clear search
+nnoremap <esc> :noh<return><esc>
+
 " Disable the bell for intellij
 set visualbell
 set noerrorbells
@@ -217,13 +231,18 @@ au BufNewFile,BufRead Jenkinsfile setf groovy
 " yml files indent
 autocmd FileType yaml setlocal shiftwidth=2 softtabstop=2 expandtab
 
+"""""""""
+" LATEX "
+"""""""""
 " Latex live preview conf
-autocmd FileType tex setl updatetime=1000
-let g:livepreview_engine = 'pdflatex'
-let g:livepreview_previewer = 'evince'
+" autocmd FileType tex setl updatetime=1000
+" let g:livepreview_engine = 'pdflatex'
+" let g:livepreview_previewer = 'zathura'
+" let g:vimtex_compiler_progname = 'latexmk'
+let g:vimtex_quickfix_enabled = 0
 
 " Quick indentation formatting for the whole file
-nnoremap <C-A-L> gg=G''
+map <F7> gg=G''
 
 " Spell check
 autocmd FileType tex set spell spelllang=en,fr
@@ -233,7 +252,7 @@ augroup collumnLimit
     autocmd!
     autocmd BufEnter,WinEnter,FileType scala,java,python,tex
                 \ highlight CollumnLimit ctermbg=DarkGrey guibg=DarkGrey
-    let collumnLimit = 79 " feel free to customize
+    let collumnLimit = 99 " feel free to customize
     let pattern =
                 \ '\%<' . (collumnLimit+1) . 'v.\%>' . collumnLimit . 'v'
     autocmd BufEnter,WinEnter,FileType scala,java,python,tex

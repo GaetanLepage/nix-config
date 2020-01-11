@@ -8,7 +8,9 @@
 # Set mod key (Mod1=<Alt>, Mod4=<Super>)
 set $mod Mod4
 set $terminal kitty
+set $browser firefox
 set $polybar_script "~/.config/polybar/launch.sh"
+set $reload_script "~/.config/i3/reload.sh"
 
 
 ####################
@@ -71,7 +73,7 @@ bindsym $mod+n border normal
 bindsym $mod+Shift+c reload
 
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-bindsym $mod+Shift+r restart; exec $polybar_script
+bindsym $mod+Shift+r restart; exec $reload_script
 
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
@@ -181,38 +183,38 @@ bindsym $mod+comma scratchpad show
 # navigate workspaces next / previous [MOD+CTRL+ARROWS]
 bindsym $mod+Ctrl+Right workspace next
 bindsym $mod+Ctrl+Left workspace prev
-bindsym $mod+Ctrl+Up workspace prev
-bindsym $mod+Ctrl+Down workspace next
+bindsym $mod+Ctrl+Up workspace next
+bindsym $mod+Ctrl+Down workspace prev
 
 # navigate workspaces next / previous [MOD+ALT+ARROWS]
 bindsym $mod+Mod1+Right workspace next
 bindsym $mod+Mod1+Left workspace prev
-bindsym $mod+Mod1+Up workspace prev
-bindsym $mod+Mod1+Down workspace next
+bindsym $mod+Mod1+Up workspace next
+bindsym $mod+Mod1+Down workspace prev
 
 # navigate workspaces next / previous [CTRL+MOD+ARROWS]
 bindsym Ctrl+Mod1+Right workspace next
 bindsym Ctrl+Mod1+Left workspace prev
-bindsym Ctrl+Mod1+Up workspace prev
-bindsym Ctrl+Mod1+Down workspace next
+bindsym Ctrl+Mod1+Up workspace next
+bindsym Ctrl+Mod1+Down workspace prev
 
 # navigate workspaces next / previous [MOD+CTRL+HJKL]
 bindsym $mod+Ctrl+l workspace next
 bindsym $mod+Ctrl+h workspace prev
-bindsym $mod+Ctrl+k workspace prev
-bindsym $mod+Ctrl+j workspace next
+bindsym $mod+Ctrl+k workspace next
+bindsym $mod+Ctrl+j workspace prev
 
 # navigate workspaces next / previous [MOD+ALT+HJKL]
 bindsym $mod+Mod1+l workspace next
 bindsym $mod+Mod1+h workspace prev
-bindsym $mod+Mod1+k workspace prev
-bindsym $mod+Mod1+j workspace next
+bindsym $mod+Mod1+k workspace next
+bindsym $mod+Mod1+j workspace prev
 
 # navigate workspaces next / previous [CTRL+MOD+HJKL]
 bindsym Ctrl+Mod1+l workspace next
 bindsym Ctrl+Mod1+h workspace prev
-bindsym Ctrl+Mod1+k workspace prev
-bindsym Ctrl+Mod1+j workspace next
+bindsym Ctrl+Mod1+k workspace next
+bindsym Ctrl+Mod1+j workspace prev
 
 
 #######################
@@ -229,9 +231,10 @@ bindsym $mod+d exec rofi -show run
 bindsym $mod+i exec --no-startup-id morc_menu
 
 # Start Applications
-bindsym $mod+F2 exec chromium
+bindsym $mod+F2 exec $browser
 bindsym $mod+F3 exec pcmanfm
-bindsym $mod+F6 exec $polybar_script
+bindsym $mod+F4 exec zathura
+bindsym $mod+F6 exec $reload_script
 bindsym $mod+F7 exec pkill megasync && megasync
 bindsym $mod+F9 exec nmcli radio wifi on
 bindsym $mod+Shift+F9 exec nmcli radio wifi off
@@ -239,6 +242,7 @@ bindsym $mod+F10 exec rfkill unblock bluetooth
 bindsym $mod+Shift+F10 exec rfkill block bluetooth
 
 
+bindsym $mod+m exec --no-startup-id blueman-manager
 bindsym $mod+t exec --no-startup-id pkill compton
 bindsym $mod+Ctrl+t exec --no-startup-id compton -b
 bindsym $mod+Shift+d --release exec "killall dunst; exec notify-send 'restart dunst'"
@@ -250,13 +254,17 @@ bindsym $mod+Ctrl+x --release exec --no-startup-id xkill
 # SYSTEM/LAPTOP BEHAVIOURS #
 ############################
 
-# wallpaper
+# wallpaper & theme
 # exec_always feh --bg-scale ~/Pictures/yosemite.jpg
-# exec --no-startup-id nitrogen --restore
 exec --no-startup-id nitrogen --restore
+exec --no-startup-id ~/.conky/conky_startup.sh
+# exec --no-startup-id ~/.config/wpg/wp_init.sh
+
+# Swap esc and caps lock (better for vim)
+exec --no-startup-id xmodmap ~/.config/i3/swap_esc_capslock
 
 # Lock screen
-bindsym $mod+m exec --no-startup-id blurlock
+bindsym $mod+o exec --no-startup-id blurlock
 #exec --no-startup-id xss-lock --transfer-sleep-lock -- blurlock --nofork
 
 ### VOLUME SETTINGS ###
@@ -274,7 +282,7 @@ bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
 # monitor management
-bindsym $mod+F8 exec mons -n right; exec $polybar_script
+bindsym $mod+F8 exec mons -n right; exec $reload_script
 bindsym $mod+Shift+m exec "~/.config/i3/dual_screen.sh"
 bindsym $mod+c exec "~/.config/i3/laptop_screen_only.sh"
 
@@ -309,15 +317,17 @@ exec --no-startup nmcli radio wifi on
 
 # Main graphical applications
 exec --no-startup-id $terminal
-exec --no-startup-id chromium
+exec --no-startup-id $browser
 exec --no-startup-id megasync
 for_window [class = "Chromium"] layout tabbed
+for_window [class = "firefox"] layout tabbed
 for_window [class = "Thunderbird"] layout tabbed
 exec --no-startup-id thunderbird
 
 # System/i3 related applications
-exec --no-startup-id $polybar_script
+exec --no-startup-id $reload_script
 exec --no-startup-id udiskie
+exec --no-startup-id xfce4-power-manager
 # exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 
 # Tray applets
@@ -333,40 +343,43 @@ exec --no-startup-id mopidy
 
 # Workspace names
 set $ws1 "1 : "
-set $ws2 "2 : "
+set $ws2 "2 : "
 set $ws3 "3 : "
 set $ws4 "4 : "
-set $ws5 "5 : "
-set $ws6 "6 : "
+# set $ws5 "5 : "
+set $ws5 "5 : "
+set $ws6 "6 : "
 set $ws7 "7 : "
 set $ws8 "8 : "
 set $ws9 "9 : "
 set $ws10 "10 : "
 
 # Workspace assigning
-# WS1
+# WS1 : terminal
 assign [class=$terminal] $ws1
-# WS2
+# WS2 : web browser
 assign [class="Chromium"] $ws2
-# WS3
+assign [class="firefox"] $ws2
+# WS3 : coding
 assign [class="code-oss"] $ws3
 assign [class="jetbrains-pycharm"] $ws3
 assign [class="java-lang-Thread"] $ws3
 assign [class="Welcome to PyCharm"] $ws3
 assign [class="MATLAB R2019b - primary and secondary school use"] $ws3
 assign [class="SNAP"] $ws3
-# WS4
+# WS4 : communication
 assign [class="Thunderbird"] $ws4
-# WS5
-for_window [title=".*Messenger.*"] move to workspace $ws5
+assign [class="discord"] $ws4
+assign [class="Teamspeak 3"] $ws7
 assign [class="Slack"] $ws5
 assign [class="Franz"] $ws5
 assign [class="TelegramDesktop"] $ws5
+# WS5 : pdf
+assign [class="Zathura"] $ws5
+assign [class="FoxitReader"] $ws5
 # WS6
-assign [class="Gnome-system-monitor"] $ws6
 # WS7
 # WS8
-assign [class="Discord"] $ws8
 # WS9
 # WS10
 for_window [class="Spotify"] move to workspace $ws10

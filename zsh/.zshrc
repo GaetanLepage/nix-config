@@ -116,6 +116,9 @@ alias c="cd"
 alias vim="nvim"
 alias vi="nvim"
 
+alias z="zathura"
+alias j="jobs"
+
 alias todo="grep -r \"TODO\""
 
 export PATH=${PATH}:"/home/gaetan/.local/android-studio/bin"
@@ -125,7 +128,8 @@ export PATH=${PATH}:"/home/gaetan/snap_esa/bin"
 
 export PYTHONPATH=${PYTHONPATH}:"/home/gaetan/.local/cerevoice_sdk_5.0.0_linux7_x86_64_python27_17851_beta/cerevoice_eng/pylib"
 
-# neofetch
+# wpgtk
+# (cat $HOME/.config/wpg/sequences &)
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
