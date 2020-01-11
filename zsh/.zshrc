@@ -117,6 +117,7 @@ alias vim="nvim"
 alias vi="nvim"
 
 alias z="zathura"
+alias j="jobs"
 
 alias todo="grep -r \"TODO\""
 

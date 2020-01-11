@@ -1,0 +1,17 @@
+[Default Applications]
+application/pdf=org.pwmt.zathura-pdf-mupdf.desktop
+application/ppdf=org.pwmt.zathura-pdf-mupdf.desktop
+application/xfdf=org.pwmt.zathura-pdf-mupdf.desktop
+application/fdf=org.pwmt.zathura-pdf-mupdf.desktop
+video/mp4=vlc.desktop
+x-scheme-handler/http=firefox.desktop
+x-scheme-handler/https=firefox.desktop
+x-scheme-handler/ftp=firefox.desktop
+x-scheme-handler/chrome=firefox.desktop
+text/html=firefox.desktop
+application/x-extension-htm=firefox.desktop
+application/x-extension-html=firefox.desktop
+application/x-extension-shtml=firefox.desktop
+application/xhtml+xml=firefox.desktop
+application/x-extension-xhtml=firefox.desktop
+application/x-extension-xht=firefox.desktop

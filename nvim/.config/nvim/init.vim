@@ -87,8 +87,9 @@ Plug 'euclio/vim-markdown-composer', { 'do': function('BuildComposer') }
 Plug 'vim-scripts/clips.vim'
 
 " LaTeX editing
-Plug 'vim-latex/vim-latex'
-Plug 'xuhdev/vim-latex-live-preview', {'for':'tex'} " Live preview of LaTeX PDF output
+" Plug 'vim-latex/vim-latex'
+Plug 'lervag/vimtex'
+" Plug 'xuhdev/vim-latex-live-preview', {'for':'tex'} " Live preview of LaTeX PDF output
 
 " Jupyter
 Plug 'szymonmaszke/vimpyter' "vim-plug
@@ -234,9 +235,11 @@ autocmd FileType yaml setlocal shiftwidth=2 softtabstop=2 expandtab
 " LATEX "
 """""""""
 " Latex live preview conf
-autocmd FileType tex setl updatetime=1000
-let g:livepreview_engine = 'pdflatex'
-let g:livepreview_previewer = 'zathura'
+" autocmd FileType tex setl updatetime=1000
+" let g:livepreview_engine = 'pdflatex'
+" let g:livepreview_previewer = 'zathura'
+" let g:vimtex_compiler_progname = 'latexmk'
+let g:vimtex_quickfix_enabled = 0
 
 " Quick indentation formatting for the whole file
 map <F7> gg=G''
