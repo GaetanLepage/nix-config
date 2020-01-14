@@ -40,16 +40,14 @@ Plug 'deviantfero/wpgtk.vim' " Automatic theme based on wallpaper
 Plug 'drewtempelmeyer/palenight.vim' "nice colorscheme
 
 " essential plugins
-Plug 'maralla/completor.vim' " auto-complete
-Plug 'zxqfl/tabnine-vim' " auto-complete
-Plug 'autozimu/LanguageClient-neovim', {
-            \ 'branch': 'next',
-            \ 'do': 'bash install.sh',
-            \ } " as of july 2018 this branch is needed for vim8
-
-
+" Plug 'zxqfl/tabnine-vim' " auto-complete
 Plug 'tpope/vim-fugitive' " git
 Plug 'scrooloose/nerdtree' " browse files tree
+Plug 'kien/ctrlp.vim' "ctrlP
+Plug 'majutsushi/tagbar'
+Plug 'tpope/vim-surround' " git
+Plug 'scrooloose/syntastic' "syntax highlighting
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " snippets allow to easily 'fill' common patterns
 Plug 'SirVer/ultisnips'
@@ -72,24 +70,15 @@ Plug 'vim-pandoc/vim-pandoc' " required for vim-rmarkdown
 Plug 'vim-pandoc/vim-pandoc-syntax' " required for vim-rmarkdown
 Plug 'vim-pandoc/vim-rmarkdown' "markdown support for vim
 Plug 'iamcco/markdown-preview.vim' " markdown live preview on brower
-function! BuildComposer(info)
-    if a:info.status != 'unchanged' || a:info.force
-        if has('nvim')
-            !cargo build --release
-        else
-            !cargo build --release --no-default-features --features json-rpc
-        endif
-    endif
-endfunction
-Plug 'euclio/vim-markdown-composer', { 'do': function('BuildComposer') }
+
+" Python
+ " Plug 'klen/python-mode'
 
 " CLIPS syntax hilighting
 Plug 'vim-scripts/clips.vim'
 
 " LaTeX editing
-" Plug 'vim-latex/vim-latex'
 Plug 'lervag/vimtex'
-" Plug 'xuhdev/vim-latex-live-preview', {'for':'tex'} " Live preview of LaTeX PDF output
 
 " Jupyter
 Plug 'szymonmaszke/vimpyter' "vim-plug
@@ -106,6 +95,19 @@ call plug#end()
 """""""""""""""""
 filetype plugin indent on
 
+:let mapleader=','
+
+" use <tab> for trigger completion and navigate to the next complete item
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~ '\s'
+endfunction
+
+inoremap <silent><expr> <Tab>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<Tab>" :
+      \ coc#refresh()
+
 " configure maralla/completor to use tab
 " other configurations are possible (see website)
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
@@ -119,6 +121,15 @@ set laststatus=2
 set encoding=utf-8
 
 syntax on
+
+
+let g:ctrlp_cmd = 'CtrlPMixed'
+
+" inoremap <silent><expr> <TAB>
+"       \ pumvisible() ? "\<C-n>" :
+"       \ <SID>check_back_space() ? "\<TAB>" :
+"       \ coc#refresh()
+" inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
 """"""""""""""
 " APPEARANCE "
@@ -154,7 +165,7 @@ nnoremap <space> za
 highlight ExtraWhitespace ctermbg=red guibg=red
 match ExtraWhitespace /\s\+\%#\@<!$/
 
-" some more rust
+" rust
 let g:LanguageClient_loadSettings = 1 " this enables you to have per-projects languageserver settings in .vim/settings.json
 let g:rustfmt_autosave = 1
 let g:rust_conceal = 1
@@ -164,15 +175,6 @@ au BufEnter,BufNewFile,BufRead *.rs syntax match rustInequality "!=\ze[^>]" conc
 
 " let's autoindent c files
 au BufWrite *.c call LanguageClient#textDocument_formatting()
-
-" run language server for python, rust and c
-let g:LanguageClient_autoStart = 1
-let g:LanguageClient_serverCommands = {
-            \ 'python': ['pyls'],
-            \ 'rust': ['rustup', 'run', 'stable', 'rls'],
-            \ 'javascript': ['javascript-typescript-stdio'],
-            \ 'go': ['go-langserver'],
-            \ 'c' : ['clangd'] }
 
 " NERDTree config
 let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore files in NERDTree
@@ -192,7 +194,7 @@ function! NERDTreeHighlightFile(extension, fg, bg, guifg, guibg)
 endfunction
 
 " fast buffer navigation
-nnoremap <F5> :buffers<CR>:buffer<Space>
+" nnoremap <F5> :buffers<CR>:buffer<Space>
 nmap <Tab> :tabn<CR>
 
 " split navigations
@@ -230,6 +232,17 @@ au BufNewFile,BufRead Jenkinsfile setf groovy
 
 " yml files indent
 autocmd FileType yaml setlocal shiftwidth=2 softtabstop=2 expandtab
+
+
+""""""""""
+" PYTHON "
+""""""""""
+let g:pymode_python = 'python3'
+let g:python3_host_prog = '/usr/bin/python3'
+let g:pymode_run_bind = '<F5>'
+nnoremap <F6> PymodeLint
+" let g:pymode_rope_completion_bind = '<TAB>'
+let g:pymode_rope_goto_definition_bind = '<F8>'
 
 """""""""
 " LATEX "

@@ -1,6 +1,7 @@
 #!/bin/sh
 
 HOSTNAME=$(hostname)
+echo "detected system : "$HOSTNAME
 
 disable_all () {
     xrandr --output eDP1 --off
@@ -14,52 +15,75 @@ disable_all () {
 }
 
 dual_screen () {
-    # $1 : Main screen (144Hz)
-    # $2 : Second screen (BenQ)
-    xrandr --output $1 --mode 1920x1080 --rate 144 --primary --pos 1920x0 --rotate normal
-    xrandr --output $2 --mode 1920x1080 --pos 0x0 --rotate normal
+    xrandr --output $BENQ --mode 1920x1080 --pos 0x0 --rotate normal --output $S144 --mode 1920x1080 --rate 144 --primary --pos 1920x0 --rotate normal
 }
 
+is_connected() {
+    # $1 : name of an output
+
+    # Check if the display is connected or not
+    STATE=$(xrandr | grep -oP '(?<=\b'$1'\s)\w+')
+
+    echo $1 is ${STATE}
+
+    if [ "$STATE" == "connected" ]
+    then
+        return 0
+    elif [ "$STATE" == "disconnected" ]
+    then
+        return 1
+    fi
+
+    return 1
+
+}
 
 
 # Start by disabling all outputs
 disable_all
 
 
-# Desktop PC
-if [ "$HOSTNAME" == "gaetan-pc" ]
-then
-    S144="DP-0"
-    BENQ="DVI-D-0"
-    dual_screen "$S144" "$BENQ"
+case $HOSTNAME in
+    # Desktop PC
+    gaetan-pc)
 
-# Laptop
-elif [ "$HOSTNAME" == "gaetan-xps" ]
-then
-    LAPTOP_SCREEN=""
-    S144="DP1-2"
-    BENQ="DP2-1"
+        S144="DP-0"
+        BENQ="DVI-D-0"
+        dual_screen
+        ;;
 
-    # Laptop only
-    if [ #TODO ]
-    then
-        xrandr
+    # Laptop
+    gaetan-xps)
+        LAPTOP_SCREEN="eDP1"
+        EXTERNAL="DP1"
+        S144="DP1-2"
+        BENQ="DP2-1"
 
-    # External only
-    elif []
-    then
-        EXTERNAL=""
+        # Dual screen (TB3 dock)
+        if is_connected "$S144" && is_connected "$BENQ";
+        then
+            echo "Dual screen"
+            dual_screen
 
-    # Dual screen
-    elif []
-    then
+            # Turn wifi off
+            nmcli radio wifi off
 
-    fi
-fi
+        # External only
+        elif is_connected "$EXTERNAL";
+        then
+            echo "Single external screen"
+            xrandr --output "$EXTERNAL" --mode 1920x1080 --pos 0x0 --rotate normal
 
+        # Laptop only
+        elif is_connected "$LAPTOP_SCREEN";
+        then
+            echo "laptop screen only"
+            xrandr --output "$LAPTOP_SCREEN" --mode 1920x1080 --pos 0x0 --rotate normal
 
+            # start wifi
+            nmcli radio wifi on
 
+        fi
 
-nmcli radio wifi off
-
-# ~/.config/polybar/launch.sh
+        ;;
+esac

@@ -9,8 +9,9 @@
 set $mod Mod4
 set $terminal kitty
 set $browser firefox
-set $polybar_script "~/.config/polybar/launch.sh"
-set $reload_script "~/.config/i3/reload.sh"
+set $polybar_script ~/.config/polybar/launch.sh
+set $reload_script ~/.config/i3/reload.sh
+set $pavolume_script ~/.config/pavolume/pavolume.py
 
 
 ####################
@@ -94,8 +95,8 @@ bindsym $mod+l focus right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
-bindsym $mod+Down focus down
-bindsym $mod+Up focus up
+# bindsym $mod+Down focus down
+# bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
 # move focused window
@@ -271,9 +272,11 @@ bindsym $mod+o exec --no-startup-id blurlock
 # exec --no-startup-id pa-applet
 bindsym $mod+Ctrl+m exec pavucontrol
 # Volume controls
-bindsym XF86AudioRaiseVolume exec pavolume volup --noshow #increase sound volume
-bindsym XF86AudioLowerVolume exec pavolume voldown --noshow #decrease sound volume
-bindsym XF86AudioMute exec pavolume mutetoggle --noshow # mute sound
+bindsym XF86AudioRaiseVolume exec $pavolume_script volup --noshow #increase sound volume
+bindsym XF86AudioLowerVolume exec $pavolume_script voldown --noshow #decrease sound volume
+bindsym XF86AudioMute exec $pavolume_script mutetoggle --noshow # mute sound
+bindsym $mod+Up exec $pavolume_script volup --noshow
+bindsym $mod+Down exec $pavolume_script voldown --noshow
 
 # Media player controls
 bindsym XF86AudioPlay exec playerctl play-pause
@@ -283,7 +286,7 @@ bindsym XF86AudioPrev exec playerctl previous
 
 # monitor management
 bindsym $mod+F8 exec mons -n right; exec $reload_script
-bindsym $mod+Shift+m exec "~/.config/i3/dual_screen.sh"
+bindsym $mod+Shift+m exec "~/.config/i3/xrandr_auto.sh"
 bindsym $mod+c exec "~/.config/i3/laptop_screen_only.sh"
 
 # Screen brightness controls
