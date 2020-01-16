@@ -121,12 +121,11 @@ alias j="jobs"
 
 alias todo="grep -r \"TODO\""
 
-export PATH=${PATH}:"/home/gaetan/.local/android-studio/bin"
-export PATH=${PATH}:"/home/gaetan/.local/flutter/bin"
 export PATH=${PATH}:"/home/gaetan/.gem/ruby/2.6.0/bin"
 export PATH=${PATH}:"/home/gaetan/snap_esa/bin"
 
 export PYTHONPATH=${PYTHONPATH}:"/home/gaetan/.local/cerevoice_sdk_5.0.0_linux7_x86_64_python27_17851_beta/cerevoice_eng/pylib"
+
 
 # wpgtk
 # (cat $HOME/.config/wpg/sequences &)

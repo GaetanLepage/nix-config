@@ -370,17 +370,17 @@ assign [class="java-lang-Thread"] $ws3
 assign [class="Welcome to PyCharm"] $ws3
 assign [class="MATLAB R2019b - primary and secondary school use"] $ws3
 assign [class="SNAP"] $ws3
-# WS4 : communication
+# WS4 : mail & messaging
 assign [class="Thunderbird"] $ws4
-assign [class="discord"] $ws4
-assign [class="Teamspeak 3"] $ws7
 assign [class="Slack"] $ws5
 assign [class="Franz"] $ws5
 assign [class="TelegramDesktop"] $ws5
 # WS5 : pdf
 assign [class="Zathura"] $ws5
 assign [class="FoxitReader"] $ws5
-# WS6
+# WS6 VoIP
+assign [class="discord"] $ws4
+assign [class="TeamSpeak 3"] $ws7
 # WS7
 # WS8
 # WS9

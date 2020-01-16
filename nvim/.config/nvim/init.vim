@@ -42,7 +42,12 @@ Plug 'drewtempelmeyer/palenight.vim' "nice colorscheme
 " essential plugins
 " Plug 'zxqfl/tabnine-vim' " auto-complete
 Plug 'tpope/vim-fugitive' " git
+Plug 'scrooloose/nerdcommenter' " Nerd Commenter
+
+" NerdTree
 Plug 'scrooloose/nerdtree' " browse files tree
+Plug 'Xuyuanp/nerdtree-git-plugin'
+
 Plug 'kien/ctrlp.vim' "ctrlP
 Plug 'majutsushi/tagbar'
 Plug 'tpope/vim-surround' " git
@@ -59,10 +64,6 @@ Plug 'https://gitlab.com/code-stats/code-stats-vim.git'
 """""""""""""""""""""
 " LANGUAGES SUPPORT "
 """""""""""""""""""""
-
-" rust
-Plug 'rust-lang/rust.vim' " syntax highlighting
-Plug 'mattn/webapi-vim' " used for rust playpen
 
 " For R editing and execution
 Plug 'jalvesaq/Nvim-R' " for working in R
@@ -96,6 +97,22 @@ call plug#end()
 filetype plugin indent on
 
 :let mapleader=','
+:let mapleader='Alt'
+
+
+nmap <F8> :TagbarToggle<CR>
+
+"""""""
+" COC "
+"""""""
+let g:coc_global_extensions = [
+    \ 'coc-json',
+    \ 'coc-python',
+    \ 'coc-texlab',
+    \ 'coc-markdownlint',
+    \ 'coc-snippets',
+    \ 'coc-pairs',
+    \ ]
 
 " use <tab> for trigger completion and navigate to the next complete item
 function! s:check_back_space() abort
@@ -114,6 +131,59 @@ inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 inoremap <expr> <cr> pumvisible() ? "\<C-y>\<cr>" : "\<cr>"
 
+" Use <c-space> to trigger completion.
+inoremap <silent><expr> <c-space> coc#refresh()
+
+
+" Use `[g` and `]g` to navigate diagnostics
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
+
+" Remap keys for gotos
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+" Use K to show documentation in preview window
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
+
+" Highlight symbol under cursor on CursorHold
+autocmd CursorHold * silent call CocActionAsync('highlight')
+
+" Remap for rename current word
+nmap <F2> <Plug>(coc-rename)
+
+" Remap for format selected region
+xmap <leader>f  <Plug>(coc-format-selected)
+nmap <leader>f  <Plug>(coc-format-selected)
+
+
+
+" sync open file with NERDTree
+" " Check if NERDTree is open or active
+function! IsNERDTreeOpen()
+  return exists("t:NERDTreeBufName") && (bufwinnr(t:NERDTreeBufName) != -1)
+endfunction
+
+
+" Call NERDTreeFind iff NERDTree is active, current window contains a modifiable
+" file, and we're not in vimdiff
+function! SyncTree()
+  if &modifiable && IsNERDTreeOpen() && strlen(expand('%')) > 0 && !&diff
+    NERDTreeFind
+    wincmd p
+  endif
+endfunction
+
 " airline :
 " for terminology you will need either to export TERM='xterm-256color'
 " or run it with '-2' option
@@ -122,14 +192,12 @@ set encoding=utf-8
 
 syntax on
 
+" Highlight currently open buffer in NERDTree
+autocmd BufEnter * call SyncTree()
+
 
 let g:ctrlp_cmd = 'CtrlPMixed'
 
-" inoremap <silent><expr> <TAB>
-"       \ pumvisible() ? "\<C-n>" :
-"       \ <SID>check_back_space() ? "\<TAB>" :
-"       \ coc#refresh()
-" inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
 """"""""""""""
 " APPEARANCE "
@@ -165,14 +233,6 @@ nnoremap <space> za
 highlight ExtraWhitespace ctermbg=red guibg=red
 match ExtraWhitespace /\s\+\%#\@<!$/
 
-" rust
-let g:LanguageClient_loadSettings = 1 " this enables you to have per-projects languageserver settings in .vim/settings.json
-let g:rustfmt_autosave = 1
-let g:rust_conceal = 1
-set hidden
-au BufEnter,BufNewFile,BufRead *.rs syntax match rustEquality "==\ze[^>]" conceal cchar=â‰Ÿ
-au BufEnter,BufNewFile,BufRead *.rs syntax match rustInequality "!=\ze[^>]" conceal cchar=â‰
-
 " let's autoindent c files
 au BufWrite *.c call LanguageClient#textDocument_formatting()
 
@@ -196,6 +256,11 @@ endfunction
 " fast buffer navigation
 " nnoremap <F5> :buffers<CR>:buffer<Space>
 nmap <Tab> :tabn<CR>
+nmap <C-w> :bd<CR>
+
+" save by Ctrl+s
+nmap <C-s> :w<CR>
+
 
 " split navigations
 let g:BASH_Ctrl_j = 'off'
@@ -224,25 +289,10 @@ vmap ,e <Plug>RESendSelection
 let g:mkdp_command_for_global = 1
 let g:markdown_composer_autostart = 0
 
-" code stats api key
-let g:codestats_api_key = "SFMyNTY.VkdobGIyeHkjI016WTROZz09.G5HVXCuZwY3G0lw-AHTmHOhLt6kylmRgGvLOONWA7Xo"
-
-" Jenkinsfile syntax highlighting
-au BufNewFile,BufRead Jenkinsfile setf groovy
-
 " yml files indent
 autocmd FileType yaml setlocal shiftwidth=2 softtabstop=2 expandtab
 
 
-""""""""""
-" PYTHON "
-""""""""""
-let g:pymode_python = 'python3'
-let g:python3_host_prog = '/usr/bin/python3'
-let g:pymode_run_bind = '<F5>'
-nnoremap <F6> PymodeLint
-" let g:pymode_rope_completion_bind = '<TAB>'
-let g:pymode_rope_goto_definition_bind = '<F8>'
 
 """""""""
 " LATEX "
