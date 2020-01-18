@@ -51,15 +51,11 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'kien/ctrlp.vim' "ctrlP
 Plug 'majutsushi/tagbar'
 Plug 'tpope/vim-surround' " git
-Plug 'scrooloose/syntastic' "syntax highlighting
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " snippets allow to easily 'fill' common patterns
-Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
-
-" For stats on the code
-Plug 'https://gitlab.com/code-stats/code-stats-vim.git'
+" Plug 'SirVer/ultisnips'
+" Plug 'honza/vim-snippets'
 
 """""""""""""""""""""
 " LANGUAGES SUPPORT "
@@ -73,7 +69,7 @@ Plug 'vim-pandoc/vim-rmarkdown' "markdown support for vim
 Plug 'iamcco/markdown-preview.vim' " markdown live preview on brower
 
 " Python
- " Plug 'klen/python-mode'
+Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
 
 " CLIPS syntax hilighting
 Plug 'vim-scripts/clips.vim'
@@ -256,6 +252,7 @@ endfunction
 " fast buffer navigation
 " nnoremap <F5> :buffers<CR>:buffer<Space>
 nmap <Tab> :tabn<CR>
+nmap <S-Tab> :tabp<CR>
 nmap <C-w> :bd<CR>
 
 " save by Ctrl+s
