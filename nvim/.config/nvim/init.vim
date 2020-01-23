@@ -17,9 +17,6 @@
 
 "" after that copy this file as your $HOME/.config/nvim/init.vim (or ~/.vimrc for classic vim) and execute :PlugInstall
 
-set nocompatible
-filetype off
-
 """""""""""""
 """""""""""""
 "" PLUGINS ""
@@ -34,9 +31,9 @@ Plug 'tpope/vim-sensible' " sane defaults
 """"""""""""""
 " eye candy
 Plug 'vim-airline/vim-airline' " status bar (needs special fonts)
-Plug 'vim-airline/vim-airline-themes'
+" Plug 'vim-airline/vim-airline-themes'
 Plug 'ryanoasis/vim-devicons' " various symbols (linux, rust, python, ...)
-Plug 'deviantfero/wpgtk.vim' " Automatic theme based on wallpaper
+" Plug 'deviantfero/wpgtk.vim' " Automatic theme based on wallpaper
 Plug 'drewtempelmeyer/palenight.vim' "nice colorscheme
 
 " essential plugins
@@ -45,11 +42,12 @@ Plug 'tpope/vim-fugitive' " git
 Plug 'scrooloose/nerdcommenter' " Nerd Commenter
 
 " NerdTree
-Plug 'scrooloose/nerdtree' " browse files tree
+Plug 'scrooloose/nerdtree' " NerdTree
 Plug 'Xuyuanp/nerdtree-git-plugin'
 
 Plug 'kien/ctrlp.vim' "ctrlP
 Plug 'majutsushi/tagbar'
+
 Plug 'tpope/vim-surround' " git
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
@@ -61,18 +59,8 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " LANGUAGES SUPPORT "
 """""""""""""""""""""
 
-" For R editing and execution
-Plug 'jalvesaq/Nvim-R' " for working in R
-Plug 'vim-pandoc/vim-pandoc' " required for vim-rmarkdown
-Plug 'vim-pandoc/vim-pandoc-syntax' " required for vim-rmarkdown
-Plug 'vim-pandoc/vim-rmarkdown' "markdown support for vim
-Plug 'iamcco/markdown-preview.vim' " markdown live preview on brower
-
 " Python
 Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
-
-" CLIPS syntax hilighting
-Plug 'vim-scripts/clips.vim'
 
 " LaTeX editing
 Plug 'lervag/vimtex'
@@ -92,11 +80,25 @@ call plug#end()
 """""""""""""""""
 filetype plugin indent on
 
-:let mapleader=','
-:let mapleader='Alt'
+set nocompatible
+filetype off
 
+let mapleader=','
+"let mapleader='Alt'
+
+set laststatus=2
+set encoding=utf-8
+
+syntax on
+
+set nospell
+
+" Quick indentation formatting for the whole file
+map <F7> gg=G''
 
 nmap <F8> :TagbarToggle<CR>
+
+
 
 """""""
 " COC "
@@ -173,23 +175,37 @@ endfunction
 
 " Call NERDTreeFind iff NERDTree is active, current window contains a modifiable
 " file, and we're not in vimdiff
-function! SyncTree()
-  if &modifiable && IsNERDTreeOpen() && strlen(expand('%')) > 0 && !&diff
-    NERDTreeFind
-    wincmd p
-  endif
-endfunction
-
-" airline :
-" for terminology you will need either to export TERM='xterm-256color'
-" or run it with '-2' option
-set laststatus=2
-set encoding=utf-8
-
-syntax on
+" function! SyncTree()
+"   if &modifiable && IsNERDTreeOpen() && strlen(expand('%')) > 0 && !&diff
+"     NERDTreeFind
+"     wincmd p
+"   endif
+" endfunction
 
 " Highlight currently open buffer in NERDTree
-autocmd BufEnter * call SyncTree()
+" autocmd BufEnter * call SyncTree()
+
+" NERDTree config
+let NERDTreeIgnore=[
+    \ '\.pyc$',
+    \ '\~$',
+    \ '\.aux'
+    \ ] "ignore files in NERDTree
+
+" Automatically open NERDTree if no files were specified
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+" open NERDTree when vim starts up on opening a directory
+autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
+" Shortcut for nerdtree
+map <C-n> :NERDTreeToggle<CR>
+"Close vim if the only window left open is nerdTree
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+" NERDTress File highlighting
+function! NERDTreeHighlightFile(extension, fg, bg, guifg, guibg)
+    exec 'autocmd filetype nerdtree highlight ' . a:extension .' ctermbg='. a:bg .' ctermfg='. a:fg .' guibg='. a:guibg .' guifg='. a:guifg
+    exec 'autocmd filetype nerdtree syn match ' . a:extension .' #^\s\+.*'. a:extension .'$#'
+endfunction
 
 
 let g:ctrlp_cmd = 'CtrlPMixed'
@@ -212,8 +228,6 @@ if !exists('g:airline_symbols')
     let g:airline_symbols = {}
 endif
 
-let g:hardtime_default_on = 1
-
 " replace tabs
 set tabstop=4
 set shiftwidth=4
@@ -232,22 +246,6 @@ match ExtraWhitespace /\s\+\%#\@<!$/
 " let's autoindent c files
 au BufWrite *.c call LanguageClient#textDocument_formatting()
 
-" NERDTree config
-let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore files in NERDTree
-" Automatically open NERDTree if no files were specified
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-" open NERDTree when vim starts up on opening a directory
-autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
-" Shortcut for nerdtree
-map <C-n> :NERDTreeToggle<CR>
-"Close vim if the only window left open is nerdTree
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-" NERDTress File highlighting
-function! NERDTreeHighlightFile(extension, fg, bg, guifg, guibg)
-    exec 'autocmd filetype nerdtree highlight ' . a:extension .' ctermbg='. a:bg .' ctermfg='. a:fg .' guibg='. a:guibg .' guifg='. a:guifg
-    exec 'autocmd filetype nerdtree syn match ' . a:extension .' #^\s\+.*'. a:extension .'$#'
-endfunction
 
 " fast buffer navigation
 " nnoremap <F5> :buffers<CR>:buffer<Space>
@@ -258,6 +256,13 @@ nmap <C-w> :bd<CR>
 " save by Ctrl+s
 nmap <C-s> :w<CR>
 
+" Quick indentation formatting for the whole file
+map <F7> gg=G''
+
+" Comment line or block
+vmap <C-b> <plug>NERDCommenterToggle
+nmap <C-b> <plug>NERDCommenterToggle
+
 
 " split navigations
 let g:BASH_Ctrl_j = 'off'
@@ -266,25 +271,12 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
-" esc to clear search
+" esc to clear search results
 nnoremap <esc> :noh<return><esc>
 
 " Disable the bell for intellij
 set visualbell
 set noerrorbells
-
-" R Editing
-" remapping the basic :: send line
-nmap , <Plug>RDSendLine
-" remapping selection :: send multiple lines
-vmap , <Plug>RDSendSelection
-" remapping selection :: send multiple lines + echo lines
-vmap ,e <Plug>RESendSelection
-" set to 1, the MarkdownPreview command can be use for all files,
-" by default it just can be use in markdown file
-" default: 0
-let g:mkdp_command_for_global = 1
-let g:markdown_composer_autostart = 0
 
 " yml files indent
 autocmd FileType yaml setlocal shiftwidth=2 softtabstop=2 expandtab
@@ -299,13 +291,12 @@ autocmd FileType yaml setlocal shiftwidth=2 softtabstop=2 expandtab
 " let g:livepreview_engine = 'pdflatex'
 " let g:livepreview_previewer = 'zathura'
 " let g:vimtex_compiler_progname = 'latexmk'
-let g:vimtex_quickfix_enabled = 0
-
-" Quick indentation formatting for the whole file
-map <F7> gg=G''
+let g:vimtex_quickfix_enabled = 1
+let g:vimtex_quickfix_open_on_warning = 0
 
 " Spell check
 autocmd FileType tex set spell spelllang=en,fr
+
 
 " Color column at 80 char
 augroup collumnLimit

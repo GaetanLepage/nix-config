@@ -322,6 +322,7 @@ exec --no-startup nmcli radio wifi on
 exec --no-startup-id $terminal
 exec --no-startup-id $browser
 exec --no-startup-id megasync
+exec --no-startup-id telegram-desktop
 for_window [class = "Chromium"] layout tabbed
 for_window [class = "firefox"] layout tabbed
 for_window [class = "Thunderbird"] layout tabbed
@@ -379,8 +380,8 @@ assign [class="TelegramDesktop"] $ws4
 assign [class="Zathura"] $ws5
 assign [class="FoxitReader"] $ws5
 # WS6 VoIP
-assign [class="discord"] $ws4
-assign [class="TeamSpeak 3"] $ws7
+assign [class="discord"] $ws6
+assign [class="TeamSpeak 3"] $ws6
 # WS7
 # WS8
 # WS9
@@ -416,7 +417,7 @@ for_window [class="qt5ct"] floating enable sticky enable border normal
 for_window [class="Qtconfig-qt4"] floating enable sticky enable border normal
 for_window [class="Simple-scan"] floating enable border normal
 for_window [class="(?i)System-config-printer.py"] floating enable border normal
-for_window [class="Skype"] floating enable border normal
+# for_window [class="Skype"] floating enable border normal
 for_window [class="Timeset-gui"] floating enable border normal
 for_window [class="(?i)virtualbox"] floating enable border normal
 for_window [class="Xfburn"] floating enable
