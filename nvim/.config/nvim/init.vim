@@ -58,7 +58,6 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 """""""""""""""""""""
 " LANGUAGES SUPPORT "
 """""""""""""""""""""
-
 " Python
 Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
 
@@ -80,11 +79,12 @@ call plug#end()
 """""""""""""""""
 filetype plugin indent on
 
+set splitbelow splitright
+
 set nocompatible
 filetype off
 
-let mapleader=','
-"let mapleader='Alt'
+let mapleader=' '
 
 set laststatus=2
 set encoding=utf-8
@@ -172,18 +172,6 @@ function! IsNERDTreeOpen()
   return exists("t:NERDTreeBufName") && (bufwinnr(t:NERDTreeBufName) != -1)
 endfunction
 
-
-" Call NERDTreeFind iff NERDTree is active, current window contains a modifiable
-" file, and we're not in vimdiff
-" function! SyncTree()
-"   if &modifiable && IsNERDTreeOpen() && strlen(expand('%')) > 0 && !&diff
-"     NERDTreeFind
-"     wincmd p
-"   endif
-" endfunction
-
-" Highlight currently open buffer in NERDTree
-" autocmd BufEnter * call SyncTree()
 
 " NERDTree config
 let NERDTreeIgnore=[

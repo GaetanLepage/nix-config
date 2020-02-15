@@ -1,6 +1,6 @@
 #!/bin/bash
 
-xmodmap ~/.config/i3/swap_esc_capslock &
+setxkbmap -option caps:swapescape
 ~/.config/i3/xrandr_auto.sh
 sleep 1
 nitrogen --restore

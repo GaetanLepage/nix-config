@@ -40,13 +40,13 @@ floating_modifier $mod
 
 # Theme colors
 # class                   border  backgr. text    indic.   child_border
-  client.focused          #ffffff #ffffff #1c1c1c #FDF6E3
-  client.focused_inactive #1c1c1c #1c1c1c #ffffff #454948
-  client.unfocused        #1c1c1c #1c1c1c #ffffff #454948
-  client.urgent           #BD2C40 #BD2C40 #ffffff #268BD2
-  client.placeholder      #000000 #0c0c0c #ffffff #000000
+# client.focused          #ffffff #ffffff #1c1c1c #FDF6E3
+# client.focused_inactive #1c1c1c #1c1c1c #ffffff #454948
+# client.unfocused        #1c1c1c #1c1c1c #ffffff #454948
+# client.urgent           #BD2C40 #BD2C40 #ffffff #268BD2
+# client.placeholder      #000000 #0c0c0c #ffffff #000000
 
-  client.background       #2B2C2B
+# client.background       #2B2C2B
 
 
 ###########
@@ -58,7 +58,7 @@ default_border pixel 2
 default_floating_border normal
 
 # Hide borders
-hide_edge_borders none
+hide_edge_borders smart
 
 # change borders
 bindsym $mod+u border none
@@ -328,17 +328,16 @@ for_window [class = "firefox"] layout tabbed
 for_window [class = "Thunderbird"] layout tabbed
 exec --no-startup-id thunderbird
 
-# System/i3 related applications
-exec --no-startup-id $reload_script
-exec --no-startup-id udiskie
-exec --no-startup-id xfce4-power-manager
-# exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-
 # Tray applets
 exec --no-startup-id pamac-tray
 exec --no-startup-id nm-applet
 exec --no-startup-id blueman-applet
 exec --no-startup-id mopidy
+
+# System/i3 related applications
+exec --no-startup-id $reload_script
+exec --no-startup-id udiskie
+exec --no-startup-id xfce4-power-manager
 
 
 ##############
@@ -376,6 +375,7 @@ assign [class="Thunderbird"] $ws4
 assign [class="Slack"] $ws4
 assign [class="Franz"] $ws4
 assign [class="TelegramDesktop"] $ws4
+assign [class="Riot"] $ws4
 # WS5 : pdf
 assign [class="Zathura"] $ws5
 assign [class="FoxitReader"] $ws5
@@ -464,64 +464,4 @@ mode "resize" {
         bindsym Return mode "default"
         bindsym Escape mode "default"
         bindsym $mod+r mode "default"
-}
-
-
-########
-# GAPS #
-########
-
-# Set inner/outer gaps
-gaps inner 14
-gaps outer -2
-# gaps inner 0
-# gaps outer 0
-
-# Additionally, you can issue commands with the following syntax. This is useful to bind keys to changing the gap size.
-# gaps inner|outer current|all set|plus|minus <px>
-# gaps inner all set 10
-# gaps outer all plus 5
-
-# Smart gaps (gaps used if only more than one container on the workspace)
-smart_gaps on
-
-# Smart borders (draw borders around container only if it is not the only container on this workspace)
-# on|no_gaps (on=always activate and no_gaps=only activate if the gap size to the edge of the screen is 0)
-smart_borders on
-
-# Press $mod+Shift+g to enter the gap mode. Choose o or i for modifying outer/inner gaps. Press one of + / - (in-/decrement for current workspace) or 0 (remove gaps for current workspace). If you also press Shift with these keys, the change will be global for all workspaces.
-set $mode_gaps Gaps: (o) outer, (i) inner
-set $mode_gaps_outer Outer Gaps: +|-|0 (local), Shift + +|-|0 (global)
-set $mode_gaps_inner Inner Gaps: +|-|0 (local), Shift + +|-|0 (global)
-bindsym $mod+Shift+g mode "$mode_gaps"
-
-mode "$mode_gaps" {
-        bindsym o      mode "$mode_gaps_outer"
-        bindsym i      mode "$mode_gaps_inner"
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
-}
-mode "$mode_gaps_inner" {
-        bindsym plus  gaps inner current plus 5
-        bindsym minus gaps inner current minus 5
-        bindsym 0     gaps inner current set 0
-
-        bindsym Shift+plus  gaps inner all plus 5
-        bindsym Shift+minus gaps inner all minus 5
-        bindsym Shift+0     gaps inner all set 0
-
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
-}
-mode "$mode_gaps_outer" {
-        bindsym plus  gaps outer current plus 5
-        bindsym minus gaps outer current minus 5
-        bindsym 0     gaps outer current set 0
-
-        bindsym Shift+plus  gaps outer all plus 5
-        bindsym Shift+minus gaps outer all minus 5
-        bindsym Shift+0     gaps outer all set 0
-
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
 }

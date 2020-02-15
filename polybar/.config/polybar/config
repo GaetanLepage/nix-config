@@ -292,7 +292,7 @@ ramp-coreload-7-foreground = #ff5555
 ################################################################
 [module/wlan]
 type = internal/network
-interface = wlp58s0
+interface = wlan0
 interval = 0.5
 click-left = nm-applet
 
