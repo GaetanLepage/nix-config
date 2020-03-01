@@ -10,7 +10,7 @@ set $mod Mod4
 set $terminal kitty
 set $browser firefox
 set $polybar_script ~/.config/polybar/launch.sh
-set $reload_script ~/.config/i3/reload.sh
+set $reload_script ~/.config/scripts/reload.sh
 set $pavolume_script ~/.config/pavolume/pavolume.py
 
 
