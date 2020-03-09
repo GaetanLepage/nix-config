@@ -65,7 +65,7 @@ Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
 Plug 'lervag/vimtex'
 
 " Jupyter
-Plug 'szymonmaszke/vimpyter' "vim-plug
+"Plug 'szymonmaszke/vimpyter' "vim-plug
 
 call plug#end()
 
