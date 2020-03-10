@@ -9,6 +9,7 @@
 set $mod Mod4
 set $terminal kitty
 set $browser firefox
+set $wallpaper ~/Pictures/forest.png
 set $polybar_script ~/.config/polybar/launch.sh
 set $reload_script ~/.config/scripts/reload.sh
 set $pavolume_script ~/.config/pavolume/pavolume.py
@@ -257,7 +258,8 @@ bindsym $mod+Ctrl+x --release exec --no-startup-id xkill
 
 # wallpaper & theme
 # exec_always feh --bg-scale ~/Pictures/yosemite.jpg
-exec --no-startup-id nitrogen --restore
+#exec --no-startup-id nitrogen --restore
+exec --no-startup-id xwallpaper --zoom $wallpaper
 exec --no-startup-id ~/.conky/conky_startup.sh
 # exec --no-startup-id ~/.config/wpg/wp_init.sh
 
