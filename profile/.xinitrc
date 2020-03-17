@@ -8,7 +8,7 @@
 # and so they are needed there. To prevent doubling up commands, I source them
 # here with the line below.
 
-[ -f ~/.xprofile ] && . ~/.xprofile#!/bin/sh
+[ -f ~/.xprofile ] && . ~/.xprofile
 
 # Starting i3
 exec i3;
