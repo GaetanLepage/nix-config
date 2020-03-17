@@ -14,6 +14,7 @@ apps="compton"`
      `" pavolume"`
      `" pcmanfm"`
      `" polybar"`
+     `" profile"`
      `" scripts"`
      `" ranger"`
      `" wpg"`
