@@ -122,9 +122,6 @@ alias r="ranger"
 
 alias todo="grep -r \"TODO\""
 
-export PATH=${PATH}:"/home/gaetan/.gem/ruby/2.6.0/bin"
-export PATH=${PATH}:"/home/gaetan/snap_esa/bin"
-
 # wpgtk
 # (cat $HOME/.config/wpg/sequences &)
 
