@@ -106,6 +106,7 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+alias l="ls -lFh"
 alias ll="ls -alFh"
 alias rm="rm -i"
 bindkey \^U backward-kill-line
