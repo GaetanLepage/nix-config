@@ -23,6 +23,8 @@ apps="compton"`
 
 OPTS="--no-folding --verbose=1"
 
+cd ~/.dotfiles
+
 #stow $OPTS stow
 for app in $apps
 do
