@@ -9,7 +9,6 @@ apps="compton"`
      `" kitty"`
      `" mimeapps"`
      `" nvim"`
-     `" oh-my-zsh"`
      `" p10k"`
      `" pavolume"`
      `" pcmanfm"`
