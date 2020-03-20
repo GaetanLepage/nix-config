@@ -4,6 +4,7 @@
 apps="compton"`
      `" conky"`
      `" dunst"`
+     `" fonts"`
      `" git"`
      `" i3"`
      `" kitty"`
