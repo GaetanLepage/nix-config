@@ -21,15 +21,15 @@ export STATUSBAR="polybar"
 export ZDOTDIR="$HOME"
 #export PASSWORD_STORE_DIR="$HOME/.local/share/password-store"
 
-mpd >/dev/null 2>&1 &
+#mpd >/dev/null 2>&1 &
 
-[ ! -f ~/.config/shortcutrc ] && shortcuts >/dev/null 2>&1
-
-# Start graphical server on tty1 if not already running.
-[ "$(tty)" = "/dev/tty1" ] && ! pgrep -x Xorg >/dev/null && exec startx
+#[ ! -f ~/.config/shortcutrc ] && shortcuts >/dev/null 2>&1
 
 # Set french keyboard layout
 setxkbmap -layout fr
 
 # Switch escape and caps if tty and no passwd required:
 setxkbmap -option caps:swapescape
+
+# Start graphical server on tty1 if not already running.
+[ "$(tty)" = "/dev/tty1" ] && ! pgrep -x Xorg >/dev/null && exec startx
