@@ -18,7 +18,7 @@ export STATUSBAR="polybar"
 #export LESSHISTFILE="-"
 #export WGETRC="$HOME/.config/wget/wgetrc"
 #export INPUTRC="$HOME/.config/inputrc"
-export ZDOTDIR="$HOME/.config/zsh"
+export ZDOTDIR="$HOME"
 #export PASSWORD_STORE_DIR="$HOME/.local/share/password-store"
 
 mpd >/dev/null 2>&1 &
