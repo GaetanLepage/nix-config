@@ -1,8 +1,7 @@
 #!/usr/bin/env bash
 
 # Do not include stow in that list. It is loaded beforehand anyways
-apps="compton"`
-     `" conky"`
+apps="conky"`
      `" dunst"`
      `" fonts"`
      `" git"`
