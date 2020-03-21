@@ -268,8 +268,7 @@ exec --no-startup-id ~/.conky/conky_startup.sh
 exec --no-startup-id xmodmap ~/.config/i3/swap_esc_capslock
 
 # Lock screen
-bindsym $mod+o exec --no-startup-id blurlock
-#exec --no-startup-id xss-lock --transfer-sleep-lock -- blurlock --nofork
+bindsym $mod+o exec --no-startup-id i3lock-fancy
 
 ### VOLUME SETTINGS ###
 # exec --no-startup-id pa-applet

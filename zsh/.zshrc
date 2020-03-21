@@ -109,6 +109,7 @@ source $ZSH/oh-my-zsh.sh
 alias l="ls -lFh"
 alias ll="ls -alFh"
 alias rm="rm -i"
+alias cp="cp -i"
 bindkey \^U backward-kill-line
 
 alias code="code --disable-gpu"
