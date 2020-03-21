@@ -205,6 +205,9 @@ let g:ctrlp_cmd = 'CtrlPMixed'
 let g:airline_powerline_fonts = 1
 colorscheme palenight
 set background=dark
+" Set background transparent
+hi! Normal ctermbg=NONE guibg=NONE
+
 set rnu nu " hybrid line numbers
 augroup numbertoggle
     autocmd!

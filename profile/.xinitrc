@@ -11,4 +11,4 @@
 [ -f ~/.xprofile ] && . ~/.xprofile
 
 # Starting i3
-exec i3;
+exec dbus-launch i3;

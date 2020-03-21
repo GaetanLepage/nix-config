@@ -53,21 +53,8 @@ padding-right = 2
 module-margin-left = 1
 module-margin-right = 2
 
-;font-0 = NotoSans-Regular:size=11;0
-;font-1 = MaterialIcons:size=12;2
-;font-2 = Termsynu:size=8;0
-;font-3 = WunconSiji:pixelsize=10;1
-;font-4 = FontAwesome:size=12;0
-;font-5 = NotoSans Mono:size=8;0
-;font-6 = "Font Awesome 5 Free:style=Regular:pixelsize=12;1"
-;font-7 = "Font Awesome 5 Free:style=Solid:pixelsize=12;1"
-;font-8 = "Font Awesome 5 Brands:pixelsize=12;1"
-
 font-0 = Ubuntu Nerd Font:style=Book:size=12;1
 font-1 = NotoSans Mono:size=8;0
-font-2 = "Font Awesome 5 Free:style=Regular:pixelsize=12;1"
-font-3 = "Font Awesome 5 Free:style=Solid:pixelsize=12;1"
-font-4 = "Font Awesome 5 Brands:pixelsize=12;1"
 
 modules-left = i3
 modules-center = mpd
@@ -180,12 +167,12 @@ format-underline = #ffffff
 bar-width = 10
 bar-indicator = |
 bar-indicator-foreground = #fff
-bar-indicator-font = 6
+bar-indicator-font = 1
 bar-fill = ─
-bar-fill-font = 6
+bar-fill-font = 2
 ;bar-fill-foreground = #9f78e1
 bar-empty = ─
-bar-empty-font = 6
+bar-empty-font = 2
 bar-empty-foreground = ${colors.foreground-alt}
 
 ################################################################
@@ -235,7 +222,7 @@ bar-volume-empty-foreground = ${colors.foreground-alt}
 type = internal/memory
 format = <label> <bar-used>
 label =  %percentage_used%%
-label-font = 4
+label-font = 1
 format-underline = #ffffff
 
 bar-used-width = 10
@@ -244,12 +231,12 @@ bar-used-foreground-1 = #aaff77
 bar-used-foreground-2 = #fba922
 bar-used-foreground-3 = #ff5555
 bar-used-indicator = |
-bar-used-indicator-font = 6
+bar-used-indicator-font = 1
 bar-used-indicator-foreground = #ff
 bar-used-fill = ▐
-bar-used-fill-font = 6
+bar-used-fill-font = 2
 bar-used-empty = ▐
-bar-used-empty-font = 6
+bar-used-empty-font = 2
 bar-used-empty-foreground = #444444
 
 ################################################################
