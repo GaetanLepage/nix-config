@@ -16,6 +16,7 @@ apps="conky"`
      `" profile"`
      `" scripts"`
      `" ranger"`
+     `" wallpaper"`
      `" wpg"`
      `" zathura"`
      `" zsh"
