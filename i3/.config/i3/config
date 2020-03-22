@@ -324,7 +324,7 @@ exec --no-startup nmcli radio wifi on
 exec --no-startup-id $terminal
 exec --no-startup-id $browser
 exec --no-startup-id megasync
-exec --no-startup-id telegram-desktop
+#exec --no-startup-id telegram-desktop
 for_window [class = "Chromium"] layout tabbed
 for_window [class = "firefox"] layout tabbed
 for_window [class = "Thunderbird"] layout tabbed
