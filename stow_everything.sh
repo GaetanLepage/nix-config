@@ -5,6 +5,7 @@ apps="conky"`
      `" dunst"`
      `" fonts"`
      `" git"`
+     `" gtk"`
      `" i3"`
      `" kitty"`
      `" mimeapps"`

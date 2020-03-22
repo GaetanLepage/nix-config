@@ -86,6 +86,9 @@ filetype off
 
 let mapleader=' '
 
+" Enable mouse control
+set mouse=a
+
 set laststatus=2
 set encoding=utf-8
 
