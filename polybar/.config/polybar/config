@@ -58,7 +58,7 @@ font-1 = NotoSans Mono:size=8;0
 
 modules-left = i3
 modules-center = mpd
-modules-right = xbacklight pulseaudio memory cpu wlan eth1 eth2 battery temperature time date
+modules-right = xbacklight backlight-acpi pulseaudio memory cpu wlan eth1 eth2 battery temperature time date
 
 tray-position = right
 tray-padding = 1
@@ -373,11 +373,11 @@ format-full = <ramp-capacity> <label-full>ﮣ
 format-full-foreground = #fff
 format-full-underline = ${self.format-charging-underline}
 
-ramp-capacity-0 = ""
-ramp-capacity-1 = ""
-ramp-capacity-2 = ""
-ramp-capacity-3 = ""
-ramp-capacity-4 = ""
+ramp-capacity-0 = " "
+ramp-capacity-1 = " "
+ramp-capacity-2 = " "
+ramp-capacity-3 = " "
+ramp-capacity-4 = " "
 ramp-capacity-foreground = #fff
 
 ;animation-charging-0 = 

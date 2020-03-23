@@ -317,7 +317,7 @@ mode "$mode_system" {
 # AUTOSTART APPLICATIONS #
 ##########################
 
-exec --no-startup-id compton -b
+exec --no-startup-id picom -b
 exec --no-startup nmcli radio wifi on
 
 # Main graphical applications
@@ -485,7 +485,7 @@ gaps outer -2
 # gaps outer all plus 5
 
 # Smart gaps (gaps used if only more than one container on the workspace)
-#smart_gaps on
+smart_gaps on
 
 # Smart borders (draw borders around container only if it is not the only container on this workspace)
 # on|no_gaps (on=always activate and no_gaps=only activate if the gap size to the edge of the screen is 0)

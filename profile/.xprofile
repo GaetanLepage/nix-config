@@ -12,7 +12,7 @@ source ~/.zprofile
 remaps &		# run the remaps script, switching caps/esc and more; check it for more info
 setbg &			# set the background with the `setbg` script
 #xcompmgr &		# xcompmgr for transparency
-compton &
+#compton &
 numlockx &
 $STATUSBAR &		# script for updating the status bar
 dunst &			# dunst for notifications
