@@ -1,0 +1,49 @@
+#!/bin/sh
+
+
+update_sink() {
+    SINK=$(pactl list short sinks | grep RUNNING | cut -f1)
+}
+
+increase_volume() {
+    STEP=$1
+    pactl set-sink-volume "$SINK" +"$STEP"%
+}
+
+decrease_volume() {
+    STEP=$1
+    pactl set-sink-volume "$SINK" -"$STEP"%
+}
+
+mute() {
+    pactl set-sink-mute ${SINK} toggle
+}
+
+update_sink
+case $1 in
+    up|down)
+        if [ -z "$2" ]
+        then
+            STEP=10
+            echo "Using default step : ${STEP}"
+        else
+            STEP=$2
+            echo "Using given step : ${STEP}"
+        fi
+
+        case $1 in
+            up)
+                increase_volume $STEP
+            ;;
+            down)
+                decrease_volume $STEP
+            ;;
+            *)
+        esac
+        ;;
+    mute)
+        mute
+    ;;
+    *)
+esac
+
