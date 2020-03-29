@@ -1,4 +1,5 @@
 # Profile file. Runs on login. Environmental variables are set here.
+echo "$(date) : START .zprofile" >> /home/gaetan/log_start.txt
 
 # Adds `~/.local/bin` to $PATH
 export PATH="$PATH:$(du "$HOME/.local/bin/" | cut -f2 | tr '\n' ':' | sed 's/:*$//')"
@@ -33,3 +34,5 @@ export ZDOTDIR="$HOME"
 
 # Start graphical server on tty1 if not already running.
 #[ "$(tty)" = "/dev/tty1" ] && ! pgrep -x Xorg >/dev/null && exec startx
+
+echo "$(date) : END .zprofile" >> /home/gaetan/log_start.txt

@@ -31,13 +31,10 @@ Plug 'tpope/vim-sensible' " sane defaults
 """"""""""""""
 " eye candy
 Plug 'vim-airline/vim-airline' " status bar (needs special fonts)
-" Plug 'vim-airline/vim-airline-themes'
 Plug 'ryanoasis/vim-devicons' " various symbols (linux, rust, python, ...)
-" Plug 'deviantfero/wpgtk.vim' " Automatic theme based on wallpaper
 Plug 'drewtempelmeyer/palenight.vim' "nice colorscheme
 
 " essential plugins
-" Plug 'zxqfl/tabnine-vim' " auto-complete
 Plug 'tpope/vim-fugitive' " git
 Plug 'scrooloose/nerdcommenter' " Nerd Commenter
 
@@ -63,9 +60,6 @@ Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
 
 " LaTeX editing
 Plug 'lervag/vimtex'
-
-" Jupyter
-"Plug 'szymonmaszke/vimpyter' "vim-plug
 
 call plug#end()
 
@@ -98,9 +92,10 @@ set nospell
 
 " Quick indentation formatting for the whole file
 map <F7> gg=G''
-
 nmap <F8> :TagbarToggle<CR>
 
+" copy to system clipboard
+vmap p "+y
 
 
 """""""

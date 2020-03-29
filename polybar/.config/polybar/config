@@ -58,7 +58,7 @@ font-1 = NotoSans Mono:size=8;0
 
 modules-left = i3
 modules-center = mpd
-modules-right = xbacklight backlight-acpi pulseaudio memory cpu wlan eth1 eth2 battery temperature time date
+modules-right = xbacklight backlight-acpi pulseaudio memory cpu wlan eth0 battery temperature time date
 
 tray-position = right
 tray-padding = 1
@@ -188,6 +188,8 @@ card = intel_backlight
 [module/pulseaudio]
 type = internal/pulseaudio
 
+click-right = pavucontrol &
+
 format-volume = <label-volume> <bar-volume>
 format-volume-underline = #ffffff
 label-volume = 墳 %percentage:3:%%
@@ -303,22 +305,9 @@ ramp-signal-foreground = ${colors.foreground-alt}
 ################################################################
 # ETH
 ################################################################
-[module/eth1]
+[module/eth0]
 type = internal/network
-interface = enp9s0u1u2
-interval = 0.5
-
-format-connected-underline = #ffffff
-label-connected =  %local_ip%
-
-format-disconnected =
-
-################################################################
-# ETH bis
-################################################################
-[module/eth2]
-type = internal/network
-interface = enp57s0u1u4
+interface = eth0
 interval = 0.5
 
 format-connected-underline = #ffffff

@@ -45,11 +45,23 @@ disable_all
 
 case $HOSTNAME in
     # Desktop PC
-    gaetan-pc)
+    gaetan-desktop-arch)
 
-        S144="DP-0"
-        BENQ="DVI-D-0"
-        dual_screen
+        S144="DP-2"
+        BENQ="HDMI-1"
+
+        # if both screen are connected
+        if is_connected "$S144" && is_connected "$BENQ";
+        then
+            echo "HOSTNAME = ${HOSTNAME} - MODE = dual screen"
+            dual_screen
+
+        # If only the main 144Hz screen is connected
+        elif is_connected "$S144";
+        then
+            echo "HOSTNAME = ${HOSTNAME} - only 144"
+            xrandr --output $S144 --mode 1920x1080 --rate 144 --primary --pos 1920x0 --rotate normal
+        fi
         ;;
 
     # Laptop

@@ -1,0 +1,9 @@
+#!/bin/bash
+
+# Auto
+screens &
+remaps &
+sleep 1
+setbg &
+polybar_launch &
+conky_launch &

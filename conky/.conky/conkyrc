@@ -181,16 +181,16 @@ ${voffset 4}     1  -  ${top_mem name 1}${alignr}${goto 170} ${goto 222}${top_me
 
 ${color5}${font Roboto:size=10}D R I V E S   ${hr 2}${font}${color}
 ${offset 30}${color2}Root - SSD :${color} ${alignr}${offset -10}${fs_used /} / ${fs_size /}${alignr}${fs_bar}
-${offset 30}${color2}I/O Read:${color} ${alignr}${offset -10}${diskio_read /dev/nvme0n1p2}${alignr}${diskiograph_read nvme0n1p2 8,100}
-${offset 30}${color2}I/O Write:${color} ${alignr}${offset -10}${diskio_write /dev/nvme0n1p2}${alignr}${diskiograph_write nvme0n1p2 8,100}
+${offset 30}${color2}I/O Read:${color} ${alignr}${offset -10}${diskio_read /dev/sda}${alignr}${diskiograph_read sda 8,100}
+${offset 30}${color2}I/O Write:${color} ${alignr}${offset -10}${diskio_write /dev/sda}${alignr}${diskiograph_write sda 8,100}
 #${offset 30}${color2}Home - SSD :${color} ${alignr}${offset -10}${fs_used /home/gaetan} / ${fs_size /home/gaetan}${alignr}${fs_bar}
 #${offset 30}${color2}I/O Read:${color} ${alignr}${offset -10}${diskio_read /dev/nvme0n1p4}${alignr}${diskiograph_read nvme0n1p4 8,100}
 #${offset 30}${color2}I/O Write:${color} ${alignr}${offset -10}${diskio_write /dev/nvme0n1p4}${alignr}${diskiograph_write nvme0n1p4 8,100}
 
 ${color5}${color5}${font Roboto:size=10}N E T W O R K   ${hr 2}${font}${color}
-${color2}${offset 30}IP Address: ${color} ${alignr}${offset -10$}${addrs enp9s0u1u2}
-${color2}${offset 30}Eth Up:${color} ${alignr}${offset -10$}${upspeed enp9s0u1u2}${alignr}${upspeedgraph enp6s0 8,100}
-${color2}${offset 30}Eth Down:${color} ${alignr}${offset -10$}${downspeed enp9s0u1u2}${alignr}${downspeedgraph enp6s0 8,100}
+${color2}${offset 30}IP Address: ${color} ${alignr}${offset -10$}${addrs eth0}
+${color2}${offset 30}Eth Up:${color} ${alignr}${offset -10$}${upspeed eth0}${alignr}${upspeedgraph eth0 8,100}
+${color2}${offset 30}Eth Down:${color} ${alignr}${offset -10$}${downspeed eth0}${alignr}${downspeedgraph eth0 8,100}
 #${font Roboto:size=10}N V I D I A   ${hr 2}${font}
 #${font Roboto:size=10,weight:bold}${color5}${execp  nvidia-smi --query-supported-clocks=gpu_name --format=csv,noheader}${font}
 #${font StyleBats:size=20}u${font}${offset 8}${voffset -12}GPU Temp ${alignr}${execi 60 nvidia-smi --query-gpu=temperature.gpu --format=csv,noheader} °C
