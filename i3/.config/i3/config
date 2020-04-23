@@ -9,7 +9,7 @@
 set $mod Mod4
 set $terminal kitty
 set $browser firefox
-set $reload_script ~/.config/scripts/reload.sh
+set $reload_script reload
 
 
 ####################
@@ -245,7 +245,7 @@ bindsym $mod+Shift+F10 exec rfkill block bluetooth
 bindsym $mod+m exec --no-startup-id blueman-manager
 bindsym $mod+t exec --no-startup-id pkill picom
 bindsym $mod+Ctrl+t exec --no-startup-id picom -b
-bindsym $mod+Shift+d --release exec "killall dunst; exec notify-send 'restart dunst'"
+bindsym $mod+Shift+d --release exec "killall dunst; exec notify-send 'restart unst'"
 bindsym Print exec --no-startup-id flameshot gui
 bindsym $mod+Ctrl+x --release exec --no-startup-id xkill
 
@@ -254,18 +254,20 @@ bindsym $mod+Ctrl+x --release exec --no-startup-id xkill
 # SYSTEM/LAPTOP BEHAVIOURS #
 ############################
 
-# wallpaper & theme
-exec --no-startup-id ~/.conky/conky_startup.sh
-# exec --no-startup-id ~/.config/wpg/wp_init.sh
-
-# Swap esc and caps lock (better for vim)
-exec --no-startup-id xmodmap ~/.config/i3/swap_esc_capslock
+# scripts/software started by .xprofile :
+# * screens (auto adjust output settings)
+# * remaps (keyboard mapping settings)
+# * setbg (set the wallpaper)
+# * numlockx (enables numlock)
+# * picom (composition manager)
+# * dunst (notifications)
+# * conky_launch
+# * polybar_launch
 
 # Lock screen
-bindsym $mod+o exec --no-startup-id i3lock
+bindsym $mod+o exec --no-startup-id i3lock -i ~/.config/i3/lock.png -t
 
 ### VOLUME SETTINGS ###
-# exec --no-startup-id pa-applet
 bindsym $mod+Ctrl+m exec pavucontrol
 # Volume controls
 bindsym XF86AudioRaiseVolume exec --no-startup-id volume up 5 #increase sound volume
@@ -319,9 +321,13 @@ for_window [class = "Chromium"] layout tabbed
 for_window [class = "firefox"] layout tabbed
 for_window [class = "Thunderbird"] layout tabbed
 exec --no-startup-id thunderbird
+exec --no-startup-id skypeforlinux
+exec --no-startup-id discord_launch
+exec --no-startup-id zotero
+exec --no-startup-id spotify
+
 
 # Tray applets
-exec --no-startup-id pamac-tray
 exec --no-startup-id nm-applet
 exec --no-startup-id blueman-applet
 exec --no-startup-id mopidy
@@ -332,17 +338,16 @@ exec --no-startup-id mopidy
 ##############
 
 # Workspace names
-set $ws1 "1 : "
-set $ws2 "2 : "
-set $ws3 "3 : "
-set $ws4 "4 : "
-# set $ws5 "5 : "
-set $ws5 "5 : "
-set $ws6 "6 : "
-set $ws7 "7 : "
-set $ws8 "8 : "
-set $ws9 "9 : "
-set $ws10 "10 : "
+set $ws1 "1 "
+set $ws2 "2 "
+set $ws3 "3 "
+set $ws4 "4 "
+set $ws5 "5 "
+set $ws6 "6 "
+set $ws7 "7 龎"
+set $ws8 "8 "
+set $ws9 "9 "
+set $ws10 "10 "
 
 # Workspace assigning
 # WS1 : terminal
@@ -366,10 +371,13 @@ assign [class="Riot"] $ws4
 # WS5 : pdf
 assign [class="Zathura"] $ws5
 assign [class="FoxitReader"] $ws5
+for_window [class="FoxitReader"] move to workspace $ws5
 # WS6 VoIP
 assign [class="discord"] $ws6
+assign [class="skype"] $ws6
 assign [class="TeamSpeak 3"] $ws6
 # WS7
+assign [class="Zotero"] $ws7
 # WS8
 # WS9
 # WS10
@@ -404,7 +412,6 @@ for_window [class="qt5ct"] floating enable sticky enable border normal
 for_window [class="Qtconfig-qt4"] floating enable sticky enable border normal
 for_window [class="Simple-scan"] floating enable border normal
 for_window [class="(?i)System-config-printer.py"] floating enable border normal
-# for_window [class="Skype"] floating enable border normal
 for_window [class="Timeset-gui"] floating enable border normal
 for_window [class="(?i)virtualbox"] floating enable border normal
 for_window [class="Xfburn"] floating enable

@@ -61,6 +61,11 @@ Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
 " LaTeX editing
 Plug 'lervag/vimtex'
 
+" Markdown rendering
+Plug 'vim-pandoc/vim-pandoc'
+Plug 'vim-pandoc/vim-pandoc-syntax'
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
+
 call plug#end()
 
 
@@ -72,6 +77,9 @@ call plug#end()
 """""""""""""""""
 """""""""""""""""
 filetype plugin indent on
+
+" Use system clipboard
+set clipboard+=unnamedplus
 
 set splitbelow splitright
 
@@ -94,8 +102,15 @@ set nospell
 map <F7> gg=G''
 nmap <F8> :TagbarToggle<CR>
 
-" copy to system clipboard
-vmap p "+y
+
+""""""""""""""""
+" Basic AuoCmd "
+""""""""""""""""
+" Vertically center document when entering insert mode
+autocmd InsertEnter * norm zz
+
+" Remove trailing whitespace on save
+autocmd BufWrite * %s/\s\+$//e
 
 
 """""""
@@ -175,7 +190,9 @@ endfunction
 let NERDTreeIgnore=[
     \ '\.pyc$',
     \ '\~$',
-    \ '\.aux'
+    \ '\.aux',
+    \ 'venv',
+    \ '__pycache__'
     \ ] "ignore files in NERDTree
 
 " Automatically open NERDTree if no files were specified
@@ -204,7 +221,7 @@ let g:airline_powerline_fonts = 1
 colorscheme palenight
 set background=dark
 " Set background transparent
-hi! Normal ctermbg=NONE guibg=NONE
+"hi! Normal ctermbg=NONE guibg=NONE
 
 set rnu nu " hybrid line numbers
 augroup numbertoggle
@@ -271,6 +288,11 @@ set noerrorbells
 autocmd FileType yaml setlocal shiftwidth=2 softtabstop=2 expandtab
 
 
+""""""""""
+" PYTHON "
+""""""""""
+let g:python3_host_prog = '/usr/bin/python3'
+
 
 """""""""
 " LATEX "
@@ -284,7 +306,9 @@ let g:vimtex_quickfix_enabled = 1
 let g:vimtex_quickfix_open_on_warning = 0
 
 " Spell check
-autocmd FileType tex set spell spelllang=en,fr
+autocmd FileType tex,latex,markdown setlocal spell spelllang=en,fr
+
+autocmd BufRead,BufNewFile *.tex set filetype=tex
 
 
 " Color column at 80 char

@@ -3,6 +3,7 @@ echo "$(date) : START .zprofile" >> /home/gaetan/log_start.txt
 
 # Adds `~/.local/bin` to $PATH
 export PATH="$PATH:$(du "$HOME/.local/bin/" | cut -f2 | tr '\n' ':' | sed 's/:*$//')"
+export PATH=$PATH:"/home/gaetan/.gem/ruby/2.7.0/bin"
 
 # Default programs:
 export EDITOR="nvim"

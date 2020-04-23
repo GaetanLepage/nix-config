@@ -17,12 +17,14 @@ source ~/.zprofile
 #[ -f ~/.keychain/$HOSTNAME-sh-gpg ] && . ~/.keychain/$HOSTNAME-sh-gpg 2>/dev/null
 
 # executes scripts before the WM is launched
+screens &
 remaps &		    # run the remaps script, switching caps/esc and more; check it for more info
 setbg &			    # set the background with the `setbg` script
 numlockx &          # enables numlock at startup
+picom &
 dunst &			    # dunst for notifications
-#conky_launch &      # conky
-#polybar_launch &    # bar
+conky_launch &      # conky
+polybar_launch &    # bar
 #udiskie             # automatically mounts disks
 #xfce4-power-manager # manages when the system hibernates
 

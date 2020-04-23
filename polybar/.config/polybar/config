@@ -35,7 +35,7 @@ width = 100%
 height = 40
 ;offset-x = 1%
 ;offset-y = 1%
-radius = 0.0
+radius = 6.0
 fixed-center = false
 
 background = ${colors.background}
@@ -44,7 +44,7 @@ foreground = ${colors.foreground}
 line-size = 3
 line-color = #f00
 
-border-size = 0
+border-size = 8
 border-color = #00000000
 
 padding-left = 0
@@ -58,7 +58,7 @@ font-1 = NotoSans Mono:size=8;0
 
 modules-left = i3
 modules-center = mpd
-modules-right = xbacklight backlight-acpi pulseaudio memory cpu wlan eth0 battery temperature time date
+modules-right = xbacklight backlight-acpi pulseaudio memory cpu gpu0 wlan eth0 battery updates-arch-combined temperature time date
 
 tray-position = right
 tray-padding = 1
@@ -144,7 +144,7 @@ label-urgent-background = ${colors.alert}
 label-urgent-padding = 3
 
 ; Separator in between workspaces
-; label-separator = |
+label-separator = "  "
 
 
 ws-icon-0 = 1;
@@ -152,6 +152,7 @@ ws-icon-1 = 2;
 ws-icon-2 = 3;
 ws-icon-3 = 4;
 ws-icon-4 = 5;
+
 
 ################################################################
 # XBACKLIGHT
@@ -200,12 +201,12 @@ label-muted-foreground = #fff
 format-muted-underline = #ffffff
 
 bar-volume-width = 10
-bar-volume-foreground-0 = #55aa55
-bar-volume-foreground-1 = #55aa55
-bar-volume-foreground-2 = #55aa55
-bar-volume-foreground-3 = #55aa55
-bar-volume-foreground-4 = #55aa55
-bar-volume-foreground-5 = #f5a70a
+bar-volume-foreground-0 = #aaff77
+bar-volume-foreground-1 = #aaff77
+bar-volume-foreground-2 = #aaff77
+bar-volume-foreground-3 = #aaff77
+bar-volume-foreground-4 = #aaff77
+bar-volume-foreground-5 = #fba922
 bar-volume-foreground-6 = #ff5555
 bar-volume-gradient = false
 bar-volume-indicator = |
@@ -273,6 +274,17 @@ ramp-coreload-6-foreground = #ff5555
 ramp-coreload-7 = █
 ramp-coreload-7-font = 2
 ramp-coreload-7-foreground = #ff5555
+
+
+################################################################
+# GPU
+################################################################
+[module/gpu]
+type = custom/script
+exec = ~/.config/polybar/nvidia.sh
+interval = 0.5
+format-foreground = #ffffff
+format-underline = #ffffff
 
 
 ################################################################
@@ -384,6 +396,16 @@ ramp-capacity-foreground = #fff
 ;animation-discharging-4 = 
 ;animation-discharging-foreground = ${colors.foreground-alt}
 ;animation-discharging-framerate = 750
+
+
+################################################################
+# UPDATES ARCH
+################################################################
+[module/updates-arch-combined]
+type = custom/script
+exec = ~/.config/polybar/updates-arch-combined.sh
+interval = 600
+format-underline = #ffffff
 
 ################################################################
 # TIME
