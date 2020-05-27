@@ -16,6 +16,7 @@ apps="conky"`
      `" polybar"`
      `" profile"`
      `" scripts"`
+     `" spotifyd"`
      `" ranger"`
      `" wallpaper"`
      `" wpg"`

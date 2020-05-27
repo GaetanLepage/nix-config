@@ -98,6 +98,8 @@ source $ZSH/oh-my-zsh.sh
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
+export PYTHONPATH=$PYTHONPATH:/home/gaetan/hevs/implementations/object_detection/models
+
 eval $(keychain --eval --quiet --noask ~/.ssh/rsa_gaetan_desktop_arch)
 
 echo "/!\\ do not talk about k!\n"
@@ -122,14 +124,18 @@ alias ga="git add"
 alias gaa="git add *"
 alias gc="git commit -m"
 alias gca="git commit -am"
+alias gd="git diff"
 alias gpl="git pull"
 alias gps="git push"
+alias lg="lazygit"
 
 alias code="code --disable-gpu"
 alias c="cd"
 
 alias vim="nvim"
 alias vi="nvim"
+
+alias spt="launch_spt"
 
 alias z="zathura"
 alias j="jobs"

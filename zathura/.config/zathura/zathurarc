@@ -5,3 +5,4 @@ map <Right> navigate next
 map <Left> navigate previous
 map <Down> navigate next
 map <Up> navigate previous
+map i recolor

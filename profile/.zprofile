@@ -21,6 +21,7 @@ export STATUSBAR="polybar"
 #export WGETRC="$HOME/.config/wget/wgetrc"
 #export INPUTRC="$HOME/.config/inputrc"
 export ZDOTDIR="$HOME"
+export XDG_CONFIG_HOME="$HOME"/.config/
 #export PASSWORD_STORE_DIR="$HOME/.local/share/password-store"
 
 #mpd >/dev/null 2>&1 &
@@ -35,5 +36,10 @@ export ZDOTDIR="$HOME"
 
 # Start graphical server on tty1 if not already running.
 #[ "$(tty)" = "/dev/tty1" ] && ! pgrep -x Xorg >/dev/null && exec startx
+
+if [ -n "$DESKTOP_SESSION" ];then
+    eval $(gnome-keyring-daemon --start)
+    export SSH_AUTH_SOCK
+fi
 
 echo "$(date) : END .zprofile" >> /home/gaetan/log_start.txt
