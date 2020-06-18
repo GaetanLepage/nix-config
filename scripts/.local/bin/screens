@@ -47,8 +47,8 @@ case $HOSTNAME in
     # Desktop PC
     gaetan-desktop-arch)
 
-        S144="DP-0"
-        BENQ="HDMI-1"
+        S144="DP-4"
+        BENQ="HDMI-0"
 
         # if both screen are connected
         if is_connected "$S144" && is_connected "$BENQ";

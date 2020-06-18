@@ -326,7 +326,7 @@ exec --no-startup-id launch_discord
 exec --no-startup-id zotero
 # WS9
 exec --no-startup-id $terminal --class nvtop nvtop
-exec --no-startup-id $terminal --class htop htop
+exec --no-startup-id $terminal --class gotop gotop
 # WS10
 exec --no-startup-id $terminal --class spt launch_spt
 
@@ -335,6 +335,7 @@ for_window [class = "Chromium"] layout tabbed
 for_window [class = "firefox"] layout tabbed
 for_window [class = "Thunderbird"] layout tabbed
 for_window [class = "discord"] layout tabbed
+for_window [class = "Zotero"] layout tabbed
 
 # Tray applets
 exec --no-startup-id nm-applet
@@ -380,17 +381,16 @@ assign [class="TelegramDesktop"] $ws4
 assign [class="Riot"] $ws4
 # WS5 : pdf
 assign [class="Zathura"] $ws5
-assign [class="FoxitReader"] $ws5
-for_window [class="Foxit Reader"] move to workspace $ws5
 # WS6 VoIP
 assign [class="discord"] $ws6
 assign [class="Skype"] $ws6
 assign [class="TeamSpeak 3"] $ws6
 # WS7
 assign [class="Zotero"] $ws7
+assign [class="FoxitReader"] $ws7
 # WS8
 # WS9
-assign [class="htop"] $ws9
+assign [class="gotop"] $ws9
 assign [class="nvtop"] $ws9
 # WS10
 assign [class="spt"] $ws10

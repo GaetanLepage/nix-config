@@ -48,6 +48,8 @@ Plug 'majutsushi/tagbar'
 Plug 'tpope/vim-surround' " git
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
+Plug 'mileszs/ack.vim'
+
 " snippets allow to easily 'fill' common patterns
 " Plug 'SirVer/ultisnips'
 " Plug 'honza/vim-snippets'
@@ -61,6 +63,9 @@ Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
 " LaTeX editing
 Plug 'lervag/vimtex'
 
+Plug 'da-h/AirLatex.vim', {'do': ':UpdateRemotePlugins'}
+
+
 " Markdown rendering
 Plug 'vim-pandoc/vim-pandoc'
 Plug 'vim-pandoc/vim-pandoc-syntax'
@@ -69,6 +74,14 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
 call plug#end()
 
 
+" optional: set server name
+let g:AirlatexDomain="www.overleaf.com"
+"let g:AirLatexLogLevel="DEBUG"
+let g:AirLatexCookieBrowser="firefox"
+
+" Ack
+nmap <C-t>  :Ack! --python TODO<CR>
+nmap <C-a>  :Ack!<space>
 
 
 """""""""""""""""
@@ -314,7 +327,7 @@ autocmd BufRead,BufNewFile *.tex set filetype=tex
 " Color column at 80 char
 augroup collumnLimit
     autocmd!
-    autocmd BufEnter,WinEnter,FileType scala,java,python,tex
+    autocmd BufEnter,WinEnter,FileType scala,java,python
                 \ highlight CollumnLimit ctermbg=DarkGrey guibg=DarkGrey
     let collumnLimit = 99 " feel free to customize
     let pattern =

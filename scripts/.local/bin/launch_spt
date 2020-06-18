@@ -1,7 +1,10 @@
 #!/bin/bash
 
-if [ ! $(pgrep "spotifyd") ]; then
-    spotifyd
-fi
+#if [ ! $(pgrep "spotifyd") ]; then
+    #spotifyd
+#fi
+killall spotifyd
+
+spotifyd
 
 spt
