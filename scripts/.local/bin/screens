@@ -47,7 +47,7 @@ case $HOSTNAME in
     # Desktop PC
     gaetan-desktop-arch)
 
-        S144="DP-4"
+        S144="DP-2"
         BENQ="HDMI-0"
 
         # if both screen are connected

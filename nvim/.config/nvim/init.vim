@@ -81,7 +81,7 @@ let g:AirLatexCookieBrowser="firefox"
 
 " Ack
 nmap <C-t>  :Ack! --python TODO<CR>
-nmap <C-a>  :Ack!<space>
+nmap <C-a>  :Ack! --python <space>
 
 
 """""""""""""""""
@@ -191,7 +191,6 @@ xmap <leader>f  <Plug>(coc-format-selected)
 nmap <leader>f  <Plug>(coc-format-selected)
 
 
-
 " sync open file with NERDTree
 " " Check if NERDTree is open or active
 function! IsNERDTreeOpen()
@@ -270,7 +269,7 @@ au BufWrite *.c call LanguageClient#textDocument_formatting()
 " nnoremap <F5> :buffers<CR>:buffer<Space>
 nmap <Tab> :tabn<CR>
 nmap <S-Tab> :tabp<CR>
-nmap <C-w> :bd<CR>
+nmap <C-w> :q<CR>
 
 " save by Ctrl+s
 nmap <C-s> :w<CR>

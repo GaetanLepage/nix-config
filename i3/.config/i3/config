@@ -238,6 +238,8 @@ bindsym $mod+Shift+F9 exec nmcli radio wifi off
 bindsym $mod+F10 exec rfkill unblock bluetooth
 bindsym $mod+Shift+F10 exec rfkill block bluetooth
 
+# vibrance toggle
+bindsym $mod+equal exec --no-startup-id vibrance
 
 bindsym $mod+m exec --no-startup-id blueman-manager
 bindsym $mod+t exec --no-startup-id pkill picom
@@ -331,7 +333,7 @@ exec --no-startup-id $terminal --class gotop gotop
 exec --no-startup-id $terminal --class spt launch_spt
 
 # Automatic tabbed layout for some applications
-for_window [class = "Chromium"] layout tabbed
+for_window [class = "kitty"] layout tabbed
 for_window [class = "firefox"] layout tabbed
 for_window [class = "Thunderbird"] layout tabbed
 for_window [class = "discord"] layout tabbed

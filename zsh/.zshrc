@@ -93,6 +93,8 @@ alias r="ranger"
 
 alias s="ack --python "
 alias todo="s todo"
+# count number of lines in Python project
+alias cl="find . -name '*.py' | xargs wc -l"
 alias pl="pylint ./**/*.py --extension-pkg-whitelist=cv2 --disable=C0413"
 
 # wpgtk

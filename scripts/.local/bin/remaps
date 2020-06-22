@@ -8,7 +8,8 @@ xset r rate 300 50
 setxkbmap -layout fr
 
 # Switch escape and caps if tty and no passwd required:
-setxkbmap -option caps:swapescape
+#setxkbmap -option caps:swapescape
+setxkbmap -option caps:escape
 
 
 ## Luke's options
