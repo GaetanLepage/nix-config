@@ -91,6 +91,8 @@ alias z="zathura"
 alias j="jobs"
 alias r="ranger"
 
+alias wttr="curl wttr.in/Dommartin+69380"
+
 alias s="ack --python "
 alias todo="s todo"
 # count number of lines in Python project

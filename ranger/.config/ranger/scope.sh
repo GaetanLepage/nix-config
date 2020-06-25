@@ -65,7 +65,7 @@ handle_extension() {
             exit 1;;
 
         ## PDF
-        pdf)
+        #pdf)
             ## Preview as text conversion
             #pdftotext -l 10 -nopgbrk -q -- "${FILE_PATH}" - | \
               #fmt -w "${PV_WIDTH}" && exit 5

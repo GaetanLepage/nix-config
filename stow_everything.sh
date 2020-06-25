@@ -8,6 +8,7 @@ apps="conky"`
      `" gtk"`
      `" i3"`
      `" kitty"`
+     `" lazygit"`
      `" mimeapps"`
      `" nvim"`
      `" p10k"`
