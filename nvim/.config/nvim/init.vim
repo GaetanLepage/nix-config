@@ -2,14 +2,6 @@
 "" compatible with vim
 "" Originally based on the vim 8 config file by Ensimag
 
-"" - install plug with :
-""      curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-"" (see https://github.com/junegunn/vim-plug)
-"" - install the languageserver server for each language you indend to use :
-""    * pyls for python (see https://github.com/palantir/python-language-server)
-""    * rls for rust (see https://github.com/rust-lang-nursery/rls)
-""    * clangd for c
-"" - you need to install jedi for python auto-completion
 "" - install some font with powerline symbols for eye candy and icons
 "" (see https://github.com/powerline/fonts)
 "" - You may want to install nerd fonts for more compatibility with airline and vim
@@ -35,8 +27,8 @@ Plug 'ryanoasis/vim-devicons' " various symbols (linux, rust, python, ...)
 Plug 'drewtempelmeyer/palenight.vim' "nice colorscheme
 
 " essential plugins
-Plug 'tpope/vim-fugitive' " git
-Plug 'scrooloose/nerdcommenter' " Nerd Commenter
+"Plug 'tpope/vim-fugitive' " git
+Plug 'preservim/nerdcommenter' " Nerd Commenter
 
 " NerdTree
 Plug 'scrooloose/nerdtree' " NerdTree

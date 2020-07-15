@@ -246,7 +246,7 @@ bindsym $mod+t exec --no-startup-id pkill picom
 bindsym $mod+Ctrl+t exec --no-startup-id picom -b
 bindsym $mod+Shift+d --release exec "killall dunst; exec notify-send 'restart unst'"
 bindsym Print exec --no-startup-id flameshot gui
-bindsym $mod+Ctrl+x --release exec --no-startup-id xkill
+bindsym $mod+x --release exec --no-startup-id xkill
 
 
 ############################
@@ -323,7 +323,8 @@ exec --no-startup-id $terminal --class nvim
 exec --no-startup-id thunderbird
 # WS6
 exec --no-startup-id skypeforlinux
-exec --no-startup-id launch_discord
+#exec --no-startup-id launch_discord
+exec --no-startup-id signal-desktop
 # WS7
 exec --no-startup-id zotero
 # WS9
@@ -387,6 +388,7 @@ assign [class="Zathura"] $ws5
 assign [class="discord"] $ws6
 assign [class="Skype"] $ws6
 assign [class="TeamSpeak 3"] $ws6
+assign [class="Signal"] $ws6
 # WS7
 assign [class="Zotero"] $ws7
 assign [class="FoxitReader"] $ws7
@@ -513,24 +515,24 @@ mode "$mode_gaps" {
         bindsym Escape mode "default"
 }
 mode "$mode_gaps_inner" {
-        bindsym plus  gaps inner current plus 5
-        bindsym minus gaps inner current minus 5
+        bindsym plus  gaps inner current plus 10
+        bindsym minus gaps inner current minus 10
         bindsym 0     gaps inner current set 0
 
-        bindsym Shift+plus  gaps inner all plus 5
-        bindsym Shift+minus gaps inner all minus 5
+        bindsym Shift+plus  gaps inner all plus 10
+        bindsym Shift+minus gaps inner all minus 10
         bindsym Shift+0     gaps inner all set 0
 
         bindsym Return mode "default"
         bindsym Escape mode "default"
 }
 mode "$mode_gaps_outer" {
-        bindsym plus  gaps outer current plus 5
-        bindsym minus gaps outer current minus 5
+        bindsym plus  gaps outer current plus 10
+        bindsym minus gaps outer current minus 10
         bindsym 0     gaps outer current set 0
 
-        bindsym Shift+plus  gaps outer all plus 5
-        bindsym Shift+minus gaps outer all minus 5
+        bindsym Shift+plus  gaps outer all plus 10
+        bindsym Shift+minus gaps outer all minus 10
         bindsym Shift+0     gaps outer all set 0
 
         bindsym Return mode "default"
