@@ -241,9 +241,9 @@ bindsym $mod+Shift+F10 exec rfkill block bluetooth
 # vibrance toggle
 bindsym $mod+equal exec --no-startup-id vibrance
 
-bindsym $mod+m exec --no-startup-id blueman-manager
+bindsym $mod+Ctrl+m exec --no-startup-id blueman-manager
 bindsym $mod+t exec --no-startup-id pkill picom
-bindsym $mod+Ctrl+t exec --no-startup-id picom -b
+bindsym $mod+Ctrl+t exec --no-startup-id picom -b --experimental-backends
 bindsym $mod+Shift+d --release exec "killall dunst; exec notify-send 'restart unst'"
 bindsym Print exec --no-startup-id flameshot gui
 bindsym $mod+x --release exec --no-startup-id xkill
@@ -260,14 +260,13 @@ bindsym $mod+x --release exec --no-startup-id xkill
 # * numlockx (enables numlock)
 # * picom (composition manager)
 # * dunst (notifications)
-# * conky_launch
 # * polybar_launch
 
 # Lock screen
-#bindsym $mod+o exec --no-startup-id i3lock -i ~/.config/i3/lock.png -t
+bindsym $mod+o exec --no-startup-id "i3lock -i ~/.config/i3/lock.png -t; killall dunst"
 
 ### VOLUME SETTINGS ###
-bindsym $mod+Ctrl+m exec pavucontrol
+bindsym $mod+m exec pavucontrol
 # Volume controls
 bindsym XF86AudioRaiseVolume exec --no-startup-id volume up 5 #increase sound volume
 bindsym XF86AudioLowerVolume exec --no-startup-id volume down 5 #decrease sound volume
@@ -329,12 +328,11 @@ exec --no-startup-id signal-desktop
 exec --no-startup-id zotero
 # WS9
 exec --no-startup-id $terminal --class nvtop nvtop
-exec --no-startup-id $terminal --class gotop gotop
+exec --no-startup-id $terminal --class ytop ytop
 # WS10
-exec --no-startup-id $terminal --class spt launch_spt
+exec --no-startup-id spotify
 
 # Automatic tabbed layout for some applications
-for_window [class = "kitty"] layout tabbed
 for_window [class = "firefox"] layout tabbed
 for_window [class = "Thunderbird"] layout tabbed
 for_window [class = "discord"] layout tabbed
@@ -394,7 +392,7 @@ assign [class="Zotero"] $ws7
 assign [class="FoxitReader"] $ws7
 # WS8
 # WS9
-assign [class="gotop"] $ws9
+assign [class="ytop"] $ws9
 assign [class="nvtop"] $ws9
 # WS10
 assign [class="spt"] $ws10
@@ -442,6 +440,7 @@ for_window [class="Matplotlib"] floating enable
 for_window [class="java-lang-Thread"] floating enable
 for_window [class="nm-connection-editor"] floating enable
 for_window [class="places"] floating enable
+for_window [class="Calendar"] floating enable
 
 
 ##########

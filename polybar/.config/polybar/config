@@ -17,10 +17,11 @@
 ;==========================================================
 
 [colors]
-background = #cc1c1c1c
+background = #ff1c1c1c
 background-alt = #444
 ;foreground = ${xrdb:color7:#222}
-foreground = #dfdfdf
+;foreground = #dfdfdf
+foreground = #ffffff
 foreground-alt = #555
 primary = #ffb52a
 secondary = #e60053
@@ -35,7 +36,7 @@ width = 100%
 height = 40
 ;offset-x = 1%
 ;offset-y = 1%
-radius = 6.0
+radius = 0
 fixed-center = false
 
 background = ${colors.background}
@@ -44,7 +45,7 @@ foreground = ${colors.foreground}
 line-size = 3
 line-color = #f00
 
-border-size = 8
+border-size = 0
 border-color = #00000000
 
 padding-left = 0
@@ -58,11 +59,10 @@ font-1 = NotoSans Mono:size=8;0
 
 modules-left = i3
 modules-center = mpd
-modules-right = xbacklight backlight-acpi pulseaudio memory cpu gpu0 wlan eth0 battery updates-arch-combined temperature time date
+modules-right = xbacklight backlight-acpi pulseaudio memory cpu gpu0 wlan battery updates-arch-combined temperature time date
 
 tray-position = right
 tray-padding = 1
-;tray-background = #1c1c1c1c
 tray-background = ${colors.background}
 
 wm-restack = i3

@@ -3,6 +3,7 @@
 # Do not include stow in that list. It is loaded beforehand anyways
 apps="conky"`
      `" dunst"`
+     `" flameshot"`
      `" fonts"`
      `" git"`
      `" gtk"`
@@ -14,6 +15,7 @@ apps="conky"`
      `" p10k"`
      `" pavolume"`
      `" pcmanfm"`
+     `" picom"`
      `" polybar"`
      `" profile"`
      `" scripts"`
