@@ -23,9 +23,8 @@ setbg &			    # set the background with the `setbg` script
 numlockx &          # enables numlock at startup
 picom &
 dunst &			    # dunst for notifications
-conky_launch &      # conky
 polybar_launch &    # bar
-#udiskie             # automatically mounts disks
+udiskie &           # automatically mounts disks
 #xfce4-power-manager # manages when the system hibernates
 
 
