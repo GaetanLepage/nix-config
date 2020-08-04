@@ -1,4 +1,4 @@
-"" Gaetan Lepage's vim config file, intended to use with neovim but surely
+" Gaetan Lepage's vim config file, intended to use with neovim but surely
 "" compatible with vim
 "" Originally based on the vim 8 config file by Ensimag
 
@@ -9,32 +9,28 @@
 
 "" after that copy this file as your $HOME/.config/nvim/init.vim (or ~/.vimrc for classic vim) and execute :PlugInstall
 
-"""""""""""""
-"""""""""""""
-"" PLUGINS ""
-"""""""""""""
-"""""""""""""
+"""""""""""
+" PLUGINS "
+"""""""""""
 call plug#begin('~/.config/nvim/plugged') " for neovim
 
 Plug 'tpope/vim-sensible' " sane defaults
 
-""""""""""""""
-" APPEARANCE "
-""""""""""""""
 " eye candy
 Plug 'vim-airline/vim-airline' " status bar (needs special fonts)
 Plug 'ryanoasis/vim-devicons' " various symbols (linux, rust, python, ...)
 Plug 'drewtempelmeyer/palenight.vim' "nice colorscheme
+Plug 'gruvbox-community/gruvbox' "nice colorscheme
 
-" essential plugins
-"Plug 'tpope/vim-fugitive' " git
 Plug 'preservim/nerdcommenter' " Nerd Commenter
 
 " NerdTree
-Plug 'scrooloose/nerdtree' " NerdTree
-Plug 'Xuyuanp/nerdtree-git-plugin'
+"Plug 'scrooloose/nerdtree' " NerdTree
+"Plug 'Xuyuanp/nerdtree-git-plugin' " Git plugin for NerdTree
+Plug 'ms-jpq/chadtree', {'branch': 'chad', 'do': ':UpdateRemotePlugins'}
 
-Plug 'kien/ctrlp.vim' "ctrlP
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim' "fzf
 Plug 'majutsushi/tagbar'
 
 Plug 'tpope/vim-surround' " git
@@ -51,36 +47,22 @@ Plug 'mileszs/ack.vim'
 """""""""""""""""""""
 " Python
 Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
+Plug 'tmhedberg/SimpylFold'
+Plug 'sheerun/vim-polyglot'
+Plug 'vim-python/python-syntax'
+Plug 'dense-analysis/ale'
 
-" LaTeX editing
+" LaTeX
 Plug 'lervag/vimtex'
 
-Plug 'da-h/AirLatex.vim', {'do': ':UpdateRemotePlugins'}
-
-
-" Markdown rendering
-Plug 'vim-pandoc/vim-pandoc'
-Plug 'vim-pandoc/vim-pandoc-syntax'
+" Markdown
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
 
 call plug#end()
 
-
-" optional: set server name
-let g:AirlatexDomain="www.overleaf.com"
-"let g:AirLatexLogLevel="DEBUG"
-let g:AirLatexCookieBrowser="firefox"
-
-" Ack
-nmap <C-t>  :Ack! --python TODO<CR>
-nmap <C-a>  :Ack! --python <space>
-
-
-"""""""""""""""""
-"""""""""""""""""
-"" Remaps & co ""
-"""""""""""""""""
-"""""""""""""""""
+"""""""""""""""
+" Remaps & co "
+"""""""""""""""
 filetype plugin indent on
 
 " Use system clipboard
@@ -105,17 +87,82 @@ set nospell
 
 " Quick indentation formatting for the whole file
 map <F7> gg=G''
-nmap <F8> :TagbarToggle<CR>
+
+" replace tabs
+set tabstop=4
+set shiftwidth=4
+set softtabstop=0
+set expandtab
+set smarttab
+
+" enable folding
+set foldmethod=indent
+set foldlevel=99
+nnoremap <space> za
+
+" fast buffer navigation
+" nnoremap <F5> :buffers<CR>:buffer<Space>
+nnoremap <Tab> :tabn<CR>
+nnoremap <S-Tab> :tabp<CR>
+nmap <C-w> :q<CR>
+
+" save by Ctrl+s
+nmap <C-s> :w<CR>
+
+" Quick indentation formatting for the whole file
+map <F7> gg=G''
+
+" Comment line or block
+vmap <C-b> <plug>NERDCommenterToggle
+nmap <C-b> <plug>NERDCommenterToggle
 
 
-""""""""""""""""
-" Basic AuoCmd "
-""""""""""""""""
+" split navigations
+let g:BASH_Ctrl_j = 'off'
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+
+" esc to clear search results
+nnoremap <esc> :noh<return><esc>
+
+" Disable the bell for intellij
+set visualbell
+set noerrorbells
+
+" yml files indent
+autocmd FileType yaml setlocal shiftwidth=2 softtabstop=2 expandtab
+
+
+"""""""
+" FZF "
+"""""""
+nnoremap <C-p> :GFiles<CR>
+"nnoremap <C-i> :History<CR>
+nnoremap <C-a> :Ag<CR>
+nnoremap <C-t> :Rg TODO<CR>
+
+
+"""""""""""""""""
+" Basic AutoCmd "
+"""""""""""""""""
 " Vertically center document when entering insert mode
 autocmd InsertEnter * norm zz
 
 " Remove trailing whitespace on save
 autocmd BufWrite * %s/\s\+$//e
+
+" let's autoindent c files
+au BufWrite *.c call LanguageClient#textDocument_formatting()
+
+
+""""""""""
+" TagBar "
+""""""""""
+nmap <C-g> :TagbarToggle<CR>
+let g:tagbar_width = 50
+autocmd FileType python,c,cpp,h,java nested :call tagbar#autoopen(0)
 
 
 """""""
@@ -183,46 +230,34 @@ xmap <leader>f  <Plug>(coc-format-selected)
 nmap <leader>f  <Plug>(coc-format-selected)
 
 
-" sync open file with NERDTree
-" " Check if NERDTree is open or active
-function! IsNERDTreeOpen()
-  return exists("t:NERDTreeBufName") && (bufwinnr(t:NERDTreeBufName) != -1)
-endfunction
+""""""""""""
+" ChadTree "
+""""""""""""
+nnoremap <C-n> :CHADopen<CR>
+let g:chadtree_settings = {
+            \ 'keymap': {
+                \ 'collapse': [],
+                \ 'primary': ['<enter>', '<2-leftmouse>'],
+                \ 'secondary': [],
+                \ 'tertiary': ['t'],
+                \ 'trash': []
+            \ },
+            \ 'width': 35}
 
-
-" NERDTree config
-let NERDTreeIgnore=[
-    \ '\.pyc$',
-    \ '\~$',
-    \ '\.aux',
-    \ 'venv',
-    \ '__pycache__'
-    \ ] "ignore files in NERDTree
-
-" Automatically open NERDTree if no files were specified
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-" open NERDTree when vim starts up on opening a directory
-autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
-" Shortcut for nerdtree
-map <C-n> :NERDTreeToggle<CR>
-"Close vim if the only window left open is nerdTree
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-" NERDTress File highlighting
-function! NERDTreeHighlightFile(extension, fg, bg, guifg, guibg)
-    exec 'autocmd filetype nerdtree highlight ' . a:extension .' ctermbg='. a:bg .' ctermfg='. a:fg .' guibg='. a:guibg .' guifg='. a:guifg
-    exec 'autocmd filetype nerdtree syn match ' . a:extension .' #^\s\+.*'. a:extension .'$#'
-endfunction
-
-
-let g:ctrlp_cmd = 'CtrlPMixed'
+" open NERDTree when vim starts up
+autocmd VimEnter * CHADopen
 
 
 """"""""""""""
 " APPEARANCE "
 """"""""""""""
-let g:airline_powerline_fonts = 1
-colorscheme palenight
+
+"colorscheme palenight
+"let g:airline_powerline_fonts = 1
+"let g:airline#extensions#ale#enabled = 1
+colorscheme gruvbox
+let g:gruvbox_contrast_dark = 'hard'
+
 set background=dark
 " Set background transparent
 "hi! Normal ctermbg=NONE guibg=NONE
@@ -238,84 +273,11 @@ if !exists('g:airline_symbols')
     let g:airline_symbols = {}
 endif
 
-" replace tabs
-set tabstop=4
-set shiftwidth=4
-set softtabstop=4
-set expandtab
-
-" enable folding
-set foldmethod=indent
-set foldlevel=99
-nnoremap <space> za
-
 " highlight trailing whitespace
 highlight ExtraWhitespace ctermbg=red guibg=red
 match ExtraWhitespace /\s\+\%#\@<!$/
 
-" let's autoindent c files
-au BufWrite *.c call LanguageClient#textDocument_formatting()
-
-
-" fast buffer navigation
-" nnoremap <F5> :buffers<CR>:buffer<Space>
-nmap <Tab> :tabn<CR>
-nmap <S-Tab> :tabp<CR>
-nmap <C-w> :q<CR>
-
-" save by Ctrl+s
-nmap <C-s> :w<CR>
-
-" Quick indentation formatting for the whole file
-map <F7> gg=G''
-
-" Comment line or block
-vmap <C-b> <plug>NERDCommenterToggle
-nmap <C-b> <plug>NERDCommenterToggle
-
-
-" split navigations
-let g:BASH_Ctrl_j = 'off'
-nnoremap <C-J> <C-W><C-J>
-nnoremap <C-K> <C-W><C-K>
-nnoremap <C-L> <C-W><C-L>
-nnoremap <C-H> <C-W><C-H>
-
-" esc to clear search results
-nnoremap <esc> :noh<return><esc>
-
-" Disable the bell for intellij
-set visualbell
-set noerrorbells
-
-" yml files indent
-autocmd FileType yaml setlocal shiftwidth=2 softtabstop=2 expandtab
-
-
-""""""""""
-" PYTHON "
-""""""""""
-let g:python3_host_prog = '/usr/bin/python3'
-
-
-"""""""""
-" LATEX "
-"""""""""
-" Latex live preview conf
-" autocmd FileType tex setl updatetime=1000
-" let g:livepreview_engine = 'pdflatex'
-" let g:livepreview_previewer = 'zathura'
-" let g:vimtex_compiler_progname = 'latexmk'
-let g:vimtex_quickfix_enabled = 1
-let g:vimtex_quickfix_open_on_warning = 0
-
-" Spell check
-autocmd FileType tex,latex,markdown setlocal spell spelllang=en,fr
-
-autocmd BufRead,BufNewFile *.tex set filetype=tex
-
-
-" Color column at 80 char
+" Color column at 99 char
 augroup collumnLimit
     autocmd!
     autocmd BufEnter,WinEnter,FileType scala,java,python
@@ -323,6 +285,44 @@ augroup collumnLimit
     let collumnLimit = 99 " feel free to customize
     let pattern =
                 \ '\%<' . (collumnLimit+1) . 'v.\%>' . collumnLimit . 'v'
-    autocmd BufEnter,WinEnter,FileType scala,java,python,tex
+    autocmd BufEnter,WinEnter,FileType scala,java,python
                 \ let w:m1=matchadd('CollumnLimit', pattern, -1)
+augroup END
+
+
+""""""""""
+" PYTHON "
+""""""""""
+let g:python3_host_prog = '/usr/bin/python3'
+let g:python_highlight_all = 1
+let b:ale_linters = {'python': ['pylint', 'mypy']}
+let g:ale_set_balloons = 1
+let g:ale_python_pylint_options = '--rcfile pylint.rc'
+let g:SimpylFold_docstring_preview = 1
+
+
+"""""""""
+" LATEX "
+"""""""""
+autocmd BufRead,BufNewFile *.tex set filetype=tex | VimtexTocOpen
+" autocmd FileType tex setl updatetime=1000
+let g:vimtex_view_method = 'zathura'
+let g:vimtex_quickfix_enabled = 1
+let g:vimtex_quickfix_open_on_warning = 0
+nmap <C-m> :VimtexTocToggle <CR>
+autocmd FileType tex,latex nnoremap <buffer> m :VimtexView<CR>
+
+" Spell check
+autocmd FileType tex,latex,markdown setlocal spell spelllang=en,fr
+
+" folding
+set foldmethod=expr
+set foldexpr=vimtex#fold#level(v:lnum)
+set foldtext=vimtex#fold#text()
+
+" Compile on initialization, cleanup on quit
+augroup vimtex_event_1
+  au!
+  au User VimtexEventQuit     call vimtex#compiler#clean(0)
+  au User VimtexEventInitPost call vimtex#compiler#compile()
 augroup END
