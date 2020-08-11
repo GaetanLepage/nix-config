@@ -98,7 +98,7 @@ set smarttab
 " enable folding
 set foldmethod=indent
 set foldlevel=99
-nnoremap <space> za
+"nnoremap <space> za
 
 " fast buffer navigation
 " nnoremap <F5> :buffers<CR>:buffer<Space>
@@ -127,10 +127,6 @@ nnoremap <C-H> <C-W><C-H>
 " esc to clear search results
 nnoremap <esc> :noh<return><esc>
 
-" Disable the bell for intellij
-set visualbell
-set noerrorbells
-
 " yml files indent
 autocmd FileType yaml setlocal shiftwidth=2 softtabstop=2 expandtab
 
@@ -139,9 +135,9 @@ autocmd FileType yaml setlocal shiftwidth=2 softtabstop=2 expandtab
 " FZF "
 """""""
 nnoremap <C-p> :GFiles<CR>
-"nnoremap <C-i> :History<CR>
-nnoremap <C-a> :Ag<CR>
-nnoremap <C-t> :Rg TODO<CR>
+nnoremap <leader>p :History<CR>
+nnoremap <leader>a :Ag<CR>
+nnoremap <leader>t :Ag TODO<CR>
 
 
 """""""""""""""""
@@ -197,7 +193,6 @@ inoremap <expr> <cr> pumvisible() ? "\<C-y>\<cr>" : "\<cr>"
 " Use <c-space> to trigger completion.
 inoremap <silent><expr> <c-space> coc#refresh()
 
-
 " Use `[g` and `]g` to navigate diagnostics
 nmap <silent> [g <Plug>(coc-diagnostic-prev)
 nmap <silent> ]g <Plug>(coc-diagnostic-next)
@@ -244,9 +239,6 @@ let g:chadtree_settings = {
             \ },
             \ 'width': 35}
 
-" open NERDTree when vim starts up
-autocmd VimEnter * CHADopen
-
 
 """"""""""""""
 " APPEARANCE "
@@ -263,11 +255,11 @@ set background=dark
 "hi! Normal ctermbg=NONE guibg=NONE
 
 set rnu nu " hybrid line numbers
-augroup numbertoggle
-    autocmd!
-    autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
-    autocmd BufLeave,FocusLost,InsertEnter * set norelativenumber
-augroup END
+"augroup numbertoggle
+    "autocmd!
+    "autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
+    "autocmd BufLeave,FocusLost,InsertEnter * set norelativenumber
+"augroup END
 
 if !exists('g:airline_symbols')
     let g:airline_symbols = {}

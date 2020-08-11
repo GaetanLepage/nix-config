@@ -21,7 +21,7 @@ screens &
 remaps &		    # run the remaps script, switching caps/esc and more; check it for more info
 setbg &			    # set the background with the `setbg` script
 numlockx &          # enables numlock at startup
-picom &
+picom -b --experimental-backends &  # launch compositor
 dunst &			    # dunst for notifications
 polybar_launch &    # bar
 udiskie &           # automatically mounts disks
