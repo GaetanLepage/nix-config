@@ -321,14 +321,14 @@ exec --no-startup-id $terminal --class nvim
 # WS4
 exec --no-startup-id thunderbird
 # WS6
-exec --no-startup-id skypeforlinux
+#exec --no-startup-id skypeforlinux
 #exec --no-startup-id launch_discord
 exec --no-startup-id signal-desktop
 # WS7
 exec --no-startup-id zotero
 # WS9
-exec --no-startup-id $terminal --class nvtop nvtop
-exec --no-startup-id $terminal --class ytop ytop
+#exec --no-startup-id $terminal --class nvtop nvtop
+#exec --no-startup-id $terminal --class ytop ytop
 # WS10
 exec --no-startup-id spotify
 
