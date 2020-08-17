@@ -282,13 +282,22 @@ augroup collumnLimit
 augroup END
 
 
+
+""
+" ALE "
+"
+
+let b:ale_linters = {
+            \'python': ['pylint', 'mypy'],
+            \'latex': ['chktex']}
+let g:ale_set_balloons = 1
+
+
 """"""""""
 " PYTHON "
 """"""""""
 let g:python3_host_prog = '/usr/bin/python3'
 let g:python_highlight_all = 1
-let b:ale_linters = {'python': ['pylint', 'mypy']}
-let g:ale_set_balloons = 1
 let g:ale_python_pylint_options = '--rcfile pylint.rc'
 let g:SimpylFold_docstring_preview = 1
 
@@ -296,13 +305,15 @@ let g:SimpylFold_docstring_preview = 1
 """""""""
 " LATEX "
 """""""""
-autocmd BufRead,BufNewFile *.tex set filetype=tex | VimtexTocOpen
+"autocmd BufRead,BufNewFile *.tex set filetype=tex | VimtexTocOpen
 " autocmd FileType tex setl updatetime=1000
 let g:vimtex_view_method = 'zathura'
 let g:vimtex_quickfix_enabled = 1
 let g:vimtex_quickfix_open_on_warning = 0
 nmap <C-m> :VimtexTocToggle <CR>
 autocmd FileType tex,latex nnoremap <buffer> m :VimtexView<CR>
+
+autocmd BufReadPre *.tex let b:vimtex_main = 'main.tex'
 
 " Spell check
 autocmd FileType tex,latex,markdown setlocal spell spelllang=en,fr
