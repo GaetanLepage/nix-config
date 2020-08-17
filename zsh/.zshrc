@@ -64,7 +64,6 @@ eval $(keychain --eval --quiet --noask ~/.ssh/rsa_gaetan)
 neofetch
 echo "/!\\ do not talk about k!\n"
 
-
 ###########
 # ALIASES #
 ###########
