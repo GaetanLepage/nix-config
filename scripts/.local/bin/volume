@@ -4,10 +4,12 @@
 update_sink() {
     SINK=$(pactl list short sinks | grep RUNNING | cut -f1)
 
-    if [ -z "$var" ]
+    if [ -z "$SINK" ]
     then
         SINK=$(pactl list short sinks | cut -f1)
     fi
+
+    [ -z "$SINK" ] && SINK=0
 }
 
 increase_volume() {

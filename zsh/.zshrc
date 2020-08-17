@@ -58,7 +58,7 @@ plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
 source $ZSH/oh-my-zsh.sh
 
 # SSH key loading
-eval $(keychain --eval --quiet --noask ~/.ssh/rsa_gaetan_desktop_arch)
+eval $(keychain --eval --quiet --noask ~/.ssh/rsa_gaetan)
 
 # Launch neofetch
 neofetch
