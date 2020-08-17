@@ -263,11 +263,7 @@ bindsym $mod+x --release exec --no-startup-id xkill
 # * polybar_launch
 
 # Lock screen
-<<<<<<< Updated upstream
-bindsym $mod+o exec --no-startup-id "i3lock -i ~/.config/i3/lock.png -t; killall dunst"
-=======
 bindsym $mod+o exec --no-startup-id i3lock -i ~/.config/i3/lock.png -t
->>>>>>> Stashed changes
 
 ### VOLUME SETTINGS ###
 bindsym $mod+m exec pavucontrol
