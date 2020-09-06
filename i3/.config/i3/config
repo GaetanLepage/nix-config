@@ -321,12 +321,12 @@ exec --no-startup-id $terminal --class nvim
 # WS4
 exec --no-startup-id thunderbird
 # WS6
-exec --no-startup-id skypeforlinux
+exec --no-startup-id signal-desktop
 # WS7
-exec --no-startup-id zotero
+exec --no-startup-id element-desktop
 # WS9
 #exec --no-startup-id $terminal --class nvtop nvtop
-#exec --no-startup-id $terminal --class ytop ytop
+exec --no-startup-id $terminal --class ytop ytop
 # WS10
 exec --no-startup-id spotify
 
@@ -386,6 +386,7 @@ assign [class="Skype"] $ws6
 assign [class="TeamSpeak 3"] $ws6
 assign [class="Signal"] $ws6
 # WS7
+assign [class="Element"] $ws7
 assign [class="Zotero"] $ws7
 assign [class="FoxitReader"] $ws7
 # WS8

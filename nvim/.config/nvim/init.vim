@@ -158,7 +158,7 @@ au BufWrite *.c call LanguageClient#textDocument_formatting()
 """"""""""
 nmap <C-g> :TagbarToggle<CR>
 let g:tagbar_width = 50
-autocmd FileType python,c,cpp,h,java nested :call tagbar#autoopen(0)
+"autocmd FileType python,c,cpp,h,java nested :call tagbar#autoopen(0)
 
 
 """""""
