@@ -313,7 +313,7 @@ let g:vimtex_compiler_progname = 'nvr'
 
 let g:vimtex_quickfix_enabled = 1
 let g:vimtex_quickfix_open_on_warning = 0
-nmap <C-m> :VimtexTocToggle <CR>
+"nmap <C-m> :VimtexTocToggle <CR>
 autocmd FileType tex,latex nnoremap <buffer> m :VimtexView<CR>
 
 autocmd BufReadPre *.tex let b:vimtex_main = 'main.tex'
