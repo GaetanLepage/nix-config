@@ -1,5 +1,4 @@
 #!/usr/bin/env sh
-echo "$(date) : START .xprofile" >> /home/gaetan/log_start.txt
 
 # This file runs when a DM logs you into a graphical session.
 # If you use startx/xinit like a Chad, this file will also be sourced.
@@ -35,6 +34,3 @@ udiskie &           # automatically mounts disks
 #unclutter &		# Remove mouse when idle
 #mpd-module-update &	# Check for when to update the mpd module
 #notify-send -i ~/.local/share/larbs/larbs.png "Welcome to LARBS" "Press super+F1 for the help menu." # LARBSWELCOME
-
-
-echo "$(date) : END .xprofile" >> /home/gaetan/log_start.txt

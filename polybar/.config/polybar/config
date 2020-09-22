@@ -405,7 +405,7 @@ ramp-capacity-foreground = #fff
 [module/updates-arch-combined]
 type = custom/script
 exec = ~/.config/polybar/updates-arch-combined.sh
-interval = 600
+interval = 60
 format-underline = #ffffff
 
 ################################################################
@@ -466,4 +466,3 @@ margin-top = 5
 margin-bottom = 5
 
 ; vim:ft=dosini
-
