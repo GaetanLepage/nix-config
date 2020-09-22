@@ -27,6 +27,8 @@ export PYTHONPATH=$PYTHONPATH:/home/gaetan/hevs/implementations/object_detection
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 
+export EDITOR=nvim
+
 
 #######################
 # Oh-my-zsh + plugins #
