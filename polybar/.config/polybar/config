@@ -169,10 +169,10 @@ bar-width = 10
 bar-indicator = |
 bar-indicator-foreground = #fff
 bar-indicator-font = 1
-bar-fill = ─
+bar-fill = ▐
 bar-fill-font = 2
 ;bar-fill-foreground = #9f78e1
-bar-empty = ─
+bar-empty = ▐
 bar-empty-font = 2
 bar-empty-foreground = ${colors.foreground-alt}
 
@@ -346,9 +346,7 @@ format-warn-underline = ${self.format-underline}
 label =   %temperature-c%
 label-warn =   %temperature-c%
 label-warn-foreground = ${colors.secondary}
-ation of the classic Tiger Balm muscle pain relief ointment is ideal for soothing muscular aches and pains. This muscle pain relieving ointment also works fast to soothe itch due to insect bites. Rub over affected area to reduce aches, swelling and other discomforts quickly and effectively.
 
-Warm relief f
 ramp-0 = 
 ramp-1 = 
 ramp-2 = 

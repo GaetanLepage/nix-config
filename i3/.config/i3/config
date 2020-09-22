@@ -328,7 +328,7 @@ exec --no-startup-id element-desktop
 #exec --no-startup-id skypeforlinux
 exec --no-startup-id signal-desktop
 # WS9
-exec --no-startup-id $terminal --class nvtop nvtop
+exec --no-startup-id type nvtop && $terminal --class nvtop nvtop
 exec --no-startup-id $terminal --class ytop ytop
 # WS10
 exec --no-startup-id spotify
@@ -393,6 +393,7 @@ assign [class="Element"] $ws7
 assign [class="Zotero"] $ws7
 assign [class="FoxitReader"] $ws7
 # WS8
+assign [class="LBRY"] $ws8
 # WS9
 assign [class="spt"] $ws9
 for_window [class="Spotify"] move to workspace $ws9
