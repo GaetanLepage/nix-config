@@ -83,8 +83,9 @@ case $HOSTNAME in
         # External only
         elif is_connected "$EXTERNAL";
         then
-            echo "Single external screen"
-            xrandr --output "$EXTERNAL" --mode 1920x1080 --pos 0x0 --rotate normal
+            #echo "Single external screen"
+            #xrandr --output "$EXTERNAL" --mode 1920x1080 --pos 0x0 --rotate normal
+            mons -e right
 
         # Laptop only
         elif is_connected "$LAPTOP_SCREEN";
