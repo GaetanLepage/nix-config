@@ -393,6 +393,7 @@ assign [class="Element"] $ws7
 assign [class="Zotero"] $ws7
 assign [class="FoxitReader"] $ws7
 # WS8
+assign [class="Mumble"] $ws8
 # WS9
 assign [class="spt"] $ws9
 for_window [class="Spotify"] move to workspace $ws9
