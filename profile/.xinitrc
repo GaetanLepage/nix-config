@@ -9,11 +9,11 @@
 # here with the line below.
 
 
-echo "$(date) : START .xinitrc" >> /home/gaetan/log_start.txt
+#echo "$(date) : START .xinitrc" >> /home/gaetan/log_start.txt
 
 [ -f ~/.xprofile ] && . ~/.xprofile
 
 # Starting i3
 exec dbus-launch i3;
 
-echo "$(date) : END .xinitrc" >> /home/gaetan/log_start.txt
+#echo "$(date) : END .xinitrc" >> /home/gaetan/log_start.txt

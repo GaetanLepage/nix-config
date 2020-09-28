@@ -4,12 +4,16 @@
 update_sink() {
     SINK=$(pactl list short sinks | grep RUNNING | cut -f1)
 
+    echo "Detected sink, first try: $SINK"
+
     if [ -z "$SINK" ]
     then
         SINK=$(pactl list short sinks | cut -f1)
     fi
 
     [ -z "$SINK" ] && SINK=0
+
+    echo "Detected sink: $SINK"
 }
 
 increase_volume() {
@@ -27,6 +31,7 @@ mute() {
 }
 
 update_sink
+
 case $1 in
     up|down)
         if [ -z "$2" ]
