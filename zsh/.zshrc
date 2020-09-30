@@ -101,6 +101,8 @@ alias z="zathura"
 alias j="jobs"
 alias r="ranger"
 
+alias rk="eval $(keychain --eval --quiet ~/.ssh/rsa_gaetan)"
+
 # Weather forecast
 alias wttr="curl wttr.in/Dommartin+69380"
 

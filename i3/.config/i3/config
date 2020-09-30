@@ -399,7 +399,7 @@ assign [class="LBRY"] $ws8
 assign [class="spt"] $ws9
 for_window [class="Spotify"] move to workspace $ws9
 # WS10
-assign [class="ytop"] $ws10
+assign [class="btm"] $ws10
 assign [class="nvtop"] $ws10
 
 

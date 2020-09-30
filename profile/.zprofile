@@ -1,5 +1,5 @@
 # Profile file. Runs on login. Environmental variables are set here.
-echo "$(date) : START .zprofile" >> /home/gaetan/log_start.txt
+#echo "$(date) : START .zprofile" >> /home/gaetan/log_start.txt
 
 # Adds `~/.local/bin` to $PATH
 export PATH="$PATH:$(du "$HOME/.local/bin/" | cut -f2 | tr '\n' ':' | sed 's/:*$//')"
@@ -42,4 +42,4 @@ if [ -n "$DESKTOP_SESSION" ];then
     export SSH_AUTH_SOCK
 fi
 
-echo "$(date) : END .zprofile" >> /home/gaetan/log_start.txt
+#echo "$(date) : END .zprofile" >> /home/gaetan/log_start.txt
