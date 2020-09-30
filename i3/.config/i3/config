@@ -329,7 +329,7 @@ exec --no-startup-id element-desktop
 exec --no-startup-id signal-desktop
 # WS9
 exec --no-startup-id type nvtop && $terminal --class nvtop nvtop
-exec --no-startup-id $terminal --class ytop ytop
+exec --no-startup-id $terminal --class gotop gotop
 # WS10
 exec --no-startup-id spotify
 
