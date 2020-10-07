@@ -58,6 +58,9 @@ Plug 'lervag/vimtex'
 " Markdown
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
 
+" TOML
+Plug 'cespare/vim-toml'
+
 call plug#end()
 
 """""""""""""""
@@ -287,7 +290,7 @@ augroup END
 " ALE "
 "
 
-let b:ale_linters = {
+let g:ale_linters = {
             \'python': ['pylint', 'mypy'],
             \'latex': ['chktex']}
 let g:ale_set_balloons = 1
@@ -296,9 +299,9 @@ let g:ale_set_balloons = 1
 """"""""""
 " PYTHON "
 """"""""""
-let g:python3_host_prog = '/usr/bin/python3'
+let g:python3_host_prog = '/home/galepage/.local/bin/python3'
 let g:python_highlight_all = 1
-let g:ale_python_pylint_options = '--rcfile pylint.rc'
+let g:ale_python_pylint_options = '--rcfile ~/.pylint.rc'
 let g:SimpylFold_docstring_preview = 1
 
 

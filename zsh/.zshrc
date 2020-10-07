@@ -25,6 +25,7 @@ export PATH=$HOME/bin:$PATH
 export PATH=/usr/local/bin:$PATH
 export PATH=/home/galepage/.config/nvm/versions/node/v14.4.0/bin/:$PATH
 export PATH=$HOME/.cargo/bin:$PATH
+export PATH=$HOME/go/bin:$PATH
 export PATH=$HOME/.local/share/flatpak/exports/bin:$PATH
 
 # Python PATH
@@ -91,6 +92,7 @@ alias cp="cp -i"
 bindkey \^U backward-kill-line
 
 # GIT
+alias g="git"
 alias lg="lazygit"
 alias gs="git status"
 alias gl="git log"

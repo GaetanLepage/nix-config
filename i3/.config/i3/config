@@ -279,6 +279,8 @@ bindsym XF86AudioPlay exec playerctl play-pause
 bindsym XF86AudioPause exec playerctl pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
+#bindsym $mod+Left exec playerctl previous
+#bindsym $mod+Right exec playerctl next
 
 # monitor management
 bindsym $mod+F8 exec mons -n right; exec $reload_script
@@ -312,6 +314,8 @@ mode "$mode_system" {
 ##########################
 
 # Main graphical applications
+# Systray
+exec --no-startup-id pasystray
 # WS1
 exec --no-startup-id $terminal
 # WS2
@@ -322,8 +326,10 @@ exec --no-startup-id $terminal --class nvim
 exec --no-startup-id thunderbird
 # WS6
 exec --no-startup-id signal-desktop
+exec --no-startup-id telegram-desktop
 # WS7
 exec --no-startup-id element-desktop
+exec --no-startup-id [[ $(hostname -s) = "alya" ]] && zotero
 # WS9
 #exec --no-startup-id skypeforlinux
 exec --no-startup-id signal-desktop
@@ -334,9 +340,8 @@ exec --no-startup-id $terminal --class gotop gotop
 exec --no-startup-id spotify
 
 # Automatic tabbed layout for some applications
-for_window [class = "firefox"] layout tabbed
+for_window [class = "Firefox"] layout tabbed
 for_window [class = "Thunderbird"] layout tabbed
-#for_window [class = "discord"] layout tabbed
 for_window [class = "Zotero"] layout tabbed
 
 # Tray applets
@@ -355,7 +360,8 @@ set $ws2 "2 "
 set $ws3 "3 "
 set $ws4 "4 "
 set $ws5 "5 "
-set $ws6 "6 "
+#set $ws6 "6 "
+set $ws6 "6 "
 set $ws7 "7 龎"
 set $ws8 "8 "
 set $ws9 "9 "
@@ -366,7 +372,7 @@ set $ws10 "10 "
 assign [class=$terminal] $ws1
 # WS2 : web browser
 assign [class="Chromium"] $ws2
-assign [class="firefox"] $ws2
+assign [class="Firefox"] $ws2
 # WS3 : coding
 assign [class="nvim"] $ws3
 assign [class="code-oss"] $ws3
@@ -399,7 +405,7 @@ assign [class="LBRY"] $ws8
 assign [class="spt"] $ws9
 for_window [class="Spotify"] move to workspace $ws9
 # WS10
-assign [class="btm"] $ws10
+assign [class="gotop"] $ws10
 assign [class="nvtop"] $ws10
 
 
@@ -445,6 +451,8 @@ for_window [class="java-lang-Thread"] floating enable
 for_window [class="nm-connection-editor"] floating enable
 for_window [class="places"] floating enable
 for_window [class="Calendar"] floating enable
+for_window [title="Zotero Preferences"] floating enable
+for_window [title="Edit Event:*"] floating enable
 
 
 ##########
@@ -490,7 +498,7 @@ mode "resize" {
 # Set inner/outer gaps
 #gaps inner 14
 #gaps outer -2
-gaps inner 0
+gaps inner 20
 gaps outer 0
 
 # Additionally, you can issue commands with the following syntax. This is useful to bind keys to changing the gap size.
