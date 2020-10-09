@@ -18,8 +18,10 @@ apps="conky"`
      `" picom"`
      `" polybar"`
      `" profile"`
+     `" pylint"`
      `" scripts"`
      `" spotifyd"`
+     `" ssh"`
      `" ranger"`
      `" wallpaper"`
      `" wpg"`
