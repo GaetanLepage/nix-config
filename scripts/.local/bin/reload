@@ -1,8 +1,16 @@
 #!/bin/bash
 
 # Auto
-screens &
-remaps &
-sleep 1
-setbg &
-polybar_launch &
+echo "SCREEN"
+screens $$ echo "SCREEN done"&
+
+echo "REMPAPS"
+remaps && echo "REMAPS done"&
+
+sleep 3
+
+echo "WALLPAPER"
+setbg && echo "WALLPAPER done"&
+
+echo "POLYBAR"
+polybar_launch && echo "POLYBAR done" &

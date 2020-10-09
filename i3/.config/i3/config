@@ -325,16 +325,13 @@ exec --no-startup-id signal-desktop
 # WS7
 exec --no-startup-id element-desktop
 # WS9
-#exec --no-startup-id skypeforlinux
-exec --no-startup-id signal-desktop
-# WS9
 exec --no-startup-id type nvtop && $terminal --class nvtop nvtop
 exec --no-startup-id $terminal --class btm btm
 # WS10
 exec --no-startup-id spotify
 
 # Automatic tabbed layout for some applications
-for_window [class = "firefox"] layout tabbed
+for_window [class = "Firefox"] layout tabbed
 for_window [class = "Thunderbird"] layout tabbed
 #for_window [class = "discord"] layout tabbed
 for_window [class = "Zotero"] layout tabbed
@@ -366,7 +363,7 @@ set $ws10 "10 "
 assign [class=$terminal] $ws1
 # WS2 : web browser
 assign [class="Chromium"] $ws2
-assign [class="firefox"] $ws2
+assign [class="Firefox"] $ws2
 # WS3 : coding
 assign [class="nvim"] $ws3
 assign [class="code-oss"] $ws3
