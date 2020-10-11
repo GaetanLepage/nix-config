@@ -77,6 +77,7 @@ alias cp="cp -i"
 bindkey \^U backward-kill-line
 
 # GIT
+alias g="git"
 alias lg="lazygit"
 alias gs="git status"
 alias gl="git log"

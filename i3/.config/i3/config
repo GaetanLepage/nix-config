@@ -62,8 +62,6 @@ hide_edge_borders smart
 # change borders
 bindsym $mod+u border none
 bindsym $mod+y border pixel 1
-bindsym $mod+n border normal
-
 
 ###########################
 # GENERAL i3 KEY BINDINGS #
@@ -334,7 +332,7 @@ exec --no-startup-id $terminal --class gotop gotop
 exec --no-startup-id spotify
 
 # Automatic tabbed layout for some applications
-for_window [class = "firefox"] layout tabbed
+for_window [class = "Firefox"] layout tabbed
 for_window [class = "Thunderbird"] layout tabbed
 #for_window [class = "discord"] layout tabbed
 for_window [class = "Zotero"] layout tabbed
@@ -366,7 +364,7 @@ set $ws10 "10 "
 assign [class=$terminal] $ws1
 # WS2 : web browser
 assign [class="Chromium"] $ws2
-assign [class="firefox"] $ws2
+assign [class="Firefox"] $ws2
 # WS3 : coding
 assign [class="nvim"] $ws3
 assign [class="code-oss"] $ws3
