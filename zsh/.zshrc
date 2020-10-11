@@ -20,12 +20,22 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 # If you come from bash you might have to change your $PATH.
-export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=$HOME/.local/bin:$PATH
+export PATH=$HOME/bin:$PATH
+export PATH=/usr/local/bin:$PATH
+export PATH=/home/galepage/.config/nvm/versions/node/v14.4.0/bin/:$PATH
+export PATH=$HOME/.cargo/bin:$PATH
+export PATH=$HOME/go/bin:$PATH
+export PATH=$HOME/.local/share/flatpak/exports/bin:$PATH
+
 # Python PATH
 export PYTHONPATH=$PYTHONPATH:/home/gaetan/hevs/implementations/object_detection/models
 
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
+
+# Path for lcms2 (kitty dependency)
+export PKG_CONFIG_PATH=~/.local/lib/pkgconfig/
 
 export EDITOR=nvim
 
@@ -51,6 +61,14 @@ ZSH_THEME=powerlevel10k/powerlevel10k
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
 
+#######
+# NVM #
+#######
+# export NVM_DIR="$HOME/.config//nvm"
+# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+#
+# export NODE_PATH=~/.local/bin/node
 
 ###################
 # STARTUP ROUTINE #
@@ -58,9 +76,6 @@ plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
 
 # Source oh-my-zsh config
 source $ZSH/oh-my-zsh.sh
-
-# SSH key loading
-eval $(keychain --eval --quiet --noask ~/.ssh/rsa_gaetan)
 
 # Launch neofetch
 neofetch
@@ -102,8 +117,6 @@ alias z="zathura"
 alias j="jobs"
 alias r="ranger"
 
-alias rk="eval $(keychain --eval --quiet ~/.ssh/rsa_gaetan)"
-
 # Weather forecast
 alias wttr="curl wttr.in/Dommartin+69380"
 
@@ -113,6 +126,8 @@ alias todo="s TODO"
 # count number of lines in Python project
 alias cl="find . -name '*.py' | xargs wc -l"
 alias pl="pylint ./**/*.py --extension-pkg-whitelist=cv2 --disable=C0413"
+
+alias apt="sudo apt-get"
 
 
 ###########
