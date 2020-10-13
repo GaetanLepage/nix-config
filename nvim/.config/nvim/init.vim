@@ -299,7 +299,7 @@ let g:ale_set_balloons = 1
 """"""""""
 " PYTHON "
 """"""""""
-let g:python3_host_prog = '/home/galepage/.local/bin/python3'
+let g:python3_host_prog = '$HOME/.local/bin/python3'
 let g:python_highlight_all = 1
 let g:ale_python_pylint_options = '--rcfile ~/.pylint.rc'
 let g:SimpylFold_docstring_preview = 1
