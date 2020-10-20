@@ -62,8 +62,6 @@ hide_edge_borders smart
 # change borders
 bindsym $mod+u border none
 bindsym $mod+y border pixel 1
-bindsym $mod+n border normal
-
 
 ###########################
 # GENERAL i3 KEY BINDINGS #
