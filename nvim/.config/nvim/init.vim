@@ -9,9 +9,9 @@
 
 "" after that copy this file as your $HOME/.config/nvim/init.vim (or ~/.vimrc for classic vim) and execute :PlugInstall
 
-"""""""""""
-" PLUGINS "
-"""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" PLUGINS """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 call plug#begin('~/.config/nvim/plugged') " for neovim
 
 Plug 'tpope/vim-sensible' " sane defaults
@@ -21,16 +21,18 @@ Plug 'vim-airline/vim-airline' " status bar (needs special fonts)
 Plug 'ryanoasis/vim-devicons' " various symbols (linux, rust, python, ...)
 Plug 'drewtempelmeyer/palenight.vim' "nice colorscheme
 Plug 'gruvbox-community/gruvbox' "nice colorscheme
+Plug 'ryanoasis/vim-devicons' " coloured icons
 
 Plug 'preservim/nerdcommenter' " Nerd Commenter
 
 " NerdTree
-"Plug 'scrooloose/nerdtree' " NerdTree
-"Plug 'Xuyuanp/nerdtree-git-plugin' " Git plugin for NerdTree
 Plug 'ms-jpq/chadtree', {'branch': 'chad', 'do': ':UpdateRemotePlugins'}
 
+" Fuzzy file finder (fzf)
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim' "fzf
+
+" TagBar
 Plug 'majutsushi/tagbar'
 
 Plug 'tpope/vim-surround' " git
@@ -62,6 +64,10 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
 Plug 'cespare/vim-toml'
 
 call plug#end()
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" VIM SETTINGS """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """""""""""""""
 " Remaps & co "
@@ -134,15 +140,6 @@ nnoremap <esc> :noh<return><esc>
 autocmd FileType yaml setlocal shiftwidth=2 softtabstop=2 expandtab
 
 
-"""""""
-" FZF "
-"""""""
-nnoremap <C-p> :GFiles<CR>
-nnoremap <leader>p :History<CR>
-nnoremap <leader>a :Ag<CR>
-nnoremap <leader>t :Ag TODO<CR>
-
-
 """""""""""""""""
 " Basic AutoCmd "
 """""""""""""""""
@@ -154,6 +151,56 @@ autocmd BufWrite * %s/\s\+$//e
 
 " let's autoindent c files
 au BufWrite *.c call LanguageClient#textDocument_formatting()
+
+
+""""""""""""""
+" APPEARANCE "
+""""""""""""""
+
+"colorscheme palenight
+"let g:airline_powerline_fonts = 1
+"let g:airline#extensions#ale#enabled = 1
+colorscheme gruvbox
+let g:gruvbox_contrast_dark = 'hard'
+
+set background=dark
+" Set background transparent
+"hi! Normal ctermbg=NONE guibg=NONE
+
+set rnu nu " hybrid line numbers
+
+if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+endif
+
+" highlight trailing whitespace
+highlight ExtraWhitespace ctermbg=red guibg=red
+match ExtraWhitespace /\s\+\%#\@<!$/
+
+" Color column at 99 char
+augroup collumnLimit
+    autocmd!
+    autocmd BufEnter,WinEnter,FileType scala,java,python
+                \ highlight CollumnLimit ctermbg=DarkGrey guibg=DarkGrey
+    let collumnLimit = 99 " feel free to customize
+    let pattern =
+                \ '\%<' . (collumnLimit+1) . 'v.\%>' . collumnLimit . 'v'
+    autocmd BufEnter,WinEnter,FileType scala,java,python
+                \ let w:m1=matchadd('CollumnLimit', pattern, -1)
+augroup END
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Plugin settings """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+"""""""
+" FZF "
+"""""""
+nnoremap <C-p> :GFiles<CR>
+nnoremap <leader>p :History<CR>
+nnoremap <leader>a :Ag<CR>
+nnoremap <leader>t :Ag TODO<CR>
 
 
 """"""""""
@@ -243,53 +290,9 @@ let g:chadtree_settings = {
             \ 'width': 35}
 
 
-""""""""""""""
-" APPEARANCE "
-""""""""""""""
-
-"colorscheme palenight
-"let g:airline_powerline_fonts = 1
-"let g:airline#extensions#ale#enabled = 1
-colorscheme gruvbox
-let g:gruvbox_contrast_dark = 'hard'
-
-set background=dark
-" Set background transparent
-"hi! Normal ctermbg=NONE guibg=NONE
-
-set rnu nu " hybrid line numbers
-"augroup numbertoggle
-    "autocmd!
-    "autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
-    "autocmd BufLeave,FocusLost,InsertEnter * set norelativenumber
-"augroup END
-
-if !exists('g:airline_symbols')
-    let g:airline_symbols = {}
-endif
-
-" highlight trailing whitespace
-highlight ExtraWhitespace ctermbg=red guibg=red
-match ExtraWhitespace /\s\+\%#\@<!$/
-
-" Color column at 99 char
-augroup collumnLimit
-    autocmd!
-    autocmd BufEnter,WinEnter,FileType scala,java,python
-                \ highlight CollumnLimit ctermbg=DarkGrey guibg=DarkGrey
-    let collumnLimit = 99 " feel free to customize
-    let pattern =
-                \ '\%<' . (collumnLimit+1) . 'v.\%>' . collumnLimit . 'v'
-    autocmd BufEnter,WinEnter,FileType scala,java,python
-                \ let w:m1=matchadd('CollumnLimit', pattern, -1)
-augroup END
-
-
-
-""
+"""""""
 " ALE "
-"
-
+"""""""
 let g:ale_linters = {
             \'python': ['pylint', 'mypy'],
             \'latex': ['chktex']}
@@ -299,7 +302,7 @@ let g:ale_set_balloons = 1
 """"""""""
 " PYTHON "
 """"""""""
-let g:python3_host_prog = '/home/galepage/.local/bin/python3'
+let g:python3_host_prog = '$HOME/.local/bin/python3'
 let g:python_highlight_all = 1
 let g:ale_python_pylint_options = '--rcfile ~/.pylint.rc'
 let g:SimpylFold_docstring_preview = 1

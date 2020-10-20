@@ -113,6 +113,11 @@ alias v="nvim"
 # Spotif tui
 alias spt="launch_spt"
 
+# Screen
+alias s="screen"
+alias ss="screen -S"
+alias sr="screen -r"
+
 alias z="zathura"
 alias j="jobs"
 alias r="ranger"

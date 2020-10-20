@@ -285,7 +285,7 @@ bindsym XF86AudioPrev exec playerctl previous
 # monitor management
 bindsym $mod+F8 exec mons -n right; exec $reload_script
 bindsym $mod+Shift+m exec --no-startup-id xrandr_auto
-bindsym $mod+c exec "~/.config/i3/laptop_screen_only.sh"
+bindsym $mod+c exec mons -o
 
 # Screen brightness controls
 bindsym XF86MonBrightnessUp exec "xbacklight -inc 10"
@@ -326,13 +326,11 @@ exec --no-startup-id $terminal --class nvim
 exec --no-startup-id thunderbird
 # WS6
 exec --no-startup-id signal-desktop
-exec --no-startup-id telegram-desktop
+#exec --no-startup-id telegram-desktop
 # WS7
-exec --no-startup-id element-desktop
+#exec --no-startup-id element-desktop
 exec --no-startup-id [[ $(hostname -s) = "alya" ]] && zotero
-# WS9
-#exec --no-startup-id skypeforlinux
-exec --no-startup-id signal-desktop
+# WS8
 # WS9
 exec --no-startup-id type nvtop && $terminal --class nvtop nvtop
 exec --no-startup-id $terminal --class gotop gotop
