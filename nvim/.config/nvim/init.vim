@@ -35,13 +35,20 @@ Plug 'junegunn/fzf.vim' "fzf
 " TagBar
 Plug 'majutsushi/tagbar'
 
+" Scrollbar
+Plug 'Xuyuanp/scrollbar.nvim'
+
 Plug 'tpope/vim-surround' " git
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+" Nvim new LSP client
+"Plug 'neovim/nvim-lspconfig'
+"Plug 'nvim-lua/completion-nvim'
+"Plug 'nvim-lua/diagnostic-nvim'
 
 Plug 'mileszs/ack.vim'
 
 " snippets allow to easily 'fill' common patterns
-Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 
 """""""""""""""""""""
@@ -81,6 +88,8 @@ set splitbelow splitright
 
 set nocompatible
 filetype off
+syntax on
+set nospell
 
 let mapleader=' '
 
@@ -90,9 +99,8 @@ set mouse=a
 set laststatus=2
 set encoding=utf-8
 
-syntax on
-
-set nospell
+"disable fkin recording
+map q <Nop>
 
 " Quick indentation formatting for the whole file
 map <F7> gg=G''
@@ -125,6 +133,8 @@ map <F7> gg=G''
 vmap <C-b> <plug>NERDCommenterToggle
 nmap <C-b> <plug>NERDCommenterToggle
 
+" Set completeopt to have a better completion experience
+set completeopt=menuone,noinsert,noselect
 
 " split navigations
 let g:BASH_Ctrl_j = 'off'
@@ -158,10 +168,10 @@ au BufWrite *.c call LanguageClient#textDocument_formatting()
 """"""""""""""
 
 "colorscheme palenight
-"let g:airline_powerline_fonts = 1
-"let g:airline#extensions#ale#enabled = 1
 colorscheme gruvbox
-let g:gruvbox_contrast_dark = 'hard'
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#ale#enabled = 1
+"let g:gruvbox_contrast_dark = 'hard'
 
 set background=dark
 " Set background transparent
@@ -224,21 +234,25 @@ let g:coc_global_extensions = [
     \ ]
 
 " use <tab> for trigger completion and navigate to the next complete item
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~ '\s'
-endfunction
-
-inoremap <silent><expr> <Tab>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<Tab>" :
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? coc#_select_confirm() :
+      \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
       \ coc#refresh()
 
-" configure maralla/completor to use tab
-" other configurations are possible (see website)
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+" Use <cr> to confirm completion
+inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+
+let g:coc_snippet_next = '<tab>'
+
+" Use <Tab> and <S-Tab> to navigate the completion list
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-inoremap <expr> <cr> pumvisible() ? "\<C-y>\<cr>" : "\<cr>"
 
 " Use <c-space> to trigger completion.
 inoremap <silent><expr> <c-space> coc#refresh()
@@ -276,6 +290,7 @@ nmap <leader>f  <Plug>(coc-format-selected)
 
 
 """""""""""""
+<<<<<<< HEAD
 " UltiSnips "
 """""""""""""
 " Trigger configuration. You need to change this to something other than <tab> if you use one of the following:
@@ -288,6 +303,65 @@ let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
 
+=======
+" Scrollbar "
+"""""""""""""
+augroup ScrollbarInit
+  autocmd!
+  autocmd CursorMoved,VimResized,QuitPre * silent! lua require('scrollbar').show()
+  autocmd WinEnter,FocusGained           * silent! lua require('scrollbar').show()
+  autocmd WinLeave,FocusLost             * silent! lua require('scrollbar').clear()
+augroup end
+
+
+""""""""""""
+" nvim-lsp "
+""""""""""""
+" nnoremap <silent> gd    <cmd>lua vim.lsp.buf.declaration()<CR>
+" nnoremap <silent> <c-]> <cmd>lua vim.lsp.buf.definition()<CR>
+" nnoremap <silent> K     <cmd>lua vim.lsp.buf.hover()<CR>
+" nnoremap <silent> gD    <cmd>lua vim.lsp.buf.implementation()<CR>
+" "nnoremap <silent> <c-k> <cmd>lua vim.lsp.buf.signature_help()<CR>
+" nnoremap <silent> 1gD   <cmd>lua vim.lsp.buf.type_definition()<CR>
+" nnoremap <silent> gr    <cmd>lua vim.lsp.buf.references()<CR>
+" nnoremap <silent> g0    <cmd>lua vim.lsp.buf.document_symbol()<CR>
+" nnoremap <silent> gW    <cmd>lua vim.lsp.buf.workspace_symbol()<CR>
+
+
+"""""""""""""""""""
+" completion-nvim "
+"""""""""""""""""""
+" lua require'nvim_lsp'.pyls.setup{ on_attach=require'completion'.on_attach }
+"
+" " Use completion-nvim in every buffer
+" autocmd BufEnter * lua require'completion'.on_attach()
+"
+" " Use <Tab> and <S-Tab> to navigate through popup menu
+" inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
+" inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+"
+" " Avoid showing message extra message when using completion
+" set shortmess+=c
+"
+" " possible value: 'UltiSnips', 'Neosnippet', 'vim-vsnip', 'snippets.nvim'
+" let g:completion_enable_snippet = 'UltiSnips'
+
+
+"""""""""""""""""""
+" diagnostic-nvim "
+"""""""""""""""""""
+" lua require'nvim_lsp'.pyls.setup{ attach=require'diagnostic'.on_attach }
+" let g:diagnostic_enable_virtual_text=1
+" let g:diagnostic_level = 'Warning'
+" let g:diagnostic_virtual_text_prefix = '<<'
+" let g:diagnostic_trimmed_virtual_text = 20
+" let g:diagnostic_insert_delay = 1
+" let g:diagnostic_enable_underline = 0
+" call sign_define("LspDiagnosticsErrorSign", {"text" : "✘", "texthl" : "LspDiagnosticsError"})
+" call sign_define("LspDiagnosticsWarningSign", {"text" : "⚡", "texthl" : "LspDiagnosticsWarning"})
+" call sign_define("LspDiagnosticsInformationSign", {"text" : "", "texthl" : "LspDiagnosticsInformation"})
+" call sign_define("LspDiagnosticsHintSign", {"text" : "ﯦ", "texthl" : "LspDiagnosticsWarning"})
+>>>>>>> ec16b4f6993eb24c24e1e72dd736f3fe72cbbadc
 
 
 """"""""""""
@@ -312,21 +386,21 @@ let g:ale_linters = {
             \'python': ['pylint', 'mypy'],
             \'latex': ['chktex']}
 let g:ale_set_balloons = 1
+let g:ale_python_pylint_options = '--rcfile $HOME/.pylintrc'
 
 
 """"""""""
 " PYTHON "
 """"""""""
-let g:python3_host_prog = '$HOME/.local/bin/python3'
+"let g:python3_host_prog = '$HOME/.local/bin/python3'
 let g:python_highlight_all = 1
-let g:ale_python_pylint_options = '--rcfile ~/.pylint.rc'
 let g:SimpylFold_docstring_preview = 1
 
 
 """""""""
 " LATEX "
 """""""""
-"autocmd BufRead,BufNewFile *.tex set filetype=tex | VimtexTocOpen
+autocmd BufRead,BufNewFile *.tex set filetype=tex "| VimtexTocOpen
 " autocmd FileType tex setl updatetime=1000
 let g:vimtex_view_method = 'zathura'
 
