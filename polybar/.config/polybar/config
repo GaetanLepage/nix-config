@@ -60,7 +60,7 @@ font-1 = NotoSans Mono:size=8;0
 
 modules-left = i3
 modules-center = mpd
-modules-right = xbacklight backlight-acpi pulseaudio memory cpu gpu0 wlan battery temperature time date
+modules-right = xbacklight backlight-acpi pulseaudio memory cpu gpu0 updates-arch-combined wlan battery temperature time date
 
 tray-position = right
 tray-padding = 1
