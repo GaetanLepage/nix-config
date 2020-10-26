@@ -117,6 +117,9 @@ set foldmethod=indent
 set foldlevel=99
 "nnoremap <space> za
 
+" Fix Y behaviour
+nmap Y y$
+
 " fast buffer navigation
 " nnoremap <F5> :buffers<CR>:buffer<Space>
 nnoremap <Tab> :tabn<CR>
