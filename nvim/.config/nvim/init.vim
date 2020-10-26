@@ -117,6 +117,9 @@ set foldmethod=indent
 set foldlevel=99
 "nnoremap <space> za
 
+" Fix Y behaviour
+nmap Y y$
+
 " fast buffer navigation
 " nnoremap <F5> :buffers<CR>:buffer<Space>
 nnoremap <Tab> :tabn<CR>
@@ -290,20 +293,6 @@ nmap <leader>f  <Plug>(coc-format-selected)
 
 
 """""""""""""
-<<<<<<< HEAD
-" UltiSnips "
-"""""""""""""
-" Trigger configuration. You need to change this to something other than <tab> if you use one of the following:
-" - https://github.com/Valloric/YouCompleteMe
-" - https://github.com/nvim-lua/completion-nvim
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
-
-" If you want :UltiSnipsEdit to split your window.
-let g:UltiSnipsEditSplit="vertical"
-
-=======
 " Scrollbar "
 """""""""""""
 augroup ScrollbarInit
@@ -361,7 +350,6 @@ augroup end
 " call sign_define("LspDiagnosticsWarningSign", {"text" : "⚡", "texthl" : "LspDiagnosticsWarning"})
 " call sign_define("LspDiagnosticsInformationSign", {"text" : "", "texthl" : "LspDiagnosticsInformation"})
 " call sign_define("LspDiagnosticsHintSign", {"text" : "ﯦ", "texthl" : "LspDiagnosticsWarning"})
->>>>>>> ec16b4f6993eb24c24e1e72dd736f3fe72cbbadc
 
 
 """"""""""""

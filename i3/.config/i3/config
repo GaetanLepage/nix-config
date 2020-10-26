@@ -337,6 +337,7 @@ exec --no-startup-id spotify
 
 # Automatic tabbed layout for some applications
 for_window [class = "Firefox"] layout tabbed
+for_window [class = "firefox"] layout tabbed
 for_window [class = "Thunderbird"] layout tabbed
 for_window [class = "Zotero"] layout tabbed
 
@@ -369,6 +370,7 @@ assign [class=$terminal] $ws1
 # WS2 : web browser
 assign [class="Chromium"] $ws2
 assign [class="Firefox"] $ws2
+assign [class="firefox"] $ws2
 # WS3 : coding
 assign [class="nvim"] $ws3
 assign [class="code-oss"] $ws3
