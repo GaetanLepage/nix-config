@@ -20,7 +20,8 @@ Plug 'tpope/vim-sensible' " sane defaults
 Plug 'vim-airline/vim-airline' " status bar (needs special fonts)
 Plug 'ryanoasis/vim-devicons' " various symbols (linux, rust, python, ...)
 Plug 'drewtempelmeyer/palenight.vim' "nice colorscheme
-Plug 'gruvbox-community/gruvbox' "nice colorscheme
+"Plug 'gruvbox-community/gruvbox' "nice colorscheme
+Plug 'joshdick/onedark.vim' "nice colorscheme
 Plug 'ryanoasis/vim-devicons' " coloured icons
 
 Plug 'preservim/nerdcommenter' " Nerd Commenter
@@ -171,10 +172,10 @@ au BufWrite *.c call LanguageClient#textDocument_formatting()
 """"""""""""""
 
 "colorscheme palenight
-colorscheme gruvbox
+colorscheme onedark
+let g:airline_theme='onedark'
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#ale#enabled = 1
-"let g:gruvbox_contrast_dark = 'hard'
 
 set background=dark
 " Set background transparent
