@@ -1,0 +1,32 @@
+alias g='git'
+alias lg="lazygit"
+
+# Add
+alias ga='git add'
+alias gaa='git add *'
+
+# Commit
+alias gc='git commit'
+alias gcm='git commit -m'
+alias gca="git commit -am"
+
+# Pull / Push
+alias gpl='git pull'
+alias gplom='git pull origin master'
+alias gps='git push'
+alias gpsom='git push origin master'
+
+alias gs='git status'
+alias gd='git diff'
+alias gch='git checkout'
+alias gnb='git checkout -b'
+alias gac='git add . && git commit'
+alias grs='git restore --staged .'
+alias gre='git restore'
+alias gr='git remote'
+alias gcl='git clone'
+alias glg="git log --graph --abbrev-commit --decorate --format=format:'%C(bold green)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold yellow)(%ar)%C(reset)%C(auto)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all"
+alias gt='git ls-tree -r master --name-only'
+alias gb='git branch'
+alias gm='git merge'
+alias gf='git fetch'

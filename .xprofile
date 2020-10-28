@@ -1,0 +1,18 @@
+#!/usr/bin/env sh
+
+# This file runs when a DM logs you into a graphical session.
+# If you use startx/xinit like a Chad, this file will also be sourced.
+
+# source zsh profile
+source ~/.zprofile
+
+# executes scripts before the WM is launched
+screens &
+remaps &		                    # run the remaps script, switching caps/esc and more; check it for more info
+
+setbg &			                    # set the background with the `setbg` script
+numlockx &                          # enables numlock at startup
+picom -b --experimental-backends &  # launch compositor
+dunst &			                    # dunst for notifications
+polybar_launch &                    # bar
+udiskie &                           # automatically mounts disks

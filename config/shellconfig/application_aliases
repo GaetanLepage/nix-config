@@ -1,0 +1,30 @@
+# Application shortcuts
+alias j='jobs'
+alias m='mpv'
+alias p='pandoc'
+alias r='ranger'
+alias trc='transmission-remote-cli'
+alias v='nvim'
+alias xup='xrdb .Xresources'
+alias z=zathura
+
+# Vim
+alias vim="nvim"
+alias vi="nvim"
+alias v="nvim"
+
+# Package managers
+alias pip='sudo pip'
+alias apt="sudo apt-get"
+
+# Screen
+alias s="screen"
+alias ss="screen -S"
+alias sr="screen -r"
+
+# Source config files
+alias sc='source $HOME/.zshrc'
+alias sp='source $HOME/.zprofile'
+
+# Weather forecast
+alias wttr="curl wttr.in/Dommartin+69380"
