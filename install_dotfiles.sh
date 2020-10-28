@@ -9,6 +9,7 @@ ln -sf $path/.p10k.zsh $HOME/.p10k.zsh
 ln -sf $path/.profile $HOME/.profile
 ln -sf $path/.pylintrc $HOME/.pylintrc
 ln -sf $path/.xinitrc $HOME/.xinitrc
+ln -sf $path/.xprofile $HOME/.xprofile
 ln -sf $path/.zprofile $HOME/.zprofile
 ln -sf $path/.zshenv $HOME/.zshenv
 ln -sf $path/.zshrc $HOME/.zshrc
@@ -44,6 +45,7 @@ delete_if_exists $HOME/.config/kitty
 ln -sf $path/config/kitty $HOME/.config/kitty
 
 delete_if_exists $HOME/.config/jesseduffield
+mkdir -p $HOME/.config/jesseduffield
 ln -sf $path/config/lazygit $HOME/.config/jesseduffield/lazygit
 
 delete_if_exists $HOME/.config/nvim
@@ -65,7 +67,7 @@ delete_if_exists $HOME/.config/shellconfig
 ln -sf $path/config/shellconfig $HOME/.config/shellconfig
 
 delete_if_exists $HOME/.config/zathura
-ln -sf $path/config/zathura/ $HOME/.config/zathura/
+ln -sf $path/config/zathura/ $HOME/.config/zathura
 
 ln -sf $path/config/mimeapps.list $HOME/.config/mimeapps.list
 ln -sf $path/config/user-dirs.dirs $HOME/.config/user-dirs.dirs

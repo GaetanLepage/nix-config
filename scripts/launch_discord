@@ -1,9 +1,0 @@
-#!/bin/bash
-
-while true
-do
-    #if [ ! $(pgrep "discord") ]; then
-        #discord
-    #fi
-    discord
-done
