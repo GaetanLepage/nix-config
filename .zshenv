@@ -52,11 +52,7 @@ export CM_OUTPUT_CLIP=1
 export CM_MAX_CLIPS=10
 
 # Path
-path=("$HOME/scripts" \
-      "$HOME/.local/bin" \
-      "$HOME/bin" \
-      "/usr/local/bin" \
-      "$path[@]")
+path=("$HOME/scripts" "$HOME/.local/bin" "$HOME/bin" "/usr/local/bin" "$path[@]")
 export PATH
 
 # Python PATH

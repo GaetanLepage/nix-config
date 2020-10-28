@@ -37,13 +37,6 @@ ZSH_THEME=powerlevel10k/powerlevel10k
 plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
 
 
-##################
-# Source configs #
-##################
-
-for f in ~/.config/shellconfig/*; do source "$f"; done
-
-
 ###################
 # STARTUP ROUTINE #
 ###################
@@ -54,6 +47,13 @@ source $ZSH/oh-my-zsh.sh
 # Launch neofetch
 neofetch
 echo "/!\\ do not talk about k!\n"
+
+
+##################
+# Source configs #
+##################
+#
+for f in ~/.config/shellconfig/*; do source "$f"; done
 
 
 ################

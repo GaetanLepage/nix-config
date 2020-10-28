@@ -87,13 +87,8 @@ ln -sf $path/scripts $HOME/scripts
 [ ! -d $HOME/.ssh ] && mkdir -p $HOME/.ssh
 ln -sf $path/ssh/config $HOME/.ssh/config
 
-###################
-# Local directory #
-###################
-
-[ ! -d $HOME/.local ] && mkdir -p $HOME/.local/share
-[ ! -d $HOME/.local/share ] && mkdir $HOME/.local/share
-
-# Fonts
-[ -d $HOME/.local/share/fonts ] && rm -r $HOME/.local/share/fonts
-ln -sf $path/.local/share/fonts $HOME/.local/share/fonts
+#########
+# Fonts #
+#########
+delete_if_exists $HOME/.fonts
+ln -sf $path/.fonts $HOME/.fonts
