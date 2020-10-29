@@ -8,10 +8,10 @@
 
 # executes scripts before the WM is launched
 screens &
-remaps &		                    # run the remaps script, switching caps/esc and more
 
 sleep 1
 
+remaps &		                    # run the remaps script, switching caps/esc and more
 setbg &			                    # set the background with the `setbg` script
 numlockx &                          # enables numlock at startup
 picom -b --experimental-backends &  # launch compositor

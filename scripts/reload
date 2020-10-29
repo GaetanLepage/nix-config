@@ -1,8 +1,10 @@
 #!/bin/bash
 
 # Auto
-echo "SCREEN"
-screens $$ echo "SCREEN done"&
+
+
+numlockx &
+picom -b --experimental-backends &  # launch compositor
 
 echo "REMPAPS"
 remaps && echo "REMAPS done"&

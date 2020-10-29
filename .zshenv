@@ -1,5 +1,3 @@
-typeset -U PATH path
-
 # Other XDG paths
 export XDG_DATA_HOME=${XDG_DATA_HOME:="$HOME/.local/share"}
 export XDG_CACHE_HOME=${XDG_CACHE_HOME:="$HOME/.cache"}
@@ -33,6 +31,7 @@ export GDK_DPI_SCALE=1
 
 # Default Apps
 export BROWSER="firefox"
+export CODEEDITOR="nvim"
 export COLORTERM="truecolor"
 export EDITOR="nvim"
 export FILE="ranger"
@@ -44,7 +43,7 @@ export STATUSBAR="polybar"
 export TERMINAL="kitty"
 export VIDEO="mpv"
 export VISUAL="nvim"
-export WM="i3wm"
+export WM="i3"
 
 export CM_SELECTIONS="clipboard"
 export CM_DEBUG=0
@@ -52,8 +51,10 @@ export CM_OUTPUT_CLIP=1
 export CM_MAX_CLIPS=10
 
 # Path
-path=("$HOME/scripts" "$HOME/.local/bin" "$HOME/bin" "/usr/local/bin" "$path[@]")
-export PATH
+export PATH="/usr/local/bin:$PATH"
+export PATH="$HOME/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
+export PATH="$HOME/scripts:$PATH"
 
 # Python PATH
 export PYTHONPATH=$PYTHONPATH:/home/gaetan/hevs/implementations/object_detection/models
