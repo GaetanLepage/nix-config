@@ -1,6 +1,16 @@
 #!/bin/sh
 path=$(pwd)
 
+delete_if_exists () {
+    [ -d $1 ] && rm -rf $1
+}
+
+
+create_if_not_exist () {
+    [ ! -d $1 ] && mkdir -p $1
+}
+
+
 # Home directory
 ln -sf $path/.bash_profile $HOME/.bash_profile
 ln -sf $path/.bashrc $HOME/.bashrc
@@ -13,10 +23,6 @@ ln -sf $path/.xprofile $HOME/.xprofile
 ln -sf $path/.zprofile $HOME/.zprofile
 ln -sf $path/.zshenv $HOME/.zshenv
 ln -sf $path/.zshrc $HOME/.zshrc
-
-delete_if_exists () {
-    [ -d $1 ] && rm -rf $1
-}
 
 ####################
 # Config directory #
@@ -74,6 +80,12 @@ ln -sf $path/config/user-dirs.dirs $HOME/.config/user-dirs.dirs
 ln -sf $path/config/wall.jpg $HOME/.config/wall.jpg
 ln -sf $path/config/icon_arch.png $HOME/.config/icon_arch.png
 
+################
+# Local folder #
+################
+create_if_not_exist $HOME/.local/share
+create_if_not_exist $HOME/.local/share/gnupg
+
 ###########
 # Scripts #
 ###########
@@ -84,7 +96,7 @@ ln -sf $path/scripts $HOME/scripts
 #######
 # SSH #
 #######
-[ ! -d $HOME/.ssh ] && mkdir -p $HOME/.ssh
+create_if_not_exist $HOME/.ssh
 ln -sf $path/ssh/config $HOME/.ssh/config
 
 #########
