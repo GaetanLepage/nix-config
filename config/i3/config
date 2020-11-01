@@ -385,6 +385,7 @@ assign [class="Slack"] $ws4
 assign [class="Franz"] $ws4
 assign [class="Riot"] $ws4
 # WS5 : pdf
+assign [class="FoxitReader"] $ws5
 #assign [class="Zathura"] $ws5
 # WS6 VoIP
 assign [class="discord"] $ws6
@@ -395,7 +396,6 @@ assign [class="TelegramDesktop"] $ws6
 # WS7
 assign [class="Element"] $ws7
 assign [class="Zotero"] $ws7
-assign [class="FoxitReader"] $ws7
 # WS8
 assign [class="Mumble"] $ws8
 assign [class="LBRY"] $ws8

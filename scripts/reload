@@ -6,7 +6,7 @@
 numlockx &
 picom -b --experimental-backends &  # launch compositor
 
-echo "REMPAPS"
+echo "REMAPS"
 remaps && echo "REMAPS done"&
 
 sleep 3

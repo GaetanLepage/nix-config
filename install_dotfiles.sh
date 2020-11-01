@@ -5,6 +5,7 @@ path=$(pwd)
 ln -sf $path/.bash_profile $HOME/.bash_profile
 ln -sf $path/.bashrc $HOME/.bashrc
 ln -sf $path/.gitconfig $HOME/.gitconfig
+ln -sf $path/.gtkrc-2.0 $HOME/.gtkrc-2.0
 ln -sf $path/.p10k.zsh $HOME/.p10k.zsh
 ln -sf $path/.profile $HOME/.profile
 ln -sf $path/.pylintrc $HOME/.pylintrc
@@ -28,9 +29,6 @@ ln -sf $path/config/dunst $HOME/.config/dunst
 
 delete_if_exists $HOME/.config/flameshot
 ln -sf $path/config/flameshot $HOME/.config/flameshot
-
-delete_if_exists $HOME/.config/gtk-2.0
-ln -sf $path/config/gtk-2.0 $HOME/.config/gtk-2.0
 
 delete_if_exists $HOME/.config/gtk-3.0
 ln -sf $path/config/gtk-3.0 $HOME/.config/gtk-3.0
