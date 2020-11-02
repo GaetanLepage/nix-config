@@ -51,7 +51,7 @@ disable_all
 
 case $HOSTNAME in
     # Desktop PC
-    desktop-arch)
+    gaetan-desktop-arch)
 
         S144="DP-0"
         BENQ="HDMI-0"
