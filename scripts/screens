@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 HOSTNAME=$(hostname)
 echo "detected system : "$HOSTNAME
@@ -20,7 +20,7 @@ disable_all () {
 }
 
 dual_screen () {
-    xrandr --output $BENQ --mode 1920x1080 --pos 0x0 --rotate normal --output $S144 --mode 1920x1080 --rate 144 --primary --pos 1920x0 --rotate normal
+    #xrandr --output $BENQ --mode 1920x1080 --pos 0x0 --rotate normal --output $S144 --mode 1920x1080 --rate 144 --primary --pos 1920x0 --rotate normal
     xrandr --output $BENQ --mode 2560x1440 --pos 0x0 --rotate normal --output $S144 --mode 1920x1080 --rate 144 --primary --pos 2560x0 --rotate normal
 }
 
@@ -51,7 +51,7 @@ disable_all
 
 case $HOSTNAME in
     # Desktop PC
-    gaetan-desktop-arch)
+    desktop-arch)
 
         S144="DP-0"
         BENQ="HDMI-0"
