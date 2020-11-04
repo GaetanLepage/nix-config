@@ -8,8 +8,7 @@ picom -b --experimental-backends &  # launch compositor
 
 echo "REMAPS"
 remaps && echo "REMAPS done"&
-
-sleep 3
+g610-led -a ff &
 
 echo "WALLPAPER"
 setbg && echo "WALLPAPER done"&

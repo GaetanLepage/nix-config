@@ -223,6 +223,7 @@ bindsym Ctrl+Mod1+j workspace prev
 bindsym $mod+Return exec $terminal
 
 # start program launcher
+#bindsym $mod+d exec dmenu_run
 bindsym $mod+d exec rofi -show run
 
 # Start Applications
@@ -327,7 +328,7 @@ exec --no-startup-id signal-desktop
 #exec --no-startup-id telegram-desktop
 # WS7
 #exec --no-startup-id element-desktop
-exec --no-startup-id [[ $(hostname -s) = "alya" ]] && zotero
+exec --no-startup-id zotero
 # WS8
 # WS9
 exec --no-startup-id type nvtop && $terminal --class nvtop nvtop
@@ -385,8 +386,8 @@ assign [class="Slack"] $ws4
 assign [class="Franz"] $ws4
 assign [class="Riot"] $ws4
 # WS5 : pdf
-assign [class="FoxitReader"] $ws5
-#assign [class="Zathura"] $ws5
+assign [class="Foxit Reader"] $ws5
+assign [class="Zathura"] $ws5
 # WS6 VoIP
 assign [class="discord"] $ws6
 assign [class="Skype"] $ws6

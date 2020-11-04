@@ -9,22 +9,28 @@ alias xup='xrdb .Xresources'
 alias z=zathura
 
 # Vim
-alias vim="nvim"
-alias vi="nvim"
-alias v="nvim"
+alias vim='nvim'
+alias vi='nvim'
+alias v='nvim'
 
 # Package managers
 alias pip='sudo pip'
-alias apt="sudo apt-get"
+alias apt='sudo apt-get'
+alias y=yay
 
 # Screen
-alias s="screen"
-alias ss="screen -S"
-alias sr="screen -r"
+alias s='screen'
+alias ss='screen -S'
+alias sr='screen -r'
 
 # Source config files
 alias sc='source $HOME/.zshrc'
 alias sp='source $HOME/.zprofile'
 
 # Weather forecast
-alias wttr="curl wttr.in/Dommartin+69380"
+alias wttr='curl wttr.in/Dommartin+69380'
+
+# zotcli
+alias zr='zotcli read'
+alias zq='zotcli query'
+alias zen='zotcli edit-note'

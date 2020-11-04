@@ -36,6 +36,10 @@ Plug 'junegunn/fzf.vim' "fzf
 " TagBar
 Plug 'majutsushi/tagbar'
 
+" Barbar
+Plug 'kyazdani42/nvim-web-devicons'
+Plug 'romgrk/barbar.nvim'
+
 " Scrollbar
 Plug 'Xuyuanp/scrollbar.nvim'
 
