@@ -70,7 +70,11 @@ Plug 'dense-analysis/ale'
 Plug 'lervag/vimtex'
 
 " Markdown
-Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
+"Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
+
+Plug 'vim-pandoc/vim-pandoc'
+Plug 'lingnand/pandoc-preview.vim'
+Plug 'gabrielelana/vim-markdown'
 
 " TOML
 Plug 'cespare/vim-toml'
@@ -127,9 +131,9 @@ nmap Y y$
 
 " fast buffer navigation
 " nnoremap <F5> :buffers<CR>:buffer<Space>
-nnoremap <Tab> :tabn<CR>
-nnoremap <S-Tab> :tabp<CR>
-nmap <C-w> :q<CR>
+"nnoremap <Tab> :tabn<CR>
+"nnoremap <S-Tab> :tabp<CR>
+"nmap <C-w> :q<CR>
 
 " save by Ctrl+s
 nmap <C-s> :w<CR>
@@ -228,6 +232,19 @@ nmap <C-g> :TagbarToggle<CR>
 let g:tagbar_width = 50
 "autocmd FileType python,c,cpp,h,java nested :call tagbar#autoopen(0)
 
+
+""""""""""
+" Barbar "
+""""""""""
+nnoremap <Tab> :BufferNext<CR>
+nnoremap <S-Tab> :BufferPrevious<CR>
+nmap <C-w> :BufferClose<CR>
+
+""""""""""""""""""
+" Pandoc preview "
+""""""""""""""""""
+let g:pandoc_preview_pdf_cmd = "zathura"
+nnoremap <leader>v :PandocPreview<cr>
 
 """""""
 " COC "
@@ -380,6 +397,12 @@ let g:ale_linters = {
             \'latex': ['chktex']}
 let g:ale_set_balloons = 1
 let g:ale_python_pylint_options = '--rcfile $HOME/.pylintrc'
+
+""""""""""""
+" Markdown "
+""""""""""""
+
+au BufNewFile,BufFilePre,BufRead *.md set filetype=markdown
 
 
 """"""""""
