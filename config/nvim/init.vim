@@ -129,7 +129,7 @@ nmap Y y$
 " nnoremap <F5> :buffers<CR>:buffer<Space>
 nnoremap <Tab> :tabn<CR>
 nnoremap <S-Tab> :tabp<CR>
-nmap <C-w> :q<CR>
+"nmap <C-w> :q<CR>
 
 " save by Ctrl+s
 nmap <C-s> :w<CR>
@@ -227,6 +227,14 @@ nnoremap <leader>t :Ag TODO<CR>
 nmap <C-g> :TagbarToggle<CR>
 let g:tagbar_width = 50
 "autocmd FileType python,c,cpp,h,java nested :call tagbar#autoopen(0)
+
+
+""""""""""
+" Barbar "
+""""""""""
+
+" Close buffer
+nnoremap <silent> <C-w> :BufferClose<CR>
 
 
 """""""
