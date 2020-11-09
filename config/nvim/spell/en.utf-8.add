@@ -117,3 +117,6 @@ ResNet152
 ResNet50
 GPUs
 workflow
+single-observation
+single-target
+diarization

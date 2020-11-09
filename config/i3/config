@@ -387,7 +387,7 @@ assign [class="Franz"] $ws4
 assign [class="Riot"] $ws4
 # WS5 : pdf
 assign [class="Foxit Reader"] $ws5
-assign [class="Zathura"] $ws5
+#assign [class="Zathura"] $ws5
 # WS6 VoIP
 assign [class="discord"] $ws6
 assign [class="Skype"] $ws6
