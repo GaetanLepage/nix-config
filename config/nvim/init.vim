@@ -236,8 +236,11 @@ let g:tagbar_width = 50
 """"""""""
 " Barbar "
 """"""""""
+
 nnoremap <Tab> :BufferNext<CR>
 nnoremap <S-Tab> :BufferPrevious<CR>
+"
+" Close buffer
 nmap <C-w> :BufferClose<CR>
 
 """"""""""""""""""

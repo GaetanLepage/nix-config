@@ -14,7 +14,7 @@ alias vi='nvim'
 alias v='nvim'
 
 # Package managers
-alias pip='sudo pip'
+# alias pip='sudo pip'
 alias apt='sudo apt-get'
 alias y=yay
 
