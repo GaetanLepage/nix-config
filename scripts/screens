@@ -21,7 +21,7 @@ disable_all () {
 
 dual_screen () {
     #xrandr --output $BENQ --mode 1920x1080 --pos 0x0 --rotate normal --output $S144 --mode 1920x1080 --rate 144 --primary --pos 1920x0 --rotate normal
-    xrandr --output $BENQ --mode 2560x1440 --pos 0x0 --rotate normal --output $S144 --mode 1920x1080 --rate 144 --primary --pos 2560x0 --rotate normal
+    xrandr --output $BENQ --primary --mode 2560x1440 --pos 0x0 --rotate normal --output $S144 --mode 1920x1080 --rate 144 --pos 2560x180 --rotate normal
 }
 
 is_connected() {

@@ -9,8 +9,18 @@ while pgrep -x polybar >/dev/null; do sleep 1; done
 #for m in $(polybar --list-monitors | cut -d":" -f1); do
 	#WIRELESS=$(ls /sys/class/net/ | grep ^wl | awk 'NR==1{print $1}') MONITOR=$m polybar --reload -l info mainbar-i3 &
 #done
-for i in $(polybar -m | awk -F: '{print $1}'); do
-    MONITOR=$i polybar mainbar-i3 -r &
+#for i in $(polybar -m | awk -F: '{print $1}'); do
+#for i in IFS=\n $(polybar -m); do
+#IFS='\n'
+#for i in $(polybar -m); do
+polybar -m | while IFS= read -r line;do
+    echo $line
+    MONITOR=$(echo $line | cut -d: -f1)
+
+    echo "Monitor = "$MONITOR
+    IS_PRIMARY=$(echo $line | grep -Po '(?<=\().*(?=\))')
+    echo [[ $IS_PRIMARY]]
+    MONITOR=$MONITOR polybar mainbar-i3 -r &
 done
 
 echo "Bars launched..."

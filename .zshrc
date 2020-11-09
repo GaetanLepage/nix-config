@@ -36,6 +36,14 @@ ZSH_THEME=powerlevel10k/powerlevel10k
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
 
+#################
+# Gnome Keyring #
+#################
+if [ -n "$DESKTOP_SESSION" ];then
+    eval $(gnome-keyring-daemon --start)
+    export SSH_AUTH_SOCK
+fi
+
 
 ###################
 # STARTUP ROUTINE #
