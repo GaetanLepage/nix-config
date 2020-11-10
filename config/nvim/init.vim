@@ -59,11 +59,15 @@ Plug 'honza/vim-snippets'
 """""""""""""""""""""
 " LANGUAGES SUPPORT "
 """""""""""""""""""""
+
+" TreeSitter
+Plug 'nvim-treesitter/nvim-treesitter'
+
 " Python
-Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
+"Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
 Plug 'tmhedberg/SimpylFold'
 Plug 'sheerun/vim-polyglot'
-Plug 'vim-python/python-syntax'
+"Plug 'vim-python/python-syntax'
 Plug 'dense-analysis/ale'
 
 " LaTeX
@@ -326,6 +330,22 @@ augroup ScrollbarInit
   autocmd WinEnter,FocusGained           * silent! lua require('scrollbar').show()
   autocmd WinLeave,FocusLost             * silent! lua require('scrollbar').clear()
 augroup end
+
+""""""""""""""
+" TreeSitter "
+""""""""""""""
+lua <<EOF
+require'nvim-treesitter.configs'.setup {
+  ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+  highlight = {
+    enable = true,              -- false will disable the whole extension
+    -- disable = { "c", "rust" },  -- list of language that will be disabled
+  },
+  indent = {
+    enable=true
+  }
+}
+EOF
 
 
 """"""""""""
