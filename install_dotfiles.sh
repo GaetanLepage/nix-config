@@ -67,6 +67,9 @@ ln -sf $path/config/polybar $HOME/.config/polybar
 delete_if_exists $HOME/.config/ranger
 ln -sf $path/config/ranger $HOME/.config/ranger
 
+delete_if_exists $HOME/.config/rofi
+ln -sf $path/config/rofi $HOME/.config/rofi
+
 delete_if_exists $HOME/.config/shellconfig
 ln -sf $path/config/shellconfig $HOME/.config/shellconfig
 

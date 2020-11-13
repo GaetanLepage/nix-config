@@ -2,7 +2,7 @@
 Host alya
     User galepage
     HostName alya.inrialpes.fr
-    ProxyCommand ssh -W %h:%p galepage@bastion.inrialpes.fr # SSH tunneling to access1-cp through bastion.inrialpes.fr
+    ProxyCommand ssh -W %h:%p galepage@bastion.inrialpes.fr zsh # SSH tunneling to access1-cp through bastion.inrialpes.fr
 
 Host server
     User gaetan
@@ -13,15 +13,21 @@ Host desktop
     Hostname lepage.casa
     Port 222
 
+Host bubu
+    User bubu
+    HostName bubu-ensimag.fr
+    IdentityFile ~/.ssh/rsa_gaetan
+
+
 Host ultrafast
+    User gaetan
     HostName 153.109.124.39
     IdentityFile ~/.ssh/id_rsa_gaetan
     ForwardAgent no
     ProxyCommand ssh -W %h:%p faster
-    User gaetan
 
 Host faster
+    User gaetan
     HostName faster.hevs.ch
     IdentityFile ~/.ssh/id_rsa_gaetan
     ForwardAgent no
-    User gaetan
