@@ -410,6 +410,11 @@ let g:chadtree_settings = {
                 \ 'trash': []
             \ },
             \ 'width': 35}
+lua vim.api.nvim_set_var("chadtree_ignores", { name = {
+            \ ".*",
+            \ ".git",
+            \ "__pycache__"
+            \ } })
 
 
 """""""
@@ -419,7 +424,7 @@ let g:ale_linters = {
             \'python': ['pylint', 'mypy'],
             \'latex': ['chktex']}
 let g:ale_set_balloons = 1
-let g:ale_python_pylint_options = '--rcfile $HOME/.pylintrc'
+"let g:ale_python_pylint_options = '--rcfile $HOME/.pylintrc'
 
 """"""""""""
 " Markdown "
