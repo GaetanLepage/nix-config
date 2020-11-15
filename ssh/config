@@ -6,6 +6,10 @@ Host alya
     RemoteCommand zsh
     RequestTTY force
 
+Host gaming
+    User uc
+    Hostname 192.168.1.3
+
 Host server
     User gaetan
     HostName lepage.casa
