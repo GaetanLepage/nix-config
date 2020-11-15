@@ -4,6 +4,10 @@ Host alya
     HostName alya.inrialpes.fr
     ProxyCommand ssh -W %h:%p galepage@bastion.inrialpes.fr zsh # SSH tunneling to access1-cp through bastion.inrialpes.fr
 
+Host gaming
+    User uc
+    Hostname 192.168.1.3
+
 Host server
     User gaetan
     HostName lepage.casa
