@@ -37,8 +37,8 @@ Plug 'junegunn/fzf.vim' "fzf
 Plug 'majutsushi/tagbar'
 
 " Barbar
-Plug 'kyazdani42/nvim-web-devicons'
-Plug 'romgrk/barbar.nvim'
+"Plug 'kyazdani42/nvim-web-devicons'
+"Plug 'romgrk/barbar.nvim'
 
 " Scrollbar
 Plug 'Xuyuanp/scrollbar.nvim'
@@ -135,9 +135,9 @@ nmap Y y$
 
 " fast buffer navigation
 " nnoremap <F5> :buffers<CR>:buffer<Space>
-"nnoremap <Tab> :tabn<CR>
-"nnoremap <S-Tab> :tabp<CR>
-"nmap <C-w> :q<CR>
+nnoremap <Tab> :tabn<CR>
+nnoremap <S-Tab> :tabp<CR>
+nmap <C-w> :q<CR>
 
 " save by Ctrl+s
 nmap <C-s> :w<CR>
@@ -241,11 +241,11 @@ let g:tagbar_width = 50
 " Barbar "
 """"""""""
 
-nnoremap <Tab> :BufferNext<CR>
-nnoremap <S-Tab> :BufferPrevious<CR>
-"
+"nnoremap <Tab> :BufferNext<CR>
+"nnoremap <S-Tab> :BufferPrevious<CR>
+
 " Close buffer
-nmap <C-w> :BufferClose<CR>
+"nmap <C-w> :BufferClose<CR>
 
 """"""""""""""""""
 " Pandoc preview "
