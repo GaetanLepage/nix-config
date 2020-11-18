@@ -24,7 +24,6 @@ Host bubu
     HostName bubu-ensimag.fr
     IdentityFile ~/.ssh/rsa_gaetan
 
-
 Host ultrafast
     User gaetan
     HostName 153.109.124.39
