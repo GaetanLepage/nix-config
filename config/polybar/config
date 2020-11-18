@@ -62,7 +62,7 @@ modules-left = i3
 modules-center = mpd
 modules-right = xbacklight backlight-acpi pulseaudio memory cpu gpu0 updates-arch-combined wlan battery temperature time date
 
-tray-position = right
+tray-position = ${env:TRAY_POS:none}
 tray-padding = 1
 tray-background = ${colors.background}
 
@@ -70,12 +70,6 @@ wm-restack = i3
 
 override-redirect = false
 enable-ipc = true
-
-;scroll-up = bspwm-desknext
-;scroll-down = bspwm-deskprev
-
-;scroll-up = i3wm-wsnext
-;scroll-down = i3wm-wsprev
 
 cursor-click = pointer
 cursor-scroll = ns-resize
