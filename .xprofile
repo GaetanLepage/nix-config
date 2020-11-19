@@ -9,7 +9,7 @@
 # executes scripts before the WM is launched
 screens &
 
-sleep 1
+sleep 2
 
 eval $(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)
 

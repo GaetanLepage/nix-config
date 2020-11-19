@@ -1,17 +1,30 @@
 #!/bin/bash
 
-# Auto
 
+
+echo "#################"
+echo "# RELOAD SCRIPT #"
+echo "#################"
 
 numlockx &
-picom -b --experimental-backends &  # launch compositor
 
-echo "REMAPS"
-remaps && echo "REMAPS done"&
-g610-led -a ff &
+
+killall picom
 
 echo "WALLPAPER"
-setbg && echo "WALLPAPER done"&
+setbg && echo "WALLPAPER done" &
+
+echo "PICOM"
+picom -b --experimental-backends
+
+echo "REMAPS"
+remaps && echo "REMAPS done" &
+g610-led -a ff &
 
 echo "POLYBAR"
 polybar_launch && echo "POLYBAR done" &
+
+echo "########"
+echo "# DONE #"
+echo "########"
+
