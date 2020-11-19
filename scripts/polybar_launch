@@ -14,13 +14,19 @@ while pgrep -x polybar >/dev/null; do sleep 1; done
 #IFS='\n'
 #for i in $(polybar -m); do
 polybar -m | while IFS= read -r line;do
+
+    # Get the name of the monitor
     echo $line
     MONITOR=$(echo $line | cut -d: -f1)
-
     echo "Monitor = "$MONITOR
+
+    # Detect if this monitor is the primary one
     IS_PRIMARY=$(echo $line | grep -Po '(?<=\().*(?=\))')
-    echo [[ $IS_PRIMARY]]
-    MONITOR=$MONITOR polybar mainbar-i3 -r &
+    if [[ $IS_PRIMARY ]] ; then export TRAY_POS=right; else TRAY_POS=none ; fi
+    echo $TRAY_POSE
+
+    # Launch the bar
+    TRAY_POS=$TRAY_POS MONITOR=$MONITOR polybar mainbar-i3 -r &
 done
 
 echo "Bars launched..."

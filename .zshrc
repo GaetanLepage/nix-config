@@ -54,7 +54,6 @@ source $ZSH/oh-my-zsh.sh
 
 # Launch neofetch
 neofetch
-echo "/!\\ do not talk about k!\n"
 
 
 ##################

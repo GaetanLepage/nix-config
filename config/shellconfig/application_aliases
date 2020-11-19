@@ -28,7 +28,7 @@ alias sc='source $HOME/.zshrc'
 alias sp='source $HOME/.zprofile'
 
 # Weather forecast
-alias wttr='curl wttr.in/Dommartin+69380'
+alias wttr='curl wttr.in/Grenoble+38000'
 
 # zotcli
 alias zr='zotcli read'
