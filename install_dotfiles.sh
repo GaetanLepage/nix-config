@@ -21,6 +21,7 @@ ln -sf $path/.profile $HOME/.profile
 ln -sf $path/.pylintrc $HOME/.pylintrc
 ln -sf $path/.xinitrc $HOME/.xinitrc
 ln -sf $path/.xprofile $HOME/.xprofile
+ln -sf $path/.Xresources $HOME/.Xresources
 ln -sf $path/.zprofile $HOME/.zprofile
 ln -sf $path/.zshenv $HOME/.zshenv
 ln -sf $path/.zshrc $HOME/.zshrc

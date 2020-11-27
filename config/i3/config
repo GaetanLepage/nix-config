@@ -38,14 +38,24 @@ floating_modifier $mod
 ##########
 
 # Theme colors
-# class                   border  backgr. text    indic.   child_border
-# client.focused          #ffffff #ffffff #1c1c1c #FDF6E3
-# client.focused_inactive #1c1c1c #1c1c1c #ffffff #454948
-# client.unfocused        #1c1c1c #1c1c1c #ffffff #454948
-# client.urgent           #BD2C40 #BD2C40 #ffffff #268BD2
-# client.placeholder      #000000 #0c0c0c #ffffff #000000
 
-# client.background       #2B2C2B
+# set primary gruvbox colorscheme colors
+set_from_resource $black        i3wm.color0  #282828
+set_from_resource $dark_red     i3wm.color1  #cc241d
+set_from_resource $dark_green   i3wm.color2  #98971a
+set_from_resource $dark_yellow  i3wm.color3  #d79921
+set_from_resource $dark_blue    i3wm.color4  #458588
+set_from_resource $dark_magenta i3wm.color5  #b16286
+set_from_resource $dark_cyan    i3wm.color6  #689d6a
+set_from_resource $light_gray   i3wm.color7  #a89984
+set_from_resource $dark_gray    i3wm.color8  #1d2021
+set_from_resource $white        i3wm.color15 #ebdbb2
+
+# class                 border      backgr      text      indicator     child_border
+client.focused          $white      $white      $black    $dark_magenta $white
+client.focused_inactive $white      $black      $white    $dark_magenta $black
+client.unfocused        $white      $black      $white    $dark_magenta $black
+client.urgent           $dark_red   $dark_red   $white    $dark_red     $dark_red
 
 
 ###########
@@ -61,7 +71,7 @@ hide_edge_borders smart
 
 # change borders
 bindsym $mod+u border none
-bindsym $mod+y border pixel 1
+bindsym $mod+y border pixel 2
 
 ###########################
 # GENERAL i3 KEY BINDINGS #
