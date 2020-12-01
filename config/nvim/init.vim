@@ -191,7 +191,7 @@ let g:airline#extensions#ale#enabled = 1
 
 set background=dark
 " Set background transparent
-hi! Normal ctermbg=NONE guibg=NONE
+"hi! Normal ctermbg=NONE guibg=NONE
 
 set rnu nu " hybrid line numbers
 
