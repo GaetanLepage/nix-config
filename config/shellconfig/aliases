@@ -1,5 +1,7 @@
 # Basic shell commands
 alias c='cd'
+
+alias ls='exa'
 alias l='ls -lFh'
 alias ll='ls -alFh'
 alias grep='grep --color=auto'

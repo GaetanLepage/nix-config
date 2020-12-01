@@ -8,6 +8,10 @@ urxvt*scrollBar:    False
 URxvt.urgentOnBell: true
 URxvt.visualBell:   false
 
+!rofi.color-window: #2f343f, #2f343f, #2f343f
+rofi.color-window: #A6222227
+!rofi.color-normal:
+
 
 ! -----------------------------------------------------------------------------
 ! File: gruvbox-dark.xresources

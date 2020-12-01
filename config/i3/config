@@ -330,7 +330,8 @@ exec --no-startup-id $terminal
 # WS2
 exec --no-startup-id $browser
 # WS3
-exec --no-startup-id $terminal --class nvim
+exec --no-startup-id i3-msg workspace $ws3; exec $terminal
+#exec --no-startup-id $terminal
 # WS4
 exec --no-startup-id thunderbird
 # WS6
@@ -376,7 +377,7 @@ set $ws10 "10 "
 
 # Workspace assigning
 # WS1 : terminal
-assign [class=$terminal] $ws1
+#assign [class=$terminal] $ws1
 # WS2 : web browser
 assign [class="Chromium"] $ws2
 assign [class="Firefox"] $ws2
