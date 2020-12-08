@@ -27,7 +27,9 @@ Plug 'ryanoasis/vim-devicons' " coloured icons
 Plug 'preservim/nerdcommenter' " Nerd Commenter
 
 " NerdTree
-Plug 'ms-jpq/chadtree', {'branch': 'chad', 'do': ':UpdateRemotePlugins'}
+" Plug 'ms-jpq/chadtree', {'branch': 'chad', 'do': ':UpdateRemotePlugins'}
+Plug 'preservim/nerdtree' |
+    \ Plug 'Xuyuanp/nerdtree-git-plugin'
 
 " Fuzzy file finder (fzf)
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -41,7 +43,7 @@ Plug 'majutsushi/tagbar'
 "Plug 'romgrk/barbar.nvim'
 
 " Scrollbar
-Plug 'Xuyuanp/scrollbar.nvim'
+" Plug 'Xuyuanp/scrollbar.nvim'
 
 Plug 'tpope/vim-surround' " git
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -61,7 +63,7 @@ Plug 'honza/vim-snippets'
 """""""""""""""""""""
 
 " TreeSitter
-Plug 'nvim-treesitter/nvim-treesitter'
+" Plug 'nvim-treesitter/nvim-treesitter' ", {'do': ':TSUpdate' }
 
 " Python
 "Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
@@ -324,28 +326,28 @@ nmap <leader>f  <Plug>(coc-format-selected)
 """""""""""""
 " Scrollbar "
 """""""""""""
-augroup ScrollbarInit
-  autocmd!
-  autocmd CursorMoved,VimResized,QuitPre * silent! lua require('scrollbar').show()
-  autocmd WinEnter,FocusGained           * silent! lua require('scrollbar').show()
-  autocmd WinLeave,FocusLost             * silent! lua require('scrollbar').clear()
-augroup end
+" augroup ScrollbarInit
+"   autocmd!
+"   autocmd CursorMoved,VimResized,QuitPre * silent! lua require('scrollbar').show()
+"   autocmd WinEnter,FocusGained           * silent! lua require('scrollbar').show()
+"   autocmd WinLeave,FocusLost             * silent! lua require('scrollbar').clear()
+" augroup end
 
 """"""""""""""
 " TreeSitter "
 """"""""""""""
-lua <<EOF
-require'nvim-treesitter.configs'.setup {
-  ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
-  highlight = {
-    enable = true,              -- false will disable the whole extension
-    -- disable = { "c", "rust" },  -- list of language that will be disabled
-  },
-  indent = {
-    enable=true
-  }
-}
-EOF
+" lua <<EOF
+" require'nvim-treesitter.configs'.setup {
+"   ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+"   highlight = {
+"     enable = true,              -- false will disable the whole extension
+"     -- disable = { "c", "rust" },  -- list of language that will be disabled
+"   },
+"   indent = {
+"     enable=true
+"   }
+" }
+" EOF
 
 
 """"""""""""
@@ -400,21 +402,34 @@ EOF
 """"""""""""
 " ChadTree "
 """"""""""""
-nnoremap <C-n> :CHADopen<CR>
-let g:chadtree_settings = {
-            \ 'keymap': {
-                \ 'collapse': [],
-                \ 'primary': ['<enter>', '<2-leftmouse>'],
-                \ 'secondary': [],
-                \ 'tertiary': ['t'],
-                \ 'trash': []
-            \ },
-            \ 'width': 35}
-lua vim.api.nvim_set_var("chadtree_ignores", { name = {
-            \ ".*",
-            \ ".git",
-            \ "__pycache__"
-            \ } })
+" nnoremap <C-n> :CHADopen<CR>
+" let g:chadtree_settings = {
+"             \ 'keymap': {
+"                 \ 'collapse': [],
+"                 \ 'primary': ['<enter>', '<2-leftmouse>'],
+"                 \ 'secondary': [],
+"                 \ 'tertiary': ['t'],
+"                 \ 'trash': []
+"             \ },
+"             \ 'width': 35}
+" lua vim.api.nvim_set_var("chadtree_ignores", { name = {
+"             \ ".*",
+"             \ ".git",
+"             \ "__pycache__"
+"             \ } })
+
+""""""""""""
+" NerdTree "
+""""""""""""
+map <C-n> :NERDTreeToggle<CR>
+
+" open a NERDTree automatically when vim starts up if no files were specified
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+
+" open NERDTree automatically when vim starts up on opening a directory
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | exe 'cd '.argv()[0] | endif
 
 
 """""""
