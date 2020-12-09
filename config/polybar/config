@@ -45,10 +45,12 @@ cyan        = ${xrdb:color13}
 
 [colors]
 ;base-bg     = #32302f
-base-bg     = #fa0a0a0a
+base-bg     = #ff0a0a0a
+;base-bg     = #cd0a0a0a
 glyph-bg    = #de0a0a0a
-module-bg   = #fa0a0a0a
-selected-bg = #dc1a1a1a
+module-bg   = ${colors.base-bg}
+selected-bg = #ff1a1a1a
+;selected-bg = #cd1a1a1a
 
 text-fg = ${xcolor.white}
 icon-fg = ${xcolor.yellow}
@@ -186,7 +188,7 @@ label-separator = "  "
 [module/spotify]
 type = custom/script
 interval = 1
-click-left = playerctl play-pause
+click-left = playerctl -p spotify play-pause
 click-right = i3-msg 'workspace 9 '
 format-prefix = " "
 format = <label>
@@ -248,13 +250,13 @@ format-muted-foreground = ${xcolor.darkred}
 label-muted = "muted"
 
 bar-volume-width = 10
-bar-volume-foreground-0 = ${colors.bar-fg}
-bar-volume-foreground-1 = ${colors.bar-fg}
-bar-volume-foreground-2 = ${colors.bar-fg}
-bar-volume-foreground-3 = ${colors.bar-fg}
-bar-volume-foreground-4 = ${colors.bar-fg}
-bar-volume-foreground-5 = ${colors.bar-fg}
-bar-volume-foreground-6 = ${colors.warn-fg}
+bar-volume-foreground-0 = ${xcolor.green}
+bar-volume-foreground-1 = ${xcolor.green}
+bar-volume-foreground-2 = ${xcolor.green}
+bar-volume-foreground-3 = ${xcolor.green}
+bar-volume-foreground-4 = ${xcolor.green}
+bar-volume-foreground-5 = ${xcolor.green}
+bar-volume-foreground-6 = ${xcolor.green}
 bar-volume-gradient = ${colors.text-fg}
 bar-volume-indicator = |
 bar-volume-indicator-font = 1
@@ -275,10 +277,10 @@ label-font = 1
 format-underline = ${colors.text-fg}
 
 bar-used-width = 10
-bar-used-foreground-0 = ${colors.bar-fg}
-bar-used-foreground-1 = ${colors.bar-fg}
-bar-used-foreground-2 = ${colors.bar-fg}
-bar-used-foreground-3 = ${colors.bar-fg}
+bar-used-foreground-0 = ${xcolor.green}
+bar-used-foreground-1 = ${xcolor.green}
+bar-used-foreground-2 = ${xcolor.yellow}
+bar-used-foreground-3 = ${xcolor.red}
 bar-used-indicator = |
 bar-used-indicator-font = 1
 bar-used-indicator-foreground = #ff
@@ -299,28 +301,28 @@ format-underline = ${colors.text-fg}
 label =  %percentage:02%%
 ramp-coreload-0 = ▁
 ramp-coreload-0-font = 2
-ramp-coreload-0-foreground = ${colors.bar-fg}
+ramp-coreload-0-foreground = ${xcolor.green}
 ramp-coreload-1 = ▂
 ramp-coreload-1-font = 2
-ramp-coreload-1-foreground = ${colors.bar-fg}
+ramp-coreload-1-foreground = ${xcolor.green}
 ramp-coreload-2 = ▃
 ramp-coreload-2-font = 2
-ramp-coreload-2-foreground = ${colors.bar-fg}
+ramp-coreload-2-foreground = ${xcolor.green}
 ramp-coreload-3 = ▄
 ramp-coreload-3-font = 2
-ramp-coreload-3-foreground = ${colors.bar-fg}
+ramp-coreload-3-foreground = ${xcolor.green}
 ramp-coreload-4 = ▅
 ramp-coreload-4-font = 2
-ramp-coreload-4-foreground = ${colors.bar-fg}
+ramp-coreload-4-foreground = ${xcolor.yellow}
 ramp-coreload-5 = ▆
 ramp-coreload-5-font = 2
-ramp-coreload-5-foreground = ${colors.bar-fg}
+ramp-coreload-5-foreground = ${xcolor.yellow}
 ramp-coreload-6 = ▇
 ramp-coreload-6-font = 2
-ramp-coreload-6-foreground = ${colors.bar-fg}
+ramp-coreload-6-foreground = ${xcolor.yellow}
 ramp-coreload-7 = █
 ramp-coreload-7-font = 2
-ramp-coreload-7-foreground = ${colors.bar-fg}
+ramp-coreload-7-foreground = ${xcolor.red}
 
 
 ################################################################
@@ -448,7 +450,7 @@ ramp-capacity-foreground = #fff
 ################################################################
 [module/updates-arch-combined]
 type = custom/script
-exec = ~/.config/polybar/updates-arch-combined.sh
+exec = bash ~/.config/polybar/updates-arch-combined.sh
 interval = 60
 format-underline = ${colors.text-fg}
 format-background = ${colors.module-bg}
@@ -495,7 +497,7 @@ label =  %date%
 
 ################################################################
 ################################################################
-SETTINGS
+# SETTINGS
 ################################################################
 ################################################################
 

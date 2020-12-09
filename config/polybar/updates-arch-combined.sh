@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 type pacman >/dev/null 2>&1 || exit
 

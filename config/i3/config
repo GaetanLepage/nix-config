@@ -248,7 +248,7 @@ bindsym $mod+F10 exec bluetoothctl power on
 bindsym $mod+Shift+F10 exec bluetoothctl power off
 
 # vibrance toggle
-bindsym $mod+equal exec --no-startup-id vibrance
+bindsym $mod+equal exec --no-startup-id vibrance && screens toggle_csgo
 
 bindsym $mod+Ctrl+m exec --no-startup-id blueman-manager
 bindsym $mod+t exec --no-startup-id pkill picom
@@ -325,6 +325,7 @@ mode "$mode_system" {
 # Main graphical applications
 # Systray
 exec --no-startup-id pasystray
+exec --no-startup-id nextcloud
 # WS1
 exec --no-startup-id $terminal
 # WS2
@@ -409,6 +410,7 @@ assign [class="Element"] $ws7
 assign [class="Zotero"] $ws7
 # WS8
 assign [class="Mumble"] $ws8
+assign [class="Steam"] $ws8
 assign [class="LBRY"] $ws8
 # WS9
 assign [class="spt"] $ws9

@@ -1,9 +1,5 @@
 #!/bin/bash
 
-HOSTNAME=$(hostname)
-echo "detected system : "$HOSTNAME
-
-
 disable_output () {
     xrandr | grep "${1} connected" && xrandr --output $1 --off
 }
@@ -21,8 +17,27 @@ disable_all () {
 
 dual_screen () {
     #xrandr --output $BENQ --mode 1920x1080 --pos 0x0 --rotate normal --output $S144 --mode 1920x1080 --rate 144 --primary --pos 1920x0 --rotate normal
-    xrandr --output $BENQ --primary --mode 2560x1440 --pos 0x0 --rotate normal --output $S144 --mode 1920x1080 --rate 144 --pos 2560x180 --rotate normal
+    xrandr --output $BENQ --mode 2560x1440 --pos 0x0 --rotate normal --output $S144 --primary --mode 1920x1080 --rate 144 --pos 2560x180 --rotate normal
 }
+
+toggle_csgo () {
+
+    echo "TOGGLING CSGO MODE"
+
+    output=$(nvidia-settings --query CurrentMetaMode)
+
+    if echo ${output} | grep -q "1024x768"
+    then
+        echo "exiting CSGO mode"
+        nvidia-settings --assign CurrentMetaMode="DP-0: 1920x1080 { ViewPortIn=1920x1080, ViewPortOut=1920x1080 RefreshRate=144 }"
+        xrandr --output DP-0 --mode 1920x1080 --rate 144 --primary
+
+    else
+        echo "entering CSGO mode"
+        nvidia-settings --assign CurrentMetaMode="DP-0: 1024x768 { ViewPortIn=1024x768, ViewPortOut=804x768+110+0 RefreshRate=144 }"
+    fi
+}
+
 
 is_connected() {
     # $1 : name of an output
@@ -45,77 +60,96 @@ is_connected() {
 }
 
 
+auto_config() {
+    HOSTNAME=$(hostname)
+    echo "detected system : "$HOSTNAME
+
+    case $HOSTNAME in
+        # Desktop PC
+        gaetan-desktop-arch)
+
+            S144="DP-0"
+            BENQ="HDMI-0"
+
+            # if both screen are connected
+            if is_connected "$S144" && is_connected "$BENQ";
+            then
+                echo "HOSTNAME = ${HOSTNAME} - MODE = dual screen"
+                #xrandr --output HDMI-0 --off --output DP-0 --mode 1920x1080 --rate 144 --primary
+                dual_screen
+
+            # If only the main 144Hz screen is connected
+            elif is_connected "$S144";
+            then
+                echo "HOSTNAME = ${HOSTNAME} - only 144"
+                xrandr --output $S144 --mode 1920x1080 --rate 144 --primary --pos 1920x0 --rotate normal
+            fi
+            ;;
+
+        # Laptop
+        gaetan-xps)
+            LAPTOP_SCREEN="eDP-1"
+            EXTERNAL="DP-1"
+            S144="DP-1-2"
+            BENQ="DP-2-1"
+
+            # Dual screen (TB3 dock)
+            if is_connected "$S144" && is_connected "$BENQ";
+            then
+                echo "Dual screen"
+                dual_screen
+
+                # Turn wifi off
+                nmcli radio wifi off
+
+            # External only
+            elif is_connected "$EXTERNAL";
+            then
+                #echo "Single external screen"
+                #xrandr --output "$EXTERNAL" --mode 1920x1080 --pos 0x0 --rotate normal
+                mons -e right
+
+            # Laptop only
+            elif is_connected "$LAPTOP_SCREEN";
+            then
+                echo "laptop screen only"
+                xrandr --output "$LAPTOP_SCREEN" --mode 1920x1080 --pos 0x0 --rotate normal
+
+                # start wifi
+                nmcli radio wifi on
+
+            fi
+
+            ;;
+
+        # Inria
+        alya)
+
+            xrandr --output USB-C-0 --off
+            xrandr --output DP-0 --off
+            xrandr --output DP-3 --off
+            xrandr --output DP-2 --off
+            xrandr --output DP-5 --off
+            xrandr --output DP-1 --mode 1920x1200 --pos 0x0 --rotate normal
+            xrandr --output DP-4 --primary --mode 2560x1440 --pos 1920x0 --rotate normal
+
+            ;;
+    esac
+}
+
+
 # Start by disabling all outputs
 disable_all
 
+case $1 in
+    "toggle_csgo")
 
-case $HOSTNAME in
-    # Desktop PC
-    gaetan-desktop-arch)
-
-        S144="DP-0"
-        BENQ="HDMI-0"
-
-        # if both screen are connected
-        if is_connected "$S144" && is_connected "$BENQ";
-        then
-            echo "HOSTNAME = ${HOSTNAME} - MODE = dual screen"
-            dual_screen
-
-        # If only the main 144Hz screen is connected
-        elif is_connected "$S144";
-        then
-            echo "HOSTNAME = ${HOSTNAME} - only 144"
-            xrandr --output $S144 --mode 1920x1080 --rate 144 --primary --pos 1920x0 --rotate normal
-        fi
+        toggle_csgo
+        exit 0
         ;;
-
-    # Laptop
-    gaetan-xps)
-        LAPTOP_SCREEN="eDP-1"
-        EXTERNAL="DP-1"
-        S144="DP-1-2"
-        BENQ="DP-2-1"
-
-        # Dual screen (TB3 dock)
-        if is_connected "$S144" && is_connected "$BENQ";
-        then
-            echo "Dual screen"
-            dual_screen
-
-            # Turn wifi off
-            nmcli radio wifi off
-
-        # External only
-        elif is_connected "$EXTERNAL";
-        then
-            #echo "Single external screen"
-            #xrandr --output "$EXTERNAL" --mode 1920x1080 --pos 0x0 --rotate normal
-            mons -e right
-
-        # Laptop only
-        elif is_connected "$LAPTOP_SCREEN";
-        then
-            echo "laptop screen only"
-            xrandr --output "$LAPTOP_SCREEN" --mode 1920x1080 --pos 0x0 --rotate normal
-
-            # start wifi
-            nmcli radio wifi on
-
-        fi
-
-        ;;
-
-    # Inria
-    alya)
-
-        xrandr --output USB-C-0 --off
-        xrandr --output DP-0 --off
-        xrandr --output DP-3 --off
-        xrandr --output DP-2 --off
-        xrandr --output DP-5 --off
-        xrandr --output DP-1 --mode 1920x1200 --pos 0x0 --rotate normal
-        xrandr --output DP-4 --primary --mode 2560x1440 --pos 1920x0 --rotate normal
-
+    "")
+        auto_config
+        exit 0
         ;;
 esac
+

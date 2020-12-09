@@ -66,7 +66,7 @@ Plug 'honza/vim-snippets'
 " Plug 'nvim-treesitter/nvim-treesitter' ", {'do': ':TSUpdate' }
 
 " Python
-"Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
+Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
 Plug 'tmhedberg/SimpylFold'
 Plug 'sheerun/vim-polyglot'
 "Plug 'vim-python/python-syntax'
