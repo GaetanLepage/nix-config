@@ -121,7 +121,6 @@ bindsym $mod+Shift+Right move right
 # workspace back and forth (with/without active container)
 workspace_auto_back_and_forth no
 bindsym $mod+b workspace back_and_forth
-bindsym $mod+less workspace back_and_forth
 bindsym $mod+Shift+b move container to workspace back_and_forth; workspace back_and_forth
 
 # split orientation
@@ -194,12 +193,6 @@ bindsym $mod+Ctrl+Left workspace prev
 bindsym $mod+Ctrl+Up workspace next
 bindsym $mod+Ctrl+Down workspace prev
 
-# navigate workspaces next / previous [MOD+ALT+ARROWS]
-bindsym $mod+Mod1+Right workspace next
-bindsym $mod+Mod1+Left workspace prev
-bindsym $mod+Mod1+Up workspace next
-bindsym $mod+Mod1+Down workspace prev
-
 # navigate workspaces next / previous [CTRL+MOD+ARROWS]
 bindsym Ctrl+Mod1+Right workspace next
 bindsym Ctrl+Mod1+Left workspace prev
@@ -211,12 +204,6 @@ bindsym $mod+Ctrl+l workspace next
 bindsym $mod+Ctrl+h workspace prev
 bindsym $mod+Ctrl+k workspace next
 bindsym $mod+Ctrl+j workspace prev
-
-# navigate workspaces next / previous [MOD+ALT+HJKL]
-bindsym $mod+Mod1+l workspace next
-bindsym $mod+Mod1+h workspace prev
-bindsym $mod+Mod1+k workspace next
-bindsym $mod+Mod1+j workspace prev
 
 # navigate workspaces next / previous [CTRL+MOD+HJKL]
 bindsym Ctrl+Mod1+l workspace next
@@ -239,22 +226,24 @@ bindsym $mod+d exec rofi -show run
 # Start Applications
 bindsym $mod+w exec $browser
 bindsym $mod+F3 exec pcmanfm
-bindsym $mod+F4 exec kitty --class nvim
-bindsym $mod+F6 exec $reload_script
-bindsym $mod+F7 exec pkill megasync && megasync
 bindsym $mod+F9 exec nmcli radio wifi on
 bindsym $mod+Shift+F9 exec nmcli radio wifi off
-bindsym $mod+F10 exec bluetoothctl power on
-bindsym $mod+Shift+F10 exec bluetoothctl power off
 
-# vibrance toggle
-bindsym $mod+equal exec --no-startup-id vibrance && screens toggle_csgo
+# reload
+bindsym $mod+n exec $reload_script
 
-bindsym $mod+Ctrl+m exec --no-startup-id blueman-manager
-bindsym $mod+t exec --no-startup-id pkill picom
-bindsym $mod+Ctrl+t exec --no-startup-id picom -b --experimental-backends
-bindsym $mod+Shift+d --release exec "killall dunst; exec notify-send 'restart unst'"
+# Bluetooth
+bindsym $mod+i exec --no-startup-id blueman-manager # TODO rebind
+bindsym $mod+Shift+i exec sudo rfkill unblock bluetooth
+bindsym $mod+Ctrl+i exec sudo rfkill block bluetooth
+# Picom
+bindsym $mod+t exec --no-startup-id picom -b --experimental-backends
+bindsym $mod+Shift+t exec --no-startup-id pkill picom
+# restart dunst
+bindsym $mod+Shift+d --release exec "killall dunst; exec notify-send 'restart dunst'"
+# screenshot (flameshot)
 bindsym Print exec --no-startup-id flameshot gui
+# xkill
 bindsym $mod+x --release exec --no-startup-id xkill
 
 
@@ -301,20 +290,20 @@ bindsym XF86MonBrightnessUp exec "xbacklight -inc 10"
 bindsym XF86MonBrightnessDown exec "xbacklight -dec 10"
 
 # Set shut down, restart and locking features
-bindsym $mod+0 mode "$mode_system"
+bindsym $mod+0 mode "$mode_system" # TODO rebind
 set $mode_system (l)ock, (e)xit, switch_(u)ser, (s)uspend, (h)ibernate, (r)eboot, (Shift+s)hutdown
 mode "$mode_system" {
     bindsym l exec --no-startup-id i3exit lock, mode "default"
-    bindsym s exec --no-startup-id i3exit suspend, mode "default"
-    bindsym u exec --no-startup-id i3exit switch_user, mode "default"
-    bindsym e exec --no-startup-id i3exit logout, mode "default"
-    bindsym h exec --no-startup-id i3exit hibernate, mode "default"
-    bindsym r exec --no-startup-id i3exit reboot, mode "default"
-    bindsym Shift+s exec --no-startup-id i3exit shutdown, mode "default"
+        bindsym s exec --no-startup-id i3exit suspend, mode "default"
+        bindsym u exec --no-startup-id i3exit switch_user, mode "default"
+        bindsym e exec --no-startup-id i3exit logout, mode "default"
+        bindsym h exec --no-startup-id i3exit hibernate, mode "default"
+        bindsym r exec --no-startup-id i3exit reboot, mode "default"
+        bindsym Shift+s exec --no-startup-id i3exit shutdown, mode "default"
 
-    # exit system mode: "Enter" or "Escape"
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
+# exit system mode: "Enter" or "Escape"
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
 }
 
 
@@ -327,7 +316,7 @@ mode "$mode_system" {
 exec --no-startup-id pasystray
 exec --no-startup-id nextcloud
 # WS1
-exec --no-startup-id $terminal
+exec --no-startup-id i3-msg workspace $ws1; exec $terminal
 # WS2
 exec --no-startup-id $browser
 # WS3
@@ -349,7 +338,6 @@ exec --no-startup-id $terminal --class gotop gotop
 exec --no-startup-id spotify
 
 # Automatic tabbed layout for some applications
-for_window [class = "Firefox"] layout tabbed
 for_window [class = "firefox"] layout tabbed
 for_window [class = "Thunderbird"] layout tabbed
 for_window [class = "Zotero"] layout tabbed
@@ -398,6 +386,7 @@ assign [class="Franz"] $ws4
 assign [class="Riot"] $ws4
 # WS5 : pdf
 assign [class="Foxit Reader"] $ws5
+assign [class="okular"] $ws5
 #assign [class="Zathura"] $ws5
 # WS6 VoIP
 assign [class="discord"] $ws6
@@ -410,6 +399,7 @@ assign [class="Element"] $ws7
 assign [class="Zotero"] $ws7
 # WS8
 assign [class="Mumble"] $ws8
+assign [class="Jitsi Meet"] $ws8
 assign [class="Steam"] $ws8
 assign [class="LBRY"] $ws8
 # WS9
@@ -473,29 +463,29 @@ for_window [title="Edit Event:*"] floating enable
 # Resize window (you can also use the mouse for that)
 bindsym $mod+r mode "resize"
 mode "resize" {
-        # These bindings trigger as soon as you enter the resize mode
-        # Pressing left will shrink the window’s width.
-        # Pressing right will grow the window’s width.
-        # Pressing up will shrink the window’s height.
-        # Pressing down will grow the window’s height.
-        bindsym h resize shrink width 5 px or 5 ppt
+# These bindings trigger as soon as you enter the resize mode
+# Pressing left will shrink the window’s width.
+# Pressing right will grow the window’s width.
+# Pressing up will shrink the window’s height.
+# Pressing down will grow the window’s height.
+    bindsym h resize shrink width 5 px or 5 ppt
         bindsym j resize grow height 5 px or 5 ppt
         bindsym k resize shrink height 5 px or 5 ppt
         bindsym l resize grow width 5 px or 5 ppt
 
-        # same bindings, but for the arrow keys
+# same bindings, but for the arrow keys
         bindsym Left resize shrink width 10 px or 10 ppt
         bindsym Down resize grow height 10 px or 10 ppt
         bindsym Up resize shrink height 10 px or 10 ppt
         bindsym Right resize grow width 10 px or 10 ppt
 
-        # Higer sensitivity
+# Higer sensitivity
         bindsym Shift+Left resize shrink width 20 px or 20 ppt
         bindsym Shift+Down resize grow height 20 px or 20 ppt
         bindsym Shift+Up resize shrink height 20 px or 20 ppt
         bindsym Shift+Right resize grow width 20 px or 20 ppt
 
-        # exit resize mode: Enter or Escape
+# exit resize mode: Enter or Escape
         bindsym Return mode "default"
         bindsym Escape mode "default"
         bindsym $mod+r mode "default"
@@ -531,32 +521,32 @@ set $mode_gaps_inner Inner Gaps: +|-|0 (local), Shift + +|-|0 (global)
 bindsym $mod+Shift+g mode "$mode_gaps"
 
 mode "$mode_gaps" {
-        bindsym o      mode "$mode_gaps_outer"
-        bindsym i      mode "$mode_gaps_inner"
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
+    bindsym o      mode "$mode_gaps_outer"
+    bindsym i      mode "$mode_gaps_inner"
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
 }
 mode "$mode_gaps_inner" {
-        bindsym plus  gaps inner current plus 10
-        bindsym minus gaps inner current minus 10
-        bindsym 0     gaps inner current set 0
+    bindsym plus  gaps inner current plus 10
+    bindsym minus gaps inner current minus 10
+    bindsym 0     gaps inner current set 0
 
-        bindsym Shift+plus  gaps inner all plus 10
-        bindsym Shift+minus gaps inner all minus 10
-        bindsym Shift+0     gaps inner all set 0
+    bindsym Shift+plus  gaps inner all plus 10
+    bindsym Shift+minus gaps inner all minus 10
+    bindsym Shift+0     gaps inner all set 0
 
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
 }
 mode "$mode_gaps_outer" {
-        bindsym plus  gaps outer current plus 10
-        bindsym minus gaps outer current minus 10
-        bindsym 0     gaps outer current set 0
+    bindsym plus  gaps outer current plus 10
+    bindsym minus gaps outer current minus 10
+    bindsym 0     gaps outer current set 0
 
-        bindsym Shift+plus  gaps outer all plus 10
-        bindsym Shift+minus gaps outer all minus 10
-        bindsym Shift+0     gaps outer all set 0
+    bindsym Shift+plus  gaps outer all plus 10
+    bindsym Shift+minus gaps outer all minus 10
+    bindsym Shift+0     gaps outer all set 0
 
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
 }
