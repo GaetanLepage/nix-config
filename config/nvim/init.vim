@@ -38,12 +38,8 @@ Plug 'junegunn/fzf.vim' "fzf
 " TagBar
 Plug 'majutsushi/tagbar'
 
-" Barbar
-"Plug 'kyazdani42/nvim-web-devicons'
-"Plug 'romgrk/barbar.nvim'
-
 " Scrollbar
-" Plug 'Xuyuanp/scrollbar.nvim'
+Plug 'dstein64/nvim-scrollview', {'branch': 'main'}
 
 Plug 'tpope/vim-surround' " git
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -57,6 +53,9 @@ Plug 'mileszs/ack.vim'
 
 " snippets allow to easily 'fill' common patterns
 Plug 'honza/vim-snippets'
+
+" Git Fugitive
+Plug 'tpope/vim-fugitive'
 
 """""""""""""""""""""
 " LANGUAGES SUPPORT "
@@ -77,13 +76,9 @@ Plug 'lervag/vimtex'
 
 " Markdown
 "Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
-
 Plug 'vim-pandoc/vim-pandoc'
 Plug 'lingnand/pandoc-preview.vim'
 Plug 'gabrielelana/vim-markdown'
-
-" TOML
-Plug 'cespare/vim-toml'
 
 call plug#end()
 
@@ -282,7 +277,7 @@ endfunction
 " Use <cr> to confirm completion
 inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
-let g:coc_snippet_next = '<tab>'
+let g:coc_snippet_next = '<enter>'
 
 " Use <Tab> and <S-Tab> to navigate the completion list
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
@@ -451,7 +446,7 @@ au BufNewFile,BufFilePre,BufRead *.md set filetype=markdown
 """"""""""
 " PYTHON "
 """"""""""
-"let g:python3_host_prog = '$HOME/.local/bin/python3'
+let g:python3_host_prog = '/usr/bin/python3'
 let g:python_highlight_all = 1
 let g:SimpylFold_docstring_preview = 1
 
