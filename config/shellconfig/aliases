@@ -8,6 +8,7 @@ alias grep='grep --color=auto'
 alias rm='rm -iv'
 alias cp='cp -iv'
 alias ka='killall'
+alias f=fg
 
 # Programming
 
