@@ -374,15 +374,9 @@ assign [class="firefox"] $ws2
 # WS3 : coding
 assign [class="nvim"] $ws3
 assign [class="code-oss"] $ws3
-assign [class="jetbrains-pycharm"] $ws3
-assign [class="java-lang-Thread"] $ws3
-assign [class="Welcome to PyCharm"] $ws3
-assign [class="MATLAB R2019b - primary and secondary school use"] $ws3
-assign [class="SNAP"] $ws3
 # WS4 : mail & messaging
 assign [class="Thunderbird"] $ws4
 assign [class="Slack"] $ws4
-assign [class="Franz"] $ws4
 assign [class="Riot"] $ws4
 # WS5 : pdf
 assign [class="Foxit Reader"] $ws5
