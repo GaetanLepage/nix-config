@@ -8,12 +8,14 @@ Host alya
 
 Host gaming
     User uc
-    Hostname 192.168.1.3
+    Hostname lepage.casa
+    Port 223
     IdentityFile ~/.ssh/rsa_gaetan
 
 Host backup
     User backup_server
-    Hostname 192.168.1.3
+    Hostname lepage.casa
+    Port 223
     IdentityFile ~/.ssh/rsa_gaetan
 
 Host server
