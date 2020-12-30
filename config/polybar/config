@@ -52,7 +52,8 @@ module-bg   = ${colors.base-bg}
 selected-bg = #ff1a1a1a
 ;selected-bg = #cd1a1a1a
 
-text-fg = ${xcolor.white}
+;text-fg = ${xcolor.white}
+text-fg = ffffff
 icon-fg = ${xcolor.yellow}
 bar-fg  = ${xcolor.darkyellow}
 bar-empty = #444444
@@ -204,18 +205,18 @@ type = internal/xbacklight
 
 format = <label> <bar>
 label =  %percentage:3:%%
-format-underline = #ffffff
+format-underline = ${colors.text-fg}
 
 bar-width = 10
 bar-indicator = |
-bar-indicator-foreground = #fff
+bar-indicator-foreground = ${colors.text-fg}
 bar-indicator-font = 1
 bar-fill = ▐
 bar-fill-font = 2
-;bar-fill-foreground = #9f78e1
+bar-fill-foreground = ${xcolor.green}
 bar-empty = ▐
 bar-empty-font = 2
-bar-empty-foreground = ${colors.foreground-alt}
+bar-empty-foreground = ${colors.bar-empty}
 
 ################################################################
 # BACKLIGHT-ACPI
@@ -410,23 +411,23 @@ adapter = AC
 full-at = 98
 
 format-charging = <ramp-capacity> <label-charging>ﮣ
-format-charging-underline = #ffffff
+format-charging-underline = ${colors.text-fg}
 ;format-charging-prefix = "ﮣ "
 
 format-discharging =<ramp-capacity>  <label-discharging>
-format-discharging-underline = ${self.format-charging-underline}
+format-discharging-underline = ${colors.text-fg}
 
 format-full = <ramp-capacity> <label-full>ﮣ
 ;format-full-prefix = "ﮣ"
-format-full-foreground = #fff
-format-full-underline = ${self.format-charging-underline}
+format-full-foreground = ${colors.text-fg}
+format-full-underline = ${colors.text-fg}
 
 ramp-capacity-0 = " "
 ramp-capacity-1 = " "
 ramp-capacity-2 = " "
 ramp-capacity-3 = " "
 ramp-capacity-4 = " "
-ramp-capacity-foreground = #fff
+ramp-capacity-foreground = ${colors.text-fg}
 
 ;animation-charging-0 = 
 ;animation-charging-1 = 
