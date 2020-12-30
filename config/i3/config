@@ -260,8 +260,8 @@ bindsym $mod+x --release exec --no-startup-id xkill
 # * dunst (notifications)
 # * polybar_launch
 
-# Lock screen
-bindsym $mod+o exec --no-startup-id i3lock -i ~/.config/i3/lock.jpg -t
+# Call lock script to lock computer
+bindsym $mod+o exec --no-startup-id lock
 
 ### VOLUME SETTINGS ###
 bindsym $mod+m exec pavucontrol
@@ -281,9 +281,9 @@ bindsym XF86AudioPrev exec playerctl previous
 #bindsym $mod+Right exec playerctl next
 
 # monitor management
-bindsym $mod+F8 exec mons -n right; exec $reload_script
 bindsym $mod+Shift+m exec --no-startup-id xrandr_auto
-bindsym $mod+c exec mons -o
+bindsym $mod+Ctrl+c exec --no-startup-id mons -n right; exec --no-startup-id $reload_script
+bindsym $mod+c exec --no-startup-id screens
 
 # Screen brightness controls
 bindsym XF86MonBrightnessUp exec "xbacklight -inc 10"
@@ -320,22 +320,22 @@ exec --no-startup-id i3-msg workspace $ws1; exec $terminal
 # WS2
 exec --no-startup-id $browser
 # WS3
-exec --no-startup-id i3-msg workspace $ws3; exec $terminal
+#exec --no-startup-id i3-msg workspace $ws3; exec $terminal
 #exec --no-startup-id $terminal
 # WS4
-exec --no-startup-id thunderbird
+#exec --no-startup-id thunderbird
 # WS6
 exec --no-startup-id signal-desktop
 #exec --no-startup-id telegram-desktop
 # WS7
 #exec --no-startup-id element-desktop
-exec --no-startup-id zotero
+#exec --no-startup-id zotero
 # WS8
 # WS9
 exec --no-startup-id type nvtop && $terminal --class nvtop nvtop
 exec --no-startup-id $terminal --class gotop gotop
 # WS10
-exec --no-startup-id spotify
+#exec --no-startup-id spotify
 
 # Automatic tabbed layout for some applications
 for_window [class = "firefox"] layout tabbed
@@ -463,26 +463,26 @@ mode "resize" {
 # Pressing up will shrink the window’s height.
 # Pressing down will grow the window’s height.
     bindsym h resize shrink width 5 px or 5 ppt
-        bindsym j resize grow height 5 px or 5 ppt
-        bindsym k resize shrink height 5 px or 5 ppt
-        bindsym l resize grow width 5 px or 5 ppt
-
-# same bindings, but for the arrow keys
-        bindsym Left resize shrink width 10 px or 10 ppt
-        bindsym Down resize grow height 10 px or 10 ppt
-        bindsym Up resize shrink height 10 px or 10 ppt
-        bindsym Right resize grow width 10 px or 10 ppt
+    bindsym j resize grow height 5 px or 5 ppt
+    bindsym k resize shrink height 5 px or 5 ppt
+    bindsym l resize grow width 5 px or 5 ppt
 
 # Higer sensitivity
-        bindsym Shift+Left resize shrink width 20 px or 20 ppt
-        bindsym Shift+Down resize grow height 20 px or 20 ppt
-        bindsym Shift+Up resize shrink height 20 px or 20 ppt
-        bindsym Shift+Right resize grow width 20 px or 20 ppt
+    bindsym Shift+h resize shrink width 20 px or 20 ppt
+    bindsym Shift+j resize grow height 20 px or 20 ppt
+    bindsym Shift+k resize shrink height 20 px or 20 ppt
+    bindsym Shift+l resize grow width 20 px or 20 ppt
+
+# same bindings, but for the arrow keys
+    bindsym Left resize shrink width 10 px or 10 ppt
+    bindsym Down resize grow height 10 px or 10 ppt
+    bindsym Up resize shrink height 10 px or 10 ppt
+    bindsym Right resize grow width 10 px or 10 ppt
 
 # exit resize mode: Enter or Escape
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
-        bindsym $mod+r mode "default"
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+    bindsym $mod+r mode "default"
 }
 
 
@@ -490,57 +490,56 @@ mode "resize" {
 # GAPS #
 ########
 
-# Set inner/outer gaps
-#gaps inner 14
-#gaps outer -2
-gaps inner 20
-gaps outer 0
-
-# Additionally, you can issue commands with the following syntax. This is useful to bind keys to changing the gap size.
-# gaps inner|outer current|all set|plus|minus <px>
-# gaps inner all set 10
-# gaps outer all plus 5
-
-# Smart gaps (gaps used if only more than one container on the workspace)
-smart_gaps on
-
-# Smart borders (draw borders around container only if it is not the only container on this workspace)
-# on|no_gaps (on=always activate and no_gaps=only activate if the gap size to the edge of the screen is 0)
-smart_borders on
-
-# Press $mod+Shift+g to enter the gap mode. Choose o or i for modifying outer/inner gaps. Press one of + / - (in-/decrement for current workspace) or 0 (remove gaps for current workspace). If you also press Shift with these keys, the change will be global for all workspaces.
-set $mode_gaps Gaps: (o) outer, (i) inner
-set $mode_gaps_outer Outer Gaps: +|-|0 (local), Shift + +|-|0 (global)
-set $mode_gaps_inner Inner Gaps: +|-|0 (local), Shift + +|-|0 (global)
-bindsym $mod+Shift+g mode "$mode_gaps"
-
-mode "$mode_gaps" {
-    bindsym o      mode "$mode_gaps_outer"
-    bindsym i      mode "$mode_gaps_inner"
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
-}
-mode "$mode_gaps_inner" {
-    bindsym plus  gaps inner current plus 10
-    bindsym minus gaps inner current minus 10
-    bindsym 0     gaps inner current set 0
-
-    bindsym Shift+plus  gaps inner all plus 10
-    bindsym Shift+minus gaps inner all minus 10
-    bindsym Shift+0     gaps inner all set 0
-
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
-}
-mode "$mode_gaps_outer" {
-    bindsym plus  gaps outer current plus 10
-    bindsym minus gaps outer current minus 10
-    bindsym 0     gaps outer current set 0
-
-    bindsym Shift+plus  gaps outer all plus 10
-    bindsym Shift+minus gaps outer all minus 10
-    bindsym Shift+0     gaps outer all set 0
-
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
-}
+# # Set inner/outer gaps
+# #gaps inner 20
+# gaps inner 0
+# gaps outer 0
+#
+# # Additionally, you can issue commands with the following syntax. This is useful to bind keys to changing the gap size.
+# # gaps inner|outer current|all set|plus|minus <px>
+# # gaps inner all set 10
+# # gaps outer all plus 5
+#
+# # Smart gaps (gaps used if only more than one container on the workspace)
+# smart_gaps on
+#
+# # Smart borders (draw borders around container only if it is not the only container on this workspace)
+# # on|no_gaps (on=always activate and no_gaps=only activate if the gap size to the edge of the screen is 0)
+# smart_borders on
+#
+# # Press $mod+Shift+g to enter the gap mode. Choose o or i for modifying outer/inner gaps. Press one of + / - (in-/decrement for current workspace) or 0 (remove gaps for current workspace). If you also press Shift with these keys, the change will be global for all workspaces.
+# set $mode_gaps Gaps: (o) outer, (i) inner
+# set $mode_gaps_outer Outer Gaps: +|-|0 (local), Shift + +|-|0 (global)
+# set $mode_gaps_inner Inner Gaps: +|-|0 (local), Shift + +|-|0 (global)
+# bindsym $mod+Shift+g mode "$mode_gaps"
+#
+# mode "$mode_gaps" {
+#     bindsym o      mode "$mode_gaps_outer"
+#     bindsym i      mode "$mode_gaps_inner"
+#     bindsym Return mode "default"
+#     bindsym Escape mode "default"
+# }
+# mode "$mode_gaps_inner" {
+#     bindsym plus  gaps inner current plus 10
+#     bindsym minus gaps inner current minus 10
+#     bindsym 0     gaps inner current set 0
+#
+#     bindsym Shift+plus  gaps inner all plus 10
+#     bindsym Shift+minus gaps inner all minus 10
+#     bindsym Shift+0     gaps inner all set 0
+#
+#     bindsym Return mode "default"
+#     bindsym Escape mode "default"
+# }
+# mode "$mode_gaps_outer" {
+#     bindsym plus  gaps outer current plus 10
+#     bindsym minus gaps outer current minus 10
+#     bindsym 0     gaps outer current set 0
+#
+#     bindsym Shift+plus  gaps outer all plus 10
+#     bindsym Shift+minus gaps outer all minus 10
+#     bindsym Shift+0     gaps outer all set 0
+#
+#     bindsym Return mode "default"
+#     bindsym Escape mode "default"
+# }
