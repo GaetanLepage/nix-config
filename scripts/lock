@@ -1,3 +1,3 @@
 dunstctl set-paused true
-i3lock -i ~/.config/i3/lock.jpg -t -n
+i3lock -i ~/.config/i3/lock.png -t -n
 dunstctl set-paused false

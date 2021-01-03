@@ -80,6 +80,7 @@ ln -sf $path/config/zathura/ $HOME/.config/zathura
 ln -sf $path/config/mimeapps.list $HOME/.config/mimeapps.list
 ln -sf $path/config/user-dirs.dirs $HOME/.config/user-dirs.dirs
 ln -sf $path/config/wall.jpg $HOME/.config/wall.jpg
+ln -sf $path/config/wall.png $HOME/.config/wall.png
 ln -sf $path/config/icon_arch.png $HOME/.config/icon_arch.png
 
 ################
