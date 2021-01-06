@@ -10,6 +10,8 @@ alias cp='cp -iv'
 alias ka='killall'
 alias f=fg
 alias n=neofetch
+alias t="date +'%a %b %e %R:%S %Z %Y'"
+alias tk="TZ=Asia/Seoul date +'%a %b %e %R:%S %Z %Y'"
 
 # Programming
 
@@ -20,6 +22,9 @@ alias todo="s TODO"
 # count number of lines in Python project
 alias cl="find . -name '*.py' | xargs wc -l"
 alias pl="pylint ./**/*.py"
+
+# Kitty
+alias icat="kitty +kitten icat"
 
 
 # Copy output of last command
