@@ -327,7 +327,7 @@ exec --no-startup-id $browser
 #exec --no-startup-id i3-msg workspace $ws3; exec $terminal
 #exec --no-startup-id $terminal
 # WS4
-#exec --no-startup-id thunderbird
+exec --no-startup-id thunderbird
 # WS6
 exec --no-startup-id signal-desktop
 #exec --no-startup-id telegram-desktop
