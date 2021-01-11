@@ -12,37 +12,38 @@
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " PLUGINS """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-call plug#begin('~/.config/nvim/plugged') " for neovim
+call plug#begin('~/.config/nvim/plugged')
 
-Plug 'tpope/vim-sensible' " sane defaults
+Plug 'tpope/vim-sensible'                   " sane defaults
 
 " eye candy
-Plug 'vim-airline/vim-airline' " status bar (needs special fonts)
-Plug 'ryanoasis/vim-devicons' " various symbols (linux, rust, python, ...)
-Plug 'drewtempelmeyer/palenight.vim' "nice colorscheme
-Plug 'gruvbox-community/gruvbox' "nice colorscheme
-Plug 'joshdick/onedark.vim' "nice colorscheme
-Plug 'ryanoasis/vim-devicons' " coloured icons
-
-Plug 'preservim/nerdcommenter' " Nerd Commenter
+Plug 'vim-airline/vim-airline'              " status bar (needs special fonts)
+Plug 'ryanoasis/vim-devicons'               " various symbols (linux, rust, python, ...)
+Plug 'gruvbox-community/gruvbox'            " nice colorscheme
+Plug 'ryanoasis/vim-devicons'               " coloured icons
+Plug 'preservim/nerdcommenter'              " Nerd Commenter
 
 " NerdTree
-" Plug 'ms-jpq/chadtree', {'branch': 'chad', 'do': ':UpdateRemotePlugins'}
+Plug 'ms-jpq/chadtree',
+    \ {'branch': 'chad', 'do': ':UpdateRemotePlugins'}
 Plug 'preservim/nerdtree' |
     \ Plug 'Xuyuanp/nerdtree-git-plugin'
 
-" Fuzzy file finder (fzf)
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim' "fzf
+
+Plug 'junegunn/fzf',
+    \ { 'do': { -> fzf#install() } }        " Fuzzy file finder (fzf)
+Plug 'junegunn/fzf.vim'                     " fzf
 
 " TagBar
 Plug 'majutsushi/tagbar'
 
-" Scrollbar
-Plug 'dstein64/nvim-scrollview', {'branch': 'main'}
 
-Plug 'tpope/vim-surround' " git
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'dstein64/nvim-scrollview',
+    \ {'branch': 'main'}                    " Scrollbar
+
+Plug 'tpope/vim-surround'                   " git
+Plug 'neoclide/coc.nvim',
+    \ {'branch': 'release'}
 
 " Nvim new LSP client
 "Plug 'neovim/nvim-lspconfig'
@@ -50,12 +51,8 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 "Plug 'nvim-lua/diagnostic-nvim'
 
 Plug 'mileszs/ack.vim'
-
-" snippets allow to easily 'fill' common patterns
-Plug 'honza/vim-snippets'
-
-" Git Fugitive
-Plug 'tpope/vim-fugitive'
+Plug 'honza/vim-snippets'                   " snippets allow to easily 'fill' common patterns
+Plug 'tpope/vim-fugitive'                   " Git Fugitive
 
 """""""""""""""""""""
 " LANGUAGES SUPPORT "
@@ -82,56 +79,62 @@ Plug 'gabrielelana/vim-markdown'
 
 call plug#end()
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""
 " VIM SETTINGS """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""
 
 """""""""""""""
 " Remaps & co "
 """""""""""""""
 filetype plugin indent on
 
-" Use system clipboard
-set clipboard+=unnamedplus
-
-set splitbelow splitright
-
-set nocompatible
+" Line numbers
+set relativenumber          " Relative line numbers
+set nu                      " display the absolute line number of the current line
+set hidden                  " keep closed buffer open in the background
+set clipboard+=unnamedplus  " Use system clipboard
+set mouse=a                 " Enable mouse control
+set splitbelow              " A new window is put below the current one
+set splitright              " A new window is put right of the current one
+set noerrorbells            " Disable the error bell for errors
+set noswapfile              " Disable the swap file
+set undofile                " Automatically save and restore undo history
+set incsearch               " Incremental search: show match for partly typed search command
+set scrolloff=8             " number of screen lines to show around the cursor
+set signcolumn=yes          " whether to show the signcolumn
+set colorcolumn=100         " columns to highlight
+set laststatus=2            " 0, 1 or 2; when to use a status line for the last window
+set encoding=utf-8          " encoding used to print the PostScript file for :hardcopy
+set nospell                 " highlight spelling mistakes (local to window)
 filetype off
-syntax on
-set nospell
+syntax on                   " Enable syntax highlighting
+let mapleader=' '           " Set escape as the leader key
 
-let mapleader=' '
+" Set completeopt to have a better completion experience
+set completeopt=menuone,noinsert,noselect
 
-" Enable mouse control
-set mouse=a
+" Tab options
+set tabstop=4               " number of spaces a <Tab> in the text stands for (local to buffer)
+set softtabstop=4           " number of spaces used for each step of (auto)indent (local to buffer)
+set shiftwidth=4            " number of spaces used for each step of (auto)indent (local to buffer)
+set softtabstop=0           " if non-zero, number of spaces to insert for a <Tab> (local to buffer)
+set expandtab               " expand <Tab> to spaces in Insert mode (local to buffer)
+set smartindent             " do clever autoindenting
 
-set laststatus=2
-set encoding=utf-8
+" Folding
+set foldmethod=indent       " Set folding type to indent
+set foldlevel=99            " Folds with a level higher than this number will be closed
 
-"disable fkin recording
+" Disable macro recording
 map q <Nop>
 
 " Quick indentation formatting for the whole file
 map <F7> gg=G''
 
-" replace tabs
-set tabstop=4
-set shiftwidth=4
-set softtabstop=0
-set expandtab
-set smarttab
-
-" enable folding
-set foldmethod=indent
-set foldlevel=99
-"nnoremap <space> za
-
 " Fix Y behaviour
 nmap Y y$
 
 " fast buffer navigation
-" nnoremap <F5> :buffers<CR>:buffer<Space>
 nnoremap <Tab> :tabn<CR>
 nnoremap <S-Tab> :tabp<CR>
 nmap <C-w> :q<CR>
@@ -146,21 +149,15 @@ map <F7> gg=G''
 vmap <C-b> <plug>NERDCommenterToggle
 nmap <C-b> <plug>NERDCommenterToggle
 
-" Set completeopt to have a better completion experience
-set completeopt=menuone,noinsert,noselect
-
-" split navigations
+" Split navigations
 let g:BASH_Ctrl_j = 'off'
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
-" esc to clear search results
+" Esc to clear search results
 nnoremap <esc> :noh<return><esc>
-
-" yml files indent
-autocmd FileType yaml setlocal shiftwidth=2 softtabstop=2 expandtab
 
 
 """""""""""""""""
@@ -175,6 +172,8 @@ autocmd BufWrite * %s/\s\+$//e
 " let's autoindent c files
 au BufWrite *.c call LanguageClient#textDocument_formatting()
 
+" yml files indent
+autocmd FileType yaml setlocal shiftwidth=2 softtabstop=2 expandtab
 
 """"""""""""""
 " APPEARANCE "
