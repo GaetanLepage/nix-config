@@ -384,7 +384,7 @@ assign [class="Slack"] $ws4
 assign [class="Riot"] $ws4
 # WS5 : pdf
 assign [class="Foxit Reader"] $ws5
-assign [class="okular"] $ws5
+#assign [class="okular"] $ws5
 #assign [class="Zathura"] $ws5
 # WS6 VoIP
 assign [class="discord"] $ws6
