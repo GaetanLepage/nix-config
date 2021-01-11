@@ -452,6 +452,7 @@ ramp-capacity-foreground = ${colors.text-fg}
 [module/updates-arch-combined]
 type = custom/script
 exec = bash ~/.config/polybar/updates-arch-combined.sh
+click-left = kitty yay -Syu --noconfirm
 interval = 60
 format-underline = ${colors.text-fg}
 format-background = ${colors.module-bg}
