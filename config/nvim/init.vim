@@ -9,83 +9,13 @@
 
 "" after that copy this file as your $HOME/.config/nvim/init.vim (or ~/.vimrc for classic vim) and execute :PlugInstall
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" PLUGINS """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-call plug#begin('~/.config/nvim/plugged')
-
-Plug 'tpope/vim-sensible'                   " sane defaults
-
-" eye candy
-Plug 'vim-airline/vim-airline'              " status bar (needs special fonts)
-Plug 'ryanoasis/vim-devicons'               " various symbols (linux, rust, python, ...)
-Plug 'gruvbox-community/gruvbox'            " nice colorscheme
-Plug 'ryanoasis/vim-devicons'               " coloured icons
-Plug 'preservim/nerdcommenter'              " Nerd Commenter
-
-" NerdTree
-Plug 'ms-jpq/chadtree',
-    \ {'branch': 'chad', 'do': ':UpdateRemotePlugins'}
-Plug 'preservim/nerdtree' |
-    \ Plug 'Xuyuanp/nerdtree-git-plugin'
-
-
-Plug 'junegunn/fzf',
-    \ { 'do': { -> fzf#install() } }        " Fuzzy file finder (fzf)
-Plug 'junegunn/fzf.vim'                     " fzf
-
-" TagBar
-Plug 'majutsushi/tagbar'
-
-
-Plug 'dstein64/nvim-scrollview',
-    \ {'branch': 'main'}                    " Scrollbar
-
-Plug 'tpope/vim-surround'                   " git
-Plug 'neoclide/coc.nvim',
-    \ {'branch': 'release'}
-
-" Nvim new LSP client
-"Plug 'neovim/nvim-lspconfig'
-"Plug 'nvim-lua/completion-nvim'
-"Plug 'nvim-lua/diagnostic-nvim'
-
-Plug 'mileszs/ack.vim'
-Plug 'honza/vim-snippets'                   " snippets allow to easily 'fill' common patterns
-Plug 'tpope/vim-fugitive'                   " Git Fugitive
-
-"""""""""""""""""""""
-" LANGUAGES SUPPORT "
-"""""""""""""""""""""
-
-" TreeSitter
-" Plug 'nvim-treesitter/nvim-treesitter' ", {'do': ':TSUpdate' }
-
-" Python
-Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
-Plug 'tmhedberg/SimpylFold'
-Plug 'sheerun/vim-polyglot'
-"Plug 'vim-python/python-syntax'
-Plug 'dense-analysis/ale'
-
-" LaTeX
-Plug 'lervag/vimtex'
-
-" Markdown
-"Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
-Plug 'vim-pandoc/vim-pandoc'
-Plug 'lingnand/pandoc-preview.vim'
-Plug 'gabrielelana/vim-markdown'
-
-call plug#end()
-
 """"""""""""""""
 " VIM SETTINGS """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """"""""""""""""
 
-"""""""""""""""
-" Remaps & co "
-"""""""""""""""
+""""""""
+" Sets "
+""""""""
 filetype plugin indent on
 
 " Line numbers
@@ -125,19 +55,22 @@ set smartindent             " do clever autoindenting
 set foldmethod=indent       " Set folding type to indent
 set foldlevel=99            " Folds with a level higher than this number will be closed
 
+""""""""""""""""""""""""
+" Vim-related mappings "
+""""""""""""""""""""""""
 " Disable macro recording
 map q <Nop>
 
 " Quick indentation formatting for the whole file
-map <F7> gg=G''
+noremap <F7> gg=G''
 
 " Fix Y behaviour
-nmap Y y$
+nnoremap Y y$
 
 " fast buffer navigation
 nnoremap <Tab> :tabn<CR>
 nnoremap <S-Tab> :tabp<CR>
-nmap <C-w> :q<CR>
+nnoremap <C-w> :q<CR>
 
 " save by Ctrl+s
 nmap <C-s> :w<CR>
@@ -146,8 +79,8 @@ nmap <C-s> :w<CR>
 map <F7> gg=G''
 
 " Comment line or block
-vmap <C-b> <plug>NERDCommenterToggle
-nmap <C-b> <plug>NERDCommenterToggle
+vnoremap <C-b> <plug>NERDCommenterToggle
+nnoremap <C-b> <plug>NERDCommenterToggle
 
 " Split navigations
 let g:BASH_Ctrl_j = 'off'
@@ -169,9 +102,6 @@ autocmd InsertEnter * norm zz
 " Remove trailing whitespace on save
 autocmd BufWrite * %s/\s\+$//e
 
-" let's autoindent c files
-au BufWrite *.c call LanguageClient#textDocument_formatting()
-
 " yml files indent
 autocmd FileType yaml setlocal shiftwidth=2 softtabstop=2 expandtab
 
@@ -180,41 +110,45 @@ autocmd FileType yaml setlocal shiftwidth=2 softtabstop=2 expandtab
 """"""""""""""
 
 colorscheme gruvbox
-"colorscheme onedark
-"let g:airline_theme='onedark'
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#ale#enabled = 1
-
-set background=dark
-" Set background transparent
-"hi! Normal ctermbg=NONE guibg=NONE
-
-set rnu nu " hybrid line numbers
-
-if !exists('g:airline_symbols')
-    let g:airline_symbols = {}
-endif
 
 " highlight trailing whitespace
 highlight ExtraWhitespace ctermbg=red guibg=red
 match ExtraWhitespace /\s\+\%#\@<!$/
 
-" Color column at 99 char
-augroup collumnLimit
-    autocmd!
-    autocmd BufEnter,WinEnter,FileType scala,java,python
-                \ highlight CollumnLimit ctermbg=DarkGrey guibg=DarkGrey
-    let collumnLimit = 99 " feel free to customize
-    let pattern =
-                \ '\%<' . (collumnLimit+1) . 'v.\%>' . collumnLimit . 'v'
-    autocmd BufEnter,WinEnter,FileType scala,java,python
-                \ let w:m1=matchadd('CollumnLimit', pattern, -1)
-augroup END
+
+"""""""""""
+" PLUGINS """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""""""""""
+call plug#begin('~/.config/nvim/plugged')
+Plug 'tpope/vim-sensible'                               " Sane defaults
+Plug 'vim-airline/vim-airline'                          " status bar (needs special fonts)
+Plug 'ryanoasis/vim-devicons'                           " various symbols
+Plug 'gruvbox-community/gruvbox'                        " nice colorscheme
+Plug 'ryanoasis/vim-devicons'                           " coloured icons
+Plug 'preservim/nerdcommenter'                          " Nerd Commenter
+Plug 'preservim/nerdtree'                               " NerdTree
+Plug 'Xuyuanp/nerdtree-git-plugin'                      " NerdTree Git plugin
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }     " Fuzzy file finder (fzf)
+Plug 'junegunn/fzf.vim'                                 " fzf
+Plug 'majutsushi/tagbar'                                " TagBar
+Plug 'dstein64/nvim-scrollview', {'branch': 'main'}     " Scrollbar
+Plug 'neoclide/coc.nvim', {'branch': 'release'}         " Coc autocompletion
+Plug 'honza/vim-snippets'                               " Snippets engine
+Plug 'tpope/vim-fugitive'                               " Git Fugitive
+Plug 'lervag/vimtex'                                    " LateX
+Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}  " [Python] color scheme
+Plug 'tmhedberg/SimpylFold'                             " [Python] improved folding
+Plug 'sheerun/vim-polyglot'                             " [Python] syntax highlighting
+Plug 'dense-analysis/ale'                               " Linter
+Plug 'gabrielelana/vim-markdown'                        " Markdown
+call plug#end()
 
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""""""""""""""""""
 " Plugin settings """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""""""""""""""""""
 
 """""""
 " FZF "
@@ -233,21 +167,12 @@ let g:tagbar_width = 50
 "autocmd FileType python,c,cpp,h,java nested :call tagbar#autoopen(0)
 
 
-""""""""""
-" Barbar "
-""""""""""
-
-"nnoremap <Tab> :BufferNext<CR>
-"nnoremap <S-Tab> :BufferPrevious<CR>
-
-" Close buffer
-"nmap <C-w> :BufferClose<CR>
-
 """"""""""""""""""
 " Pandoc preview "
 """"""""""""""""""
 let g:pandoc_preview_pdf_cmd = "zathura"
 nnoremap <leader>v :PandocPreview<cr>
+
 
 """""""
 " COC "
@@ -316,102 +241,6 @@ nmap <F2> <Plug>(coc-rename)
 xmap <leader>f  <Plug>(coc-format-selected)
 nmap <leader>f  <Plug>(coc-format-selected)
 
-
-"""""""""""""
-" Scrollbar "
-"""""""""""""
-" augroup ScrollbarInit
-"   autocmd!
-"   autocmd CursorMoved,VimResized,QuitPre * silent! lua require('scrollbar').show()
-"   autocmd WinEnter,FocusGained           * silent! lua require('scrollbar').show()
-"   autocmd WinLeave,FocusLost             * silent! lua require('scrollbar').clear()
-" augroup end
-
-""""""""""""""
-" TreeSitter "
-""""""""""""""
-" lua <<EOF
-" require'nvim-treesitter.configs'.setup {
-"   ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
-"   highlight = {
-"     enable = true,              -- false will disable the whole extension
-"     -- disable = { "c", "rust" },  -- list of language that will be disabled
-"   },
-"   indent = {
-"     enable=true
-"   }
-" }
-" EOF
-
-
-""""""""""""
-" nvim-lsp "
-""""""""""""
-" nnoremap <silent> gd    <cmd>lua vim.lsp.buf.declaration()<CR>
-" nnoremap <silent> <c-]> <cmd>lua vim.lsp.buf.definition()<CR>
-" nnoremap <silent> K     <cmd>lua vim.lsp.buf.hover()<CR>
-" nnoremap <silent> gD    <cmd>lua vim.lsp.buf.implementation()<CR>
-" "nnoremap <silent> <c-k> <cmd>lua vim.lsp.buf.signature_help()<CR>
-" nnoremap <silent> 1gD   <cmd>lua vim.lsp.buf.type_definition()<CR>
-" nnoremap <silent> gr    <cmd>lua vim.lsp.buf.references()<CR>
-" nnoremap <silent> g0    <cmd>lua vim.lsp.buf.document_symbol()<CR>
-" nnoremap <silent> gW    <cmd>lua vim.lsp.buf.workspace_symbol()<CR>
-
-
-"""""""""""""""""""
-" completion-nvim "
-"""""""""""""""""""
-" lua require'nvim_lsp'.pyls.setup{ on_attach=require'completion'.on_attach }
-"
-" " Use completion-nvim in every buffer
-" autocmd BufEnter * lua require'completion'.on_attach()
-"
-" " Use <Tab> and <S-Tab> to navigate through popup menu
-" inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
-" inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-"
-" " Avoid showing message extra message when using completion
-" set shortmess+=c
-"
-" " possible value: 'UltiSnips', 'Neosnippet', 'vim-vsnip', 'snippets.nvim'
-" let g:completion_enable_snippet = 'UltiSnips'
-
-
-"""""""""""""""""""
-" diagnostic-nvim "
-"""""""""""""""""""
-" lua require'nvim_lsp'.pyls.setup{ attach=require'diagnostic'.on_attach }
-" let g:diagnostic_enable_virtual_text=1
-" let g:diagnostic_level = 'Warning'
-" let g:diagnostic_virtual_text_prefix = '<<'
-" let g:diagnostic_trimmed_virtual_text = 20
-" let g:diagnostic_insert_delay = 1
-" let g:diagnostic_enable_underline = 0
-" call sign_define("LspDiagnosticsErrorSign", {"text" : "✘", "texthl" : "LspDiagnosticsError"})
-" call sign_define("LspDiagnosticsWarningSign", {"text" : "⚡", "texthl" : "LspDiagnosticsWarning"})
-" call sign_define("LspDiagnosticsInformationSign", {"text" : "", "texthl" : "LspDiagnosticsInformation"})
-" call sign_define("LspDiagnosticsHintSign", {"text" : "ﯦ", "texthl" : "LspDiagnosticsWarning"})
-
-
-""""""""""""
-" ChadTree "
-""""""""""""
-" nnoremap <C-n> :CHADopen<CR>
-" let g:chadtree_settings = {
-"             \ 'keymap': {
-"                 \ 'collapse': [],
-"                 \ 'primary': ['<enter>', '<2-leftmouse>'],
-"                 \ 'secondary': [],
-"                 \ 'tertiary': ['t'],
-"                 \ 'trash': []
-"             \ },
-"             \ 'width': 35}
-" lua vim.api.nvim_set_var("chadtree_ignores", { name = {
-"             \ ".*",
-"             \ ".git",
-"             \ "__pycache__"
-"             \ } })
-
 """"""""""""
 " NerdTree "
 """"""""""""
@@ -433,12 +262,11 @@ let g:ale_linters = {
             \'python': ['pylint', 'mypy'],
             \'latex': ['chktex']}
 let g:ale_set_balloons = 1
-"let g:ale_python_pylint_options = '--rcfile $HOME/.pylintrc'
+
 
 """"""""""""
 " Markdown "
 """"""""""""
-
 au BufNewFile,BufFilePre,BufRead *.md set filetype=markdown
 
 
