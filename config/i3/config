@@ -346,6 +346,9 @@ for_window [class = "firefox"] layout tabbed
 for_window [class = "Thunderbird"] layout tabbed
 for_window [class = "Zotero"] layout tabbed
 
+
+for_window [class = "update"] move scratchpad
+
 # Tray applets
 exec --no-startup-id nm-applet
 exec --no-startup-id blueman-applet
