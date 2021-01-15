@@ -9,6 +9,34 @@
 
 "" after that copy this file as your $HOME/.config/nvim/init.vim (or ~/.vimrc for classic vim) and execute :PlugInstall
 
+"""""""""""
+" PLUGINS """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""""""""""
+call plug#begin('~/.config/nvim/plugged')
+Plug 'tpope/vim-sensible'                                                   " Sane defaults
+Plug 'vim-airline/vim-airline'                                              " status bar (needs special fonts)
+Plug 'ryanoasis/vim-devicons'                                               " various symbols
+Plug 'gruvbox-community/gruvbox'                                            " nice colorscheme
+Plug 'ryanoasis/vim-devicons'                                               " coloured icons
+Plug 'preservim/nerdcommenter'                                              " Nerd Commenter
+Plug 'preservim/nerdtree'                                                   " NerdTree
+Plug 'Xuyuanp/nerdtree-git-plugin'                                          " NerdTree Git plugin
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }                         " Fuzzy file finder (fzf)
+Plug 'junegunn/fzf.vim'                                                     " fzf
+Plug 'majutsushi/tagbar'                                                    " TagBar
+Plug 'dstein64/nvim-scrollview', {'branch': 'main'}                         " Scrollbar
+Plug 'neoclide/coc.nvim', {'branch': 'release'}                             " Coc autocompletion
+Plug 'honza/vim-snippets'                                                   " Snippets engine
+Plug 'tpope/vim-fugitive'                                                   " Git Fugitive
+Plug 'lervag/vimtex'                                                        " LateX
+Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}                      " [Python] color scheme
+Plug 'tmhedberg/SimpylFold'                                                 " [Python] improved folding
+Plug 'sheerun/vim-polyglot'                                                 " [Python] syntax highlighting
+Plug 'dense-analysis/ale'                                                   " Linter
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }    " Markdown
+call plug#end()
+
+
 """"""""""""""""
 " VIM SETTINGS """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """"""""""""""""
@@ -79,8 +107,8 @@ nmap <C-s> :w<CR>
 map <F7> gg=G''
 
 " Comment line or block
-vnoremap <C-b> <plug>NERDCommenterToggle
-nnoremap <C-b> <plug>NERDCommenterToggle
+vmap <C-b> <plug>NERDCommenterToggle
+nmap <C-b> <plug>NERDCommenterToggle
 
 " Split navigations
 let g:BASH_Ctrl_j = 'off'
@@ -116,34 +144,6 @@ let g:airline#extensions#ale#enabled = 1
 " highlight trailing whitespace
 highlight ExtraWhitespace ctermbg=red guibg=red
 match ExtraWhitespace /\s\+\%#\@<!$/
-
-
-"""""""""""
-" PLUGINS """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"""""""""""
-call plug#begin('~/.config/nvim/plugged')
-Plug 'tpope/vim-sensible'                               " Sane defaults
-Plug 'vim-airline/vim-airline'                          " status bar (needs special fonts)
-Plug 'ryanoasis/vim-devicons'                           " various symbols
-Plug 'gruvbox-community/gruvbox'                        " nice colorscheme
-Plug 'ryanoasis/vim-devicons'                           " coloured icons
-Plug 'preservim/nerdcommenter'                          " Nerd Commenter
-Plug 'preservim/nerdtree'                               " NerdTree
-Plug 'Xuyuanp/nerdtree-git-plugin'                      " NerdTree Git plugin
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }     " Fuzzy file finder (fzf)
-Plug 'junegunn/fzf.vim'                                 " fzf
-Plug 'majutsushi/tagbar'                                " TagBar
-Plug 'dstein64/nvim-scrollview', {'branch': 'main'}     " Scrollbar
-Plug 'neoclide/coc.nvim', {'branch': 'release'}         " Coc autocompletion
-Plug 'honza/vim-snippets'                               " Snippets engine
-Plug 'tpope/vim-fugitive'                               " Git Fugitive
-Plug 'lervag/vimtex'                                    " LateX
-Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}  " [Python] color scheme
-Plug 'tmhedberg/SimpylFold'                             " [Python] improved folding
-Plug 'sheerun/vim-polyglot'                             " [Python] syntax highlighting
-Plug 'dense-analysis/ale'                               " Linter
-Plug 'gabrielelana/vim-markdown'                        " Markdown
-call plug#end()
 
 
 """""""""""""""""""
