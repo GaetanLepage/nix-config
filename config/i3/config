@@ -396,12 +396,12 @@ assign [class="discord"] $ws6
 assign [class="Skype"] $ws6
 assign [class="TeamSpeak 3"] $ws6
 assign [class="Signal"] $ws6
+assign [class="Mumble"] $ws6
 assign [class="TelegramDesktop"] $ws6
 # WS7
 assign [class="Element"] $ws7
 assign [class="Zotero"] $ws7
 # WS8
-assign [class="Mumble"] $ws8
 assign [class="Jitsi Meet"] $ws8
 assign [class="Steam"] $ws8
 assign [class="LBRY"] $ws8
