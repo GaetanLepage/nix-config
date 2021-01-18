@@ -15,5 +15,6 @@ eval $(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)
 
 dunst &			                    # dunst for notifications
 udiskie &                           # automatically mounts disks
+sudo rfskill block bluetooth
 
 reload &
