@@ -57,6 +57,13 @@ export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/scripts:$PATH"
 export PATH="$HOME/.local/share/cargo/bin:$PATH"
 
+# Perl
+export PATH="/home/gaetan/perl5/bin${PATH:+:${PATH}}"
+export PERL5LIB="/home/gaetan/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
+export PERL_LOCAL_LIB_ROOT="/home/gaetan/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
+export PERL_MB_OPT="--install_base \"/home/gaetan/perl5\""; export PERL_MB_OPT;
+export PERL_MM_OPT="INSTALL_BASE=/home/gaetan/perl5"; export PERL_MM_OPT;
+
 # Python PATH
 export PYTHONPATH=$PYTHONPATH:/home/gaetan/hevs/implementations/object_detection/models
 
