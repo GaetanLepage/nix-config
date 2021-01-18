@@ -34,6 +34,7 @@ Plug 'tmhedberg/SimpylFold'                                                 " [P
 Plug 'sheerun/vim-polyglot'                                                 " [Python] syntax highlighting
 Plug 'dense-analysis/ale'                                                   " Linter
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }    " Markdown
+Plug 'antoinemadec/FixCursorHold.nvim'                                      " Fix CursorHold behaviour in Neovim. It is needed for coc for example.
 call plug#end()
 
 
@@ -241,6 +242,7 @@ nmap <F2> <Plug>(coc-rename)
 xmap <leader>f  <Plug>(coc-format-selected)
 nmap <leader>f  <Plug>(coc-format-selected)
 
+
 """"""""""""
 " NerdTree "
 """"""""""""
@@ -310,3 +312,10 @@ augroup vimtex_event_1
   au User VimtexEventQuit     call vimtex#compiler#clean(0)
   au User VimtexEventInitPost call vimtex#compiler#compile()
 augroup END
+
+"""""""""""""""""
+" FixCursorHold "
+"""""""""""""""""
+" in millisecond, used for both CursorHold and CursorHoldI,
+" use updatetime instead if not defined
+let g:cursorhold_updatetime = 100
