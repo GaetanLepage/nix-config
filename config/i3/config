@@ -343,6 +343,7 @@ exec --no-startup-id $terminal --class gotop gotop
 
 # Automatic tabbed layout for some applications
 for_window [class = "firefox"] layout tabbed
+for_window [class = "Librewolf"] layout tabbed
 for_window [class = "Thunderbird"] layout tabbed
 for_window [class = "Zotero"] layout tabbed
 
@@ -376,6 +377,7 @@ set $ws10 "10 "
 #assign [class=$terminal] $ws1
 # WS2 : web browser
 assign [class="Chromium"] $ws2
+assign [class="Librewolf"] $ws2
 assign [class="Firefox"] $ws2
 assign [class="firefox"] $ws2
 # WS3 : coding
