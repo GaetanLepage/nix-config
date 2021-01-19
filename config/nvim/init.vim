@@ -28,6 +28,7 @@ Plug 'dstein64/nvim-scrollview', {'branch': 'main'}                         " Sc
 Plug 'neoclide/coc.nvim', {'branch': 'release'}                             " Coc autocompletion
 Plug 'honza/vim-snippets'                                                   " Snippets engine
 Plug 'tpope/vim-fugitive'                                                   " Git Fugitive
+Plug 'airblade/vim-gitgutter'                                               " A Vim plugin which shows a git diff in the sign column.
 Plug 'lervag/vimtex'                                                        " LateX
 Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}                      " [Python] color scheme
 Plug 'tmhedberg/SimpylFold'                                                 " [Python] improved folding
@@ -264,6 +265,12 @@ let g:ale_linters = {
             \'python': ['pylint', 'mypy'],
             \'latex': ['chktex']}
 let g:ale_set_balloons = 1
+
+
+""""""""""""""
+" Git Gutter "
+""""""""""""""
+let g:gitgutter_map_keys = 0
 
 
 """"""""""""
