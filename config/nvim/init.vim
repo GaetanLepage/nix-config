@@ -61,7 +61,10 @@ set noerrorbells            " Disable the error bell for errors
 set noswapfile              " Disable the swap file
 set undofile                " Automatically save and restore undo history
 set incsearch               " Incremental search: show match for partly typed search command
+set smartcase               " Override the 'ignorecase' option if the search pattern contains upper case characters
 set scrolloff=8             " number of screen lines to show around the cursor
+"set cursorline              " Highlight the screen line of the cursor
+" set cursorcolumn           " Highlight the screen column of the cursor
 set signcolumn=yes          " whether to show the signcolumn
 set colorcolumn=100         " columns to highlight
 set laststatus=2            " 0, 1 or 2; when to use a status line for the last window
