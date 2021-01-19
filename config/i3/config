@@ -237,7 +237,7 @@ bindsym $mod+Shift+F9 exec nmcli radio wifi off
 bindsym $mod+n exec $reload_script
 
 # Bluetooth
-bindsym $mod+i exec --no-startup-id blueman-manager # TODO rebind
+bindsym $mod+i exec --no-startup-id blueman-manager
 bindsym $mod+Shift+i exec sudo rfkill unblock bluetooth
 bindsym $mod+Ctrl+i exec sudo rfkill block bluetooth
 # Picom
