@@ -123,6 +123,12 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
+" Resize splits
+nnoremap <leader>j :res +5<CR>
+nnoremap <leader>k :res -5<CR>
+nnoremap <leader>h :vertical resize +5<CR>
+nnoremap <leader>l :vertical resize -5<CR>
+
 " Esc to clear search results
 nnoremap <esc> :noh<return><esc>
 
