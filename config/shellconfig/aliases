@@ -10,6 +10,7 @@ alias cp='cp -iv'
 alias ka='killall'
 alias f=fg
 alias n=neofetch
+alias cal='cal -m'
 alias t="date +'%a %b %e %R:%S %Z %Y'"
 alias tk="TZ=Asia/Seoul date +'%a %b %e %R:%S %Z %Y'"
 
