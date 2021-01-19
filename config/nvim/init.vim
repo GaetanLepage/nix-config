@@ -257,7 +257,8 @@ nmap <leader>f  <Plug>(coc-format-selected)
 """"""""""""
 " NerdTree "
 """"""""""""
-map <C-n> :NERDTreeToggle<CR>
+"map <C-n> :NERDTreeToggle<CR>
+map <leader>n :NERDTreeToggle<CR>
 
 " open a NERDTree automatically when vim starts up if no files were specified
 autocmd StdinReadPre * let s:std_in=1
