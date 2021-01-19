@@ -29,6 +29,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}                             " Co
 Plug 'honza/vim-snippets'                                                   " Snippets engine
 Plug 'tpope/vim-fugitive'                                                   " Git Fugitive
 Plug 'airblade/vim-gitgutter'                                               " A Vim plugin which shows a git diff in the sign column.
+Plug 'szw/vim-maximizer'                                                    " Maximizes and restores the current window in Vim.
 Plug 'lervag/vimtex'                                                        " LateX
 Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}                      " [Python] color scheme
 Plug 'tmhedberg/SimpylFold'                                                 " [Python] improved folding
