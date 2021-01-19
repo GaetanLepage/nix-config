@@ -51,7 +51,7 @@ filetype plugin indent on
 
 " Line numbers
 set relativenumber          " Relative line numbers
-set nu                      " display the absolute line number of the current line
+set number                  " display the absolute line number of the current line
 set hidden                  " keep closed buffer open in the background
 set clipboard+=unnamedplus  " Use system clipboard
 set mouse=a                 " Enable mouse control
