@@ -280,6 +280,12 @@ let g:ale_set_balloons = 1
 let g:gitgutter_map_keys = 0
 
 
+""""""""""""""""
+" Vim Fugitive "
+""""""""""""""""
+nmap <leader>gs :vert Git<CR> :vertical resize 80<CR>
+
+
 """"""""""""
 " Markdown "
 """"""""""""
