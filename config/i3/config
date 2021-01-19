@@ -242,7 +242,7 @@ bindsym $mod+Shift+i exec sudo rfkill unblock bluetooth
 bindsym $mod+Ctrl+i exec sudo rfkill block bluetooth
 # Picom
 bindsym $mod+t exec --no-startup-id picom -b --experimental-backends
-bindsym $mod+Shift+t exec --no-startup-id pkill picom
+bindsym $mod+Ctrl+t exec --no-startup-id killall picom
 # restart dunst
 bindsym $mod+Shift+d --release exec "killall dunst; exec notify-send 'restart dunst'"
 # screenshot (flameshot)
