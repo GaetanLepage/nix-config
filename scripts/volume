@@ -1,19 +1,25 @@
 #!/bin/sh
+# ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+# ██ ▄▄ █ ▄▄▀█ ▄▄█▄ ▄█ ▄▄▀█ ▄▄▀████ ████ ▄▄█▀▄▄▀█ ▄▄▀█ ▄▄▄█ ▄▄██
+# ██ █▀▀█ ▀▀ █ ▄▄██ ██ ▀▀ █ ██ ████ ████ ▄▄█ ▀▀ █ ▀▀ █ █▄▀█ ▄▄██
+# ██ ▀▀▄█▄██▄█▄▄▄██▄██▄██▄█▄██▄████ ▀▀ █▄▄▄█ ████▄██▄█▄▄▄▄█▄▄▄██
+# ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
+# website:  glepage.com
+# github:   https://github.com/gaetanlepage
+# email:    gaetan.lepage@inria.fr
+#
+# #---------------#
+# | volume script |
+# #---------------#
 
 
 update_sink() {
     SINK=$(pactl list short sinks | grep RUNNING | cut -f1)
 
-    echo "Detected sink, first try: $SINK"
-
-    if [ -z "$SINK" ]
-    then
-        SINK=$(pactl list short sinks | cut -f1)
-    fi
-
+    [ -z "$SINK" ] && SINK=$(pactl list short sinks | cut -f1 | tail -n 1)
     [ -z "$SINK" ] && SINK=0
 
-    echo "Detected sink: $SINK"
+    #echo "Detected sink: $SINK"
 }
 
 increase_volume() {
@@ -36,11 +42,11 @@ case $1 in
     up|down)
         if [ -z "$2" ]
         then
+            # No step was provided: using the default step
             STEP=10
-            echo "Using default step : ${STEP}"
         else
+            # Using the given step
             STEP=$2
-            echo "Using given step : ${STEP}"
         fi
 
         case $1 in
