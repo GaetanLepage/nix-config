@@ -1,81 +1,88 @@
 #!/bin/sh
+# ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+# ██ ▄▄ █ ▄▄▀█ ▄▄█▄ ▄█ ▄▄▀█ ▄▄▀████ ████ ▄▄█▀▄▄▀█ ▄▄▀█ ▄▄▄█ ▄▄██
+# ██ █▀▀█ ▀▀ █ ▄▄██ ██ ▀▀ █ ██ ████ ████ ▄▄█ ▀▀ █ ▀▀ █ █▄▀█ ▄▄██
+# ██ ▀▀▄█▄██▄█▄▄▄██▄██▄██▄█▄██▄████ ▀▀ █▄▄▄█ ████▄██▄█▄▄▄▄█▄▄▄██
+# ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
+# website:  glepage.com
+# github:   https://github.com/gaetanlepage
+# email:    gaetan.lepage@inria.fr
+#
+# #-----------------------------#
+# | dotfile installation script |
+# #-----------------------------#
+
 path=$(pwd)
 
+link_config_file () {
+    SOURCE_FILE=$1
+    SOURCE_PATH=$path/$SOURCE_FILE
+    DEST_PATH=$HOME/$SOURCE_FILE
+
+    ln -sf SOURCE_PATH DEST_PATH
+
+    echo "Linked config file \"$SOURCE_FILE\" ($SOURCE_PATH -> $DEST_PATH)"
+}
+
 delete_if_exists () {
-    [ -d $1 ] && rm -rf $1
+    [ -d $1 ] && rm -rf $1 && echo "Removed existing directory $1"
 }
 
 
 create_if_not_exist () {
-    [ ! -d $1 ] && mkdir -p $1
+    [ ! -d $1 ] && mkdir -p $1 "Created directory $1 (it did not exist before)"
+}
+
+config_dir_link () {
+    LINK_PATH="$HOME/.config/$1"
+    delete_if_exists $LINK_PATH
+    ln -sf $path/config/$1 $LINK_PATH
+    echo "Linked config directory for $1 ($LINK_PATH)"
 }
 
 
 # Home directory
-ln -sf $path/.bash_profile $HOME/.bash_profile
-ln -sf $path/.bashrc $HOME/.bashrc
-ln -sf $path/.gitconfig $HOME/.gitconfig
-ln -sf $path/.gtkrc-2.0 $HOME/.gtkrc-2.0
-ln -sf $path/.p10k.zsh $HOME/.p10k.zsh
-ln -sf $path/.profile $HOME/.profile
-ln -sf $path/.pylintrc $HOME/.pylintrc
-ln -sf $path/.xinitrc $HOME/.xinitrc
-ln -sf $path/.xprofile $HOME/.xprofile
-ln -sf $path/.Xresources $HOME/.Xresources
-ln -sf $path/.zprofile $HOME/.zprofile
-ln -sf $path/.zshenv $HOME/.zshenv
-ln -sf $path/.zshrc $HOME/.zshrc
+echo -e "\n## Linking \"home\" dotfiles ##"
+link_config_file .bash_profile
+link_config_file .bashrc
+link_config_file .gitconfig
+link_config_file .gtkrc-2.0
+link_config_file .p10k.zsh
+link_config_file .profile
+link_config_file .pylintrc
+link_config_file .xinitrc
+link_config_file .xprofile
+link_config_file .Xresources
+link_config_file .zprofile
+link_config_file .zshenv
+link_config_file .zshrc
 
 ####################
 # Config directory #
 ####################
-[ ! -d $HOME/.config ] && mkdir $HOME/.config
+[ ! -d $HOME/.config ] && mkdir $HOME/.config && echo -e "\nCreated config file ($HOME/.config/)"
 
-delete_if_exists $HOME/.config/dunst
-ln -sf $path/config/dunst $HOME/.config/dunst
-
-delete_if_exists $HOME/.config/flameshot
-ln -sf $path/config/flameshot $HOME/.config/flameshot
-
-delete_if_exists $HOME/.config/gtk-3.0
-ln -sf $path/config/gtk-3.0 $HOME/.config/gtk-3.0
-
-delete_if_exists $HOME/.config/gtk-4.0
-ln -sf $path/config/gtk-4.0 $HOME/.config/gtk-4.0
-
-delete_if_exists $HOME/.config/i3
-ln -sf $path/config/i3 $HOME/.config/i3
-
-delete_if_exists $HOME/.config/kitty
-ln -sf $path/config/kitty $HOME/.config/kitty
+echo -e "\n## Linking conventional dotfiles ##"
+config_dir_link bspwm
+config_dir_link dunst
+config_dir_link flameshot
+config_dir_link gtk-3.0
+config_dir_link gtk-4.0
+config_dir_link i3
+config_dir_link kitty
+config_dir_link nvim
+config_dir_link pcmanfm
+config_dir_link picom
+config_dir_link polybar
+config_dir_link ranger
+config_dir_link rofi
+config_dir_link shellconfig
+config_dir_link sxhkd
+config_dir_link zathura
 
 delete_if_exists $HOME/.config/jesseduffield
 mkdir -p $HOME/.config/jesseduffield
 ln -sf $path/config/lazygit $HOME/.config/jesseduffield/lazygit
-
-delete_if_exists $HOME/.config/nvim
-ln -sf $path/config/nvim $HOME/.config/nvim
-
-delete_if_exists $HOME/.config/pcmanfm
-ln -sf $path/config/pcmanfm $HOME/.config/pcmanfm
-
-delete_if_exists $HOME/.config/picom
-ln -sf $path/config/picom $HOME/.config/picom
-
-delete_if_exists $HOME/.config/polybar
-ln -sf $path/config/polybar $HOME/.config/polybar
-
-delete_if_exists $HOME/.config/ranger
-ln -sf $path/config/ranger $HOME/.config/ranger
-
-delete_if_exists $HOME/.config/rofi
-ln -sf $path/config/rofi $HOME/.config/rofi
-
-delete_if_exists $HOME/.config/shellconfig
-ln -sf $path/config/shellconfig $HOME/.config/shellconfig
-
-delete_if_exists $HOME/.config/zathura
-ln -sf $path/config/zathura/ $HOME/.config/zathura
 
 ln -sf $path/config/mimeapps.list $HOME/.config/mimeapps.list
 ln -sf $path/config/user-dirs.dirs $HOME/.config/user-dirs.dirs
