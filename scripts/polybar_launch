@@ -1,4 +1,16 @@
-#!/usr/bin/env bash
+#!/bin/sh
+# ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+# ██ ▄▄ █ ▄▄▀█ ▄▄█▄ ▄█ ▄▄▀█ ▄▄▀████ ████ ▄▄█▀▄▄▀█ ▄▄▀█ ▄▄▄█ ▄▄██
+# ██ █▀▀█ ▀▀ █ ▄▄██ ██ ▀▀ █ ██ ████ ████ ▄▄█ ▀▀ █ ▀▀ █ █▄▀█ ▄▄██
+# ██ ▀▀▄█▄██▄█▄▄▄██▄██▄██▄█▄██▄████ ▀▀ █▄▄▄█ ████▄██▄█▄▄▄▄█▄▄▄██
+# ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
+# Website:  glepage.com
+# GitHub:   https://github.com/GaetanLepage
+# Email:    gaetan.lepage@inria.fr
+#
+# #-----------------------#
+# | Polybar launch script |
+# #-----------------------#
 
 # Terminate already running bar instances
 killall -q polybar
@@ -6,13 +18,7 @@ killall -q polybar
 # Wait until the processes have been shut down
 while pgrep -x polybar >/dev/null; do sleep 1; done
 
-#for m in $(polybar --list-monitors | cut -d":" -f1); do
-	#WIRELESS=$(ls /sys/class/net/ | grep ^wl | awk 'NR==1{print $1}') MONITOR=$m polybar --reload -l info mainbar-i3 &
-#done
-#for i in $(polybar -m | awk -F: '{print $1}'); do
-#for i in IFS=\n $(polybar -m); do
-#IFS='\n'
-#for i in $(polybar -m); do
+# Loop through the connected monitors
 polybar -m | while IFS= read -r line;do
 
     # Get the name of the monitor
@@ -23,10 +29,9 @@ polybar -m | while IFS= read -r line;do
     # Detect if this monitor is the primary one
     IS_PRIMARY=$(echo $line | grep -Po '(?<=\().*(?=\))')
     if [[ $IS_PRIMARY ]] ; then export TRAY_POS=right; else TRAY_POS=none ; fi
-    echo $TRAY_POSE
 
     # Launch the bar
-    TRAY_POS=$TRAY_POS MONITOR=$MONITOR polybar mainbar-i3 -r &
+    TRAY_POS=$TRAY_POS MONITOR=$MONITOR polybar mainbar -r &
 done
 
-echo "Bars launched..."
+echo "Bars launched"
