@@ -530,4 +530,4 @@ click-left = dunstctl set-paused toggle
 interval = 1
 format-underline = ${colors.text-fg}
 format-background = ${colors.module-bg}
-format-padding = ${layout.module-padding}
+format-padding = 1
