@@ -1,19 +1,20 @@
-" Gaetan Lepage's vim config file, intended to use with neovim but surely
-"" compatible with vim
-"" Originally based on the vim 8 config file by Ensimag
-
-"" - install some font with powerline symbols for eye candy and icons
-"" (see https://github.com/powerline/fonts)
-"" - You may want to install nerd fonts for more compatibility with airline and vim
-"" devicons https://github.com/ryanoasis/nerd-fonts
-
-"" after that copy this file as your $HOME/.config/nvim/init.vim (or ~/.vimrc for classic vim) and execute :PlugInstall
+" ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+" ██ ▄▄ █ ▄▄▀█ ▄▄█▄ ▄█ ▄▄▀█ ▄▄▀████ ████ ▄▄█▀▄▄▀█ ▄▄▀█ ▄▄▄█ ▄▄██
+" ██ █▀▀█ ▀▀ █ ▄▄██ ██ ▀▀ █ ██ ████ ████ ▄▄█ ▀▀ █ ▀▀ █ █▄▀█ ▄▄██
+" ██ ▀▀▄█▄██▄█▄▄▄██▄██▄██▄█▄██▄████ ▀▀ █▄▄▄█ ████▄██▄█▄▄▄▄█▄▄▄██
+" ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
+" Website:  glepage.com
+" GitHub:   https://github.com/GaetanLepage
+" Email:    gaetan.lepage@inria.fr
+"
+" #---------------#
+" | neovim config |
+" #---------------#
 
 """""""""""
 " PLUGINS """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """""""""""
 call plug#begin('~/.config/nvim/plugged')
-Plug 'tpope/vim-sensible'                                                   " Sane defaults
 Plug 'vim-airline/vim-airline'                                              " status bar (needs special fonts)
 Plug 'ryanoasis/vim-devicons'                                               " various symbols
 Plug 'gruvbox-community/gruvbox'                                            " nice colorscheme
@@ -23,6 +24,9 @@ Plug 'preservim/nerdtree'                                                   " Ne
 Plug 'Xuyuanp/nerdtree-git-plugin'                                          " NerdTree Git plugin
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }                         " Fuzzy file finder (fzf)
 Plug 'junegunn/fzf.vim'                                                     " fzf
+Plug 'nvim-lua/popup.nvim'                                                  " [Telescope] An implementation of the Popup API from vim in Neovim.
+Plug 'nvim-lua/plenary.nvim'                                                " [Telescope] Lua functions.
+Plug 'nvim-telescope/telescope.nvim'                                        " [Telescope] Fuzzy finder.
 Plug 'majutsushi/tagbar'                                                    " TagBar
 Plug 'dstein64/nvim-scrollview', {'branch': 'main'}                         " Scrollbar
 Plug 'neoclide/coc.nvim', {'branch': 'release'}                             " Coc autocompletion
@@ -36,7 +40,6 @@ Plug 'tmhedberg/SimpylFold'                                                 " [P
 Plug 'sheerun/vim-polyglot'                                                 " [Python] syntax highlighting
 Plug 'dense-analysis/ale'                                                   " Linter
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }    " Markdown
-Plug 'antoinemadec/FixCursorHold.nvim'                                      " Fix CursorHold behaviour in Neovim. It is needed for coc for example.
 call plug#end()
 
 
@@ -59,18 +62,19 @@ set splitbelow              " A new window is put below the current one
 set splitright              " A new window is put right of the current one
 set noerrorbells            " Disable the error bell for errors
 set noswapfile              " Disable the swap file
+set modeline                " Tags such as 'vim:ft=sh'
+set modelines=100           " Sets the type of modelines
 set undofile                " Automatically save and restore undo history
 set incsearch               " Incremental search: show match for partly typed search command
 set smartcase               " Override the 'ignorecase' option if the search pattern contains upper case characters
 set scrolloff=8             " number of screen lines to show around the cursor
-"set cursorline              " Highlight the screen line of the cursor
-" set cursorcolumn           " Highlight the screen column of the cursor
+"set cursorline             " Highlight the screen line of the cursor
+"set cursorcolumn           " Highlight the screen column of the cursor
 set signcolumn=yes          " whether to show the signcolumn
 set colorcolumn=100         " columns to highlight
 set laststatus=2            " 0, 1 or 2; when to use a status line for the last window
 set encoding=utf-8          " encoding used to print the PostScript file for :hardcopy
 set nospell                 " highlight spelling mistakes (local to window)
-filetype off
 syntax on                   " Enable syntax highlighting
 let mapleader=' '           " Set escape as the leader key
 
@@ -88,6 +92,7 @@ set smartindent             " do clever autoindenting
 " Folding
 set foldmethod=indent       " Set folding type to indent
 set foldlevel=99            " Folds with a level higher than this number will be closed
+
 
 """"""""""""""""""""""""
 " Vim-related mappings "
@@ -108,6 +113,8 @@ nnoremap <C-w> :q<CR>
 
 " save by Ctrl+s
 nmap <C-s> :w<CR>
+
+nmap <C-t> :tabnew<CR>
 
 " Quick indentation formatting for the whole file
 map <F7> gg=G''
@@ -145,6 +152,7 @@ autocmd BufWrite * %s/\s\+$//e
 " yml files indent
 autocmd FileType yaml setlocal shiftwidth=2 softtabstop=2 expandtab
 
+
 """"""""""""""
 " APPEARANCE "
 """"""""""""""
@@ -169,6 +177,23 @@ nnoremap <C-p> :GFiles<CR>
 nnoremap <leader>p :History<CR>
 nnoremap <leader>a :Ag<CR>
 nnoremap <leader>t :Ag TODO<CR>
+
+"""""""""""""
+" Telescope "
+"""""""""""""
+" Find files using Telescope command-line sugar.
+nnoremap <leader>ff <cmd>Telescope find_files<cr>
+nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+nnoremap <leader>fb <cmd>Telescope buffers<cr>
+nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+
+" FZF like bindings
+nnoremap <C-p> :Telescope git_files<CR>
+nnoremap <leader>p :Telescope oldfiles <CR>
+nnoremap <leader>a :Telescope live_grep<CR>
+
+" Use the fuzzy sorter
+lua require('telescope').setup({defaults = {file_sorter = require('telescope.sorters').get_fzy_sorter}})
 
 
 """"""""""
@@ -332,10 +357,3 @@ augroup vimtex_event_1
   au User VimtexEventQuit     call vimtex#compiler#clean(0)
   au User VimtexEventInitPost call vimtex#compiler#compile()
 augroup END
-
-"""""""""""""""""
-" FixCursorHold "
-"""""""""""""""""
-" in millisecond, used for both CursorHold and CursorHoldI,
-" use updatetime instead if not defined
-let g:cursorhold_updatetime = 100
