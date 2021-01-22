@@ -21,6 +21,8 @@ Plug 'gruvbox-community/gruvbox'                                            " ni
 Plug 'ryanoasis/vim-devicons'                                               " coloured icons
 Plug 'preservim/nerdcommenter'                                              " Nerd Commenter
 Plug 'preservim/nerdtree'                                                   " NerdTree
+"Plug 'ms-jpq/chadtree', {'branch':'chad', 'do': 'python3 -m chadtree deps'}
+Plug 'preservim/nerdtree'                                                   " NerdTree
 Plug 'Xuyuanp/nerdtree-git-plugin'                                          " NerdTree Git plugin
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }                         " Fuzzy file finder (fzf)
 Plug 'junegunn/fzf.vim'                                                     " fzf
@@ -288,6 +290,12 @@ map <leader>n :NERDTreeToggle<CR>
 " open NERDTree automatically when vim starts up on opening a directory
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | exe 'cd '.argv()[0] | endif
+
+
+""""""""""""
+" CHADTree "
+""""""""""""
+"nnoremap <leader>n <cmd>CHADopen<CR>
 
 
 """""""
