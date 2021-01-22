@@ -12,47 +12,38 @@
 # | BSPWM config |
 # #--------------#
 
+#########
+# Rules #
+#########
+
 # Remove all the rules
 bspc rule -r "*"
 
-#############
-# Autostart #
-#############
-kill_and_run() {
-    # Kill all the existing instances
-    killall $1
+# Floating windows
+bspc rule -a Blueman-manager state=floating
+bspc rule -a Pavucontrol 	state=floating
 
-    # Run it in the background
-    $1 &
-}
+# Workspace assignments
+bspc rule -a firefox                desktop=2
+bspc rule -a Thunderbird            desktop=4
+bspc rule -a Signal                 desktop=6
+bspc rule -a mumble                 desktop=6
+bspc rule -a TelegramDesktop        desktop=6
+bspc rule -a Element                desktop=7
+bspc rule -a Steam                  desktop=8
+bspc rule -a "Jitsi Meet"           desktop=8
+bspc rule -a nvtop                  desktop=10
+bspc rule -a gotop                  desktop=10
 
-run_if_not_running() {
-    pidof $1 >/dev/null 2>&1 || $1 >/dev/null 2>&1 &
-}
-
-# Tray applets
-#kill_and_run nextcloud
-kill_and_run nm-applet
-kill_and_run blueman-applet
-
-kill_and_run sxhkd
-
-# run_if_not_running $TERMINAL
-# run_if_not_running $BROWSER
-# run_if_not_running thunderbird
-# run_if_not_running signal-desktop
-# run_if_not_running telegram-desktop
-# run_if_not_running zotero
-# #run_if_not_running spotify
-# run_if_not_running '$TERMINAL --class nvtop nvtop'
-# run_if_not_running '$TERMINAL --class gotop gotop'
+# Add custom rules for Spotify and zotero
+bspc config external_rules_command  "$HOME/.config/bspwm/custom_rules.sh"
 
 
 ############
 # Monitors #
 ############
-bspc monitor DP-0 -d 1 2 3 4 5 6 7 8 9
-bspc monitor HDMI-0 -d 0
+bspc monitor DP-0 -d 1 2 3 4 5 7
+bspc monitor HDMI-0 -d 6 8 9 10
 
 
 ###################
@@ -60,20 +51,19 @@ bspc monitor HDMI-0 -d 0
 ###################
 bspc config border_radius               8
 bspc config border_width                2
-bspc config window_gap                  0
+bspc config window_gap                  10
 
 bspc config top_padding                 0
 bspc config bottom_padding              40
 bspc config left_padding                0
 bspc config right_padding               0
 
-#bspc config single_monocle              false
-bspc config click_to_focus              none
-#bspc config split_ratio                 0.50
+bspc config single_monocle              true
 bspc config borderless_monocle          true
-#bspc config gapless_monocle             true
+bspc config gapless_monocle             true
 #bspc config focus_by_distance           true
 bspc config focus_follows_pointer       true
+bspc config pointer_follows_focus       true
 #bspc config history_aware_focus         true
 bspc config remove_disabled_monitors    true
 bspc config merge_overlapping_monitors  true
@@ -90,16 +80,36 @@ bspc config pointer_action1             move
 bspc config pointer_action2             resize_side
 bspc config pointer_action3             resize_corner
 
+
 ##########
 # Colors #
 ##########
-bspc config normal_border_color		"#4c566a"
-bspc config active_border_color	    "#1e1e1e"
-bspc config focused_border_color	"#5e81ac"
-bspc config presel_feedback_color	"#5e81ac"
-bspc config urgent_border_color 	"#dd2727"
+# Get colors from Xresources
+bspc config normal_border_color		"$(xgetres bspwm.color0)"
+bspc config active_border_color	    "$(xgetres bspwm.color0)"
+bspc config focused_border_color	"$(xgetres bspwm.color15)"
+bspc config presel_feedback_color	"$(xgetres bspwm.color15)"
+bspc config urgent_border_color 	"$(xgetres bspwm.color1)"
 
-#########
-# Rules #
-#########
-bspc rule -a blueman-manager state=floating
+
+#############
+# Autostart #
+#############
+
+reload &
+
+run_if_not_running() {
+    pidof $1 > /dev/null || $@ &
+}
+
+
+# run_if_not_running $TERMINAL
+run_if_not_running $BROWSER
+run_if_not_running thunderbird
+run_if_not_running signal-desktop
+run_if_not_running telegram-desktop
+#run_if_not_running zotero
+#run_if_not_running spotify
+
+pidof nvtop > /dev/null 2>&1 || $TERMINAL --class nvtop nvtop &
+pidof gotop > /dev/null 2>&1 || $TERMINAL --class gotop gotop &

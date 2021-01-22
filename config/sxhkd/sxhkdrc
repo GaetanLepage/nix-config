@@ -11,12 +11,14 @@
 # | SXHKD config file |
 # #-------------------#
 
+# vim:ft=sh
+
 ##########
 # System #
 ##########
 
 # Reload script
-super + n
+super + F2
     reload
 
 # make sxhkd reload its configuration files:
@@ -26,10 +28,6 @@ super + Escape
 # Lock
 super + o
     lock
-
-# Screen setup
-super + c
-    screens
 
 # Screen brightness
 XF86MonBrightnessUp
@@ -49,9 +47,9 @@ XF86AudioPlay
     playerctl play-pause
 XF86AudioPause
     playerctl pause
-XF86AudioNext
+{XF86AudioNext,super + Right}
     playerctl next
-XF86AudioPrev
+{XF86AudioPrev,super + Left}
     playerctl previous
 
 # Bluetooth
@@ -67,13 +65,13 @@ super + ctrl + i
 # Applications #
 ################
 
-# Rofi
-super + d
-    rofi -show run
-
 # Terminal
 super + Return
     $TERMINAL
+
+# Rofi
+super + d
+    rofi -show run
 
 # Web browser
 super + w
@@ -85,10 +83,7 @@ super + x
 
 # picom
 super + p
-    killall picom; picom -b --experimental-backends
-
-super + ctrl + p
-    killall picom
+    picom_toggle
 
 # screenshot (flameshot)
 Print
@@ -123,37 +118,35 @@ super + m
 super + g
 	bspc node -s biggest
 
-# Focus on desktop
-# super + {0-9}
-# 	crystal --focus {0-9}
-
-# Send window to desktop
-# super + shift + {0-9}
-#   crystal --send {0-9}
-
+# Back and forth
 super + b
     bspc desktop -f last
 
 # Send window to desktop and swap to desktop
 super + control + {ampersand,eacute,quotedbl,apostrophe,parenleft,minus,egrave,underscore,ccedilla,agrave}
-    bspc node -d {0-9} && bspunhide && bspc desktop -f {1-9,0}
+    bspc node -d {1-9,10} && bspc desktop -f {1-9,10}
+    #bspc node -d $WS{1-9,10} && bspunhide && bspc desktop -f $WS{1-9,10}
 
 # focus or send to the given desktop
 super + {_,shift + }{ampersand,eacute,quotedbl,apostrophe,parenleft,minus,egrave,underscore,ccedilla,agrave}
-	bspc {desktop -f,node -d} {1-9,0}
+    bspc {desktop -f,node -d} {1-9,10}
 
+# Send desktop to monitor and swap to desktop
 super + s
-    bspc desktop -m last
-    bspc desktop -f last
+    bspc desktop -m last -f && bspwm_reorder_desktops
 
 
 # STATE/FLAGS
 
 # set the window state
-super + {t,shift + t,shift + space,f}
-    bspc node -t {tiled,pseudo_tiled,floating,fullscreen}
-#super + shift + space
-#    bspc node -t floating
+super + t
+    bspc node -t tiled
+
+super + f
+    bspc node -t \~fullscreen
+
+super + shift + space
+    bspc node -t \~floating
 
 # set the node flags
 super + ctrl + {m,x,y,z}
@@ -162,34 +155,14 @@ super + ctrl + {m,x,y,z}
 
 # FOCUS/SWAP
 
-
 # focus the node in the given direction
 super + {_,shift + }{h,j,k,l}
 	bspc node -{f,s} {west,south,north,east}
 
-# focus the node for the given path jump
-#super + {p,b,comma,period}
-	#bspc node -f @{parent,brother,first,second}
-
-# focus the next/previous node in the current desktop
-# super + {_,shift + }n
-# 	bspc node -f {next,prev}.local
-
 # focus the next/previous desktop in the current monitor
 super + ctrl + {h,l}
-	bspc desktop -f {prev,next}.local
-#super + bracket{left,right}
-    #bspc desktop -f {next,prev}
+	bspc desktop -f {prev,next}
 
-# focus the last node/desktop
-super + {grave,Tab}
-	bspc {node,desktop} -f last
-
-# focus the older or newer node in the focus history
-# super + {o,i}
-# 	bspc wm -h off; \
-# 	bspc node {older,newer} -f; \
-# 	bspc wm -h on
 
 # MOVE/RESIZE
 

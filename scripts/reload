@@ -1,30 +1,92 @@
-#!/bin/bash
+#!/bin/sh
+# ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+# ██ ▄▄ █ ▄▄▀█ ▄▄█▄ ▄█ ▄▄▀█ ▄▄▀████ ████ ▄▄█▀▄▄▀█ ▄▄▀█ ▄▄▄█ ▄▄██
+# ██ █▀▀█ ▀▀ █ ▄▄██ ██ ▀▀ █ ██ ████ ████ ▄▄█ ▀▀ █ ▀▀ █ █▄▀█ ▄▄██
+# ██ ▀▀▄█▄██▄█▄▄▄██▄██▄██▄█▄██▄████ ▀▀ █▄▄▄█ ████▄██▄█▄▄▄▄█▄▄▄██
+# ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
+# Website:  glepage.com
+# GitHub:   https://github.com/GaetanLepage
+# Email:    gaetan.lepage@inria.fr
+#
+# #---------------#
+# | reload script |
+# #---------------#
 
 
+#############
+# Functions #
+#############
 
-echo "#################"
-echo "# RELOAD SCRIPT #"
-echo "#################"
+run_in_bg() {
+    echo -e "> running $1 in the background (command: '$@')\n"
+    $@ &
+}
 
-numlockx &
+kill_and_run() {
+    echo "killing all instances of $1"
+    # Kill all the existing instances
+    killall $1 >/dev/null 2>&1
+    if [ $? -eq 0 ]; then
+        echo "> killed all instances of $1"
+
+        # Wait for the instances to properly shutdown
+        #sleep 0.5s
+    else
+        echo "> $1 was not running. Starting it right now !"
+    fi
+
+    # Run the program in the background
+    run_in_bg $@
+}
+
+run_if_not_running() {
+    pidof $1 >/dev/null 2>&1
+    if [ $? -eq 0 ]; then
+        echo "$1 is already running."
+    else
+        echo "$1 was not running. Starting it right now !"
+        run_in_bg $@
+    fi
+}
 
 
-killall picom
+##########
+# Screen #
+##########
 
-echo "WALLPAPER"
-setbg && echo "WALLPAPER done" &
+# Monitor setup
+screens
 
-echo "PICOM"
-picom -b --experimental-backends
+# Set the desktop wallpaper
+run_in_bg setbg
 
-echo "REMAPS"
-remaps && echo "REMAPS done" &
-g610-led -a ff &
+# Run picom
+pidof picom >/dev/null 2>&1 || picom -b --experimental-backends
 
-echo "POLYBAR"
-polybar_launch && echo "POLYBAR done" &
 
-echo "########"
-echo "# DONE #"
-echo "########"
+############
+# Keyboard #
+############
 
+# Lock the numpad
+run_if_not_running numlockx
+
+# Keyboard remaps
+run_in_bg remaps
+
+# Run the keyboard daemon (if we are on BSPWM)
+[[ $WM == "bspwm" ]] && kill_and_run sxhkd
+
+# Logitech keyboard backlight profile
+run_if_not_running g610-led -a ff
+
+
+###########
+# Applets #
+###########
+run_if_not_running blueman-applet
+run_if_not_running nm-applet
+run_if_not_running nextcloud
+
+# Launch polybar
+run_in_bg polybar_launch

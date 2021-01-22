@@ -1,20 +1,19 @@
-;==========================================================
-;
-;
-;   ██████╗  ██████╗ ██╗  ██╗   ██╗██████╗  █████╗ ██████╗
-;   ██╔══██╗██╔═══██╗██║  ╚██╗ ██╔╝██╔══██╗██╔══██╗██╔══██╗
-;   ██████╔╝██║   ██║██║   ╚████╔╝ ██████╔╝███████║██████╔╝
-;   ██╔═══╝ ██║   ██║██║    ╚██╔╝  ██╔══██╗██╔══██║██╔══██╗
-;   ██║     ╚██████╔╝███████╗██║   ██████╔╝██║  ██║██║  ██║
-;   ╚═╝      ╚═════╝ ╚══════╝╚═╝   ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝
-;
-;
-;   To learn more about how to configure Polybar
-;   go to https://github.com/polybar/polybar
-;
-;   The README contains a lot of information
-;
-;==========================================================
+# ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+# ██ ▄▄ █ ▄▄▀█ ▄▄█▄ ▄█ ▄▄▀█ ▄▄▀████ ████ ▄▄█▀▄▄▀█ ▄▄▀█ ▄▄▄█ ▄▄██
+# ██ █▀▀█ ▀▀ █ ▄▄██ ██ ▀▀ █ ██ ████ ████ ▄▄█ ▀▀ █ ▀▀ █ █▄▀█ ▄▄██
+# ██ ▀▀▄█▄██▄█▄▄▄██▄██▄██▄█▄██▄████ ▀▀ █▄▄▄█ ████▄██▄█▄▄▄▄█▄▄▄██
+# ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
+# website:  glepage.com
+# github:   https://github.com/gaetanlepage
+# email:    gaetan.lepage@inria.fr
+#
+# #----------------#
+# | polybar config |
+# #----------------#
+
+
+; Set filetype for syntax highlighting within vim.
+; vim:ft=dosini
 
 [xcolor]
 bg     = ${xrdb:background:#0a0a0a}
@@ -68,9 +67,19 @@ module-padding = 0
 bar-format = %{T4}%fill%%indicator%%{F#dc404040}%empty%%{F-}%{T-}
 bar-fill-icon = ﭳ
 
+[settings]
+screenchange-reload = true
+;compositing-background = xor
+;compositing-background = screen
+;compositing-foreground = source
+;compositing-border = over
+;pseudo-transparency = false
 
-################################################################
-[bar/mainbar-i3]
+[global/wm]
+margin-top = 0
+margin-bottom = 0
+
+[bar/mainbar]
 bottom = true
 monitor = ${env:MONITOR}
 width = 100%
@@ -98,15 +107,15 @@ module-margin-right = 2
 font-0 = Ubuntu Nerd Font:style=Book:size=12;1
 font-1 = NotoSans Mono:size=8;0
 
-modules-left = i3
+modules-left = ${env:WM}
 modules-center = mpd spotify
-modules-right = xbacklight backlight-acpi pulseaudio memory cpu gpu0 updates-arch-combined wlan battery temperature time date
+modules-right = xbacklight backlight-acpi pulseaudio memory cpu updates wlan battery time date dunst
 
 tray-position = ${env:TRAY_POS:none}
 tray-padding = ${layout.module-padding}
 tray-background = ${colors.base-bg}
 
-wm-restack = i3
+wm-restack = ${env:WM}
 
 override-redirect = false
 enable-ipc = true
@@ -114,40 +123,53 @@ enable-ipc = true
 cursor-click = pointer
 cursor-scroll = ns-resize
 
-################################################################
-# XWINDOW
-################################################################
-[module/xwindow]
-type = internal/xwindow
-label = %title:0:30:...%
+##################
+# Window manager ##############################################################
+##################
 
-################################################################
-# XKEYBOARD
-################################################################
-[module/xkeyboard]
-type = internal/xkeyboard
-blacklist-0 = num lock
+#######################
+# global wm variables #
+#######################
+[wm]
+ws-icon-0 = 1;
+ws-icon-1 = 2;
+ws-icon-2 = 3;
+ws-icon-3 = 4;
+ws-icon-4 = 5;
+ws-icon-5 = 6;
+ws-icon-6 = 7;龎
+ws-icon-7 = 8;
+ws-icon-8 = 9;
+ws-icon-9 = 10;
 
-;format-prefix = " "
-format-prefix-foreground = ${colors.foreground-alt}
-format-prefix-underline = ${colors.secondary}
+ws-label = "%name%   %icon%"
+ws-padding = 3
 
-label-layout = %layout%
-label-layout-underline = ${colors.secondary}
+color-underline = ${colors.text-fg}
+color-label = ${colors.text-fg}
+color-focused-bg = ${colors.selected-bg}
+color-unfocused-bg = ${colors.module-bg}
+color-urgent-bg = ${colors.warn-fg}
 
-label-indicator-padding = 2
-label-indicator-margin = 1
-label-indicator-background = ${colors.secondary}
-label-indicator-underline = ${colors.secondary}
-
-################################################################
-# I3
-################################################################
+######
+# I3 #
+######
 [module/i3]
 type = internal/i3
 format = <label-state> <label-mode>
 index-sort = true
 wrapping-scroll = false
+
+ws-icon-0 = ${wm.ws-icon-0}
+ws-icon-1 = ${wm.ws-icon-1}
+ws-icon-2 = ${wm.ws-icon-2}
+ws-icon-3 = ${wm.ws-icon-3}
+ws-icon-4 = ${wm.ws-icon-4}
+ws-icon-5 = ${wm.ws-icon-5}
+ws-icon-6 = ${wm.ws-icon-6}
+ws-icon-7 = ${wm.ws-icon-7}
+ws-icon-8 = ${wm.ws-icon-8}
+ws-icon-9 = ${wm.ws-icon-9}
 
 ; Only show workspaces on the same output as the bar
 ;pin-workspaces = true
@@ -157,49 +179,97 @@ label-mode-padding = ${layout.module-padding}
 label-mode-background = ${colors.module-bg}
 
 ; focused = Active workspace on focused monitor
-label-focused = %icon% %name%
-label-focused-background = ${colors.selected-bg}
-label-focused-underline= ${colors.text-fg}
-label-focused-padding = 3
+label-focused = ${wm.ws-label}
+label-focused-background = ${wm.color-focused-bg}
+label-focused-underline= ${wm.color-underline}
+label-focused-padding = ${wm.ws-padding}
 
 ; unfocused = Inactive workspace on any monitor
-label-unfocused = ${self.label-focused}
-label-unfocused-background = ${colors.module-bg}
-label-unfocused-padding = ${self.label-focused-padding}
+label-unfocused = ${wm.ws-label}
+label-unfocused-background = ${wm.color-unfocused-bg}
+label-unfocused-padding = ${wm.ws-padding}
 
 ; visible = Active workspace on unfocused monitor
-label-visible = ${self.label-focused}
-label-visible-background = ${colors.module-bg}
-label-visible-underline = ${colors.text-fg}
-label-visible-padding = ${self.label-focused-padding}
+label-visible = ${wm.ws-label}
+label-visible-background = ${wm.color-unfocused-bg}
+label-visible-underline = ${wm.color-underline}
+label-visible-padding = ${wm.ws-padding}
 
 ; urgent = Workspace with urgency hint set
-label-urgent = ${self.label-focused}
-label-urgent-background = ${colors.warn-fg}
-label-urgent-underline = ${colors.text-fg}
-label-urgent-padding = ${self.label-focused-padding}
+label-urgent = ${wm.ws-label}
+label-urgent-background = ${wm.color-urgent-bg}
+label-urgent-underline = ${wm.color-underline}
+label-urgent-padding = ${wm.ws-padding}
 
 ; Separator in between workspaces
 label-separator = "  "
 
 
-################################################################
-# Spotify
-################################################################
+#########
+# BSPWM #
+#########
+[module/bspwm]
+type = internal/bspwm
+
+ws-icon-0 = ${wm.ws-icon-0}
+ws-icon-1 = ${wm.ws-icon-1}
+ws-icon-2 = ${wm.ws-icon-2}
+ws-icon-3 = ${wm.ws-icon-3}
+ws-icon-4 = ${wm.ws-icon-4}
+ws-icon-5 = ${wm.ws-icon-5}
+ws-icon-6 = ${wm.ws-icon-6}
+ws-icon-7 = ${wm.ws-icon-7}
+ws-icon-8 = ${wm.ws-icon-8}
+ws-icon-9 = ${wm.ws-icon-9}
+
+pin-workspaces = true
+format = <label-state>
+
+enable-scroll = true
+
+; focused = Active workspace on focused monitor
+label-focused = ${wm.ws-label}
+label-focused-background = ${wm.color-focused-bg}
+label-focused-underline = ${wm.color-underline}
+label-focused-padding = ${wm.ws-padding}
+
+label-occupied = ${wm.ws-label}
+label-occupied-padding = ${wm.ws-padding}
+
+label-urgent = ${wm.ws-label}
+label-urgent-background = ${wm.color-urgent-bg}
+label-urgent-underline = ${wm.color-underline}
+label-urgent-padding = ${wm.ws-padding}
+
+label-empty = ${wm.ws-label}
+label-empty-padding = ${wm.ws-padding}
+
+; Separator in between workspaces
+label-separator = "  "
+
+
+#################
+# Right modules ###############################################################
+#################
+
+###########
+# Spotify #
+###########
 [module/spotify]
 type = custom/script
 interval = 1
 click-left = playerctl -p spotify play-pause
-click-right = i3-msg 'workspace 9 '
+;click-right = i3-msg 'workspace 9 '
+click-right = bspc desktop -f 9
 format-prefix = " "
 format = <label>
 exec = python ~/.config/polybar/spotify.py -f '{artist} ~ {song}' -t 200
 format-underline = ${colors.text-fg}
 
 
-################################################################
-# XBACKLIGHT
-################################################################
+##############
+# XBACKLIGHT #
+##############
 [module/xbacklight]
 type = internal/xbacklight
 
@@ -218,17 +288,17 @@ bar-empty = ▐
 bar-empty-font = 2
 bar-empty-foreground = ${colors.bar-empty}
 
-################################################################
-# BACKLIGHT-ACPI
-################################################################
+##################
+# BACKLIGHT-ACPI #
+##################
 [module/backlight-acpi]
 inherit = module/xbacklight
 type = internal/backlight
 card = intel_backlight
 
-################################################################
-# PULSEAUDIO
-################################################################
+##############
+# PulseAudio #
+##############
 [module/pulseaudio]
 type = internal/pulseaudio
 
@@ -267,9 +337,9 @@ bar-volume-empty = ▐
 bar-volume-empty-font = 2
 bar-volume-empty-foreground = ${colors.bar-empty}
 
-################################################################
-# MEMORY
-################################################################
+##########
+# Memory #
+##########
 [module/memory]
 type = internal/memory
 format = <label> <bar-used>
@@ -291,9 +361,9 @@ bar-used-empty = ▐
 bar-used-empty-font = 2
 bar-used-empty-foreground = ${colors.bar-empty}
 
-################################################################
-# CPU
-################################################################
+#######
+# CPU #
+#######
 [module/cpu]
 type = internal/cpu
 interval = 0.5
@@ -326,20 +396,9 @@ ramp-coreload-7-font = 2
 ramp-coreload-7-foreground = ${xcolor.red}
 
 
-################################################################
-# GPU
-################################################################
-[module/gpu]
-type = custom/script
-exec = ~/.config/polybar/nvidia.sh
-interval = 0.5
-format-foreground = #ffffff
-format-underline = #ffffff
-
-
-################################################################
-# WLAN
-################################################################
+########
+# Wifi #
+########
 [module/wlan]
 type = internal/network
 interface = wlan0
@@ -364,46 +423,10 @@ ramp-signal-3 = 
 ramp-signal-4 = 
 ramp-signal-foreground = ${colors.foreground-alt}
 
-################################################################
-# ETH
-################################################################
-[module/eth0]
-type = internal/network
-interface = eth0
-interval = 0.5
 
-format-connected-underline = #ffffff
-label-connected =  %local_ip%
-
-format-disconnected =
-
-################################################################
-# TEMPERATURE
-################################################################
-[module/temperature]
-type = internal/temperature
-thermal-zone = 0
-warn-temperature = 80
-
-hwmon-path = /sys/devices/platform/coretemp.0/hwmon/hwmon2/temp1_input
-
-format = <ramp> <label>
-format-underline = #ffffff
-format-warn = <ramp> <label-warn>
-format-warn-underline = ${self.format-underline}
-
-label =   %temperature-c%
-label-warn =   %temperature-c%
-label-warn-foreground = ${colors.secondary}
-
-ramp-0 = 
-ramp-1 = 
-ramp-2 = 
-ramp-foreground = ${colors.foreground-alt}
-
-################################################################
-# BATTERY
-################################################################
+###########
+# Battery #
+###########
 [module/battery]
 type = internal/battery
 battery = BAT0
@@ -446,21 +469,21 @@ ramp-capacity-foreground = ${colors.text-fg}
 ;animation-discharging-framerate = 750
 
 
-################################################################
-# UPDATES ARCH
-################################################################
-[module/updates-arch-combined]
+###################
+# Package updates #
+###################
+[module/updates]
 type = custom/script
-exec = bash ~/.config/polybar/updates-arch-combined.sh
+exec = bash ~/.config/polybar/get-updates.sh
 click-left = bash ~/.config/polybar/update.sh
 interval = 60
 format-underline = ${colors.text-fg}
 format-background = ${colors.module-bg}
 format-padding = ${layout.module-padding}
 
-################################################################
-# TIME
-################################################################
+########
+# Time #
+########
 [module/time]
 type = internal/date
 interval = 5
@@ -479,9 +502,9 @@ format-padding = 0
 
 label =  %time%
 
-################################################################
-# DATE
-################################################################
+########
+# Date #
+########
 [module/date]
 type = internal/date
 interval = 5
@@ -497,25 +520,14 @@ format-underline = ${colors.text-fg}
 label =  %date%
 
 
-################################################################
-################################################################
-# SETTINGS
-################################################################
-################################################################
-
-
-################################################################
-[settings]
-screenchange-reload = true
-;compositing-background = xor
-;compositing-background = screen
-;compositing-foreground = source
-;compositing-border = over
-;pseudo-transparency = false
-
-################################################################
-[global/wm]
-margin-top = 5
-margin-bottom = 5
-
-; vim:ft=dosini
+#######################
+# Dunst notifications #
+#######################
+[module/dunst]
+type = custom/script
+exec = bash ~/.config/polybar/dunst_state.sh
+click-left = dunstctl set-paused toggle
+interval = 1
+format-underline = ${colors.text-fg}
+format-background = ${colors.module-bg}
+format-padding = ${layout.module-padding}
