@@ -12,32 +12,6 @@
 # | BSPWM config |
 # #--------------#
 
-#########
-# Rules #
-#########
-
-# Remove all the rules
-bspc rule -r "*"
-
-# Floating windows
-bspc rule -a Blueman-manager state=floating
-bspc rule -a Pavucontrol 	state=floating
-
-# Workspace assignments
-bspc rule -a firefox                desktop=2
-bspc rule -a Thunderbird            desktop=4
-bspc rule -a Signal                 desktop=6
-bspc rule -a mumble                 desktop=6
-bspc rule -a TelegramDesktop        desktop=6
-bspc rule -a Element                desktop=7
-bspc rule -a Steam                  desktop=8
-bspc rule -a "Jitsi Meet"           desktop=8
-bspc rule -a nvtop                  desktop=10
-bspc rule -a gotop                  desktop=10
-
-# Add custom rules for Spotify and zotero
-bspc config external_rules_command  "$HOME/.config/bspwm/custom_rules.sh"
-
 
 ############
 # Monitors #
@@ -46,36 +20,65 @@ bspc monitor DP-0 -d 1 2 3 4 5 7
 bspc monitor HDMI-0 -d 6 8 9 10
 
 
+#########
+# Rules #
+#########
+
+# Remove all the rules
+bspc rule -r "*"
+
+# Floating windows
+bspc rule -a kitty                  state=tiled
+bspc rule -a Blueman-manager        state=floating
+bspc rule -a Pavucontrol 	        state=floating
+bspc rule -a Thunderbird:Calendar:* state=floating
+bspc rule -a update                 state=floating
+
+# Workspace assignments
+bspc rule -a firefox           desktop=2
+bspc rule -a Thunderbird       desktop=4
+bspc rule -a Signal            desktop=6
+bspc rule -a Mumble            desktop=6
+bspc rule -a TelegramDesktop   desktop=6
+bspc rule -a Element           desktop=7
+bspc rule -a Steam             desktop=8
+bspc rule -a "Jitsi Meet"      desktop=8
+bspc rule -a nvtop             desktop=10
+bspc rule -a gotop             desktop=10
+
+# Automatically set certain worskpaces' layout
+bspc desktop 2 -l monocle
+bspc desktop 4 -l monocle
+bspc desktop 5 -l monocle
+bspc desktop 9 -l monocle
+
+# Add custom rules for Spotify and zotero
+bspc config external_rules_command "$HOME/.config/bspwm/custom_rules.sh"
+
+
 ###################
 # Global settings #
 ###################
 bspc config border_radius               8
 bspc config border_width                2
-bspc config window_gap                  10
+bspc config window_gap                  20
 
 bspc config top_padding                 0
 bspc config bottom_padding              40
 bspc config left_padding                0
 bspc config right_padding               0
 
-bspc config single_monocle              true
+bspc config single_monocle              false
 bspc config borderless_monocle          true
 bspc config gapless_monocle             true
-#bspc config focus_by_distance           true
 bspc config focus_follows_pointer       true
 bspc config pointer_follows_focus       true
-#bspc config history_aware_focus         true
+
 bspc config remove_disabled_monitors    true
 bspc config merge_overlapping_monitors  true
 bspc config remove_unplugged_monitors   true
-bspc config pointer_modifier            mod4
-bspc config pointer_action1             move
-bspc config pointer_action2             resize_side
-bspc config pointer_action3             resize_corner
 
-bspc config automatic_scheme            alternate
-bspc config initial_polarity            second_child
-bspc config pointer_modifier            lock
+bspc config pointer_modifier            mod4
 bspc config pointer_action1             move
 bspc config pointer_action2             resize_side
 bspc config pointer_action3             resize_corner
@@ -96,7 +99,7 @@ bspc config urgent_border_color 	"$(xgetres bspwm.color1)"
 # Autostart #
 #############
 
-reload &
+reload
 
 run_if_not_running() {
     pidof $1 > /dev/null || $@ &

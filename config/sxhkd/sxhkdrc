@@ -108,7 +108,8 @@ super + shift + {q,r}
 
 # kill window
 super + a
-	bspc node -c
+	bspwm_crystal --close
+	#bspc node -c
 
 # alternate between the tiled and monocle layout
 super + m
@@ -118,14 +119,16 @@ super + m
 super + g
 	bspc node -s biggest
 
-# Back and forth
+super + space
+    bspc node -f next.local.leaf
+
+# Back and forth desktop
 super + b
     bspc desktop -f last
 
 # Send window to desktop and swap to desktop
 super + control + {ampersand,eacute,quotedbl,apostrophe,parenleft,minus,egrave,underscore,ccedilla,agrave}
     bspc node -d {1-9,10} && bspc desktop -f {1-9,10}
-    #bspc node -d $WS{1-9,10} && bspunhide && bspc desktop -f $WS{1-9,10}
 
 # focus or send to the given desktop
 super + {_,shift + }{ampersand,eacute,quotedbl,apostrophe,parenleft,minus,egrave,underscore,ccedilla,agrave}
@@ -133,7 +136,7 @@ super + {_,shift + }{ampersand,eacute,quotedbl,apostrophe,parenleft,minus,egrave
 
 # Send desktop to monitor and swap to desktop
 super + s
-    bspc desktop -m last -f && bspwm_reorder_desktops
+    bspc desktop -m last --follow && bspwm_reorder_desktops
 
 
 # STATE/FLAGS
