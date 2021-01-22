@@ -19,7 +19,7 @@ link_config_file () {
     SOURCE_PATH=$path/$SOURCE_FILE
     DEST_PATH=$HOME/$SOURCE_FILE
 
-    ln -sf SOURCE_PATH DEST_PATH
+    ln -sf $SOURCE_PATH $DEST_PATH
 
     echo "Linked config file \"$SOURCE_FILE\" ($SOURCE_PATH -> $DEST_PATH)"
 }
