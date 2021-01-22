@@ -58,12 +58,13 @@ export STATUSBAR="polybar"
 export TERMINAL="kitty"
 export VIDEO="mpv"
 export VISUAL="nvim"
-export WM="i3"
+export WM="bspwm"
 
 export CM_SELECTIONS="clipboard"
 export CM_DEBUG=0
 export CM_OUTPUT_CLIP=1
 export CM_MAX_CLIPS=10
+
 
 # Path
 export PATH="/usr/local/bin:$PATH"
