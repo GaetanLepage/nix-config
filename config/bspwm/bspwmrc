@@ -24,7 +24,6 @@ case $HOSTNAME in
         ;;
     # Laptop
     gaetan-xps)
-        echo laptop > toto
         bspc monitor eDP-1 -d 1 2 3 4 5 6 7 8 9 10
         ;;
 esac
@@ -37,11 +36,11 @@ esac
 bspc rule -r "*"
 
 # Floating windows
-bspc rule -a kitty                  state=tiled
 bspc rule -a Blueman-manager        state=floating
 bspc rule -a Pavucontrol 	        state=floating
 bspc rule -a Thunderbird:Calendar:* state=floating
 bspc rule -a update                 state=floating
+bspc rule -a Zathura                state=tiled
 
 # Workspace assignments
 bspc rule -a firefox           desktop=2
@@ -59,7 +58,6 @@ bspc rule -a gotop             desktop=10
 bspc desktop 2 -l monocle
 bspc desktop 4 -l monocle
 bspc desktop 5 -l monocle
-bspc desktop 9 -l monocle
 
 # Add custom rules for Spotify and zotero
 bspc config external_rules_command "$HOME/.config/bspwm/custom_rules.sh"
@@ -70,14 +68,14 @@ bspc config external_rules_command "$HOME/.config/bspwm/custom_rules.sh"
 ###################
 bspc config border_radius               8
 bspc config border_width                2
-bspc config window_gap                  20
+bspc config window_gap                  0
 
 bspc config top_padding                 0
 bspc config bottom_padding              40
 bspc config left_padding                0
 bspc config right_padding               0
 
-bspc config single_monocle              false
+bspc config single_monocle              true
 bspc config borderless_monocle          true
 bspc config gapless_monocle             true
 bspc config focus_follows_pointer       true
