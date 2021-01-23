@@ -149,6 +149,7 @@ color-underline = ${colors.text-fg}
 color-label = ${colors.text-fg}
 color-focused-bg = ${colors.selected-bg}
 color-unfocused-bg = ${colors.module-bg}
+color-empty-fg = #555555
 color-urgent-bg = ${colors.warn-fg}
 
 ######
@@ -156,7 +157,7 @@ color-urgent-bg = ${colors.warn-fg}
 ######
 [module/i3]
 type = internal/i3
-format = <label-state> <label-mode>
+format = <label-state>
 index-sort = true
 wrapping-scroll = false
 
@@ -174,9 +175,9 @@ ws-icon-9 = ${wm.ws-icon-9}
 ; Only show workspaces on the same output as the bar
 ;pin-workspaces = true
 
-label-mode-padding = ${layout.module-padding}
+;label-mode-padding = ${layout.module-padding}
 ;label-mode-foreground = #000
-label-mode-background = ${colors.module-bg}
+;label-mode-background = ${colors.module-bg}
 
 ; focused = Active workspace on focused monitor
 label-focused = ${wm.ws-label}
@@ -242,10 +243,12 @@ label-urgent-underline = ${wm.color-underline}
 label-urgent-padding = ${wm.ws-padding}
 
 label-empty = ${wm.ws-label}
+label-empty-foreground = ${wm.color-empty-fg}
 label-empty-padding = ${wm.ws-padding}
 
 ; Separator in between workspaces
-label-separator = "  "
+label-separator = ""
+label-separator-padding = 0
 
 
 #################
