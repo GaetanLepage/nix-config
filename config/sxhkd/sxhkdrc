@@ -36,6 +36,10 @@ XF86MonBrightnessDown
     xbacklight -dec 10
 
 # Audio
+# Run pavucontrol
+super + g
+	pavucontrol
+
 {XF86AudioRaiseVolume,super + Up}
     volume up 5
 {XF86AudioLowerVolume,super + Down}
@@ -108,17 +112,13 @@ super + shift + {q,r}
 
 # kill window
 super + a
-	bspwm_crystal --close
-	#bspc node -c
+    bspc node -c
 
 # alternate between the tiled and monocle layout
 super + m
 	bspc desktop -l next
 
-# swap the current node and the biggest node
-super + g
-	bspc node -s biggest
-
+# Cycle through the nodes (leaves only) of the current desktop
 super + space
     bspc node -f next.local.leaf
 
