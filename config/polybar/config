@@ -108,7 +108,7 @@ font-0 = Ubuntu Nerd Font:style=Book:size=12;1
 font-1 = NotoSans Mono:size=8;0
 
 modules-left = ${env:WM}
-modules-center = mpd spotify
+modules-center = spotify
 modules-right = xbacklight backlight-acpi pulseaudio memory cpu updates wlan battery time date dunst
 
 tray-position = ${env:TRAY_POS:none}
@@ -259,7 +259,6 @@ label-separator = "  "
 type = custom/script
 interval = 1
 click-left = playerctl -p spotify play-pause
-;click-right = i3-msg 'workspace 9 '
 click-right = bspc desktop -f 9
 format-prefix = " "
 format = <label>
