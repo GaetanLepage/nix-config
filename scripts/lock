@@ -14,6 +14,17 @@
 # Locks the computer screen.
 # Pauses notifications while screen is locked.
 
+# Pause notifications
 dunstctl set-paused true
+
+# Pause any playing video / song
+playerctl pause
+
+# Pause spotify
+playerctl -p spotify pause
+
+# Lock the screen
 betterlockscreen -l
+
+# Resume notifications
 dunstctl set-paused false
