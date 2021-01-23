@@ -12,13 +12,22 @@
 # | BSPWM config |
 # #--------------#
 
-
 ############
 # Monitors #
 ############
-bspc monitor DP-0 -d 1 2 3 4 5 7
-bspc monitor HDMI-0 -d 6 8 9 10
-
+HOSTNAME=$(hostname)
+case $HOSTNAME in
+    # Desktop PC
+    gaetan-desktop-arch)
+        bspc monitor DP-0 -d 1 2 3 4 5 7
+        bspc monitor HDMI-0 -d 6 8 9 10
+        ;;
+    # Laptop
+    gaetan-xps)
+        echo laptop > toto
+        bspc monitor eDP-1 -d 1 2 3 4 5 6 7 8 9 10
+        ;;
+esac
 
 #########
 # Rules #
@@ -99,20 +108,29 @@ bspc config urgent_border_color 	"$(xgetres bspwm.color1)"
 # Autostart #
 #############
 
+# Reload script (background applications, screen and keyboard management)
 reload
 
+
 run_if_not_running() {
-    pidof $1 > /dev/null || $@ &
+    # If the program is not installed, no need to go further
+    type $1 > /dev/null 2>&1   || { echo "$1 is not installed on the system" && return; }
+    # Is the program is already running, no need to launch it
+    pidof $1  > /dev/null 2>&1 && { echo "$1 is already running"             && return; }
+
+    # Run the program in the background
+    echo "Running $1 in the background (command: '$@')"
+    $@ &
 }
 
 
-# run_if_not_running $TERMINAL
+run_if_not_running $TERMINAL
 run_if_not_running $BROWSER
-run_if_not_running thunderbird
-run_if_not_running signal-desktop
-run_if_not_running telegram-desktop
+#run_if_not_running thunderbird
+#run_if_not_running signal-desktop
+#run_if_not_running telegram-desktop
 #run_if_not_running zotero
 #run_if_not_running spotify
 
-pidof nvtop > /dev/null 2>&1 || $TERMINAL --class nvtop nvtop &
-pidof gotop > /dev/null 2>&1 || $TERMINAL --class gotop gotop &
+type nvtop > /dev/null 2>&1 && { pidof nvtop > /dev/null 2>&1 || $TERMINAL --class nvtop nvtop & }
+type gotop > /dev/null 2>&1 && { pidof gotop > /dev/null 2>&1 || $TERMINAL --class gotop gotop & }

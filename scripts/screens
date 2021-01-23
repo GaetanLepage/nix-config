@@ -45,18 +45,22 @@ is_connected() {
     # Check if the display is connected or not
     STATE=$(xrandr | grep -oP '(?<=\b'$1'\s)\w+')
 
-    echo "$1 is ${STATE}"
-
-    if [ "$STATE" == "connected" ]
-    then
-        return 0
-    elif [ "$STATE" == "disconnected" ]
-    then
-        return 1
-    fi
-
-    return 1
-
+    case $STATE in
+        "connected")
+            echo "$1 is connected."
+            return 0
+            ;;
+        "disconnected")
+            echo "$1 is disconnected."
+            return 1
+            ;;
+        "")
+            echo "$1 is not available on this machine."
+            return 1
+            ;;
+        *)
+            return 1
+    esac
 }
 
 
@@ -140,7 +144,7 @@ auto_config() {
 
 
 # Start by disabling all outputs
-disable_all
+#disable_all
 
 case $1 in
     "toggle_csgo")

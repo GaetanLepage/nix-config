@@ -23,7 +23,8 @@ super + F2
 
 # make sxhkd reload its configuration files:
 super + Escape
-	pkill -USR1 -x sxhkd
+    pkill -USR1 -x sxhkd
+    #notify-send toto
 
 # Lock
 super + o
@@ -164,7 +165,7 @@ super + {_,shift + }{h,j,k,l}
 
 # focus the next/previous desktop in the current monitor
 super + ctrl + {h,l}
-	bspc desktop -f {prev,next}
+	bspc desktop -f {prev,next}.occupied
 
 
 # MOVE/RESIZE
