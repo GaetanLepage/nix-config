@@ -476,8 +476,8 @@ ramp-capacity-foreground = ${colors.text-fg}
 ###################
 [module/updates]
 type = custom/script
-exec = bash ~/.config/polybar/get-updates.sh
-click-left = bash ~/.config/polybar/update.sh
+exec = bash ~/.config/polybar/update.sh --check-updates
+click-left = bash ~/.config/polybar/update.sh --do-updates
 interval = 60
 format-underline = ${colors.text-fg}
 format-background = ${colors.module-bg}

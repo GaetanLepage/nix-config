@@ -1,7 +1,6 @@
 # Application shortcuts
 alias j='jobs'
 alias m='mpv'
-alias p='pandoc'
 alias r='ranger'
 alias ranger='ranger --choosedir=$HOME/.rangerdir; LASTDIR=$(cat $HOME/.rangerdir); cd "$LASTDIR"'
 alias trc='transmission-remote-cli'
@@ -17,7 +16,7 @@ alias v='nvim'
 # Package managers
 # alias pip='sudo pip'
 alias apt='sudo apt-get'
-alias y=yay
+alias p='paru'
 
 # Screen
 alias s='screen'
