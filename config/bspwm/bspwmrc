@@ -19,6 +19,7 @@ HOSTNAME=$(hostname)
 case $HOSTNAME in
     # Desktop PC
     gaetan-desktop-arch)
+        #bspc monitor DP-0 -d 1 2 3 4 5 6 7 8 9 10
         bspc monitor DP-0 -d 1 2 3 4 5 7
         bspc monitor HDMI-0 -d 6 8 9 10
         ;;
@@ -40,6 +41,8 @@ bspc rule -a Blueman-manager        state=floating
 bspc rule -a Pavucontrol 	        state=floating
 bspc rule -a Thunderbird:Calendar:* state=floating
 bspc rule -a update                 state=floating
+bspc rule -a Piper                  state=floating
+bspc rule -a Solaar                 state=floating
 bspc rule -a Zathura                state=tiled
 
 # Workspace assignments
@@ -124,9 +127,9 @@ run_if_not_running() {
 
 run_if_not_running $TERMINAL
 run_if_not_running $BROWSER
-#run_if_not_running thunderbird
-#run_if_not_running signal-desktop
-#run_if_not_running telegram-desktop
+run_if_not_running thunderbird
+run_if_not_running signal-desktop
+run_if_not_running telegram-desktop
 #run_if_not_running zotero
 #run_if_not_running spotify
 
