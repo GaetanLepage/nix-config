@@ -78,7 +78,8 @@ set laststatus=2            " 0, 1 or 2; when to use a status line for the last 
 set encoding=utf-8          " encoding used to print the PostScript file for :hardcopy
 set nospell                 " highlight spelling mistakes (local to window)
 syntax on                   " Enable syntax highlighting
-let mapleader=' '           " Set escape as the leader key
+let mapleader=' '           " Set space as the leader key
+let maplocalleader=' '      " Set space as the localleader key
 
 " Set completeopt to have a better completion experience
 set completeopt=menuone,noinsert,noselect
@@ -340,6 +341,18 @@ autocmd BufRead,BufNewFile *.tex set filetype=tex "| VimtexTocOpen
 " autocmd FileType tex setl updatetime=1000
 let g:vimtex_view_method = 'zathura'
 
+" TOC settings
+let g:vimtex_toc_config = {
+      \ 'name' : 'TOC',
+      \ 'layers' : ['content', 'todo'],
+      \ 'resize' : 1,
+      \ 'split_width' : 50,
+      \ 'todo_sorted' : 0,
+      \ 'show_help' : 1,
+      \ 'show_numbers' : 1,
+      \ 'mode' : 2,
+      \}
+
 let g:tex_flavor = 'latex'
 
 let g:vimtex_compiler_progname = 'nvr'
@@ -362,6 +375,6 @@ set foldtext=vimtex#fold#text()
 " Compile on initialization, cleanup on quit
 augroup vimtex_event_1
   au!
-  au User VimtexEventQuit     call vimtex#compiler#clean(0)
   au User VimtexEventInitPost call vimtex#compiler#compile()
+  au User VimtexEventQuit     call vimtex#compiler#clean(0)
 augroup END
