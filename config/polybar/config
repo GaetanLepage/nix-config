@@ -111,7 +111,7 @@ modules-left = ${env:WM}
 modules-center = spotify
 modules-right = xbacklight backlight-acpi pulseaudio memory cpu updates wlan battery time date dunst
 
-tray-position = ${env:TRAY_POS:none}
+tray-position = ${env:TRAY_POS:right}
 tray-padding = ${layout.module-padding}
 tray-background = ${colors.base-bg}
 
