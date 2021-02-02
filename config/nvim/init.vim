@@ -17,7 +17,8 @@
 call plug#begin('~/.config/nvim/plugged')
 Plug 'vim-airline/vim-airline'                                              " status bar (needs special fonts)
 Plug 'ryanoasis/vim-devicons'                                               " various symbols
-Plug 'gruvbox-community/gruvbox'                                            " nice colorscheme
+"Plug 'gruvbox-community/gruvbox'                                            " nice colorscheme
+Plug 'tomasiser/vim-code-dark'
 Plug 'ryanoasis/vim-devicons'                                               " coloured icons
 Plug 'preservim/nerdcommenter'                                              " Nerd Commenter
 Plug 'preservim/nerdtree'                                                   " NerdTree
@@ -29,6 +30,7 @@ Plug 'junegunn/fzf.vim'                                                     " fz
 Plug 'nvim-lua/popup.nvim'                                                  " [Telescope] An implementation of the Popup API from vim in Neovim.
 Plug 'nvim-lua/plenary.nvim'                                                " [Telescope] Lua functions.
 Plug 'nvim-telescope/telescope.nvim'                                        " [Telescope] Fuzzy finder.
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}                 " Tree sitter
 Plug 'majutsushi/tagbar'                                                    " TagBar
 Plug 'dstein64/nvim-scrollview', {'branch': 'main'}                         " Scrollbar
 Plug 'neoclide/coc.nvim', {'branch': 'release'}                             " Coc autocompletion
@@ -160,7 +162,8 @@ autocmd FileType yaml setlocal shiftwidth=2 softtabstop=2 expandtab
 " APPEARANCE "
 """"""""""""""
 
-colorscheme gruvbox
+"colorscheme gruvbox
+colorscheme codedark
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#ale#enabled = 1
 
