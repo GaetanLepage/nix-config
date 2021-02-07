@@ -21,6 +21,7 @@ alias p='paru'
 # Screen
 alias s='screen'
 alias ss='screen -S'
+alias sls='screen -ls'
 alias sr='screen -r'
 
 # Source config files
