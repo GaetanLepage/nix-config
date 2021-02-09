@@ -37,13 +37,14 @@ esac
 bspc rule -r "*"
 
 # Floating windows
-bspc rule -a Blueman-manager        state=floating
-bspc rule -a Pavucontrol 	        state=floating
-bspc rule -a Thunderbird:Calendar:* state=floating
-bspc rule -a update                 state=floating
-bspc rule -a Piper                  state=floating
-bspc rule -a Solaar                 state=floating
-bspc rule -a Zathura                state=tiled
+bspc rule -a Blueman-manager                state=floating
+bspc rule -a Pavucontrol 	                state=floating
+bspc rule -a Thunderbird:Calendar:*         state=floating
+bspc rule -a update                         state=floating
+bspc rule -a Piper                          state=floating
+bspc rule -a Solaar                         state=floating
+bspc rule -a Steam:Steam:"Steam - News*"    state=floating
+bspc rule -a Zathura                        state=tiled
 
 # Workspace assignments
 bspc rule -a firefox           desktop=2
