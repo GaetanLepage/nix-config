@@ -53,3 +53,8 @@ Host faster
     HostName faster.hevs.ch
     IdentityFile ~/.ssh/hes_ssh_key
     ForwardAgent no
+
+Host deep
+    User gaetan
+    HostName 192.168.1.6
+    IdentityFile ~/.ssh/rsa_gaetan
