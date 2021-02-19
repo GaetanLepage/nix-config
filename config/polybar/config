@@ -108,7 +108,7 @@ font-0 = Ubuntu Nerd Font:style=Book:size=12;1
 font-1 = NotoSans Mono:size=8;0
 
 modules-left = ${env:WM}
-modules-center = spotify
+modules-center = spotify title
 modules-right = xbacklight backlight-acpi pulseaudio memory cpu updates wlan battery time date dunst
 
 tray-position = ${env:TRAY_POS:right}
@@ -250,10 +250,9 @@ label-empty-padding = ${wm.ws-padding}
 label-separator = ""
 label-separator-padding = 0
 
-
-#################
-# Right modules ###############################################################
-#################
+##################
+# Center modules ###############################################################
+##################
 
 ###########
 # Spotify #
@@ -268,6 +267,11 @@ format = <label>
 exec = python ~/.config/polybar/spotify.py -f '{artist} ~ {song}' -t 200
 format-underline = ${colors.text-fg}
 
+
+
+#################
+# Right modules ###############################################################
+#################
 
 ##############
 # XBACKLIGHT #
