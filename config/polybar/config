@@ -247,7 +247,7 @@ label-empty-foreground = ${wm.color-empty-fg}
 label-empty-padding = ${wm.ws-padding}
 
 ; Separator in between workspaces
-label-separator = ""
+label-separator =
 label-separator-padding = 0
 
 ##################

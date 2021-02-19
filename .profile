@@ -16,6 +16,6 @@
 source ~/.zshenv
 
 # This is used for starting the x server if the window manager is not yet running.
-if [[ "$(tty)" = "/dev/tty1" ]]; then
+if [[ "$(tty)" =~ /dev/tty[1-2] ]]; then
     pgrep $WM || startx
 fi

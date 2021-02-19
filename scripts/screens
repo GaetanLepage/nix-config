@@ -130,15 +130,8 @@ auto_config() {
 
         # Inria
         alya)
-
-            xrandr --output USB-C-0 --off
-            xrandr --output DP-0 --off
-            xrandr --output DP-3 --off
-            xrandr --output DP-2 --off
-            xrandr --output DP-5 --off
-            xrandr --output DP-1 --mode 1920x1200 --pos 0x0 --rotate normal
-            xrandr --output DP-4 --primary --mode 2560x1440 --pos 1920x0 --rotate normal
-
+            #xrandr --output DP-4 --mode 1920x1200 --pos 0x0 --rotate normal --output USB-C-0 --primary --mode 1920x1080 --pos 1920x0 --rotate normal
+            xrandr --output DP-1 --mode 1920x1080 --pos 0x0 --rotate normal --output DP-4 --primary --mode 1920x1200 --pos 1920x0 --rotate normal
             ;;
     esac
 }

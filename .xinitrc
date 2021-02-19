@@ -22,5 +22,7 @@
 
 [ -f ~/.xprofile ] && . ~/.xprofile
 
+[[ -f ~/.Xresources ]] && xrdb -merge -I$HOME ~/.Xresources
+
 # Starting the window manager
 exec $WM
