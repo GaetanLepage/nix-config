@@ -17,16 +17,11 @@
 call plug#begin('~/.config/nvim/plugged')
 Plug 'vim-airline/vim-airline'                                              " status bar (needs special fonts)
 Plug 'ryanoasis/vim-devicons'                                               " various symbols
-"Plug 'gruvbox-community/gruvbox'                                            " nice colorscheme
-Plug 'tomasiser/vim-code-dark'
+Plug 'gruvbox-community/gruvbox'                                            " nice colorscheme
 Plug 'ryanoasis/vim-devicons'                                               " coloured icons
 Plug 'preservim/nerdcommenter'                                              " Nerd Commenter
 Plug 'preservim/nerdtree'                                                   " NerdTree
-"Plug 'ms-jpq/chadtree', {'branch':'chad', 'do': 'python3 -m chadtree deps'}
-Plug 'preservim/nerdtree'                                                   " NerdTree
 Plug 'Xuyuanp/nerdtree-git-plugin'                                          " NerdTree Git plugin
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }                         " Fuzzy file finder (fzf)
-Plug 'junegunn/fzf.vim'                                                     " fzf
 Plug 'nvim-lua/popup.nvim'                                                  " [Telescope] An implementation of the Popup API from vim in Neovim.
 Plug 'nvim-lua/plenary.nvim'                                                " [Telescope] Lua functions.
 Plug 'nvim-telescope/telescope.nvim'                                        " [Telescope] Fuzzy finder.
@@ -162,8 +157,7 @@ autocmd FileType yaml setlocal shiftwidth=2 softtabstop=2 expandtab
 " APPEARANCE "
 """"""""""""""
 
-"colorscheme gruvbox
-colorscheme codedark
+colorscheme gruvbox
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#ale#enabled = 1
 
@@ -179,14 +173,15 @@ match ExtraWhitespace /\s\+\%#\@<!$/
 """""""
 " FZF "
 """""""
-nnoremap <C-p> :GFiles<CR>
-nnoremap <leader>p :History<CR>
-nnoremap <leader>a :Ag<CR>
-nnoremap <leader>t :Ag TODO<CR>
+" nnoremap <C-p> :GFiles<CR>
+" nnoremap <leader>p :History<CR>
+" nnoremap <leader>a :Ag<CR>
+" nnoremap <leader>t :Ag TODO<CR>
+
 
 """""""""""""
 " Telescope "
-"""""""""""""
+" """""""""""
 " Find files using Telescope command-line sugar.
 nnoremap <leader>ff <cmd>Telescope find_files<cr>
 nnoremap <leader>fg <cmd>Telescope live_grep<cr>
