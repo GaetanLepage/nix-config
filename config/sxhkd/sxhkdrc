@@ -24,7 +24,6 @@ super + F2
 # make sxhkd reload its configuration files:
 super + Escape
     pkill -USR1 -x sxhkd
-    #notify-send toto
 
 # Lock
 super + o
@@ -116,7 +115,7 @@ super + a
     bspc node -c
 
 # alternate between the tiled and monocle layout
-super + {m,z}
+super + z
 	bspc desktop -l next
 
 # Cycle through the nodes (leaves only) of the current desktop
@@ -149,8 +148,17 @@ super + t
 super + f
     bspc node -t \~fullscreen
 
+super + m
+    bspc desktop -l monocle
+
+super + ctrl + space
+    bsp-layout cycle
+
 super + shift + space
     bspc node -t \~floating
+
+super + v
+    bspc node @/ -R 90
 
 # set the node flags
 super + ctrl + {m,x,y,z}
