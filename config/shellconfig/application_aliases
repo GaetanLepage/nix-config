@@ -17,6 +17,7 @@ alias v='nvim'
 # alias pip='sudo pip'
 alias apt='sudo apt-get'
 alias p='paru'
+alias pnc='paru -Syu --noconfirm'
 
 # Screen
 alias s='screen'
