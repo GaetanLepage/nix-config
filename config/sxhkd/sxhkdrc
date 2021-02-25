@@ -180,8 +180,7 @@ super + ctrl + {h,l}
 
 # expand a window by moving one of its side outward
 super + ctrl + shift + {h,j,k,l}
-    bspc node -z {left -20 0,bottom 0 20,top 0 -20,right 20 0}
-    # || bspc node -z {right -20 0,top 0 20,bottom 0 -20,|| notify-send toto}
+    bspc node -z {left -20 0,bottom 0 20,top 0 -20,right 20 0} || bspc node -z {right -20 0,top 0 20,bottom 0 -20,|| notify-send toto}
 
 # contract a window by moving one of its side inward
 super + ctrl + shift + {h,j,k,l}
