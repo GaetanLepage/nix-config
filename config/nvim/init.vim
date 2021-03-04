@@ -219,7 +219,6 @@ let g:coc_global_extensions = [
     \ 'coc-json',
     \ 'coc-python',
     \ 'coc-texlab',
-    \ 'coc-markdownlint',
     \ 'coc-snippets',
     \ 'coc-pairs',
     \ ]
@@ -307,6 +306,13 @@ let g:ale_linters = {
             \'python': ['pylint', 'mypy'],
             \'latex': ['chktex']}
 let g:ale_set_balloons = 1
+
+
+""""""""""""""""""""
+" Markdown preview "
+""""""""""""""""""""
+let g:mkdp_browser = 'qutebrowser'
+nmap <leader>m :MarkdownPreview<CR>
 
 
 """"""""""""""

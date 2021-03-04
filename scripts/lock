@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 # ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
 # ██ ▄▄ █ ▄▄▀█ ▄▄█▄ ▄█ ▄▄▀█ ▄▄▀████ ████ ▄▄█▀▄▄▀█ ▄▄▀█ ▄▄▄█ ▄▄██
 # ██ █▀▀█ ▀▀ █ ▄▄██ ██ ▀▀ █ ██ ████ ████ ▄▄█ ▀▀ █ ▀▀ █ █▄▀█ ▄▄██
@@ -15,16 +15,21 @@
 # Pauses notifications while screen is locked.
 
 # Pause notifications
-dunstctl set-paused true
+echo -e "\nBlock notifications"
+dunstctl set-paused true && echo "succesfully blocked ntofications"
 
 # Pause any playing video / song
+echo -e "\nPause any playing video/song"
 playerctl pause
 
 # Pause spotify
+echo -e "\nPause spotify"
 playerctl -p spotify pause
 
 # Lock the screen
+echo -e "\nLock screen"
 betterlockscreen -l
 
 # Resume notifications
+echo -e "\nResume notifications"
 dunstctl set-paused false

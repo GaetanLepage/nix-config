@@ -84,9 +84,14 @@ run_if_not_running g610-led -a ff
 ###########
 # Applets #
 ###########
-run_if_not_running blueman-applet
+# Run bluetooth applet only if it is not alya.
+[[ $(hostname -s) = "alya" ]] || run_if_not_running blueman-applet
+
 run_if_not_running nm-applet
 run_if_not_running nextcloud
+
+# Load Xresources
+xrdb $XDG_CONFIG_HOME/x11/xresources
 
 # Launch polybar
 run_in_bg polybar_launch

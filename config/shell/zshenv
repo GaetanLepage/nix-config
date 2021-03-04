@@ -31,11 +31,15 @@ export NPM_CONFIG_USERCONFIG=$XDG_CONFIG_HOME/npm/npmrc
 export GOPATH="$XDG_DATA_HOME"/go
 export GNUPGHOME="$XDG_DATA_HOME"/gnupg
 export _JAVA_OPTIONS=-Djava.util.prefs.userRoot="$XDG_CONFIG_HOME"/java
-#export GTK2_RC_FILES="$XDG_CONFIG_HOME"/gtk-2.0/gtkrc
-export ZDOTDIR=$HOME/.config/zsh
-#export HISTFILE="$XDG_DATA_HOME"/zsh/history
-export CARGO_HOME="$XDG_DATA_HOME"/cargo
-export ZDOTDIR="$HOME"
+export GTK2_RC_FILES="$XDG_CONFIG_HOME"/gtk-2.0/gtkrc
+export CARGO_HOME="$XDG_CONFIG_HOME"/cargo
+
+# Zsh
+export ZDOTDIR="$XDG_CONFIG_HOME"/shell
+export HISTFILE="$ZDOTDIR"/.zsh_history
+# Path to your oh-my-zsh installation.
+export ZSH=$ZDOTDIR/.oh-my-zsh
+
 
 # Scaling
 export QT_AUTO_SCREEN_SCALE_FACTOR=0
@@ -59,12 +63,22 @@ export TERMINAL="kitty"
 export VIDEO="mpv"
 export VISUAL="nvim"
 export WM="bspwm"
+# 'bat' as manpager
+export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+# 'nvim' as manpager
+#export MANPAGER="nvim -c 'set ft=man' -"
+
 
 export CM_SELECTIONS="clipboard"
 export CM_DEBUG=0
 export CM_OUTPUT_CLIP=1
 export CM_MAX_CLIPS=10
 
+# singularity
+if [[ $(hostname -s) = "alya" ]]; then
+    export SINGULARITY_TMPDIR=$HOME/scratch/tmp
+    export SINGULARITY_CACHEDIR=$HOME/scratch/.cache
+fi
 
 # Path
 export PATH="/usr/local/bin:$PATH"
@@ -82,9 +96,6 @@ export PERL_MM_OPT="INSTALL_BASE=/home/gaetan/perl5"; export PERL_MM_OPT;
 
 # Python PATH
 export PYTHONPATH=$PYTHONPATH:/home/gaetan/hevs/implementations/object_detection/models
-
-# Path to your oh-my-zsh installation.
-export ZSH=$HOME/.oh-my-zsh
 
 # Path for lcms2 (kitty dependency)
 export PKG_CONFIG_PATH=~/.local/lib/pkgconfig/

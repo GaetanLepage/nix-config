@@ -9,20 +9,13 @@
 # Email:    gaetan.lepage@inria.fr
 #
 # #---------#
-# | xinitrc |
+# | profile |
 # #---------#
-# xinitrc runs automatically when you run startx.
-#
-# There are some small but important commands that need to be run when we start
-# the graphical environment. I keep those commands in ~/.xprofile because that
-# file is run automatically if someone uses a display manager (login screen)
-# and so they are needed there. To prevent doubling up commands, I source them
-# here with the line below.
 
+# Source environment variables
+source ~/.zshenv
 
-[[ -f ~/.Xresources ]] && xrdb -merge -I$HOME   ~/.Xresources
-
-[ -f ~/.xprofile ] && . ~/.xprofile
-
-# Starting the window manager
-exec $WM
+# This is used for starting the x server if the window manager is not yet running.
+if [[ "$(tty)" =~ /dev/tty[1-2] ]]; then
+    pgrep $WM || startx
+fi

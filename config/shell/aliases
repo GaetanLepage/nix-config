@@ -1,0 +1,142 @@
+# ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+# ██ ▄▄ █ ▄▄▀█ ▄▄█▄ ▄█ ▄▄▀█ ▄▄▀████ ████ ▄▄█▀▄▄▀█ ▄▄▀█ ▄▄▄█ ▄▄██
+# ██ █▀▀█ ▀▀ █ ▄▄██ ██ ▀▀ █ ██ ████ ████ ▄▄█ ▀▀ █ ▀▀ █ █▄▀█ ▄▄██
+# ██ ▀▀▄█▄██▄█▄▄▄██▄██▄██▄█▄██▄████ ▀▀ █▄▄▄█ ████▄██▄█▄▄▄▄█▄▄▄██
+# ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
+# Website:  glepage.com
+# GitHub:   https://github.com/GaetanLepage
+# Email:    gaetan.lepage@inria.fr
+#
+# #---------#
+# | Aliases |
+# #---------#
+
+# Basic shell commands
+alias \
+    c='cd' \
+    ls='exa' \
+    l='ls -lFh' \
+    ll='ls -alFh' \
+    grep='grep --color=auto' \
+    diff="diff --color=auto" \
+    rm='rm -iv' \
+    cp='cp -iv' \
+    mkd='mkdir -pv' \
+    ka='killall' \
+    f='fg' \
+    cal='cal -m' \
+    icat="kitty +kitten icat" \
+    j='jobs' \
+    t="date +'%a %b %e %R:%S %Z %Y'" \
+    tk="TZ=Asia/Seoul date +'%a %b %e %R:%S %Z %Y'" \
+    trc='transmission-remote-cli' \
+    v='nvim' \
+    xup='xrdb .Xresources' \
+    m='mpv' \
+    n='neofetch' \
+    pm='pulsemixer' \
+    r='ranger' \
+    ranger='ranger --choosedir=$HOME/.rangerdir; LASTDIR=$(cat $HOME/.rangerdir); cd "$LASTDIR"' \
+    wttr='curl wttr.in/Grenoble+38000' \
+    z='zathura'
+
+
+# Package managers
+alias \
+    apt='sudo apt-get' \
+    p='paru' \
+    pnc='paru -Syu --noconfirm'
+
+
+# zotcli
+alias \
+    zr='zotcli read' \
+    zq='zotcli query' \
+    zen='zotcli edit-note'
+
+
+# Screen
+alias \
+    s='screen' \
+    ss='screen -S' \
+    sls='screen -ls' \
+    sr='screen -r'
+
+
+# Source config files
+alias \
+    sc='source $HOME/.zshrc' \
+    sp='source $HOME/.zprofile'
+
+
+###############
+# Programming #
+###############
+
+# Search within project
+alias \
+    s="ack --python " \
+    todo="s TODO"
+
+# count number of lines in Python project
+alias cl="find . -name '*.py' | xargs wc -l"
+alias pl="pylint ./**/*.py"
+
+
+# Vim
+alias \
+    vim='nvim' \
+    vi='nvim' \
+    v='nvim'
+
+
+# Copy output of last command
+alias \
+    co='"$(history | tail -2 | sed "s/  [0-9]*  //;2d")" > /tmp/cmdoutput && cat /tmp/cmdoutput | xsel -b && notify-send "Terminal" "Ouput Copied"' \
+    trp='trash-put' \
+    tre='trash-empty' \
+    trl='trash-list' \
+    trr='trash-restore' \
+    trm='trash-rm'
+
+
+#######
+# Git #
+#######
+alias \
+    g='git' \
+    lg="lazygit" \
+
+# Add
+alias \
+    ga='git add' \
+    gaa='git add *'
+
+# Commit
+alias \
+    gc='git commit' \
+    gcm='git commit -m' \
+    gca="git commit -am"
+
+# Pull / Push
+alias \
+    gpl='git pull' \
+    gplom='git pull origin master' \
+    gps='git push' \
+    gpsom='git push origin master'
+
+alias \
+    gs='git status' \
+    gd='git diff'   \
+    gch='git checkout' \
+    gnb='git checkout -b' \
+    gac='git add . && git commit' \
+    grs='git restore --staged .' \
+    gre='git restore' \
+    gr='git remote' \
+    gcl='git clone' \
+    glg="git log --graph --abbrev-commit --decorate --format=format:'%C(bold green)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold yellow)(%ar)%C(reset)%C(auto)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all" \
+    gt='git ls-tree -r master --name-only' \
+    gb='git branch' \
+    gm='git merge' \
+    gf='git fetch'
