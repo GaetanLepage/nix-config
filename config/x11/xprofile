@@ -19,7 +19,10 @@
 screens &
 
 # Start the Gnome keyring daemon.
-eval $(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)
+eval $(gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)
+
+# Load Xresources
+xrdb ${XDG_CONFIG_HOME:-$HOME/.config}/x11/xresources &
 
 dunst &			                    # dunst for notifications
 udiskie &                           # automatically mounts disks
