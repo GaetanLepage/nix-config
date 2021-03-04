@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 # ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
 # ██ ▄▄ █ ▄▄▀█ ▄▄█▄ ▄█ ▄▄▀█ ▄▄▀████ ████ ▄▄█▀▄▄▀█ ▄▄▀█ ▄▄▄█ ▄▄██
 # ██ █▀▀█ ▀▀ █ ▄▄██ ██ ▀▀ █ ██ ████ ████ ▄▄█ ▀▀ █ ▀▀ █ █▄▀█ ▄▄██
@@ -146,9 +146,9 @@ case $HOSTNAME in
 
         # TODO change
         pidof slack || gtk-launch gtk-launch com.slack.Slack.desktop
-        ;;
 
         flameshot &
+        ;;
 
     *)
         run_if_not_running signal-desktop
