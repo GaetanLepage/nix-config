@@ -308,6 +308,13 @@ let g:ale_linters = {
 let g:ale_set_balloons = 1
 
 
+""""""""""""""""""""
+" Markdown preview "
+""""""""""""""""""""
+let g:mkdp_browser = 'qutebrowser'
+nmap <leader>m :MarkdownPreview<CR>
+
+
 """"""""""""""
 " Git Gutter "
 """"""""""""""
