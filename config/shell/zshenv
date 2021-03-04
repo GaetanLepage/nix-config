@@ -31,11 +31,10 @@ export NPM_CONFIG_USERCONFIG=$XDG_CONFIG_HOME/npm/npmrc
 export GOPATH="$XDG_DATA_HOME"/go
 export GNUPGHOME="$XDG_DATA_HOME"/gnupg
 export _JAVA_OPTIONS=-Djava.util.prefs.userRoot="$XDG_CONFIG_HOME"/java
-#export GTK2_RC_FILES="$XDG_CONFIG_HOME"/gtk-2.0/gtkrc
-export ZDOTDIR=$HOME/.config/zsh
-#export HISTFILE="$XDG_DATA_HOME"/zsh/history
-export CARGO_HOME="$XDG_DATA_HOME"/cargo
-export ZDOTDIR="$HOME"
+export GTK2_RC_FILES="$XDG_CONFIG_HOME"/gtk-2.0/gtkrc
+export ZDOTDIR="$XDG_CONFIG_HOME"/shell
+export HISTFILE="$ZDOTDIR"/.zsh_history
+export CARGO_HOME="$XDG_CONFIG_HOME"/cargo
 
 # Scaling
 export QT_AUTO_SCREEN_SCALE_FACTOR=0
@@ -90,7 +89,7 @@ export PERL_MM_OPT="INSTALL_BASE=/home/gaetan/perl5"; export PERL_MM_OPT;
 export PYTHONPATH=$PYTHONPATH:/home/gaetan/hevs/implementations/object_detection/models
 
 # Path to your oh-my-zsh installation.
-export ZSH=$HOME/.oh-my-zsh
+export ZSH=$ZDOTDIR/.oh-my-zsh
 
 # Path for lcms2 (kitty dependency)
 export PKG_CONFIG_PATH=~/.local/lib/pkgconfig/

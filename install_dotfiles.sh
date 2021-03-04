@@ -43,19 +43,15 @@ config_dir_link () {
 
 # Home directory
 echo -e "\n## Linking \"home\" dotfiles ##"
-link_config_file .bash_profile
-link_config_file .bashrc
 link_config_file .gitconfig
-link_config_file .gtkrc-2.0
 link_config_file .p10k.zsh
-link_config_file .profile
 link_config_file .pylintrc
-link_config_file .xinitrc
-link_config_file .xprofile
-link_config_file .Xresources
-link_config_file .zprofile
-link_config_file .zshenv
-link_config_file .zshrc
+ln -sf $HOME/.config/x11/xprofile $HOME/.xprofile
+ln -sf $HOME/.config/x11/xinitrc $HOME/.xinitrc
+ln -sf $HOME/.config/shell/profile $HOME/.profile
+ln -sf $HOME/.config/shell/bashrc $HOME/.bashrc
+ln -sf $HOME/.config/shell/zshenv $HOME/.zshenv
+
 
 ####################
 # Config directory #
@@ -66,6 +62,7 @@ echo -e "\n## Linking conventional dotfiles ##"
 config_dir_link bspwm
 config_dir_link dunst
 config_dir_link flameshot
+config_dir_link gtk-2.0
 config_dir_link gtk-3.0
 config_dir_link gtk-4.0
 config_dir_link i3
@@ -77,7 +74,7 @@ config_dir_link picom
 config_dir_link polybar
 config_dir_link ranger
 config_dir_link rofi
-config_dir_link shellconfig
+config_dir_link shell
 config_dir_link sxhkd
 config_dir_link zathura
 
