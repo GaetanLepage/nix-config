@@ -14,8 +14,8 @@
 ##########
 # Global #
 ##########
-IdentityFile $HOME/.ssh/inria
-IdentityFile $HOME/.ssh/rsa_gaetan
+IdentityFile ~/.ssh/inria
+IdentityFile ~/.ssh/rsa_gaetan
 
 
 #########
