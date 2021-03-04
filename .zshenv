@@ -59,6 +59,12 @@ export TERMINAL="kitty"
 export VIDEO="mpv"
 export VISUAL="nvim"
 export WM="bspwm"
+# 'bat' as manpager
+export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+
+# 'nvim' as manpager
+#export MANPAGER="nvim -c 'set ft=man' -"
+
 
 export CM_SELECTIONS="clipboard"
 export CM_DEBUG=0
