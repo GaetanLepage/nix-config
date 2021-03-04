@@ -20,6 +20,8 @@
 # here with the line below.
 
 
+[[ -f ~/.Xresources ]] && xrdb -merge -I$HOME   ~/.Xresources
+
 [ -f ~/.xprofile ] && . ~/.xprofile
 
 # Starting the window manager
