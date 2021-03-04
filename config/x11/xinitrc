@@ -19,10 +19,7 @@
 # and so they are needed there. To prevent doubling up commands, I source them
 # here with the line below.
 
-
 [ -f ~/.xprofile ] && . ~/.xprofile
-
-[[ -f ~/.Xresources ]] && xrdb -merge -I$HOME ~/.Xresources
 
 # Starting the window manager
 exec $WM
