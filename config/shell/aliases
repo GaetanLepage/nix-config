@@ -25,7 +25,7 @@ alias \
     ka='killall' \
     f='fg' \
     cal='cal -m' \
-    icat="kitty +kitten icat"
+    icat="kitty +kitten icat" \
     j='jobs' \
     t="date +'%a %b %e %R:%S %Z %Y'" \
     tk="TZ=Asia/Seoul date +'%a %b %e %R:%S %Z %Y'" \
