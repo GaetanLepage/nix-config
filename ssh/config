@@ -1,3 +1,26 @@
+# ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+# ██ ▄▄ █ ▄▄▀█ ▄▄█▄ ▄█ ▄▄▀█ ▄▄▀████ ████ ▄▄█▀▄▄▀█ ▄▄▀█ ▄▄▄█ ▄▄██
+# ██ █▀▀█ ▀▀ █ ▄▄██ ██ ▀▀ █ ██ ████ ████ ▄▄█ ▀▀ █ ▀▀ █ █▄▀█ ▄▄██
+# ██ ▀▀▄█▄██▄█▄▄▄██▄██▄██▄█▄██▄████ ▀▀ █▄▄▄█ ████▄██▄█▄▄▄▄█▄▄▄██
+# ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
+# Website:  glepage.com
+# GitHub:   https://github.com/GaetanLepage
+# Email:    gaetan.lepage@inria.fr
+#
+# #------------#
+# | ssh config |
+# #------------#
+
+##########
+# Global #
+##########
+IdentityFile $HOME/.ssh/inria
+IdentityFile $HOME/.ssh/rsa_gaetan
+
+
+#########
+# Hosts #
+#########
 # SSH tunneling to perception_workstation_alias through bastion.inrialpes.fr
 Host alya
     User galepage
@@ -9,36 +32,35 @@ Host alya
 # Gaming pc
 Host gaming
     User uc
-    Hostname lepage.casa
+    Hostname glepage.com
     Port 223
-    IdentityFile ~/.ssh/rsa_gaetan
 
 Host backup
     User backup_server
-    Hostname lepage.casa
+    Hostname glepage.com
     Port 223
-    IdentityFile ~/.ssh/rsa_gaetan
 
 # Server
 Host server
     User gaetan
-    HostName lepage.casa
+    HostName glepage.com
 
 Host bubu
     User bubu
     HostName bubu-ensimag.fr
-    IdentityFile ~/.ssh/rsa_gaetan
 
 Host desktop
     User gaetan
-    Hostname lepage.casa
+    Hostname glepage.com
     Port 222
 
 Host router
     User root
     Hostname 192.168.1.1
-    IdentityFile ~/.ssh/rsa_gaetan
 
+##########
+# HES-SO #
+##########
 Host ultrafast
     User gaetan
     HostName 153.109.124.39
@@ -57,4 +79,3 @@ Host faster
 Host deep
     User gaetan
     HostName 192.168.1.6
-    IdentityFile ~/.ssh/rsa_gaetan
