@@ -52,6 +52,12 @@ plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
 ######################
 # SSH agent and keys #
 ######################
+# Gnome keyring daemon
+if [ -n "$DESKTOP_SESSION" ];then
+    eval $(gnome-keyring-daemon --start)
+    export SSH_AUTH_SOCK
+fi
+
 if ! pgrep -u "$USER" ssh-agent > /dev/null; then
     ssh-agent > "/tmp/ssh-agent.env"
 
