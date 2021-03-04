@@ -20,9 +20,11 @@
 # here with the line below.
 
 
-[ -f ~/.xprofile ] && . ~/.xprofile
-
-[[ -f ~/.Xresources ]] && xrdb -merge -I$HOME ~/.Xresources
+if [ -f "${XDG_CONFIG_HOME:-$HOME/.config}/x11/xprofile" ]; then
+	. "${XDG_CONFIG_HOME:-$HOME/.config}/x11/xprofile"
+else
+	. "$HOME/.xprofile"
+fi
 
 # Starting the window manager
 exec $WM
