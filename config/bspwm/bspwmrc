@@ -131,8 +131,8 @@ run_if_not_running() {
     $@ &
 }
 
-
-run_if_not_running $TERMINAL
+# Go to desktop 1 to run terminal
+bspc desktop -f 1 && run_if_not_running $TERMINAL
 run_if_not_running $BROWSER
 run_if_not_running zotero
 run_if_not_running thunderbird
