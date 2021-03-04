@@ -78,7 +78,7 @@ run_in_bg remaps
 [[ $WM == "bspwm" ]] && kill_and_run sxhkd
 
 # Logitech keyboard backlight profile
-run_if_not_running g610-led -a ff
+[[ $(hostname -s) = "gaetan-desktop-arch" ]] && run_if_not_running g610-led -a ff
 
 
 ###########

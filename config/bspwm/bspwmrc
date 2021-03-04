@@ -70,7 +70,7 @@ bspc desktop 4 -l monocle
 bspc desktop 5 -l monocle
 
 # Add custom rules for Spotify and zotero
-bspc config external_rules_command "$HOME/.config/bspwm/custom_rules.sh"
+bspc config external_rules_command "$XDG_CONFIG_HOME/bspwm/custom_rules.sh"
 
 
 ###################
