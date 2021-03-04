@@ -77,6 +77,7 @@ config_dir_link rofi
 config_dir_link shell
 config_dir_link sxhkd
 config_dir_link zathura
+config_dir_link x11
 
 delete_if_exists $HOME/.config/jesseduffield
 mkdir -p $HOME/.config/jesseduffield

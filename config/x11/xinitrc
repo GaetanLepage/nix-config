@@ -19,7 +19,11 @@
 # and so they are needed there. To prevent doubling up commands, I source them
 # here with the line below.
 
-[ -f ~/.xprofile ] && . ~/.xprofile
+if [ -f "${XDG_CONFIG_HOME:-$HOME/.config}/x11/xprofile" ]; then
+	. "${XDG_CONFIG_HOME:-$HOME/.config}/x11/xprofile"
+else
+	. "$HOME/.xprofile"
+fi
 
 # Starting the window manager
 exec $WM
