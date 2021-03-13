@@ -25,7 +25,7 @@ IdentityFile ~/.ssh/rsa_gaetan
 Host alya
     User galepage
     HostName alya.inrialpes.fr
-    ProxyCommand ssh -W %h:%p galepage@bastion.inrialpes.fr zsh # SSH tunneling to access1-cp through bastion.inrialpes.fr
+    ProxyCommand ssh -W %h:%p galepage@bastion.inrialpes.fr zsh
     RemoteCommand zsh
     RequestTTY force
 
