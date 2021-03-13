@@ -98,7 +98,7 @@ set foldlevel=99            " Folds with a level higher than this number will be
 " Vim-related mappings "
 """"""""""""""""""""""""
 " Disable macro recording
-map q <Nop>
+"map q <Nop>
 
 " Quick indentation formatting for the whole file
 noremap <F7> gg=G''
@@ -336,7 +336,7 @@ au BufNewFile,BufFilePre,BufRead *.md set filetype=markdown
 """"""""""
 " PYTHON "
 """"""""""
-let g:python3_host_prog = '/usr/bin/python3'
+"let g:python3_host_prog = '/usr/bin/python3'
 let g:python_highlight_all = 1
 let g:SimpylFold_docstring_preview = 1
 
