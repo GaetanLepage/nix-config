@@ -31,6 +31,7 @@ alias \
     tk="TZ=Asia/Seoul date +'%a %b %e %R:%S %Z %Y'" \
     trc='transmission-remote-cli' \
     v='nvim' \
+    p='python'
     xup='xrdb .Xresources' \
     m='mpv' \
     n='neofetch' \
@@ -39,6 +40,11 @@ alias \
     ranger='ranger --choosedir=$HOME/.rangerdir; LASTDIR=$(cat $HOME/.rangerdir); cd "$LASTDIR"' \
     wttr='curl wttr.in/Grenoble+38000' \
     z='zathura'
+
+# Common cds
+alias \
+    cs='cd $HOME/scratch' \
+    ci='cd $HOME/inria/repo >/dev/null 2>&1 || cd $HOME/scratch/inria/repo'
 
 
 # Package managers
