@@ -337,6 +337,7 @@ au BufNewFile,BufFilePre,BufRead *.md set filetype=markdown
 " PYTHON "
 """"""""""
 "let g:python3_host_prog = '/usr/bin/python3'
+let g:python3_host_prog = '~/.local/bin/python3'
 let g:python_highlight_all = 1
 let g:SimpylFold_docstring_preview = 1
 
