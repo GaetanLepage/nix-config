@@ -168,8 +168,12 @@ super + ctrl + {m,x,y,z}
 # FOCUS/SWAP
 
 # focus the node in the given direction
-super + {_,shift + }{h,j,k,l}
-	bspc node -{f,s} {west,south,north,east}
+super + {h,j,k,l}
+	bspc node -f {west,south,north,east}
+
+# send the node in the given direction (TODO: limit this to current workspace)
+super + shift + {h,j,k,l}
+	bspc node -s {west,south,north,east}
 
 # focus the next/previous desktop in the current monitor
 ctrl + alt + {h,l}
