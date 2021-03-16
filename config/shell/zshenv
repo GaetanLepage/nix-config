@@ -86,6 +86,7 @@ export PATH="$HOME/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/scripts:$PATH"
 export PATH="$HOME/.local/share/cargo/bin:$PATH"
+export PATH="$XDG_CONFIG_HOME/cargo/bin:$PATH"
 
 # Perl
 export PATH="/home/gaetan/perl5/bin${PATH:+:${PATH}}"
