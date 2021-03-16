@@ -68,7 +68,6 @@ config_dir_link i3
 config_dir_link kitty
 config_dir_link nvim
 config_dir_link paru
-config_dir_link pcmanfm
 config_dir_link picom
 config_dir_link polybar
 config_dir_link ranger
