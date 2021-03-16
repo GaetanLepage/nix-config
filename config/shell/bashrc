@@ -1,3 +1,4 @@
+#!/bin/sh
 #neofetch
 
 # If not running interactively, don't do anything
