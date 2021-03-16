@@ -32,10 +32,6 @@ decrease_volume() {
     pactl set-sink-volume "$SINK" -"$STEP"%
 }
 
-mute() {
-    pactl set-sink-mute ${SINK} toggle
-}
-
 update_sink
 
 case $1 in
@@ -51,16 +47,22 @@ case $1 in
 
         case $1 in
             up)
+                # Unmute first
+                pactl set-sink-mute ${SINK} 0
+
                 increase_volume $STEP
             ;;
             down)
+                # Unmute first
+                pactl set-sink-mute ${SINK} 0
+
                 decrease_volume $STEP
             ;;
             *)
         esac
         ;;
-    mute)
-        mute
+    mute_toggle)
+        pactl set-sink-mute ${SINK} toggle
     ;;
     *)
 esac

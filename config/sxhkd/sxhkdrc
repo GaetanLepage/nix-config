@@ -45,7 +45,7 @@ super + g
 {XF86AudioLowerVolume,super + Down}
     volume down 5
 XF86AudioMute
-    volume mute
+    volume mute_toggle
 # Media player
 XF86AudioPlay
     playerctl play-pause
