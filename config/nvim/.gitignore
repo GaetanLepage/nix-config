@@ -2,6 +2,8 @@
 *
 
 # Except
-init.vim
-plugged
-coc-settings.json
+!_init.vim
+!init.lua
+!lua/
+!lua/*
+!coc-settings.json
