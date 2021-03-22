@@ -60,6 +60,7 @@ bspc rule -a TelegramDesktop   desktop=6
 bspc rule -a Element           desktop=8
 bspc rule -a Steam             desktop=8
 bspc rule -a Mumble            desktop=8
+bspc rule -a discord           desktop=8
 bspc rule -a "Jitsi Meet"      desktop=8
 bspc rule -a nvtop             desktop=10
 bspc rule -a gotop             desktop=10

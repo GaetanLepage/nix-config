@@ -26,12 +26,12 @@ alias \
     f='fg' \
     cal='cal -m' \
     icat="kitty +kitten icat" \
-    j='jobs' \
+    jb='jobs' \
     t="date +'%a %b %e %R:%S %Z %Y'" \
     tk="TZ=Asia/Seoul date +'%a %b %e %R:%S %Z %Y'" \
     trc='transmission-remote-cli' \
     v='nvim' \
-    p='python'
+    py='python' \
     xup='xrdb .Xresources' \
     m='mpv' \
     n='neofetch' \
@@ -44,7 +44,8 @@ alias \
 # Common cds
 alias \
     cs='cd $HOME/scratch' \
-    ci='cd $HOME/inria/repo >/dev/null 2>&1 || cd $HOME/scratch/inria/repo'
+    ci='cd $HOME/inria/repo >/dev/null 2>&1 || cd $HOME/scratch/inria/repo' \
+    ch='cd $HOME/hevs/compfigsep'
 
 
 # Package managers
