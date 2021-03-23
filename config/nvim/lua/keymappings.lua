@@ -1,7 +1,9 @@
-local map = vim.api.nvim_set_keymap
+local nmap = utils.nmap
+local vmap = utils.vmap
+local xmap = utils.xmap
 
 
-map('n', '<Space>', '<NOP>', {noremap=true, silent=true})
+nmap('<Space>', '<NOP>')
 
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
@@ -10,49 +12,50 @@ vim.g.maplocalleader = ' '
 --map('n', '<Leader>h', ':set hlsearch!<CR>', {noremap=true, silent=true})
 
 -- Esc to clear search results
-map('n', '<esc>', ':noh<CR>', {noremap=true, silent=true})
+nmap('<esc>', ':noh<CR>')
 
 -- explorer
-map('n', '<Leader>n', ':NvimTreeToggle<CR>', {noremap=true, silent=true})
+-- map('n', '<Leader>n', ':NvimTreeToggle<CR>', {noremap=true, silent=true})
+nmap('<Leader>n', ':NvimTreeToggle<CR>')
 
 -- fix Y behaviour
-map('n', 'Y', 'y$', {noremap=true, silent=true})
+nmap('Y', 'y$')
 
 -- quit by Ctrl+w
 -- map('n', '<C-w>', ':bd<CR>', {noremap=true, silent=true})
 
 -- save by Ctrl+s
-map('n', '<C-s>', ':w<CR>', {noremap=true, silent=true})
+nmap('<C-s>', ':w<CR>')
 
 -- better window movement
-map('n', '<C-h>', '<C-w>h', {silent=true, noremap=true})
-map('n', '<C-j>', '<C-w>j', {silent=true, noremap=true})
-map('n', '<C-k>', '<C-w>k', {silent=true, noremap=true})
-map('n', '<C-l>', '<C-w>l', {silent=true, noremap=true})
+nmap('<C-h>', '<C-w>h')
+nmap('<C-j>', '<C-w>j')
+nmap('<C-k>', '<C-w>k')
+nmap('<C-l>', '<C-w>l')
 
 -- resize with arrows
-map('n', '<C-Up>', ':resize -2<CR>', {noremap=true, silent=true})
-map('n', '<C-Down>', ':resize +2<CR>', {noremap=true, silent=true})
-map('n', '<C-Left>', ':vertical resize +2<CR>', {noremap=true, silent=true})
-map('n', '<C-Right>', ':vertical resize -2<CR>', {noremap=true, silent=true})
+nmap('<C-Up>', ':resize -2<CR>')
+nmap('<C-Down>', ':resize +2<CR>')
+nmap('<C-Left>', ':vertical resize +2<CR>')
+nmap('<C-Right>', ':vertical resize -2<CR>')
 
 
 -- better indenting
-map('v', '<', '<gv', {noremap=true, silent=true})
-map('v', '>', '>gv', {noremap=true, silent=true})
+vmap('<', '<gv')
+vmap('>', '>gv')
 
 -- Tab switch buffer
 -- map('n', '<TAB>', ':bnext<CR>', {noremap=true, silent=true})
 -- map('n', '<S-TAB>', ':bprevious<CR>', {noremap=true, silent=true})
 
 -- Move selected line / block of text in visual mode
-map('x', 'K', ':move \'<-2<CR>gv-gv', {noremap=true, silent=true})
-map('x', 'J', ':move \'>+1<CR>gv-gv', {noremap=true, silent=true})
+xmap('K', ':move \'<-2<CR>gv-gv')
+xmap('J', ':move \'>+1<CR>gv-gv')
 -- some brilliant line movement mappings from junegunn ---"
 -- move current line up/down
 -- M = Alt key
-map('n', '<M-k>', ':move-2<CR>', {noremap=true, silent=true})
-map('n', '<M-j>', ':move+<CR>', {noremap=true, silent=true})
+nmap('<M-k>', ':move-2<CR>')
+nmap('<M-j>', ':move+<CR>')
 
 -- Better nav for omnicomplete
 vim.cmd('inoremap <expr> <c-j> (\"\\<C-n>\")')

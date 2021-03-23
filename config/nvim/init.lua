@@ -19,11 +19,11 @@
 -- pylint
 
 -- General mappings
+require('utils')
 require('plugins')
 require('keymappings')
 require('settings')
 require('colorscheme')
---require('nv-utils')
 
 -- Plugins
 require('nv-barbar')
