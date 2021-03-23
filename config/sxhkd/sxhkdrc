@@ -75,7 +75,7 @@ super + Return
 
 # Rofi
 super + d
-    rofi -show run
+    rofi -show drun
 
 # Web browser
 super + w
