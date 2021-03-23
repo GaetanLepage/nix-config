@@ -75,7 +75,7 @@ super + Return
 
 # Rofi
 super + d
-    rofi -show drun
+    [[ $(hostname) == 'alya' ]] && rofi -show drun || rofi -show run
 
 # Web browser
 super + w
