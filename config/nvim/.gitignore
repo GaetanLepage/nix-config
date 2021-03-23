@@ -5,5 +5,5 @@
 !_init.vim
 !init.lua
 !lua/
-!lua/*
+!lua/**/*
 !coc-settings.json

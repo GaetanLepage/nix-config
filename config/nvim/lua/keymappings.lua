@@ -48,8 +48,11 @@ map('v', '>', '>gv', {noremap=true, silent=true})
 -- Move selected line / block of text in visual mode
 map('x', 'K', ':move \'<-2<CR>gv-gv', {noremap=true, silent=true})
 map('x', 'J', ':move \'>+1<CR>gv-gv', {noremap=true, silent=true})
-map('n', '<Alt-k>', ':move \'<-2<CR>gv-gv', {noremap=true, silent=true})
-map('n', '<Alt-j>', ':move \'>+1<CR>gv-gv', {noremap=true, silent=true})
+-- some brilliant line movement mappings from junegunn ---"
+-- move current line up/down
+-- M = Alt key
+map('n', '<M-k>', ':move-2<CR>', {noremap=true, silent=true})
+map('n', '<M-j>', ':move+<CR>', {noremap=true, silent=true})
 
 -- Better nav for omnicomplete
 vim.cmd('inoremap <expr> <c-j> (\"\\<C-n>\")')
