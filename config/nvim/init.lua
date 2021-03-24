@@ -17,6 +17,7 @@
 -- disable auto chdir when opening a file from stratify
 -- (write a custom function for keymappings)
 -- pylint
+-- highlight trailing white space
 
 -- General mappings
 require('utils')
@@ -32,7 +33,7 @@ require('nv-comment')
 require('nv-compe')
 require('nv-fugitive')
 require('nv-galaxyline')
-require('nv-gitgutter')
+require('nv-gitsigns')
 require('nv-markdown-preview')
 require('nv-nvim-autopairs')
 require('nv-nvimtree')
@@ -41,6 +42,7 @@ require('nv-startify')
 require('nv-tagbar')
 require('nv-treesitter')
 require('nv-telescope')
+require('nv-vimtex')
 -- require('nv-vista')
 -- require('nv-floaterm')
 -- require('nv-lspkind')

@@ -18,6 +18,9 @@ return require('packer').startup(function(use)
     -- Quality of life improvements
     use 'norcalli/nvim_utils'
 
+    -- LaTeX
+    use 'lervag/vimtex'
+
     -- LSP
     use 'neovim/nvim-lspconfig'
     use 'glepnir/lspsaga.nvim'
@@ -63,13 +66,19 @@ return require('packer').startup(function(use)
     use 'kyazdani42/nvim-tree.lua'
 
     -- Color
-    use 'gruvbox-community/gruvbox'            
+    use 'gruvbox-community/gruvbox'
     --use 'christianchiarulli/nvcode-color-schemes.vim'
     use 'norcalli/nvim-colorizer.lua'
 
     -- Git
     use 'tpope/vim-fugitive' 				-- Git Fugitive
-    use 'airblade/vim-gitgutter'            -- A Vim plugin which shows a git diff in the sign column.
+    use {
+        'lewis6991/gitsigns.nvim',
+        requires = {
+            'nvim-lua/plenary.nvim'
+        }
+    }                                       -- A Vim plugin which shows a git diff in the sign column.
+    -- use 'airblade/vim-gitgutter'         -- A Vim plugin which shows a git diff in the sign column.
     use 'TimUntersberger/neogit' 			-- A work-in-progress Magit clone for Neovim that is geared toward the Vim philosophy.
 
     -- General Plugins
@@ -82,7 +91,7 @@ return require('packer').startup(function(use)
     use 'alvan/vim-closetag'
     use 'liuchengxu/vim-which-key'
     -- use 'liuchengxu/vista.vim'
-    use 'majutsushi/tagbar'                                                    
+    use 'majutsushi/tagbar'
     use 'terrortylor/nvim-comment'
     use 'bfredl/nvim-miniyank'
 end)
