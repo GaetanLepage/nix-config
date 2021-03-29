@@ -28,6 +28,9 @@ return require('packer').startup(function(use)
     use 'kosayoda/nvim-lightbulb'
     use 'mfussenegger/nvim-jdtls'
 
+    -- Linting
+    use 'neomake/neomake'
+
     -- Autocomplete
     use 'hrsh7th/nvim-compe'
     use 'hrsh7th/vim-vsnip'
@@ -88,9 +91,10 @@ return require('packer').startup(function(use)
     use 'mhinz/vim-startify'
     use 'metakirby5/codi.vim'
     use 'moll/vim-bbye'
+    use 'voldikss/vim-floaterm'             -- floaterm
+    -- use { 'lukas-reineke/indent-blankline.nvim', branch = 'lua' }
     use 'alvan/vim-closetag'
     use 'liuchengxu/vim-which-key'
-    -- use 'liuchengxu/vista.vim'
     use 'majutsushi/tagbar'
     use 'terrortylor/nvim-comment'
     use 'bfredl/nvim-miniyank'

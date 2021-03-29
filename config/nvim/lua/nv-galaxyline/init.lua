@@ -52,11 +52,11 @@ gls.left[1] = {
             vim.api.nvim_command('hi GalaxyViMode guifg=' .. mode_color[vim.fn.mode()])
             return '▊ '
         end,
-        highlight = {colors.red, colors.bg, 'bold'}
+        highlight = {colors.red, colors.bg}
     }
 }
-print(vim.fn.getbufvar(0,'ts'))
-vim.fn.getbufvar(0,'ts')
+print(vim.fn.getbufvar(0, 'ts'))
+vim.fn.getbufvar(0, 'ts')
 
 gls.left[2] = {
     GitIcon = {
@@ -66,7 +66,7 @@ gls.left[2] = {
         condition = condition.check_git_workspace,
         separator = ' ',
         separator_highlight = {'NONE', colors.bg},
-        highlight = {colors.orange, colors.bg, 'bold'}
+        highlight = {colors.orange, colors.bg}
     }
 }
 
@@ -76,7 +76,7 @@ gls.left[3] = {
         condition = condition.check_git_workspace,
         separator = ' ',
         separator_highlight = {'NONE', colors.bg},
-        highlight = {colors.grey, colors.bg, 'bold'}
+        highlight = {colors.grey, colors.bg}
     }
 }
 
@@ -106,35 +106,13 @@ gls.left[6] = {
 }
 
 gls.right[1] = {
-    DiagnosticError = {
-        provider = 'DiagnosticError',
-        icon = '  ',
-        highlight = {colors.error_red, colors.bg}
-    }
+    DiagnosticError = {provider = 'DiagnosticError', icon = '  ', highlight = {colors.error_red, colors.bg}}
 }
-gls.right[2] = {
-    DiagnosticWarn = {
-        provider = 'DiagnosticWarn',
-        icon = '  ',
-        highlight = {colors.orange, colors.bg}
-    }
-}
+gls.right[2] = {DiagnosticWarn = {provider = 'DiagnosticWarn', icon = '  ', highlight = {colors.orange, colors.bg}}}
 
-gls.right[3] = {
-    DiagnosticHint = {
-        provider = 'DiagnosticHint',
-        icon = '  ',
-        highlight = {colors.blue, colors.bg}
-    }
-}
+gls.right[3] = {DiagnosticHint = {provider = 'DiagnosticHint', icon = '  ', highlight = {colors.blue, colors.bg}}}
 
-gls.right[4] = {
-    DiagnosticInfo = {
-        provider = 'DiagnosticInfo',
-        icon = '  ',
-        highlight = {colors.blue, colors.bg}
-    }
-}
+gls.right[4] = {DiagnosticInfo = {provider = 'DiagnosticInfo', icon = '  ', highlight = {colors.blue, colors.bg}}}
 
 gls.right[5] = {
     ShowLspClient = {
@@ -145,7 +123,7 @@ gls.right[5] = {
             return true
         end,
         icon = ' ',
-        highlight = {colors.grey, colors.bg, 'bold'}
+        highlight = {colors.grey, colors.bg}
     }
 }
 
@@ -163,7 +141,50 @@ gls.right[7] = {
         provider = 'LinePercent',
         separator = ' ',
         separator_highlight = {'NONE', colors.bg},
-        highlight = {colors.grey, colors.bg, 'bold'}
+        highlight = {colors.grey, colors.bg}
+    }
+}
+
+gls.right[8] = {
+    Tabstop = {
+        provider = function()
+            return "Spaces: " .. vim.api.nvim_buf_get_option(0, "shiftwidth") .. " "
+        end,
+        condition = condition.hide_in_width,
+        separator = ' ',
+        separator_highlight = {'NONE', colors.bg},
+        highlight = {colors.grey, colors.bg}
+    }
+}
+
+gls.right[9] = {
+    BufferType = {
+        provider = 'FileTypeName',
+        condition = condition.hide_in_width,
+        separator = ' ',
+        separator_highlight = {'NONE', colors.bg},
+        highlight = {colors.grey, colors.bg}
+    }
+}
+
+gls.right[10] = {
+    FileEncode = {
+        provider = 'FileEncode',
+        condition = condition.hide_in_width,
+        separator = ' ',
+        separator_highlight = {'NONE', colors.bg},
+        highlight = {colors.grey, colors.bg}
+    }
+}
+
+gls.right[11] = {
+    Space = {
+        provider = function()
+            return ' '
+        end,
+        separator = ' ',
+        separator_highlight = {'NONE', colors.bg},
+        highlight = {colors.orange, colors.bg}
     }
 }
 
@@ -172,18 +193,12 @@ gls.short_line_left[1] = {
         provider = 'FileTypeName',
         separator = ' ',
         separator_highlight = {'NONE', colors.bg},
-        highlight = {colors.grey, colors.bg, 'bold'}
+        highlight = {colors.grey, colors.bg}
     }
 }
 
 gls.short_line_left[2] = {
-    SFileName = {
-        provider = 'SFileName',
-        condition = condition.buffer_not_empty,
-        highlight = {colors.grey, colors.bg, 'bold'}
-    }
+    SFileName = {provider = 'SFileName', condition = condition.buffer_not_empty, highlight = {colors.grey, colors.bg}}
 }
 
-gls.short_line_right[1] = {
-    BufferIcon = {provider = 'BufferIcon', highlight = {colors.grey, colors.bg}}
-}
+gls.short_line_right[1] = {BufferIcon = {provider = 'BufferIcon', highlight = {colors.grey, colors.bg}}}
