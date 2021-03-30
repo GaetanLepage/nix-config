@@ -75,13 +75,13 @@ return require('packer').startup(function(use)
 
     -- Git
     use 'tpope/vim-fugitive' 				-- Git Fugitive
-    use {
-        'lewis6991/gitsigns.nvim',
-        requires = {
-            'nvim-lua/plenary.nvim'
-        }
-    }                                       -- A Vim plugin which shows a git diff in the sign column.
-    -- use 'airblade/vim-gitgutter'         -- A Vim plugin which shows a git diff in the sign column.
+    -- use {
+    --     'lewis6991/gitsigns.nvim',
+    --     requires = {
+    --         'nvim-lua/plenary.nvim'
+    --     }
+    -- }                                       -- A Vim plugin which shows a git diff in the sign column.
+    use 'airblade/vim-gitgutter'         -- A Vim plugin which shows a git diff in the sign column.
     use 'TimUntersberger/neogit' 			-- A work-in-progress Magit clone for Neovim that is geared toward the Vim philosophy.
 
     -- General Plugins
