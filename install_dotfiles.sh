@@ -69,6 +69,7 @@ config_dir_link kitty
 config_dir_link nvim
 config_dir_link paru
 config_dir_link picom
+config_dir_link python
 config_dir_link polybar
 config_dir_link ranger
 config_dir_link rofi

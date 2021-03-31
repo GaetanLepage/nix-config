@@ -1,0 +1,19 @@
+# Neovim
+pynvim
+rope
+ranger
+jedi
+
+# Linting
+
+pylint
+
+flake8
+flake8-docstrings
+pep8-naming
+autopep8
+
+mypy
+future
+pyls-mypy
+jiwer

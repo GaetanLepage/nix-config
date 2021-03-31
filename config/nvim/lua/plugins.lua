@@ -1,4 +1,3 @@
-local execute = vim.api.nvim_command
 local fn = vim.fn
 
 local install_path = fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
@@ -29,7 +28,7 @@ return require('packer').startup(function(use)
     use 'mfussenegger/nvim-jdtls'
 
     -- Linting
-    use 'neomake/neomake'
+    -- use 'neomake/neomake'
 
     -- Autocomplete
     use 'hrsh7th/nvim-compe'

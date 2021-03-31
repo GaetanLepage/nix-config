@@ -87,6 +87,9 @@ run_in_bg remaps
 # Run bluetooth applet only if it is not alya.
 [[ $(hostname -s) = "alya" ]] || run_if_not_running blueman-applet
 
+
+[[ $(hostname -s) = "alya" ]] && ssh -CnfND 8080 server
+
 run_if_not_running nm-applet
 run_if_not_running nextcloud
 

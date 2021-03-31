@@ -1,8 +1,70 @@
 -- pip install python-language-server
-require'lspconfig'.pyls.setup{}
+require'lspconfig'.pyls.setup(
+    {
+        enable = true,
+        settings = {
+            pyls = {
+                configurationSources = {"flake8"},
+                plugins = {
+                    pycodestyle = {
+                        enabled = false
+                    },
+                    pyls_mypy = {
+                        enabled = true,
+                        live_mode = false
+                    },
+                    jedi_completion = {
+                        enabled = true,
+                        fuzzy = true
+                    },
+                    jedi_hover = {
+                        enabled = true
+                    },
+                    jedi_references = {
+                        enabled = true
+                    },
+                    jedi_signature_help = {
+                        enabled = true
+                    },
+                    jedi_symbols = {
+                        enabled = true,
+                        all_scopes = true
+                    },
+                    pycodestyle = {
+                        enabled = false
+                    },
+                    flake8 = {
+                        enabled = true,
+                        maxLineLength = 100,
+                        ignore = {'D200', 'D400'},
+                    },
+                    yapf = {
+                        enabled = false
+                    },
+                    pylint = {
+                        enabled = true
+                    },
+                    pydocstyle = {
+                        enabled = false
+                    },
+                    mccabe = {
+                        enabled = false
+                    },
+                    preload = {
+                        enabled = false
+                    },
+                    rope_completion = {
+                        enabled = false
+                    }
+                }
+            }
+        },
+        on_attach = on_attach
+    }
+)
 
 -- npm i -g pyright
-require'lspconfig'.pyright.setup{}
+-- require'lspconfig'.pyright.setup{}
 
 --   Commands:
 --   - PyrightOrganizeImports: Organize Imports

@@ -136,11 +136,12 @@ run_if_not_running() {
 bspc desktop -f 1 && run_if_not_running $TERMINAL
 run_if_not_running $BROWSER
 run_if_not_running zotero
-run_if_not_running thunderbird
 
 case $HOSTNAME in
     alya)
         export $(dbus-launch)
+        pidof thunderbird || gtk-launch org.mozilla.Thunderbird
+
         pidof signal-desktop || gtk-launch org.signal.Signal.desktop
         pidof telegram-desktop || gtk-launch org.telegram.desktop.desktop
         pidof element-desktop || gtk-launch im.riot.Riot.desktop
@@ -152,6 +153,7 @@ case $HOSTNAME in
         ;;
 
     *)
+        run_if_not_running thunderbird
         run_if_not_running signal-desktop
         run_if_not_running telegram-desktop
         #run_if_not_running spotify
