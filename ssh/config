@@ -14,8 +14,8 @@
 ##########
 # Global #
 ##########
-IdentityFile ~/.ssh/inria
-IdentityFile ~/.ssh/rsa_gaetan
+# IdentityFile ~/.ssh/inria
+# IdentityFile ~/.ssh/rsa_gaetan
 
 
 #########
@@ -39,6 +39,10 @@ Host backup
     User backup_server
     Hostname glepage.com
     Port 223
+
+Host nas
+    User admin
+    Hostname 192.168.1.218
 
 # Server
 Host server
