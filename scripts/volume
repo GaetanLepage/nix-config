@@ -36,14 +36,8 @@ update_sink
 
 case $1 in
     up|down)
-        if [ -z "$2" ]
-        then
-            # No step was provided: using the default step
-            STEP=10
-        else
-            # Using the given step
-            STEP=$2
-        fi
+        provided_step=$2
+        STEP=${provided_step:=10}
 
         case $1 in
             up)

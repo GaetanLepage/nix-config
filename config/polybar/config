@@ -223,7 +223,7 @@ ws-icon-7 = ${wm.ws-icon-7}
 ws-icon-8 = ${wm.ws-icon-8}
 ws-icon-9 = ${wm.ws-icon-9}
 
-pin-workspaces = true
+; pin-workspaces = false
 format = <label-state>
 
 enable-scroll = true

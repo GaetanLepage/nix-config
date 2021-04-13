@@ -7,7 +7,7 @@ consequences=$4
 
 main() {
     # Debug: displays (with dunst) the class and instance of the opened window
-    #notify-send "CLASS=$class INSTANCE=$instance"
+    # notify-send "CLASS=$class INSTANCE=$instance"
 
     case "$class" in
         Spotify)
@@ -15,6 +15,9 @@ main() {
             ;;
         Zotero)
             echo "desktop=7"
+            ;;
+        *py)
+            echo "state=floating"
             ;;
         "")
             sleep 0.5

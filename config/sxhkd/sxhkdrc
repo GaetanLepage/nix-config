@@ -171,9 +171,9 @@ super + ctrl + {m,x,y,z}
 super + {h,j,k,l}
 	bspc node -f {west,south,north,east}
 
-# send the node in the given direction (TODO: limit this to current workspace)
+# send the node in the given direction
 super + shift + {h,j,k,l}
-	bspc node -s {west,south,north,east}
+	bspc node -s {west,south,north,east}.local
 
 # focus the next/previous desktop in the current monitor
 ctrl + alt + {h,l}
