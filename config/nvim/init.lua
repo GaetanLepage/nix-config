@@ -18,6 +18,7 @@
 -- (write a custom function for keymappings)
 -- pylint
 -- highlight trailing white space
+-- highlight 'TODO'
 
 -- General mappings
 require('utils')
@@ -42,6 +43,7 @@ require('nv-nvim-autopairs')
 require('nv-nvimtree')
 require('nv-rnvimr')
 require('nv-startify')
+require('nv-simpylfold')
 require('nv-tagbar')
 require('nv-treesitter')
 require('nv-telescope')

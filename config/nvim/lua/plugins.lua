@@ -95,4 +95,7 @@ return require('packer').startup(function(use)
     use 'majutsushi/tagbar'                 -- Easy way to browse the tags of the current file and get an overview of its structure
     use 'terrortylor/nvim-comment'
     use 'bfredl/nvim-miniyank'
+
+    -- Python folding
+    use 'tmhedberg/SimpylFold'
 end)

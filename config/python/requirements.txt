@@ -4,6 +4,9 @@ rope
 ranger
 jedi
 
+# Vim latex
+neovim-remote
+
 # Linting
 
 pylint

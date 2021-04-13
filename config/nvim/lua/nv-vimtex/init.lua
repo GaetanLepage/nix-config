@@ -15,6 +15,14 @@ vim.g.vimtex_toc_config = {
     mode = 2
 }
 
+vim.g.vimtex_compiler_latexrun = {
+    build_dir = '',
+    options = {
+        '-verbose-cmds',
+        '--latex-args="-synctex=1"',
+    },
+}
+
 vim.g.tex_flavor = 'latex'
 
 vim.g.vimtex_compiler_progname = 'nvr'
@@ -38,8 +46,9 @@ vim.o.foldtext = 'vimtex#fold#text()'
 
 
 -- Compile on initialization, cleanup on quit
-utils.create_augroup({
-                        { 'User', 'VimtexEventInitPost', 'call', 'vimtex#compiler#compile()' },
-                        { 'User', 'VimtexEventQuit', 'call', 'vimtex#compiler#clean(0)' },
-                     },
-                     'vimtex_event_1')
+utils.create_augroup('vimtex_event_1',
+                     {
+                         { 'User', 'VimtexEventInitPost', 'call', 'vimtex#compiler#compile()' },
+                         { 'User', 'VimtexEventQuit', 'call', 'vimtex#compiler#clean(0)' },
+                     }
+)

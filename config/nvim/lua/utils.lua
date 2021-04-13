@@ -28,7 +28,7 @@ end
 
 local cmd = vim.cmd
 
-function utils.create_augroup(autocmds, name)
+function utils.create_augroup(name, autocmds)
     cmd('augroup ' .. name)
     cmd('autocmd!')
     for _, autocmd in ipairs(autocmds) do

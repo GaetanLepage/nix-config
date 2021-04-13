@@ -27,20 +27,35 @@
 -- vim.o.clipboard="unnamedplus"                   --Copy paste between vim and everything else
 -- vim.o.guifont="JetBrainsMono\\ Nerd\\ Font\\ Mono:h18"
 
-
-
 -- AutoCmd and stuff
 
 -- Vertically center document when entering insert mode
-vim.cmd [[autocmd InsertEnter * norm zz]]
+vim.cmd[[ autocmd InsertEnter * norm zz ]]
 
+
+function HighlightTodo()
+    vim.cmd [[ highlight Todo ctermfg=0 ctermbg=11 guifg=Blue guibg=Yellow" ]]
+end
+
+function HighlightExtraWhitespace()
+    vim.cmd[[ highlight ExtraWhitespace ctermbg=red guibg=red ]]
+    vim.cmd[[ match ExtraWhitespace /\s\+\%#\@<!$/ ]]
+end
+
+function Highlights()
+    HighlightTodo()
+    HighlightExtraWhitespace()
+end
 
 -- highlight trailing whitespace (TODO fix)
-vim.cmd [[highlight ExtraWhitespace ctermbg=red guibg=red]]
-vim.cmd [[match ExtraWhitespace /\s\+\%#\@<!$/]]
+utils.create_augroup('Highlights',
+                     {
+                         {"ColorScheme", "*", "lua Highlights()"}
+                     }
+)
 
 -- Remove trailing whitespace on save
-vim.cmd [[autocmd BufWrite * %s/\s\+$//e]]
+vim.cmd[[ autocmd BufWrite * %s/\s\+$//e ]]
 
 local o = vim.o
 local wo = vim.wo
