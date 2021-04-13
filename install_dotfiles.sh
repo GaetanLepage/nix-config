@@ -50,7 +50,7 @@ else
 fi
 
 install_software () {
-
+    echo TODO
 }
 
 
@@ -58,7 +58,7 @@ install_software () {
 # SHELL ###########################################################################################
 #########
 install_shell () {
-
+    echo TODO
 }
 
 
