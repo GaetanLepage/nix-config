@@ -38,7 +38,7 @@ XF86MonBrightnessDown
 # Audio
 # Run pavucontrol
 super + g
-	pavucontrol
+    pavucontrol
 
 {XF86AudioRaiseVolume,super + Up}
     volume up 5

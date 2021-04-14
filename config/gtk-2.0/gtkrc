@@ -2,8 +2,8 @@
 # Any customization should be done in ~/.gtkrc-2.0.mine instead.
 
 include "/home/gaetan/.gtkrc-2.0.mine"
-gtk-theme-name="gruvbox-dark-gtk"
-gtk-icon-theme-name="gruvbox-dark-icons-gtk"
+gtk-theme-name="Matcha-dark-aliz"
+gtk-icon-theme-name="Papirus-Dark"
 gtk-font-name="DejaVu Sans 11"
 gtk-cursor-theme-name="Breeze"
 gtk-cursor-theme-size=0

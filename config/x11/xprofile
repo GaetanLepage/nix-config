@@ -24,7 +24,7 @@ export $(gnome-keyring-daemon --start --components=pkcs11,secrets,ssh,gpg)
 dbus-update-activation-environment --systemd DISPLAY
 
 # Load Xresources
-xrdb ${XDG_CONFIG_HOME:-$HOME/.config}/x11/xresources &
+xrdb ${XDG_CONFIG_HOME:-$HOME/.config}/x11/xresources
 
 dunst &			                    # dunst for notifications
 udiskie &                           # automatically mounts disks

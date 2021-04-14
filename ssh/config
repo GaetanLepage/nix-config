@@ -21,13 +21,6 @@
 #########
 # Hosts #
 #########
-# SSH tunneling to perception_workstation_alias through bastion.inrialpes.fr
-Host alya
-    User galepage
-    HostName alya.inrialpes.fr
-    ProxyCommand ssh -W %h:%p galepage@bastion.inrialpes.fr zsh
-    RemoteCommand zsh
-    RequestTTY force
 
 # Gaming pc
 Host gaming
@@ -65,6 +58,24 @@ Host desktop
 Host router
     User root
     Hostname 192.168.1.1
+
+#########
+# Inria #
+#########
+Host bastion
+    User galepage
+    HostName bastion.inrialpes.fr
+    IdentityFile ~/.ssh/rsa_gaetan
+
+# SSH tunneling to perception_workstation_alias through bastion.inrialpes.fr
+Host alya
+    User galepage
+    HostName alya.inrialpes.fr
+    ProxyJump bastion
+    # RemoteCommand ls
+    # RequestTTY true
+    # ProxyCommand ssh -W %h:%p galepage@bastion.inrialpes.fr zsh
+
 
 ##########
 # HES-SO #
