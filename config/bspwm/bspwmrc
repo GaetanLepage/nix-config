@@ -132,33 +132,46 @@ run_if_not_running() {
     $@ &
 }
 
+#############
+# Autostart #
+#############
+
+# Run for all systems
+
 # Go to desktop 1 to run terminal
 bspc desktop -f 1 && run_if_not_running $TERMINAL
-run_if_not_running $BROWSER
-run_if_not_running zotero
 
+run_if_not_running $BROWSER
+
+type nvtop > /dev/null 2>&1 && { pidof nvtop > /dev/null 2>&1 || $TERMINAL --class nvtop nvtop & }
+type gotop > /dev/null 2>&1 && { pidof gotop > /dev/null 2>&1 || $TERMINAL --class gotop gotop & }
+
+# System-dependant program launching
 case $HOSTNAME in
     alya)
         export $(dbus-launch)
         pidof thunderbird || gtk-launch org.mozilla.Thunderbird
 
+        run_if_not_running telegram-desktop
+
+        run_if_not_running zotero
+
         pidof signal-desktop || gtk-launch org.signal.Signal.desktop
         pidof telegram-desktop || gtk-launch org.telegram.desktop.desktop
         pidof element-desktop || gtk-launch im.riot.Riot.desktop
 
-        # TODO change
-        pidof slack || gtk-launch gtk-launch com.slack.Slack.desktop
-
         flameshot &
         ;;
 
-    *)
+    gaetan-desktop-arch)
+        run_if_not_running thunderbird
+        run_if_not_running telegram-desktop
+        run_if_not_running signal-desktop
+        ;;
+
+    gaetan-xps)
         run_if_not_running thunderbird
         run_if_not_running signal-desktop
-        run_if_not_running telegram-desktop
-        #run_if_not_running spotify
         ;;
 esac
 
-type nvtop > /dev/null 2>&1 && { pidof nvtop > /dev/null 2>&1 || $TERMINAL --class nvtop nvtop & }
-type gotop > /dev/null 2>&1 && { pidof gotop > /dev/null 2>&1 || $TERMINAL --class gotop gotop & }
