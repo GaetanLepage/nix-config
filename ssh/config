@@ -24,47 +24,48 @@
 
 # Gaming pc
 Host gaming
-    User uc
     Hostname glepage.com
+    User uc
     Port 223
     IdentityFile ~/.ssh/rsa_gaetan
 
 Host backup
-    User backup_server
     Hostname glepage.com
+    User backup_server
     Port 223
     IdentityFile ~/.ssh/rsa_gaetan
 
 Host nas
-    User admin
     Hostname 192.168.1.218
+    User admin
     IdentityFile ~/.ssh/rsa_gaetan
 
 # Server
 Host server
-    User gaetan
     HostName glepage.com
+    User gaetan
     IdentityFile ~/.ssh/rsa_gaetan
 
 Host bubu
-    User bubu
     HostName bubu-ensimag.fr
+    User bubu
+    IdentityFile ~/.ssh/rsa_gaetan
 
 Host desktop
-    User gaetan
     Hostname glepage.com
+    User gaetan
     Port 222
 
 Host router
-    User root
     Hostname 192.168.1.1
+    User root
 
 #########
 # Inria #
 #########
 Host bastion
-    User galepage
     HostName bastion.inrialpes.fr
+    User galepage
     IdentityFile ~/.ssh/rsa_gaetan
 
 # SSH tunneling to perception_workstation_alias through bastion.inrialpes.fr
@@ -74,15 +75,22 @@ Host alya
     ProxyJump bastion
     # RemoteCommand ls
     # RequestTTY true
-    # ProxyCommand ssh -W %h:%p galepage@bastion.inrialpes.fr zsh
+    # ProxyCommand ssh -A galepage@bastion.inrialpes.fr -W %h:%p
+
+##########
+# GriCAD #
+##########
+Host gricad
+    Hostname access-rr-ciment.imag.fr
+    User lepageg-ext
 
 
 ##########
 # HES-SO #
 ##########
 Host ultrafast
-    User gaetan
     HostName 153.109.124.39
+    User gaetan
     IdentityFile ~/.ssh/hes_ssh_key
     #ProxyCommand ssh -L 80:6006 galepage@bastion.inrialpes.fr zsh # SSH tunneling to access1-cp through bastion.inrialpes.fr
     #RemoteCommand "source /home/gaetan/.bashrc"
@@ -90,11 +98,11 @@ Host ultrafast
     ProxyCommand ssh -W %h:%p faster
 
 Host faster
-    User gaetan
     HostName faster.hevs.ch
+    User gaetan
     IdentityFile ~/.ssh/hes_ssh_key
     ForwardAgent no
 
 Host deep
-    User gaetan
     HostName 192.168.1.6
+    User gaetan
