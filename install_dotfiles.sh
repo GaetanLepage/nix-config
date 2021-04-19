@@ -104,6 +104,7 @@ install_dotfiles() {
     ln -sf $HOME/.config/shell/profile $HOME/.profile
     ln -sf $HOME/.config/shell/bashrc $HOME/.bashrc
     ln -sf $HOME/.config/shell/zshenv $HOME/.zshenv
+    ln -sf $HOME/.config/tmux/tmux.conf $HOME/.tmux.conf
 
 
     ####################
@@ -128,6 +129,7 @@ install_dotfiles() {
     config_dir_link rofi
     config_dir_link shell
     config_dir_link sxhkd
+    config_dir_link tmux
     config_dir_link zathura
     config_dir_link x11
 
