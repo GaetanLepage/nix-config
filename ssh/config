@@ -83,6 +83,7 @@ Host alya
 Host gricad
     Hostname access-rr-ciment.imag.fr
     User lepageg-ext
+    IdentityFile ~/.ssh/rsa_gaetan
 
 
 ##########
