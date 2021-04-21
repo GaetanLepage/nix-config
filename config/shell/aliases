@@ -47,6 +47,9 @@ alias \
     ci='cd $HOME/inria/repo >/dev/null 2>&1 || cd $HOME/scratch/inria/repo' \
     ch='cd $HOME/hevs/compfigsep'
 
+# Tmux
+alias \
+    tm='tmux'
 
 # Common ssh
 alias \

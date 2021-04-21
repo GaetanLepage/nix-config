@@ -58,6 +58,14 @@ if [ -n "$DESKTOP_SESSION" ];then
     export SSH_AUTH_SOCK
 fi
 
+ssh-add
+if [ $? -eq 2 ]
+then
+    echo lancement ssh-agent
+    eval $(ssh-agent)
+    ssh-add
+fi
+
 # if ! pgrep -u "$USER" ssh-agent > /dev/null; then
 #     ssh-agent > "/tmp/ssh-agent.env"
 #
