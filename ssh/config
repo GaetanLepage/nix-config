@@ -49,6 +49,7 @@ Host server
 Host bubu
     User bubu
     HostName bubu-ensimag.fr
+    IdentityFile ~/.ssh/rsa_gaetan
 
 Host desktop
     User gaetan
@@ -74,7 +75,13 @@ Host alya
     ProxyJump bastion
     # RemoteCommand ls
     # RequestTTY true
-    # ProxyCommand ssh -W %h:%p galepage@bastion.inrialpes.fr zsh
+    # ProxyCommand ssh -W %h:%p galepage@bastion.inrialpes.fr ls
+
+Host cluster
+    User galepage
+    HostName access1-cp.inrialpes.fr
+    ProxyJump bastion
+
 
 
 ##########

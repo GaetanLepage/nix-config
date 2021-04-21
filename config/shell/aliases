@@ -48,6 +48,11 @@ alias \
     ch='cd $HOME/hevs/compfigsep'
 
 
+# Common ssh
+alias \
+    sa='ssh alya'
+
+
 # Package managers
 alias \
     apt='sudo apt-get' \
