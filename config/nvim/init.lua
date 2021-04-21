@@ -55,6 +55,7 @@ require('nv-vimtex')
 -- LSP
 require('lsp')
 require('lsp.bash-ls')
+require('lsp.c-ls')
 require('lsp.json-ls')
 require('lsp.lua-ls')
 require('lsp.python-ls')
