@@ -58,27 +58,27 @@ if [ -n "$DESKTOP_SESSION" ];then
     export SSH_AUTH_SOCK
 fi
 
-ssh-add
-if [ $? -eq 2 ]
-then
-    echo lancement ssh-agent
-    eval $(ssh-agent)
-    ssh-add
-fi
+# ssh-add
+# if [ $? -eq 2 ]
+# then
+#     echo lancement ssh-agent
+#     eval $(ssh-agent)
+#     ssh-add
+# fi
 
-# if ! pgrep -u "$USER" ssh-agent > /dev/null; then
-#     ssh-agent > "/tmp/ssh-agent.env"
-#
-#     # Reset the environment variable
-#     SSH_AUTH_SOCK=''
-# fi
-# if [[ ! "$SSH_AUTH_SOCK" ]]; then
-#     source "/tmp/ssh-agent.env" > /dev/null
-# fi
-# # If no key were added to the agent, look for some keys to add.
-# if ! ssh-add -l > /dev/null; then
-#     grep -slR "PRIVATE" ~/.ssh/ | xargs ssh-add
-# fi
+if ! pgrep -u "$USER" ssh-agent > /dev/null; then
+    ssh-agent > "/tmp/ssh-agent.env"
+
+    # Reset the environment variable
+    SSH_AUTH_SOCK=''
+fi
+if [[ ! "$SSH_AUTH_SOCK" ]]; then
+    source "/tmp/ssh-agent.env" > /dev/null
+fi
+# If no key were added to the agent, look for some keys to add.
+if ! ssh-add -l > /dev/null; then
+    grep -slR "PRIVATE" ~/.ssh/ | xargs ssh-add
+fi
 
 
 ###################
