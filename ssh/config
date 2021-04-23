@@ -75,7 +75,7 @@ Host alya
     ProxyJump bastion
     # RemoteCommand ls
     # RequestTTY true
-    # ProxyCommand ssh -W %h:%p galepage@bastion.inrialpes.fr ls
+    # ProxyCommand ssh -W %h:%p galepage@bastion.inrialpes.fr
 
 Host cluster
     User galepage
