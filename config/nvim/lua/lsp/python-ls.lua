@@ -6,9 +6,6 @@ require'lspconfig'.pyls.setup(
             pyls = {
                 configurationSources = {"flake8"},
                 plugins = {
-                    pycodestyle = {
-                        enabled = false
-                    },
                     pyls_mypy = {
                         enabled = true,
                         live_mode = false
