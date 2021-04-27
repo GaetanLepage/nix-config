@@ -14,6 +14,8 @@
 
 source ~/.zshenv
 
+reload
+
 ############
 # Monitors #
 ############
@@ -27,6 +29,7 @@ case $HOSTNAME in
         ;;
     # Laptop
     gaetan-xps)
+        # bspc monitor DP-1 -d 1 2 3 4 5 6 7 8 9 10
         bspc monitor eDP-1 -d 1 2 3 4 5 6 7 8 9 10
         ;;
     alya)
@@ -53,6 +56,7 @@ bspc rule -a Steam:Steam:"Steam - News*"    state=floating
 bspc rule -a Zathura                        state=tiled
 
 # Workspace assignments
+bspc rule -a $BROWSER          desktop=2
 bspc rule -a Thunderbird       desktop=4
 bspc rule -a Signal            desktop=6
 bspc rule -a TelegramDesktop   desktop=6
@@ -78,10 +82,10 @@ bspc config external_rules_command "$XDG_CONFIG_HOME/bspwm/custom_rules.sh"
 ###################
 bspc config border_radius               8
 bspc config border_width                2
-bspc config window_gap                  20
+bspc config window_gap                  0
 
 bspc config top_padding                 0
-bspc config bottom_padding              40
+bspc config bottom_padding              30
 bspc config left_padding                0
 bspc config right_padding               0
 
@@ -117,7 +121,7 @@ bspc config urgent_border_color 	"$(xgetres bspwm.color1)"
 #############
 
 # Reload script (background applications, screen and keyboard management)
-reload
+# reload
 
 
 run_if_not_running() {
@@ -140,7 +144,7 @@ run_if_not_running() {
 # Go to desktop 1 to run terminal
 bspc desktop -f 1 && run_if_not_running $TERMINAL
 
-bspc desktop -f 2 && run_if_not_running $BROWSER
+run_if_not_running $BROWSER
 
 type nvtop > /dev/null 2>&1 && { pidof nvtop > /dev/null 2>&1 || $TERMINAL --class nvtop nvtop & }
 type gotop > /dev/null 2>&1 && { pidof gotop > /dev/null 2>&1 || $TERMINAL --class gotop gotop & }

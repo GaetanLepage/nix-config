@@ -102,3 +102,6 @@ export PYTHONPATH=$PYTHONPATH:/home/gaetan/hevs/implementations/object_detection
 
 # Path for lcms2 (kitty dependency)
 export PKG_CONFIG_PATH=~/.local/lib/pkgconfig/
+
+# CLion when using a bspwm
+export _JAVA_AWT_WM_NONREPARENTING=1

@@ -83,7 +83,7 @@ margin-bottom = 0
 bottom = true
 monitor = ${env:MONITOR}
 width = 100%
-height = 40
+height = 30
 ;offset-x = 1%
 ;offset-y = 1%
 radius = 0
@@ -104,11 +104,12 @@ padding-right = 2
 module-margin-left = 1
 module-margin-right = 2
 
-font-0 = Ubuntu Nerd Font:style=Book:size=12;1
-font-1 = NotoSans Mono:size=8;0
+font-0 = Ubuntu Nerd Font:style=Book:size=10;1
+font-1 = NotoSans Mono:size=6;0
 
 modules-left = ${env:WM}
 modules-center = spotify title
+; modules-center =
 modules-right = xbacklight backlight-acpi pulseaudio memory cpu updates wlan battery time date dunst
 
 tray-position = ${env:TRAY_POS:right}
@@ -143,7 +144,8 @@ ws-icon-8 = 9;
 ws-icon-9 = 10;
 
 ws-label = "%name%   %icon%"
-ws-padding = 3
+; ws-label = "%name%"
+ws-padding = 2
 
 color-underline = ${colors.text-fg}
 color-label = ${colors.text-fg}

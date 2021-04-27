@@ -94,7 +94,7 @@ auto_config() {
         # Laptop
         gaetan-xps)
             LAPTOP_SCREEN="eDP-1"
-            EXTERNAL="DP-1-1"
+            EXTERNAL="DP-1"
             S144="DP-1-2"
             BENQ="DP-2-1"
 
@@ -111,8 +111,9 @@ auto_config() {
             elif is_connected "$EXTERNAL";
             then
                 echo "Single external screen"
-                #xrandr --output "$EXTERNAL" --mode 1920x1080 --pos 0x0 --rotate normal --primary --output "$LAPTOP_SCREEN" --mode 1920x1080 --pos 1920x0 --rotate normal
+                # xrandr --output "$LAPTOP_SCREEN" --mode 1920x1080 --pos 0x0 --rotate normal --primary --output "$EXTERNAL" --mode 1920x1080 --pos 1920x0 --rotate normal
                 xrandr --output "$EXTERNAL" --mode 1920x1080 --pos 0x0 --rotate normal --primary
+                xrandr --output "$LAPTOP_SCREEN" --off
                 #mons -e right
 
             # Laptop only
