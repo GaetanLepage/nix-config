@@ -69,16 +69,12 @@ else
         SSH_AUTH_SOCK=''
     fi
 
+    # Export the SSH_AUTH_SOCK variable.
     source "/tmp/ssh-agent.env" > /dev/null
-    # # 2) if the SSH_AUTH_SOCK is not set, set it.
-    # if [[ ! "$SSH_AUTH_SOCK" ]]; then
-    #     # echo "SSH_AUTH_SOCK was empty, sourcing the ssh-agent.env file"
-    #     source "/tmp/ssh-agent.env" > /dev/null
-    # fi
 
     # If no key were added to the agent, look for some keys to add.
     ssh-add -l > /dev/null 2>&1
-    if [ ! $? ] && [[ ! 'perception' =~ `hostname` ]]; then
+    if [ $? -ne 0 ] && [[ ! 'perception' =~ `hostname` ]]; then
         grep -slR "PRIVATE" ~/.ssh/ | xargs -o ssh-add
     fi
 fi
