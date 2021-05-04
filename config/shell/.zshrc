@@ -56,32 +56,31 @@ plugins=(git zsh-autosuggestions zsh-syntax-highlighting autojump)
 if [ -n "$DESKTOP_SESSION" ];then
     eval $(gnome-keyring-daemon --start)
     export SSH_AUTH_SOCK
+
+else
+    # Else, use the OpenSSH default ssh-agent.
+
+    # 1) Check whether an agent is running. If not, launch one.
+    if ! pgrep -u "$USER" ssh-agent > /dev/null; then
+        # echo "No ssh agent --> starting one"
+        ssh-agent > "/tmp/ssh-agent.env"
+
+        # Reset the environment variable
+        SSH_AUTH_SOCK=''
+    fi
+
+    # 2) if the SSH_AUTH_SOCK is not set, set it.
+    if [[ ! "$SSH_AUTH_SOCK" ]]; then
+        # echo "SSH_AUTH_SOCK was empty, sourcing the ssh-agent.env file"
+        source "/tmp/ssh-agent.env" > /dev/null
+    fi
+
+    # If no key were added to the agent, look for some keys to add.
+    if [ ! $(ssh-add -l 2>&1 > /dev/null) ] && [[ ! 'perception' =~ `hostname` ]]; then
+        grep -slR "PRIVATE" ~/.ssh/ | xargs -o ssh-add
+    fi
 fi
 
-# ssh-add
-# if [ $? -eq 2 ]
-# then
-#     echo lancement ssh-agent
-#     eval $(ssh-agent)
-#     ssh-add
-# fi
-
-if ! pgrep -u "$USER" ssh-agent > /dev/null; then
-    ssh-agent > "/tmp/ssh-agent.env"
-
-    # Reset the environment variable
-    SSH_AUTH_SOCK=''
-fi
-if [[ ! "$SSH_AUTH_SOCK" ]]; then
-    source "/tmp/ssh-agent.env" > /dev/null
-fi
-
-# Check if ssh keys were added to the agent.
-ssh-add -l > /dev/null
-# If no key were added to the agent, look for some keys to add.
-if [ ! $? ] && [[ ! 'perception' =~ `hostname` ]]; then
-    grep -slR "PRIVATE" ~/.ssh/ | xargs -o ssh-add
-fi
 
 
 ###################
