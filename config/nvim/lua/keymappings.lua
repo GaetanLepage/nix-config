@@ -21,6 +21,10 @@ nmap('<Leader>n', ':NvimTreeToggle<CR>')
 -- fix Y behaviour
 nmap('Y', 'y$')
 
+-- back and fourth between the two most recent files
+nmap('<C-c>', ':b#<CR>')
+nmap('<Leader>c', ':b#<CR>')
+
 -- quit by Ctrl+w
 -- map('n', '<C-w>', ':bd<CR>', {noremap=true, silent=true})
 
