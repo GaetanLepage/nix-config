@@ -9,6 +9,4 @@
 # Source configs
 #for f in ~/.config/shellconfig/*; do source "$f"; done
 
-exec zsh -l
-
 #[ -f ~/.fzf.bash ] && source ~/.fzf.bash
