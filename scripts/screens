@@ -111,9 +111,9 @@ auto_config() {
             elif is_connected "$EXTERNAL";
             then
                 echo "Single external screen"
-                # xrandr --output "$LAPTOP_SCREEN" --mode 1920x1080 --pos 0x0 --rotate normal --primary --output "$EXTERNAL" --mode 1920x1080 --pos 1920x0 --rotate normal
-                xrandr --output "$EXTERNAL" --mode 1920x1080 --pos 0x0 --rotate normal --primary
-                xrandr --output "$LAPTOP_SCREEN" --off
+                xrandr --output "$LAPTOP_SCREEN" --mode 1920x1080 --pos 0x0 --rotate normal --output "$EXTERNAL" --primary --mode 1920x1080 --pos 1920x0 --rotate normal
+                # xrandr --output "$EXTERNAL" --mode 1920x1080 --pos 0x0 --rotate normal --primary
+                # xrandr --output "$LAPTOP_SCREEN" --off
                 #mons -e right
 
             # Laptop only
