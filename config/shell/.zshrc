@@ -58,7 +58,7 @@ if [ -n "$DESKTOP_SESSION" ];then
     export SSH_AUTH_SOCK
 
 else
-    # Else, use the OpenSSH default ssh-agent.
+# Else, use the OpenSSH default ssh-agent.
 
     # 1) Check whether an agent is running. If not, launch one.
     if ! pgrep -u "$USER" ssh-agent > /dev/null; then
@@ -69,14 +69,16 @@ else
         SSH_AUTH_SOCK=''
     fi
 
-    # 2) if the SSH_AUTH_SOCK is not set, set it.
-    if [[ ! "$SSH_AUTH_SOCK" ]]; then
-        # echo "SSH_AUTH_SOCK was empty, sourcing the ssh-agent.env file"
-        source "/tmp/ssh-agent.env" > /dev/null
-    fi
+    source "/tmp/ssh-agent.env" > /dev/null
+    # # 2) if the SSH_AUTH_SOCK is not set, set it.
+    # if [[ ! "$SSH_AUTH_SOCK" ]]; then
+    #     # echo "SSH_AUTH_SOCK was empty, sourcing the ssh-agent.env file"
+    #     source "/tmp/ssh-agent.env" > /dev/null
+    # fi
 
     # If no key were added to the agent, look for some keys to add.
-    if [ ! $(ssh-add -l 2>&1 > /dev/null) ] && [[ ! 'perception' =~ `hostname` ]]; then
+    ssh-add -l > /dev/null 2>&1
+    if [ ! $? ] && [[ ! 'perception' =~ `hostname` ]]; then
         grep -slR "PRIVATE" ~/.ssh/ | xargs -o ssh-add
     fi
 fi
