@@ -75,8 +75,12 @@ fi
 if [[ ! "$SSH_AUTH_SOCK" ]]; then
     source "/tmp/ssh-agent.env" > /dev/null
 fi
+
 # If no key were added to the agent, look for some keys to add.
-if [ ! $(ssh-add -l > /dev/null) ] && [[ 'perception' =~ `hostname` ]]; then
+if [ $(ssh-add -l > /dev/null) ]; then
+    echo No ssh keys added
+fi
+if [ $(ssh-add -l > /dev/null) ] && [[ ! 'perception' =~ `hostname` ]]; then
     grep -slR "PRIVATE" ~/.ssh/ | xargs -o ssh-add
 fi
 
