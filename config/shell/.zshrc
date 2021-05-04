@@ -77,7 +77,7 @@ if [[ ! "$SSH_AUTH_SOCK" ]]; then
 fi
 # If no key were added to the agent, look for some keys to add.
 if ! ssh-add -l > /dev/null; then
-    grep -slR "PRIVATE" ~/.ssh/ | xargs ssh-add
+    grep -slR "PRIVATE" ~/.ssh/ | xargs -o ssh-add
 fi
 
 
