@@ -152,7 +152,6 @@ install_dotfiles() {
     ###########
     # Scripts #
     ###########
-
     delete_if_exists $HOME/scripts
     ln -sf $path/scripts $HOME/scripts
 

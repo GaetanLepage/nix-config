@@ -35,9 +35,7 @@ autoload -U colors && colors
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-#ZSH_THEME="agnoster"
 ZSH_THEME="spaceship"
-#ZSH_THEME=powerlevel10k/powerlevel10k
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 #[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
@@ -78,7 +76,6 @@ else
         grep -slR "PRIVATE" ~/.ssh/ | xargs -o ssh-add
     fi
 fi
-
 
 
 ###################
