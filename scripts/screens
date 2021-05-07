@@ -17,8 +17,13 @@ disable_all () {
 
 dual_screen () {
     #xrandr --output $BENQ --mode 1920x1080 --pos 0x0 --rotate normal --output $S144 --mode 1920x1080 --rate 144 --primary --pos 1920x0 --rotate normal
-    xrandr --output $S144 --mode 1920x1080 --rate 144 --pos 0x180 --rotate normal --output $BENQ --primary --mode 2560x1440 --pos 1920x0 --rotate normal
+    xrandr --output $S144 --mode 1920x1080 --rate 144 --pos 0x180 --rotate normal
+    xrandr --output $INRIA --primary --mode 2560x1440 --pos 1920x0 --rotate normal
+    xrandr --output $LAPTOP_SCREEN --off
     #xrandr --output $BENQ --off --output $S144 --primary --mode 1920x1080 --rate 144 --pos 0x0 --rotate normal
+
+    bspc monitor $INRIA -d 1 2 3 4 5 7
+    bspc monitor $S144 -d 6 8 9 10
 }
 
 toggle_csgo () {
@@ -74,10 +79,10 @@ auto_config() {
         gaetan-desktop-arch)
 
             S144="HDMI-0"
-            BENQ="DP-0"
+            INRIA="DP-0"
 
             # if both screen are connected
-            if is_connected "$S144" && is_connected "$BENQ";
+            if is_connected "$S144" && is_connected "$INRIA";
             then
                 echo "HOSTNAME = ${HOSTNAME} - MODE = dual screen"
                 #xrandr --output HDMI-0 --off --output DP-0 --mode 1920x1080 --rate 144 --primary
@@ -95,11 +100,11 @@ auto_config() {
         gaetan-xps)
             LAPTOP_SCREEN="eDP-1"
             EXTERNAL="DP-1"
-            S144="DP-1-2"
-            BENQ="DP-2-1"
+            S144="DP-2-1"
+            INRIA="DP-1-2"
 
             # Dual screen (TB3 dock)
-            if is_connected "$S144" && is_connected "$BENQ";
+            if is_connected "$S144" && is_connected "$INRIA";
             then
                 echo "Dual screen"
                 dual_screen
@@ -111,16 +116,16 @@ auto_config() {
             elif is_connected "$EXTERNAL";
             then
                 echo "Single external screen"
-                xrandr --output "$LAPTOP_SCREEN" --mode 1920x1080 --pos 0x0 --rotate normal --output "$EXTERNAL" --primary --mode 1920x1080 --pos 1920x0 --rotate normal
-                # xrandr --output "$EXTERNAL" --mode 1920x1080 --pos 0x0 --rotate normal --primary
-                # xrandr --output "$LAPTOP_SCREEN" --off
-                #mons -e right
+                xrandr --output "$LAPTOP_SCREEN" --off
+                xrandr --output "$EXTERNAL" --mode 1920x1080 --pos 0x0 --rotate normal --primary
+                bspc monitor $EXTERNAL -d 1 2 3 4 5 6 7 8 9 10
 
             # Laptop only
             elif is_connected "$LAPTOP_SCREEN";
             then
                 echo "laptop screen only"
                 xrandr --output "$LAPTOP_SCREEN" --mode 1920x1080 --pos 0x0 --rotate normal
+                bspc monitor $LAPTOP_SCREEN -d 1 2 3 4 5 6 7 8 9 10
 
                 # start wifi
                 nmcli radio wifi on
