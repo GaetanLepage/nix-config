@@ -34,7 +34,8 @@ require'lspconfig'.pyls.setup(
                     flake8 = {
                         enabled = true,
                         maxLineLength = 100,
-                        ignore = {'D200', -- One-line docstring should fit on one line with quotes
+                        ignore = {'D107', -- Missing docstring in __init__
+                                  'D200', -- One-line docstring should fit on one line with quotes
                                   'D205', -- 1 blank line required between summary line and description
                                   'D400', -- First line should end with a period
                                   'D401'  -- First line should be in imperative mood
