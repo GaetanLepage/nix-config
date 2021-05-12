@@ -73,7 +73,7 @@ else
     # If no key were added to the agent, look for some keys to add.
     ssh-add -l > /dev/null 2>&1
     if [ $? -ne 0 ] && [[ ! 'perception' =~ `hostname` ]]; then
-        grep -slR "PRIVATE" ~/.ssh/ | xargs -o ssh-add
+        ssh-add $(grep -slR "PRIVATE" ~/.ssh/)
     fi
 fi
 
