@@ -129,7 +129,6 @@ auto_config() {
 
                 # start wifi
                 nmcli radio wifi on
-
             fi
 
             ;;
