@@ -131,7 +131,8 @@ alias \
 alias \
     gc='git commit' \
     gcm='git commit -m' \
-    gca="git commit -am"
+    gca='git commit -am' \
+    yolo='git commit -m "$(curl --silent --fail http://whatthecommit.com/index.txt)"'
 
 # Pull / Push
 alias \
