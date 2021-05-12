@@ -72,7 +72,7 @@ else
 
     # If no key were added to the agent, look for some keys to add.
     ssh-add -l > /dev/null 2>&1
-    if [ $? -ne 0 ] && [[ ! 'perception' =~ `hostname` ]]; then
+    if [ $? -ne 0 ] && [[ ! `hostname` =~ "^gpu.*|^node" ]]; then
         ssh-add $(grep -slR "PRIVATE" ~/.ssh/)
     fi
 fi
