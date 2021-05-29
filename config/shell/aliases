@@ -115,6 +115,12 @@ alias \
     trm='trash-rm'
 
 
+# WireGuard
+alias \
+    wgu='sudo wg-quick up wg0' \
+    wgd='sudo wg-quick down wg0'
+
+
 #######
 # Git #
 #######
