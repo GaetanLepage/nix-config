@@ -2,7 +2,8 @@
 require'lspconfig'.pyls.setup(
     {
         enable = true,
-        cmd = { 'pyls', '-v', '--log-file', 'pyls.log' },
+        cmd = { 'pyls' },
+        -- cmd = { 'pyls', '-v', '--log-file', 'pyls.log' },
         settings = {
             pyls = {
                 configurationSources = {"flake8"},
