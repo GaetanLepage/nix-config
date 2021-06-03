@@ -1,11 +1,11 @@
--- pip install python-language-server
-require'lspconfig'.pyls.setup(
+-- pip install python-lsp-server
+require'lspconfig'.pylsp.setup(
     {
         enable = true,
-        -- cmd = { 'pyls' },
-        cmd = { 'pyls', '-vvv', '--log-file', 'pyls.log' },
+        cmd = { 'pylsp' },
+        -- cmd = { 'pylsp', '-vvv', '--log-file', 'pylsp.log' },
         settings = {
-            pyls = {
+            pylsp = {
                 configurationSources = {'flake8'},
                 plugins = {
                     pyls_mypy = {
@@ -39,6 +39,7 @@ require'lspconfig'.pyls.setup(
                                   'D200', -- One-line docstring should fit on one line with quotes
                                   'D205', -- 1 blank line required between summary line and description
                                   'D400', -- First line should end with a period
+                                  'D402', -- First line should not be the function's "signature"
                                   'D401'  -- First line should be in imperative mood
                                  },
                     },

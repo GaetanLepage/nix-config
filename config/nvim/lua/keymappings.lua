@@ -25,8 +25,8 @@ nmap('Y', 'y$')
 nmap('<C-c>', ':b#<CR>')
 nmap('<Leader>c', ':b#<CR>')
 
--- quit by Ctrl+w
--- map('n', '<C-w>', ':bd<CR>', {noremap=true, silent=true})
+-- close by Ctrl+x
+nmap('<C-x>', ':close<CR>')
 
 -- save by Ctrl+s
 nmap('<C-s>', ':w<CR>')

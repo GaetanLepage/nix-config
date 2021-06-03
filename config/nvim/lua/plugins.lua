@@ -29,6 +29,7 @@ return require('packer').startup(function(use)
 
     -- Linting
     -- use 'neomake/neomake'
+    use 'folke/trouble.nvim'
 
     -- Autocomplete
     use 'hrsh7th/nvim-compe'

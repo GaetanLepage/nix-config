@@ -54,13 +54,13 @@ require('telescope').setup {
 --                 -- So, to not map "<C-n>", just put
 --                 -- ["<c-x>"] = false,
 --                 ["<esc>"] = actions.close,
--- 
+--
 --                 -- Otherwise, just set the mapping to the function that you want it to be.
 --                 -- ["<C-i>"] = actions.select_horizontal,
--- 
+--
 --                 -- Add up multiple actions
 --                 ["<CR>"] = actions.select_default + actions.center
--- 
+--
 --                 -- You can perform as many actions in a row as you like
 --                 -- ["<CR>"] = actions.select_default + actions.center + my_cool_custom_action,
 --             },
