@@ -126,7 +126,8 @@ alias \
 #######
 alias \
     g='git' \
-    lg="lazygit" \
+    lg='lazygit' \
+    of='onefetch'
 
 # Add
 alias \
