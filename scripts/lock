@@ -17,11 +17,11 @@
 # Pause notifications
 notifs_are_already_off=$(dunstctl is-paused)
 # notifs_are_already_off='false'
-echo "Notifs were already off: $notifs_are_already_off"
-if [ $notifs_are_already_off = 'false' ]; then
-    echo -e "\nBlock notifications"
-    dunstctl set-paused true && echo "succesfully blocked ntofications"
-fi
+# echo "Notifs were already off: $notifs_are_already_off"
+# if [ $notifs_are_already_off = 'false' ]; then
+#     echo -e "\nBlock notifications"
+#     dunstctl set-paused true && echo "succesfully blocked ntofications"
+# fi
 
 # Pause any playing video / song
 echo -e "\nPause any playing video/song"
@@ -33,10 +33,11 @@ playerctl -p spotify pause
 
 # Lock the screen
 echo -e "\nLock screen"
-betterlockscreen -l
+# betterlockscreen -l
+multilockscreen -l
 
 # Resume notifications
-if [ $notifs_are_already_off = 'false' ]; then
-    echo -e "\nResume notifications"
-    dunstctl set-paused false
-fi
+# if [ $notifs_are_already_off = 'false' ]; then
+#     echo -e "\nResume notifications"
+#     dunstctl set-paused false
+# fi
