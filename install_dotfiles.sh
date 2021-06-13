@@ -113,6 +113,7 @@ install_dotfiles() {
     [ ! -d $HOME/.config ] && mkdir $HOME/.config && echo -e "\nCreated config file ($HOME/.config/)"
 
     echo -e "\n## Linking conventional dotfiles ##"
+    config_dir_link autorandr
     config_dir_link bspwm
     config_dir_link dunst
     config_dir_link gtk-2.0

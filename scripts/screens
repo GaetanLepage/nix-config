@@ -118,15 +118,19 @@ auto_config() {
             then
                 echo "Single external screen"
                 xrandr --output "$LAPTOP_SCREEN" --off
+                # xrandr --output "$LAPTOP_SCREEN" --mode 1920x1080 --pos 0x0 --rotate normal --primary
                 xrandr --output "$EXTERNAL" --mode 1920x1080 --pos 0x0 --rotate normal --primary
                 bspc monitor $EXTERNAL -d 1 2 3 4 5 6 7 8 9 10
+                # bspc monitor $LAPTOP_SCREEN -d 10
+                # bspc monitor $EXTERNAL -d 1 2 3 4 5 6 7 8 9
 
             # 2k Dell display
             elif is_connected "$DELL_DOCK_2K";
             then
                 echo "Single external screen"
                 xrandr --output "$LAPTOP_SCREEN" --off
-                xrandr --output "$DELL_DOCK_2K" --mode 2560x1440 --pos 0x0 --rotate normal --primary
+                # xrandr --output "$DELL_DOCK_2K" --mode 2560x1440 --pos 0x0 --rotate normal --primary
+                xrandr --output "$DELL_DOCK_2K" --mode 1920x1080 --pos 0x0 --rotate normal --primary
                 bspc monitor $DELL_DOCK_2K -d 1 2 3 4 5 6 7 8 9 10
 
             # Laptop only
@@ -165,4 +169,3 @@ case $1 in
         exit 0
         ;;
 esac
-

@@ -55,7 +55,7 @@ run_if_not_running() {
 ##########
 
 # Monitor setup
-screens
+autorandr -c
 
 # Set the desktop wallpaper
 run_in_bg setbg
