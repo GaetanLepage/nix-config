@@ -1,4 +1,4 @@
-local map = vim.api.nvim_set_keymap
+local nmap = utils.nmap
 
 -- TODO figure out why this don't work
 vim.fn.sign_define("LspDiagnosticsSignError",
@@ -18,16 +18,16 @@ vim.fn.sign_define("LspDiagnosticsSignHint",
                     text = "",
                     numhl = "LspDiagnosticsSignHint"})
 
-map('n', 'gd', ':lua vim.lsp.buf.definition()<CR>', {silent=true, noremap=true})
-map('n', 'gD', ':lua vim.lsp.buf.references()<CR>', {silent=true, noremap=true})
-map('n', 'gi', ':lua vim.lsp.buf.implementation()<CR>', {silent=true, noremap=true})
-map('n', 'ca', ':Lspsaga code_action<CR>', {silent=true, noremap=true})
-map('n', 'K', ':Lspsaga hover_doc<CR>', {silent=true, noremap=true})
--- vim.cmd('nnoremap <silent> <C-k> <cmd>lua vim.lsp.buf.signature_help()<CR>')
---vim.cmd('nnoremap <silent> <C-p> :Lspsaga diagnostic_jump_prev<CR>')
---vim.cmd('nnoremap <silent> <C-n> :Lspsaga diagnostic_jump_next<CR>')
+nmap('gd', ':lua vim.lsp.buf.definition()<CR>')
+nmap('gD', ':lua vim.lsp.buf.references()<CR>')
+nmap('gi', ':lua vim.lsp.buf.implementation()<CR>')
+-- nmap('ca', ':Lspsaga code_action<CR>')
+nmap('K', ':Lspsaga hover_doc<CR>')
+-- nmap('<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>')
+nmap('<C-k>', ':Lspsaga diagnostic_jump_prev<CR>')
+nmap('<C-j>', ':Lspsaga diagnostic_jump_next<CR>')
 -- scroll down hover doc or scroll in definition preview
-vim.cmd('nnoremap <silent> <C-f> <cmd>lua require(\'lspsaga.action\').smart_scroll_with_saga(1)<CR>')
+nmap('<C-f>', '<cmd>lua require(\'lspsaga.action\').smart_scroll_with_saga(1)<CR>')
 -- scroll up hover doc
 -- vim.cmd('nnoremap <silent> <C-b> <cmd>lua require(\'lspsaga.action\').smart_scroll_with_saga(-1)<CR>')
 vim.cmd('command! -nargs=0 LspVirtualTextToggle lua require("lsp/virtual_text").toggle()')

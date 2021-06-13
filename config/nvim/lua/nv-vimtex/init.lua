@@ -30,7 +30,7 @@ vim.g.vimtex_compiler_progname = 'nvr'
 vim.g.vimtex_quickfix_enabled = 1
 vim.g.vimtex_quickfix_open_on_warning = 0
 
-utils.nmap('<C-m>', ':VimtexTocToggle <CR>')
+-- utils.nmap('<C-m>', ':VimtexTocToggle <CR>')
 vim.cmd('autocmd FileType tex,latex nnoremap <buffer> m :VimtexView<CR>')
 
 

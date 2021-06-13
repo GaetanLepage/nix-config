@@ -1,4 +1,5 @@
 -- pip install python-lsp-server
+-- pip install mypy-ls
 require'lspconfig'.pylsp.setup(
     {
         enable = true,
@@ -8,7 +9,7 @@ require'lspconfig'.pylsp.setup(
             pylsp = {
                 configurationSources = {'flake8'},
                 plugins = {
-                    pyls_mypy = {
+                    pylsp_mypy = {
                         enabled = true,
                         live_mode = false
                     },
@@ -35,7 +36,8 @@ require'lspconfig'.pylsp.setup(
                     flake8 = {
                         enabled = true,
                         maxLineLength = 100,
-                        ignore = {'D107', -- Missing docstring in __init__
+                        ignore = {'D105', -- Missing docstring in magic method
+                                  'D107', -- Missing docstring in __init__
                                   'D200', -- One-line docstring should fit on one line with quotes
                                   'D205', -- 1 blank line required between summary line and description
                                   'D400', -- First line should end with a period
@@ -48,6 +50,9 @@ require'lspconfig'.pylsp.setup(
                     },
                     pylint = {
                         enabled = true
+                    },
+                    pyflakes = {
+                        enabled = false
                     },
                     pydocstyle = {
                         enabled = false

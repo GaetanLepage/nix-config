@@ -21,6 +21,9 @@ nmap('<Leader>n', ':NvimTreeToggle<CR>')
 -- fix Y behaviour
 nmap('Y', 'y$')
 
+-- Enter key is useless anyway
+nmap('<CR>', ':')
+
 -- back and fourth between the two most recent files
 nmap('<C-c>', ':b#<CR>')
 nmap('<Leader>c', ':b#<CR>')
@@ -42,7 +45,6 @@ nmap('<C-Up>', ':resize -2<CR>')
 nmap('<C-Down>', ':resize +2<CR>')
 nmap('<C-Left>', ':vertical resize +2<CR>')
 nmap('<C-Right>', ':vertical resize -2<CR>')
-
 
 -- better indenting
 vmap('<', '<gv')

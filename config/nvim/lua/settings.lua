@@ -25,6 +25,9 @@ utils.create_augroup('Highlights',
                      }
 )
 
+-- Transparent background
+-- vim.cmd[[ au ColorScheme * hi Normal ctermbg=none guibg=nonei ]]
+
 -- Remove trailing whitespace on save
 vim.cmd[[ autocmd BufWrite * %s/\s\+$//e ]]
 
