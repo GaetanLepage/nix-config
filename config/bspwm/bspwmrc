@@ -14,6 +14,7 @@
 
 source ~/.zshenv
 
+# Reload script (background applications, screen and keyboard management)
 reload
 
 ############
@@ -95,8 +96,8 @@ bspc config gapless_monocle             true
 bspc config focus_follows_pointer       true
 bspc config pointer_follows_focus       true
 
-bspc config remove_disabled_monitors    true
 bspc config merge_overlapping_monitors  true
+bspc config remove_disabled_monitors    true
 bspc config remove_unplugged_monitors   true
 
 bspc config pointer_modifier            mod4
@@ -120,8 +121,6 @@ bspc config urgent_border_color 	"$(xgetres bspwm.color1)"
 # Autostart #
 #############
 
-# Reload script (background applications, screen and keyboard management)
-# reload
 
 
 run_if_not_running() {
@@ -176,4 +175,3 @@ case $HOSTNAME in
         run_if_not_running signal-desktop
         ;;
 esac
-
