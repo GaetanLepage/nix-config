@@ -18,11 +18,11 @@
 ##########
 
 # Reload script
-super + F2
+super + r
     reload
 
 # make sxhkd reload its configuration files:
-super + Escape
+super + @Escape
     pkill -USR1 -x sxhkd
 
 # Lock
@@ -72,6 +72,10 @@ super + ctrl + i
 # Terminal
 super + Return
     $TERMINAL
+
+# Terminal on alya
+super + shift + Return
+    $TERMINAL ssh alya
 
 # Rofi
 super + d
