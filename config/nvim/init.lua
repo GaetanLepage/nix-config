@@ -18,7 +18,6 @@
 -- (write a custom function for keymappings)
 -- pylint
 -- highlight trailing white space
--- highlight 'TODO'
 
 -- General mappings
 require('utils')

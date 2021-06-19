@@ -39,6 +39,10 @@ nmap('<C-h>', '<C-w>h')
 nmap('<C-j>', '<C-w>j')
 nmap('<C-k>', '<C-w>k')
 nmap('<C-l>', '<C-w>l')
+nmap('<leader>h', '<C-w>h')
+nmap('<leader>j', '<C-w>j')
+nmap('<leader>k', '<C-w>k')
+nmap('<leader>l', '<C-w>l')
 
 -- resize with arrows
 nmap('<C-Up>', ':resize -2<CR>')
@@ -62,10 +66,6 @@ xmap('J', ':move \'>+1<CR>gv-gv')
 -- M = Alt key
 nmap('<M-k>', ':move-2<CR>')
 nmap('<M-j>', ':move+<CR>')
-
--- Better nav for omnicomplete
-vim.cmd('inoremap <expr> <c-j> (\"\\<C-n>\")')
-vim.cmd('inoremap <expr> <c-k> (\"\\<C-p>\")')
 
 -- TAB Complete
 -- map('i', '<expr><TAB>', 'pumvisible() ? \"\\<C-n>\" : \"\\<TAB>\"', { noremap=true, silent=true })

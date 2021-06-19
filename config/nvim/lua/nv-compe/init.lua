@@ -1,3 +1,6 @@
+local nmap = utils.nmap
+local smap = utils.smap
+
 vim.o.completeopt = "menuone,noinsert,noselect"
 
 require'compe'.setup {
@@ -13,7 +16,7 @@ require'compe'.setup {
     max_kind_width = 100;
     max_menu_width = 100;
     documentation = true;
-    
+
     source = {
         path = true;
         buffer = true;
@@ -29,6 +32,20 @@ require'compe'.setup {
 }
 
 
+-- TODO debug snippets
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities.textDocument.completion.completionItem.snippetSupport = true
+capabilities.textDocument.completion.completionItem.resolveSupport = {
+    properties = {
+        'documentation',
+        'detail',
+        'additionalTextEdits',
+    }
+}
+
+require'lspconfig'.rust_analyzer.setup {
+    capabilities = capabilities,
+}
 
 
 
