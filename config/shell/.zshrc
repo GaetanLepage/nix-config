@@ -99,3 +99,22 @@ neofetch
 
 # To customize prompt, run `p10k configure` or edit ~/.dotfiles/.p10k.zsh.
 [[ ! -f ~/.dotfiles/.p10k.zsh ]] || source ~/.dotfiles/.p10k.zsh
+
+#########
+# Conda #
+#########
+[ -f /opt/miniconda3/etc/profile.d/conda.sh ] && source /opt/miniconda3/etc/profile.d/conda.sh
+
+
+############
+# Exputils #
+############
+# define path to the exputils folder
+PATH_TO_EXPUTILS=$HOME/inria/code/exputils
+if [ -f "$PATH_TO_EXPUTILS/commands/eu_setup.sh" ] ; then
+        . "$PATH_TO_EXPUTILS/commands/eu_setup.sh" "$PATH_TO_EXPUTILS"
+fi
+# set default project for exputils commands
+export EU_DEFAULT_PRJ=rlan
+# activate the default project
+source eu_activate
