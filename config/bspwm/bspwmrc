@@ -55,6 +55,8 @@ bspc rule -a $MONITOR_TUI_CMD  desktop=10
 # Automatically set certain worskpaces' layout
 bspc desktop 2 -l monocle
 bspc desktop 4 -l monocle
+bspc desktop 7 -l monocle
+bspc desktop 8 -l monocle
 
 # Add custom rules for Spotify and zotero
 bspc config external_rules_command "$XDG_CONFIG_HOME/bspwm/custom_rules.sh"
