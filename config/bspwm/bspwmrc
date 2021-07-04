@@ -68,7 +68,7 @@ bspc rule -a Mumble            desktop=8
 bspc rule -a discord           desktop=8
 bspc rule -a "Jitsi Meet"      desktop=8
 bspc rule -a nvtop             desktop=10
-bspc rule -a gotop             desktop=10
+bspc rule -a $MONITOR_TUI_CMD  desktop=10
 
 # Automatically set certain worskpaces' layout
 bspc desktop 2 -l monocle
@@ -146,7 +146,7 @@ bspc desktop -f 1 && run_if_not_running $TERMINAL
 run_if_not_running $BROWSER
 
 type nvtop > /dev/null 2>&1 && { pidof nvtop > /dev/null 2>&1 || $TERMINAL --class nvtop nvtop & }
-type gotop > /dev/null 2>&1 && { pidof gotop > /dev/null 2>&1 || $TERMINAL --class gotop gotop & }
+type $MONITOR_TUI_CMD > /dev/null 2>&1 && { pidof $MONITOR_TUI_CMD > /dev/null 2>&1 || $TERMINAL --class $MONITOR_TUI_CMD $MONITOR_TUI_CMD & }
 
 # System-dependant program launching
 case $HOSTNAME in
