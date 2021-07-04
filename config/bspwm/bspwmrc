@@ -20,25 +20,7 @@ reload
 ############
 # Monitors #
 ############
-HOSTNAME=$(hostname)
-case $HOSTNAME in
-    # Desktop PC
-    gaetan-desktop-arch)
-        #bspc monitor DP-0 -d 1 2 3 4 5 6 7 8 9 10
-        bspc monitor DP-0 -d 1 2 3 4 5 7
-        bspc monitor HDMI-0 -d 6 8 9 10
-        ;;
-    # Laptop
-    gaetan-xps)
-        # bspc monitor DP-1 -d 1 2 3 4 5 6 7 8 9 10
-        # bspc monitor eDP-1 -d 10
-        # bspc monitor eDP-1 -d 1 2 3 4 5 6 7 8 9 10
-        ;;
-    alya)
-        bspc monitor DP-4 -d 1 2 3 4 5 7
-        bspc monitor DP-1 -d 6 8 9 10
-        ;;
-esac
+bspc monitor $(xrandr | grep " connected " | awk '{ print$1 }') -d 1 2 3 4 5 6 7 8 9 10
 
 #########
 # Rules #

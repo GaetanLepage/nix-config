@@ -35,6 +35,10 @@ XF86MonBrightnessUp
 XF86MonBrightnessDown
     xbacklight -dec 10
 
+# Mons
+super + c
+    mons -n right
+
 # Audio
 # Run pavucontrol
 super + g
