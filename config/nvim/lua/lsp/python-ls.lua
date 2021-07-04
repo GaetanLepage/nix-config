@@ -42,7 +42,8 @@ require'lspconfig'.pylsp.setup(
                                   'D205', -- 1 blank line required between summary line and description
                                   'D400', -- First line should end with a period
                                   'D402', -- First line should not be the function's "signature"
-                                  'D401'  -- First line should be in imperative mood
+                                  'D401', -- First line should be in imperative mood
+                                  'W503'  -- line break before binary operator
                                  },
                     },
                     yapf = {
