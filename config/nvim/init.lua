@@ -12,12 +12,7 @@
 -- #---------------#
 
 -- TODO
--- Telescope livegrep not working
 -- statusline
--- disable auto chdir when opening a file from stratify
--- (write a custom function for keymappings)
--- pylint
--- highlight trailing white space
 
 -- General mappings
 require('utils')
