@@ -26,7 +26,6 @@ return require('packer').startup(function(use)
     use 'onsails/lspkind-nvim'
     use 'kosayoda/nvim-lightbulb'
     use 'mfussenegger/nvim-jdtls'
-    use 'ray-x/lsp_signature.nvim'
 
     -- Linting
     -- use 'neomake/neomake'
