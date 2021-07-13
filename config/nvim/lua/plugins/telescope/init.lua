@@ -1,6 +1,4 @@
-local actions = require('telescope.actions')
-
-require('nv-telescope.bindings')
+require('plugins.telescope.bindings')
 -- Global remapping
 ------------------------------
 -- '--color=never',

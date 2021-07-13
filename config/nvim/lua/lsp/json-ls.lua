@@ -1,6 +1,6 @@
 -- sudo npm i -g vscode-json-languageserver
 require'lspconfig'.jsonls.setup {
-    on_attach = require'lsp'.common_on_attach,
+    on_attach = require'vim.lsp'.common_on_attach,
     commands = {
       Format = {
         function()

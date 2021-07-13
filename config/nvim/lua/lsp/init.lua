@@ -1,5 +1,16 @@
 local nmap = utils.nmap
 
+
+-- Source each LSP server configuration
+require 'lsp.bash-ls'
+require 'lsp.c-ls'
+require 'lsp.json-ls'
+require 'lsp.latex-ls'
+require 'lsp.lua-ls'
+require 'lsp.python-ls'
+require 'lsp.yaml-ls'
+
+
 -- TODO figure out why this don't work
 vim.fn.sign_define("LspDiagnosticsSignError",
                    {texthl = "LspDiagnosticsSignError",

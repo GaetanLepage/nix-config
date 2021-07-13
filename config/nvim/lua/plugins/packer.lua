@@ -1,17 +1,25 @@
-local execute = vim.api.nvim_command
 local fn = vim.fn
+local packer = nil
 
-local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
+local function packer_verify()
+    local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
 
-if fn.empty(fn.glob(install_path)) > 0 then
-  fn.system({'git', 'clone', 'https://github.com/wbthomason/packer.nvim', install_path})
-  execute 'packadd packer.nvim'
+    if fn.empty(fn.glob(install_path)) > 0 then
+        fn.system({ 'git', 'clone', 'https://github.com/wbthomason/packer.nvim', install_path })
+        vim.api.nvim_command 'packadd packer.nvim'
+    end
 end
 
--- Auto compile when there are changes in plugins.lua
-vim.cmd 'autocmd BufWritePost plugins.lua PackerCompile'
 
-return require('packer').startup(function(use)
+local function packer_startup()
+    if packer == nil then
+        packer = require'packer'
+        packer.init()
+    end
+
+    local use = packer.use
+    packer.reset()
+
     -- Packer can manage itself as an optional plugin
     use 'wbthomason/packer.nvim'
 
@@ -100,4 +108,14 @@ return require('packer').startup(function(use)
 
     -- Python folding
     use 'tmhedberg/SimpylFold'
-end)
+end
+
+
+local function init()
+    packer_verify()
+    packer_startup()
+end
+
+return {
+    init = init
+}
