@@ -14,7 +14,7 @@ function HighlightExtraWhitespace()
 end
 
 function Highlights()
-    HighlightTodo()
+    -- HighlightTodo()
     HighlightExtraWhitespace()
 end
 

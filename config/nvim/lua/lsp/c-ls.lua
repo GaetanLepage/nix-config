@@ -1,3 +1,4 @@
+-- sudo pacman -S clang
 require'lspconfig'.clangd.setup{}
 
 --   Commands:

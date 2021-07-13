@@ -1,4 +1,4 @@
--- https://github.com/sumneko/lua-language-server/wiki/Build-and-Run-(Standalone)
+-- sudo pacman -S lua-language-server
 USER = vim.fn.expand('$USER')
 
 local sumneko_root_path = ""
@@ -10,10 +10,14 @@ if vim.fn.has("mac") == 1 then
     sumneko_binary = "/Users/" .. USER ..
                          "/.config/nvim/ls/lua-language-server/bin/macOS/lua-language-server"
 elseif vim.fn.has("unix") == 1 then
-    sumneko_root_path = "/home/" .. USER ..
-                            "/.config/nvim/ls/lua-language-server"
-    sumneko_binary = "/home/" .. USER ..
-                         "/.config/nvim/ls/lua-language-server/bin/Linux/lua-language-server"
+    -- sumneko_root_path = "/home/" .. USER ..
+    --                         "/.config/nvim/ls/lua-language-server"
+    -- sumneko_binary = "/home/" .. USER ..
+    --                      "/.config/nvim/ls/lua-language-server/bin/Linux/lua-language-server"
+
+    -- Installed it with pacman
+    sumneko_root_path = "/usr/share/lua-language-server"
+    sumneko_binary = "/usr/sbin/lua-language-server"
 else
     print("Unsupported system for sumneko")
 end

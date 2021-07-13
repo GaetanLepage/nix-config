@@ -1,3 +1,4 @@
+local util = require'lspconfig'.util
 -- pip install python-lsp-server
 -- pip install mypy-ls
 require'lspconfig'.pylsp.setup(
