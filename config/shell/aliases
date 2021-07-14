@@ -61,6 +61,7 @@ alias \
 
 # Package managers
 alias \
+    u='update' \
     apt='sudo apt-get' \
     p='paru' \
     pnc='paru -Syu --noconfirm'
