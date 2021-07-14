@@ -13,10 +13,6 @@
 
 # Basic shell commands
 alias \
-    c='cd' \
-    ls='exa' \
-    l='ls -lFh' \
-    ll='ls -alFh' \
     grep='grep --color=auto' \
     diff="diff --color=auto" \
     rm='rm -iv' \
@@ -43,9 +39,16 @@ alias \
 
 # Common cds
 alias \
+    c='cd' \
     cs='cd $HOME/scratch' \
     ci='cd $HOME/inria/repo >/dev/null 2>&1 || cd $HOME/scratch/inria/repo' \
     ch='cd $HOME/hevs/compfigsep'
+
+# ls
+alias \
+    ls='exa' \
+    l='ls -lFhg' \
+    ll='ls -alFhg' \
 
 # Tmux
 alias \
@@ -90,7 +93,7 @@ alias \
 
 # Search within project
 alias \
-    s="ack --python " \
+    s="ack --python --ignore-dir='*/lib/python*'" \
     todo="s TODO"
 
 # count number of lines in Python project
