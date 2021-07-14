@@ -1,15 +1,15 @@
-#!/bin/sh
+#!/bin/bash
 
 echo "Updating system packages"
+distro=$(cat /etc/os-release | grep -oP '(?<=^ID=).*')
+echo "Detected distribution: $distro"
 
-# Ubuntu
-if which apt-get >/dev/null 2>&1; then
-    echo "Detected system: Ubuntu"
+# Ubuntu / Debian
+if [[ $distro =~ ubuntu|debian ]]; then
     sudo apt-get update
     sudo apt-get upgrade
 
-elif [ -f "/etc/arch-release" ]; then
-    echo "Detected system: Arch linux"
+elif [ $distro == 'arch' ]; then
 
     if which paru >/dev/null 2>&1; then
         echo 'Update using paru'
