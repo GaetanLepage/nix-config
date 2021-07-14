@@ -1,0 +1,28 @@
+#!/bin/sh
+
+echo "Updating system packages"
+
+# Ubuntu
+if which apt-get >/dev/null 2>&1; then
+    echo "Detected system: Ubuntu"
+    sudo apt-get update
+    sudo apt-get upgrade
+
+elif [ -f "/etc/arch-release" ]; then
+    echo "Detected system: Arch linux"
+
+    if which paru >/dev/null 2>&1; then
+        echo 'Update using paru'
+        prog='paru'
+
+    elif which yay >/dev/null 2>&1; then
+        echo 'Update using yay'
+        prog='yay'
+
+    else
+        echo 'Update using pacman'
+        prog='sudo pacman'
+    fi
+
+    $prog -Syu --noconfirm --needed
+fi
