@@ -15,19 +15,19 @@
 -- statusline
 
 -- Utils needed in the configuration
-require('utils')
+require 'utils'
 
 -- General mappings
-require('keymappings')
+require 'keymappings'
 
 -- General preferences
-require('settings')
+require 'settings'
 
 -- Colorscheme
-require('colorscheme')
+require 'colorscheme'
 
 -- Plugins
-require('plugins')
+require 'plugins'
 
 -- LSP
-require('lsp')
+require 'lsp'
