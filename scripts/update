@@ -1,8 +1,8 @@
 #!/bin/bash
 
-echo "Updating system packages"
+# echo "Updating system packages"
 distro=$(cat /etc/os-release | grep -oP '(?<=^ID=).*')
-echo "Detected distribution: $distro"
+# echo "Detected distribution: $distro"
 
 # Ubuntu / Debian
 if [[ $distro =~ ubuntu|debian ]]; then
@@ -12,15 +12,15 @@ if [[ $distro =~ ubuntu|debian ]]; then
 elif [ $distro == 'arch' ]; then
 
     if which paru >/dev/null 2>&1; then
-        echo 'Update using paru'
+        # echo 'Update using paru'
         prog='paru'
 
     elif which yay >/dev/null 2>&1; then
-        echo 'Update using yay'
+        # echo 'Update using yay'
         prog='yay'
 
     else
-        echo 'Update using pacman'
+        # echo 'Update using pacman'
         prog='sudo pacman'
     fi
 
