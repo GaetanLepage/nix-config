@@ -11,24 +11,24 @@ local function map(mode, key, action, opts)
     vim.api.nvim_set_keymap(mode, key, action, options)
 end
 
-utils = {}
+local M = {}
 
-function utils.nmap(key, action, opts)
+function M.nmap(key, action, opts)
     map('n', key, action, opts)
 end
 
 
-function utils.vmap(key, action, opts)
+function M.vmap(key, action, opts)
     map('v', key, action, opts)
 end
 
-function utils.xmap(key, action, opts)
+function M.xmap(key, action, opts)
     map('x', key, action, opts)
 end
 
 local cmd = vim.cmd
 
-function utils.create_augroup(name, autocmds)
+function M.create_augroup(name, autocmds)
     cmd('augroup ' .. name)
     cmd('autocmd!')
     for _, autocmd in ipairs(autocmds) do
@@ -37,4 +37,4 @@ function utils.create_augroup(name, autocmds)
     cmd('augroup END')
 end
 
-return utils
+return M

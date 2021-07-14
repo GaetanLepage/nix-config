@@ -1,6 +1,3 @@
-local nmap = utils.nmap
-local smap = utils.smap
-
 vim.o.completeopt = "menuone,noinsert,noselect"
 
 require'compe'.setup {

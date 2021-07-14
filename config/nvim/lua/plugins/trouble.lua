@@ -1,5 +1,5 @@
-local nmap = utils.nmap
-nmap('<Leader>xx', ':TroubleToggle<cr>')
+local nmap = require'utils'.nmap
+nmap('<leader>xx', ':TroubleToggle<cr>')
 nmap('<leader>xw', ':TroubleToggle lsp_workspace_diagnostics<cr>')
 nmap('<leader>xd', ':TroubleToggle lsp_document_diagnostics<cr>')
 nmap('<leader>xq', ':TroubleToggle quickfix<cr>')

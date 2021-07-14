@@ -1,3 +1,5 @@
+local utils = require 'utils'
+
 vim.cmd('autocmd BufRead,BufNewFile *.tex set filetype=tex "| VimtexTocOpen')
 
 -- autocmd FileType tex setl updatetime=1000

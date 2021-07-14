@@ -1,4 +1,8 @@
--- AutoCmd and stuff
+local utils = require 'utils'
+
+-----------------------
+-- AutoCmd and stuff --
+-----------------------
 
 -- Vertically center document when entering insert mode
 vim.cmd[[ autocmd InsertEnter * norm zz ]]
@@ -31,10 +35,14 @@ utils.create_augroup('Highlights',
 -- Remove trailing whitespace on save
 vim.cmd[[ autocmd BufWrite * %s/\s\+$//e ]]
 
+
+--------------
+-- Settings --
+--------------
+
 local o = vim.o
 
-
-o.updatetime = 300          -- Faster completion
+o.updatetime = 100          -- Faster completion
 
 -- Line numbers
 o.relativenumber = true     -- Relative line numbers

@@ -1,5 +1,5 @@
 -- Floaterm
-vim.g.floaterm_keymap_toggle = '<Leader>,'
+vim.g.floaterm_keymap_toggle = '<leader>,'
 vim.g.floaterm_keymap_next   = '<F2>'
 vim.g.floaterm_keymap_prev   = '<F3>'
 vim.g.floaterm_keymap_new    = '<F4>'
