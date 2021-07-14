@@ -18,7 +18,7 @@ yarn_install() {
 
 pip_install() {
     echo -e "\n[pip] Installing $@"
-    pip3 install -U $@
+    pip install -U $@
 }
 
 
