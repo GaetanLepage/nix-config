@@ -35,7 +35,8 @@ use {'iamcco/markdown-preview.nvim',    -- Markdown preview
      run = 'cd app && yarn install'}
 
 -- Treesitter
-use {'nvim-treesitter/nvim-treesitter',
+use {'nvim-treesitter/nvim-treesitter', -- TreeSitter (for syntax highlighting and more)
+     requires = 'nvim-treesitter/nvim-treesitter-refactor',
      run = ':TSUpdate'}
 
 -- Icons
@@ -61,13 +62,12 @@ use 'airblade/vim-gitgutter'            -- Show a git diff in the sign column.
 use 'TimUntersberger/neogit' 			-- A work-in-progress Magit clone for Neovim that is geared toward the Vim philosophy.
 
 -- General Plugins
-use 'windwp/nvim-autopairs' 			-- A minimalist autopairs for Neovim written by Lua
+use 'windwp/nvim-autopairs' 			-- A minimalist autopairs for Neovim written in Lua
 use 'kevinhwang91/nvim-bqf'             -- make Neovim's quickfix window better
 use 'kevinhwang91/rnvimr'               -- Allows you to use Ranger in a floating window
 use 'mhinz/vim-startify'                -- Start screen
 use 'moll/vim-bbye'                     -- Delete buffers (close files) without closing your windows or messing up the layout
 use 'voldikss/vim-floaterm'             -- A floating terminal window in neovim
-use 'liuchengxu/vim-which-key'
 use 'majutsushi/tagbar'                 -- Easy way to browse the tags of the current file and get an overview of its structure
 use 'terrortylor/nvim-comment'          -- Offer key mapping to comment code
 use 'bfredl/nvim-miniyank'

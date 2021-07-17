@@ -1,5 +1,3 @@
-require('plugins.telescope.bindings')
-
 --------------
 -- Bindings --
 --------------

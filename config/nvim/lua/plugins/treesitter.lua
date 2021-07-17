@@ -1,16 +1,17 @@
-require'nvim-treesitter.configs'.setup {
+require 'nvim-treesitter.configs'.setup {
     ensure_installed = {
-        'python',
         'bash',
-        'lua'
-    }, -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+        'latex',
+        'lua',
+        'python'
+    },                          -- one of "all", "maintained" (parsers with maintainers), or a list of languages
     highlight = {
-        enable = true -- false will disable the whole extension
+        enable = true           -- false will disable the whole extension
     },
     playground = {
         enable = true,
         disable = {},
-        updatetime = 25, -- Debounced time for highlighting nodes in the playground from source code
+        updatetime = 25,        -- Debounced time for highlighting nodes in the playground from source code
         persist_queries = false -- Whether the query persists across vim sessions
     },
     rainbow = {enable = false},
