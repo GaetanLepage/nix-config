@@ -44,7 +44,7 @@ use 'kyazdani42/nvim-web-devicons'
 use 'ryanoasis/vim-devicons' 			-- A lua fork of vim-devicons. This plugin provides the same icons as well as colors for each icon.
 
 -- Status Line and Bufferline
-use 'rafamadriz/statusline'             -- The status line (fork of feline.vim)
+use 'hoob3rt/lualine.nvim'              -- The status line
 use 'romgrk/barbar.nvim'                -- Tabline plugin
 
 use {'nvim-telescope/telescope.nvim',   -- Telescope
