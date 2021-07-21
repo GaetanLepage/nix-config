@@ -1,0 +1,3 @@
+#!/bin/sh
+
+ssh -J bastion galepage@$1.inrialpes.fr
