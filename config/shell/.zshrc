@@ -123,7 +123,7 @@ unset __conda_setup
 # Exputils #
 ############
 # define path to the exputils folder
-PATH_TO_EXPUTILS=$HOME/inria/code/exputils
+PATH_TO_EXPUTILS=$HOME/inria/software_tools/exputils
 if [ -f "$PATH_TO_EXPUTILS/commands/eu_setup.sh" ] ; then
         . "$PATH_TO_EXPUTILS/commands/eu_setup.sh" "$PATH_TO_EXPUTILS"
 fi
