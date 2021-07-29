@@ -52,7 +52,11 @@ alias \
 
 # Tmux
 alias \
-    tm='tmux'
+    tm='tmux' \
+    tms='tmux new -s' \
+    tml='tmux list-sessions' \
+    tma='tmux attach -t' \
+    tmk='tmux kill-session -t'
 
 # Common ssh
 alias \
