@@ -103,14 +103,27 @@ neofetch
 #########
 # Conda #
 #########
-[ -f /opt/miniconda3/etc/profile.d/conda.sh ] && source /opt/miniconda3/etc/profile.d/conda.sh
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/opt/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/opt/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/opt/miniconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/opt/miniconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
 
 
 ############
 # Exputils #
 ############
 # define path to the exputils folder
-PATH_TO_EXPUTILS=$HOME/inria/code/exputils
+PATH_TO_EXPUTILS=$HOME/inria/software_tools/exputils
 if [ -f "$PATH_TO_EXPUTILS/commands/eu_setup.sh" ] ; then
         . "$PATH_TO_EXPUTILS/commands/eu_setup.sh" "$PATH_TO_EXPUTILS"
 fi

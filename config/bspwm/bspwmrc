@@ -20,7 +20,7 @@ reload
 ############
 # Monitors #
 ############
-bspc monitor $(xrandr | grep " connected " | awk '{ print$1 }') -d 1 2 3 4 5 6 7 8 9 10
+bspc monitor $(xrandr | grep -Po ".*(?= connected primary)") -d 1 2 3 4 5 6 7 8 9 10
 
 #########
 # Rules #
@@ -84,6 +84,8 @@ bspc config merge_overlapping_monitors  true
 bspc config remove_disabled_monitors    true
 bspc config remove_unplugged_monitors   true
 
+bspc config ignore_ewmh_focus           true
+
 bspc config pointer_modifier            mod4
 bspc config pointer_action1             move
 bspc config pointer_action2             resize_side
@@ -105,13 +107,18 @@ bspc config urgent_border_color 	"$(xgetres bspwm.color1)"
 # Autostart #
 #############
 
+is_it_running() {
+    # If the program is not installed, no need to go further
+    type $1 > /dev/null 2>&1   || { echo "$1 is not installed on the system" && return 1; }
+    # Is the program is already running, no need to launch it
+    pidof $1  > /dev/null 2>&1 && { echo "$1 is already running"             && return 2; }
 
+    echo "$1 was not running."
+}
 
 run_if_not_running() {
-    # If the program is not installed, no need to go further
-    type $1 > /dev/null 2>&1   || { echo "$1 is not installed on the system" && return; }
-    # Is the program is already running, no need to launch it
-    pidof $1  > /dev/null 2>&1 && { echo "$1 is already running"             && return; }
+
+    is_it_running $1 || return 1
 
     # Run the program in the background
     echo "Running $1 in the background (command: '$@')"
@@ -125,15 +132,15 @@ run_if_not_running() {
 # Run for all systems
 
 # Go to desktop 1 to run terminal
-bspc desktop -f 1 && run_if_not_running $TERMINAL
+is_it_running $TERMINAL && bspc desktop -f 1 && $TERMINAL
 
 run_if_not_running $BROWSER
 
 type nvtop > /dev/null 2>&1 && { pidof nvtop > /dev/null 2>&1 || $TERMINAL --class nvtop nvtop & }
-type $MONITOR_TUI_CMD > /dev/null 2>&1 && { pidof $MONITOR_TUI_CMD > /dev/null 2>&1 || $TERMINAL --class $MONITOR_TUI_CMD $MONITOR_TUI_CMD & }
+type $MONITOR_TUI_CMD > /dev/null 2>&1 && $TERMINAL --class $MONITOR_TUI_CMD $MONITOR_TUI_CMD &
 
 # System-dependant program launching
-case $HOSTNAME in
+case `hostname` in
     alya)
         export $(dbus-launch)
         pidof thunderbird || gtk-launch org.mozilla.Thunderbird

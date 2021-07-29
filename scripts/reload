@@ -39,14 +39,23 @@ kill_and_run() {
     run_in_bg $@
 }
 
+
+is_it_running() {
+    # If the program is not installed, no need to go further
+    type $1 > /dev/null 2>&1   || { echo "$1 is not installed on the system" && return 1; }
+    # Is the program is already running, no need to launch it
+    pidof $1  > /dev/null 2>&1 && { echo "$1 is already running"             && return 2; }
+
+    echo "$1 was not running."
+}
+
 run_if_not_running() {
-    pidof $1 >/dev/null 2>&1
-    if [ $? -eq 0 ]; then
-        echo "$1 is already running."
-    else
-        echo "$1 was not running. Starting it right now !"
-        run_in_bg $@
-    fi
+
+    is_it_running $1 || return 1
+
+    # Run the program in the background
+    echo "Running $1 in the background (command: '$@')"
+    $@ &
 }
 
 
@@ -61,7 +70,7 @@ autorandr -c
 run_in_bg setbg
 
 # Run picom
-pidof picom >/dev/null 2>&1 || picom -b --experimental-backends
+run_if_not_running picom -b --experimental-backends
 
 
 ############
@@ -92,6 +101,11 @@ type g610-led && run_if_not_running g610-led -a ff
 
 run_if_not_running nm-applet
 run_if_not_running nextcloud
+
+
+########
+# Misc #
+########
 
 # Load Xresources
 xrdb $XDG_CONFIG_HOME/x11/xresources

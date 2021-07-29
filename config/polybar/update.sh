@@ -24,8 +24,7 @@ case $1 in
 
     --do-updates)
         if [ "$total_updates" -gt 0 ]; then
-            COMMAND="paru -Syu --noconfirm"
-            $TERMINAL --class update $COMMAND &
+            $TERMINAL --class update update &
         else
             echo "No updates"
             notify-send "  No updates available"
