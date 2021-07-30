@@ -98,7 +98,6 @@ install_dotfiles() {
     echo -e "\n## Linking \"home\" dotfiles ##"
     link_config_file .gitconfig
     link_config_file .p10k.zsh
-    link_config_file .pylintrc
     ln -sf $HOME/.config/x11/xprofile $HOME/.xprofile
     ln -sf $HOME/.config/x11/xinitrc $HOME/.xinitrc
     ln -sf $HOME/.config/shell/profile $HOME/.profile
