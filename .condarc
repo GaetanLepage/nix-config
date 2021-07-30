@@ -478,7 +478,7 @@ auto_stack: 0
 #   When using activate, change the command prompt ($PS1) to include the
 #   activated environment.
 #
-changeps1: true
+changeps1: false
 
 # env_prompt (str)
 #   Template for prompt modification based on the active environment.
