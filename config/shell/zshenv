@@ -40,6 +40,8 @@ export HISTFILE="$ZDOTDIR"/.zsh_history
 # Path to your oh-my-zsh installation.
 export ZSH=$ZDOTDIR/.oh-my-zsh
 
+# Libraries installed in ~/.local/lib
+export LD_LIBRARY_PATH=$HOME/.local/lib
 
 # Scaling
 export QT_AUTO_SCREEN_SCALE_FACTOR=0
