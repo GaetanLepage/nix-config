@@ -10,6 +10,31 @@ require'lspconfig'.pylsp.setup(
             pylsp = {
                 configurationSources = {'flake8'},
                 plugins = {
+                    flake8 = {
+                        enabled = true,
+                        maxLineLength = 100,
+                        ignore = {
+                            'D100', -- Missing docstring in public module
+                            'D105', -- Missing docstring in magic method
+                            'D107', -- Missing docstring in __init__
+                            'D200', -- One-line docstring should fit on one line with quotes
+                            'D205', -- 1 blank line required between summary line and description
+                            'D400', -- First line should end with a period
+                            'D402', -- First line should not be the function's "signature"
+                            'D401', -- First line should be in imperative mood
+                            'W503'  -- line break before binary operator
+                        },
+                    },
+                    pylint = {
+                        enabled = true,
+                        -- https://vald-phoenix.github.io/pylint-errors/
+                        args = {
+                            '--disable ' ..
+                            'C0115,' .. -- missing-class-docstring
+                            'C0116,' .. -- missing-function-docstring
+                            'R0903'     -- too-few-public-methods
+                        }
+                    },
                     pylsp_mypy = {
                         enabled = true,
                         live_mode = false
@@ -34,26 +59,8 @@ require'lspconfig'.pylsp.setup(
                     pycodestyle = {
                         enabled = false
                     },
-                    flake8 = {
-                        enabled = true,
-                        maxLineLength = 100,
-                        ignore = {
-                            'D100', -- Missing docstring in public module
-                            'D105', -- Missing docstring in magic method
-                            'D107', -- Missing docstring in __init__
-                            'D200', -- One-line docstring should fit on one line with quotes
-                            'D205', -- 1 blank line required between summary line and description
-                            'D400', -- First line should end with a period
-                            'D402', -- First line should not be the function's "signature"
-                            'D401', -- First line should be in imperative mood
-                            'W503'  -- line break before binary operator
-                        },
-                    },
                     yapf = {
                         enabled = false
-                    },
-                    pylint = {
-                        enabled = true
                     },
                     pyflakes = {
                         enabled = false
