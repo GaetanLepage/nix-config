@@ -1,14 +1,14 @@
 #!/bin/sh
 
-[[ $(hostname) == 'gaetan-xps' ]] && conda_path='/opt/miniconda3' || conda_path='/local_scratch/anaconda3'
-__conda_setup="$('${conda_path}/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+[[ $(hostname) == 'gaetan-xps' ]] && CONDA_PATH='/opt/miniconda3' || CONDA_PATH='/local_scratch/anaconda3'
+__conda_setup="$($CONDA_PATH'/bin/conda' 'shell.'$(basename $SHELL) 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
     eval "$__conda_setup"
 else
-    if [ -f "${conda_path}/etc/profile.d/conda.sh" ]; then
-        . "${conda_path}/etc/profile.d/conda.sh"
+    if [ -f "${CONDA_PATH}/etc/profile.d/conda.sh" ]; then
+        . "${CONDA_PATH}/etc/profile.d/conda.sh"
     else
-        export PATH="${conda_path}/bin:$PATH"
+        export PATH="${CONDA_PATH}/bin:$PATH"
     fi
 fi
 unset __conda_setup

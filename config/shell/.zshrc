@@ -103,7 +103,7 @@ neofetch
 #########
 # Conda #
 #########
-init_conda
+source init_conda
 
 
 ############

@@ -10,5 +10,6 @@
 #for f in ~/.config/shellconfig/*; do source "$f"; done
 
 #[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+export SHELL='bash'
 
-init_conda
+source init_conda
