@@ -17,6 +17,9 @@
 -- Utils needed in the configuration
 require 'utils'
 
+-- Plugins
+require 'plugins'
+
 -- General mappings
 require 'keymappings'
 
@@ -25,9 +28,6 @@ require 'settings'
 
 -- Colorscheme
 require 'colorscheme'
-
--- Plugins
-require 'plugins'
 
 -- LSP
 require 'lsp'
