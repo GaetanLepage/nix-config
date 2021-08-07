@@ -1,5 +1,6 @@
-vim.api.nvim_set_keymap('n', '<Leader>m', ':MarkdownPreview<CR>', {noremap=true, silent=true})
-vim.g.mkdp_browser = 'qutebrowser'
+vim.api.nvim_set_keymap('n', '<leader>m', ':MarkdownPreview<CR>', {noremap=true, silent=true})
+-- vim.g.mkdp_browser = 'qutebrowser'
+vim.g.mkdp_browser = 'firefox'
 
 vim.g.mkdp_auto_start = 1
 vim.g.mkdp_auto_stop = 1
