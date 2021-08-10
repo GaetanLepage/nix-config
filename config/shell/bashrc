@@ -1,15 +1,17 @@
 #!/bin/sh
-#neofetch
 
-# If not running interactively, don't do anything
-#[[ $- != *i* ]] && return
+# echo ".bashrc"
 
-#set -o vi
-
-# Source configs
-#for f in ~/.config/shellconfig/*; do source "$f"; done
-
-#[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+# Use bash
 export SHELL='bash'
 
+# .bash_profile is executed for login shells,
+# .bashrc is executed for interactive non-login shells.
+# We want the same behaviour for both, so we source .bashrc from .bash_profile.
+# The `.bash_profile` file is sourced by bash when running an interactive session.
+# This statement ensures that it is also sourced when running an non-interactive session.
+if [[ ! $- == *i* ]]; then
+    # echo "This session is not interactive: manually sourcing ~/.bash_profile"
+    . ~/.bash_profile
+fi
 source init_conda

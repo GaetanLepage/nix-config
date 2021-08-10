@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 [[ $(hostname) == 'gaetan-xps' ]] && CONDA_PATH='/opt/miniconda3' || CONDA_PATH='/local_scratch/anaconda3'
 __conda_setup="$($CONDA_PATH'/bin/conda' 'shell.'$(basename $SHELL) 'hook' 2> /dev/null)"

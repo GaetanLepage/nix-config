@@ -16,7 +16,7 @@
 # If you use startx/xinit like a Chad, this file will also be sourced.
 
 # executes scripts before the WM is launched
-autorandr -c
+command -v autorandr && autorandr -c
 
 # Start the Gnome keyring daemon.
 eval $(gnome-keyring-daemon --start --components=gpg,pkcs11,secrets,ssh)

@@ -13,6 +13,8 @@
 # #--------#
 # This is where environment variables are sourced.
 
+export ZSHENV_SOURCED=True
+
 # Other XDG paths
 export XDG_DATA_HOME=${XDG_DATA_HOME:="$HOME/.local/share"}
 export XDG_CACHE_HOME=${XDG_CACHE_HOME:="$HOME/.cache"}
@@ -106,5 +108,5 @@ export PYTHONPATH=$PYTHONPATH:/home/gaetan/hevs/implementations/object_detection
 # Path for lcms2 (kitty dependency)
 export PKG_CONFIG_PATH=~/.local/lib/pkgconfig/
 
-# CLion when using a bspwm
+# CLion when using bspwm
 export _JAVA_AWT_WM_NONREPARENTING=1
