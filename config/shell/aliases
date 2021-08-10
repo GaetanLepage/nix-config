@@ -68,7 +68,8 @@ alias \
     u='update' \
     apt='sudo apt-get' \
     p='paru' \
-    pnc='paru -Syu --noconfirm'
+    pnc='paru -Syu --noconfirm' \
+    pc='sudo pacman -Rns $(pacman -Qdtq)'
 
 
 # zotcli
@@ -123,10 +124,12 @@ alias \
     trm='trash-rm'
 
 
-# WireGuard
+# WireGuard & VPNs
 alias \
     wgu='sudo wg-quick up wg0' \
-    wgd='sudo wg-quick down wg0'
+    wgd='sudo wg-quick down wg0' \
+    viu='nmcli connection up Inria' \
+    vid='nmcli connection down Inria'
 
 
 #######

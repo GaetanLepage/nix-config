@@ -66,3 +66,5 @@ xmap('J', ':move \'>+1<CR>gv-gv')
 -- M = Alt key
 nmap('<M-k>', ':move-2<CR>')
 nmap('<M-j>', ':move+<CR>')
+
+nmap('<leader>rp', ':!remi push<CR>')

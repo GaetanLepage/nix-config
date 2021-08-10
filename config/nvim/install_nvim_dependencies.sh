@@ -71,7 +71,9 @@ pacman_install lua-language-server
 # Python
 pip_install python-lsp-server \
             pylint \
+            flake8 \
             pyls-flake8 \
+            mypy \
             mypy-ls
 
 # Yaml
