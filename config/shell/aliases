@@ -37,6 +37,9 @@ alias \
     wttr='curl wttr.in/Grenoble+38000' \
     z='zathura'
 
+# Pull and install latest version of dotfiles
+alias pdf='(cd ~/.dotfiles && git pull && bash install_dotfiles.sh)'
+
 # Common cds
 alias \
     c='cd' \
