@@ -69,11 +69,11 @@ install_shell () {
 link_config_file () {
     SOURCE_FILE=$1
     SOURCE_PATH=$path/$SOURCE_FILE
-    DEST_PATH=$HOME/$SOURCE_FILE
+    DEST_PATH=$HOME/${2:-$SOURCE_FILE}
 
     ln -sf $SOURCE_PATH $DEST_PATH
 
-    echo "Linked config file \"$SOURCE_FILE\" ($SOURCE_PATH -> $DEST_PATH)"
+    echo "Linked config file \"$(basename $SOURCE_FILE)\" ($SOURCE_PATH -> $DEST_PATH)"
 }
 
 delete_if_exists () {
@@ -99,12 +99,13 @@ install_dotfiles() {
     link_config_file .gitconfig
     link_config_file .p10k.zsh
     link_config_file .condarc
+    link_config_file x11/
     ln -sf $HOME/.config/x11/xprofile $HOME/.xprofile
     ln -sf $HOME/.config/x11/xinitrc $HOME/.xinitrc
     ln -sf $HOME/.config/shell/profile $HOME/.profile
     ln -sf $HOME/.config/shell/bashrc $HOME/.bashrc
     ln -sf $HOME/.config/shell/zshenv $HOME/.zshenv
-    ln -sf $HOME/.config/tmux/tmux.conf $HOME/.tmux.conf
+    link_config_file config/tmux/tmux.conf .tmux.conf
 
 
     ####################
