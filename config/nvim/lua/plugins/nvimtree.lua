@@ -21,7 +21,17 @@ vim.g.nvim_tree_ignore = {
     '.git',
     'node_modules',
     '.cache',
-    '__pycache__'
+    '__pycache__',
+    '*.aux',
+    '*.bbl',
+    '*.blg',
+    '*.fdb_latexmk',
+    '*.fls',
+    '*.maf',
+    '*.mtc',
+    '*.mtc0',
+    '*.run.xml',
+    '*.synctex*'
 }                                                           -- empty by default
 vim.g.nvim_tree_disable_netrw = 0                           -- 1 by default, disables netrw
 -- vim.g.nvim_tree_hijack_netrw = 0                         -- 1 by default, prevents netrw from automatically opening when opening directories (but lets you keep its other utilities)

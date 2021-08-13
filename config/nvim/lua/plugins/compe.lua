@@ -15,13 +15,14 @@ require'compe'.setup {
     documentation = true;
 
     source = {
+        omni = {filetypes = {'tex'}};
         path = true;
         buffer = true;
         calc = true;
         vsnip = true;
         nvim_lsp = true;
         nvim_lua = true;
-        spell = true;
+        spell = {filetypes = {'markdown', 'tex'}};
         tags = true;
         snippets_nvim = true;
         treesitter = true;
@@ -41,7 +42,7 @@ capabilities.textDocument.completion.completionItem.resolveSupport = {
 }
 
 
-
+-- Use tab to navigate completion menu
 local t = function(str)
     return vim.api.nvim_replace_termcodes(str, true, true, true)
 end
@@ -79,7 +80,9 @@ _G.s_tab_complete = function()
     end
 end
 
-vim.api.nvim_set_keymap("i", "<Tab>", "v:lua.tab_complete()", {expr = true})
-vim.api.nvim_set_keymap("s", "<Tab>", "v:lua.tab_complete()", {expr = true})
-vim.api.nvim_set_keymap("i", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
-vim.api.nvim_set_keymap("s", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
+local imap = require 'utils'.imap
+local smap = require 'utils'.smap
+imap('<Tab>', 'v:lua.tab_complete()', {expr = true})
+smap('<Tab>', 'v:lua.tab_complete()', {expr = true})
+imap('<S-Tab>', 'v:lua.s_tab_complete()', {expr = true})
+smap('<S-Tab>', 'v:lua.s_tab_complete()', {expr = true})

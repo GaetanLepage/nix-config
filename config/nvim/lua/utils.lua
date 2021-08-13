@@ -17,13 +17,20 @@ function M.nmap(key, action, opts)
     map('n', key, action, opts)
 end
 
-
 function M.vmap(key, action, opts)
     map('v', key, action, opts)
 end
 
 function M.xmap(key, action, opts)
     map('x', key, action, opts)
+end
+
+function M.imap(key, action, opts)
+    map('i', key, action, opts)
+end
+
+function M.smap(key, action, opts)
+    map('s', key, action, opts)
 end
 
 local cmd = vim.cmd
