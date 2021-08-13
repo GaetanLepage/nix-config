@@ -36,37 +36,47 @@ map <Up> navigate previous
 map H navigate previous
 map L navigate next
 
+set font "DejaVu Sans 14"
 
-# GRUVBOX THEME (https://github.com/rwrr/zathura-gruvbox)
-set font                        "DejaVu Sans 14"
-set default-bg                  "#282828"
-set default-fg                  "#fbf1c7"
+# GRUVBOX THEME (https://github.com/eastack/zathura-gruvbox/blob/master/zathura-gruvbox-dark)
 
-set statusbar-bg                "#282828"
-set statusbar-fg                "#ebdbb2"
+set notification-error-bg       "#282828"   # bg
+set notification-error-fg       "#fb4934"   # bright:red
+set notification-warning-bg     "#282828"   # bg
+set notification-warning-fg     "#fabd2f"   # bright:yellow
+set notification-bg             "#282828"   # bg
+set notification-fg             "#b8bb26"   # bright:green
 
-set inputbar-bg                 "#282828"
-set inputbar-fg                 "#ebdbb2"
+set completion-bg               "#504945"   # bg2
+set completion-fg               "#ebdbb2"   # fg
+set completion-group-bg         "#3c3836"   # bg1
+set completion-group-fg         "#928374"   # gray
+set completion-highlight-bg     "#83a598"   # bright:blue
+set completion-highlight-fg     "#504945"   # bg2
 
-set notification-error-bg       "#fb4934"
-set notification-error-fg       "#282828"
+# Define the color in index mode
+set index-bg                    "#504945"   # bg2
+set index-fg                    "#ebdbb2"   # fg
+set index-active-bg             "#83a598"   # bright:blue
+set index-active-fg             "#504945"   # bg2
 
-set notification-warning-bg     "#d3869b"
-set notification-warning-fg     "#282828"
+set inputbar-bg                 "#282828"   # bg
+set inputbar-fg                 "#ebdbb2"   # fg
 
-set highlight-color             "#fabd2f"
-set highlight-active-color      "#fe8019"
+set statusbar-bg                "#504945"   # bg2
+set statusbar-fg                "#ebdbb2"   # fg
 
-set completion-highlight-bg     "#3c3836"
-set completion-highlight-fg     "#fb4934"
+set highlight-color             "#fabd2f"   # bright:yellow
+set highlight-active-color      "#fe8019"   # bright:orange
 
-set completion-bg               "#282828"
-set completion-fg               "#ebdbb2"
+set default-bg                  "#282828"   # bg
+set default-fg                  "#ebdbb2"   # fg
+set render-loading              true
+set render-loading-bg           "#282828"   # bg
+set render-loading-fg           "#ebdbb2"   # fg
 
-set notification-bg             "#282828"
-set notification-fg             "#ebdbb2"
-
-# Setting recolor-keep true will keep any color your pdf has.
-# If it is false, it'll just be black and white.
-set recolor-keephue             "true"
-set recolor "false"
+# Recolor book content's color
+set recolor-lightcolor          "#282828"   # bg
+set recolor-darkcolor           "#ebdbb2"   # fg
+set recolor                     true
+# set recolor-keephue             true      # keep original color
