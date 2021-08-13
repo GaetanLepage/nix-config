@@ -11,12 +11,6 @@
 # | ssh config |
 # #------------#
 
-##########
-# Global #
-##########
-# IdentityFile ~/.ssh/inria
-# IdentityFile ~/.ssh/rsa_gaetan
-
 
 #########
 # Hosts #
@@ -68,19 +62,15 @@ Host bastion
     User galepage
     IdentityFile ~/.ssh/rsa_gaetan
 
-# SSH tunneling to perception_workstation_alias through bastion.inrialpes.fr
 Host alya
     User galepage
     HostName alya.inrialpes.fr
     ProxyJump bastion
-    # RemoteCommand ls
-    # RequestTTY true
-    # ProxyCommand ssh -W %h:%p galepage@bastion.inrialpes.fr
 
 Host cluster
     User galepage
     HostName access1-cp.inrialpes.fr
-    #ProxyJump bastion
+    ProxyJump bastion
 
 ##########
 # GriCAD #
@@ -98,8 +88,6 @@ Host ultrafast
     HostName 153.109.124.39
     User gaetan
     IdentityFile ~/.ssh/hes_ssh_key
-    #ProxyCommand ssh -L 80:6006 galepage@bastion.inrialpes.fr zsh # SSH tunneling to access1-cp through bastion.inrialpes.fr
-    #RemoteCommand "source /home/gaetan/.bashrc"
     ForwardAgent no
     ProxyCommand ssh -W %h:%p faster
 
