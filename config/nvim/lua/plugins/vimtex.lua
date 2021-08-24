@@ -17,6 +17,38 @@ vim.g.vimtex_toc_config = {
     mode = 2
 }
 
+
+
+-- *g:vimtex_log_ignore*
+--   A list of regexes to filter info, warning, and error messages. If a logged
+--   message matches any of the regexes in this list, the message will not be
+--   printed to screen.
+--
+--   Note: All messages may still be viewed with |:VimtexLog|.
+--
+--
+-- *g:vimtex_quickfix_ignore_filters*
+--   This option allows to provide a list of |regular-expression|s for filtering
+--   out undesired errors and warnings. This works regardless of which quickfix
+--   method is enabled.
+--
+--   The following example will ignore any messages that match "Marginpar on
+--   page": >
+--
+--     " Disable custom warnings based on regexp
+--     let g:vimtex_quickfix_ignore_filters = [
+--           \ 'Marginpar on page',
+--           \]
+
+-- Log (quickfix list) ignores
+-- vim.g.vimtex_log_ignore = {
+vim.g.vimtex_quickfix_ignore_filters = {
+    'Underfull',
+    'Overfull',
+    'specifier changed to',
+    'Token not allowed in a PDF string',
+}
+
 vim.g.vimtex_compiler_latexrun = {
     build_dir = '',
     options = {
@@ -42,8 +74,8 @@ vim.cmd("autocmd BufReadPre *.tex let b:vimtex_main = 'main.tex'")
 vim.cmd('autocmd FileType tex,latex,markdown setlocal spell spelllang=en,fr')
 
 -- folding
-vim.wo.foldmethod = 'expr'
-vim.wo.foldexpr = 'vimtex#fold#level(v:lnum)'
+vim.o.foldmethod = 'expr'
+vim.o.foldexpr = 'vimtex#fold#level(v:lnum)'
 vim.o.foldtext = 'vimtex#fold#text()'
 
 

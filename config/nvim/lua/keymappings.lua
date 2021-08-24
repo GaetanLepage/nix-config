@@ -31,7 +31,8 @@ nmap('<leader>c', ':b#<CR>')
 -- close by Ctrl+x
 nmap('<C-x>', ':close<CR>')
 
--- save by Ctrl+s
+-- save by Space+s or Ctrl+s
+nmap('<leader>s', ':w<CR>')
 nmap('<C-s>', ':w<CR>')
 
 -- better window movement
@@ -68,3 +69,6 @@ nmap('<M-k>', ':move-2<CR>')
 nmap('<M-j>', ':move+<CR>')
 
 nmap('<leader>rp', ':!remi push<CR>')
+
+-- Spelling
+-- nmap('<C-s>', 'a<C-X><C-S>')

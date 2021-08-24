@@ -15,6 +15,7 @@ require'lspconfig'.pylsp.setup(
                         maxLineLength = 100,
                         ignore = {
                             'D100', -- Missing docstring in public module
+                            'D101', -- Missing docstring in public class
                             'D105', -- Missing docstring in magic method
                             'D107', -- Missing docstring in __init__
                             'D200', -- One-line docstring should fit on one line with quotes
