@@ -12,6 +12,6 @@ export SHELL='bash'
 # This statement ensures that it is also sourced when running an non-interactive session.
 if [[ ! $- == *i* ]]; then
     # echo "This session is not interactive: manually sourcing ~/.bash_profile"
-    . ~/.bash_profile
+    [ -f ~/.bash_profile ] && . ~/.bash_profile
 fi
 source init_conda
