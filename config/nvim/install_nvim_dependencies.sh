@@ -24,6 +24,8 @@ pip_install() {
 
 # Install pip
 pacman_install python-pip
+# Update pip
+pip_install pip
 
 # Install node and neovim support
 pacman_install nodejs npm
@@ -77,4 +79,5 @@ pip_install python-lsp-server \
             mypy-ls
 
 # Yaml
+pacman_install yarn
 yarn_install yaml-language-server
