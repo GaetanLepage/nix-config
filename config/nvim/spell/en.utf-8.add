@@ -120,3 +120,5 @@ workflow
 single-observation
 single-target
 diarization
+ponctual/!
+dereverberation
