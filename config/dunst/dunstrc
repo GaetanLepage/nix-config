@@ -2,7 +2,7 @@
 frame_width = 1
 frame_color = "#1c1c1c"
 
-font = Noto Sans 10
+font = Noto Sans 13
 
 # Allow a small subset of html markup:
 #   <b>bold</b>
