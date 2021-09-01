@@ -1,22 +1,24 @@
-output DP-1
+output DP2
 off
-output DP-2
+output DP3
 off
-output DP-1-1
+output DP4
 off
-output DP-1-3
+output HDMI1
 off
-output DP-2-2
+output HDMI2
 off
-output DP-2-3
+output HDMI3
 off
-output eDP-1
+output HDMI4
 off
-output DP-2-1
+output VIRTUAL1
 off
-output DP-1-2
+output eDP1
+off
+output DP1
 crtc 0
 mode 1920x1080
 pos 0x0
 primary
-rate 144.00
+rate 60.00
