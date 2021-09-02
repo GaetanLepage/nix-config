@@ -109,12 +109,12 @@ source init_conda
 ############
 # Exputils #
 ############
-# define path to the exputils folder
-PATH_TO_EXPUTILS=$HOME/inria/software_tools/exputils
-if [ -f "$PATH_TO_EXPUTILS/commands/eu_setup.sh" ] ; then
-        . "$PATH_TO_EXPUTILS/commands/eu_setup.sh" "$PATH_TO_EXPUTILS"
-fi
-# set default project for exputils commands
-export EU_DEFAULT_PRJ=rlan
-# activate the default project
-source eu_activate
+# # define path to the exputils folder
+# PATH_TO_EXPUTILS=$HOME/inria/software_tools/exputils
+# if [ -f "$PATH_TO_EXPUTILS/commands/eu_setup.sh" ] ; then
+#         . "$PATH_TO_EXPUTILS/commands/eu_setup.sh" "$PATH_TO_EXPUTILS"
+# fi
+# # set default project for exputils commands
+# export EU_DEFAULT_PRJ=rlan
+# # activate the default project
+# source eu_activate
