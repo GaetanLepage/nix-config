@@ -26,7 +26,7 @@ super + @Escape
     pkill -USR1 -x sxhkd
 
 # Lock
-super + o
+{super + o,XF86PowerOff}
     lock
 
 # Screen brightness
