@@ -1,4 +1,3 @@
-local util = require'lspconfig'.util
 -- pip install python-lsp-server
 -- pip install mypy-ls
 require'lspconfig'.pylsp.setup(
@@ -30,6 +29,7 @@ require'lspconfig'.pylsp.setup(
                     pylint = {
                         enabled = true,
                         -- https://vald-phoenix.github.io/pylint-errors/
+                        executable = 'pylint',
                         args = {
                             '--disable ' ..
                             'C0115,' .. -- missing-class-docstring
