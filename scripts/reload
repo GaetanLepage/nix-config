@@ -72,6 +72,23 @@ run_in_bg setbg
 # Run picom
 run_if_not_running picom -b --experimental-backends
 
+MONITOR_RESOLUTION=$(xrandr | grep -Po "(?<=connected primary ).+?(?=\+)")
+case $MONITOR_RESOLUTION in
+    1920x1080|1920x1200)
+        export POLYBAR_HEIGHT=30
+        export POLYBAR_FONT_0_SIZE=10
+        export POLYBAR_FONT_1_SIZE=6
+        break
+        ;;
+    *)
+        export POLYBAR_HEIGHT=40
+        export POLYBAR_FONT_0_SIZE=12
+        export POLYBAR_FONT_1_SIZE=8
+        ;;
+esac
+export POLYBAR_FONT_0='Ubuntu Nerd Font:style=Book:size='${POLYBAR_FONT_0_SIZE}';1'
+export POLYBAR_FONT_1='NotoSans Mono:size='${POLYBAR_FONT_1_SIZE}';0'
+
 
 ############
 # Keyboard #

@@ -83,7 +83,7 @@ margin-bottom = 0
 bottom = true
 monitor = ${env:MONITOR}
 width = 100%
-height = 30
+height = ${env:POLYBAR_HEIGHT:30}
 ;offset-x = 1%
 ;offset-y = 1%
 radius = 0
@@ -104,17 +104,20 @@ padding-right = 2
 module-margin-left = 1
 module-margin-right = 2
 
-font-0 = Ubuntu Nerd Font:style=Book:size=10;1
-font-1 = NotoSans Mono:size=6;0
+# Those variables are set in ~/scripts/reload
+font-0 = ${env:POLYBAR_FONT_0:Ubuntu Nerd Font:style=Book:size=10;1'}
+font-1 = ${env:POLYBAR_FONT_1:NotoSans Mono:size=6;0}
 
 modules-left = ${env:WM}
 modules-center = spotify title
 ; modules-center =
-modules-right = xbacklight backlight-acpi pulseaudio memory cpu updates wlan battery time date dunst
+; backlight-acpi
+modules-right = xbacklight pulseaudio memory cpu updates wlan battery time date dunst
 
 tray-position = ${env:TRAY_POS:right}
 tray-padding = ${layout.module-padding}
 tray-background = ${colors.base-bg}
+tray-maxsize = 20
 
 wm-restack = ${env:WM}
 
@@ -413,10 +416,11 @@ interface = wlan0
 interval = 0.5
 click-left = nm-applet
 
+; format-connected = <ramp-signal> <label-connected>
 format-connected = <label-connected>
 format-connected-underline = #ffffff
 ;label-connected =  %essid% | %downspeed:9% | %upspeed:9% | %local_ip%
-label-connected =  %essid%
+label-connected =    %essid%
 
 format-disconnected =
 ;format-disconnected = <label-disconnected>

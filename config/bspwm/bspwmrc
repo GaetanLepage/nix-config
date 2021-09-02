@@ -15,7 +15,7 @@
 source ~/.zshenv
 
 # Reload script (background applications, screen and keyboard management)
-reload
+source reload
 
 ############
 # Monitors #
@@ -70,7 +70,7 @@ bspc config border_width                2
 bspc config window_gap                  0
 
 bspc config top_padding                 0
-bspc config bottom_padding              30
+bspc config bottom_padding              ${POLYBAR_HEIGHT:-30}
 bspc config left_padding                0
 bspc config right_padding               0
 
@@ -91,7 +91,6 @@ bspc config pointer_action1             move
 bspc config pointer_action2             resize_side
 bspc config pointer_action3             resize_corner
 
-
 ##########
 # Colors #
 ##########
@@ -111,7 +110,7 @@ is_it_running() {
     # If the program is not installed, no need to go further
     type $1 > /dev/null 2>&1   || { echo "$1 is not installed on the system" && return 1; }
     # Is the program is already running, no need to launch it
-    pidof $1  > /dev/null 2>&1 && { echo "$1 is already running"             && return 2; }
+    pgrep -f $1  > /dev/null 2>&1 && { echo "$1 is already running"          && return 2; }
 
     echo "$1 was not running."
 }
@@ -125,6 +124,14 @@ run_if_not_running() {
     $@ &
 }
 
+run_in_terminal() {
+    is_it_running $1 || return 1
+
+    # Run the program in a new terminal
+    $TERMINAL --class $1 $1 &
+}
+
+
 #############
 # Autostart #
 #############
@@ -136,8 +143,8 @@ is_it_running $TERMINAL && bspc desktop -f 1 && $TERMINAL
 
 run_if_not_running $BROWSER
 
-type nvtop > /dev/null 2>&1 && { pidof nvtop > /dev/null 2>&1 || $TERMINAL --class nvtop nvtop & }
-type $MONITOR_TUI_CMD > /dev/null 2>&1 && $TERMINAL --class $MONITOR_TUI_CMD $MONITOR_TUI_CMD &
+run_in_terminal nvtop
+run_in_terminal $MONITOR_TUI_CMD
 
 # System-dependant program launching
 case `hostname` in
@@ -161,7 +168,7 @@ case `hostname` in
         run_if_not_running signal-desktop
         ;;
 
-    gaetan-xps)
+    gaetan-xps|gaetan-desktop-arch|tuxedo)
         run_if_not_running thunderbird
         run_if_not_running signal-desktop
         ;;
