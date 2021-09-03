@@ -79,12 +79,6 @@ export CM_DEBUG=0
 export CM_OUTPUT_CLIP=1
 export CM_MAX_CLIPS=10
 
-# singularity
-# if [[ $(hostname -s) = "alya" ]]; then
-#     export SINGULARITY_TMPDIR=$HOME/scratch/tmp
-#     export SINGULARITY_CACHEDIR=$HOME/scratch/.cache
-# fi
-
 # Path
 export PATH="/usr/local/bin:$PATH"
 export PATH="/usr/sbin:$PATH"
