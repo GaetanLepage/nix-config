@@ -141,11 +141,12 @@ install_dotfiles() {
     mkdir -p $HOME/.config/jesseduffield
     ln -sf $path/config/lazygit $HOME/.config/jesseduffield/lazygit
 
-    ln -sf $path/config/mimeapps.list $HOME/.config/mimeapps.list
-    ln -sf $path/config/user-dirs.dirs $HOME/.config/user-dirs.dirs
-    ln -sf $path/config/wall.jpg $HOME/.config/wall.jpg
-    ln -sf $path/config/wall.png $HOME/.config/wall.png
-    ln -sf $path/config/icon_arch.png $HOME/.config/icon_arch.png
+    link_config_file config/betterlockscreenrc .config/betterlockscreenrc
+    link_config_file config/mimeapps.list .config/mimeapps.list
+    link_config_file config/user-dirs.dirs .config/user-dirs.dirs
+    link_config_file config/wall.jpg .config/wall.jpg
+    link_config_file config/wall.png .config/wall.png
+    link_config_file config/icon_arch.png .config/icon_arch.png
 
     ################
     # Local folder #
