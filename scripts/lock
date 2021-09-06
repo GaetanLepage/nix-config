@@ -33,8 +33,7 @@ playerctl -p spotify pause
 
 # Lock the screen
 echo -e "\nLock screen"
-# betterlockscreen -l
-multilockscreen -l
+betterlockscreen -l
 
 # Resume notifications
 # if [ $notifs_are_already_off = 'false' ]; then

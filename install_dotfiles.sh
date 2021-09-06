@@ -115,6 +115,7 @@ install_dotfiles() {
 
     echo -e "\n## Linking conventional dotfiles ##"
     config_dir_link autorandr
+    config_dir_link betterlockscreen
     config_dir_link bpytop
     config_dir_link bspwm
     config_dir_link dunst
