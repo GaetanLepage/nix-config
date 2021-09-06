@@ -11,9 +11,6 @@
 -- | neovim config |
 -- #---------------#
 
--- TODO
--- statusline
-
 -- Utils needed in the configuration
 require 'utils'
 
