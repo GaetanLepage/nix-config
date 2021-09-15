@@ -31,6 +31,7 @@ bspc rule -r "*"
 
 # Floating windows
 bspc rule -a Blueman-manager                state=floating
+bspc rule -a Nm-connection-editor 	        state=floating
 bspc rule -a Pavucontrol 	                state=floating
 bspc rule -a Thunderbird:Calendar:*         state=floating
 bspc rule -a update                         state=floating
