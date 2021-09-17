@@ -79,7 +79,7 @@ bspc config single_monocle              true
 bspc config borderless_monocle          true
 bspc config gapless_monocle             true
 bspc config focus_follows_pointer       true
-bspc config pointer_follows_focus       true
+bspc config pointer_follows_focus       false
 
 bspc config merge_overlapping_monitors  true
 bspc config remove_disabled_monitors    true
