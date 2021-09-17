@@ -20,11 +20,11 @@ require 'keymappings'
 -- General preferences
 require 'settings'
 
--- Colorscheme
-require 'colorscheme'
-
 -- Plugins
 require 'plugins'
+
+-- Colorscheme
+require 'colorscheme'
 
 -- LSP
 require 'lsp'
