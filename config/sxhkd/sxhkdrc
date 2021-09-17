@@ -44,6 +44,7 @@ super + c
 super + g
     pavucontrol
 
+# Volume control
 {XF86AudioRaiseVolume,super + Up}
     volume up 5
 {XF86AudioLowerVolume,super + Down}
@@ -59,6 +60,10 @@ XF86AudioPause
     playerctl next
 {XF86AudioPrev,super + Left}
     playerctl previous
+
+# Toggle touchpad
+# XF86TouchpadToggle
+#     touchpad_toggle
 
 # Bluetooth
 super + i

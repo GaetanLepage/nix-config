@@ -100,8 +100,9 @@ install_dotfiles() {
     link_config_file .p10k.zsh
     link_config_file .condarc
     link_config_file x11/
-    ln -sf $HOME/.config/x11/xprofile $HOME/.xprofile
     ln -sf $HOME/.config/x11/xinitrc $HOME/.xinitrc
+    ln -sf $HOME/.config/x11/Xmodmap $HOME/.Xmodmap
+    ln -sf $HOME/.config/x11/xprofile $HOME/.xprofile
     ln -sf $HOME/.config/shell/profile $HOME/.profile
     ln -sf $HOME/.config/shell/bashrc $HOME/.bashrc
     ln -sf $HOME/.config/shell/zshenv $HOME/.zshenv
