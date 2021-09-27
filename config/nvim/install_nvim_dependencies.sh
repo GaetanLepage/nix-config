@@ -78,6 +78,9 @@ pip_install python-lsp-server \
             mypy \
             mypy-ls
 
+# JavaScript / TypeScript
+npm_install typescript typescript-language-server
+
 # Yaml
 pacman_install yarn
 yarn_install yaml-language-server

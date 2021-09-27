@@ -10,6 +10,7 @@ require 'lsp.json'
 require 'lsp.latex'
 require 'lsp.lua'
 require 'lsp.python'
+require 'lsp.typescript'
 require 'lsp.yaml'
 
 
