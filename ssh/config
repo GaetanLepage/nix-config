@@ -23,18 +23,6 @@ Host gaming
     Port 223
     IdentityFile ~/.ssh/rsa_gaetan
 
-Host backup
-    Hostname glepage.com
-    User backup_server
-    Port 223
-    IdentityFile ~/.ssh/rsa_gaetan
-
-# NAS
-Host nas
-    Hostname 192.168.1.218
-    User admin
-    IdentityFile ~/.ssh/rsa_gaetan
-
 # Server
 Host server
     HostName glepage.com
