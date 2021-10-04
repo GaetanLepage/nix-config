@@ -8,8 +8,6 @@ output DP3
 off
 output DP4
 off
-output HDMI1
-off
 output HDMI2
 off
 output HDMI3
@@ -30,4 +28,9 @@ crtc 0
 mode 1920x1080
 pos 1920x0
 primary
+rate 60.00
+output HDMI1
+crtc 1
+mode 1920x1080
+pos 1920x1080
 rate 60.00
