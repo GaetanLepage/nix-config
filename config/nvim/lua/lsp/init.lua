@@ -1,8 +1,3 @@
-local nmap = require 'utils'.nmap
-
--- General LSP key mappings
-require 'lsp.keymappings'
-
 -- Source each LSP server configuration
 require 'lsp.bash'
 require 'lsp.c'
@@ -12,6 +7,14 @@ require 'lsp.lua'
 require 'lsp.python'
 require 'lsp.typescript'
 require 'lsp.yaml'
+
+
+-- General LSP key mappings
+local nmap = require 'utils'.nmap
+
+nmap('gd', ':lua vim.lsp.buf.definition()<CR>')
+nmap('gD', ':lua vim.lsp.buf.references()<CR>')
+nmap('gi', ':lua vim.lsp.buf.implementation()<CR>')
 
 
 -- TODO figure out why this don't work
@@ -53,6 +56,7 @@ local function documentHighlight(client, bufnr)
     end
 
 end
+
 local lsp_config = {}
 
 function lsp_config.common_on_attach(client, bufnr)
