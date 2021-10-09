@@ -139,6 +139,9 @@ run_in_terminal() {
 
 # Run for all systems
 
+# Update lock screen wallpaper size
+betterlockscreen -u ~/.config/wall.png
+
 # Go to desktop 1 to run terminal
 is_it_running $TERMINAL && bspc desktop -f 1 && $TERMINAL
 
