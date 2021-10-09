@@ -1,4 +1,8 @@
 require('nvim_comment').setup()
 
-vim.api.nvim_set_keymap("n", "<C-b>", ":CommentToggle<CR>", {noremap=true, silent=true})
-vim.api.nvim_set_keymap("v", "<C-b>", ":CommentToggle<CR>", {noremap=true, silent=true})
+local utils = require 'utils'
+local nmap = utils.nmap
+local vmap = utils.vmap
+
+nmap('<C-b>', ':CommentToggle<CR>')
+vmap('<C-b>', ':CommentToggle<CR>')
