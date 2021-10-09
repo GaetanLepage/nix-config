@@ -71,7 +71,7 @@ o.termguicolors = true      -- Enables 24-bit RGB color in the |TUI|
 o.spell = false             -- highlight spelling mistakes (local to window)
 
 -- Set completeopt to have a better completion experience
-o.completeopt = 'menuone,noselect'
+o.completeopt = 'menu,menuone,noselect'
 
 -- Tab options
 o.tabstop = 4               -- number of spaces a <Tab> in the text stands for (local to buffer)

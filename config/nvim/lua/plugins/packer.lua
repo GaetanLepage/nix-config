@@ -26,9 +26,13 @@ use 'neovim/nvim-lspconfig'
 use 'glepnir/lspsaga.nvim'
 use 'folke/trouble.nvim'                -- Pretty list for showing diagnostics
 use 'lervag/vimtex'                     -- LaTeX support
-use 'hrsh7th/nvim-compe'                -- Autocomplete
-use 'hrsh7th/vim-vsnip'
-use 'hrsh7th/vim-vsnip-integ'
+use 'hrsh7th/nvim-cmp'                  -- Completion engine
+use 'hrsh7th/cmp-buffer'                -- nvim-cmp source for buffer words
+use 'hrsh7th/cmp-nvim-lsp'              -- Nvim-cmp source for neovim builtin LSP client
+
+-- Snippets
+use 'L3MON4D3/LuaSnip'                  -- snippet engine
+use 'saadparwaiz1/cmp_luasnip'          -- luasnip completion source for nvim-cmp
 use 'honza/vim-snippets'
 
 use {'iamcco/markdown-preview.nvim',    -- Markdown preview

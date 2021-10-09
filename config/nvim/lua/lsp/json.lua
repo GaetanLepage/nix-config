@@ -7,5 +7,6 @@ require'lspconfig'.jsonls.setup {
                 vim.lsp.buf.range_formatting({},{0,0},{vim.fn.line("$"),0})
             end
         }
-    }
+    },
+    capabilities = require 'cmp_nvim_lsp'.update_capabilities(vim.lsp.protocol.make_client_capabilities())
 }
