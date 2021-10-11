@@ -47,7 +47,17 @@ require'nvim-tree'.setup {
                                             --      of the filename.
     update_cwd          = false,            -- Updates the root directory of the tree on
                                             --      `DirChanged` (when your run `:cd` usually).
-    lsp_diagnostics     = false,            -- Show lsp diagnostics in the signcolumn.
+
+    -- Show lsp diagnostics in the signcolumn.
+    diagnostics = {
+        enable = true,
+        icons = {
+            hint = "",
+            info = "",
+            warning = "",
+            error = "",
+        }
+    },
 
     -- Update the focused file on `BufEnter`, un-collapses the folders recursively until it finds
     -- the file.
