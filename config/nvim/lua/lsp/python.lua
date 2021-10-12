@@ -31,10 +31,10 @@ require 'lspconfig'.pylsp.setup {
                     -- https://vald-phoenix.github.io/pylint-errors/
                     executable = 'pylint',
                     args = {
-                        '--disable ' ..
-                        'C0115,' .. -- missing-class-docstring
-                        'C0116,' .. -- missing-function-docstring
-                        'R0903'     -- too-few-public-methods
+                        '--disable ',
+                        'C0115,',       -- missing-class-docstring
+                        'C0116,',       -- missing-function-docstring
+                        'R0903'         -- too-few-public-methods
                     }
                 },
                 pylsp_mypy = {
@@ -81,28 +81,5 @@ require 'lspconfig'.pylsp.setup {
                 }
             }
         }
-    },
-    on_attach = on_attach
+    }
 }
-
--- npm i -g pyright
--- require'lspconfig'.pyright.setup{}
-
---   Commands:
---   - PyrightOrganizeImports: Organize Imports
---
---   Default Values:
---     cmd = { "pyright-langserver", "--stdio" }
---     filetypes = { "python" }
---     root_dir = function(filename)
---           return util.root_pattern(unpack(root_files))(filename) or
---                  util.path.dirname(filename)
---         end;
---     settings = {
---       python = {
---         analysis = {
---           autoSearchPaths = true,
---           useLibraryCodeForTypes = true
---         }
---       }
---     }
