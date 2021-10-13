@@ -107,6 +107,7 @@ install_dotfiles() {
     ln -sf $HOME/.config/shell/bashrc $HOME/.bashrc
     ln -sf $HOME/.config/shell/zshenv $HOME/.zshenv
     link_config_file config/tmux/tmux.conf .tmux.conf
+    link_config_file config/vpn_ensimag.ovpn .config/
 
 
     ####################
@@ -174,6 +175,22 @@ install_dotfiles() {
     ln -sf $path/.fonts $HOME/.fonts
 }
 
+
+#######
+# VPN #############################################################################################
+#######
+install_vpn () {
+    # VPN ensimag
+    VPN_ENSIMAG='vpn_ensimag'
+    if ! nmcli c show $VPN_ENSIMAG > /dev/null 2>&1; then
+        echo "$VPN_ENSIMAG does not exist: creating it."
+        nmcli c import type openvpn file $HOME/.config/vpn_ensimag.ovpn
+        nmcli c modify $VPN_ENSIMAG ipv4.never-default true
+        nmcli c modify $VPN_ENSIMAG vpn.user-name lepageg
+    fi
+}
+
+
 ########
 # Main ############################################################################################
 ########
@@ -181,3 +198,4 @@ install_dotfiles() {
 install_software
 install_shell
 install_dotfiles
+install_vpn

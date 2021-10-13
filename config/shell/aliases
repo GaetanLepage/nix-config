@@ -102,8 +102,8 @@ alias \
     wgd='sudo wg-quick down wg0' \
     viu='nmcli connection up vpn_inria' \
     vid='nmcli connection down vpn_inria' \
-    veu="tmux new-session -s 'VPN Ensimag' 'sudo openvpn ~/.local/share/vpn_ensimag.ovpn'" \
-    ved='sudo pkill openvpn'
+    veu='nmcli connection up vpn_ensimag' \
+    ved='nmcli connection down vpn_ensimag'
 
 
 ###############
