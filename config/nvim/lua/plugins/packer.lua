@@ -23,7 +23,7 @@ use 'wbthomason/packer.nvim'            -- Packer can manage itself as an option
 
 -- LSP
 use 'neovim/nvim-lspconfig'
-use 'glepnir/lspsaga.nvim'
+use 'tami5/lspsaga.nvim'                -- (fork)
 use 'folke/trouble.nvim'                -- Pretty list for showing diagnostics
 use 'lervag/vimtex'                     -- LaTeX support
 use 'hrsh7th/nvim-cmp'                  -- Completion engine
