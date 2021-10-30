@@ -1,10 +1,12 @@
 output DP1
 off
-output DP1-2
-off
 output DP2
 off
 output DP3
+off
+output DP3-2
+off
+output DP3-3
 off
 output DP4
 off
@@ -20,11 +22,9 @@ output VIRTUAL1
 off
 output eDP1
 off
-output DP1-1
-off
-output DP1-3
+output DP3-1
 crtc 0
 mode 1920x1080
 pos 0x0
 primary
-rate 144.00
+rate 60.00
