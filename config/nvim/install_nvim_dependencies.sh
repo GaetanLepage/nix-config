@@ -50,6 +50,9 @@ pip_install neovim-remote
 # Tree-sitter
 pacman_install tree-sitter
 
+# Telescope
+pacman_install fd
+
 
 ###############
 # LSP clients #
