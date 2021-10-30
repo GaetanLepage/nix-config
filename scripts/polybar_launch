@@ -31,7 +31,7 @@ polybar -m | while IFS= read -r line;do
     if [[ $IS_PRIMARY ]] ; then export TRAY_POS=right; else TRAY_POS=none ; fi
 
     # Launch the bar
-    TRAY_POS=$TRAY_POS MONITOR=$MONITOR polybar mainbar -r &
+    TRAY_POS=$TRAY_POS MONITOR=$MONITOR polybar bar -r &
 done
 
 echo "Bars launched"

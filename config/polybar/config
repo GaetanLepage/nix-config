@@ -43,16 +43,17 @@ darkcyan    = ${xrdb:color6}
 cyan        = ${xrdb:color13}
 
 [colors]
-;base-bg     = #32302f
-base-bg     = #ff0a0a0a
-;base-bg     = #cd0a0a0a
+; foreground = #ebdbb2
+foreground = #ffffff
+foreground-alt = #4e4e4e
+background = #ff0a0a0a
+background-alt = #4e4e4e
 glyph-bg    = #de0a0a0a
-module-bg   = ${colors.base-bg}
-selected-bg = #ff1a1a1a
-;selected-bg = #cd1a1a1a
+module-bg   = ${colors.background}
 
-;text-fg = ${xcolor.white}
-text-fg = ffffff
+text = ${colors.foreground}
+underline = ${colors.foreground}
+
 icon-fg = ${xcolor.yellow}
 bar-fg  = ${xcolor.darkyellow}
 bar-empty = #444444
@@ -79,18 +80,18 @@ screenchange-reload = true
 margin-top = 0
 margin-bottom = 0
 
-[bar/mainbar]
+[bar/bar]
 bottom = true
 monitor = ${env:MONITOR}
 width = 100%
 height = ${env:POLYBAR_HEIGHT:30}
-;offset-x = 1%
-;offset-y = 1%
+offset-x = 0
+offset-y = 0
 radius = 0
 fixed-center = false
 
-background = ${colors.base-bg}
-foreground = ${colors.text-fg}
+background = ${colors.background}
+foreground = ${colors.text}
 
 line-size = 3
 line-color = #f00
@@ -107,16 +108,18 @@ module-margin-right = 2
 # Those variables are set in ~/scripts/reload
 font-0 = ${env:POLYBAR_FONT_0:Ubuntu Nerd Font:style=Book:size=10;1'}
 font-1 = ${env:POLYBAR_FONT_1:NotoSans Mono:size=6;0}
+# Font for window manager worspaces
+font-2 = NotoSans Mono:size=12;0
 
 modules-left = ${env:WM}
-modules-center = spotify title
+modules-center = spotify
 ; modules-center =
 ; backlight-acpi
 modules-right = xbacklight pulseaudio memory cpu updates wlan battery time date dunst
 
 tray-position = ${env:TRAY_POS:right}
 tray-padding = ${layout.module-padding}
-tray-background = ${colors.base-bg}
+tray-background = ${colors.background}
 tray-maxsize = 20
 
 wm-restack = ${env:WM}
@@ -146,16 +149,30 @@ ws-icon-7 = 8;
 ws-icon-8 = 9;
 ws-icon-9 = 10;
 
-ws-label = "%name%   %icon%"
-; ws-label = "%name%"
-ws-padding = 2
+; ws-label = "%name%   %icon%"
+ws-label = "%name%"
+ws-padding = 4
 
-color-underline = ${colors.text-fg}
-color-label = ${colors.text-fg}
-color-focused-bg = ${colors.selected-bg}
-color-unfocused-bg = ${colors.module-bg}
-color-empty-fg = #555555
+label-font = 3
+
+color-underline = ${colors.underline}
+color-label = ${colors.text}
+
+color-focused-fg =
+color-focused-bg = ${colors.background-alt}
+color-focused-underline =
+
+color-occupied-fg = ${colors.darkgray}
+color-occupied-bg = ${colors.module-bg}
+color-occupied-underline =
+
+color-urgent-fg =
 color-urgent-bg = ${colors.warn-fg}
+color-urgent-underline =
+
+color-empty-fg = ${colors.foreground-alt}
+color-empty-bg = ${colors.background}
+color-empty-underline =
 
 ######
 # I3 #
@@ -187,12 +204,12 @@ ws-icon-9 = ${wm.ws-icon-9}
 ; focused = Active workspace on focused monitor
 label-focused = ${wm.ws-label}
 label-focused-background = ${wm.color-focused-bg}
-label-focused-underline= ${wm.color-underline}
+label-focused-underline= ${wm.color-focused-underline}
 label-focused-padding = ${wm.ws-padding}
 
 ; unfocused = Inactive workspace on any monitor
 label-unfocused = ${wm.ws-label}
-label-unfocused-background = ${wm.color-unfocused-bg}
+label-unfocused-background = ${wm.color-empty-bg}
 label-unfocused-padding = ${wm.ws-padding}
 
 ; visible = Active workspace on unfocused monitor
@@ -235,25 +252,36 @@ enable-scroll = true
 
 ; focused = Active workspace on focused monitor
 label-focused = ${wm.ws-label}
+label-focused-foreground = ${wm.color-focused-fg}
 label-focused-background = ${wm.color-focused-bg}
-label-focused-underline = ${wm.color-underline}
+label-focused-underline = ${wm.color-focused-underline}
 label-focused-padding = ${wm.ws-padding}
+label-focused-font = ${wm.label-font}
 
 label-occupied = ${wm.ws-label}
+label-occupied-underline = ${wm.color-occupied-underline}
 label-occupied-padding = ${wm.ws-padding}
+label-occupied-font = ${wm.label-font}
 
 label-urgent = ${wm.ws-label}
+label-urgent-foreground = ${wm.color-urgent-fg}
 label-urgent-background = ${wm.color-urgent-bg}
-label-urgent-underline = ${wm.color-underline}
+label-urgent-underline = ${wm.color-urgent-underline}
 label-urgent-padding = ${wm.ws-padding}
+label-urgent-font = ${wm.label-font}
 
 label-empty = ${wm.ws-label}
 label-empty-foreground = ${wm.color-empty-fg}
+label-empty-background = ${wm.color-empty-bg}
+label-empty-underline = ${wm.color-empty-underline}
 label-empty-padding = ${wm.ws-padding}
+label-empty-font = ${wm.label-font}
 
 ; Separator in between workspaces
-label-separator =
+label-separator = " "
 label-separator-padding = 0
+label-separator-foreground = ${colors.foreground}
+label-separator-font = ${wm.label-font}
 
 ##################
 # Center modules ###############################################################
@@ -270,7 +298,7 @@ click-right = bspc desktop -f 9
 format-prefix = " "
 format = <label>
 exec = python ~/.config/polybar/spotify.py -f '{artist} ~ {song}' -t 200
-format-underline = ${colors.text-fg}
+format-underline = ${colors.underline}
 
 
 
@@ -286,11 +314,11 @@ type = internal/xbacklight
 
 format = <label> <bar>
 label =  %percentage:3:%%
-format-underline = ${colors.text-fg}
+format-underline = ${colors.underline}
 
 bar-width = 10
 bar-indicator = |
-bar-indicator-foreground = ${colors.text-fg}
+bar-indicator-foreground = ${colors.text}
 bar-indicator-font = 1
 bar-fill = ▐
 bar-fill-font = 2
@@ -316,17 +344,17 @@ type = internal/pulseaudio
 click-right = pavucontrol &
 
 format-volume = <label-volume> <bar-volume>
-format-volume-underline = ${colors.text-fg}
+format-volume-underline = ${colors.underline}
 label-volume = 墳 %percentage:3:%%
-label-volume-foreground = ${colors.text-fg}
+label-volume-foreground = ${colors.text}
 
 ;label-muted = 婢 muted
-;label-muted-foreground = ${colors.text-fg}
+;label-muted-foreground = ${colors.text}
 ;format-muted-foreground = ${xcolor.darkred}
-format-muted-underline = ${colors.text-fg}
+format-muted-underline = ${colors.underline}
 format-muted-prefix = 婢
 format-muted-prefix-font = ${layout.icon-font}
-format-muted-prefix-foreground = ${colors.text-fg}
+format-muted-prefix-foreground = ${colors.text}
 format-muted-prefix-padding-right = ${layout.icon-padding}
 format-muted-foreground = ${xcolor.darkred}
 label-muted = "muted"
@@ -339,7 +367,7 @@ bar-volume-foreground-3 = ${xcolor.green}
 bar-volume-foreground-4 = ${xcolor.green}
 bar-volume-foreground-5 = ${xcolor.green}
 bar-volume-foreground-6 = ${xcolor.green}
-bar-volume-gradient = ${colors.text-fg}
+bar-volume-gradient = ${colors.text}
 bar-volume-indicator = |
 bar-volume-indicator-font = 1
 bar-volume-fill = ▐
@@ -356,7 +384,7 @@ type = internal/memory
 format = <label> <bar-used>
 label =  %percentage_used%%
 label-font = 1
-format-underline = ${colors.text-fg}
+format-underline = ${colors.underline}
 
 bar-used-width = 10
 bar-used-foreground-0 = ${xcolor.green}
@@ -379,7 +407,7 @@ bar-used-empty-foreground = ${colors.bar-empty}
 type = internal/cpu
 interval = 0.5
 format = <label> <ramp-coreload>
-format-underline = ${colors.text-fg}
+format-underline = ${colors.underline}
 label =  %percentage:02%%
 ramp-coreload-0 = ▁
 ramp-coreload-0-font = 2
@@ -418,7 +446,7 @@ click-left = nm-applet
 
 ; format-connected = <ramp-signal> <label-connected>
 format-connected = <label-connected>
-format-connected-underline = #ffffff
+format-connected-underline = ${colors.underline}
 ;label-connected =  %essid% | %downspeed:9% | %upspeed:9% | %local_ip%
 label-connected =    %essid%
 
@@ -446,23 +474,23 @@ adapter = AC
 full-at = 98
 
 format-charging = <ramp-capacity> <label-charging>ﮣ
-format-charging-underline = ${colors.text-fg}
+format-charging-underline = ${colors.underline}
 ;format-charging-prefix = "ﮣ "
 
 format-discharging =<ramp-capacity>  <label-discharging>
-format-discharging-underline = ${colors.text-fg}
+format-discharging-underline = ${colors.underline}
 
 format-full = <ramp-capacity> <label-full>ﮣ
 ;format-full-prefix = "ﮣ"
-format-full-foreground = ${colors.text-fg}
-format-full-underline = ${colors.text-fg}
+format-full-foreground = ${colors.text}
+format-full-underline = ${colors.text}
 
 ramp-capacity-0 = " "
 ramp-capacity-1 = " "
 ramp-capacity-2 = " "
 ramp-capacity-3 = " "
 ramp-capacity-4 = " "
-ramp-capacity-foreground = ${colors.text-fg}
+ramp-capacity-foreground = ${colors.text}
 
 ;animation-charging-0 = 
 ;animation-charging-1 = 
@@ -489,7 +517,7 @@ type = custom/script
 exec = bash ~/.config/polybar/update.sh --check-updates
 click-left = bash ~/.config/polybar/update.sh --do-updates
 interval = 60
-format-underline = ${colors.text-fg}
+format-underline = ${colors.underline}
 format-background = ${colors.module-bg}
 format-padding = ${layout.module-padding}
 
@@ -508,7 +536,7 @@ date =
 
 ;format-prefix =
 format-prefix-foreground = ${colors.module-fg}
-format-underline = ${colors.text-fg}
+format-underline = ${colors.underline}
 format-background = ${colors.module-bg}
 format-padding = 0
 
@@ -527,7 +555,7 @@ date = " %d/%m/%Y"
 ;format-prefix =
 format-prefix-background = ${colors.module-bg}
 format-prefix-foreground = ${colors.module-fg}
-format-underline = ${colors.text-fg}
+format-underline = ${colors.underline}
 
 label =  %date%
 
@@ -540,6 +568,6 @@ type = custom/script
 exec = bash ~/.config/polybar/dunst_state.sh
 click-left = dunstctl set-paused toggle
 interval = 1
-format-underline = ${colors.text-fg}
+format-underline = ${colors.underline}
 format-background = ${colors.module-bg}
 format-padding = 1
