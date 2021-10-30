@@ -17,6 +17,7 @@ vim.g.nvim_tree_ignore = {
     '*.aux',
     '*.bbl',
     '*.blg',
+    '*.egg-info',
     '*.fdb_latexmk',
     '*.fls',
     '*.maf',
