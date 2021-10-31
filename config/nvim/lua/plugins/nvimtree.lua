@@ -8,29 +8,6 @@ vim.g.nvim_tree_show_icons = {
     files = 1
 }
 
--- empty by default
-vim.g.nvim_tree_ignore = {
-    '.git',
-    'node_modules',
-    '.cache',
-    '__pycache__',
-    '*.aux',
-    '*.bbl',
-    '*.blg',
-    '*.egg-info',
-    '*.fdb_latexmk',
-    '*.fls',
-    '*.maf',
-    '*.mtc',
-    '*.mtc0',
-    '*.pyc',
-    '*.run.xml',
-    '*.synctex*'
-}
-
--- 0 by default, this option hides files and folders starting with a dot `.`
-vim.g.nvim_tree_hide_dotfiles = 1
-
 -- 0 by default, this option shows indent markers when folders are open
 vim.g.nvim_tree_indent_markers = 1
 
@@ -78,6 +55,30 @@ require'nvim-tree'.setup {
     system_open = {
         cmd  = nil,             -- The command to run this, leaving nil should work in most cases.
         args = {}               -- The command arguments as a list.
+    },
+
+    -- filtering options
+    filters = {
+        dotfiles = true,        -- false by default, this option hides files and folders starting
+                                --      with a dot `.`
+        custom = {              -- Ignored files (empty by default)
+            '.git',
+            'node_modules',
+            '.cache',
+            '__pycache__',
+            '*.aux',
+            '*.bbl',
+            '*.blg',
+            '*.egg-info',
+            '*.fdb_latexmk',
+            '*.fls',
+            '*.maf',
+            '*.mtc',
+            '*.mtc0',
+            '*.pyc',
+            '*.run.xml',
+            '*.synctex*'
+        }
     },
 
     view = {
