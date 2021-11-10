@@ -73,6 +73,15 @@ super + shift + i
 super + ctrl + i
     sudo rfkill block bluetooth
 
+# Dunst (notifications)
+alt + space
+    dunstctl close
+
+ctrl + super + space
+    dunstctl close-all
+
+ctrl + super + c
+    dunstctl context
 
 ################
 # Applications #
