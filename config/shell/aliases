@@ -189,6 +189,7 @@ alias \
     rpf='remi push -f' \
     rbc='remi build-container' \
     rbcf='remi build-container -f' \
+    rda='remi desktop attach-session' \
     rd='remi desktop' \
     rdc='remi desktop command' \
     rdi='remi desktop interactive' \
