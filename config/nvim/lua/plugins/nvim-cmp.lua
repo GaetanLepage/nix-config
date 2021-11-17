@@ -38,5 +38,8 @@ cmp.setup {
         -- { name = 'ultisnips' },
 
         { name = 'buffer' },
+
+        -- TabNine
+ 	    { name = 'cmp_tabnine' },
     }
 }

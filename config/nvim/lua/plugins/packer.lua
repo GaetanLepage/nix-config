@@ -30,6 +30,11 @@ use 'hrsh7th/nvim-cmp'                  -- Completion engine
 use 'hrsh7th/cmp-buffer'                -- nvim-cmp source for buffer words
 use 'hrsh7th/cmp-nvim-lsp'              -- Nvim-cmp source for neovim builtin LSP client
 
+-- TabNine
+use {'tzachar/cmp-tabnine',
+     run='./install.sh',
+     requires = 'hrsh7th/nvim-cmp'}
+
 -- Snippets
 use 'L3MON4D3/LuaSnip'                  -- snippet engine
 use 'saadparwaiz1/cmp_luasnip'          -- luasnip completion source for nvim-cmp
