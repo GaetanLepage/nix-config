@@ -83,5 +83,5 @@ o.smartindent = true        -- do clever autoindenting
 o.textwidth = 100
 
 -- Folding
-o.foldmethod = 'indent' 	 -- Set folding type to indent
-o.foldlevel = 99             -- Folds with a level higher than this number will be closed
+o.foldmethod = 'indent'     -- Set folding type to indent
+o.foldlevel = 99            -- Folds with a level higher than this number will be closed
