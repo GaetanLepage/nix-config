@@ -147,7 +147,6 @@ install_dotfiles() {
     link_config_file config/mimeapps.list .config/mimeapps.list
     link_config_file config/user-dirs.dirs .config/user-dirs.dirs
     link_config_file config/wall.jpg .config/wall.jpg
-    link_config_file config/wall.png .config/wall.png
     link_config_file config/icon_arch.png .config/icon_arch.png
 
     ################
