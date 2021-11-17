@@ -54,13 +54,13 @@ Host bastion
     IdentityFile ~/.ssh/rsa_gaetan
 
 Host alya
-    User galepage
     HostName alya.inrialpes.fr
+    User galepage
     ProxyJump bastion
 
 Host cluster
-    User galepage
     HostName access1-cp.inrialpes.fr
+    User galepage
     ProxyJump bastion
 
 
