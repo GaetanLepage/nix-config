@@ -64,7 +64,8 @@ alias \
 # Common ssh
 alias \
     sa='ssh alya' \
-    sam='ssh alya -t tmux attach-session -t hm'
+    sam='ssh alya -t tmux attach-session -t hm' \
+    sar='ssh alya -t tmux attach-session -t rlan'
 
 
 # Package managers
