@@ -65,7 +65,9 @@ alias \
 alias \
     sa='ssh alya' \
     sam='ssh alya -t tmux attach-session -t hm' \
-    sar='ssh alya -t tmux attach-session -t rlan'
+    sar='ssh alya -t tmux attach-session -t rlan' \
+    tsb='tmux new-session -d -s "tensorboard" bash -c "cd ~/inria/code/rlan && remi ssh-tunnel
+        -p 9090" || firefox localhost:9090'
 
 
 # Package managers
