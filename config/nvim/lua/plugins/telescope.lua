@@ -43,6 +43,7 @@ require 'telescope'.setup {
         file_sorter = require'telescope.sorters'.get_fuzzy_file,
         file_ignore_patterns = {
             '.git',
+            '.mypy_cache',
             '__pycache__'
         },
         generic_sorter = require'telescope.sorters'.get_generic_fuzzy_sorter,
