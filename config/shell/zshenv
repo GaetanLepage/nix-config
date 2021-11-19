@@ -69,7 +69,7 @@ export VISUAL="nvim"
 export WM="bspwm"
 # 'bat' as manpager
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
-export MONITOR_TUI_CMD='bpytop'
+export MONITOR_TUI_CMD='btop'
 # 'nvim' as manpager
 #export MANPAGER="nvim -c 'set ft=man' -"
 

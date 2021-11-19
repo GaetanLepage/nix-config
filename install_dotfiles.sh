@@ -119,6 +119,7 @@ install_dotfiles() {
     config_dir_link autorandr
     config_dir_link betterlockscreen
     config_dir_link bpytop
+    config_dir_link btop
     config_dir_link bspwm
     config_dir_link dunst
     config_dir_link gtk-2.0
