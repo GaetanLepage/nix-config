@@ -21,57 +21,87 @@ local use = packer.use
 packer.reset()
 use 'wbthomason/packer.nvim'            -- Packer can manage itself as an optional plugin
 
+---------------
+-- LANGUAGES ---------------------------------------------------------------------------------------
+---------------
 -- LSP
-use 'neovim/nvim-lspconfig'
-use 'tami5/lspsaga.nvim'                -- (fork)
+use 'neovim/nvim-lspconfig'             -- A collection of common configurations for the built-in
+                                        --  language server client.
+use 'tami5/lspsaga.nvim'                -- A light-weight lsp plugin based on neovim built-in lsp
+                                        --  with highly a performant UI.
 use 'folke/trouble.nvim'                -- Pretty list for showing diagnostics
 use 'lervag/vimtex'                     -- LaTeX support
+
+-- Completion
 use 'hrsh7th/nvim-cmp'                  -- Completion engine
 use 'hrsh7th/cmp-buffer'                -- nvim-cmp source for buffer words
 use 'hrsh7th/cmp-nvim-lsp'              -- Nvim-cmp source for neovim builtin LSP client
+use {                                   -- TabNine
+    'tzachar/cmp-tabnine',
+    run = './install.sh',
+    requires = {
+        'hrsh7th/nvim-cmp'
+    }
+}
 
--- TabNine
-use {'tzachar/cmp-tabnine',
-     run='./install.sh',
-     requires = 'hrsh7th/nvim-cmp'}
+-- Python folding
+use 'tmhedberg/SimpylFold'
 
 -- Snippets
 use 'L3MON4D3/LuaSnip'                  -- snippet engine
 use 'saadparwaiz1/cmp_luasnip'          -- luasnip completion source for nvim-cmp
-use 'honza/vim-snippets'
+use 'honza/vim-snippets'                -- snippets files for various programming languages.
 
 use {'iamcco/markdown-preview.nvim',    -- Markdown preview
      run = 'cd app && yarn install'}
 
--- Treesitter
-use {'nvim-treesitter/nvim-treesitter', -- TreeSitter (for syntax highlighting and more)
-     requires = 'nvim-treesitter/nvim-treesitter-refactor',
-     run = ':TSUpdate'}
+-- Treesitter (for syntax highlighting and more)
+use {
+    'nvim-treesitter/nvim-treesitter',
+    requires = {
+        'nvim-treesitter/nvim-treesitter-refactor'
+    },
+    run = ':TSUpdate'
+}
 
--- Icons
-use 'kyazdani42/nvim-web-devicons'
-use 'ryanoasis/vim-devicons'            -- A lua fork of vim-devicons. This plugin provides the same
-                                        -- icons as well as colors for each icon.
-
+--------
+-- UI ----------------------------------------------------------------------------------------------
+--------
 -- Status Line and Bufferline
 use 'hoob3rt/lualine.nvim'              -- The status line
-use 'romgrk/barbar.nvim'                -- Tabline plugin
+use {                                   -- Tabline plugin
+    'romgrk/barbar.nvim',
+    requires = {
+        'kyazdani42/nvim-web-devicons'
+    }
+}
 
-use {'nvim-telescope/telescope.nvim',   -- Telescope
-     requires = {'nvim-lua/plenary.nvim',
-                 'nvim-lua/popup.nvim'}}
+use {
+    'nvim-telescope/telescope.nvim',    -- Telescope
+    requires = {
+        'nvim-lua/plenary.nvim',
+        'nvim-lua/popup.nvim'
+    }
+}
 
-
-use 'kyazdani42/nvim-tree.lua'          -- File tree
+use {
+    'kyazdani42/nvim-tree.lua',         -- File tree
+    requires = {
+        'kyazdani42/nvim-web-devicons',
+    }
+}
 use 'gruvbox-community/gruvbox'         -- Colorcheme
 use 'norcalli/nvim-colorizer.lua'       -- Preview colors directly from files
 
--- Git
+---------
+-- Git ---------------------------------------------------------------------------------------------
+---------
 use 'tpope/vim-fugitive'                -- Git Fugitive
 use 'airblade/vim-gitgutter'            -- Show a git diff in the sign column.
-use 'TimUntersberger/neogit'            -- A work-in-progress Magit clone for Neovim that is geared
-                                        --  toward the Vim philosophy.
 
+----------
+-- Misc --------------------------------------------------------------------------------------------
+----------
 -- General Plugins
 use 'windwp/nvim-autopairs'             -- A minimalist autopairs for Neovim written in Lua
 use 'kevinhwang91/nvim-bqf'             -- Make Neovim's quickfix window better
@@ -83,7 +113,3 @@ use 'voldikss/vim-floaterm'             -- A floating terminal window in neovim
 use 'majutsushi/tagbar'                 -- Easy way to browse the tags of the current file and get
                                         --  an overview of its structure
 use 'terrortylor/nvim-comment'          -- Offer key mapping to comment code
-use 'bfredl/nvim-miniyank'
-
--- Python folding
-use 'tmhedberg/SimpylFold'
