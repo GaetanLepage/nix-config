@@ -201,5 +201,6 @@ alias \
     rc='remi cluster' \
     rcc='remi cluster command' \
     rci='remi cluster interactive' \
+    rck='remi cluster kill' \
     rceu='remi cluster -s exputils.sh' \
     rt='remi tensorboard'
