@@ -35,10 +35,11 @@ npm_install neovim
 pip_install pynvim
 
 # Install packer
-if [ -e "$HOME/.local/share/nvim/site/pack/packer/start/packer.nvim" ]; then
+PACKER_PATH="$HOME/.local/share/nvim/site/pack/packer/start/packer.nvim"
+if [ -e $PACKER_PATH ]; then
     echo 'packer already installed'
 else
-    git clone https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/start/packer.nvim
+    git clone https://github.com/wbthomason/packer.nvim $PACKER_PATH
 fi
 
 # Extra packages
@@ -52,6 +53,7 @@ pacman_install tree-sitter
 
 # Telescope
 pacman_install fd
+pacman_install ripgrep
 
 
 ###############
