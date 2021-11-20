@@ -13,7 +13,7 @@ nmap('<leader>fd', '<cmd>lua require("telescope.builtin").lsp_workspace_diagnost
 -- FZF like bindings
 nmap('<C-p>', '<cmd>Telescope git_files<CR>')
 nmap('<leader>p', '<cmd>Telescope oldfiles<CR>')
-nmap('<leader>a', '<cmd>Telescope live_grep<CR>')
+nmap('<C-f>', '<cmd>Telescope live_grep<CR>')
 
 
 -------------------
