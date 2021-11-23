@@ -68,9 +68,13 @@ Host cluster
 # GriCAD #
 ##########
 Host gricad
-    Hostname access-rr-ciment.imag.fr
+    Hostname access-ciment.imag.fr
     User lepageg-ext
     IdentityFile ~/.ssh/rsa_gaetan
+
+Host *.ciment
+  User lepageg-ext
+  ProxyCommand ssh -q lepageg-ext@access-rr-ciment.imag.fr "nc -w 60 `basename %h .ciment` %p"
 
 
 ##########
