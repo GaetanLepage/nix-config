@@ -1,4 +1,5 @@
 configuration {
-	theme: "/usr/share/rofi/themes/gruvbox-dark-soft.rasi";
     font: "DejaVu Sans Mono 14";
 }
+
+@theme "/usr/share/rofi/themes/gruvbox-dark-soft.rasi"
