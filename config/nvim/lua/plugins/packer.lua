@@ -35,14 +35,13 @@ use 'lervag/vimtex'                     -- LaTeX support
 -- Completion
 use 'hrsh7th/nvim-cmp'                  -- Completion engine
 use 'hrsh7th/cmp-buffer'                -- nvim-cmp source for buffer words
+use 'hrsh7th/cmp-path'                  -- nvim-cmp source for paths
 use 'hrsh7th/cmp-nvim-lsp'              -- Nvim-cmp source for neovim builtin LSP client
 use {                                   -- TabNine
     'tzachar/cmp-tabnine',
-    run = './install.sh',
-    requires = {
-        'hrsh7th/nvim-cmp'
-    }
+    run = './install.sh'
 }
+use 'onsails/lspkind-nvim'              -- vscode-like pictograms to neovim built-in lsp
 
 -- Python folding
 use 'tmhedberg/SimpylFold'

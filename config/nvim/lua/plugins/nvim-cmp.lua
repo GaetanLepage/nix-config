@@ -25,21 +25,44 @@ cmp.setup {
         ['<S-Tab>'] = cmp.mapping(cmp.mapping.select_prev_item(), { 'i', 's' }),
         ['<CR>'] = cmp.mapping.confirm({ select = true }),
     },
+
+    -- List of sources for completion
+    -- The order **matters** as it decides the priority of suggestions.
     sources = {
+        { name = 'path' },
+
         { name = 'nvim_lsp' },
-
-        -- For vsnip user.
-        -- { name = 'vsnip' },
-
-        -- For luasnip user.
-        { name = 'luasnip' },
-
-        -- For ultisnips user.
-        -- { name = 'ultisnips' },
-
-        { name = 'buffer' },
 
         -- TabNine
  	    { name = 'cmp_tabnine' },
+
+        -- Snippets
+        { name = 'luasnip' },
+
+        { name = 'buffer' },
+    },
+
+    formatting = {
+        -- Youtube: How to set up nice formatting for your sources.
+        format = require 'lspkind'.cmp_format {
+            with_text = true,
+            menu = {
+                buffer = "[buf]",
+                nvim_lsp = "[LSP]",
+                nvim_lua = "[api]",
+                path = "[path]",
+                luasnip = "[snip]",
+                gh_issues = "[issues]",
+                tn = "[TabNine]",
+            },
+        },
+    },
+
+    experimental = {
+        -- I like the new menu better! Nice work hrsh7th
+        native_menu = false,
+
+        -- Let's play with this for a day or two
+        ghost_text = true,
     }
 }
