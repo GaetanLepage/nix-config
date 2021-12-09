@@ -4,7 +4,7 @@ local tree_cb = require'nvim-tree.config'.nvim_tree_callback
 -- 'files' is 1, it will only display if nvim-web-devicons is installed and on your runtimepath
 vim.g.nvim_tree_show_icons = {
     git = 1,
-   folders = 1,
+    folders = 1,
     files = 1
 }
 
