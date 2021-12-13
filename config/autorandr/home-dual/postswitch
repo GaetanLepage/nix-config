@@ -1,4 +1,0 @@
-#!/bin/bash
-
-bspc monitor DP-1-2 -d 1 2 3 4 5 7 8 9
-bspc monitor DP-2-1 -d 6 10
