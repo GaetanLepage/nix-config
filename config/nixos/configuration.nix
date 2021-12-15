@@ -12,8 +12,12 @@
 
   # Use the systemd-boot EFI boot loader.
   boot.loader = {
+    # For UEFI
     systemd-boot.enable = true;
     efi.canTouchEfiVariables = true;
+
+    # For legacy BIOS
+    # grub.device = "/dev/sda";
   };
 
   # Set your time zone.
@@ -86,7 +90,7 @@
   users.users.gaetan = {
     isNormalUser   = true;
     extraGroups    = [ "wheel" ]; # Enable ‘sudo’ for the user.
-    shell          = pkgs.zsh; 
+    shell          = pkgs.zsh;
   };
 
   # List packages installed in system profile. To search, run:
@@ -117,6 +121,7 @@
       neofetch
       bat
       ranger
+      fzf
 
       # Multimedia
       gthumb
@@ -194,7 +199,6 @@
   # this value at the release version of the first install of this system.
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "21.05"; # Did you read the comment?
+  system.stateVersion = "21.11"; # Did you read the comment?
 
 }
-
