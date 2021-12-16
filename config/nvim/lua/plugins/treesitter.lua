@@ -6,6 +6,7 @@ require 'nvim-treesitter.configs'.setup {
         'javascript',
         'latex',
         'lua',
+        'nix',
         'python'
     },                          -- one of "all", "maintained" (parsers with maintainers), or a list of languages
     highlight = {
