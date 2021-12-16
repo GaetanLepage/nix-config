@@ -93,6 +93,9 @@ pfetch
 #########
 source init_conda
 
+# Direnv
+eval "$(direnv hook zsh)"
+
 
 ############
 # Exputils #
