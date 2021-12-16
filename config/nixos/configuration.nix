@@ -88,9 +88,9 @@
 
     # Define a user account. Don't forget to set a password with ‘passwd’.
     users.users.gaetan = {
-        isNormalUser     = true;
-        extraGroups        = [ "wheel" ]; # Enable ‘sudo’ for the user.
-        shell                    = pkgs.zsh;
+        isNormalUser = true;
+        extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
+        shell = pkgs.zsh;
     };
 
     # List packages installed in system profile. To search, run:
