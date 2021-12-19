@@ -37,36 +37,6 @@ ZSH_THEME="spaceship"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git zsh-autosuggestions zsh-syntax-highlighting autojump)
 
-######################
-# SSH agent and keys #
-######################
-# Gnome keyring daemon
-if [ -n "$DESKTOP_SESSION" ];then
-    eval $(gnome-keyring-daemon --start)
-    export SSH_AUTH_SOCK
-
-else
-# Else, use the OpenSSH default ssh-agent.
-
-    # 1) Check whether an agent is running. If not, launch one.
-    if ! pgrep -u "$USER" ssh-agent > /dev/null; then
-        # echo "No ssh agent --> starting one"
-        ssh-agent > "/tmp/ssh-agent.env"
-
-        # Reset the environment variable
-        SSH_AUTH_SOCK=''
-    fi
-
-    # Export the SSH_AUTH_SOCK variable.
-    source "/tmp/ssh-agent.env" > /dev/null
-
-    # If no key were added to the agent, look for some keys to add.
-    ssh-add -l > /dev/null 2>&1
-    if [ $? -ne 0 ] && [[ ! `hostname` =~ "^gpu.*|^node" ]]; then
-        ssh-add $(grep -slR "PRIVATE" ~/.ssh/)
-    fi
-fi
-
 
 ###################
 # STARTUP ROUTINE #
@@ -75,40 +45,7 @@ fi
 # Source oh-my-zsh config
 source $ZSH/oh-my-zsh.sh
 
-# Launch neofetch
-# neofetch
-pfetch
-
-
-##################
-# Source configs #
-##################
-
-[[ ! -f $ZDOTDIR/inputrc ]] || source $ZDOTDIR/inputrc
-[[ ! -f $ZDOTDIR/aliases ]] || source $ZDOTDIR/aliases
-
-
-#########
-# Conda #
-#########
-source init_conda
+source $XDG_CONFIG_HOME/shell/shell_init
 
 # Direnv
 eval "$(direnv hook zsh)"
-
-
-############
-# Exputils #
-############
-# define path to the exputils folder
-PATH_TO_EXPUTILS=$HOME/inria/code/exputils
-
-if [ -d $PATH_TO_EXPUTILS ]; then
-    if [ -f "$PATH_TO_EXPUTILS/commands/eu_setup.sh" ] ; then
-        . "$PATH_TO_EXPUTILS/commands/eu_setup.sh" "$PATH_TO_EXPUTILS"
-    fi
-    # set default project for exputils commands
-    export EU_DEFAULT_PRJ=rlan
-    # activate the default project
-    source eu_activate
-fi
