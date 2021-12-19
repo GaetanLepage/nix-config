@@ -127,6 +127,7 @@ install_dotfiles() {
     config_dir_link gtk-4.0
     config_dir_link i3
     config_dir_link kitty
+    config_dir_link nixpkgs
     config_dir_link nvim
     config_dir_link paru
     config_dir_link picom
@@ -137,8 +138,9 @@ install_dotfiles() {
     config_dir_link shell
     config_dir_link sxhkd
     config_dir_link tmux
-    config_dir_link zathura
+    config_dir_link wireguard
     config_dir_link x11
+    config_dir_link zathura
 
     delete_if_exists $HOME/.config/jesseduffield
     mkdir -p $HOME/.config/jesseduffield
