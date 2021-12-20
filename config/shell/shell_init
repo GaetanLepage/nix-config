@@ -4,13 +4,14 @@
 # neofetch
 pfetch
 
-SHELL_CONFIG_DIR=$XDG_CONFIG_HOME/shell
+SHELL_CONFIG_DIR=$HOME/.config/shell
 
 source_file() {
     path_to_source=$SHELL_CONFIG_DIR/$1
     [[ ! -f $path_to_source ]] || source $path_to_source
 }
 
+source_file env_variables
 source_file inputrc
 source_file aliases
 source_file conda
