@@ -25,4 +25,7 @@ elif [ $distro == 'arch' ]; then
     fi
 
     $prog -Syu --noconfirm
+
+elif [ $distro == 'nixos' ]; then
+    sudo nixos-rebuild switch --upgrade
 fi
