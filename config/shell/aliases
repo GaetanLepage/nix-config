@@ -211,4 +211,4 @@ alias \
 alias \
     nrs='sudo nixos-rebuild switch' \
     nrsu='sudo nixos-rebuild switch --upgrade' \
-    hms='home-manager switch'
+    hms='home-manager switch' \

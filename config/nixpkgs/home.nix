@@ -30,10 +30,10 @@
         zsh = {
             enable = true;
 
-            # dotDir = ".config/shell";
+            dotDir = ".config/zsh_nix";
 
             initExtra = ''
-                pfetch
+                source $HOME/.config/shell/shell_init
             '';
 
             enableAutosuggestions = true;
@@ -41,11 +41,38 @@
 
             oh-my-zsh = {
                 enable = true;
-                plugins = [ "git" "colored-man-pages" "colorize" "autojump" ];
-                theme = "agnoster";
+                plugins = [ "git" "autojump" ];
+                custom = "$HOME/.config/zsh_nix/custom";
+                theme = "spaceship";
             };
         };
     };
 
+    services = {
+        betterlockscreen = {
+            enable = true;
+        };
+    };
+
     nixpkgs.config.allowUnfree = true;
+
+    xsession.pointerCursor = {
+        name = "Dark";
+        package = pkgs.capitaine-cursors;
+    };
+
+    gtk = {
+        enable = true;
+        theme = {
+            name = "Matcha-dark-aliz";
+            package = pkgs.matcha-gtk-theme;
+        };
+        iconTheme = {
+            name = "Papirus-Dark";
+            package = pkgs.papirus-icon-theme;
+        };
+        font = {
+            name = "DejaVu Sans 11";
+        };
+    };
 }
