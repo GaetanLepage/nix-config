@@ -2,4 +2,4 @@ configuration {
     font: "DejaVu Sans Mono 14";
 }
 
-@theme "/usr/share/rofi/themes/gruvbox-dark-soft.rasi"
+@theme "gruvbox-dark"
