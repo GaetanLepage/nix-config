@@ -37,6 +37,42 @@
         networkmanager.enable = true;
 
         # networking.wireless.enable = true;    # Enables wireless support via wpa_supplicant.
+
+        # wireguard.interfaces = {
+        #     # Wireguard
+        #     wg0 = {
+        #         # Determines the IP address and subnet of the client's end of the tunnel interface.
+        #         ips = [ "10.10.10.8/32" ];
+        #         listenPort = 51820;
+
+        #         # Path to the private key file.
+        #         #
+        #         # Note: The private key can also be included inline via the privateKey option,
+        #         # but this makes the private key world-readable; thus, using privateKeyFile is
+        #         # recommended.
+        #         privateKeyFile = "/home/gaetan/.config/wireguard/privatekey";
+
+        #         peers = [
+        #             # For a client configuration, one peer entry for the server will suffice.
+
+        #             {
+        #                 # Public key of the server (not a file path).
+        #                 publicKey = "jWzlVwkNkaO1uj7Qh+Xemo0EtxIYP2ufK+18oPcdvBY=";
+
+        #                 # Forward all the traffic via VPN.
+        #                 allowedIPs = [ "0.0.0.0/0" ];
+        #                 # Or forward only particular subnets
+        #                 # allowedIPs = [ "10.10.10.0/24" ];
+
+        #                 # Set this to the server IP and port.
+        #                 endpoint = "109.13.20.45:51820";
+
+        #                 # Send keepalives every 25 seconds. Important to keep NAT tables alive.
+        #                 persistentKeepalive = 25;
+        #             }
+        #         ];
+        #     };
+        # };
     };
 
     # Select internationalisation properties.
@@ -62,7 +98,12 @@
             libinput.enable = true;
 
             displayManager = {
-                lightdm.enable = true;
+                # autoLogin = {
+                #     enable = true;
+                #     user = "gaetan";
+                # };
+
+                gdm.enable = true;
                 # startx.enable = true;
             };
 
@@ -83,13 +124,14 @@
     # services.printing.enable = true;
 
     # Enable sound.
-    # sound.enable = true;
-    # hardware.pulseaudio.enable = true;
+    sound.enable = true;
+    hardware.pulseaudio.enable = true;
 
     # Define a user account. Don't forget to set a password with ‘passwd’.
     users.users.gaetan = {
         isNormalUser = true;
         extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
+        initialPassword = "password";
         shell = pkgs.zsh;
     };
 
@@ -102,26 +144,36 @@
         systemPackages = with pkgs; [
 
             # Misc (system utilities)
+            accountsservice             # Needed by lightdm
             killall
             xorg.xkill
             vim
-            wget
             ncdu
             tree
+            gnome.gnome-keyring
+            udiskie
+            unzip
+            wget
 
             # Network
+            wireguard
 
             # Software development
             git
+            lazygit
             neovim-nightly
             ctags
 
             # Shell
+            bash
             zsh
             neofetch
+            pfetch
             bat
             ranger
             fzf
+            autojump
+            exa
 
             # Multimedia
             gthumb
@@ -138,7 +190,7 @@
             xwallpaper
 
             # Hardware Monitoring
-            bpytop
+            btop
             htop
             # nvtop
 
@@ -151,6 +203,8 @@
 
             # Languages
             python3
+            gcc
+            clang
         ];
     };
 
@@ -185,20 +239,20 @@
     # networking.firewall.enable = false;
 
     system = {
-
         autoUpgrade = {
             enable = true;
             channel = "https://nixos.org/channels/nixos-unstable";
         };
 
+        # This value determines the NixOS release from which the default
+        # settings for stateful data, like file locations and database versions
+        # on your system were taken. It‘s perfectly fine and recommended to leave
+        # this value at the release version of the first install of this system.
+        # Before changing this value read the documentation for this option
+        # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
+        stateVersion = "21.11"; # Did you read the comment?
     };
 
-    # This value determines the NixOS release from which the default
-    # settings for stateful data, like file locations and database versions
-    # on your system were taken. It‘s perfectly fine and recommended to leave
-    # this value at the release version of the first install of this system.
-    # Before changing this value read the documentation for this option
-    # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-    system.stateVersion = "21.11"; # Did you read the comment?
-
+    # Members of group wheel can execute sudo commands without password.
+    security.sudo.wheelNeedsPassword = false;
 }
