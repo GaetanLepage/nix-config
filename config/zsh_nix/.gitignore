@@ -1,0 +1,4 @@
+.zcompdump*
+.zsh_history
+.zshenv
+.zshrc

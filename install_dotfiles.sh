@@ -141,6 +141,7 @@ install_dotfiles() {
     config_dir_link wireguard
     config_dir_link x11
     config_dir_link zathura
+    config_dir_link zsh_nix
 
     delete_if_exists $HOME/.config/jesseduffield
     mkdir -p $HOME/.config/jesseduffield
