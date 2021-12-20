@@ -103,7 +103,8 @@
                 #     user = "gaetan";
                 # };
 
-                gdm.enable = true;
+                # gdm.enable = true;
+                lightdm.enable = true;
                 # startx.enable = true;
             };
 
@@ -255,4 +256,15 @@
 
     # Members of group wheel can execute sudo commands without password.
     security.sudo.wheelNeedsPassword = false;
+    # security.sudo.extraRules = [
+    #     {
+    #         groups = [ "wheel" ];
+    #         commands = [ {
+    #             command = ''
+    #                 /run/current-system/sw/bin/reboot, /run/current-system/sw/bin/poweroff, /run/current-system/sw/bin/systemctl
+    #             '';
+    #             options = [ "NOPASSWD" ];
+    #         } ];
+    #     }
+    # ];
 }
