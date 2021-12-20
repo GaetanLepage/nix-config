@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 wid=$1
 class=$2
