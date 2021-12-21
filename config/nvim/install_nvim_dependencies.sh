@@ -66,9 +66,6 @@ npm_install bash-language-server
 # C / C++
 pacman_install clang
 
-# json
-npm_install vscode-langservers-extracted
-
 # LaTeX (texlab + xdotool for forward search in zathura)
 pacman_install texlab xdotool
 
@@ -81,11 +78,7 @@ pip_install python-lsp-server \
             flake8 \
             pyls-flake8 \
             mypy \
-            mypy-ls
+            pylsp-mypy
 
 # JavaScript / TypeScript
 npm_install typescript typescript-language-server
-
-# Yaml
-pacman_install yarn
-yarn_install yaml-language-server

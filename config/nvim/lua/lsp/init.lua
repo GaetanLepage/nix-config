@@ -1,12 +1,10 @@
 -- Source each LSP server configuration
 require 'lsp.bash'
 require 'lsp.c'
-require 'lsp.json'
 require 'lsp.latex'
 require 'lsp.lua'
 require 'lsp.python'
 require 'lsp.typescript'
-require 'lsp.yaml'
 
 
 -- General LSP key mappings
