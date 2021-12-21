@@ -122,6 +122,7 @@ install_dotfiles() {
     config_dir_link btop
     config_dir_link bspwm
     config_dir_link dunst
+    config_dir_link flameshot
     config_dir_link gtk-2.0
     config_dir_link gtk-3.0
     config_dir_link gtk-4.0
