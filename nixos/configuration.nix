@@ -36,43 +36,52 @@
         };
         networkmanager.enable = true;
 
-        # networking.wireless.enable = true;    # Enables wireless support via wpa_supplicant.
+        # Enables wireless support via wpa_supplicant.
+        # networking.wireless.enable = true;
 
         # wireguard.interfaces = {
-        #     # Wireguard
-        #     wg0 = {
-        #         # Determines the IP address and subnet of the client's end of the tunnel interface.
-        #         ips = [ "10.10.10.8/32" ];
-        #         listenPort = 51820;
+        wg-quick.interfaces.wg0 = {
+            # Determines the IP address and subnet of the client's end of the tunnel interface.
+            # ips = [ "10.10.10.8/32" ];
+            address = [ "10.10.10.8/32" ];
+            listenPort = 51820;
+            dns = [ "10.10.10.1" ];
 
-        #         # Path to the private key file.
-        #         #
-        #         # Note: The private key can also be included inline via the privateKey option,
-        #         # but this makes the private key world-readable; thus, using privateKeyFile is
-        #         # recommended.
-        #         privateKeyFile = "/home/gaetan/.config/wireguard/privatekey";
+            # Path to the private key file.
+            #
+            # Note: The private key can also be included inline via the privateKey option,
+            # but this makes the private key world-readable; thus, using privateKeyFile is
+            # recommended.
+            privateKeyFile = "/home/gaetan/.config/wireguard/privatekey";
 
-        #         peers = [
-        #             # For a client configuration, one peer entry for the server will suffice.
+            peers = [
+                # For a client configuration, one peer entry for the server will suffice.
+                {
+                    # Public key of the server (not a file path).
+                    publicKey = "jWzlVwkNkaO1uj7Qh+Xemo0EtxIYP2ufK+18oPcdvBY=";
 
-        #             {
-        #                 # Public key of the server (not a file path).
-        #                 publicKey = "jWzlVwkNkaO1uj7Qh+Xemo0EtxIYP2ufK+18oPcdvBY=";
+                    # Forward all the traffic via VPN.
+                    allowedIPs = [ "0.0.0.0/0" ];
+                    # Or forward only particular subnets
+                    # allowedIPs = [ "10.10.10.0/24" ];
 
-        #                 # Forward all the traffic via VPN.
-        #                 allowedIPs = [ "0.0.0.0/0" ];
-        #                 # Or forward only particular subnets
-        #                 # allowedIPs = [ "10.10.10.0/24" ];
+                    # Set this to the server IP and port.
+                    endpoint = "109.13.20.45:51820";
 
-        #                 # Set this to the server IP and port.
-        #                 endpoint = "109.13.20.45:51820";
+                    # Send keepalives every 25 seconds. Important to keep NAT tables alive.
+                    persistentKeepalive = 25;
+                }
+            ];
+        };
 
-        #                 # Send keepalives every 25 seconds. Important to keep NAT tables alive.
-        #                 persistentKeepalive = 25;
-        #             }
-        #         ];
-        #     };
-        # };
+
+        firewall = {
+            enable = false;
+
+            # Open ports in the firewall.
+            # allowedTCPPorts = [ ... ];
+            # allowedUDPPorts = [ ... ];
+        };
     };
 
     # Select internationalisation properties.
@@ -83,10 +92,18 @@
     };
 
     fonts.fonts = with pkgs; [
-        (nerdfonts.override { fonts = [ "Ubuntu" ]; })
+        noto-fonts
+        (nerdfonts.override {
+            fonts = [
+                "DejaVuSansMono"
+                "Ubuntu"
+            ]; })
     ];
 
+    # List services that you want to enable:
     services = {
+        gnome.gnome-keyring.enable = true;
+
         xserver = {
             # Enable the X11 windowing system.
             enable = true;
@@ -104,29 +121,55 @@
                 # };
 
                 # gdm.enable = true;
-                lightdm.enable = true;
                 # startx.enable = true;
+                lightdm = {
+                    enable = true;
+
+                    greeters = {
+                        gtk = {
+                            enable = true;
+                            theme = {
+                                name = "Matcha-dark-aliz";
+                                package = pkgs.matcha-gtk-theme;
+                            };
+                            cursorTheme = {
+                                name = "Numix-Cursor-Light";
+                                package = pkgs.numix-cursor-theme;
+                            };
+                        };
+                    };
+                };
             };
 
             windowManager.bspwm = {
                     enable = true;
             };
+
+            # xkbOptions = "eurosign:e";
         };
 
         sshd = {
             enable = true;
         };
+
+        blueman.enable = true;
+
+        # Enable CUPS to print documents.
+        # printing.enable = true;
     };
 
 
-    # services.xserver.xkbOptions = "eurosign:e";
-
-    # Enable CUPS to print documents.
-    # services.printing.enable = true;
-
     # Enable sound.
     sound.enable = true;
-    hardware.pulseaudio.enable = true;
+    hardware = {
+        pulseaudio.enable = true;
+
+        # Bluetooth
+        bluetooth = {
+            enable = true;
+            powerOnBoot = true;
+        };
+    };
 
     # Define a user account. Don't forget to set a password with ‘passwd’.
     users.users.gaetan = {
@@ -145,41 +188,57 @@
         systemPackages = with pkgs; [
 
             # Misc (system utilities)
-            accountsservice             # Needed by lightdm
+            # gnome.gnome-keyring
+            acpilight   # TODO remove if useless
+            autorandr
+            home-manager                # A user environment configurator
             killall
-            xorg.xkill
+            libnotify                   # Provides the `notify-send` command
+            nerdfonts
+            networkmanagerapplet
+            pavucontrol
+            playerctl
             vim
-            ncdu
-            tree
-            gnome.gnome-keyring
             udiskie
-            unzip
-            wget
+            xorg.xkill
+            xorg.xbacklight
 
             # Network
-            wireguard
+            dig                         # Domain name server
 
             # Software development
+            conda
+            ctags
             git
             lazygit
             neovim-nightly
-            ctags
+            texlive.combined.scheme-full
 
             # Shell
             bash
             zsh
             neofetch
             pfetch
-            bat
-            ranger
-            fzf
+
+            # CLI utilities
             autojump
+            bat
             exa
+            fzf
+            file
+            ncdu
+            ranger
+            ripgrep
+            tmux
+            tree
+            unzip
+            wget
 
             # Multimedia
             gthumb
-            vlc
+            imagemagick
             mpv
+            vlc
 
             # Window manager
             picom
@@ -198,8 +257,11 @@
             # GUI applications
             kitty
             firefox
+            flameshot
+            libreoffice-fresh
             pcmanfm
             thunderbird
+            zathura
             zotero
 
             # Languages
@@ -212,6 +274,8 @@
     nixpkgs = {
         config = {
             allowUnfree = true;
+
+            pulseaudio = true;
         };
         overlays = [
             (import (builtins.fetchTarball {
@@ -222,22 +286,16 @@
 
     # Some programs need SUID wrappers, can be configured further or are
     # started in user sessions.
+    programs = {
+        dconf.enable = true;
+
+        seahorse.enable = true;
+    };
     # programs.mtr.enable = true;
     # programs.gnupg.agent = {
     #     enable = true;
     #     enableSSHSupport = true;
     # };
-
-    # List services that you want to enable:
-
-    # Enable the OpenSSH daemon.
-    # services.openssh.enable = true;
-
-    # Open ports in the firewall.
-    # networking.firewall.allowedTCPPorts = [ ... ];
-    # networking.firewall.allowedUDPPorts = [ ... ];
-    # Or disable the firewall altogether.
-    # networking.firewall.enable = false;
 
     system = {
         autoUpgrade = {

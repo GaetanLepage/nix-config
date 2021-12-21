@@ -27,5 +27,6 @@ elif [ $distro == 'arch' ]; then
     $prog -Syu --noconfirm
 
 elif [ $distro == 'nixos' ]; then
+    sudo cp $HOME/.dotfiles/nixos/configuration.nix /etc/nixos/configuration.nix
     sudo nixos-rebuild switch --upgrade
 fi

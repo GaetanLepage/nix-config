@@ -18,8 +18,45 @@
         stateVersion = "22.05";
 
         packages = with pkgs; [
+            # Shell
             direnv
             autojump
+
+            # Python
+            python39Packages.pip
+            (python39.withPackages(ps: with ps; [
+                # Misc
+                dbus-python             # Needed by the polybar spotify script
+                numpy
+
+                # Neovim
+                pynvim                  # Python support for neovim
+
+                ## Linters
+                flake8
+                mypy
+                pylint
+
+                ## Python Language Server
+                pyls-flake8             # Flake8 plugin for pylsp
+                python-lsp-server       # Python language server
+                pylsp-mypy              # mypy plugin for pylsp
+            ]))
+
+            # neovim
+            nodePackages.neovim
+            nodejs
+            tree-sitter
+
+            # Language servers
+            nodePackages.bash-language-server           # Bash language server
+            nodePackages.typescript                     # TypeScript
+            nodePackages.typescript-language-server     # TypeScript language server
+            sumneko-lua-language-server                 # Lua language server
+            clang-tools                                 # C/C++ language server
+            texlab                                      # LaTeX language server
+            xdotool                                     # For forward search in zathura
+            pstree                                      # For inverse search in vimtex
         ];
     };
 
@@ -49,6 +86,14 @@
     };
 
     services = {
+        # gnome-keyring = {
+        #     enable = true;
+        # };
+
+        gpg-agent = {
+            enable = false;
+            enableSshSupport = true;
+        };
         betterlockscreen = {
             enable = true;
         };
@@ -57,8 +102,8 @@
     nixpkgs.config.allowUnfree = true;
 
     xsession.pointerCursor = {
-        name = "Dark";
-        package = pkgs.capitaine-cursors;
+        name = "Numix-Cursor-Light";
+        package = pkgs.numix-cursor-theme;
     };
 
     gtk = {
