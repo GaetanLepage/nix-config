@@ -57,6 +57,7 @@
             texlab                                      # LaTeX language server
             xdotool                                     # For forward search in zathura
             pstree                                      # For inverse search in vimtex
+            rnix-lsp                                    # Nix language server
         ];
     };
 
