@@ -2,13 +2,22 @@
 # your system.    Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 {
     imports =
         [ # Include the results of the hardware scan.
             ./hardware-configuration.nix
         ];
+
+
+    nix = {
+        package = pkgs.nixFlakes;
+        extraOptions = ''
+            experimental-features = nix-command flakes
+        '';
+    };
+
 
     # Use the systemd-boot EFI boot loader.
     boot.loader = {
@@ -84,6 +93,11 @@
         };
     };
 
+
+    systemd.services = {
+        wg-quick-wg0.wantedBy = lib.mkForce [ ];
+    };
+
     # Select internationalisation properties.
     i18n.defaultLocale = "en_US.UTF-8";
     console = {
@@ -108,11 +122,21 @@
             # Enable the X11 windowing system.
             enable = true;
 
+            serverFlagsSection = ''
+              Option "BlankTime" "0"
+              Option "StandbyTime" "0"
+              Option "SuspendTime" "0"
+              Option "OffTime" "0"
+            '';
+
             # Configure keymap in X11
             layout = "fr";
 
             # Enable touchpad support
             libinput.enable = true;
+
+            # Whether to symlink the X server configuration under /etc/X11/xorg.conf
+            exportConfiguration = true;
 
             displayManager = {
                 # autoLogin = {
@@ -120,7 +144,6 @@
                 #     user = "gaetan";
                 # };
 
-                # gdm.enable = true;
                 # startx.enable = true;
                 lightdm = {
                     enable = true;
@@ -176,6 +199,7 @@
         isNormalUser = true;
         extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
         initialPassword = "password";
+        hashedPassword = "$6$vSEllGq22uUqcTqr$yfnc8NR4oojOWKt20IPT9jG3QvXoYu4h1fOkOAZi76bK7dV/BliVjuIySO3zJfZF/zYV4h51VuhknRVroe10t0";
         shell = pkgs.zsh;
     };
 
@@ -194,7 +218,6 @@
             home-manager                # A user environment configurator
             killall
             libnotify                   # Provides the `notify-send` command
-            nerdfonts
             networkmanagerapplet
             pavucontrol
             playerctl
@@ -241,12 +264,13 @@
             vlc
 
             # Window manager
-            picom
+            betterlockscreen
             bspwm
-            sxhkd
-            polybar
             dunst
+            picom
+            polybar
             rofi
+            sxhkd
             xwallpaper
 
             # Hardware Monitoring
@@ -290,12 +314,16 @@
         dconf.enable = true;
 
         seahorse.enable = true;
+
+        # https://github.com/NixOS/nixpkgs/issues/10349#issuecomment-341810990
+        zsh.enable = true;
+
+        # mtr.enable = true;
+        # gnupg.agent = {
+        #     enable = true;
+        #     enableSSHSupport = true;
+        # };
     };
-    # programs.mtr.enable = true;
-    # programs.gnupg.agent = {
-    #     enable = true;
-    #     enableSSHSupport = true;
-    # };
 
     system = {
         autoUpgrade = {

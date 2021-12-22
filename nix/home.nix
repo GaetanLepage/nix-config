@@ -65,6 +65,10 @@
         # Let Home Manager install and manage itself.
         home-manager.enable = true;
 
+        firefox = {
+            enable = true;
+        };
+
         zsh = {
             enable = true;
 
@@ -87,24 +91,26 @@
     };
 
     services = {
-        # gnome-keyring = {
-        #     enable = true;
-        # };
+        gnome-keyring.enable = true;
 
         gpg-agent = {
-            enable = false;
+            enable = true;
             enableSshSupport = true;
         };
-        betterlockscreen = {
-            enable = true;
-        };
+
+        blueman-applet.enable = true;
+        network-manager-applet.enable = true;
     };
 
     nixpkgs.config.allowUnfree = true;
 
-    xsession.pointerCursor = {
-        name = "Numix-Cursor-Light";
-        package = pkgs.numix-cursor-theme;
+    xsession = {
+        numlock.enable = true;
+
+        pointerCursor = {
+            name = "Numix-Cursor-Light";
+            package = pkgs.numix-cursor-theme;
+        };
     };
 
     gtk = {
