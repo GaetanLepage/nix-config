@@ -209,6 +209,6 @@ alias \
 # Nix #
 #######
 alias \
-    nrs='sudo nixos-rebuild switch' \
-    nrsu='sudo nixos-rebuild switch --upgrade' \
+    nrs='sudo nixos-rebuild switch --flake ~/.dotfiles/.' \
     hms='home-manager switch' \
+    hme='home-manager edit' \
