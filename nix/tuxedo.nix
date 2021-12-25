@@ -22,11 +22,18 @@
     # Use the systemd-boot EFI boot loader.
     boot.loader = {
         # For UEFI
-        systemd-boot.enable = true;
+        systemd-boot.enable = false;
         efi.canTouchEfiVariables = true;
 
-        # For legacy BIOS
-        # grub.device = "/dev/sda";
+        grub = {
+            enable = true;
+            device = "nodev";
+            efiSupport = true;
+
+            # For legacy BIOS
+            # device = "/dev/sda";
+        };
+
     };
 
     # Set your time zone.
