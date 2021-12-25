@@ -1,0 +1,2 @@
+config/ssh/rsa_gaetan filter=git-crypt diff=git-crypt
+config/wireguard/** filter=git-crypt diff=git-crypt
