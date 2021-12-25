@@ -210,5 +210,6 @@ alias \
 #######
 alias \
     nrs='sudo nixos-rebuild switch --flake ~/.dotfiles/.' \
+    ncg='sudo nix-collect-garbage' \
     hms='home-manager switch' \
     hme='home-manager edit' \
