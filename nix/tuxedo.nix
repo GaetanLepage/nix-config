@@ -244,7 +244,6 @@
             pfetch
 
             # CLI utilities
-            autojump
             bat
             exa
             fzf
@@ -301,11 +300,11 @@
 
             pulseaudio = true;
         };
-        overlays = [
-            (import (builtins.fetchTarball {
-                url = https://github.com/nix-community/neovim-nightly-overlay/archive/master.tar.gz;
-            }))
-        ];
+        # overlays = [
+        #     (import (builtins.fetchTarball {
+        #         url = https://github.com/nix-community/neovim-nightly-overlay/archive/master.tar.gz;
+        #     }))
+        # ];
     };
 
     # Some programs need SUID wrappers, can be configured further or are
@@ -342,15 +341,4 @@
 
     # Members of group wheel can execute sudo commands without password.
     security.sudo.wheelNeedsPassword = false;
-    # security.sudo.extraRules = [
-    #     {
-    #         groups = [ "wheel" ];
-    #         commands = [ {
-    #             command = ''
-    #                 /run/current-system/sw/bin/reboot, /run/current-system/sw/bin/poweroff, /run/current-system/sw/bin/systemctl
-    #             '';
-    #             options = [ "NOPASSWD" ];
-    #         } ];
-    #     }
-    # ];
 }

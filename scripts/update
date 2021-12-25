@@ -27,5 +27,12 @@ elif [ $distro == 'arch' ]; then
     $prog -Syu --noconfirm
 
 elif [ $distro == 'nixos' ]; then
-    sudo nixos-rebuild switch --upgrade -I nixos-config=$HOME/.dotfiles/nixos/configuration.nix
+    # Path to the folder containing `flake.nix`
+    nix_dir=$HOME/.dotfiles
+
+    # Update the flake's inputs
+    nix flake update $nix_dir
+
+    # Reload the system configuration
+    sudo nixos-rebuild switch --flake $nix_dir
 fi

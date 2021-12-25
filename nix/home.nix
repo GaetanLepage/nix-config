@@ -19,8 +19,10 @@
 
         packages = with pkgs; [
             # Shell
-            direnv
-            autojump
+            direnv                      # Needed by lori
+
+            # Software development
+            conda
 
             # Python
             python39Packages.pip
@@ -65,6 +67,8 @@
         # Let Home Manager install and manage itself.
         home-manager.enable = true;
 
+        autojump.enable = true;
+
         firefox = {
             enable = true;
         };
@@ -76,6 +80,9 @@
 
             initExtra = ''
                 source $HOME/.config/shell/shell_init
+
+                # Hook direnv
+                emulate zsh -c "$(direnv hook zsh)"
             '';
 
             enableAutosuggestions = true;
@@ -100,6 +107,7 @@
 
         blueman-applet.enable = true;
         network-manager-applet.enable = true;
+        lorri.enable = true;
     };
 
     nixpkgs.config.allowUnfree = true;
