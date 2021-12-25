@@ -3,6 +3,7 @@ require 'lsp.bash'
 require 'lsp.c'
 require 'lsp.latex'
 require 'lsp.lua'
+require 'lsp.nix'
 require 'lsp.python'
 require 'lsp.typescript'
 
