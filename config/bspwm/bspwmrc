@@ -12,7 +12,7 @@
 # | BSPWM config |
 # #--------------#
 
-source ~/.zshenv
+source $HOME/.config/shell/env_variables
 
 # Reload script (background applications, screen and keyboard management)
 source reload
@@ -31,6 +31,7 @@ bspc rule -r "*"
 
 # Floating windows
 bspc rule -a Blueman-manager                state=floating
+bspc rule -a .blueman-manager-wrapped       state=floating
 bspc rule -a Nm-connection-editor           state=floating
 bspc rule -a Pavucontrol                    state=floating
 bspc rule -a Thunderbird:Calendar:*         state=floating
@@ -42,6 +43,7 @@ bspc rule -a Zathura                        state=tiled
 
 # Workspace assignments
 bspc rule -a $BROWSER          desktop=2
+bspc rule -a Firefox           desktop=2
 bspc rule -a Thunderbird       desktop=4
 bspc rule -a Signal            desktop=6
 bspc rule -a TelegramDesktop   desktop=6

@@ -24,6 +24,9 @@
             # Software development
             conda
 
+            # Misc
+            git-crypt
+
             # Python
             python39Packages.pip
             (python39.withPackages(ps: with ps; [
@@ -71,6 +74,16 @@
 
         firefox = {
             enable = true;
+
+            profiles.gaetan = {
+                isDefault = true;
+                path = "gaetan";
+                userChrome = ''
+                    #TabsToolbar {
+                        visibility: collapse !important;
+                    }
+                '';
+            };
         };
 
         zsh = {

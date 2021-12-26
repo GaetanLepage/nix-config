@@ -115,7 +115,7 @@ modules-left = ${env:WM}
 modules-center = spotify
 ; modules-center =
 ; backlight-acpi
-modules-right = xbacklight pulseaudio memory cpu updates wlan battery time date dunst
+modules-right = backlight-acpi xbacklight pulseaudio memory cpu updates wlan battery time date dunst
 
 tray-position = ${env:TRAY_POS:right}
 tray-padding = ${layout.module-padding}
@@ -440,7 +440,8 @@ ramp-coreload-7-foreground = ${xcolor.red}
 ########
 [module/wlan]
 type = internal/network
-interface = wlan0
+interface = wlp58s0
+; interface = wlan0
 interval = 0.5
 click-left = nm-applet
 
