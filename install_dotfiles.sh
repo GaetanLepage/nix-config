@@ -131,9 +131,9 @@ install_dotfiles() {
     config_dir_link gtk-4.0
     config_dir_link i3
     config_dir_link kitty
-    config_dir_link nixpkgs
+    config_dir_link lazygit
     config_dir_link nvim
-    config_dir_link paru
+    $IS_ARCH && config_dir_link paru
     config_dir_link picom
     config_dir_link python
     config_dir_link polybar
@@ -147,14 +147,11 @@ install_dotfiles() {
     config_dir_link zathura
 
     delete_if_exists $HOME/.config/jesseduffield
-    mkdir -p $HOME/.config/jesseduffield
-    ln -sf $path/config/lazygit $HOME/.config/jesseduffield/lazygit
 
     link_config_file config/betterlockscreenrc .config/betterlockscreenrc
     link_config_file config/mimeapps.list .config/mimeapps.list
     link_config_file config/user-dirs.dirs .config/user-dirs.dirs
     link_config_file config/wall.jpg .config/wall.jpg
-    link_config_file config/icon_arch.png .config/icon_arch.png
 
     ################
     # Local folder #
@@ -177,6 +174,7 @@ install_dotfiles() {
     #########
     # Fonts #
     #########
+    # TODO remove
     delete_if_exists $HOME/.fonts
     ln -sf $path/.fonts $HOME/.fonts
 }
