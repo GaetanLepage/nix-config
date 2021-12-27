@@ -13,7 +13,9 @@
 # #--------#
 # This is where environment variables are sourced.
 
-export ZSHENV_SOURCED=True
+export DISTRO=$(cat /etc/os-release | grep -oP '(?<=^ID=).*')
+[[ $DISTRO == "nixos" ]] && IS_NIX=true || IS_NIX=false
+[[ $DISTRO == "arch" ]] && IS_ARCH=true || IS_ARCH=false
 
 # Other XDG paths
 export XDG_DATA_HOME=${XDG_DATA_HOME:="$HOME/.local/share"}

@@ -1,2 +1,5 @@
 # Output of the Nix flake build
 result
+
+node_modules/
+package-lock.json

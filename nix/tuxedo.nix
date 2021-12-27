@@ -158,11 +158,6 @@
             exportConfiguration = true;
 
             displayManager = {
-                # autoLogin = {
-                #     enable = true;
-                #     user = "gaetan";
-                # };
-
                 # startx.enable = true;
                 lightdm = {
                     enable = true;
@@ -203,6 +198,7 @@
 
     # Enable sound.
     sound.enable = false;
+
     hardware = {
         pulseaudio.enable = false;
 
@@ -339,6 +335,7 @@
         # https://github.com/NixOS/nixpkgs/issues/10349#issuecomment-341810990
         zsh.enable = true;
 
+        # TODO clean
         # mtr.enable = true;
         # gnupg.agent = {
         #     enable = true;

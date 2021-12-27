@@ -35,6 +35,25 @@ utils.create_augroup('Highlights',
 -- Remove trailing whitespace on save
 vim.cmd[[ autocmd BufWrite * %s/\s\+$//e ]]
 
+---------------
+-- Providers --
+---------------
+
+-- Disable useless providers
+vim.g.loaded_ruby_provider = 0      -- Ruby
+vim.g.loaded_perl_provider = 0      -- Perl
+vim.g.loaded_python_provider = 0    -- Python 2
+
+-- Python 3 provider
+
+-- Detect if running nixos
+os.execute("export DISTRO=$(cat /etc/os-release | grep -oP '(?<=^ID=).*')")
+if (os.getenv('DISTRO') == 'nixos') then
+    vim.g.python3_host_prog = '/etc/profiles/per-user/gaetan/bin/python3'
+    vim.g.node_host_prog = '/etc/profiles/per-user/gaetan/bin/neovim-node-host'
+end
+
+
 
 --------------
 -- Settings --
