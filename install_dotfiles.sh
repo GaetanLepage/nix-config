@@ -118,13 +118,6 @@ install_dotfiles() {
     #######
     create_if_not_exist $HOME/.ssh
     ln -sf $path/ssh/config $HOME/.ssh/config
-
-    #########
-    # Fonts #
-    #########
-    # TODO remove
-    delete_if_exists $HOME/.fonts
-    ln -sf $path/.fonts $HOME/.fonts
 }
 
 
