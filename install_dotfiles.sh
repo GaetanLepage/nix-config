@@ -66,6 +66,10 @@ install_shell () {
 # DOTFILES ########################################################################################
 ############
 
+distro=$(cat /etc/os-release | grep -oP '(?<=^ID=).*')
+[ $distro == "nixos" ] && IS_NIX=true || IS_NIX=false
+[ $distro == "arch" ] && IS_ARCH=true || IS_ARCH=false
+
 link_config_file () {
     SOURCE_FILE=$1
     SOURCE_PATH=$path/$SOURCE_FILE
@@ -97,7 +101,6 @@ install_dotfiles() {
     # Home directory
     echo -e "\n## Linking \"home\" dotfiles ##"
     link_config_file .gitconfig
-    link_config_file .p10k.zsh
     link_config_file .condarc
     link_config_file x11/
     ln -sf $HOME/.config/x11/xinitrc $HOME/.xinitrc
@@ -105,7 +108,7 @@ install_dotfiles() {
     ln -sf $HOME/.config/x11/xprofile $HOME/.xprofile
     ln -sf $HOME/.config/shell/profile $HOME/.profile
     ln -sf $HOME/.config/shell/bashrc $HOME/.bashrc
-    ln -sf $HOME/.config/shell/zshenv $HOME/.zshenv
+    $IS_NIX || ln -sf $HOME/.config/shell/zshenv $HOME/.zshenv
     link_config_file config/tmux/tmux.conf .tmux.conf
     link_config_file config/vpn_ensimag.ovpn .config/
 
@@ -142,7 +145,6 @@ install_dotfiles() {
     config_dir_link wireguard
     config_dir_link x11
     config_dir_link zathura
-    config_dir_link zsh_nix
 
     delete_if_exists $HOME/.config/jesseduffield
     mkdir -p $HOME/.config/jesseduffield

@@ -1,3 +1,0 @@
-[submodule "config/zsh_nix/custom/themes/spaceship-prompt"]
-	path = config/zsh_nix/custom/themes/spaceship-prompt
-	url = https://github.com/spaceship-prompt/spaceship-prompt.git
