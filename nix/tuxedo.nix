@@ -128,6 +128,7 @@
 
     # List services that you want to enable:
     services = {
+
         gnome.gnome-keyring.enable = true;
 
         pipewire = {
@@ -227,7 +228,6 @@
         systemPackages = with pkgs; [
 
             # Misc (system utilities)
-            # gnome.gnome-keyring
             acpilight   # TODO remove if useless
             autorandr
             home-manager                # A user environment configurator
@@ -358,6 +358,10 @@
         stateVersion = "21.11"; # Did you read the comment?
     };
 
-    # Members of group wheel can execute sudo commands without password.
-    security.sudo.wheelNeedsPassword = false;
+    security = {
+        # Members of group wheel can execute sudo commands without password.
+        sudo.wheelNeedsPassword = false;
+
+        pam.services.sddm.enableGnomeKeyring = true;
+    };
 }

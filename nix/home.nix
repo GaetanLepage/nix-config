@@ -128,12 +128,12 @@
     };
 
     services = {
-        gnome-keyring.enable = true;
+        # gnome-keyring.enable = true;
 
-        gpg-agent = {
-            enable = true;
-            enableSshSupport = true;
-        };
+        # gpg-agent = {
+        #     enable = true;
+        #     enableSshSupport = true;
+        # };
 
         blueman-applet.enable = true;
         network-manager-applet.enable = true;
