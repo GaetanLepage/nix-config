@@ -13,57 +13,8 @@
 # #-----------------------------#
 
 
-
-#########################
-# OPTIONS AND VARIABLES ###########################################################################
-#########################
-path=$(pwd)
-
-while getopts ":a:r:b:p:h" o; do case "${o}" in
-	h) printf "Optional arguments for custom use:\\n  -r: Dotfiles repository (local file or url)\\n  -p: Dependencies and programs csv (local file or url)\\n  -a: AUR helper (must have pacman-like syntax)\\n  -h: Show this message\\n" && exit ;;
-	r) dotfilesrepo=${OPTARG} && git ls-remote "$dotfilesrepo" || exit ;;
-	b) repobranch=${OPTARG} ;;
-	p) progsfile=${OPTARG} ;;
-	a) aurhelper=${OPTARG} ;;
-	*) printf "Invalid option: -%s\\n" "$OPTARG" && exit ;;
-esac done
-
-[ -z "$dotfilesrepo" ] && dotfilesrepo="https://github.com/GaetanLepage/dotfiles.git"
-[ -z "$progsfile" ] && progsfile="https://raw.githubusercontent.com/GaetanLepage/LARBS/master/progs.csv"
-[ -z "$aurhelper" ] && aurhelper="yay"
-[ -z "$repobranch" ] && repobranch="master"
-
-
 ############
-# SOFTWARE ########################################################################################
-############
-if type xbps-install >/dev/null 2>&1; then
-	installpkg(){ xbps-install -y "$1" >/dev/null 2>&1 ;}
-	grepseq="\"^[PGV]*,\""
-elif type apt >/dev/null 2>&1; then
-	installpkg(){ apt-get install -y "$1" >/dev/null 2>&1 ;}
-	grepseq="\"^[PGU]*,\""
-else
-    distro="arch"
-    installpkg(){ pacman --noconfirm --needed -S "$1" >/dev/null 2>&1 ;}
-	grepseq="\"^[PGA]*,\""
-fi
-
-install_software () {
-    echo TODO
-}
-
-
-#########
-# SHELL ###########################################################################################
-#########
-install_shell () {
-    echo TODO
-}
-
-
-############
-# DOTFILES ########################################################################################
+# Dotfiles ########################################################################################
 ############
 
 distro=$(cat /etc/os-release | grep -oP '(?<=^ID=).*')
@@ -126,10 +77,9 @@ install_dotfiles() {
     config_dir_link bspwm
     config_dir_link dunst
     config_dir_link flameshot
-    config_dir_link gtk-2.0
-    config_dir_link gtk-3.0
-    config_dir_link gtk-4.0
-    config_dir_link i3
+    $IS_NIX || config_dir_link gtk-2.0
+    $IS_NIX || config_dir_link gtk-3.0
+    $IS_NIX || config_dir_link gtk-4.0
     config_dir_link kitty
     config_dir_link lazygit
     config_dir_link nvim
@@ -145,8 +95,6 @@ install_dotfiles() {
     config_dir_link wireguard
     config_dir_link x11
     config_dir_link zathura
-
-    delete_if_exists $HOME/.config/jesseduffield
 
     link_config_file config/betterlockscreenrc .config/betterlockscreenrc
     link_config_file config/mimeapps.list .config/mimeapps.list
@@ -199,7 +147,5 @@ install_vpn () {
 # Main ############################################################################################
 ########
 
-install_software
-install_shell
 install_dotfiles
 install_vpn
