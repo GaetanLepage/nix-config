@@ -97,11 +97,11 @@
 
 
         firewall = {
-            enable = false;
+            enable = true;
 
             # Open ports in the firewall.
-            # allowedTCPPorts = [ ... ];
-            # allowedUDPPorts = [ ... ];
+            allowedTCPPorts = [ 22 ];
+            allowedUDPPorts = [ ];
         };
     };
 
