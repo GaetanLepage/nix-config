@@ -33,9 +33,6 @@
             # Misc
             git-crypt
 
-            # Email
-            libsecret
-
             # Python
             (python39.withPackages(ps: with ps; [
                 # Misc
@@ -100,8 +97,6 @@
             };
         };
 
-        neomutt.enable = true;
-
         zsh = {
             enable = true;
 
@@ -129,167 +124,6 @@
                 # Hook direnv
                 emulate zsh -c "$(direnv hook zsh)"
             '';
-        };
-    };
-
-    accounts.email.accounts = {
-        glepage = {
-            address = "gaetan@glepage.com";
-            userName = "gaetan@glepage.com";
-            realName = "Gaétan Lepage";
-
-            imap = {
-                host = "glepage.com";
-                port = 993;
-                tls.enable = true;
-            };
-
-            smtp = {
-                host = "glepage.com";
-                port = 587;
-                tls = {
-                    enable = true;
-                    useStartTls = true;
-                };
-            };
-            neomutt.enable = true;
-            passwordCommand = "mail-password";
-            mbsync = {
-                enable = true;
-                create = "maildir";
-            };
-        };
-        hotmail = {
-            address = "gaetlep@hotmail.fr";
-            userName = "gaetlep@hotmail.fr";
-            realName = "Gaétan Lepage";
-
-            imap = {
-                host = "outlook.office365.com";
-                port = 993;
-                tls.enable = true;
-            };
-
-            smtp = {
-                host = "smtp.office365.com";
-                port = 587;
-                tls = {
-                    enable = true;
-                    useStartTls = true;
-                };
-            };
-            neomutt.enable = true;
-            passwordCommand = "mail-password";
-        };
-        ensimag-fr = {
-            address = "gaetan.lepage@grenoble-inp.fr";
-            userName = "gaetan.lepage@grenoble-inp.fr";
-            realName = "Gaétan Lepage";
-
-            imap = {
-                host = "imap.grenoble-inp.fr";
-                port = 993;
-                tls.enable = true;
-            };
-
-            smtp = {
-                host = "smtp.grenoble-inp.fr";
-                port = 587;
-                tls = {
-                    enable = true;
-                    useStartTls = true;
-                };
-            };
-            neomutt.enable = true;
-            passwordCommand = "mail-password";
-        };
-        ensimag-org = {
-            address = "gaetan.lepage@grenoble-inp.org";
-            userName = "gaetan.lepage@grenoble-inp.org";
-            realName = "Gaétan Lepage";
-
-            imap = {
-                host = "imap.partage.renater.fr";
-                port = 993;
-                tls.enable = true;
-            };
-
-            smtp = {
-                host = "smtp.partage.renater.fr";
-                port = 465;
-                tls.enable = true;
-            };
-            neomutt.enable = true;
-            passwordCommand = "mail-password";
-        };
-        inria = {
-            primary = true;
-
-            address = "gaetan.lepage@inria.fr";
-            userName = "galepage";
-            realName = "Gaétan Lepage";
-
-            imap = {
-                host = "zimbra.inria.fr";
-                port = 993;
-                tls.enable = true;
-            };
-
-            smtp = {
-                host = "smtp.inria.fr";
-                port = 587;
-                tls = {
-                    enable = true;
-                    useStartTls = true;
-                };
-            };
-            passwordCommand = "mail-password";
-            neomutt.enable = true;
-            mbsync = {
-                enable = true;
-                create = "maildir";
-            };
-        };
-        gmx = {
-            address = "g.lepage@gmx.com";
-            userName = "g.lepage@gmx.com";
-            realName = "Gaétan Lepage";
-
-            imap = {
-                host = "imap.gmx.com";
-                port = 993;
-                tls.enable = true;
-            };
-
-            smtp = {
-                host = "mail.gmx.com";
-                port = 465;
-                tls.enable = true;
-            };
-            neomutt.enable = true;
-            passwordCommand = "mail-password";
-        };
-        lepage-knives = {
-            address = "glepage@lepage-knives.com";
-            userName = "glepage@lepage-knives.com";
-            realName = "Gaétan Lepage";
-
-            imap = {
-                host = "imap.ionos.fr";
-                port = 143;
-                tls = {
-                    enable = true;
-                    useStartTls = true;
-                };
-            };
-
-            smtp = {
-                host = "smtp.ionos.fr";
-                port = 465;
-                tls.enable = true;
-            };
-            neomutt.enable = true;
-            passwordCommand = "mail-password";
         };
     };
 
