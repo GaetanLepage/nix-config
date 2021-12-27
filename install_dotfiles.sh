@@ -17,6 +17,8 @@
 # Dotfiles ########################################################################################
 ############
 
+path=$(pwd)
+
 distro=$(cat /etc/os-release | grep -oP '(?<=^ID=).*')
 [ $distro == "nixos" ] && IS_NIX=true || IS_NIX=false
 [ $distro == "arch" ] && IS_ARCH=true || IS_ARCH=false
@@ -71,7 +73,6 @@ install_dotfiles() {
 
     echo -e "\n## Linking conventional dotfiles ##"
     config_dir_link autorandr
-    config_dir_link betterlockscreen
     config_dir_link bpytop
     config_dir_link btop
     config_dir_link bspwm
@@ -85,7 +86,6 @@ install_dotfiles() {
     config_dir_link nvim
     $IS_ARCH && config_dir_link paru
     config_dir_link picom
-    config_dir_link python
     config_dir_link polybar
     config_dir_link ranger
     config_dir_link rofi
