@@ -20,7 +20,6 @@
 # Enable colors
 autoload -U colors && colors
 
-export ZDOTDIR="$XDG_CONFIG_HOME"/shell
 export HISTFILE="$ZDOTDIR"/.zsh_history
 # Path to your oh-my-zsh installation.
 export ZSH=$ZDOTDIR/.oh-my-zsh
