@@ -7,7 +7,7 @@
 if [ -n "$DESKTOP_SESSION" ]; then
     # echo "Desktop session: using gnome-keyring"
     eval $(/run/wrappers/bin/gnome-keyring-daemon --start --components=ssh)
-    export SSH_AUTH_SOCK=/run/user/1000/keyring/ssh
+    export SSH_AUTH_SOCK
 
 else
 # Else, use the OpenSSH default ssh-agent.
@@ -21,16 +21,16 @@ else
         SSH_AUTH_SOCK=''
     fi
 
-    if [ -z $SSH_AUTH_SOCK ]; then
-        # echo "SSH_AUTH_SOCK not set --> reading from /tmp/ssh-agent.env"
+    # if [ -z $SSH_AUTH_SOCK ]; then
+    # echo "SSH_AUTH_SOCK not set --> reading from /tmp/ssh-agent.env"
 
-        # Export the SSH_AUTH_SOCK variable.
-        source "/tmp/ssh-agent.env" > /dev/null
+    # Export the SSH_AUTH_SOCK variable.
+    source "/tmp/ssh-agent.env" > /dev/null
 
-        # If no key were added to the agent, look for some keys to add.
-        ssh-add -l > /dev/null 2>&1
-        if [ $? -ne 0 ] && [[ ! `hostname` =~ "^gpu.*|^node" ]]; then
-            ssh-add $(grep -slR "PRIVATE" ~/.ssh/)
-        fi
+    # If no key were added to the agent, look for some keys to add.
+    ssh-add -l > /dev/null 2>&1
+    if [ $? -ne 0 ] && [[ ! `hostname` =~ "^gpu.*|^node" ]]; then
+        ssh-add $(grep -slR "PRIVATE" ~/.ssh/)
     fi
+    # fi
 fi
