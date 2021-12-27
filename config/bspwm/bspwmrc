@@ -139,8 +139,6 @@ run_in_terminal() {
 # Autostart #
 #############
 
-# Run for all systems
-
 # Update lock screen wallpaper size
 betterlockscreen -u ~/.config/wall.jpg
 
@@ -152,30 +150,5 @@ run_if_not_running $BROWSER
 run_in_terminal nvtop
 run_in_terminal $MONITOR_TUI_CMD
 
-# System-dependant program launching
-case `hostname` in
-    alya)
-        export $(dbus-launch)
-        pidof thunderbird || gtk-launch org.mozilla.Thunderbird
-
-        # run_if_not_running telegram-desktop
-
-        run_if_not_running zotero
-
-        pidof signal-desktop || gtk-launch org.signal.Signal.desktop
-        pidof element-desktop || gtk-launch im.riot.Riot.desktop
-
-        flameshot &
-        ;;
-
-    gaetan-desktop-arch)
-        run_if_not_running thunderbird
-        # run_if_not_running telegram-desktop
-        run_if_not_running signal-desktop
-        ;;
-
-    gaetan-xps|gaetan-desktop-arch|tuxedo)
-        run_if_not_running thunderbird
-        run_if_not_running signal-desktop
-        ;;
-esac
+run_if_not_running thunderbird
+run_if_not_running signal-desktop
