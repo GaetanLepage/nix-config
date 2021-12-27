@@ -61,7 +61,7 @@ install_dotfiles() {
     ln -sf $HOME/.config/x11/xprofile $HOME/.xprofile
     ln -sf $HOME/.config/shell/profile $HOME/.profile
     ln -sf $HOME/.config/shell/bashrc $HOME/.bashrc
-    $IS_NIX || ln -sf $HOME/.config/shell/zshenv $HOME/.zshenv
+    $IS_NIX || ln -sf $HOME/.config/zsh/zshenv $HOME/.zshenv
     link_config_file config/tmux/tmux.conf .tmux.conf
     link_config_file config/vpn_ensimag.ovpn .config/
 
@@ -95,6 +95,7 @@ install_dotfiles() {
     config_dir_link wireguard
     config_dir_link x11
     config_dir_link zathura
+    $IS_NIX || config_dir_link zsh
 
     link_config_file config/betterlockscreenrc .config/betterlockscreenrc
     link_config_file config/mimeapps.list .config/mimeapps.list

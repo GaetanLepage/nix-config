@@ -8,9 +8,9 @@
 # GitHub:   https://github.com/GaetanLepage
 # Email:    gaetan.lepage@inria.fr
 #
-# #--------#
-# | zshenv |
-# #--------#
+# #-----------------------#
+# | Environment variables |
+# #-----------------------#
 # This is where environment variables are sourced.
 
 # Other XDG paths
