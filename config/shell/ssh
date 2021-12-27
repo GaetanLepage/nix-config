@@ -6,7 +6,8 @@
 # Gnome keyring daemon
 if [ -n "$DESKTOP_SESSION" ]; then
     # echo "Desktop session: using gnome-keyring"
-    eval $(/run/wrappers/bin/gnome-keyring-daemon --start --components=ssh)
+    $IS_NIX && GKD=/run/wrappers/bin/gnome-keyring-daemon || GKD=gnome-keyring-daemon
+    eval $($GKD --start --components=ssh)
     export SSH_AUTH_SOCK
 
 else
