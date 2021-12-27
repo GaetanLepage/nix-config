@@ -33,14 +33,8 @@ export NPM_CONFIG_USERCONFIG=$XDG_CONFIG_HOME/npm/npmrc
 export GOPATH="$XDG_DATA_HOME"/go
 export GNUPGHOME="$XDG_DATA_HOME"/gnupg
 export _JAVA_OPTIONS=-Djava.util.prefs.userRoot="$XDG_CONFIG_HOME"/java
-export GTK2_RC_FILES="$XDG_CONFIG_HOME"/gtk-2.0/gtkrc
+# export GTK2_RC_FILES="$XDG_CONFIG_HOME"/gtk-2.0/gtkrc
 export CARGO_HOME="$XDG_CONFIG_HOME"/cargo
-
-# Zsh
-# export ZDOTDIR="$XDG_CONFIG_HOME"/shell
-export HISTFILE="$ZDOTDIR"/.zsh_history
-# Path to your oh-my-zsh installation.
-export ZSH=$ZDOTDIR/.oh-my-zsh
 
 # Libraries installed in ~/.local/lib
 export LD_LIBRARY_PATH=$HOME/.local/lib
@@ -70,8 +64,6 @@ export WM="bspwm"
 # 'bat' as manpager
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 export MONITOR_TUI_CMD='btop'
-# 'nvim' as manpager
-#export MANPAGER="nvim -c 'set ft=man' -"
 
 
 export CM_SELECTIONS="clipboard"
@@ -85,25 +77,6 @@ export PATH="/usr/sbin:$PATH"
 export PATH="$HOME/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/scripts:$PATH"
-export PATH="$XDG_CONFIG_HOME/nvm/versions/node/v14.4.0/bin:$PATH"
-export PATH="$HOME/.local/share/cargo/bin:$PATH"
-export PATH="$XDG_CONFIG_HOME/cargo/bin:$PATH"
-
-# Perl
-export PATH="/home/gaetan/perl5/bin${PATH:+:${PATH}}"
-export PERL5LIB="/home/gaetan/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
-export PERL_LOCAL_LIB_ROOT="/home/gaetan/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
-export PERL_MB_OPT="--install_base \"/home/gaetan/perl5\""; export PERL_MB_OPT;
-export PERL_MM_OPT="INSTALL_BASE=/home/gaetan/perl5"; export PERL_MM_OPT;
-
-# Python PATH
-export PYTHONPATH=$PYTHONPATH:/home/gaetan/hevs/implementations/object_detection/models
-
-# Path for lcms2 (kitty dependency)
-export PKG_CONFIG_PATH=~/.local/lib/pkgconfig/
-
-# CLion when using bspwm
-export _JAVA_AWT_WM_NONREPARENTING=1
 
 # tmux (UTF8)
 export LC_ALL=en_US.UTF-8

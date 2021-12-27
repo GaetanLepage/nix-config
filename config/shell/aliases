@@ -102,12 +102,16 @@ alias \
 
 # WireGuard & VPNs
 alias \
-    wgu='sudo wg-quick up wg0' \
-    wgd='sudo wg-quick down wg0' \
+    wgu='sudo systemctl start wg-quick-wg0' \
+    wgd='sudo systemctl stop wg-quick-wg0' \
     viu='nmcli connection up vpn_inria' \
     vid='nmcli connection down vpn_inria' \
     veu='nmcli connection up vpn_ensimag' \
     ved='nmcli connection down vpn_ensimag'
+
+# On Arch
+# wgu='sudo wg-quick up wg0' \
+# wgd='sudo wg-quick down wg0' \
 
 
 ###############
@@ -209,6 +213,7 @@ alias \
 # Nix #
 #######
 alias \
-    nrs='sudo nixos-rebuild switch' \
-    nrsu='sudo nixos-rebuild switch --upgrade' \
-    hms='home-manager switch'
+    nrs='sudo nixos-rebuild switch --flake ~/.dotfiles/.' \
+    ncg='sudo nix-collect-garbage' \
+    hms='home-manager switch' \
+    hme='home-manager edit' \

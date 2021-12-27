@@ -1,1 +1,2 @@
-config/nvim/plugged
+# Output of the Nix flake build
+result
