@@ -17,6 +17,11 @@
         # changes in each release.
         stateVersion = "22.05";
 
+        keyboard = {
+            layout = "fr";
+            options = [ "caps:swapescape" ];
+        };
+
         packages = with pkgs; [
             # Shell
             direnv                      # Needed by lori
