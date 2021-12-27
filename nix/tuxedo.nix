@@ -242,6 +242,7 @@
             playerctl
             vim
             udiskie
+            xclip
             xorg.xkill
             xorg.xbacklight
 
