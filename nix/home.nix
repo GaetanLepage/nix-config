@@ -25,10 +25,14 @@
             # Software development
             conda
 
+            # Misc
+            git-crypt
+
             # Python
-            python39Packages.pip
             (python39.withPackages(ps: with ps; [
                 # Misc
+                pip
+                setuptools
                 dbus-python             # Needed by the polybar spotify script
                 numpy
 
@@ -72,6 +76,20 @@
 
         firefox = {
             enable = true;
+
+            profiles.gaetan = {
+                isDefault = true;
+                path = "gaetan";
+                settings = {
+                    # Needed to hide the tab bar
+                    "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
+                };
+
+                # Hide the tab bar
+                userChrome = ''
+                    #TabsToolbar { visibility: collapse !important; }
+                '';
+            };
         };
 
         zsh = {

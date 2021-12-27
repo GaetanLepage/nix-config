@@ -19,21 +19,26 @@
     };
 
 
-    # Use the systemd-boot EFI boot loader.
-    boot.loader = {
-        # For UEFI
-        systemd-boot.enable = false;
-        efi.canTouchEfiVariables = true;
+    boot = {
+        kernelPackages = pkgs.linuxPackages_latest;
 
-        grub = {
-            enable = true;
-            device = "nodev";
-            efiSupport = true;
+        loader = {
+            # For UEFI
+            # Use the systemd-boot EFI boot loader.
+            systemd-boot.enable = false;
+            efi.canTouchEfiVariables = true;
 
-            # For legacy BIOS
-            # device = "/dev/sda";
+            timeout = 0;
+
+            grub = {
+                enable = true;
+                device = "nodev";
+                efiSupport = true;
+
+                # For legacy BIOS
+                # device = "/dev/sda";
+            };
         };
-
     };
 
     # Set your time zone.
@@ -125,6 +130,13 @@
     services = {
         gnome.gnome-keyring.enable = true;
 
+        pipewire = {
+            enable = true;
+            alsa.enable = true;
+            alsa.support32Bit = true;
+            pulse.enable = true;
+        };
+
         xserver = {
             # Enable the X11 windowing system.
             enable = true;
@@ -190,9 +202,9 @@
 
 
     # Enable sound.
-    sound.enable = true;
+    sound.enable = false;
     hardware = {
-        pulseaudio.enable = true;
+        pulseaudio.enable = false;
 
         # Bluetooth
         bluetooth = {
@@ -299,6 +311,8 @@
             gcc
             clang
         ];
+
+        pathsToLink = [ "/share/zsh" ];
     };
 
     nixpkgs = {
