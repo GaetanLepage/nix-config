@@ -20,8 +20,7 @@ command -v autorandr && autorandr -c
 
 # Start the Gnome keyring daemon.
 if [ command -v gnome-keyring-daemon 2>&1 > /dev/null ]; then
-    echo GNOME
-    # eval $(gnome-keyring-daemon --start --components=gpg,pkcs11,secrets,ssh)
+    eval $(gnome-keyring-daemon --start --components=gpg,pkcs11,secrets,ssh)
     # export $(gnome-keyring-daemon --start --components=pkcs11,secrets,ssh,gpg)
 fi
 

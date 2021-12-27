@@ -1,1 +1,0 @@
-/home/gaetan/.config/zsh_nix/custom/themes/spaceship-prompt/spaceship.zsh-theme

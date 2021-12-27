@@ -109,6 +109,7 @@ alias \
     veu='nmcli connection up vpn_ensimag' \
     ved='nmcli connection down vpn_ensimag'
 
+# On Arch
 # wgu='sudo wg-quick up wg0' \
 # wgd='sudo wg-quick down wg0' \
 

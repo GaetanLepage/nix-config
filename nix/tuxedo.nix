@@ -311,6 +311,8 @@
             gcc
             clang
         ];
+
+        pathsToLink = [ "/share/zsh" ];
     };
 
     nixpkgs = {

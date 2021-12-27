@@ -20,6 +20,7 @@
         packages = with pkgs; [
             # Shell
             direnv                      # Needed by lori
+            spaceship-prompt
 
             # Software development
             conda
@@ -28,9 +29,10 @@
             git-crypt
 
             # Python
-            python39Packages.pip
             (python39.withPackages(ps: with ps; [
                 # Misc
+                pip
+                setuptools
                 dbus-python             # Needed by the polybar spotify script
                 numpy
 
@@ -78,10 +80,14 @@
             profiles.gaetan = {
                 isDefault = true;
                 path = "gaetan";
+                settings = {
+                    # Needed to hide the tab bar
+                    "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
+                };
+
+                # Hide the tab bar
                 userChrome = ''
-                    #TabsToolbar {
-                        visibility: collapse !important;
-                    }
+                    #TabsToolbar { visibility: collapse !important; }
                 '';
             };
         };
@@ -91,22 +97,28 @@
 
             dotDir = ".config/zsh_nix";
 
+            enableAutosuggestions = true;
+            enableSyntaxHighlighting = true;
+
+            history.size = 50000;
+
+            oh-my-zsh = {
+                enable = true;
+                plugins = [ "git" ];
+                custom = "$HOME/.config/zsh_nix/custom";
+            };
+
+
             initExtra = ''
+                # Spaceship theme
+                source ${pkgs.spaceship-prompt}/share/zsh/site-functions/prompt_spaceship_setup
+                autoload -U promptinit; promptinit
+
                 source $HOME/.config/shell/shell_init
 
                 # Hook direnv
                 emulate zsh -c "$(direnv hook zsh)"
             '';
-
-            enableAutosuggestions = true;
-            enableSyntaxHighlighting = true;
-
-            oh-my-zsh = {
-                enable = true;
-                plugins = [ "git" "autojump" ];
-                custom = "$HOME/.config/zsh_nix/custom";
-                theme = "spaceship";
-            };
         };
     };
 
