@@ -31,9 +31,9 @@ super + @Escape
 
 # Screen brightness
 XF86MonBrightnessUp
-    xbacklight -inc 10
+    sudo xbacklight -inc 10  # TODO check if sudo is needed
 XF86MonBrightnessDown
-    xbacklight -dec 10
+    sudo xbacklight -dec 10
 
 # Mons
 super + c
