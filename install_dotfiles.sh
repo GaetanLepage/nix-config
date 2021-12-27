@@ -117,7 +117,7 @@ install_dotfiles() {
     # SSH #
     #######
     create_if_not_exist $HOME/.ssh
-    ln -sf $path/ssh/config $HOME/.ssh/config
+    link_config_file config/ssh/config .ssh/config
 }
 
 
