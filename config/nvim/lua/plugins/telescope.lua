@@ -44,7 +44,8 @@ require 'telescope'.setup {
         file_ignore_patterns = {
             '.git',
             '.mypy_cache',
-            '__pycache__'
+            '__pycache__',
+            'output',
         },
         generic_sorter = require'telescope.sorters'.get_generic_fuzzy_sorter,
         path_display = {},
