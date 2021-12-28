@@ -27,9 +27,6 @@
             direnv                      # Needed by lori
             spaceship-prompt
 
-            # Software development
-            conda
-
             # Misc
             git-crypt
 
