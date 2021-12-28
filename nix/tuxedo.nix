@@ -213,7 +213,10 @@
     # Define a user account. Don't forget to set a password with ‘passwd’.
     users.users.gaetan = {
         isNormalUser = true;
-        extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
+        extraGroups = [
+            "wheel"             # Enable ‘sudo’ for the user.
+            "networkmanager"    # Enable user to add and edit network connections
+        ];
         initialPassword = "password";
         hashedPassword = "$6$vSEllGq22uUqcTqr$yfnc8NR4oojOWKt20IPT9jG3QvXoYu4h1fOkOAZi76bK7dV/BliVjuIySO3zJfZF/zYV4h51VuhknRVroe10t0";
         shell = pkgs.zsh;
