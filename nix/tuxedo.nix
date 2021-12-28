@@ -182,8 +182,6 @@
             windowManager.bspwm = {
                     enable = true;
             };
-
-            # xkbOptions = "eurosign:e";
         };
 
         sshd = {
@@ -191,9 +189,6 @@
         };
 
         blueman.enable = true;
-
-        # Enable CUPS to print documents.
-        # printing.enable = true;
     };
 
 
@@ -232,6 +227,7 @@
 
             # Misc (system utilities)
             acpilight   # TODO remove if useless
+            arandr
             autorandr
             home-manager                # A user environment configurator
             killall
@@ -247,6 +243,7 @@
 
             # Network
             dig                         # Domain name server
+            speedtest-cli
 
             # Software development
             conda
@@ -285,6 +282,7 @@
             betterlockscreen
             bspwm
             dunst
+            mons
             picom
             polybar
             rofi
@@ -297,11 +295,19 @@
             # nvtop
 
             # GUI applications
+            discord
             kitty
             firefox
             flameshot
+            element-desktop
+            jitsi-meet-electron
             libreoffice-fresh
             pcmanfm
+            pdfsam-basic
+            rstudio
+            signal-desktop
+            spotify
+            tdesktop            # Telegram desktop
             thunderbird
             zathura
             zotero
