@@ -55,13 +55,12 @@ install_dotfiles() {
     echo -e "\n## Linking \"home\" dotfiles ##"
     link_config_file .gitconfig
     link_config_file .condarc
-    link_config_file x11/
-    ln -sf $HOME/.config/x11/xinitrc $HOME/.xinitrc
-    ln -sf $HOME/.config/x11/Xmodmap $HOME/.Xmodmap
-    ln -sf $HOME/.config/x11/xprofile $HOME/.xprofile
-    ln -sf $HOME/.config/shell/profile $HOME/.profile
-    ln -sf $HOME/.config/shell/bashrc $HOME/.bashrc
-    $IS_NIX || ln -sf $HOME/.config/zsh/zshenv $HOME/.zshenv
+    link_config_file config/x11/xinitrc .xinitrc
+    link_config_file config/x11/Xmodmap .Xmodmap
+    link_config_file config/x11/xprofile .xprofile
+    link_config_file config/shell/profile .profile
+    link_config_file config/shell/bashrc .bashrc
+    $IS_NIX || link_config_file config/zsh/zshenv $HOME/.zshenv
     link_config_file config/tmux/tmux.conf .tmux.conf
     link_config_file config/vpn_ensimag.ovpn .config/
 
@@ -92,8 +91,6 @@ install_dotfiles() {
     config_dir_link shell
     config_dir_link sxhkd
     config_dir_link tmux
-    config_dir_link wireguard
-    config_dir_link x11
     config_dir_link zathura
     $IS_NIX || config_dir_link zsh
 
@@ -119,6 +116,7 @@ install_dotfiles() {
     #######
     create_if_not_exist $HOME/.ssh
     link_config_file config/ssh/config .ssh/config
+    link_config_file "secrets/ssh/*" .ssh/
 }
 
 
