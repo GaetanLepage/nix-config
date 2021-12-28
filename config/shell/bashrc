@@ -14,4 +14,4 @@ if [[ ! $- == *i* ]]; then
     # echo "This session is not interactive: manually sourcing ~/.bash_profile"
     [ -f ~/.bash_profile ] && . ~/.bash_profile
 fi
-source init_conda
+source ~/.config/shell/conda
