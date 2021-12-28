@@ -13,13 +13,15 @@
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
 
-  fileSystems."/" =
-    { device = "/dev/disk/by-uuid/9a236b0e-e2f8-4002-9113-11b0cfac8cfa";
+  fileSystems."/" = {
+      device = "/dev/disk/by-label/nixroot";
+      # device = "/dev/disk/by-uuid/9a236b0e-e2f8-4002-9113-11b0cfac8cfa";
       fsType = "ext4";
     };
 
-  fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/6D29-138D";
+  fileSystems."/boot" = {
+      device = "/dev/disk/by-label/nixboot";
+      # device = "/dev/disk/by-uuid/6D29-138D";
       fsType = "vfat";
     };
 
