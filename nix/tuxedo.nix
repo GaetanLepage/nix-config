@@ -246,7 +246,6 @@
             speedtest-cli
 
             # Software development
-            conda
             ctags
             git
             lazygit
