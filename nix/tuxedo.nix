@@ -235,6 +235,7 @@
             libnotify                   # Provides the `notify-send` command
             networkmanagerapplet
             pavucontrol
+            pulseaudio                  # Even though using Pipewire, pulseaudio provides `pactl`
             playerctl
             vim
             udiskie
@@ -303,6 +304,7 @@
             element-desktop
             jitsi-meet-electron
             libreoffice-fresh
+            nextcloud-client
             pcmanfm
             pdfsam-basic
             rstudio
