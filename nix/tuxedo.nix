@@ -282,6 +282,7 @@
             bspwm
             dunst
             mons
+            okular
             picom
             polybar
             rofi
