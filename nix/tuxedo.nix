@@ -64,7 +64,7 @@
         wg-quick.interfaces.wg0 = {
             # Determines the IP address and subnet of the client's end of the tunnel interface.
             # ips = [ "10.10.10.8/32" ];
-            address = [ "10.10.10.8/32" ];
+            address = [ "10.10.10.2/32" ];
             listenPort = 51820;
             dns = [ "10.10.10.1" ];
 
