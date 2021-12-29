@@ -12,7 +12,7 @@
         initrd = {
             availableKernelModules = [
                 "xhci_pci"
-                "thunderbold"
+                "thunderbolt"
                 "nvme"
                 "usb_storage"
                 "usbhid"
