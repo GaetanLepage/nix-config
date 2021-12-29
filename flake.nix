@@ -21,8 +21,7 @@
         in {
 
             # System configuration
-            # TODO switch `nixos` for `tuxedo`
-            nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
+            nixosConfigurations.tuxedo = nixpkgs.lib.nixosSystem {
                 system = "x86_64-linux";
                 modules = [
                     # The system configuration
