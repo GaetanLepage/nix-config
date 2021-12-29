@@ -4,29 +4,36 @@
 { config, lib, pkgs, modulesPath, ... }:
 
 {
-  imports =
-    [ (modulesPath + "/installer/scan/not-detected.nix")
+    imports = [
+        (modulesPath + "/installer/scan/not-detected.nix")
     ];
 
-  boot.initrd.availableKernelModules = [ "xhci_pci" "nvme" "usb_storage" "sd_mod" "rtsx_pci_sdmmc" ];
-  boot.initrd.kernelModules = [ ];
-  boot.kernelModules = [ "kvm-intel" ];
-  boot.extraModulePackages = [ ];
+    boot = {
+        initrd = {
+            availableKernelModules = [ "xhci_pci" "nvme" "usb_storage" "sd_mod" "rtsx_pci_sdmmc" ];
+            kernelModules = [ ];
 
-  fileSystems."/" = {
-      device = "/dev/disk/by-label/nixroot";
-      # device = "/dev/disk/by-uuid/9a236b0e-e2f8-4002-9113-11b0cfac8cfa";
-      fsType = "ext4";
+            luks.devices.crypted.device = "/dev/disk/by-label/nixroot"
+        };
+        kernelModules = [ "kvm-intel" ];
+        extraModulePackages = [ ];
+
+        loader.grub.enableCryptodisk = true;
     };
 
-  fileSystems."/boot" = {
-      device = "/dev/disk/by-label/nixboot";
-      # device = "/dev/disk/by-uuid/6D29-138D";
-      fsType = "vfat";
+    fileSystems."/" = {
+        # device = "/dev/disk/by-label/nixroot";
+        device = "/dev/mapper/crypted";
+        fsType = "ext4";
     };
 
-  swapDevices = [ ];
+    fileSystems."/boot" = {
+        device = "/dev/disk/by-label/nixboot";
+        fsType = "vfat";
+    };
 
-  powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";
-  hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+    swapDevices = [ ];
+
+    powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";
+    hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 }
