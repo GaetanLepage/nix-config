@@ -117,6 +117,7 @@ install_dotfiles() {
     create_if_not_exist $HOME/.ssh
     link_config_file config/ssh/config .ssh/config
     cp -rpf secrets/ssh/* ~/.ssh/
+    chmod 600 ~/.ssh/rsa_gaetan
 }
 
 
