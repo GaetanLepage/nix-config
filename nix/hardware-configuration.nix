@@ -10,7 +10,14 @@
 
     boot = {
         initrd = {
-            availableKernelModules = [ "xhci_pci" "nvme" "usb_storage" "sd_mod" "rtsx_pci_sdmmc" ];
+            availableKernelModules = [
+                "xhci_pci"
+                "thunderbold"
+                "nvme"
+                "usb_storage"
+                "usbhid"
+                "sd_mod"
+            ];
             kernelModules = [ ];
 
             luks.devices.crypted.device = "/dev/nvme0n1p2";
