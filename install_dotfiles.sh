@@ -91,6 +91,7 @@ install_dotfiles() {
     config_dir_link shell
     config_dir_link sxhkd
     config_dir_link tmux
+    config_dir_link x11
     config_dir_link zathura
     $IS_NIX || config_dir_link zsh
 

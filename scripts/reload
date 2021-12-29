@@ -125,7 +125,7 @@ run_if_not_running nextcloud
 ########
 
 # Load Xresources
-xrdb ~/.Xresources
+xrdb $XDG_CONFIG_HOME/x11/xresources
 
 # Launch polybar
 run_in_bg polybar_launch
