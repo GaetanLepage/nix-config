@@ -48,12 +48,12 @@
     # Per-interface useDHCP will be mandatory in the future, so this generated config
     # replicates the default behaviour.
     networking = {
-        hostName = "nixos";
+        hostName = "tuxedo";
 
         useDHCP = false;
 
         interfaces = {
-            wlp58s0.useDHCP = true;
+            wlo1.useDHCP = true;
         };
         networkmanager.enable = true;
 
