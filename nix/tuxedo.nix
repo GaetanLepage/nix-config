@@ -340,17 +340,8 @@
     programs = {
         dconf.enable = true;
 
-        seahorse.enable = true;
-
         # https://github.com/NixOS/nixpkgs/issues/10349#issuecomment-341810990
         zsh.enable = true;
-
-        # TODO clean
-        # mtr.enable = true;
-        # gnupg.agent = {
-        #     enable = true;
-        #     enableSSHSupport = true;
-        # };
     };
 
     system = {
