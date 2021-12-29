@@ -184,8 +184,9 @@
             };
         };
 
-        sshd = {
+        openssh = {
             enable = true;
+            passwordAuthentication = false;
         };
 
         blueman.enable = true;
