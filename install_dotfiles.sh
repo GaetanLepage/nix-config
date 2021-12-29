@@ -116,7 +116,7 @@ install_dotfiles() {
     #######
     create_if_not_exist $HOME/.ssh
     link_config_file config/ssh/config .ssh/config
-    link_config_file "secrets/ssh/*" .ssh/
+    cp -rpf secrets/ssh/* ~/.ssh/
 }
 
 
