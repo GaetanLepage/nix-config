@@ -13,7 +13,7 @@
             availableKernelModules = [ "xhci_pci" "nvme" "usb_storage" "sd_mod" "rtsx_pci_sdmmc" ];
             kernelModules = [ ];
 
-            luks.devices.crypted.device = "/dev/disk/by-label/nixroot";
+            luks.devices.crypted.device = "/dev/nvme0n1p2";
         };
         kernelModules = [ "kvm-intel" ];
         extraModulePackages = [ ];
