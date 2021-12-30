@@ -29,6 +29,7 @@
 
             # Misc
             git-crypt
+            hugo
 
             # Python
             (python39.withPackages(ps: with ps; [

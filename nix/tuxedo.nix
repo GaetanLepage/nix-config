@@ -234,6 +234,7 @@
             killall
             libnotify                   # Provides the `notify-send` command
             networkmanagerapplet
+            nfs-utils
             pavucontrol
             pulseaudio                  # Even though using Pipewire, pulseaudio provides `pactl`
             playerctl
@@ -245,7 +246,9 @@
 
             # Network
             dig                         # Domain name server
+            lsof
             speedtest-cli
+            wol                         # Wake on Lan
 
             # Software development
             ctags
