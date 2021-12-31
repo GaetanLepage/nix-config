@@ -56,6 +56,7 @@
             # neovim
             nodePackages.neovim
             nodejs
+            yarn                        # Needed to install Markdown-preview plugin
             tree-sitter
 
             # Language servers
