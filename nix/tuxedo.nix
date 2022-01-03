@@ -1,14 +1,23 @@
-# Edit this configuration file to define what should be installed on
-# your system.    Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running ‘nixos-help’).
+# ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+# ██ ▄▄ █ ▄▄▀█ ▄▄█▄ ▄█ ▄▄▀█ ▄▄▀████ ████ ▄▄█▀▄▄▀█ ▄▄▀█ ▄▄▄█ ▄▄██
+# ██ █▀▀█ ▀▀ █ ▄▄██ ██ ▀▀ █ ██ ████ ████ ▄▄█ ▀▀ █ ▀▀ █ █▄▀█ ▄▄██
+# ██ ▀▀▄█▄██▄█▄▄▄██▄██▄██▄█▄██▄████ ▀▀ █▄▄▄█ ████▄██▄█▄▄▄▄█▄▄▄██
+# ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
+# website:  glepage.com
+# github:   https://github.com/gaetanlepage
+# email:    gaetan.lepage@inria.fr
+#
+# #-----------------------------------#
+# | NixOS configuration for my laptop |
+# #-----------------------------------#
 
 { config, pkgs, lib, ... }:
 
 {
-    imports =
-        [ # Include the results of the hardware scan.
-            ./tuxedo-hw.nix
-        ];
+    imports = [
+        # Include the results of the hardware scan.
+        ./tuxedo-hw.nix
+    ];
 
 
     nix = {
@@ -23,8 +32,6 @@
         kernelPackages = pkgs.linuxPackages_latest;
 
         loader = {
-            # For UEFI
-            # Use the systemd-boot EFI boot loader.
             systemd-boot.enable = false;
             efi.canTouchEfiVariables = true;
 
@@ -52,13 +59,7 @@
 
         useDHCP = false;
 
-        interfaces = {
-            wlo1.useDHCP = true;
-        };
         networkmanager.enable = true;
-
-        # Enables wireless support via wpa_supplicant.
-        # networking.wireless.enable = true;
 
         # wireguard.interfaces = {
         wg-quick.interfaces.wg0 = {
@@ -123,7 +124,8 @@
             fonts = [
                 "DejaVuSansMono"
                 "Ubuntu"
-            ]; })
+            ];
+        })
     ];
 
     # List services that you want to enable:
@@ -179,9 +181,7 @@
                 };
             };
 
-            windowManager.bspwm = {
-                    enable = true;
-            };
+            windowManager.bspwm.enable = true;
         };
 
         openssh = {
@@ -227,7 +227,7 @@
         systemPackages = with pkgs; [
 
             # Misc (system utilities)
-            acpilight   # TODO remove if useless
+            # acpilight   # TODO remove if useless
             arandr
             autorandr
             home-manager                # A user environment configurator
@@ -333,11 +333,6 @@
 
             pulseaudio = true;
         };
-        # overlays = [
-        #     (import (builtins.fetchTarball {
-        #         url = https://github.com/nix-community/neovim-nightly-overlay/archive/master.tar.gz;
-        #     }))
-        # ];
     };
 
     # Some programs need SUID wrappers, can be configured further or are
@@ -361,7 +356,7 @@
         # this value at the release version of the first install of this system.
         # Before changing this value read the documentation for this option
         # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-        stateVersion = "21.11"; # Did you read the comment?
+        stateVersion = "22.05"; # Did you read the comment?
     };
 
     security = {
