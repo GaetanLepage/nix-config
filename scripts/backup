@@ -1,0 +1,6 @@
+#!/bin/sh
+
+dest_path=/zfspool/gaetan/backup/home
+
+rsync -zravut $HOME/ server:$dest_path \
+    --exclude *
