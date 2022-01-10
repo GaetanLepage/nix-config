@@ -76,18 +76,21 @@ MONITOR_RESOLUTION=$(xrandr | grep -Po "(?<=connected primary ).+?(?=\+)")
 case $MONITOR_RESOLUTION in
     1920x1080|1920x1200)
         export POLYBAR_HEIGHT=30
-        export POLYBAR_FONT_0_SIZE=10
-        export POLYBAR_FONT_1_SIZE=6
+        polybar_font_0_size=10
+        polybar_font_1_size=6
+        polybar_font_wm_size=14
         break
         ;;
     *)
         export POLYBAR_HEIGHT=40
-        export POLYBAR_FONT_0_SIZE=12
-        export POLYBAR_FONT_1_SIZE=8
+        polybar_font_0_size=12
+        polybar_font_1_size=8
+        polybar_font_wm_size=18
         ;;
 esac
-export POLYBAR_FONT_0='Ubuntu Nerd Font:style=Book:size='${POLYBAR_FONT_0_SIZE}';1'
-export POLYBAR_FONT_1='NotoSans Mono:size='${POLYBAR_FONT_1_SIZE}';0'
+export POLYBAR_FONT_0='Ubuntu Nerd Font:style=Book:size='${polybar_font_0_size}';1'
+export POLYBAR_FONT_1='NotoSans Mono:size='${polybar_font_1_size}';0'
+export POLYBAR_FONT_WM='DejaVu Sans Mono:size='${polybar_font_wm_size}';4'
 
 
 ############
