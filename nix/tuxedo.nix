@@ -241,8 +241,10 @@
             vim
             udiskie
             xclip
-            xorg.xkill
             xorg.xbacklight
+            xorg.xev
+            xorg.xkill
+            xorg.xmodmap
 
             # Network
             dig                         # Domain name server
