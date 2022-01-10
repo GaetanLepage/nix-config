@@ -1,3 +1,26 @@
+# ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+# ██ ▄▄ █ ▄▄▀█ ▄▄█▄ ▄█ ▄▄▀█ ▄▄▀████ ████ ▄▄█▀▄▄▀█ ▄▄▀█ ▄▄▄█ ▄▄██
+# ██ █▀▀█ ▀▀ █ ▄▄██ ██ ▀▀ █ ██ ████ ████ ▄▄█ ▀▀ █ ▀▀ █ █▄▀█ ▄▄██
+# ██ ▀▀▄█▄██▄█▄▄▄██▄██▄██▄█▄██▄████ ▀▀ █▄▄▄█ ████▄██▄█▄▄▄▄█▄▄▄██
+# ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
+# website:  glepage.com
+# github:   https://github.com/gaetanlepage
+# email:    gaetan.lepage@inria.fr
+#
+# #----------------#
+# | zathura config |
+# #----------------#
+# vim:ft=sh
+
+
+########
+# Font #
+########
+set font "DejaVu Sans 14"
+
+################
+# Key mappings #
+################
 set adjust-open width
 set pages-per-row 1
 set smooth-scroll true
@@ -30,14 +53,16 @@ map i recolor
 # next/previous page
 map <Right> navigate next
 map <Left> navigate previous
-map <Down> navigate next
-map <Up> navigate previous
+map <Down> scroll down
+map <Up> scroll up
 
 map H navigate previous
 map L navigate next
 
-set font "DejaVu Sans 14"
 
+#########
+# Theme #
+#########
 # GRUVBOX THEME (https://github.com/eastack/zathura-gruvbox/blob/master/zathura-gruvbox-dark)
 
 set notification-error-bg       "#282828"   # bg
