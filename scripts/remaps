@@ -9,3 +9,6 @@ setxkbmap -layout fr
 
 # Switch escape and caps lock
 setxkbmap -option caps:swapescape
+
+# For tuxedo: remap the Touchpad toggle key
+# xmodmap -e "keycode 133 = XF86TouchpadToggle"

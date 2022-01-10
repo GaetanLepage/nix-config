@@ -62,8 +62,8 @@ XF86AudioPause
     playerctl previous
 
 # Toggle touchpad
-# XF86TouchpadToggle
-#     touchpad_toggle
+XF86TouchpadToggle
+    touchpad_toggle
 
 # Bluetooth
 super + i
