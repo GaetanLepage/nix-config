@@ -37,7 +37,7 @@ XF86MonBrightnessDown
 
 # Mons
 super + c
-    xrandr --output eDP1 --mode 1920x1200 --primary && mons -o && reload
+    xrandr --output eDP-1 --mode 1920x1200 --primary && mons -o && reload
 
 # Audio
 # Run pavucontrol
