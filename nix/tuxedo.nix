@@ -227,7 +227,7 @@
         systemPackages = with pkgs; [
 
             # Misc (system utilities)
-            # acpilight   # TODO remove if useless
+            acpilight   # TODO remove if useless
             arandr
             autorandr
             home-manager                # A user environment configurator
@@ -315,6 +315,7 @@
             spotify
             tdesktop            # Telegram desktop
             thunderbird
+            x2goclient
             zathura
             zotero
 

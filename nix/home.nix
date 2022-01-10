@@ -43,7 +43,7 @@
             # Misc
             git-crypt
             hugo
-            # megacmd
+            pandoc
 
             # Python
             (python39.withPackages(ps: with ps; [
