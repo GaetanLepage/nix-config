@@ -106,7 +106,6 @@
         };
     };
 
-
     systemd.services = {
         wg-quick-wg0.wantedBy = lib.mkForce [ ];
     };
@@ -227,7 +226,7 @@
         systemPackages = with pkgs; [
 
             # Misc (system utilities)
-            acpilight   # TODO remove if useless
+            acpilight                   # Screen brightness control
             arandr
             autorandr
             home-manager                # A user environment configurator
@@ -309,13 +308,14 @@
             element-desktop
             jitsi-meet-electron
             libreoffice-fresh
+            mumble
             nextcloud-client
             pcmanfm
             pdfsam-basic
             rstudio
             signal-desktop
             spotify
-            tdesktop            # Telegram desktop
+            tdesktop                    # Telegram desktop
             thunderbird
             x2goclient
             zathura
