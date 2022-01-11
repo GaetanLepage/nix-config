@@ -121,7 +121,7 @@ alias \
 # Search within project
 alias \
     s="ack --python --ignore-dir='*/lib/python*'" \
-    todo="s TODO"
+    todo="rg TODO"
 
 # count number of lines in Python project
 alias cl="find . -name '*.py' | xargs wc -l"
