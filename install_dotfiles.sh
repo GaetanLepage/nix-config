@@ -60,7 +60,7 @@ install_dotfiles() {
     link_config_file config/x11/xprofile .xprofile
     link_config_file config/shell/profile .profile
     link_config_file config/shell/bashrc .bashrc
-    $IS_NIX || link_config_file config/zsh/zshenv $HOME/.zshenv
+    $IS_NIX || link_config_file config/zsh/zshenv .zshenv
     link_config_file config/tmux/tmux.conf .tmux.conf
     link_config_file config/vpn_ensimag.ovpn .config/
 
