@@ -278,6 +278,8 @@
             wget
 
             # Multimedia
+            ffmpeg
+            ffmpegthumbnailer
             gthumb
             imagemagick
             mpv
