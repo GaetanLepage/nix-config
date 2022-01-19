@@ -1,4 +1,4 @@
-require('nvim-autopairs').setup()
+require 'nvim-autopairs'.setup()
 
 local pairs_map = {
     ["'"] = "'",
@@ -14,8 +14,7 @@ local break_line_filetype = nil -- mean all file type
 local html_break_line_filetype = {'html' , 'vue' , 'typescriptreact' , 'svelte' , 'javascriptreact'}
 local ignored_next_char = "%w"
 
-local remap = vim.api.nvim_set_keymap
-local npairs = require('nvim-autopairs')
+local npairs = require 'nvim-autopairs'
 
 -- skip it, if you use another global object
 _G.MUtils= {}
@@ -38,4 +37,5 @@ MUtils.completion_confirm=function()
 end
 
 
-remap('i' , '<CR>','v:lua.MUtils.completion_confirm()', {expr = true , noremap = true})
+local imap = require 'utils'.imap
+-- imap('<CR>', 'v:lua.MUtils.completion_confirm()')
