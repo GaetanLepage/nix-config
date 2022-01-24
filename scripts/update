@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
 # echo "Updating system packages"
 distro=$(cat /etc/os-release | grep -oP '(?<=^ID=).*')
