@@ -8,6 +8,7 @@ nmap('<leader>ff', '<cmd>Telescope find_files<CR>')
 nmap('<leader>fg', '<cmd>Telescope live_grep<CR>')
 nmap('<leader>fb', '<cmd>Telescope bufferts<CR>')
 nmap('<leader>fh', '<cmd>Telescope help_tags<CR>')
+nmap('<leader>dl', '<cmd>Telescope diagnostics<CR>')
 nmap('<leader>fd', '<cmd>lua require("telescope.builtin").lsp_workspace_diagnostics()<CR>')
 
 -- FZF like bindings

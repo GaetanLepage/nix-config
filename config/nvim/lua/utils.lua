@@ -1,36 +1,23 @@
-local function map(mode, key, action, opts)
-    local options = {
-        noremap = true,
-        silent = true
-    }
-
-    if opts then
-        options = vim.tbl_extend('force', options, opts)
-    end
-
-    vim.api.nvim_set_keymap(mode, key, action, options)
-end
-
 local M = {}
 
-function M.nmap(key, action, opts)
-    map('n', key, action, opts)
+function M.nmap(key, action)
+    vim.keymap.set('n', key, action)
 end
 
-function M.vmap(key, action, opts)
-    map('v', key, action, opts)
+function M.vmap(key, action)
+    vim.keymap.set('v', key, action)
 end
 
-function M.xmap(key, action, opts)
-    map('x', key, action, opts)
+function M.xmap(key, action)
+    vim.keymap.set('x', key, action)
 end
 
-function M.imap(key, action, opts)
-    map('i', key, action, opts)
+function M.imap(key, action)
+    vim.keymap.set('i', key, action)
 end
 
-function M.smap(key, action, opts)
-    map('s', key, action, opts)
+function M.smap(key, action)
+    vim.keymap.set('s', key, action)
 end
 
 local cmd = vim.cmd

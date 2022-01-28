@@ -21,11 +21,11 @@ require 'nvim-treesitter.configs'.setup {
     rainbow = {enable = false},
     refactor = {
         highlight_definitions = {enable = true},
-        smart_rename = {
-            enable = true,
-            keymaps = {
-                smart_rename = "<F2>",
-            },
-        },
+        -- smart_rename = {
+        --     enable = true,
+        --     keymaps = {
+        --         smart_rename = "<F2>",
+        --     },
+        -- },
     }
 }

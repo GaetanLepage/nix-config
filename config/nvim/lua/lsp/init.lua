@@ -11,10 +11,18 @@ require 'lsp.typescript'
 -- General LSP key mappings
 local nmap = require 'utils'.nmap
 
-nmap('gd', ':lua vim.lsp.buf.definition()<CR>')
-nmap('gD', ':lua vim.lsp.buf.references()<CR>')
-nmap('gi', ':lua vim.lsp.buf.implementation()<CR>')
+nmap('gd', vim.lsp.buf.definition)
+nmap('gD', vim.lsp.buf.references)
+nmap('gt', vim.lsp.buf.type_definition)
+nmap('gi', vim.lsp.buf.implementation)
+nmap('K', vim.lsp.buf.hover)
 
+-- Navigate in diagnostics
+nmap('<leader>k', vim.diagnostic.goto_prev)
+nmap('<leader>j', vim.diagnostic.goto_next)
+
+-- Rename
+nmap('<F2>', vim.lsp.buf.rename)
 
 -- TODO figure out why this don't work
 vim.fn.sign_define("LspDiagnosticsSignError",
