@@ -139,6 +139,11 @@
             pulse.enable = true;
         };
 
+        logind.extraConfig = ''
+            # don’t shutdown when power button is short-pressed
+            HandlePowerKey=ignore
+        '';
+
         xserver = {
             # Enable the X11 windowing system.
             enable = true;
