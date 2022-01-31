@@ -77,6 +77,18 @@ Host *.ciment
   ProxyCommand ssh -q lepageg-ext@access-rr-ciment.imag.fr "nc -w 60 `basename %h .ciment` %p"
 
 
+############
+# Jean Zay #
+############
+Host jz
+    Hostname jean-zay.idris.fr
+    User uzp33qu
+
+Host jza
+    Hostname jz
+    ProxyJump alya
+
+
 ##########
 # HES-SO #
 ##########
