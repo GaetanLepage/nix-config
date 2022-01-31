@@ -68,6 +68,8 @@ export WM="bspwm"
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 export MONITOR_TUI_CMD='btop'
 
+# R (location of the `R/` directory)
+export R_LIBS_USER="~/.local/share/R"
 
 export CM_SELECTIONS="clipboard"
 export CM_DEBUG=0
