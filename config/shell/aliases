@@ -100,6 +100,11 @@ alias \
     sp='source $HOME/.zprofile'
 
 
+# Networking
+alias \
+    edu='nmcli radio wifi on && nmcli con up eduroam'
+
+
 # WireGuard & VPNs
 alias \
     wgu='sudo systemctl start wg-quick-wg0' \
