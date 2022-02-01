@@ -80,12 +80,11 @@ Host *.ciment
 ############
 # Jean Zay #
 ############
-Host jz
+Host jz*
     Hostname jean-zay.idris.fr
     User uzp33qu
 
 Host jza
-    Hostname jz
     ProxyJump alya
 
 
