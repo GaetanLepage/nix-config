@@ -37,5 +37,6 @@ elif [ $distro == 'nixos' ]; then
     sudo nixos-rebuild switch --flake $nix_dir
 
     # Clean the store
+    nix-store --gc
     sudo nix-collect-garbage
 fi
