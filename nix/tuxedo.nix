@@ -42,6 +42,11 @@
                 device = "nodev";
                 efiSupport = true;
 
+                # Limits the number of configurations to keep.
+                # This prevents wasting to much space but more importantly, prevents the /boot
+                # partition from getting full.
+                configurationLimit = 4;
+
                 # For legacy BIOS
                 # device = "/dev/sda";
             };
