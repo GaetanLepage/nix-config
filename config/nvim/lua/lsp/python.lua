@@ -27,7 +27,7 @@ require 'lspconfig'.pylsp.setup {
                     },
                 },
                 pylint = {
-                    enabled = true,
+                    enabled = false,
                     -- https://vald-phoenix.github.io/pylint-errors/
                     executable = 'pylint',
                     args = {
