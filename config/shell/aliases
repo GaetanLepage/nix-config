@@ -16,6 +16,7 @@ alias \
     grep='grep --color=auto' \
     diff="diff --color=auto" \
     rm='rm -iv' \
+    bu='backup' \
     cp='cp -iv' \
     mkd='mkdir -pv' \
     ka='killall' \
