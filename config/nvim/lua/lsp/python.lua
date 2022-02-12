@@ -34,7 +34,9 @@ require 'lspconfig'.pylsp.setup {
                         '--disable=' ..
                         'C0115,' ..      -- missing-class-docstring
                         'C0116,' ..      -- missing-function-docstring
-                        'R0903'          -- too-few-public-methods
+                        'R0902,' ..      -- too-many-instance-attributes
+                        'R0903,' ..      -- too-few-public-methods
+                        'R0915'          -- too-many-statements
                     }
                 },
                 pylsp_mypy = {
