@@ -310,7 +310,6 @@
             # Hardware Monitoring
             btop
             htop
-            # nvtop
 
             # GUI applications
             discord
