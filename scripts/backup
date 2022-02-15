@@ -11,5 +11,6 @@ rsync -zravut $HOME/ server:$dest_path \
     --exclude ".mypy_cache/" \
     --exclude ".npm/" \
     --exclude "node_modules/" \
+    --exclude "__pycache__/" \
     --exclude "venv/" \
     # --dry-run
