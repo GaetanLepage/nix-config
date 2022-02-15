@@ -27,14 +27,16 @@ require 'lspconfig'.pylsp.setup {
                     },
                 },
                 pylint = {
-                    enabled = true,
+                    enabled = false,
                     -- https://vald-phoenix.github.io/pylint-errors/
                     executable = 'pylint',
                     args = {
-                        '--disable ',
-                        'C0115,',       -- missing-class-docstring
-                        'C0116,',       -- missing-function-docstring
-                        'R0903'         -- too-few-public-methods
+                        '--disable=' ..
+                        'C0115,' ..      -- missing-class-docstring
+                        'C0116,' ..      -- missing-function-docstring
+                        'R0902,' ..      -- too-many-instance-attributes
+                        'R0903,' ..      -- too-few-public-methods
+                        'R0915'          -- too-many-statements
                     }
                 },
                 pylsp_mypy = {

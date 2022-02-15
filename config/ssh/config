@@ -44,6 +44,13 @@ Host router
     Hostname 192.168.1.1
     User root
 
+###########
+# Ensimag #
+###########
+Host ensimag
+    HostName pcserveur.ensimag.fr
+    User lepageg
+
 
 #########
 # Inria #
@@ -80,12 +87,11 @@ Host *.ciment
 ############
 # Jean Zay #
 ############
-Host jz
+Host jz*
     Hostname jean-zay.idris.fr
     User uzp33qu
 
 Host jza
-    Hostname jz
     ProxyJump alya
 
 

@@ -42,6 +42,11 @@
                 device = "nodev";
                 efiSupport = true;
 
+                # Limits the number of configurations to keep.
+                # This prevents wasting to much space but more importantly, prevents the /boot
+                # partition from getting full.
+                configurationLimit = 4;
+
                 # For legacy BIOS
                 # device = "/dev/sda";
             };
@@ -197,7 +202,7 @@
     };
 
 
-    # Enable sound.
+    # Enable sound. Set to `false` if using PipeWire
     sound.enable = false;
 
     hardware = {
@@ -366,7 +371,7 @@
         # this value at the release version of the first install of this system.
         # Before changing this value read the documentation for this option
         # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-        stateVersion = "22.05"; # Did you read the comment?
+        stateVersion = "21.11"; # Did you read the comment?
     };
 
     security = {

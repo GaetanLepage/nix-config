@@ -3,4 +3,13 @@
 dest_path=/zfspool/gaetan/backup/home
 
 rsync -zravut $HOME/ server:$dest_path \
-    --exclude *
+    --delete \
+    --delete-excluded \
+    --exclude ".cache/" \
+    --exclude ".local/share/R/" \
+    --exclude ".local/share/nvim/" \
+    --exclude ".mypy_cache/" \
+    --exclude ".npm/" \
+    --exclude "node_modules/" \
+    --exclude "venv/" \
+    # --dry-run
