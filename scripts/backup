@@ -1,5 +1,10 @@
 #!/bin/sh
 
+if ! [ `hostname` = "tuxedo" ]; then
+    echo "Not on tuxedo --> exiting"
+    exit 1
+fi
+
 dest_path=/zfspool/gaetan/backup/home
 
 rsync -zravut $HOME/ server:$dest_path \
