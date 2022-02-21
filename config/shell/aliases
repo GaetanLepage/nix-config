@@ -103,6 +103,8 @@ alias \
 
 # Networking
 alias \
+    wu='nmcli radio wifi on' \
+    wd='nmcli radio wifi off' \
     edu='nmcli radio wifi on && nmcli con up eduroam'
 
 
