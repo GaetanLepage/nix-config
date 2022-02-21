@@ -266,6 +266,7 @@
             git
             lazygit
             neovim-nightly
+            swig
             texlive.combined.scheme-full
 
             # Shell
@@ -273,6 +274,7 @@
             zsh
             neofetch
             pfetch
+            onefetch
 
             # CLI utilities
             bat
