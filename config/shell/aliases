@@ -94,6 +94,11 @@ alias \
     sls='screen -ls' \
     sr='screen -r'
 
+# Xrandr
+alias \
+    ah='autorandr -c home' \
+    ai='autorandr -c inria'
+
 
 # Source config files
 alias \
