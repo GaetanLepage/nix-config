@@ -3,7 +3,7 @@
 ###################
 display_on=0
 span_image=false
-lock_timeout=300
+lock_timeout=0
 # fx_list=(dim blur dimblur pixel dimpixel color)
 fx_list=()
 dim_level=40
