@@ -35,7 +35,7 @@ alias \
     n='neofetch' \
     pm='pulsemixer' \
     r='ranger' \
-    ranger='ranger --choosedir=$HOME/.rangerdir; LASTDIR=$(cat $HOME/.rangerdir); cd "$LASTDIR"' \
+    ranger='ranger --choosedir=/tmp/.rangerdir; LASTDIR=$(cat /tmp/.rangerdir); cd "$LASTDIR"' \
     wttr='curl wttr.in/Grenoble+38000' \
     z='zathura'
 
