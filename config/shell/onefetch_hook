@@ -1,0 +1,11 @@
+#!/bin/sh
+
+autoload -U add-zsh-hook
+
+of_hook() {
+    if `command -v onefetch > /dev/null 2>&1` && [[ -d .git ]]; then
+        onefetch
+    fi
+}
+
+add-zsh-hook chpwd of_hook
