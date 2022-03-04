@@ -272,9 +272,7 @@
             # Shell
             bash
             zsh
-            neofetch
             pfetch
-            onefetch
 
             # CLI utilities
             bat
