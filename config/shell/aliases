@@ -71,6 +71,12 @@ alias \
     tsb='tmux new-session -d -s "tensorboard" bash -c "cd ~/inria/code/rlan && remi ssh-tunnel
         -p 9090" || firefox localhost:9090'
 
+# Server NFS mount
+alias \
+    msw='sudo mount 10.10.10.1:/zfspool ~/server && notify-send "server mounted"' \
+    msl='sudo mount 192.168.1.2:/zfspool ~/server && notify-send "server mounted"' \
+    us='sudo umount ~/server && notify-send "server unmounted"'
+
 
 # Package managers
 alias \
