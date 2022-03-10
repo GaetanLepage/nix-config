@@ -1,11 +1,11 @@
-local utils = require 'utils'
-
 -----------------------
 -- AutoCmd and stuff --
 -----------------------
 
+local autocmd = vim.api.nvim_create_autocmd
+
 -- Vertically center document when entering insert mode
-vim.cmd[[ autocmd InsertEnter * norm zz ]]
+autocmd('InsertEnter', {command = 'norm zz'})
 
 
 function HighlightTodo()
@@ -22,18 +22,23 @@ function Highlights()
     HighlightExtraWhitespace()
 end
 
--- highlight trailing whitespace (TODO fix)
-utils.create_augroup('Highlights',
-                     {
-                         {"ColorScheme", "*", "lua Highlights()"}
-                     }
+-- highlight trailing whitespace
+-- local hl_group = vim.api.nvim_create_augroup(
+--     'Highlights',
+--     { clear = true }
+-- )
+autocmd(
+    'ColorScheme',
+    {callback = Highlights}
+     -- group = hl_group}
 )
 
 -- Transparent background
 -- vim.cmd[[ au ColorScheme * hi Normal ctermbg=none guibg=none ]]
 
 -- Remove trailing whitespace on save
-vim.cmd[[ autocmd BufWrite * %s/\s\+$//e ]]
+-- vim.cmd[[ autocmd BufWrite * %s/\s\+$//e ]]
+autocmd('BufWrite', { command = "%s/\\s\\+$//e"})
 
 ---------------
 -- Providers --
