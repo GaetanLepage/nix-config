@@ -13,8 +13,10 @@ rsync -zravut $HOME/ server:$dest_path \
     --exclude "__pycache__/" \
     --exclude ".cache/" \
     --exclude ".config/cargo/" \
+    --exclude ".config/discord/" \
     --exclude ".config/Discord/" \
     --exclude ".config/Jitsi Meet/" \
+    --exclude ".config/Microsoft/" \
     --exclude ".mozilla/firefox/gaetan/storage/default/https+++app.slack.com/" \
     --exclude ".local/share/nvim/" \
     --exclude ".local/share/R/" \
