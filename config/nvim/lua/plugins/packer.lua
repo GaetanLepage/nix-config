@@ -111,7 +111,6 @@ use 'airblade/vim-gitgutter'            -- Show a git diff in the sign column.
 -- General Plugins
 use 'windwp/nvim-autopairs'             -- A minimalist autopairs for Neovim written in Lua
 use 'kevinhwang91/nvim-bqf'             -- Make Neovim's quickfix window better
-use 'kevinhwang91/rnvimr'               -- Allows you to use Ranger in a floating window
 use 'mhinz/vim-startify'                -- Start screen
 use 'moll/vim-bbye'                     -- Delete buffers (close files) without closing your windows
                                         --  or messing up the layout
