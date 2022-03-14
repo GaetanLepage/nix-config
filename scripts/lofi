@@ -1,0 +1,11 @@
+#!/bin/sh
+
+if [ "$1" = 'stop' ]; then
+    killall mpv
+    notify-send "Stopping Lofi Girl stream"
+else
+    if ! pgrep mpv > /dev/null ; then
+        notify-send "Starting Lofi Girl stream"
+        mpv "https://www.youtube.com/watch?v=5qap5aO4i9A" --no-video
+    fi
+fi
