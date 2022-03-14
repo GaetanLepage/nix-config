@@ -244,6 +244,7 @@
             libnotify                   # Provides the `notify-send` command
             networkmanagerapplet
             nfs-utils
+            nix-index
             pavucontrol
             pulseaudio                  # Even though using Pipewire, pulseaudio provides `pactl`
             playerctl
