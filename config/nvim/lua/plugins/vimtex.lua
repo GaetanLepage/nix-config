@@ -88,7 +88,7 @@ vim.api.nvim_create_autocmd(
     'User',
     {
         pattern = 'VimtexEventQuit',
-        command = 'call vimtex#compiler#clean(1)',
+        command = 'call vimtex#compiler#clean(0)',
         group = vimtex_augroup
     }
 )
