@@ -27,6 +27,10 @@
 
     outputs = { self, nixpkgs, home-manager, neovim-nightly-overlay }:
         let
+	    
+	    username = "gaetan";
+            system = "x86_64-linux";
+
             overlays = [
                 neovim-nightly-overlay.overlay
             ];
@@ -35,7 +39,7 @@
 
             # System configuration
             nixosConfigurations.tuxedo = nixpkgs.lib.nixosSystem {
-                system = "x86_64-linux";
+                inherit system;
                 modules = [
                     # The system configuration
                     ./nix/tuxedo.nix
@@ -50,5 +54,20 @@
                     }
                 ];
             };
+
+	    homeConfigurations.ultrafast = home-manager.lib.homeManagerConfiguration {
+                # Specify the path to your home configuration here
+                configuration = import ./nix/ultrafast.nix;
+
+                inherit system username;
+                homeDirectory = "/home/gaetan";
+                # Update the state version as needed.
+                # See the changelog here:
+                # https://nix-community.github.io/home-manager/release-notes.html#sec-release-21.05
+                stateVersion = "22.05";
+
+                # Optionally use extraSpecialArgs
+                # to pass through arguments to home.nix
+          };
         };
 }
