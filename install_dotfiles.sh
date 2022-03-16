@@ -53,8 +53,8 @@ config_dir_link () {
 install_dotfiles() {
     # Home directory
     echo -e "\n## Linking \"home\" dotfiles ##"
-    link_config_file .gitconfig
-    link_config_file .condarc
+    link_config_file config/git/gitconfig .gitconfig
+    link_config_file config/conda/condarc .condarc
     link_config_file config/x11/xinitrc .xinitrc
     link_config_file config/x11/Xmodmap .Xmodmap
     link_config_file config/x11/xprofile .xprofile
