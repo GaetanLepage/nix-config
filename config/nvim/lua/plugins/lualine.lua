@@ -30,7 +30,8 @@ require 'lualine'.setup {
         theme = 'gruvbox',
         component_separators = {'', ''},
         section_separators = {'', ''},
-        disabled_filetypes = {}
+        disabled_filetypes = {},
+        globalstatus = true
     },
     sections = {
         lualine_a = {'mode'},
