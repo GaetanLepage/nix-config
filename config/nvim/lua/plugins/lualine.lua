@@ -39,19 +39,23 @@ require 'lualine'.setup {
         lualine_c = {
             'filename',
             {
-              'branch',
-              icon = '',
-              condition = conditions.check_git_workspace,
-              color = {fg = colors.violet, gui = 'bold'}
+                'branch',
+                icon = '',
+                condition = conditions.check_git_workspace,
+                color = {fg = colors.violet, gui = 'bold'}
             },
             {
                 'diff',
-                -- Is it me or the symbol for modified us really weird
+                colored = true,
+
+                diff_color = {
+                    added = { fg = colors.green },
+                    modified = { fg = colors.orange },
+                    removed = {fg = colors.red }
+                },
+
+                -- Is it me or the symbol for modified is really weird ?
                 symbols = {added = ' ', modified = '柳', removed = ' '},
-                color_added = colors.green,
-                color_modified = colors.orange,
-                color_removed = colors.red,
-                condition = conditions.hide_in_width
             }
         },
         lualine_x = {
