@@ -301,7 +301,6 @@
             bspwm
             dunst
             mons
-            okular
             picom
             polybar
             rofi
@@ -322,6 +321,7 @@
             libreoffice-fresh
             mumble
             nextcloud-client
+            okular
             pcmanfm
             pdfsam-basic
             rstudio
@@ -329,7 +329,6 @@
             spotify
             tdesktop                    # Telegram desktop
             thunderbird
-            x2goclient
             zathura
             zotero
 
