@@ -82,6 +82,7 @@ install_dotfiles() {
     $IS_NIX || config_dir_link gtk-4.0
     config_dir_link kitty
     config_dir_link lazygit
+    config_dir_link nixpkgs
     config_dir_link nvim
     $IS_ARCH && config_dir_link paru
     config_dir_link picom
