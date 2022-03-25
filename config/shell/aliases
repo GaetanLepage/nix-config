@@ -239,3 +239,4 @@ alias \
     ncg='sudo nix-collect-garbage' \
     hms='home-manager switch' \
     hme='home-manager edit' \
+    nsp='nix-shell -p'
