@@ -34,10 +34,10 @@ elif [ $distro == 'nixos' ]; then
     nix_dir=$HOME/.dotfiles
 
     # Update the flake's inputs
-    nix flake update $nix_dir
+    nix flake update $nix_dir -L
 
     # Reload the system configuration
-    sudo nixos-rebuild switch --flake $nix_dir
+    sudo nixos-rebuild switch --flake $nix_dir -v
 
     # Clean the store (garbage collection)
     nix-store --gc
