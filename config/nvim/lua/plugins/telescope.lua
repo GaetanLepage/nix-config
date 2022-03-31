@@ -3,18 +3,23 @@
 --------------
 local nmap = require 'utils'.nmap
 
+local builtin = require 'telescope.builtin'
+
 -- Find files using Telescope command-line sugar.
-nmap('<leader>ff', '<cmd>Telescope find_files<CR>')
-nmap('<leader>fg', '<cmd>Telescope live_grep<CR>')
-nmap('<leader>fb', '<cmd>Telescope bufferts<CR>')
-nmap('<leader>fh', '<cmd>Telescope help_tags<CR>')
-nmap('<leader>dl', '<cmd>Telescope diagnostics<CR>')
-nmap('<leader>fd', '<cmd>lua require("telescope.builtin").lsp_workspace_diagnostics()<CR>')
+nmap('<leader>ff', builtin.find_files)
+nmap('<leader>fg', builtin.live_grep)
+nmap('<leader>fb', builtin.buffers)
+nmap('<leader>fh', builtin.help_tags)
+nmap('<leader>fd',
+     function()
+        builtin.diagnostics({bufnr = 0})
+     end
+)
 
 -- FZF like bindings
-nmap('<C-p>', '<cmd>Telescope git_files<CR>')
-nmap('<leader>p', '<cmd>Telescope oldfiles<CR>')
-nmap('<C-f>', '<cmd>Telescope live_grep<CR>')
+nmap('<C-p>', builtin.git_files)
+nmap('<leader>p', builtin.oldfiles)
+nmap('<C-f>', builtin.live_grep)
 
 
 -------------------
