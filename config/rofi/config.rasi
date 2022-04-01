@@ -1,5 +1,5 @@
 configuration {
-    font: "DejaVu Sans Mono 14";
+    font: "DejaVu Sans Mono 20";
 }
 
 @theme "gruvbox-dark"
