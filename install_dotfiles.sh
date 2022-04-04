@@ -62,7 +62,6 @@ install_dotfiles() {
     link_config_file config/shell/bashrc .bashrc
     $IS_NIX || link_config_file config/zsh/zshenv .zshenv
     link_config_file config/tmux/tmux.conf .tmux.conf
-    link_config_file config/vpn_ensimag.ovpn .config/
 
 
     ####################
@@ -93,6 +92,7 @@ install_dotfiles() {
     config_dir_link shell
     config_dir_link sxhkd
     config_dir_link tmux
+    config_dir_link vpn
     config_dir_link x11
     config_dir_link zathura
     $IS_NIX || config_dir_link zsh
