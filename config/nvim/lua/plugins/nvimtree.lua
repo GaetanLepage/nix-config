@@ -11,14 +11,22 @@ vim.g.nvim_tree_show_icons = {
 -- 0 by default, this option shows indent markers when folders are open
 vim.g.nvim_tree_indent_markers = 1
 
+-- Automatically close the tab/vim when nvim-tree is the last window in the tab.
+vim.api.nvim_create_autocmd(
+    'BufEnter',
+    {
+        pattern = '*',
+        command = "if winnr('$') == 1 && bufname() == 'NvimTree_' . tabpagenr() | quit | endif",
+        nested = true
+    }
+)
+
 require'nvim-tree'.setup {
     disable_netrw       = true,             -- Disables netrw completely.
     hijack_netrw        = true,             -- Hijack netrw window on startup.
     open_on_setup       = false,            -- Open the tree when running this setup function.
     ignore_ft_on_setup  = { 'startify' },   -- Will not open on setup if the filetype is in this
                                             --      list.
-    auto_close          = true,             -- Closes neovim automatically when the tree is the last
-                                            --      **WINDOW** in the view.
     open_on_tab         = false,            -- Opens the tree when changing/opening a new tab if the
                                             --      tree wasn't previously opened.
     hijack_cursor       = false,            -- Hijack the cursor in the tree to put it at the start
