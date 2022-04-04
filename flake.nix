@@ -28,7 +28,7 @@
     outputs = { self, nixpkgs, home-manager, neovim-nightly-overlay }:
         let
 
-        username = "gaetan";
+            username = "gaetan";
             system = "x86_64-linux";
 
             overlays = [
