@@ -14,7 +14,16 @@
 [pull]
 	rebase = false
 
-# Jupyter notebook
+#################
+# delta (pager) #
+#################
+[delta]
+    side-by-side = true
+
+
+####################
+# Jupyter notebook #
+####################
 
 [diff "jupyternotebook"]
 	command = git-nbdiffdriver diff
