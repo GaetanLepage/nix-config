@@ -24,3 +24,8 @@ gui:
     skipUnstageLineWarning: false
     skipStashWarning: true
     showFileTree: false
+
+git:
+  paging:
+    # colorArg: never
+    pager: delta --dark --paging=never
