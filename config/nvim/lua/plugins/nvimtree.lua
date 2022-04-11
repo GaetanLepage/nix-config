@@ -8,9 +8,6 @@ vim.g.nvim_tree_show_icons = {
     files = 1
 }
 
--- 0 by default, this option shows indent markers when folders are open
-vim.g.nvim_tree_indent_markers = 1
-
 -- Automatically close the tab/vim when nvim-tree is the last window in the tab.
 vim.api.nvim_create_autocmd(
     'BufEnter',
@@ -134,6 +131,13 @@ require'nvim-tree'.setup {
                 { key = "q",                                    cb = tree_cb("close") },
                 { key = "g?",                                   cb = tree_cb("toggle_help") },
             }
+        }
+    },
+
+    renderer = {
+        -- `false` by default, this option shows indent markers when folders are open
+        indent_markers = {
+            enable = true
         }
     }
 }
