@@ -16,48 +16,54 @@
 ########
 # Font #
 ########
-set font "DejaVu Sans 14"
+set font                    "DejaVu Sans 14"
+
+
+###########
+# Options #
+###########
+set adjust-open             width
+set pages-per-row           1
+set smooth-scroll           true
+set selection-clipboard     clipboard
+set incremental-search      true
+# set guioptions ""
+
+set window-title-home-tilde true
+set window-title-basename   true
+set statusbar-home-tilde    true
+set show-hidden true
+
+set statusbar-h-padding     0
+set statusbar-v-padding     0
+set page-padding            1
+
 
 ################
 # Key mappings #
 ################
-set adjust-open width
-set pages-per-row 1
-set smooth-scroll true
-set selection-clipboard clipboard
-set incremental-search true
-# set guioptions ""
 
-set window-title-home-tilde true
-set window-title-basename true
-set statusbar-home-tilde true
-set show-hidden true
+map K       zoom in
+map J       zoom out
 
-set statusbar-h-padding 0
-set statusbar-v-padding 0
-set page-padding 1
+map r       reload
+map R       rotate
 
-map K zoom in
-map J zoom out
+map u       scroll half-up
+map d       scroll half-down
 
-map r reload
-map R rotate
+map D       toggle_page_mode
 
-map u scroll half-up
-map d scroll half-down
-
-map D toggle_page_mode
-
-map i recolor
+map i       recolor
 
 # next/previous page
 map <Right> navigate next
-map <Left> navigate previous
-map <Down> scroll down
-map <Up> scroll up
+map <Left>  navigate previous
+map <Down>  scroll down
+map <Up>    scroll up
 
-map H navigate previous
-map L navigate next
+map H       navigate previous
+map L       navigate next
 
 
 #########
