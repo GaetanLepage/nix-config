@@ -33,7 +33,12 @@ require 'lualine'.setup {
         disabled_filetypes = {},
         globalstatus = true
     },
+
+
     sections = {
+        -- +-------------------------------------------------+
+        -- | A | B | C                             X | Y | Z |
+        -- +-------------------------------------------------+
         lualine_a = {'mode'},
         lualine_b = {'branch'},
         lualine_c = {
@@ -69,7 +74,6 @@ require 'lualine'.setup {
             },
             {
                 function()
-                    -- local msg = 'No Active Lsp'
                     local msg = ''
                     local buf_ft = vim.api.nvim_buf_get_option(0, 'filetype')
                     local clients = vim.lsp.get_active_clients()
@@ -93,14 +97,7 @@ require 'lualine'.setup {
         lualine_y = {'progress'},
         lualine_z = {'location'}
     },
-    -- inactive_sections = {
-    --     lualine_a = {},
-    --     lualine_b = {},
-    --     lualine_c = {'filename'},
-    --     lualine_x = {'location'},
-    --     lualine_y = {},
-    --     lualine_z = {}
-    -- },
+
     tabline = {},
     extensions = {}
 }
