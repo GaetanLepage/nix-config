@@ -372,10 +372,7 @@
     };
 
     system = {
-        autoUpgrade = {
-            enable = true;
-            channel = "https://nixos.org/channels/nixos-unstable";
-        };
+        autoUpgrade.enable = false;
 
         # This value determines the NixOS release from which the default
         # settings for stateful data, like file locations and database versions
