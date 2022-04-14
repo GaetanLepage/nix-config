@@ -22,7 +22,7 @@ nmap('<leader>n', ':NvimTreeToggle<CR>')
 nmap('Y', 'y$')
 
 -- Enter key is useless anyway
-nmap('<CR>', ':')
+-- nmap('<CR>', ':')
 
 -- back and fourth between the two most recent files
 nmap('<C-c>', ':b#<CR>')
