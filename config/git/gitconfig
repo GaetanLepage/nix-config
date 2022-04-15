@@ -14,12 +14,6 @@
 [pull]
 	rebase = false
 
-#################
-# delta (pager) #
-#################
-[delta]
-    side-by-side = true
-
 
 ####################
 # Jupyter notebook #

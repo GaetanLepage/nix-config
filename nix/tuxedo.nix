@@ -275,7 +275,6 @@
 
             # Software development
             ctags
-            delta                       # a syntax-highlighting pager for git
             git
             lazygit
             neovim-nightly
