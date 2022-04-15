@@ -35,10 +35,9 @@ use 'hrsh7th/nvim-cmp'                  -- Completion engine
 use 'hrsh7th/cmp-buffer'                -- nvim-cmp source for buffer words
 use 'hrsh7th/cmp-path'                  -- nvim-cmp source for paths
 use 'hrsh7th/cmp-nvim-lsp'              -- Nvim-cmp source for neovim builtin LSP client
-use {                                   -- TabNine
-    'tzachar/cmp-tabnine',
-    run = './install.sh'
-}
+use {'tzachar/cmp-tabnine',             -- TabNine
+     run = './install.sh' }
+
 use 'onsails/lspkind-nvim'              -- vscode-like pictograms to neovim built-in lsp
 
 -- Python folding
@@ -52,55 +51,29 @@ use 'honza/vim-snippets'                -- snippets files for various programmin
 use {'iamcco/markdown-preview.nvim',    -- Markdown preview
      run = 'cd app && yarn install'}
 
--- Treesitter (for syntax highlighting and more)
-use {
-    'nvim-treesitter/nvim-treesitter',
-    requires = {
-        'nvim-treesitter/nvim-treesitter-refactor'
-    },
-    run = ':TSUpdate'
-}
+
+use {'nvim-treesitter/nvim-treesitter', -- Treesitter (for syntax highlighting and more)
+     run = ':TSUpdate'}
+use 'nvim-treesitter/nvim-treesitter-refactor'
 
 --------
 -- UI ----------------------------------------------------------------------------------------------
 --------
+-- Requirements:
+use 'kyazdani42/nvim-web-devicons'      -- for lualine, barbar, nvim-tree...
+use 'nvim-lua/plenary.nvim'             -- for harpoon and telescope
+
 -- Status Line and Bufferline
 use 'hoob3rt/lualine.nvim'              -- The status line
-use {                                   -- Tabline plugin
-    'romgrk/barbar.nvim',
-    requires = {
-        'kyazdani42/nvim-web-devicons'
-    }
-}
+use 'romgrk/barbar.nvim'                -- Tabline plugin
 
-use {
-    'nvim-telescope/telescope.nvim',    -- Telescope
-    requires = {
-        'nvim-lua/plenary.nvim',
-        'nvim-lua/popup.nvim'
-    }
-}
+use 'nvim-telescope/telescope.nvim'     -- Telescope
+use 'ThePrimeagen/harpoon'              -- Harpoon
+use 'kyazdani42/nvim-tree.lua'          -- File tree
 
-use {
-    'ThePrimeagen/harpoon',             -- Harpoon
-    requires = {
-        'nvim-lua/plenary.nvim'
-    }
-}
-
-use {
-    'kyazdani42/nvim-tree.lua',         -- File tree
-    requires = {
-        'kyazdani42/nvim-web-devicons',
-    }
-}
 use 'gruvbox-community/gruvbox'         -- Colorcheme
 use 'norcalli/nvim-colorizer.lua'       -- Preview colors directly from files
 
----------
--- Git ---------------------------------------------------------------------------------------------
----------
-use 'tpope/vim-fugitive'                -- Git Fugitive
 use 'airblade/vim-gitgutter'            -- Show a git diff in the sign column.
 
 ----------
