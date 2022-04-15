@@ -25,6 +25,9 @@ export XDG_CONFIG_HOME=${XDG_CONFIG_HOME:="$HOME/.config"}
 # Disable files
 export LESSHISTFILE=-
 
+# ZSH
+export HISTFILE=$ZDOTDIR/.zsh_history
+
 # Fixing Paths
 export TMPDIR=/tmp
 export XINITRC="$XDG_CONFIG_HOME"/X11/xinitrc
