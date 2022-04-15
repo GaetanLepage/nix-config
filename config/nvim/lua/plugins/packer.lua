@@ -27,8 +27,6 @@ use 'wbthomason/packer.nvim'            -- Packer can manage itself as an option
 -- LSP
 use 'neovim/nvim-lspconfig'             -- A collection of common configurations for the built-in
                                         --  language server client.
-use 'tami5/lspsaga.nvim'                -- A light-weight lsp plugin based on neovim built-in lsp
-                                        --  with highly a performant UI.
 use 'folke/trouble.nvim'                -- Pretty list for showing diagnostics
 use 'lervag/vimtex'                     -- LaTeX support
 
