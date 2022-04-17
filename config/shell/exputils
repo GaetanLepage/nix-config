@@ -4,7 +4,8 @@
 # Exputils #
 ############
 # define path to the exputils folder
-PATH_TO_EXPUTILS=$HOME/inria/code/exputils
+# PATH_TO_EXPUTILS=$HOME/inria/code/exputils
+PATH_TO_EXPUTILS=$HOME/scratch/inria/code/exputils
 
 if [ -d $PATH_TO_EXPUTILS ]; then
     if [ -f "$PATH_TO_EXPUTILS/commands/eu_setup.sh" ] ; then
