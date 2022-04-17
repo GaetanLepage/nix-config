@@ -7,38 +7,9 @@ local autocmd = vim.api.nvim_create_autocmd
 -- Vertically center document when entering insert mode
 autocmd('InsertEnter', {command = 'norm zz'})
 
-
-function HighlightTodo()
-    vim.cmd [[ highlight Todo ctermfg=0 ctermbg=11 guifg=Blue guibg=Yellow" ]]
-end
-
-function HighlightExtraWhitespace()
-    vim.cmd[[ highlight ExtraWhitespace ctermbg=red guibg=red ]]
-    vim.cmd[[ match ExtraWhitespace /\s\+\%#\@<!$/ ]]
-end
-
-function Highlights()
-    -- HighlightTodo()
-    HighlightExtraWhitespace()
-end
-
--- highlight trailing whitespace
--- local hl_group = vim.api.nvim_create_augroup(
---     'Highlights',
---     { clear = true }
--- )
-autocmd(
-    'ColorScheme',
-    {callback = Highlights}
-     -- group = hl_group}
-)
-
--- Transparent background
--- vim.cmd[[ au ColorScheme * hi Normal ctermbg=none guibg=none ]]
-
 -- Remove trailing whitespace on save
--- vim.cmd[[ autocmd BufWrite * %s/\s\+$//e ]]
 autocmd('BufWrite', { command = "%s/\\s\\+$//e"})
+
 
 ---------------
 -- Providers --
@@ -59,10 +30,12 @@ if (os.getenv('DISTRO') == 'nixos') then
 end
 
 
-
 --------------
 -- Settings --
 --------------
+
+vim.g.do_filetype_lua = 1       -- Enable filetype matching using fast `filetype.lua`
+-- vim.g.did_load_filetypes = 1    -- Disable filetype matching using slow `filetype.vim`
 
 local o = vim.opt
 
@@ -89,7 +62,7 @@ o.cursorline = false        -- Highlight the screen line of the cursor
 o.cursorcolumn = false      -- Highlight the screen column of the cursor
 o.signcolumn = 'yes'        -- whether to show the signcolumn
 o.colorcolumn = '100'       -- columns to highlight
-o.laststatus = 3            -- 0, 1 or 2; when to use a status line for the last window
+o.laststatus = 3            -- when to use a status line for the last window
 o.encoding = 'utf-8'        -- encoding used to print the PostScript file for :hardcopy
 o.termguicolors = true      -- Enables 24-bit RGB color in the |TUI|
 o.spell = false             -- highlight spelling mistakes (local to window)
