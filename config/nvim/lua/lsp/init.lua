@@ -1,6 +1,7 @@
 -- Source each LSP server configuration
 require 'lsp.bash'
 require 'lsp.c'
+require 'lsp.julia'
 require 'lsp.latex'
 require 'lsp.lua'
 require 'lsp.nix'

@@ -24,6 +24,7 @@ alias \
     cal='cal -m' \
     icat="kitty +kitten icat" \
     jb='jobs' \
+    jl='julia' \
     lo='libreoffice' \
     t="date +'%a %b %e %R:%S %Z %Y'" \
     tk="TZ=Asia/Seoul date +'%a %b %e %R:%S %Z %Y'" \
