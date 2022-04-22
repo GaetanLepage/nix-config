@@ -34,3 +34,6 @@
 
 [mergetool "nbdime"]
 	cmd = git-nbmergetool merge \"$BASE\" \"$LOCAL\" \"$REMOTE\" \"$MERGED\"
+
+[init]
+	defaultBranch = master
