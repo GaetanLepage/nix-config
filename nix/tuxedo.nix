@@ -17,6 +17,8 @@
     imports = [
         # Include the results of the hardware scan.
         ./tuxedo-hw.nix
+
+        # ./modules/wacom.nix
     ];
 
 
