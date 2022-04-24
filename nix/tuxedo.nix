@@ -338,7 +338,7 @@
             okular
             pcmanfm
             pdfsam-basic
-            rstudio
+            rstudio                     # TODO remove when PMS is over
             signal-desktop
             spotify
             tdesktop                    # Telegram desktop
@@ -347,9 +347,9 @@
             zotero
 
             # Languages
-            python3
-            gcc
             clang
+            gcc
+            python3
         ];
 
         pathsToLink = [ "/share/zsh" ];
