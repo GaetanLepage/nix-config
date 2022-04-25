@@ -1,4 +1,6 @@
 require 'nvim-treesitter.configs'.setup {
+
+    -- one of "all", "maintained" (parsers with maintainers), or a list of languages
     ensure_installed = {
         'bash',
         'css',
@@ -8,25 +10,19 @@ require 'nvim-treesitter.configs'.setup {
         'latex',
         'lua',
         'nix',
+        'norg',
         'python'
-    },                          -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+    },
+
     highlight = {
-        enable = true           -- false will disable the whole extension
+        -- false will disable the whole extension
+        enable = true
     },
-    playground = {
-        enable = true,
-        disable = {},
-        updatetime = 25,        -- Debounced time for highlighting nodes in the playground from source code
-        persist_queries = false -- Whether the query persists across vim sessions
-    },
-    rainbow = {enable = false},
+
     refactor = {
-        highlight_definitions = {enable = true},
-        -- smart_rename = {
-        --     enable = true,
-        --     keymaps = {
-        --         smart_rename = "<F2>",
-        --     },
-        -- },
+        highlight_definitions = {
+            -- Highlights definition and usages of the current symbol under the cursor.
+            enable = true
+        }
     }
 }
