@@ -71,7 +71,7 @@ use 'nvim-telescope/telescope.nvim'     -- Telescope
 use 'ThePrimeagen/harpoon'              -- Harpoon
 use 'kyazdani42/nvim-tree.lua'          -- File tree
 
-use 'gruvbox-community/gruvbox'         -- Colorcheme
+use 'ellisonleao/gruvbox.nvim'          -- Colorcheme
 use 'norcalli/nvim-colorizer.lua'       -- Preview colors directly from files
 
 use 'airblade/vim-gitgutter'            -- Show a git diff in the sign column.
