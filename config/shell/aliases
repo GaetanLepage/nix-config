@@ -24,7 +24,6 @@ alias \
     cal='cal -m' \
     icat="kitty +kitten icat" \
     jb='jobs' \
-    jl='julia' \
     lo='libreoffice' \
     t="date +'%a %b %e %R:%S %Z %Y'" \
     tk="TZ=Asia/Seoul date +'%a %b %e %R:%S %Z %Y'" \
@@ -55,6 +54,11 @@ alias \
     ls='exa' \
     l='ls -lFhg' \
     ll='ls -alFhg' \
+
+# Julia
+alias \
+    jl='julia' \
+    jlp='julia --project=.'
 
 # Tmux
 alias \
