@@ -18,6 +18,7 @@ rsync -zravut $HOME/ server:$dest_path \
     --exclude ".config/Discord/" \
     --exclude ".config/Jitsi Meet/" \
     --exclude ".config/Microsoft/" \
+    --exclude ".julia/" \
     --exclude ".mozilla/firefox/gaetan/storage/default/https+++app.slack.com/" \
     --exclude ".local/share/nvim/" \
     --exclude ".local/share/R/" \
