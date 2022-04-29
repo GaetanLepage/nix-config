@@ -6,7 +6,7 @@ It is entirely written in lua.
 **Neovim version:** latest (currently `0.8.0-dev`)
 
 The entry point of the configuration is the
-[`init.lua`](https://github.com/GaetanLepage/dotfiles/blob/master/config/nvim/lua/colorscheme.lua)
+[`init.lua`](https://github.com/GaetanLepage/dotfiles/blob/master/config/nvim/init.lua)
 file.
 
 ## Configuration structure
