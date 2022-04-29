@@ -38,7 +38,7 @@ Hence, the LSP configuration for `python` can be found in
 
 ### [`lua/plugins/`](https://github.com/GaetanLepage/dotfiles/tree/master/config/nvim/lua/plugins) Plugins
 
-Plugin manager: [`packer.nvim`](https://github.com/wbthomason/packer.nvim)\
+**Plugin manager:** [`packer.nvim`](https://github.com/wbthomason/packer.nvim)\
 The plugins are declared in the
 [`packer.lua`](https://github.com/GaetanLepage/dotfiles/blob/master/config/nvim/lua/plugins/packer.lua)
 file.
