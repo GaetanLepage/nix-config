@@ -342,7 +342,6 @@
             rstudio                     # TODO remove when PMS is over
             signal-desktop
             spotify
-            tdesktop                    # Telegram desktop
             thunderbird
             zathura
             zotero
