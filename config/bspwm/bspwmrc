@@ -68,7 +68,6 @@ bspc config external_rules_command "$XDG_CONFIG_HOME/bspwm/custom_rules.sh"
 ###################
 # Global settings #
 ###################
-bspc config border_radius               8
 bspc config border_width                2
 bspc config window_gap                  0
 
