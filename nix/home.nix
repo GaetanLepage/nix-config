@@ -35,6 +35,11 @@
             options = [ "caps:swapescape" ];
         };
 
+        pointerCursor = {
+            name = "Numix-Cursor-Light";
+            package = pkgs.numix-cursor-theme;
+        };
+
         packages = with pkgs; [
             # Shell
             direnv                      # Needed by lori
@@ -180,14 +185,7 @@
 
     nixpkgs.config.allowUnfree = true;
 
-    xsession = {
-        numlock.enable = true;
-
-        pointerCursor = {
-            name = "Numix-Cursor-Light";
-            package = pkgs.numix-cursor-theme;
-        };
-    };
+    xsession.numlock.enable = true;
 
     gtk = {
         enable = true;
