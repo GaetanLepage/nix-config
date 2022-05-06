@@ -100,7 +100,7 @@ install_dotfiles() {
     link_config_file config/betterlockscreenrc .config/betterlockscreenrc
     link_config_file config/mimeapps.list .config/mimeapps.list
     link_config_file config/user-dirs.dirs .config/user-dirs.dirs
-    link_config_file config/wall.jpg .config/wall.jpg
+    link_config_file config/wallpaper.jpg .config/wallpaper.jpg
 
     ################
     # Local folder #
