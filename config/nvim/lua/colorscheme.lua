@@ -18,4 +18,4 @@ hl('ExtraWhitespace', { bg='Red' })
 vim.fn.matchadd('ExtraWhitespace', '\\s\\+$')
 
 -- Transparent background
--- hl(0, 'Normal', { bg='none' })
+-- hl('Normal', { bg='none' })
