@@ -20,7 +20,7 @@
 
         # ./modules/wacom.nix
         # ./modules/virtualbox.nix
-        ./modules/android.nix
+        # ./modules/android.nix
     ];
 
 
@@ -257,12 +257,8 @@
             home-manager                # A user environment configurator
             killall
             libnotify                   # Provides the `notify-send` command
-            networkmanagerapplet
-            nfs-utils
+            nfs-utils                   # Linux user-space NFS utilities
             nix-index
-            pavucontrol
-            pulseaudio                  # Even though using Pipewire, pulseaudio provides `pactl`
-            playerctl
             vim
             udiskie
             xclip
@@ -271,8 +267,14 @@
             xorg.xkill
             xorg.xmodmap
 
+            # Audio
+            pavucontrol
+            pulseaudio                  # Even though using Pipewire, pulseaudio provides `pactl`
+            playerctl
+
             # Network
             dig                         # Domain name server
+            networkmanagerapplet
             lsof
             speedtest-cli
             wol                         # Wake on Lan

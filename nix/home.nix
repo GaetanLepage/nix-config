@@ -82,8 +82,8 @@
             # neovim
             nodePackages.neovim
             nodejs
-            yarn                        # Needed to install Markdown-preview plugin
             tree-sitter
+            yarn                        # Needed to install Markdown-preview plugin
 
             # Language servers
             nodePackages.bash-language-server           # Bash language server
