@@ -51,7 +51,7 @@ source $ZSH/oh-my-zsh.sh
 source $XDG_CONFIG_HOME/shell/shell_init
 
 # Direnv
-eval "$(direnv hook zsh)"
+type direnv > /dev/null 2>&1 && eval "$(direnv hook zsh)"
 
 if [ -d $PATH_TO_EXPUTILS ]; then
     if [ -f "$PATH_TO_EXPUTILS/commands/eu_setup.sh" ] ; then
