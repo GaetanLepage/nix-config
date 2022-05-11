@@ -44,6 +44,10 @@ Host router
     Hostname 192.168.1.1
     User root
 
+Host oneplus
+    Hostname 10.10.10.4
+    Port 2222
+
 ###########
 # Ensimag #
 ###########
