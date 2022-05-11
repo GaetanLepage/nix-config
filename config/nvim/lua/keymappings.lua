@@ -52,8 +52,10 @@ nmap('<C-Left>', ':vertical resize +2<CR>')
 nmap('<C-Right>', ':vertical resize -2<CR>')
 
 -- better indenting
-vmap('<', '<gv')
 vmap('>', '>gv')
+vmap('<', '<gv')
+vmap('<TAB>', '>gv')
+vmap('<S-TAB>', '<gv')
 
 -- Tab switch buffer
 -- nmap('<TAB>', ':bnext<CR>')
