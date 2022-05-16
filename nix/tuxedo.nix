@@ -46,24 +46,31 @@
         kernelPackages = pkgs.linuxPackages_latest;
 
         loader = {
-            systemd-boot.enable = false;
+            systemd-boot = {
+                enable = true;
+                configurationLimit = 4;
+            };
+
             efi.canTouchEfiVariables = true;
 
             timeout = 0;
 
-            grub = {
-                enable = true;
-                device = "nodev";
-                efiSupport = true;
-
-                # Limits the number of configurations to keep.
-                # This prevents wasting to much space but more importantly, prevents the /boot
-                # partition from getting full.
-                configurationLimit = 4;
-
-                # For legacy BIOS
-                # device = "/dev/sda";
-            };
+            grub.enable = false;
+            # grub = {
+            #     enable = true;
+            #     device = "nodev";
+            #     efiSupport = true;
+            #
+            #     # Limits the number of configurations to keep.
+            #     # This prevents wasting to much space but more importantly, prevents the /boot
+            #     # partition from getting full.
+            #     configurationLimit = 4;
+            #
+            #     enableCryptodisk = true;
+            #
+            #     # For legacy BIOS
+            #     # device = "/dev/sda";
+            # };
         };
     };
 

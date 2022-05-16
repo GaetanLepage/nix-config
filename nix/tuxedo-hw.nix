@@ -24,8 +24,6 @@
         };
         kernelModules = [ "kvm-intel" ];
         extraModulePackages = [ ];
-
-        loader.grub.enableCryptodisk = true;
     };
 
     fileSystems."/" = {
