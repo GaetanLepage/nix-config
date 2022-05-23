@@ -348,7 +348,6 @@
             okular
             pcmanfm
             pdfsam-basic
-            rstudio                     # TODO remove when PMS is over
             signal-desktop
             spotify
             thunderbird
