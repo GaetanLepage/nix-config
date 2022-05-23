@@ -357,7 +357,7 @@
             # Languages
             clang
             gcc
-            python39
+            python3
         ];
 
         pathsToLink = [ "/share/zsh" ];
