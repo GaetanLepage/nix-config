@@ -33,6 +33,7 @@ alias \
     xup='xrdb .Xresources' \
     m='mpv' \
     n='neofetch' \
+    ns='nvidia-smi' \
     pm='pulsemixer' \
     r='ranger' \
     ranger='ranger --choosedir=/tmp/.rangerdir; LASTDIR=$(cat /tmp/.rangerdir); cd "$LASTDIR"' \
