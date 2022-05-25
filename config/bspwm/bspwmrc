@@ -130,7 +130,7 @@ run_in_terminal() {
     is_it_running $1 || return 1
 
     # Run the program in a new terminal
-    $TERMINAL --class $1 $1 &
+    $TERMINAL --class $1 $@ &
 }
 
 
