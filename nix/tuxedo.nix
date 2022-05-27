@@ -21,6 +21,7 @@
         # ./modules/wacom.nix
         # ./modules/virtualbox.nix
         # ./modules/android.nix
+        # ./modules/steam.nix
     ];
 
 

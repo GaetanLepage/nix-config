@@ -7,5 +7,5 @@
         jmtpfs
     ];
 
-    users.users.gaetan.extraGroups = ["adbusers"];
+    users.users.gaetan.extraGroups = [ "adbusers" ];
 }
