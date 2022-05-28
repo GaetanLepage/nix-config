@@ -1,3 +1,6 @@
+-- Keymappings
+require 'lsp.keymappings'
+
 -- Source each LSP server configuration
 require 'lsp.bash'
 require 'lsp.c'
@@ -8,22 +11,6 @@ require 'lsp.nix'
 require 'lsp.python'
 require 'lsp.typescript'
 
-
--- General LSP key mappings
-local nmap = require 'utils'.nmap
-
-nmap('gd', vim.lsp.buf.definition)
-nmap('gD', vim.lsp.buf.references)
-nmap('gt', vim.lsp.buf.type_definition)
-nmap('gi', vim.lsp.buf.implementation)
-nmap('K', vim.lsp.buf.hover)
-
--- Navigate in diagnostics
-nmap('<leader>k', vim.diagnostic.goto_prev)
-nmap('<leader>j', vim.diagnostic.goto_next)
-
--- Rename
-nmap('<F2>', vim.lsp.buf.rename)
 
 -- scroll up hover doc
 vim.cmd('command! -nargs=0 LspVirtualTextToggle lua require("lsp/virtual_text").toggle()')
