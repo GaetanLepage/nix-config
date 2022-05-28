@@ -1,12 +1,5 @@
 local tree_cb = require'nvim-tree.config'.nvim_tree_callback
 
--- If 0, do not show the icons for one of 'git' 'folder' and 'files' 1 by default, notice that if
--- 'files' is 1, it will only display if nvim-web-devicons is installed and on your runtimepath
-vim.g.nvim_tree_show_icons = {
-    git = 1,
-    folders = 1,
-    files = 1
-}
 
 -- Automatically close the tab/vim when nvim-tree is the last window in the tab.
 vim.api.nvim_create_autocmd(
