@@ -1,7 +1,9 @@
 -- pip install python-lsp-server
 -- pip install mypy-ls
 require 'lspconfig'.pylsp.setup {
-    capabilities = require 'cmp_nvim_lsp'.update_capabilities(vim.lsp.protocol.make_client_capabilities()),
+    capabilities = require 'cmp_nvim_lsp'.update_capabilities(
+        vim.lsp.protocol.make_client_capabilities()
+    ),
     enable = true,
     cmd = { 'pylsp' },
     -- cmd = { 'pylsp', '-vvv', '--log-file', 'pylsp.log' },

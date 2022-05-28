@@ -28,7 +28,9 @@ end
 require 'lspconfig'.sumneko_lua.setup {
     cmd = {sumneko_binary, "-E", sumneko_root_path .. "/main.lua"},
     on_attach = require'vim.lsp'.common_on_attach,
-    capabilities = require 'cmp_nvim_lsp'.update_capabilities(vim.lsp.protocol.make_client_capabilities()),
+    capabilities = require 'cmp_nvim_lsp'.update_capabilities(
+        vim.lsp.protocol.make_client_capabilities()
+    ),
     settings = {
         Lua = {
             runtime = {
