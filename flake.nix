@@ -15,7 +15,7 @@
     description = "My NixOS/home-manager configuration.";
 
     inputs = {
-        nixpkgs.url = "github:nixos/nixpkgs/nixos-21.11";
+        nixpkgs.url = "github:nixos/nixpkgs/nixos-22.05";
 
         home-manager = {
              url = "github:nix-community/home-manager";
