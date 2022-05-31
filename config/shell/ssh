@@ -6,9 +6,9 @@
 # Gnome keyring daemon
 if [ -n "$DESKTOP_SESSION" ]; then
     # echo "Desktop session: using gnome-keyring"
-    $IS_NIX && GKD=/run/wrappers/bin/gnome-keyring-daemon || GKD=gnome-keyring-daemon
-    eval $($GKD --start --components=ssh)
+    eval `gnome-keyring-daemon --start --components=ssh --daemonize 2> /dev/null`
     export SSH_AUTH_SOCK
+    # export SSH_AUTH_SOCK='/run/user/1000/keyring/ssh'
 
 else
 # Else, use the OpenSSH default ssh-agent.
