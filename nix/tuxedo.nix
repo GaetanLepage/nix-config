@@ -315,6 +315,7 @@
             tree
             unzip
             wget
+            zip
 
             # Multimedia
             ffmpeg
