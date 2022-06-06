@@ -9,10 +9,12 @@ application/x.bittorrent=torrent.desktop;
 
 [Default Applications]
 video/x-matroska=mpv.desktop;
-video/mp4=mpv.desktop;
+video/mp4=vlc.desktop;
+video/quicktime=vlc.desktop;
 image/gif=mpvgif.desktop;
 image/png=org.gnome.gThumb.desktop;
 image/jpeg=org.gnome.gThumb.desktop;
+image/heif=org.gnome.gThumb.desktop;
 text/html=firefox.desktop;
 text/xml=firefox.desktop;
 x-scheme-handler/http=firefox.desktop;
