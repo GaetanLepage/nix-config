@@ -86,7 +86,7 @@ use 'mhinz/vim-startify'                -- Start screen
 use 'moll/vim-bbye'                     -- Delete buffers (close files) without closing your windows
                                         --  or messing up the layout
 use 'voldikss/vim-floaterm'             -- A floating terminal window in neovim
-use 'majutsushi/tagbar'                 -- Easy way to browse the tags of the current file and get
+use 'preservim/tagbar'                  -- Easy way to browse the tags of the current file and get
                                         --  an overview of its structure
 use 'terrortylor/nvim-comment'          -- Offer key mapping to comment code
 use 'nvim-neorg/neorg'                  -- Orgmode for neovim

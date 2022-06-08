@@ -1,2 +1,2 @@
-vim.api.nvim_set_keymap('n', '<C-g>', ':TagbarToggle<CR>', {noremap=true, silent=true})
+require 'utils'.nmap('<C-g>', ':TagbarToggle<CR>')
 vim.g.tagbar_width = 50
