@@ -48,21 +48,13 @@
                     # Home manager configutation
                     home-manager.nixosModules.home-manager
                     {
-                        home-manager.useGlobalPkgs = true;
-                        home-manager.useUserPackages = true;
-                        home-manager.users.gaetan = import ./nix/home.nix;
+                        home-manager = {
+                            useGlobalPkgs = true;
+                            useUserPackages = true;
+                            users.gaetan = import ./nix/home.nix;
+                        };
                     }
                 ];
-            };
-
-            homeConfigurations.ultrafast = home-manager.lib.homeManagerConfiguration {
-                # Specify the path to your home configuration here
-                configuration = import ./nix/ultrafast.nix;
-
-                inherit system username;
-                homeDirectory = "/home/gaetan";
-                # Update the state version as needed.
-                stateVersion = "22.05";
             };
         };
 }
