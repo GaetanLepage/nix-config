@@ -22,6 +22,10 @@ update_sink() {
     #echo "Detected sink: $SINK"
 }
 
+unmute() {
+    pactl set-sink-mute ${SINK} 0
+}
+
 increase_volume() {
     STEP=$1
     pactl set-sink-volume "$SINK" +"$STEP"%
@@ -42,21 +46,22 @@ case $1 in
         case $1 in
             up)
                 # Unmute first
-                pactl set-sink-mute ${SINK} 0
+                unmute
 
                 increase_volume $STEP
             ;;
+
             down)
                 # Unmute first
-                pactl set-sink-mute ${SINK} 0
+                unmute
 
                 decrease_volume $STEP
             ;;
-            *)
+
         esac
         ;;
+
     mute_toggle)
         pactl set-sink-mute ${SINK} toggle
     ;;
-    *)
 esac
