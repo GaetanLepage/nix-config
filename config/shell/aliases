@@ -235,7 +235,8 @@ alias \
     rci='remi cluster interactive' \
     rck='remi cluster kill' \
     rceu='remi cluster -s exputils.sh' \
-    rt='remi tensorboard'
+    rt='remi tensorboard' \
+    rst='remi ssh-tunnel'
 
 #######
 # Nix #
