@@ -20,6 +20,7 @@ rsync -zravut $HOME/ server:$dest_path \
     --exclude ".config/Microsoft/" \
     --exclude ".julia/" \
     --exclude ".mozilla/firefox/gaetan/storage/default/https+++app.slack.com/" \
+    --exclude ".local/share/lbry/" \
     --exclude ".local/share/nvim/" \
     --exclude ".local/share/R/" \
     --exclude ".local/share/Steam/" \
