@@ -18,10 +18,10 @@
         # Include the results of the hardware scan.
         ./tuxedo-hw.nix
 
-        # ./modules/wacom.nix
-        # ./modules/virtualbox.nix
-        # ./modules/android.nix
+        ./modules/android.nix
         # ./modules/steam.nix
+        # ./modules/virtualbox.nix
+        # ./modules/wacom.nix
     ];
 
 
