@@ -43,8 +43,8 @@ o.updatetime = 100          -- Faster completion
 
 -- Line numbers
 o.relativenumber = true     -- Relative line numbers
-o.number = true             -- display the absolute line number of the current line
-o.hidden = true             -- keep closed buffer open in the background
+o.number = true             -- Display the absolute line number of the current line
+o.hidden = true             -- Keep closed buffer open in the background
 o.clipboard = 'unnamedplus' -- Use system clipboard
 o.mouse = 'a'               -- Enable mouse control
 o.splitbelow = true         -- A new window is put below the current one
@@ -57,25 +57,25 @@ o.undofile = true           -- Automatically save and restore undo history
 o.incsearch = true          -- Incremental search: show match for partly typed search command
 o.smartcase = true          -- Override the 'ignorecase' option if the search
                             -- pattern contains upper case characters
-o.scrolloff = 8             -- number of screen lines to show around the cursor
+o.scrolloff = 8             -- Number of screen lines to show around the cursor
 o.cursorline = false        -- Highlight the screen line of the cursor
 o.cursorcolumn = false      -- Highlight the screen column of the cursor
-o.signcolumn = 'yes'        -- whether to show the signcolumn
-o.colorcolumn = '100'       -- columns to highlight
-o.laststatus = 3            -- when to use a status line for the last window
-o.encoding = 'utf-8'        -- encoding used to print the PostScript file for :hardcopy
+o.signcolumn = 'yes'        -- Whether to show the signcolumn
+o.colorcolumn = '100'       -- Columns to highlight
+o.laststatus = 3            -- When to use a status line for the last window
+o.encoding = 'utf-8'        -- Encoding used to print the PostScript file for :hardcopy
 o.termguicolors = true      -- Enables 24-bit RGB color in the |TUI|
-o.spell = false             -- highlight spelling mistakes (local to window)
+o.spell = false             -- Highlight spelling mistakes (local to window)
 
 -- Set completeopt to have a better completion experience
 o.completeopt = {'menu', 'menuone', 'noselect'}
 
 -- Tab options
-o.tabstop = 4               -- number of spaces a <Tab> in the text stands for (local to buffer)
-o.shiftwidth = 4            -- number of spaces used for each step of (auto)indent (local to buffer)
-o.softtabstop = 0           -- if non-zero, number of spaces to insert for a <Tab> (local to buffer)
-o.expandtab = true          -- expand <Tab> to spaces in Insert mode (local to buffer)
-o.smartindent = true        -- do clever autoindenting
+o.tabstop = 4               -- Number of spaces a <Tab> in the text stands for (local to buffer)
+o.shiftwidth = 4            -- Number of spaces used for each step of (auto)indent (local to buffer)
+o.softtabstop = 0           -- If non-zero, number of spaces to insert for a <Tab> (local to buffer)
+o.expandtab = true          -- Expand <Tab> to spaces in Insert mode (local to buffer)
+o.smartindent = true        -- Do clever autoindenting
 
 o.textwidth = 100
 
