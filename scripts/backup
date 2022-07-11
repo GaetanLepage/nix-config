@@ -5,6 +5,12 @@ if ! [ `hostname` = "tuxedo" ]; then
     exit 1
 fi
 
+DRY_RUN=''
+if [ "$1" = "-d" ]; then
+    DRY_RUN='--dry-run'
+fi
+
+
 dest_path=/zfspool/gaetan/backup/home
 
 rsync -zravut $HOME/ server:$dest_path \
@@ -30,4 +36,4 @@ rsync -zravut $HOME/ server:$dest_path \
     --exclude "node_modules/" \
     --exclude "server/" \
     --exclude "venv/" \
-    # --dry-run
+    $DRY_RUN
