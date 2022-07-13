@@ -354,6 +354,7 @@
             pcmanfm
             pdfsam-basic
             signal-desktop
+            slack
             spotify
             thunderbird
             zathura
