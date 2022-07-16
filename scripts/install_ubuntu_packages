@@ -1,0 +1,55 @@
+#!/bin/sh
+
+SOFTWARE_DIR=/opt
+
+set -e
+
+alias apt_install="sudo apt install -y --no-install-recommends"
+
+
+# Update the system
+sudo apt update && sudo apt upgrade
+
+
+# Shell & CLI tools
+apt_install bat
+apt_install exa
+apt_install ranger
+apt_install ripgrep
+apt_install zsh
+
+apt_install python3 python3-pip python3-venv python3-distutils
+
+apt_install htop btop nvtop
+apt_install pipx && pipx install nvitop
+
+
+##########
+# Neovim #
+##########
+
+# Install dependencies
+apt_install \
+    ninja-build \
+    gettext \
+    libtool \
+    libtool-bin \
+    autoconf \
+    automake \
+    cmake \
+    g++ \
+    pkg-config \
+    unzip \
+    curl \
+    doxygen
+
+# Clone the repo if needed
+cd $SOFTWARE_DIR/
+# If the folder doesn't exist, clone the repo and build
+if ! [ -d neovim ]; then
+    git clone https://github.com/neovim/neovim
+fi
+cd neovim
+make clean && rm -rf build
+make CMAKE_BUILD_TYPE=RelWithDebInfo -j `nproc`
+sudo make install
