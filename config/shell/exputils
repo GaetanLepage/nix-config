@@ -7,11 +7,9 @@
 case "`hostname`" in
 
     alya|auriga|bacchus|chamaeleon)
-        echo "INRIA"
         PATH_TO_EXPUTILS=$HOME/scratch/exputils_sync/code_exputils
         ;;
     tuxedo)
-        echo "LOCAL"
         PATH_TO_EXPUTILS=$HOME/inria/code/exputils
         ;;
     *)
