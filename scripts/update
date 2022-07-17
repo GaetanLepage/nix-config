@@ -8,7 +8,7 @@ distro=$(cat /etc/os-release | grep -oP '(?<=^ID=).*')
 # echo "Detected distribution: $distro"
 
 # Ubuntu / Debian
-if [[ $distro =~ ubuntu|debian ]]; then
+if [[ $distro =~ ubuntu|debian|pop ]]; then
     sudo apt-get update
     sudo apt-get dist-upgrade
 
