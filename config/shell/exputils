@@ -4,15 +4,25 @@
 # Exputils #
 ############
 # define path to the exputils folder
-# PATH_TO_EXPUTILS=$HOME/inria/code/exputils
-PATH_TO_EXPUTILS=$HOME/scratch/inria/code/exputils
+case "`hostname`" in
 
-if [ -d $PATH_TO_EXPUTILS ]; then
-    if [ -f "$PATH_TO_EXPUTILS/commands/eu_setup.sh" ] ; then
-        . "$PATH_TO_EXPUTILS/commands/eu_setup.sh" "$PATH_TO_EXPUTILS"
-    fi
-    # set default project for exputils commands
-    export EU_DEFAULT_PRJ=rlan
-    # activate the default project
-    source eu_activate $EU_DEFAULT_PRJ
+    alya|auriga|bacchus|chamaeleon)
+        echo "INRIA"
+        PATH_TO_EXPUTILS=$HOME/scratch/exputils_sync/code_exputils
+        ;;
+    tuxedo)
+        echo "LOCAL"
+        PATH_TO_EXPUTILS=$HOME/inria/code/exputils
+        ;;
+    *)
+        echo "[EXPUTILS] Warning '`hostname`' is an unknown hostname."
+        ;;
+esac
+
+if [ -f "$PATH_TO_EXPUTILS/commands/eu_setup.sh" ] ; then
+    . "$PATH_TO_EXPUTILS/commands/eu_setup.sh" "$PATH_TO_EXPUTILS"
 fi
+# set default project for exputils commands
+export EU_DEFAULT_PRJ=rlan
+# activate the default project
+source eu_activate $EU_DEFAULT_PRJ
