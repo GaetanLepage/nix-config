@@ -61,7 +61,6 @@ install_dotfiles() {
     link_config_file config/shell/profile .profile
     link_config_file config/shell/bashrc .bashrc
     $IS_NIX || link_config_file config/zsh/zshenv .zshenv
-    link_config_file config/tmux/tmux.conf .tmux.conf
 
 
     ####################
