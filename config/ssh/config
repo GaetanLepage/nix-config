@@ -64,16 +64,20 @@ Host bastion
     User galepage
     IdentityFile ~/.ssh/rsa_gaetan
 
-Host alya
-    HostName alya.inrialpes.fr
-    User galepage
-    ProxyJump bastion
-
 Host cluster
     HostName access1-cp.inrialpes.fr
     User galepage
     ProxyJump bastion
 
+Host alya
+    HostName alya.inrialpes.fr
+    User galepage
+    ProxyJump bastion
+
+Host auriga
+    HostName auriga.inrialpes.fr
+    User galepage
+    ProxyJump bastion
 
 ##########
 # GriCAD #
