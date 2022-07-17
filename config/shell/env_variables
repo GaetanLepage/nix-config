@@ -21,6 +21,7 @@ export DISTRO=$(cat /etc/os-release | grep -oP '(?<=^ID=).*')
 export XDG_DATA_HOME=${XDG_DATA_HOME:="$HOME/.local/share"}
 export XDG_CACHE_HOME=${XDG_CACHE_HOME:="$HOME/.cache"}
 export XDG_CONFIG_HOME=${XDG_CONFIG_HOME:="$HOME/.config"}
+export XDG_STATE_HOME=${XDG_STATE_HOME:="$HOME/.local/state"}
 
 # Disable files
 export LESSHISTFILE=-
@@ -30,8 +31,15 @@ export HISTFILE=$ZDOTDIR/.zsh_history
 
 # Fixing Paths
 export TMPDIR=/tmp
-export XINITRC="$XDG_CONFIG_HOME"/X11/xinitrc
-export XSERVERRC="$XDG_CONFIG_HOME"/X11/xserverrc
+
+# X11
+# export XINITRC="$XDG_CONFIG_HOME"/X11/xinitrc
+# export XSERVERRC="$XDG_CONFIG_HOME"/X11/xserverrc
+# export XCOMPOSECACHE="$XDG_CACHE_HOME"/X11/xcompose
+# export XAUTHORITY="$XDG_RUNTIME_DIR"/Xauthority
+# export XCOMPOSECACHE="${XDG_CACHE_HOME}"/X11/xcompose
+# export XCURSOR_PATH=/usr/share/icons:${XDG_DATA_HOME}/icons
+
 export GEM_PATH="$XDG_DATA_HOME/ruby/gems"
 export GEM_SPEC_CACHE="$XDG_DATA_HOME/ruby/specs"
 export GEM_HOME="$XDG_DATA_HOME/ruby/gems"
@@ -41,6 +49,9 @@ export GNUPGHOME="$XDG_DATA_HOME"/gnupg
 export _JAVA_OPTIONS=-Djava.util.prefs.userRoot="$XDG_CONFIG_HOME"/java
 # export GTK2_RC_FILES="$XDG_CONFIG_HOME"/gtk-2.0/gtkrc
 export CARGO_HOME="$XDG_CONFIG_HOME"/cargo
+export ANDROID_HOME="$XDG_DATA_HOME"/android
+export PYTHONSTARTUP="${XDG_CONFIG_HOME}/python/pythonrc"
+export JUPYTER_CONFIG_DIR="$XDG_CONFIG_HOME"/jupyter
 
 # Libraries installed in ~/.local/lib
 export LD_LIBRARY_PATH=$HOME/.local/lib
@@ -73,6 +84,9 @@ export MONITOR_TUI_CMD='btop'
 
 # R (location of the `R/` directory)
 export R_LIBS_USER="~/.local/share/R"
+
+# Julia
+export JULIA_DEPOT_PATH="$XDG_DATA_HOME/julia:$JULIA_DEPOT_PATH"
 
 export CM_SELECTIONS="clipboard"
 export CM_DEBUG=0

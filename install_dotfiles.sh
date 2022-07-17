@@ -26,7 +26,8 @@ distro=$(cat /etc/os-release | grep -oP '(?<=^ID=).*')
 link_config_file () {
     SOURCE_FILE=$1
     SOURCE_PATH=$path/$SOURCE_FILE
-    DEST_PATH=$HOME/${2:-$SOURCE_FILE}
+    # If no second argument was provided, link `config/foo/bar` to `~/.bar`
+    DEST_PATH=$HOME/${2:-".`basename $SOURCE_FILE`"}
 
     ln -sf $SOURCE_PATH $DEST_PATH
 
@@ -52,15 +53,15 @@ config_dir_link () {
 
 install_dotfiles() {
     # Home directory
+    # Those lines link `config/foo/bar` to `~/.bar`
     echo -e "\n## Linking \"home\" dotfiles ##"
-    link_config_file config/git/gitconfig .gitconfig
-    link_config_file config/conda/condarc .condarc
-    link_config_file config/x11/xinitrc .xinitrc
-    link_config_file config/x11/Xmodmap .Xmodmap
-    link_config_file config/x11/xprofile .xprofile
-    link_config_file config/shell/profile .profile
-    link_config_file config/shell/bashrc .bashrc
-    $IS_NIX || link_config_file config/zsh/zshenv .zshenv
+    link_config_file config/conda/condarc
+    link_config_file config/x11/xinitrc
+    link_config_file config/x11/Xmodmap
+    link_config_file config/x11/xprofile
+    link_config_file config/shell/profile
+    link_config_file config/shell/bashrc
+    $IS_NIX || link_config_file config/zsh/zshenv
 
 
     ####################
@@ -75,6 +76,7 @@ install_dotfiles() {
     config_dir_link bspwm
     config_dir_link dunst
     config_dir_link flameshot
+    config_dir_link git
     $IS_NIX || config_dir_link gtk-2.0
     $IS_NIX || config_dir_link gtk-3.0
     $IS_NIX || config_dir_link gtk-4.0
@@ -82,10 +84,12 @@ install_dotfiles() {
     config_dir_link lazygit
     config_dir_link nix
     config_dir_link nixpkgs
+    config_dir_link npm
     config_dir_link nvim
     $IS_ARCH && config_dir_link paru
     config_dir_link picom
     config_dir_link polybar
+    config_dir_link python
     config_dir_link ranger
     config_dir_link rofi
     config_dir_link shell
