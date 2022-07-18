@@ -18,6 +18,9 @@ apt_install ranger
 apt_install ripgrep
 apt_install zsh
 
+apt_install tmux
+apt_install pavucontrol
+
 apt_install python3 python3-pip python3-venv python3-distutils
 
 apt_install htop btop nvtop
