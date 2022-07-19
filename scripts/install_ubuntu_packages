@@ -1,6 +1,6 @@
 #!/bin/sh
 
-SOFTWARE_DIR=/opt
+SOFTWARE_DIR=/scratch/alya/galepage/software
 
 set -e
 
@@ -22,9 +22,16 @@ apt_install tmux
 apt_install pavucontrol
 
 apt_install python3 python3-pip python3-venv python3-distutils
+apt_install nvidia-cuda-toolkit
 
 apt_install htop btop nvtop
 apt_install pipx && pipx install nvitop
+
+
+# Go
+sudo add-apt-repository ppa:longsleep/golang-backports
+sudo apt update
+apt_install golang
 
 
 ##########
@@ -55,4 +62,23 @@ fi
 cd neovim
 make clean && rm -rf build
 make CMAKE_BUILD_TYPE=RelWithDebInfo -j `nproc`
+sudo make install
+
+
+cd $SOFTWARE_DIR/
+# If the folder doesn't exist, clone the repo and build
+if ! [ -d lazygit ]; then
+    git clone https://github.com/jesseduffield/lazygit.git
+fi
+cd lazygit
+go install
+ln -s $GOPATH/bin/lazygit $HOME/.local/bin/
+
+
+cd $SOFTWARE_DIR/
+# If the folder doesn't exist, clone the repo and build
+if ! [ -d pfetch ]; then
+    git clone https://github.com/dylanaraps/pfetch.git
+fi
+cd pfetch
 sudo make install
