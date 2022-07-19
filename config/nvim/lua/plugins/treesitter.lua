@@ -3,14 +3,12 @@ require 'nvim-treesitter.configs'.setup {
     -- one of "all", "maintained" (parsers with maintainers), or a list of languages
     ensure_installed = {
         'bash',
-        'css',
+        'c',
         'html',
         'javascript',
-        'julia',
         'latex',
         'lua',
         'nix',
-        'norg',
         'python'
     },
 
