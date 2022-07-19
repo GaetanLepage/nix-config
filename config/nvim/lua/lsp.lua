@@ -77,7 +77,7 @@ require 'lspconfig'.rnix.setup {
     capabilities = capabilities
 }
 
--- python
+-- Python
 require 'lspconfig'.pylsp.setup {
     capabilities = capabilities,
     enable = true,
