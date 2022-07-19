@@ -6,8 +6,8 @@
 # define path to the exputils folder
 case "`hostname`" in
 
-    alya|auriga|bacchus|chamaeleon)
-        PATH_TO_EXPUTILS=$HOME/scratch/exputils_sync/code_exputils
+    alya|auriga|bacchus|chamaeleon|carina|access[1-2]-cp)
+        PATH_TO_EXPUTILS=$HOME/scratch/exputils_sync/code/exputils
         ;;
     tuxedo)
         PATH_TO_EXPUTILS=$HOME/inria/code/exputils
