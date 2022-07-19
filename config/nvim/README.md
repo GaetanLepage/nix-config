@@ -17,23 +17,13 @@ file.
     Colorscheme and custom highlights
 - [`keymappings.lua`](https://github.com/GaetanLepage/dotfiles/blob/master/config/nvim/lua/keymappings.lua):
     General keymappings (plugin independent)
+- [`lsp.lua`](https://github.com/GaetanLepage/dotfiles/blob/master/config/nvim/lua/lsp.lua):
+    Configuration for the native integrated LSP client as well as the different language servers I
+    use.
 - [`settings.lua`](https://github.com/GaetanLepage/dotfiles/blob/master/config/nvim/lua/settings.lua):
     General settings (vim options and custom autocommands)
 - [`utils.lua`](https://github.com/GaetanLepage/dotfiles/blob/master/config/nvim/lua/utils.lua):
     Utility functions used in the configuration
-
-
-### [`lua/lsp/`](https://github.com/GaetanLepage/dotfiles/blob/master/config/nvim/lua/lsp) LSP (language server protocole)
-
-I use the native integrated LSP client from Neovim.
-
-Some general LSP-related configuration is done in
-[`lua/lsp/init.lua`](https://github.com/GaetanLepage/dotfiles/blob/master/config/nvim/lua/lsp/init.lua)
-
-This directory is organized so that **1 language = 1 file in
-[`lua/lsp/`](https://github.com/GaetanLepage/dotfiles/blob/master/config/nvim/lua/lsp)**.\
-Hence, the LSP configuration for `python` can be found in
-[`lua/lsp/python.lua`](https://github.com/GaetanLepage/dotfiles/blob/master/config/nvim/lua/lsp/python.lua).
 
 
 ### [`lua/plugins/`](https://github.com/GaetanLepage/dotfiles/tree/master/config/nvim/lua/plugins) Plugins

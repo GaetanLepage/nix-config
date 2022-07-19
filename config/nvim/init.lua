@@ -26,5 +26,5 @@ require 'plugins'
 -- Colorscheme
 require 'colorscheme'
 
--- LSP
+-- LSP (Language Server Protocole) client and servers configurations
 require 'lsp'
