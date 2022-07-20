@@ -28,7 +28,11 @@ polybar -m | while IFS= read -r line;do
 
     # Detect if this monitor is the primary one
     IS_PRIMARY=$(echo $line | grep -Po '(?<=\().*(?=\))')
-    if [[ $IS_PRIMARY ]] ; then export TRAY_POS=right; else TRAY_POS=none ; fi
+    if [[ $IS_PRIMARY ]] ; then
+        TRAY_POS=right;
+    else
+        TRAY_POS=none ;
+    fi
 
     # Launch the bar
     TRAY_POS=$TRAY_POS MONITOR=$MONITOR polybar bar -r &
