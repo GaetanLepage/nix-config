@@ -4,7 +4,7 @@
 # neofetch
 pfetch
 
-SHELL_CONFIG_DIR=$HOME/.config/shell
+SHELL_CONFIG_DIR=$XDG_CONFIG_HOME/shell
 
 source_file() {
     path_to_source=$SHELL_CONFIG_DIR/$1

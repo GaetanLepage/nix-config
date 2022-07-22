@@ -27,10 +27,6 @@
 
     outputs = { self, nixpkgs, home-manager, neovim-nightly-overlay }:
         let
-
-            username = "gaetan";
-            system = "x86_64-linux";
-
             overlays = [
                 neovim-nightly-overlay.overlay
             ];
@@ -39,7 +35,9 @@
 
             # System configuration
             nixosConfigurations.tuxedo = nixpkgs.lib.nixosSystem {
-                inherit system;
+
+                system = "x86_64-linux";
+
                 modules = [
                     # The system configuration
                     ./nix/tuxedo.nix
