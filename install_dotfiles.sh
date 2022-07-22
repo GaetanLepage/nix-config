@@ -101,9 +101,9 @@ install_dotfiles() {
     $IS_NIX || config_dir_link zsh
 
     link_config_file config/betterlockscreenrc .config/betterlockscreenrc
-    link_config_file config/mimeapps.list .config/mimeapps.list
-    link_config_file config/user-dirs.dirs .config/user-dirs.dirs
     link_config_file config/wallpaper.jpg .config/wallpaper.jpg
+    $IS_NIX || link_config_file config/mimeapps.list .config/mimeapps.list
+    $IS_NIX || link_config_file config/user-dirs.dirs .config/user-dirs.dirs
 
     ################
     # Local folder #
