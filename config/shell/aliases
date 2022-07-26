@@ -38,6 +38,7 @@ alias \
     r='ranger' \
     ranger='ranger --choosedir=/tmp/.rangerdir; LASTDIR=$(cat /tmp/.rangerdir); cd "$LASTDIR"' \
     wttr='curl wttr.in/Grenoble+38000' \
+    x='xdg-open' \
     z='zathura'
 
 # Pull and install latest version of dotfiles
