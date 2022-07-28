@@ -8,9 +8,12 @@ is_con_active() {
 }
 
 if `is_con_active wireguard`; then
-    echo " wireguard"
+    echo "%{F#0f0} wireguard%{F-}"
+
 elif `is_con_active vpn_inria`; then
-    echo " inria"
+    echo "%{F#0f0} inria%{F-}"
+
 else
-    echo " no vpn"
+    echo "%{F#f00} no vpn%{F-}"
+
 fi
