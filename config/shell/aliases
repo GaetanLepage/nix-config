@@ -35,6 +35,7 @@ alias \
     n='neofetch' \
     ns='nvidia-smi' \
     pm='pulsemixer' \
+    pg='ping gnu.org' \
     r='ranger' \
     ranger='ranger --choosedir=/tmp/.rangerdir; LASTDIR=$(cat /tmp/.rangerdir); cd "$LASTDIR"' \
     wttr='curl wttr.in/Grenoble+38000' \
