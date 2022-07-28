@@ -2,18 +2,19 @@
 
 type nmcli >/dev/null 2>&1 || exit
 
+source $XDG_CONFIG_HOME/polybar/scripts/helper.sh
 
 is_con_active() {
     return `nmcli connection show --active | grep $1 > /dev/null`
 }
 
 if `is_con_active wireguard`; then
-    echo "%{F#0f0} wireguard%{F-}"
+    print_line " wireguard" $GREEN
 
 elif `is_con_active vpn_inria`; then
-    echo "%{F#0f0} inria%{F-}"
+    print_line " inria" $GREEN
 
 else
-    echo "%{F#f00} no vpn%{F-}"
+    print_line " no vpn" $RED
 
 fi

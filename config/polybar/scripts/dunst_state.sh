@@ -12,8 +12,10 @@
 # | Dunst state |
 # #-------------#
 
+source $XDG_CONFIG_HOME/polybar/scripts/helper.sh
+
 if [ "$(dunstctl is-paused)" == "true" ]; then
-    echo ""
+    print_line "  " $RED
 else
-    echo ""
+    print_line "  " $GREEN
 fi
