@@ -9,12 +9,13 @@ is_con_active() {
 }
 
 if `is_con_active wireguard`; then
-    print_line " wireguard" $GREEN
+    # print_line " wireguard" $GREEN
+    echo " wireguard"
 
 elif `is_con_active vpn_inria`; then
     print_line " inria" $GREEN
 
 else
-    print_line " no vpn" $RED
+    print_line " no vpn " $RED
 
 fi
