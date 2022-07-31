@@ -26,12 +26,10 @@ Host gaming
 # Server
 Host server
     HostName glepage.com
-    User gaetan
     IdentityFile ~/.ssh/rsa_gaetan
 
-Host bubu
-    HostName bubu-ensimag.fr
-    User bubu
+Host backup
+    HostName cordineaux.glepage.com
     IdentityFile ~/.ssh/rsa_gaetan
 
 Host desktop
