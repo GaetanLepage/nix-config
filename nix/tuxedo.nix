@@ -206,7 +206,6 @@
             "networkmanager"    # Enable user to add and edit network connections
         ];
         initialPassword = "password";
-        hashedPassword = "$6$vSEllGq22uUqcTqr$yfnc8NR4oojOWKt20IPT9jG3QvXoYu4h1fOkOAZi76bK7dV/BliVjuIySO3zJfZF/zYV4h51VuhknRVroe10t0";
         shell = pkgs.zsh;
     };
 
