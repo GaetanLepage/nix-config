@@ -15,7 +15,7 @@
     description = "My NixOS/home-manager configuration.";
 
     inputs = {
-        nixpkgs.url = "github:nixos/nixpkgs/nixos-22.05";
+        nixpkgs.url = "nixpkgs/nixos-22.05";
 
         home-manager = {
              url = "github:nix-community/home-manager/release-22.05";
@@ -40,7 +40,7 @@
 
                 modules = [
                     # The system configuration
-                    ./nix/tuxedo.nix
+                    ./nix/tuxedo-configuration.nix
                     { nixpkgs.overlays = overlays; }
 
                     # Home manager configutation
