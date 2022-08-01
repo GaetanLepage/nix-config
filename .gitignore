@@ -1,2 +1,4 @@
 # Output of the Nix flake build
 result
+
+flake.lock
