@@ -81,9 +81,9 @@ alias \
 
 # Server NFS mount
 alias \
-    msw='sudo mount 10.10.10.1:/tank ~/server && notify-send "server mounted"' \
-    msl='sudo mount 192.168.1.2:/tank ~/server && notify-send "server mounted"' \
-    us='sudo umount ~/server && notify-send "server unmounted"'
+    msw='sudo mount 10.10.10.1:/tank ~/server && dunstify "server mounted"' \
+    msl='sudo mount 192.168.1.2:/tank ~/server && dunstify "server mounted"' \
+    us='sudo umount ~/server && dunstify "server unmounted"'
 
 
 # Package managers
@@ -169,7 +169,7 @@ alias \
 
 # Copy output of last command
 alias \
-    co='"$(history | tail -2 | sed "s/  [0-9]*  //;2d")" > /tmp/cmdoutput && cat /tmp/cmdoutput | xsel -b && notify-send "Terminal" "Ouput Copied"' \
+    co='"$(history | tail -2 | sed "s/  [0-9]*  //;2d")" > /tmp/cmdoutput && cat /tmp/cmdoutput | xsel -b && dunstify "Terminal" "Ouput Copied"' \
     trp='trash-put' \
     tre='trash-empty' \
     trl='trash-list' \

@@ -1,4 +1,4 @@
 #!/bin/sh
 
-# notify-send "[autorandr] switched to 'Home dual screen'"
+# dunstify "[autorandr] switched to 'Home dual screen'"
 # bspc monitor DP1-3 -d 1 2 3 4 5 7 9 && bspc monitor DP1-1 -d 6 8 10

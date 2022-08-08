@@ -27,11 +27,11 @@ case $1 in
             $TERMINAL --class update update &
         else
             echo "No updates"
-            notify-send "  No updates available"
+            dunstify "  No updates available"
         fi
         ;;
 
     *)
-        notify-send "wrong argument"
+        dunstify "wrong argument"
         ;;
 esac

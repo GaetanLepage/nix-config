@@ -7,7 +7,7 @@ consequences=$4
 
 main() {
     # Debug: displays (with dunst) the class and instance of the opened window
-    # notify-send "CLASS=$class INSTANCE=$instance"
+    # dunstify "CLASS=$class INSTANCE=$instance"
 
     case "$class" in
         Spotify)

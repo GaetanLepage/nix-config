@@ -8,9 +8,9 @@ if [ $STATE -eq 1 ]
 then
     xinput disable $ID
     # echo "Touchpad disabled"
-    notify-send "Touchpad disabled"
+    dunstify "Touchpad disabled"
 else
     xinput enable $ID
     # echo "Touchpad enabled"
-    notify-send "Touchpad enabled"
+    dunstify "Touchpad enabled"
 fi

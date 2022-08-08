@@ -17,11 +17,11 @@
 pidof picom >/dev/null 2>&1
 if [ $? -eq 0 ]; then
     # Terminate the process
-    notify-send "picom stopped"
+    dunstify "picom stopped"
     killall picom
 else
     # run picom
-    notify-send "picom started"
+    dunstify "picom started"
     picom -b --experimental-backends
 fi
 
