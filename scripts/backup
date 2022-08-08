@@ -11,9 +11,9 @@ if [ "$1" = "-d" ]; then
 fi
 
 
-dest_path=/zfspool/gaetan/backup/home
+dest_path=/tank/gaetan/backup/home
 
-rsync -zravutP $HOME/ server:$dest_path \
+rsync -zravut $HOME/ server:$dest_path \
     --human-readable \
     --delete \
     --delete-excluded \
