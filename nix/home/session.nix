@@ -1,0 +1,16 @@
+{ ... }:
+
+{
+    home = {
+
+        sessionPath = [
+
+        ];
+
+        sessionVariables = [
+
+        ];
+
+    };
+}
+

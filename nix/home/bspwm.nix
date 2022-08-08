@@ -6,6 +6,7 @@
         enable = true;
 
         monitors = {
+            # TODO make monitor-independant
             eDP-1 = [ 1 2 3 4 5 6 7 8 9 10 ];
         };
 
@@ -82,5 +83,8 @@
             bspc desktop 8 -l monocle
         '';
 
+        startupPrograms = [
+            # TODO
+        ];
     };
 }

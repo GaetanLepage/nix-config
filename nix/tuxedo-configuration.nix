@@ -19,10 +19,15 @@
         ./tuxedo-hw.nix
 
         ./modules/android.nix
+        ./modules/bluetooth.nix
+        ./modules/packages.nix
+        ./modules/sound.nix
         # ./modules/steam.nix
+        ./modules/users.nix
         # ./modules/virtualbox.nix
         # ./modules/wacom.nix
         ./modules/wireguard.nix
+        ./modules/x.nix
     ];
 
 
@@ -48,6 +53,7 @@
         };
     };
 
+    nixpkgs.config.allowUnfree = true;
 
     boot = {
         kernelPackages = pkgs.linuxPackages_latest;
@@ -63,21 +69,6 @@
             timeout = 0;
 
             grub.enable = false;
-            # grub = {
-            #     enable = true;
-            #     device = "nodev";
-            #     efiSupport = true;
-            #
-            #     # Limits the number of configurations to keep.
-            #     # This prevents wasting to much space but more importantly, prevents the /boot
-            #     # partition from getting full.
-            #     configurationLimit = 4;
-            #
-            #     enableCryptodisk = true;
-            #
-            #     # For legacy BIOS
-            #     # device = "/dev/sda";
-            # };
         };
     };
 
@@ -87,20 +78,9 @@
     networking = {
         hostName = "tuxedo";
 
-        # The global useDHCP flag is deprecated, therefore explicitly set to false here.
-        # Per-interface useDHCP will be mandatory in the future, so this generated config
-        # replicates the default behaviour.
-        useDHCP = false;
-
         networkmanager.enable = true;
 
-        firewall = {
-            enable = true;
-
-            # Open ports in the firewall.
-            allowedTCPPorts = [ 22 ];
-            allowedUDPPorts = [ ];
-        };
+        firewall.enable = true;
     };
 
     # Select internationalisation properties.
@@ -120,105 +100,7 @@
         })
     ];
 
-    # List services that you want to enable:
-    services = {
-
-        gnome.gnome-keyring.enable = true;
-
-        pipewire = {
-            enable = true;
-            alsa.enable = true;
-            alsa.support32Bit = true;
-            pulse.enable = true;
-        };
-
-        logind.extraConfig = ''
-            # don’t shutdown when power button is short-pressed
-            HandlePowerKey=ignore
-        '';
-
-        xserver = {
-            # Enable the X11 windowing system.
-            enable = true;
-
-            serverFlagsSection = ''
-              Option "BlankTime" "0"
-              Option "StandbyTime" "0"
-              Option "SuspendTime" "0"
-              Option "OffTime" "0"
-            '';
-
-            # Configure keymap in X11
-            layout = "fr";
-
-            # Enable touchpad support
-            libinput.enable = true;
-
-            # Whether to symlink the X server configuration under /etc/X11/xorg.conf
-            exportConfiguration = true;
-
-            displayManager = {
-                # startx.enable = true;
-                lightdm = {
-                    enable = true;
-
-                    greeters = {
-                        gtk = {
-                            enable = true;
-                            theme = {
-                                name = "Matcha-dark-aliz";
-                                package = pkgs.matcha-gtk-theme;
-                            };
-                            cursorTheme = {
-                                name = "Numix-Cursor-Light";
-                                package = pkgs.numix-cursor-theme;
-                            };
-                        };
-                    };
-                };
-            };
-
-            windowManager.bspwm.enable = true;
-        };
-
-        openssh = {
-            enable = true;
-            passwordAuthentication = false;
-        };
-
-        blueman.enable = true;
-    };
-
-
-    # Enable sound. Set to `false` if using PipeWire
-    sound.enable = false;
-
-    hardware = {
-        pulseaudio.enable = false;
-
-        # Bluetooth
-        bluetooth = {
-            enable = true;
-            powerOnBoot = true;
-        };
-    };
-
-    # Define a user account. Don't forget to set a password with ‘passwd’.
-    users = {
-        users.gaetan = {
-            isNormalUser = true;
-            group = "gaetan";
-
-            extraGroups = [
-                "wheel"             # Enable ‘sudo’ for the user.
-                "networkmanager"    # Enable user to add and edit network connections
-            ];
-            initialPassword = "password";
-            shell = pkgs.zsh;
-        };
-
-        groups.gaetan.gid = 1000;
-    };
+    services.gnome.gnome-keyring.enable = true;
 
     # List packages installed in system profile. To search, run:
     # $ nix search wget
@@ -228,16 +110,6 @@
         };
 
         pathsToLink = [ "/share/zsh" ];
-
-        systemPackages = import ./modules/packages.nix pkgs;
-    };
-
-    nixpkgs = {
-        config = {
-            allowUnfree = true;
-
-            pulseaudio = true;
-        };
     };
 
     # Some programs need SUID wrappers, can be configured further or are
@@ -249,6 +121,9 @@
         zsh.enable = true;
     };
 
+    # Members of group wheel can execute sudo commands without password.
+    security.sudo.wheelNeedsPassword = false;
+
     system = {
         autoUpgrade.enable = false;
 
@@ -259,12 +134,5 @@
         # Before changing this value read the documentation for this option
         # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
         stateVersion = "22.05"; # Did you read the comment?
-    };
-
-    security = {
-        # Members of group wheel can execute sudo commands without password.
-        sudo.wheelNeedsPassword = false;
-
-        pam.services.sddm.enableGnomeKeyring = true;
     };
 }

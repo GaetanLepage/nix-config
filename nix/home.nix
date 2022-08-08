@@ -14,10 +14,12 @@
 { config, pkgs, ... }:
 
 {
-
     imports = [
         ./home
     ];
+
+    # Let Home Manager install and manage itself.
+    programs.home-manager.enable = true;
 
     # Home Manager needs a bit of information about you and the
     # paths it should manage.
@@ -35,21 +37,7 @@
         # changes in each release.
         stateVersion = "22.05";
 
-        keyboard = {
-            layout = "fr";
-            options = [ "caps:swapescape" ];
-        };
-
-        pointerCursor = {
-            name = "Numix-Cursor-Light";
-            package = pkgs.numix-cursor-theme;
-        };
-
         packages = with pkgs; [
-            # Shell
-            direnv                      # Needed by lori
-            spaceship-prompt
-
             # Misc
             git-crypt
             hugo
@@ -80,99 +68,10 @@
                 ipython
                 matplotlib
                 numpy
-                pandas
+                # pandas
                 pytorch
             ]))
-
-            # neovim
-            nodePackages.neovim
-            nodejs
-            tree-sitter
-            yarn                        # Needed to install Markdown-preview plugin
-
-            # Language servers
-            nodePackages.bash-language-server           # Bash language server
-            nodePackages.typescript                     # TypeScript
-            nodePackages.typescript-language-server     # TypeScript language server
-            sumneko-lua-language-server                 # Lua language server
-            clang-tools                                 # C/C++ language server
-            texlab                                      # LaTeX language server
-            xdotool                                     # For forward search in zathura
-            pstree                                      # For inverse search in vimtex
-            rnix-lsp                                    # Nix language server
         ];
-    };
-
-    programs = {
-        # Let Home Manager install and manage itself.
-        home-manager.enable = true;
-
-        autojump.enable = true;
-
-        firefox = {
-            enable = true;
-
-            profiles = {
-                gaetan = {
-                    id = 0;
-                    isDefault = true;
-                    path = "gaetan";
-                    settings = {
-                        # Needed to hide the tab bar
-                        "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
-                    };
-
-                    # Hide the tab bar
-                    userChrome = ''
-                        #TabsToolbar { visibility: collapse !important; }
-                    '';
-                };
-
-                lcf = {
-                    id = 1;
-                    isDefault = false;
-                    path = "lcf";
-                    settings = {
-                        # Needed to hide the tab bar
-                        "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
-                    };
-
-                    # Hide the tab bar
-                    userChrome = ''
-                        #TabsToolbar { visibility: collapse !important; }
-                    '';
-                };
-            };
-        };
-
-        zsh = {
-            enable = true;
-
-            dotDir = ".config/zsh_nix";
-
-            enableAutosuggestions = true;
-            enableSyntaxHighlighting = true;
-
-            history.size = 50000;
-
-            oh-my-zsh = {
-                enable = true;
-                plugins = [ "git" ];
-                custom = "$HOME/.config/zsh_nix/custom";
-            };
-
-
-            initExtra = ''
-                # Spaceship theme
-                source ${pkgs.spaceship-prompt}/share/zsh/site-functions/prompt_spaceship_setup
-                autoload -U promptinit; promptinit
-
-                source $HOME/.config/shell/shell_init
-
-                # Hook direnv
-                emulate zsh -c "$(direnv hook zsh)"
-            '';
-        };
     };
 
     services = {
@@ -190,25 +89,11 @@
 
     nixpkgs.config.allowUnfree = true;
 
+    # Keyboard
     xsession.numlock.enable = true;
-
-    gtk = {
-        enable = true;
-        theme = {
-            name = "Matcha-dark-aliz";
-            package = pkgs.matcha-gtk-theme;
-        };
-        iconTheme = {
-            name = "Papirus-Dark";
-            package = pkgs.papirus-icon-theme;
-        };
-        font = {
-            name = "DejaVu Sans 11";
-        };
+    home.keyboard = {
+        layout = "fr";
+        options = [ "caps:swapescape" ];
     };
 
-
-    xresources = {
-
-    };
 }

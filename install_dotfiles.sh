@@ -76,7 +76,7 @@ install_dotfiles() {
     config_dir_link bspwm
     config_dir_link dunst
     config_dir_link flameshot
-    config_dir_link git
+    $IS_NIX || config_dir_link git
     $IS_NIX || config_dir_link gtk-2.0
     $IS_NIX || config_dir_link gtk-3.0
     $IS_NIX || config_dir_link gtk-4.0
@@ -120,10 +120,12 @@ install_dotfiles() {
     #######
     # SSH #
     #######
-    create_if_not_exist $HOME/.ssh
-    link_config_file config/ssh/config .ssh/config
-    cp -rpf secrets/ssh/* ~/.ssh/
-    chmod 600 ~/.ssh/rsa_gaetan
+    if ! $IS_NIX; then
+        create_if_not_exist $HOME/.ssh
+        link_config_file config/ssh/config .ssh/config
+        cp -rpf secrets/ssh/* ~/.ssh/
+        chmod 600 ~/.ssh/rsa_gaetan
+    fi
 }
 
 
