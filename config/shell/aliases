@@ -81,8 +81,8 @@ alias \
 
 # Server NFS mount
 alias \
-    msw='sudo mount 10.10.10.1:/zfspool ~/server && notify-send "server mounted"' \
-    msl='sudo mount 192.168.1.2:/zfspool ~/server && notify-send "server mounted"' \
+    msw='sudo mount 10.10.10.1:/tank ~/server && notify-send "server mounted"' \
+    msl='sudo mount 192.168.1.2:/tank ~/server && notify-send "server mounted"' \
     us='sudo umount ~/server && notify-send "server unmounted"'
 
 
