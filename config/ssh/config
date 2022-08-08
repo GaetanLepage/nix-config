@@ -43,7 +43,7 @@ Host router
     User root
 
 Host oneplus
-    Hostname 10.10.10.4
+    Hostname 10.10.10.3
     Port 2222
 
 ###########
