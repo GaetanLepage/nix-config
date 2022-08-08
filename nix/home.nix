@@ -240,6 +240,7 @@
                 "video/mp4"         = "vlc.desktop";    # .mp4
                 "video/quicktime"   = "vlc.desktop";    # .mov
                 "video/x-matroska"  = "vlc.desktop";    # .mkv
+                "video/x-ms-wmv"    = "vlc.desktop";    # .wmv
             };
         };
     };
