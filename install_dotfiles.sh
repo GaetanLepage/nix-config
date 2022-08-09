@@ -55,7 +55,7 @@ install_dotfiles() {
     # Home directory
     # Those lines link `config/foo/bar` to `~/.bar`
     echo -e "\n## Linking \"home\" dotfiles ##"
-    link_config_file config/conda/condarc
+    # link_config_file config/conda/condarc
     link_config_file config/x11/xinitrc
     link_config_file config/x11/Xmodmap
     link_config_file config/x11/xprofile
@@ -80,8 +80,8 @@ install_dotfiles() {
     $IS_NIX || config_dir_link gtk-2.0
     $IS_NIX || config_dir_link gtk-3.0
     $IS_NIX || config_dir_link gtk-4.0
-    config_dir_link kitty
-    config_dir_link lazygit
+    $IS_NIX || config_dir_link kitty
+    $IS_NIX || config_dir_link lazygit
     config_dir_link nix
     config_dir_link nixpkgs
     config_dir_link npm
@@ -90,14 +90,14 @@ install_dotfiles() {
     config_dir_link picom
     config_dir_link polybar
     config_dir_link python
-    config_dir_link ranger
-    config_dir_link rofi
+    $IS_NIX || config_dir_link ranger
+    $IS_NIX || config_dir_link rofi
     config_dir_link shell
-    config_dir_link sxhkd
-    config_dir_link tmux
+    $IS_NIX || config_dir_link sxhkd
+    $IS_NIX || config_dir_link tmux
     config_dir_link vpn
     config_dir_link x11
-    config_dir_link zathura
+    $IS_NIX || config_dir_link zathura
     $IS_NIX || config_dir_link zsh
 
     link_config_file config/betterlockscreenrc .config/betterlockscreenrc

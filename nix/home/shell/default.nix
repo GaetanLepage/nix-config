@@ -1,6 +1,9 @@
 { pkgs, ... }:
 
 {
+    imports = [
+        ./exa.nix
+    ];
 
     home = {
         packages = with pkgs; [
@@ -8,11 +11,14 @@
             spaceship-prompt
         ];
 
-        shellAliases = import ./shell-aliases.nix;
+        shellAliases = import ./aliases.nix;
     };
 
     programs = {
+
         autojump.enable = true;
+
+        direnv.enable = true;
 
         zsh = {
             enable = true;
@@ -36,9 +42,6 @@
                 autoload -U promptinit; promptinit
 
                 source $HOME/.config/shell/shell_init
-
-                # Hook direnv
-                emulate zsh -c "$(direnv hook zsh)"
             '';
         };
     };

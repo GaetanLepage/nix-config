@@ -1,4 +1,0 @@
-{
-    # TODO
-    toto = "echo toto";
-}

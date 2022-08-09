@@ -1,35 +1,34 @@
 { ... }:
 
 {
-    xsession.bspwm = {
+    xsession.windowManager.bspwm = {
 
         enable = true;
 
         monitors = {
-            # TODO make monitor-independant
-            eDP-1 = [ 1 2 3 4 5 6 7 8 9 10 ];
+            "primary" = [ "1" "2" "3" "4" "5" "6" "7" "8" "9" "10" ];
         };
 
         rules = {
             # States
-            Blueman-manager.state = "floating";
-            ".blueman-manager-wrapped".state = "floating";
-            Nm-connection-editor.state = "floating";
-            Pavucontrol.state = "floating";
-            "Thunderbird:Calendar:*".state = "floating";
+            Blueman-manager.state               = "floating";
+            ".blueman-manager-wrapped".state    = "floating";
+            Nm-connection-editor.state          = "floating";
+            Pavucontrol.state                   = "floating";
+            "Thunderbird:Calendar:*".state      = "floating";
             "Steam:Steam:'Steam - News*'".state = "floating";       # TODO test
-            Zathura.state = "tiled";
+            Zathura.state                       = "tiled";
 
             # Assignments
-            Firefox.desktop = "2";
-            Thunderbird.desktop = "4";
-            Signal.desktop = "6";
-            Element.desktop = "8";
-            Steam.desktop = "8";
-            Slack.desktop = "8";
-            discord.desktop = "8";
-            "Jitsi Meet".desktop = "8";
-            btop.desktop = "8";
+            Firefox.desktop         = "2";
+            Thunderbird.desktop     = "4";
+            Signal.desktop          = "6";
+            Element.desktop         = "8";
+            Steam.desktop           = "8";
+            Slack.desktop           = "8";
+            discord.desktop         = "8";
+            "Jitsi Meet".desktop    = "8";
+            btop.desktop            = "8";
         };
 
 
@@ -74,7 +73,8 @@
         extraConfig = ''
 
             # Add custom rules for Spotify and zotero
-            bspc config external_rules_command "$XDG_CONFIG_HOME/bspwm/custom_rules.sh"
+            # TODO enable
+            # bspc config external_rules_command "$XDG_CONFIG_HOME/bspwm/custom_rules.sh"
 
             # Automatically set certain worskpaces' layout
             bspc desktop 2 -l monocle
@@ -84,7 +84,10 @@
         '';
 
         startupPrograms = [
-            # TODO
+            "signal-desktop"
+            "pidof nextcloud || nextcloud"
+            "sudo g610-led -a ff"
+            "killall polybar; MONITOR=HDMI-1 polybar bar -r"
         ];
     };
 }

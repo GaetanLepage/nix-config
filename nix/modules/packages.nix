@@ -11,7 +11,6 @@
         killall
         nfs-utils                   # Linux user-space NFS utilities
         nix-index
-        vim
         udiskie
         xclip
         xorg.xbacklight
@@ -34,8 +33,7 @@
         # Software development
         ctags
         git
-        lazygit
-        neovim-nightly
+        lazygit     # TODO move to home
         texlive.combined.scheme-full
 
         # Shell
@@ -74,7 +72,6 @@
         picom
         polybar
         rofi
-        sxhkd
         xwallpaper
 
         # Hardware Monitoring

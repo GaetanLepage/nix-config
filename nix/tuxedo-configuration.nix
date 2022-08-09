@@ -20,6 +20,7 @@
 
         ./modules/android.nix
         ./modules/bluetooth.nix
+        ./modules/neovim.nix
         ./modules/packages.nix
         ./modules/sound.nix
         # ./modules/steam.nix
@@ -37,15 +38,16 @@
             experimental-features = nix-command flakes
         '';
 
-        trustedUsers = [ "root" "gaetan" ];
+        # TODO uncomment
+        # trustedUsers = [ "root" "gaetan" ];
 
-        binaryCaches = [
-            "https://nix-community.cachix.org"
-        ];
+        # binaryCaches = [
+        #     "https://nix-community.cachix.org"
+        # ];
 
-        binaryCachePublicKeys = [
-            "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
-        ];
+        # binaryCachePublicKeys = [
+        #     "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+        # ];
 
         gc = {
             automatic = true;
@@ -104,13 +106,7 @@
 
     # List packages installed in system profile. To search, run:
     # $ nix search wget
-    environment = {
-        variables = {
-            EDITOR = "nvim";
-        };
-
-        pathsToLink = [ "/share/zsh" ];
-    };
+    environment.pathsToLink = [ "/share/zsh" ];
 
     # Some programs need SUID wrappers, can be configured further or are
     # started in user sessions.

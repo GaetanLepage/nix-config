@@ -13,7 +13,7 @@ source_file() {
 
 source_file env_variables
 source_file inputrc
-source_file aliases
+# source_file aliases
 source_file ssh
 source_file onefetch_hook
 source_file conda

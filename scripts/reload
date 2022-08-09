@@ -70,7 +70,7 @@ autorandr -c
 run_in_bg setbg
 
 # Run picom
-run_if_not_running picom -b --experimental-backends
+# run_if_not_running picom -b --experimental-backends
 
 
 ############
@@ -81,10 +81,10 @@ run_if_not_running picom -b --experimental-backends
 run_if_not_running numlockx
 
 # Keyboard remaps
-run_in_bg remaps
+# run_in_bg remaps
 
 # Run the keyboard daemon (if we are on BSPWM)
-[[ $WM == "bspwm" ]] && kill_and_run sxhkd
+# [[ $WM == "bspwm" ]] && kill_and_run sxhkd
 
 # Logitech keyboard backlight profile
 type g610-led && sudo g610-led -a ff

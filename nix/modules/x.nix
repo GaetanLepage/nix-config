@@ -45,6 +45,7 @@
                     };
                 };
             };
+
             windowManager.bspwm.enable = true;
         };
     };

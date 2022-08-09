@@ -5,16 +5,7 @@ let
     hes_key =  "${config.home.homeDirectory}/.dotfiles/secrets/ssh/hes_ssh_key";
 
 in {
-    # services.gnome-keyring.enable = true;
-    # services.gpg-agent = {
-    #     enable = true;
-    #     enableSshSupport = true;
-    #     sshKeys = [
-    #         main_key
-    #         hes_key
-    #     ];
-    #
-    # };
+    # TODO ssh-agent when on a CLI environment (ex: alya)
 
     programs.ssh = {
         enable = true;
@@ -112,6 +103,12 @@ in {
                 user = "lepageg";
             };
         };
+    };
+
+    home.shellAliases = {
+        sa      = "ssh alya";
+        sam     = "ssh alya -t tmux attach-session -t hm";
+        sshi    = "ssh -J bastion";
     };
 }
 

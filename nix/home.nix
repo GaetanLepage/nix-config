@@ -37,6 +37,10 @@
         # changes in each release.
         stateVersion = "22.05";
 
+        # TODO find a way to not depend on the scripts folder being linked by the
+        # install_dotfiles.sh script
+        sessionPath = [ "${config.home.homeDirectory}/scripts" ];
+
         packages = with pkgs; [
             # Misc
             git-crypt
@@ -77,23 +81,10 @@
     services = {
         # gnome-keyring.enable = true;
 
-        # gpg-agent = {
-        #     enable = true;
-        #     enableSshSupport = true;
-        # };
-
         blueman-applet.enable = true;
         network-manager-applet.enable = true;
         lorri.enable = true;
     };
 
     nixpkgs.config.allowUnfree = true;
-
-    # Keyboard
-    xsession.numlock.enable = true;
-    home.keyboard = {
-        layout = "fr";
-        options = [ "caps:swapescape" ];
-    };
-
 }
