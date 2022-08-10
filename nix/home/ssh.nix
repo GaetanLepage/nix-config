@@ -108,7 +108,7 @@ in {
     home.shellAliases = {
         sa      = "ssh alya";
         sam     = "ssh alya -t tmux attach-session -t hm";
-        sshi    = "ssh -J bastion";
+        sshi    = "ssh -J bastion -l galepage";
     };
 }
 

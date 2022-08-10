@@ -80,7 +80,6 @@
 
         # GUI applications
         discord
-        kitty
         firefox
         flameshot
         element-desktop

@@ -34,7 +34,7 @@
     ##############
     # NFS mounts #
     ##############
-    ms  = "sudo mount 10.10.10.1:/tank ~/server && dunstify 'server mounted";
+    ms  = "sudo mount 10.10.10.1:/tank ~/server && dunstify 'server mounted'";
     us  = "sudo umount ~/server && dunstify 'server unmounted'";
 
 

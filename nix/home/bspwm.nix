@@ -21,14 +21,15 @@
 
             # Assignments
             Firefox.desktop         = "2";
-            Thunderbird.desktop     = "4";
+            thunderbird.desktop     = "4";
             Signal.desktop          = "6";
+            Zotero.desktop          = "7";
             Element.desktop         = "8";
             Steam.desktop           = "8";
             Slack.desktop           = "8";
             discord.desktop         = "8";
             "Jitsi Meet".desktop    = "8";
-            btop.desktop            = "8";
+            btop.desktop            = "10";
         };
 
 
@@ -76,6 +77,29 @@
             # TODO enable
             # bspc config external_rules_command "$XDG_CONFIG_HOME/bspwm/custom_rules.sh"
 
+            custom_rules() {
+                wid=$1
+                class=$2
+                instance=$3
+                consequences=$4
+
+                # Debug: displays (with dunst) the class and instance of the opened window
+                dunstify "CLASS=$class INSTANCE=$instance"
+
+                if [ -n $class ]; then
+                    sleep 0.5
+
+                    wm_class=($(xprop -id $wid | grep "WM_CLASS" | grep -Po '"\K[^,"]+'))
+                    dunstify $(xprop -id $wid)
+                fi
+                # case "$class" in
+                #     Spotify) echo "desktop=9" ;;
+                #     Zotero) echo "desktop=7" ;;
+                #     *py) echo "state=floating" ;;
+                # esac
+            }
+            bspc config external_rules_command custom_rules
+
             # Automatically set certain worskpaces' layout
             bspc desktop 2 -l monocle
             bspc desktop 4 -l monocle
@@ -84,10 +108,15 @@
         '';
 
         startupPrograms = [
+            # GUI apps
+            "pidof firefox || firefox"
+            "thunderbird"
             "signal-desktop"
-            "pidof nextcloud || nextcloud"
+            "pidof btop || kitty --class btop btop"
+
+            # "pidof nextcloud || nextcloud"   # TODO remove
             "sudo g610-led -a ff"
-            "killall polybar; MONITOR=HDMI-1 polybar bar -r"
+            "polybar_launcher"
         ];
     };
 }

@@ -120,13 +120,13 @@
             # set the window state
             "super + t"                 = "bspc node -t tiled";
 
-            "super + f"                 = "bspc node -t \~fullscreen";
+            "super + f"                 = "bspc node -t \\~fullscreen";
 
             "super + m"                 = "bspc desktop -l monocle";
 
             "super + ctrl + space"      = "bsp-layout cycle";
 
-            "super + shift + space"     = "bspc node -t \~floating";
+            "super + shift + space"     = "bspc node -t \\~floating";
 
             "super + v"                 = "bspc node @/ -R 90";
 

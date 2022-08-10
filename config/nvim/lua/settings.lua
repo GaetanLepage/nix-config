@@ -63,7 +63,7 @@ o.cursorcolumn = false      -- Highlight the screen column of the cursor
 o.signcolumn = 'yes'        -- Whether to show the signcolumn
 o.colorcolumn = '100'       -- Columns to highlight
 o.laststatus = 3            -- When to use a status line for the last window
-o.encoding = 'utf-8'        -- Encoding used to print the PostScript file for :hardcopy
+o.fileencoding = 'utf-8'    -- File-content encoding for the current buffer
 o.termguicolors = true      -- Enables 24-bit RGB color in the |TUI|
 o.spell = false             -- Highlight spelling mistakes (local to window)
 
@@ -77,7 +77,8 @@ o.softtabstop = 0           -- If non-zero, number of spaces to insert for a <Ta
 o.expandtab = true          -- Expand <Tab> to spaces in Insert mode (local to buffer)
 o.smartindent = true        -- Do clever autoindenting
 
-o.textwidth = 100
+o.textwidth = 100           -- Maximum width of text that is being inserted.  A longer line will be
+	                       -- broken after white space to get this width.
 
 -- Folding
 o.foldmethod = 'indent'     -- Set folding type to indent

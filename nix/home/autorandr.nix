@@ -5,8 +5,8 @@ let
 
 in {
     home.shellAliases = {
-        ah = "autorandr -c home";
-        ai = "autorandr -c inria";
+        ah = "autorandr -l home";
+        ai = "autorandr -l inria";
     };
 
     programs.autorandr = {
