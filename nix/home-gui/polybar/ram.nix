@@ -23,6 +23,6 @@
 
             indicator = { text = "|"; font = 1; foreground = "#ff"; };
             fill =      { text = "▐"; font = 2; };
-            empty =     { text = "▐"; font = 2; foreground = "#55"; };
+            empty =     { text = "▐"; font = 2; foreground = "#40"; };
         };
 }

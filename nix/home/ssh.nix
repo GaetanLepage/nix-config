@@ -5,8 +5,6 @@ let
     hes_key =  "${config.home.homeDirectory}/.dotfiles/secrets/ssh/hes_ssh_key";
 
 in {
-    # TODO ssh-agent when on a CLI environment (ex: alya)
-
     programs.ssh = {
         enable = true;
 
@@ -104,6 +102,8 @@ in {
             };
         };
     };
+
+    # TODO ssh-agent when on a CLI environment (ex: alya)
 
     home.shellAliases = {
         sa      = "ssh alya";

@@ -81,7 +81,6 @@
         # GUI applications
         discord
         firefox
-        flameshot
         element-desktop
         jitsi-meet-electron
         libreoffice-fresh

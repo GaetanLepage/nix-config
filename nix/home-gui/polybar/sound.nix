@@ -29,7 +29,7 @@ in {
         width = 10;
         foreground  = [ green green green green green green ];
         indicator   = { text = "|"; font = 1; };
-        empty       = { text = "▐"; font = 2; foreground = "#55"; };
+        empty       = { text = "▐"; font = 2; foreground = "#40"; };
         fill        = { text = "▐"; font = 2; };
     };
 }
