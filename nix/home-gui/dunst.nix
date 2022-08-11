@@ -30,8 +30,9 @@
                 # Defines color of the frame around the notification window.
                 frame_color = "#ebdbb2";
 
-                font = "DejaVu Sans 14";
-                # font = "Noto Sans 16";
+                font = "DejaVu Sans 18";
+
+                format = "%s %p\\n%b";
 
                 # Math all notifications (low, normal and critical)
                 background = "#282828";

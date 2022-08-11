@@ -1,10 +1,13 @@
 { pkgs, ... }:
 
 {
+    xdg.configFile.nvim.source = ./nvim;
+
     home = {
         packages = with pkgs; [
 
-            # neovim
+            neovim-nightly
+
             nodePackages.neovim
             nodejs
             tree-sitter

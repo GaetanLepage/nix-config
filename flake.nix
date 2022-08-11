@@ -51,7 +51,7 @@
                         home-manager = {
                             useGlobalPkgs = true;
                             useUserPackages = true;
-                            users.gaetan = import ./nix/home.nix;
+                            users.gaetan = import ./nix/home-gui.nix;
                         };
                     }
                 ];

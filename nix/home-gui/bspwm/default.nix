@@ -1,6 +1,9 @@
-{ ... }:
+{ config, ... }:
 
-{
+let
+    extra_rules_script_path = "bspwm/extra_rules.sh";
+
+in {
     xsession.windowManager.bspwm = {
 
         enable = true;
@@ -74,49 +77,36 @@
         extraConfig = ''
 
             # Add custom rules for Spotify and zotero
-            # TODO enable
-            # bspc config external_rules_command "$XDG_CONFIG_HOME/bspwm/custom_rules.sh"
-
-            custom_rules() {
-                wid=$1
-                class=$2
-                instance=$3
-                consequences=$4
-
-                # Debug: displays (with dunst) the class and instance of the opened window
-                dunstify "CLASS=$class INSTANCE=$instance"
-
-                if [ -n $class ]; then
-                    sleep 0.5
-
-                    wm_class=($(xprop -id $wid | grep "WM_CLASS" | grep -Po '"\K[^,"]+'))
-                    dunstify $(xprop -id $wid)
-                fi
-                # case "$class" in
-                #     Spotify) echo "desktop=9" ;;
-                #     Zotero) echo "desktop=7" ;;
-                #     *py) echo "state=floating" ;;
-                # esac
-            }
-            bspc config external_rules_command custom_rules
+            bspc config external_rules_command ${config.xdg.configHome}/${extra_rules_script_path}
 
             # Automatically set certain worskpaces' layout
             bspc desktop 2 -l monocle
             bspc desktop 4 -l monocle
             bspc desktop 7 -l monocle
             bspc desktop 8 -l monocle
+
+
+            autorandr -c
         '';
 
         startupPrograms = [
+            # "autorandr -c"  # TODO remove
+            "xwallpaper --zoom ${config.xdg.dataFile.wallpaper.target}"
+
             # GUI apps
             "pidof firefox || firefox"
             "thunderbird"
             "signal-desktop"
             "pidof btop || kitty --class btop btop"
 
-            # "pidof nextcloud || nextcloud"   # TODO remove
             "sudo g610-led -a ff"
-            "polybar_launcher"
+            "$XDG_CONFIG_HOME/polybar/polybar.sh"
         ];
+    };
+
+    xdg.configFile.bspwm_extra_rules = {
+        executable = true;
+        target = extra_rules_script_path;
+        source = ./extra_rules.sh;
     };
 }

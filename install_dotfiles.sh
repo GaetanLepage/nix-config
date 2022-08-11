@@ -70,7 +70,7 @@ install_dotfiles() {
     [ ! -d $HOME/.config ] && mkdir $HOME/.config && echo -e "\nCreated config file ($HOME/.config/)"
 
     echo -e "\n## Linking conventional dotfiles ##"
-    config_dir_link autorandr
+    $IS_NIX || config_dir_link autorandr
     config_dir_link bpytop
     config_dir_link btop
     config_dir_link bspwm
@@ -82,9 +82,9 @@ install_dotfiles() {
     $IS_NIX || config_dir_link gtk-4.0
     $IS_NIX || config_dir_link kitty
     $IS_NIX || config_dir_link lazygit
-    config_dir_link nix
-    config_dir_link nixpkgs
-    config_dir_link npm
+    $IS_NIX || config_dir_link nix
+    $IS_NIX || config_dir_link nixpkgs
+    $IS_NIX || config_dir_link npm
     config_dir_link nvim
     $IS_ARCH && config_dir_link paru
     config_dir_link picom
@@ -96,7 +96,7 @@ install_dotfiles() {
     $IS_NIX || config_dir_link sxhkd
     $IS_NIX || config_dir_link tmux
     config_dir_link vpn
-    config_dir_link x11
+    $IS_NIX || config_dir_link x11
     $IS_NIX || config_dir_link zathura
     $IS_NIX || config_dir_link zsh
 
