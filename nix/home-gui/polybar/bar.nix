@@ -21,7 +21,7 @@
         right = 2;
     };
 
-    module.margin = 2;
+    module.margin = 1;
 
     font = [
         "Ubuntu Nerd Font:style=Book:size=10;1'"

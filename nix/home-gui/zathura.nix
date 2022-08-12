@@ -104,28 +104,28 @@
         # };
 
         # TODO when PR is merged
-        # extraConfig = ''
-        #     map K       zoom in
-        #     map J       zoom out
-        #
-        #     map r       reload
-        #     map R       rotate
-        #
-        #     map u       scroll half-up
-        #     map d       scroll half-down
-        #
-        #     map D       toggle_page_mode
-        #
-        #     map i       recolor
-        #
-        #     # next/previous page
-        #     map <Right> navigate next
-        #     map <Left>  navigate previous
-        #     map <Down>  scroll down
-        #     map <Up>    scroll up
-        #
-        #     map H       navigate previous
-        #     map L       navigate next
-        # '';
+        extraConfig = ''
+            map K       zoom in
+            map J       zoom out
+
+            map r       reload
+            map R       rotate
+
+            map u       scroll half-up
+            map d       scroll half-down
+
+            map D       toggle_page_mode
+
+            map i       recolor
+
+            # next/previous page
+            map <Right> navigate next
+            map <Left>  navigate previous
+            map <Down>  scroll down
+            map <Up>    scroll up
+
+            map H       navigate previous
+            map L       navigate next
+        '';
     };
 }

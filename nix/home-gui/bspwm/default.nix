@@ -99,9 +99,9 @@ in {
             "pidof btop || kitty --class btop btop"
 
             "sudo g610-led -a ff"
-            # TODO remove
-            # "$XDG_CONFIG_HOME/polybar/polybar.sh"
-            "killall polybar && polybar bar -r"
+
+            # polybar
+            "killall polybar; polybar bar -r"
         ];
     };
 

@@ -50,11 +50,8 @@
             "super + ctrl + i"                      = "sudo rfkill block bluetooth";
 
             # Dunst (notifications)
-            "alt + space"                           = "dunstctl close";
-
-            "ctrl + super + space"                  = "dunstctl close-all";
-
-            "ctrl + super + c"                      = "dunstctl context";
+            "super + n"                             = "dunstctl set-paused false";
+            "super + shift + n"                     = "dunstctl set-paused true";
 
 
             ################
@@ -74,13 +71,11 @@
             "super + x"         = "xkill";
 
             # picom
-            "super + p"         = "picom_toggle";
+            "super + p"         = "systemctl --user start picom && dunstify 'started picom'";
+            "super + shift + p" = "systemctl --user stop  picom && dunstify 'stopped picom'";
 
             # screenshot (flameshot)
             "Print"             = "flameshot gui";
-
-            # toggle dunst
-            "super + shift + d" = "dunstctl set-paused toggle";
 
             # pcmanfm
             "super + F3"        = "pcmanfm";

@@ -19,7 +19,7 @@
         lazygit = {
             enable = true;
             settings.gui = {
-                showFileTree = false;
+                # showFileTree = false;
 
                 theme = {
                     activeBorderColor = [ "blue" "bold" ];
