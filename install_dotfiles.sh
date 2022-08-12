@@ -73,7 +73,7 @@ install_dotfiles() {
     $IS_NIX || config_dir_link autorandr
     config_dir_link bpytop
     config_dir_link btop
-    config_dir_link bspwm
+    $IS_NIX || config_dir_link bspwm
     config_dir_link dunst
     config_dir_link flameshot
     $IS_NIX || config_dir_link git

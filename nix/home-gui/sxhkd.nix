@@ -32,9 +32,9 @@
             "super + g"                             = "pavucontrol";
 
             # Volume control
-            "{XF86AudioRaiseVolume,super + Up}"     = "volume up 5";
-            "{XF86AudioLowerVolume,super + Down}"   = "volume down 5";
-            "XF86AudioMute"                         = "volume mute_toggle";
+            "{XF86AudioRaiseVolume,super + Up}"     = "pactl set-sink-volume @DEFAULT_SINK@ +5%";
+            "{XF86AudioLowerVolume,super + Down}"   = "pactl set-sink-volume @DEFAULT_SINK@ -5%";
+            "XF86AudioMute"                         = "pactl set-sink-mute @DEFAULT_SINK@ toggle";
             # Media player
             "XF86AudioPlay"                         = "playerctl play-pause";
             "XF86AudioPause"                        = "playerctl pause";

@@ -30,7 +30,7 @@
                 # Defines color of the frame around the notification window.
                 frame_color = "#ebdbb2";
 
-                font = "DejaVu Sans 18";
+                font = "DejaVu Sans 16";
 
                 format = "%s %p\\n%b";
 

@@ -10,7 +10,6 @@
     home = {
         packages = with pkgs; [
             direnv                      # Needed by lori
-            spaceship-prompt
         ];
 
         shellAliases = import ./aliases.nix;

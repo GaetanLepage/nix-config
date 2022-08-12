@@ -39,10 +39,6 @@
         # changes in each release.
         stateVersion = "22.05";
 
-        # TODO find a way to not depend on the scripts folder being linked by the
-        # install_dotfiles.sh script
-        sessionPath = [ "${config.home.homeDirectory}/scripts" ];
-
         packages = with pkgs; [
             # Misc
             git-crypt
@@ -79,6 +75,16 @@
             ]))
         ];
     };
+
+    ###########
+    # Scripts #
+    ###########
+    xdg.configFile.scripts.source = ../scripts;
+    # Add the scripts directory to PATH
+    # install_dotfiles.sh script
+    home.sessionPath = [
+        "${config.home.homeDirectory}/${config.xdg.configFile.scripts.target}"
+    ];
 
     services = {
         lorri.enable = true;

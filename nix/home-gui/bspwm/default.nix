@@ -19,7 +19,7 @@ in {
             Nm-connection-editor.state          = "floating";
             Pavucontrol.state                   = "floating";
             "Thunderbird:Calendar:*".state      = "floating";
-            "Steam:Steam:'Steam - News*'".state = "floating";       # TODO test
+            "Steam:Steam:'Steam - News*'".state = "floating";
             Zathura.state                       = "tiled";
 
             # Assignments
@@ -90,7 +90,6 @@ in {
         '';
 
         startupPrograms = [
-            # "autorandr -c"  # TODO remove
             "xwallpaper --zoom ${config.xdg.dataFile.wallpaper.target}"
 
             # GUI apps

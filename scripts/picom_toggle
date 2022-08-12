@@ -15,13 +15,20 @@
 
 # Check if picom is running
 pidof picom >/dev/null 2>&1
+
 if [ $? -eq 0 ]; then
     # Terminate the process
-    dunstify "picom stopped"
-    killall picom
+
+    dunstify "picom stopped" &
+    # killall picom
+    ACTION=stop
+
 else
-    # run picom
-    dunstify "picom started"
-    picom -b --experimental-backends
+    # Run picom
+
+    dunstify "picom started" &
+    # picom -b --experimental-backends
+    ACTION=start
 fi
 
+systemctl --user $ACTION picom.service

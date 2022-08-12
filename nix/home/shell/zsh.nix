@@ -7,38 +7,62 @@
         target = "zsh/zsh_vim_bindings";
     };
 
-    home.packages = [ pkgs.pfetch ];
+    home.packages = with pkgs; [
+        pfetch
+    ];
 
-    programs.zsh = {
-        enable = true;
-
-        dotDir = ".config/zsh";
-
-        enableAutosuggestions = true;
-        enableSyntaxHighlighting = true;
-
-        history.size = 50000;
-
-        oh-my-zsh = {
+    programs = {
+        zsh = {
             enable = true;
-            plugins = [ "git" ];
-            # custom = "$HOME/.config/zsh_nix/custom"; TODO remove ?
+
+            dotDir = ".config/zsh";
+
+            enableAutosuggestions = true;
+            enableSyntaxHighlighting = true;
+
+            history.size = 50000;
+
+            oh-my-zsh = {
+                enable = true;
+                plugins = [ "git" ];
+            };
+
+            initExtra = ''
+                pfetch
+
+                # Vim keybindings
+                source ${config.home.homeDirectory}/${config.xdg.configFile.zsh_vim_bindings.target}
+
+                # Run the ssh-agent
+                eval `gnome-keyring-daemon --start --components=ssh --daemonize 2> /dev/null`
+                export SSH_AUTH_SOCK
+
+                echo $SSH
+            '';
         };
 
-        initExtra = ''
-            # Spaceship theme
-            source ${pkgs.spaceship-prompt}/share/zsh/site-functions/prompt_spaceship_setup
-            autoload -U promptinit; promptinit
+        # Prompt theme
+        starship = {
+            enable = true;
 
-            pfetch
+            settings = {
+                character = {
+                    success_symbol  = "[❯](bold green)";
+                    error_symbol    = "[✗](bold red)";
+                };
 
-            # Vim keybindings
-            source ${config.xdg.configFile.zsh_vim_bindings.target}
+                python = {
+                    format = "[$symbol $pyenv_prefix($version )(\\($virtualenv\\))]($style) ";
+                    symbol = "";
+                    version_format = "$raw";
+                    style = "bold yellow";
+                };
 
-            # Run the ssh-agent
-            eval `gnome-keyring-daemon --start --components=ssh --daemonize 2> /dev/null`
-            export SSH_AUTH_SOCK
-        '';
-
+                nix_shell = {
+                    format = "[$symbol$state]($style) ";
+                    symbol = "❄️";
+                };
+            };
+        };
     };
 }

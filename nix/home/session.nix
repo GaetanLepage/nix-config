@@ -1,6 +1,7 @@
 { ... }:
 
 {
+    # TODO useless ?
     home = {
 
         sessionPath = [
