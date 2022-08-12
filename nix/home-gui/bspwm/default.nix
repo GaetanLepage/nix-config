@@ -23,7 +23,7 @@ in {
             Zathura.state                       = "tiled";
 
             # Assignments
-            Firefox.desktop         = "2";
+            firefox.desktop         = "2";
             thunderbird.desktop     = "4";
             Signal.desktop          = "6";
             Zotero.desktop          = "7";
@@ -99,7 +99,9 @@ in {
             "pidof btop || kitty --class btop btop"
 
             "sudo g610-led -a ff"
-            "$XDG_CONFIG_HOME/polybar/polybar.sh"
+            # TODO remove
+            # "$XDG_CONFIG_HOME/polybar/polybar.sh"
+            "killall polybar && polybar bar -r"
         ];
     };
 

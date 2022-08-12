@@ -1,6 +1,5 @@
 {
     bottom = true;
-    monitor = "$\{env:MONITOR}";
     width = "100%";
     height = 30;
     offset = { x = 0; y = 0; };
@@ -39,7 +38,7 @@
     };
 
     tray = {
-        position = "\${env:TRAY_POS:right}";
+        position = "right";
         maxsize = 20;
     };
 

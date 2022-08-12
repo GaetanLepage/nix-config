@@ -1,20 +1,21 @@
-{ ... }:
+{ config, ... }:
 
 {
     xdg = {
         enable = true;
 
         userDirs = {
+
             enable = true;
 
-            desktop     = "$HOME/desktop";
-            documents   = "$HOME/documents";
-            download    = "$HOME/downloads";
-            music       = "$HOME/music";
-            pictures    = "$HOME/pictures";
-            publicShare = "$HOME/public";
-            templates   = "$HOME/templates";
-            videos      = "$HOME/videos";
+            desktop     = "${config.home.homeDirectory}/desktop";
+            documents   = "${config.home.homeDirectory}/documents";
+            download    = "${config.home.homeDirectory}/downloads";
+            music       = "${config.home.homeDirectory}/music";
+            pictures    = "${config.home.homeDirectory}/pictures";
+            publicShare = "${config.home.homeDirectory}/public";
+            templates   = "${config.home.homeDirectory}/templates";
+            videos      = "${config.home.homeDirectory}/videos";
 
         };
 
@@ -34,6 +35,7 @@
                 "image/heif"        = "org.gnome.gThumb.desktop";
                 "image/jpeg"        = "org.gnome.gThumb.desktop";
                 "image/png"         = "org.gnome.gThumb.desktop";
+                "image/webp"        = "org.gnome.gThumb.desktop";
 
                 # Videos
                 "video/mp4"         = "vlc.desktop";    # .mp4

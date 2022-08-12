@@ -56,11 +56,11 @@ install_dotfiles() {
     # Those lines link `config/foo/bar` to `~/.bar`
     echo -e "\n## Linking \"home\" dotfiles ##"
     # link_config_file config/conda/condarc
-    link_config_file config/x11/xinitrc
-    link_config_file config/x11/Xmodmap
-    link_config_file config/x11/xprofile
-    link_config_file config/shell/profile
-    link_config_file config/shell/bashrc
+    $IS_NIX || link_config_file config/x11/xinitrc
+    $IS_NIX || link_config_file config/x11/Xmodmap
+    $IS_NIX || link_config_file config/x11/xprofile
+    $IS_NIX || link_config_file config/shell/profile
+    $IS_NIX || link_config_file config/shell/bashrc
     $IS_NIX || link_config_file config/zsh/zshenv
 
 
