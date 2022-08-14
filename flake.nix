@@ -27,25 +27,32 @@
         neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
     };
 
-    outputs = { self, nixpkgs, home-manager, neovim-nightly-overlay }:
+    outputs = {
+        self,
+        nixpkgs,
+        home-manager,
+        neovim-nightly-overlay
+    }:
         let
             overlays = [
                 neovim-nightly-overlay.overlay
             ];
+
+            system = "x86_64-linux";
 
         in {
 
             # System configuration
             nixosConfigurations.tuxedo = nixpkgs.lib.nixosSystem {
 
-                system = "x86_64-linux";
+                inherit system;
 
                 modules = [
                     # The system configuration
                     ./nixos/tuxedo-configuration.nix
                     { nixpkgs.overlays = overlays; }
 
-                    # Home manager configutation
+                    # Home manager configuration
                     home-manager.nixosModules.home-manager
                     {
                         home-manager = {
@@ -55,6 +62,12 @@
                         };
                     }
                 ];
+            };
+
+            homeConfigurations.inria = home-manager.lib.homeManagerConfiguration {
+                pkgs = nixpkgs.legacyPackages.${system};
+
+                modules = [ ./home/inria.nix ];
             };
         };
 }
