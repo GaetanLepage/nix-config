@@ -1,4 +1,4 @@
-{ ... }:
+{ config, pkgs, ... }:
 
 {
     imports = [
@@ -15,6 +15,9 @@
 
     # Let Home Manager install and manage itself.
     programs.home-manager.enable = true;
+
+    # Enable use of non-free packages
+    nixpkgs.config.allowUnfree = true;
 
     home.packages = with pkgs; [
         bat
@@ -36,6 +39,4 @@
     home.sessionPath = [
         "${config.home.homeDirectory}/${config.xdg.configFile.scripts.target}"
     ];
-
-
 }
