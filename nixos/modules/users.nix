@@ -2,7 +2,6 @@
 
 {
     # Define a user account. Don't forget to set a password with ‘passwd’.
-    # TODO Make users imutable
     users = {
         mutableUsers = false;
 
