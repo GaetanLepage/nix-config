@@ -47,8 +47,6 @@
         fzf
         file
         ncdu
-        poppler_utils               # A PDF rendering library (used by `ranger` to preview PDFs)
-        ranger
         ripgrep
         tmux
         tree
@@ -100,5 +98,8 @@
         clang
         gcc
         python3
+
+        # Misc
+        hugo
     ];
 }

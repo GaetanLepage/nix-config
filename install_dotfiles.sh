@@ -85,7 +85,7 @@ install_dotfiles() {
     $IS_NIX || config_dir_link nix
     $IS_NIX || config_dir_link nixpkgs
     $IS_NIX || config_dir_link npm
-    config_dir_link nvim
+    $IS_NIX || config_dir_link nvim
     $IS_ARCH && config_dir_link paru
     config_dir_link picom
     config_dir_link polybar

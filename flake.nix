@@ -42,7 +42,7 @@
 
                 modules = [
                     # The system configuration
-                    ./nix/tuxedo-configuration.nix
+                    ./nixos/tuxedo-configuration.nix
                     { nixpkgs.overlays = overlays; }
 
                     # Home manager configutation
@@ -51,7 +51,7 @@
                         home-manager = {
                             useGlobalPkgs = true;
                             useUserPackages = true;
-                            users.gaetan = import ./nix/home-gui.nix;
+                            users.gaetan = import ./home/tuxedo.nix;
                         };
                     }
                 ];

@@ -49,6 +49,11 @@
         #     "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
         # ];
 
+        # Automatically detect files in the store that have identical contents, and replaces them
+        # with hard links to a single copy.
+        # This saves disk space.
+        settings.auto-optimise-store = true;
+
         gc = {
             automatic = true;
             options = "--delete-older-than 2d";

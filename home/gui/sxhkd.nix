@@ -32,9 +32,14 @@
             "super + g"                             = "pavucontrol";
 
             # Volume control
-            "{XF86AudioRaiseVolume,super + Up}"     = "pactl set-sink-volume @DEFAULT_SINK@ +5%";
-            "{XF86AudioLowerVolume,super + Down}"   = "pactl set-sink-volume @DEFAULT_SINK@ -5%";
+            "{XF86AudioRaiseVolume,super + Up}"     =
+                "pactl set-sink-mute @DEFAULT_SINK@ off && pactl set-sink-volume @DEFAULT_SINK@ +5%";
+
+            "{XF86AudioLowerVolume,super + Down}"   =
+                "pactl set-sink-mute @DEFAULT_SINK@ off && pactl set-sink-volume @DEFAULT_SINK@ -5%";
+
             "XF86AudioMute"                         = "pactl set-sink-mute @DEFAULT_SINK@ toggle";
+
             # Media player
             "XF86AudioPlay"                         = "playerctl play-pause";
             "XF86AudioPause"                        = "playerctl pause";
@@ -48,6 +53,10 @@
             "super + i"                             = "blueman-manager";
             "super + shift + i"                     = "sudo rfkill unblock bluetooth";
             "super + ctrl + i"                      = "sudo rfkill block bluetooth";
+
+            # Wireguard (VPN)
+            "super + u"                             = "sudo systemctl start wg-quick-wg0";
+            "super + shift + u"                     = "sudo systemctl stop wg-quick-wg0";
 
             # Dunst (notifications)
             "super + n"                             = "dunstctl set-paused false";
