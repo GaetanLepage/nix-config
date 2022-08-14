@@ -4,11 +4,17 @@ SOFTWARE_DIR=/scratch/alya/galepage/software
 
 set -e
 
-alias apt_install="sudo apt install -y --no-install-recommends"
+# alias apt_install="sudo apt install -y --no-install-recommends"
+alias apt_install="sudo nala install -y --no-install-recommends"
 
 
 # Update the system
 sudo apt update && sudo apt upgrade
+
+echo "deb http://deb.volian.org/volian/ scar main" | sudo tee /etc/apt/sources.list.d/volian-archive-scar-unstable.list
+wget -qO - https://deb.volian.org/volian/scar.key | sudo tee /etc/apt/trusted.gpg.d/volian-archive-scar-unstable.gpg > /dev/null
+sudo apt update
+sudo apt install -y nala
 
 
 # Shell & CLI tools
@@ -63,6 +69,8 @@ cd neovim
 make clean && rm -rf build
 make CMAKE_BUILD_TYPE=RelWithDebInfo -j `nproc`
 sudo make install
+
+sudo bash -c "$(curl -fsSL https://git.io/JsADh || wget -q https://git.io/JsADh -O -)"
 
 
 cd $SOFTWARE_DIR/
