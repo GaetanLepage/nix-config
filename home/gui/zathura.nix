@@ -78,54 +78,28 @@
         ################
         # Key mappings #
         ################
-        # TODO
-        # mappings = {
-        #     K = "zoom in";
-        #     J = "zoom out";
+        mappings = {
+            K = "zoom in";
+            J = "zoom out";
 
-        #     r = "reload";
-        #     R = "rotate";
+            r = "reload";
+            R = "rotate";
 
-        #     u = "scroll half-up";
-        #     d = "scroll half-down";
+            u = "scroll half-up";
+            d = "scroll half-down";
 
-        #     D = "toggle_page_mode";
+            D = "toggle_page_mode";
 
-        #     i = "recolor";
-
-        #     # next/previous page
-        #     H = "navigate previous";
-        #     L = "navigate next";
-
-        #     "<Right>"   = "navigate next";
-        #     "<Left>"    = "navigate previous";
-        #     "<Down>"    = "scroll down";
-        #     "<Up>"      = "scroll up";
-        # };
-
-        # TODO when PR is merged
-        extraConfig = ''
-            map K       zoom in
-            map J       zoom out
-
-            map r       reload
-            map R       rotate
-
-            map u       scroll half-up
-            map d       scroll half-down
-
-            map D       toggle_page_mode
-
-            map i       recolor
+            i = "recolor";
 
             # next/previous page
-            map <Right> navigate next
-            map <Left>  navigate previous
-            map <Down>  scroll down
-            map <Up>    scroll up
+            H = "navigate previous";
+            L = "navigate next";
 
-            map H       navigate previous
-            map L       navigate next
-        '';
+            "<Right>"   = "navigate next";
+            "<Left>"    = "navigate previous";
+            "<Down>"    = "scroll down";
+            "<Up>"      = "scroll up";
+        };
     };
 }
