@@ -2,6 +2,7 @@
 
 {
     xdg = {
+
         enable = true;
 
         userDirs = {
@@ -16,10 +17,11 @@
             publicShare = "${config.home.homeDirectory}/public";
             templates   = "${config.home.homeDirectory}/templates";
             videos      = "${config.home.homeDirectory}/videos";
-
         };
 
+
         mimeApps = {
+
             enable = true;
 
             defaultApplications = {
