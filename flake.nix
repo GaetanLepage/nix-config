@@ -37,6 +37,9 @@
             overlays = [
                 neovim-nightly-overlay.overlay
             ];
+            overlayModule = {
+                nixpkgs.overlays = overlays;
+            };
 
             system = "x86_64-linux";
 
@@ -50,7 +53,7 @@
                 modules = [
                     # The system configuration
                     ./nixos/tuxedo-configuration.nix
-                    { nixpkgs.overlays = overlays; }
+                    overlayModule
 
                     # Home manager configuration
                     home-manager.nixosModules.home-manager
@@ -67,7 +70,10 @@
             homeConfigurations.inria = home-manager.lib.homeManagerConfiguration {
                 pkgs = nixpkgs.legacyPackages.${system};
 
-                modules = [ ./home/inria.nix ];
+                modules = [
+                    overlayModule
+                    ./home/inria.nix
+                ];
             };
         };
 }
