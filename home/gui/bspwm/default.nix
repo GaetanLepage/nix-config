@@ -93,7 +93,7 @@ in {
             "xwallpaper --zoom ${config.xdg.dataFile.wallpaper.target}"
 
             # GUI apps
-            "pidof kitty || bspc desktop -f 1 && kitty"
+            "pidof kitty || ( bspc desktop -f 1 && kitty )"
             "pidof firefox || firefox"
             "thunderbird"
             "signal-desktop"
