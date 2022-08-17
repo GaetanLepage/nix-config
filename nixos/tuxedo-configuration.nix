@@ -23,7 +23,7 @@
         ./modules/neovim.nix
         ./modules/packages.nix
         ./modules/sound.nix
-        # ./modules/steam.nix
+        ./modules/steam.nix
         ./modules/users.nix
         # ./modules/virtualbox.nix
         # ./modules/wacom.nix
