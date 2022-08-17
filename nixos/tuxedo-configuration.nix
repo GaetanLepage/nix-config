@@ -38,21 +38,22 @@
             experimental-features = nix-command flakes
         '';
 
-        # TODO uncomment
-        # trustedUsers = [ "root" "gaetan" ];
+        settings = {
 
-        # binaryCaches = [
-        #     "https://nix-community.cachix.org"
-        # ];
+            trusted-users = [ "root" "gaetan" ];
 
-        # binaryCachePublicKeys = [
-        #     "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
-        # ];
+            substituters = [
+                "https://nix-community.cachix.org"
+            ];
 
-        # Automatically detect files in the store that have identical contents, and replaces them
-        # with hard links to a single copy.
-        # This saves disk space.
-        settings.auto-optimise-store = true;
+            trusted-public-keys = [
+                "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+            ];
+
+            # Automatically detect files in the store that have identical contents, and replaces
+            # them with hard links to a single copy. This saves disk space.
+            auto-optimise-store = true;
+        };
 
         gc = {
             automatic = true;
