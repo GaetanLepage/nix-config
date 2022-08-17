@@ -14,7 +14,6 @@
 
                 src = fetchGit {
                     url = "ssh://git@gitlab.inria.fr/remote-inria/remi.git";
-                    ref = version;
                     rev = "6c47c9ef9229e65f3688fdba660e47283e433d8b";
                 };
 
