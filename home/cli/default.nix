@@ -2,6 +2,7 @@
 
 {
     imports = [
+        ./btop.nix
         ./git.nix
         ./lf.nix
         ./neovim
