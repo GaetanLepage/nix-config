@@ -153,7 +153,10 @@
             # MOVE/RESIZE
 
             # resize a window
-            "super + ctrl + {h,j,k,l}"  = "bspwm_resize {h,j,k,l}";
+            "super + ctrl + h"  = "bspc node -z left    -20 0   || bspc node -z right   -20 0";
+            "super + ctrl + j"  = "bspc node -z bottom  0   20  || bspc node -z top     0   20";
+            "super + ctrl + k"  = "bspc node -z top     0   -20 || bspc node -z bottom  0   -20";
+            "super + ctrl + l"  = "bspc node -z right   20  0   || bspc node -z left    20  0";
         };
     };
 }
