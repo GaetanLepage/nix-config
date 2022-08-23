@@ -8,7 +8,7 @@
 
     format = {
         charging    = "<ramp-capacity> <label-charging>ﮣ";
-        discharging = "<ramp-capacity> <label-discharging>ﮣ";
+        discharging = "<ramp-capacity> <label-discharging>";
         full        = "<ramp-capacity> <label-full>ﮣ";
     };
 
