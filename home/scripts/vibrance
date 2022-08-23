@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 DEFAULT_VAL=500
 
