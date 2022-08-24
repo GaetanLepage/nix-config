@@ -14,7 +14,6 @@
             font                    = "DejaVu Sans 14";
             adjust-open             = "width";
             pages-per-row           = 1;
-            smooth-scroll           = true;
             selection-clipboard     = "clipboard";
             incremental-search      = true;
 
