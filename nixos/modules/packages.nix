@@ -33,7 +33,7 @@
         # Software development
         ctags
         git
-        lazygit     # TODO move to home
+        lazygit
         texlive.combined.scheme-full
 
         # Shell
