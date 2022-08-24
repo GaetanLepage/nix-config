@@ -86,7 +86,6 @@
         nextcloud-client
         okular
         pcmanfm
-        pdfsam-basic
         signal-desktop
         slack
         spotify
