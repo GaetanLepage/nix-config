@@ -38,16 +38,16 @@
     };
 
     tray = {
-        position = "right";
-        maxsize = 20;
+        position    = "right";
+        maxsize     = 20;
     };
 
     wm.restack = "bspwm";
 
     # Scrolling through bspwm populated workspaces
     scroll = {
-        up = "bspc desktop -f prev.local.occupied";
-        down = "bspc desktop -f next.local.occupied";
+        up      = "bspc desktop -f prev.local.occupied";
+        down    = "bspc desktop -f next.local.occupied";
     };
 
     # Tell the Window Manager not to configure the window.
@@ -62,7 +62,7 @@
     enable-ipc = true;
 
     cursor = {
-        click = "pointer";
-        scroll = "default";
+        click   = "pointer";
+        scroll  = "default";
     };
 }

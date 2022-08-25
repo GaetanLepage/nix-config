@@ -12,14 +12,14 @@ in {
     format = "<label> <ramp-coreload>";
 
     ramp-coreload = [
-        { text = "▁"; font = 2; foreground = green;   }
-        { text = "▂"; font = 2; foreground = green;   }
-        { text = "▃"; font = 2; foreground = green;   }
-        { text = "▄"; font = 2; foreground = green;   }
-        { text = "▅"; font = 2; foreground = yellow;  }
-        { text = "▆"; font = 2; foreground = yellow;  }
-        { text = "▇"; font = 2; foreground = yellow;  }
-        { text = "█"; font = 2; foreground = red;     }
+        { text = "▁"; foreground = green;   }
+        { text = "▂"; foreground = green;   }
+        { text = "▃"; foreground = green;   }
+        { text = "▄"; foreground = green;   }
+        { text = "▅"; foreground = yellow;  }
+        { text = "▆"; foreground = yellow;  }
+        { text = "▇"; foreground = yellow;  }
+        { text = "█"; foreground = red;     }
     ];
 }
 

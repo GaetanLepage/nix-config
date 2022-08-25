@@ -21,7 +21,7 @@
 
             foreground = [ green green yellow red ];
 
-            indicator = { text = "|"; font = 1; foreground = "#ff"; };
+            indicator = { text = "|"; font = 1; };
             fill =      { text = "▐"; font = 2; };
             empty =     { text = "▐"; font = 2; foreground = "#40"; };
         };
