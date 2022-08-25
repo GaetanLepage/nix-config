@@ -61,7 +61,8 @@
             };
 
             settings = {
-                ignorecase = true;
+                ignorecase  = true;
+                drawbox     = true;
             };
 
             previewer.source = pkgs.writeShellScript "lf-previewer.sh" ''
