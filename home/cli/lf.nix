@@ -5,46 +5,59 @@
         lf = {
             enable = true;
 
-            commands = { };
+            commands = {
+                "yank-dirname"  = "$dirname     -- '$f' | head -c-1 | xclip -i -selection clipboard";
+                "yank-path"     = "$printf '%s'   '$fx'             | xclip -i -selection clipboard";
+                "yank-basename" = "$basename -a -- $fx  | head -c-1 | xclip -i -selection clipboard";
+            };
 
             extraConfig =
 
-            let
-                cleaner = pkgs.writeShellScript "pv.sh" ''
-                    #!/bin/sh
+                let
+                    cleaner = pkgs.writeShellScript "pv.sh" ''
+                        #!/bin/sh
 
-                    kitty +icat --clear --silent --transfer-mode file
+                        kitty +icat --clear --silent --transfer-mode file
+                    '';
+
+                in ''
+                    cmd open $ {{
+                        case $f in
+                            *.log|*.stdout|*.stderr)
+                                less +G -- "$f" ;;
+                            *)
+                                case $(file --mime-type "$f" -bL) in
+                                    text/*|application/json)
+                                        $EDITOR "$f" ;;
+                                    *)
+                                        xdg-open "$f" ;;
+                                esac
+                                ;;
+                        esac
+                    }}
+
+                    cmd mkdir $ {{
+                        printf "Directory Name: "
+                        read ans
+                        mkdir $ans
+                    }}
+
+                    set cleaner ${cleaner}
+
+                    # Enable mouse
+                    set mouse true
                 '';
-
-            in ''
-                cmd open $ {{
-                    case $f in
-                        *.log|*.stdout|*.stderr)
-                            less +G -- "$f" ;;
-                        *)
-                            case $(file --mime-type "$f" -bL) in
-                                text/*|application/json)
-                                    $EDITOR "$f" ;;
-                                *)
-                                    xdg-open "$f" ;;
-                            esac
-                            ;;
-                    esac
-                }}
-
-                cmd mkdir $ {{
-                    printf "Directory Name: "
-                    read ans
-                    mkdir $ans
-                }}
-
-                set cleaner ${cleaner}
-            '';
 
             keybindings = {
                 D       = "delete";
                 "<f-7>" = "mkdir";
                 gd      = "cd ${config.xdg.userDirs.download}";
+
+                "y"     = "";
+                "yy"    = "copy";
+                "yn"    = "yank-basename";
+                "yp"    = "yank-path";
+                "yd"    = "yank-dirname";
             };
 
             settings = {
