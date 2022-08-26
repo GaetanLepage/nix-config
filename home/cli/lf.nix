@@ -52,6 +52,7 @@
                 D       = "delete";
                 "<f-7>" = "mkdir";
                 gd      = "cd ${config.xdg.userDirs.download}";
+                R       = "reload";
 
                 "y"     = "";
                 "yy"    = "copy";
