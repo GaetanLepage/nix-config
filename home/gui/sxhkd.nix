@@ -19,7 +19,7 @@
             "super + @Escape"                       = "pkill -USR1 -x sxhkd";
 
             # Lock
-            "{super + o,XF86PowerOff}"              = "lock";
+            "{F8,XF86PowerOff}"              = "lock";
 
             # Screen brightness
             "XF86MonBrightnessUp"                   = "sudo xbacklight -inc 10";
