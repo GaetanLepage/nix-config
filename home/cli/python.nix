@@ -27,8 +27,8 @@
             ipython
             matplotlib
             numpy
-            # pandas
             pytorch
+            tensorboard
         ]))
     ];
 }
