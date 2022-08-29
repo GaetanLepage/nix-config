@@ -19,9 +19,10 @@
         # nixpkgs.url = "/home/gaetan/perso/nixpkgs";
 
         home-manager = {
-             url = "github:nix-community/home-manager/master";
-             # url = "/home/gaetan/perso/home-manager";
-             inputs.nixpkgs.follows = "nixpkgs";
+            # url = "github:nix-community/home-manager/master";
+            url = "github:GaetanLepage/home-manager/btop";
+            # url = "/home/gaetan/perso/home-manager";
+            inputs.nixpkgs.follows = "nixpkgs";
         };
 
         neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
