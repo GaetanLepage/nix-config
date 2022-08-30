@@ -17,7 +17,7 @@
 
     programs = {
         autojump.enable = true;
-
         direnv.enable = true;
+        fzf.enable = true;
     };
 }
