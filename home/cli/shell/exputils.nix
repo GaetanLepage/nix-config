@@ -31,4 +31,3 @@
         eupd = "eu_local_inria_pull_data";
     };
 }
-
