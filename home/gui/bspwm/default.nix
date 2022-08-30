@@ -99,7 +99,10 @@ in {
             "signal-desktop"
             "pidof btop || kitty --class btop btop"
 
+            # Keyboard
             "sudo g610-led -a ff"
+            # Increase key speed via a rate change
+            "xset r rate 300 50"
 
             # polybar
             "killall polybar; polybar bar -r"
