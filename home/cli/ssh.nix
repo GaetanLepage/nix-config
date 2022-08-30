@@ -47,9 +47,10 @@ in {
 
             # Workstations
             alya = {
-                hostname = "alya.inrialpes.fr";
+                hostname = "10.10.10.4";
+                # hostname = "alya.inrialpes.fr";
                 user = "galepage";
-                proxyJump = "bastion";
+                # proxyJump = "bastion";
             };
             auriga = {
                 hostname = "auriga.inrialpes.fr";
