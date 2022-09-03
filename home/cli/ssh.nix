@@ -40,7 +40,7 @@ in {
             };
 
             cluster = {
-                hostname = "access1-cp.inrialpes.fr";
+                hostname = "access2-cp.inrialpes.fr";
                 user = "galepage";
                 proxyJump = "bastion";
             };
