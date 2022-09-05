@@ -19,8 +19,7 @@
         # nixpkgs.url = "/home/gaetan/perso/nixpkgs";
 
         home-manager = {
-            # url = "github:nix-community/home-manager/master";
-            url = "github:GaetanLepage/home-manager/btop";
+            url = "github:nix-community/home-manager/master";
             # url = "/home/gaetan/perso/home-manager";
             inputs.nixpkgs.follows = "nixpkgs";
         };
