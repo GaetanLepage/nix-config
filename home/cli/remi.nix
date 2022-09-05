@@ -10,11 +10,11 @@
             remi = pkgs.python3.pkgs.buildPythonApplication rec {
 
                 pname = "remi";
-                version = "1.0.8";
+                version = "1.1.1";
 
                 src = fetchGit {
                     url = "ssh://git@gitlab.inria.fr/remote-inria/remi.git";
-                    rev = "6c47c9ef9229e65f3688fdba660e47283e433d8b";
+                    rev = "672ff448422646c4f808662db2092d4b7d79d786";
                 };
 
                 propagatedBuildInputs = with pkgs.python3Packages; [
