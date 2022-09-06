@@ -7,9 +7,13 @@
         target = "zsh/zsh_vim_bindings";
     };
 
-    home.packages = with pkgs; [
-        pfetch
-    ];
+    home = {
+        packages = with pkgs; [
+            pfetch
+        ];
+
+        sessionVariables.EDITOR = "nvim";
+    };
 
     programs = {
         zsh = {
@@ -36,8 +40,6 @@
                 # Run the ssh-agent
                 eval `gnome-keyring-daemon --start --components=ssh --daemonize 2> /dev/null`
                 export SSH_AUTH_SOCK
-
-                echo $SSH
             '';
         };
 
