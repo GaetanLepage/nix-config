@@ -43,22 +43,27 @@
                     }}
 
                     set cleaner ${cleaner}
-
-                    # Enable mouse
-                    set mouse true
                 '';
 
             keybindings = {
-                D       = "delete";
-                "<f-7>" = "mkdir";
-                gd      = "cd ${config.xdg.userDirs.download}";
-                R       = "reload";
+                # Misc.
+                D           = "delete";
+                "<f-7>"     = "mkdir";
+                R           = "reload";
+                "<enter>"   = "open";
+                "."         = "set hidden!";
 
-                "y"     = "";
-                "yy"    = "copy";
-                "yn"    = "yank-basename";
-                "yp"    = "yank-path";
-                "yd"    = "yank-dirname";
+                # Yank
+                "y"         = "";
+                "yy"        = "copy";
+                "yn"        = "yank-basename";
+                "yp"        = "yank-path";
+                "yd"        = "yank-dirname";
+
+                # Common directories
+                gd          = "cd ${config.xdg.userDirs.download}";
+                gr          = "cd ${config.home.homeDirectory}/inria/code/rlan";
+                ge          = "cd ${config.home.homeDirectory}/inria/experiments/rlan/002_rlan_ssl";
             };
 
             settings = {
