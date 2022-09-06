@@ -11,39 +11,28 @@
                 "yank-basename" = "$basename -a -- $fx  | head -c-1 | xclip -i -selection clipboard";
             };
 
-            extraConfig =
+            extraConfig = ''
+                cmd open $ {{
+                    case $f in
+                        *.log|*.stdout|*.stderr)
+                            less +G -- "$f" ;;
+                        *)
+                            case $(file --mime-type "$f" -bL) in
+                                text/*|application/json)
+                                    $EDITOR "$f" ;;
+                                *)
+                                    xdg-open "$f" ;;
+                            esac
+                            ;;
+                    esac
+                }}
 
-                let
-                    cleaner = pkgs.writeShellScript "pv.sh" ''
-                        #!/bin/sh
-
-                        kitty +icat --clear --silent --transfer-mode file
-                    '';
-
-                in ''
-                    cmd open $ {{
-                        case $f in
-                            *.log|*.stdout|*.stderr)
-                                less +G -- "$f" ;;
-                            *)
-                                case $(file --mime-type "$f" -bL) in
-                                    text/*|application/json)
-                                        $EDITOR "$f" ;;
-                                    *)
-                                        xdg-open "$f" ;;
-                                esac
-                                ;;
-                        esac
-                    }}
-
-                    cmd mkdir $ {{
-                        printf "Directory Name: "
-                        read ans
-                        mkdir $ans
-                    }}
-
-                    set cleaner ${cleaner}
-                '';
+                cmd mkdir $ {{
+                    printf "Directory Name: "
+                    read ans
+                    mkdir $ans
+                }}
+            '';
 
             keybindings = {
                 # Misc.
@@ -73,18 +62,6 @@
 
             previewer.source = pkgs.writeShellScript "lf-previewer.sh" ''
                 #!/bin/sh
-
-                file=$1
-                w=$2
-                h=$3
-                x=$4
-                y=$5
-
-                if [[ "$( file -Lb --mime-type "$file")" =~ ^image ]]; then
-                    coordinates = $w"x"$h"x"$x"x"$y
-                    kitty +icat --silent --transfer-mode file --place "$coordinates" "$file"
-                    exit 1
-                fi
 
                 case "$1" in
                     *.tar*) tar tf "$file";;
