@@ -7,7 +7,6 @@
         ./lf.nix
         ./neovim
         ./python.nix
-        ./remi.nix
         ./shell
         ./ssh.nix
         ./tmux.nix

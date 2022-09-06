@@ -4,6 +4,7 @@
     imports = [
         ./exa.nix
         ./exputils.nix
+        ./remi.nix
         ./zsh.nix
     ];
 
