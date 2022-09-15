@@ -31,17 +31,15 @@
             displayManager.lightdm = {
                 enable = true;
 
-                greeters = {
-                    gtk = {
-                        enable = true;
-                        theme = {
-                            name = "Matcha-dark-aliz";
-                            package = pkgs.matcha-gtk-theme;
-                        };
-                        cursorTheme = {
-                            name = "Numix-Cursor-Light";
-                            package = pkgs.numix-cursor-theme;
-                        };
+                greeters.gtk = {
+                    enable = true;
+                    theme = {
+                        name = "Matcha-dark-aliz";
+                        package = pkgs.matcha-gtk-theme;
+                    };
+                    cursorTheme = {
+                        name = "Numix-Cursor-Light";
+                        package = pkgs.numix-cursor-theme;
                     };
                 };
             };
