@@ -63,7 +63,8 @@
             previewer.source = pkgs.writeShellScript "lf-previewer.sh" ''
                 #!/bin/sh
 
-                case "$1" in
+                file=$1
+                case "$file" in
                     *.tar*) tar tf "$file";;
                     *.zip) unzip -l "$file";;
                     *.rar) unrar l "$file";;
