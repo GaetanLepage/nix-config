@@ -3,47 +3,50 @@
 # Stop execution if an error occurs
 set -e
 
-# echo "Updating system packages"
 distro=$(cat /etc/os-release | grep -oP '(?<=^ID=).*')
 # echo "Detected distribution: $distro"
 
-# Ubuntu / Debian
-if [[ $distro =~ ubuntu|debian|pop ]]; then
-    if `command -v nala > /dev/null`; then
-        sudo nala upgrade
-    else
-        sudo apt-get update
-        sudo apt-get dist-upgrade
-    fi
+case $distro in
+    # Ubuntu / Debian
+    ubuntu|debian|pop)
+        if `command -v nala > /dev/null`; then
+            sudo nala upgrade
+        else
+            sudo apt-get update
+            sudo apt-get dist-upgrade
+        fi
+        ;;
 
-elif [ $distro == 'arch' ]; then
+    arch)
 
-    if which paru >/dev/null 2>&1; then
-        # echo 'Update using paru'
-        prog='paru'
+        if which paru >/dev/null 2>&1; then
+            # echo 'Update using paru'
+            prog='paru'
 
-    elif which yay >/dev/null 2>&1; then
-        # echo 'Update using yay'
-        prog='yay'
+        elif which yay >/dev/null 2>&1; then
+            # echo 'Update using yay'
+            prog='yay'
 
-    else
-        # echo 'Update using pacman'
-        prog='sudo pacman'
-    fi
+        else
+            # echo 'Update using pacman'
+            prog='sudo pacman'
+        fi
 
-    $prog -Syu --noconfirm
+        $prog -Syu --noconfirm
+        ;;
 
-elif [ $distro == 'nixos' ]; then
-    # Path to the folder containing `flake.nix`
-    nix_dir=$HOME/.dotfiles
+    nixos)
+        # Path to the folder containing `flake.nix`
+        nix_dir=$HOME/.dotfiles
 
-    # Update the flake's inputs
-    nix flake update $nix_dir -L
+        # Update the flake's inputs
+        nix flake update $nix_dir -L
 
-    # Reload the system configuration
-    sudo nixos-rebuild switch --flake $nix_dir -v
+        # Reload the system configuration
+        sudo nixos-rebuild switch --flake $nix_dir -v
 
-    # Clean the store (garbage collection)
-    # Also removes old generations
-    sudo nix-collect-garbage --delete-older-than 2d
-fi
+        # Clean the store (garbage collection)
+        # Also removes old generations
+        sudo nix-collect-garbage --delete-older-than 2d
+        ;;
+esac
