@@ -17,12 +17,11 @@
 
     networking.hostName = "cuda";
 
-    services.gnome.gnome-keyring.enable = true;
-
     environment.systemPackages = with pkgs; [
         firefox
-        steam
     ];
+
+    services.xserver.desktopManager.plasma5.enable = true;
 
     system = {
         autoUpgrade = {
