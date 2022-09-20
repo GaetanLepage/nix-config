@@ -45,14 +45,14 @@
 
         in {
 
-            # System configuration
+            # Tuxedo laptop
             nixosConfigurations.tuxedo = nixpkgs.lib.nixosSystem {
 
                 inherit system;
 
                 modules = [
                     # The system configuration
-                    ./nixos/tuxedo-configuration.nix
+                    ./nixos/tuxedo
                     overlayModule
 
                     # Home manager configuration
@@ -67,6 +67,13 @@
                 ];
             };
 
+            # Cuda desktop
+            nixosConfigurations.cuda = nixpkgs.lib.nixosSystem {
+                inherit system;
+                modules = [ ./nixos/cuda ];
+            };
+
+            # Inria
             homeConfigurations.inria = home-manager.lib.homeManagerConfiguration {
                 pkgs = nixpkgs.legacyPackages.${system};
 
