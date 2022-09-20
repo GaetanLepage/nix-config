@@ -2,7 +2,9 @@
     imports = [
         ./boot.nix
         ./nix.nix
+        ./steam.nix
         ./users.nix
+        ./x.nix
     ];
 
     # Set your time zone.
@@ -14,9 +16,6 @@
         font = "Lat2-Terminus13";
         keyMap = "fr";
     };
-
-    # Members of group wheel can execute sudo commands without password.
-    security.sudo.wheelNeedsPassword = false;
 
     networking = {
 

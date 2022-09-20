@@ -1,7 +1,4 @@
-{
-    pkgs,
-    ...
-}:
+{ pkgs, ... }:
 
 {
     users.users.gaetan.shell = pkgs.zsh;

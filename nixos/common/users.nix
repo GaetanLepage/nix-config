@@ -30,4 +30,7 @@
 
         groups.gaetan.gid = 1000;
     };
+
+    # Members of group wheel can execute sudo commands without password.
+    security.sudo.wheelNeedsPassword = false;
 }

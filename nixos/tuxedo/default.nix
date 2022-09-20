@@ -1,16 +1,3 @@
-# ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
-# ██ ▄▄ █ ▄▄▀█ ▄▄█▄ ▄█ ▄▄▀█ ▄▄▀████ ████ ▄▄█▀▄▄▀█ ▄▄▀█ ▄▄▄█ ▄▄██
-# ██ █▀▀█ ▀▀ █ ▄▄██ ██ ▀▀ █ ██ ████ ████ ▄▄█ ▀▀ █ ▀▀ █ █▄▀█ ▄▄██
-# ██ ▀▀▄█▄██▄█▄▄▄██▄██▄██▄█▄██▄████ ▀▀ █▄▄▄█ ████▄██▄█▄▄▄▄█▄▄▄██
-# ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
-# website:  glepage.com
-# github:   https://github.com/gaetanlepage
-# email:    gaetan.lepage@inria.fr
-#
-# #-----------------------------------#
-# | NixOS configuration for my laptop |
-# #-----------------------------------#
-
 {
     config,
     pkgs,
@@ -30,11 +17,11 @@
         ./neovim.nix
         ./packages.nix
         ./sound.nix
-        ./steam.nix
         # ./virtualbox.nix
         # ./wacom.nix
         ./wireguard.nix
         ./x.nix
+        ./zsh.nix
     ];
 
     networking.hostName = "tuxedo";
