@@ -1,3 +1,0 @@
-#!/bin/sh
-
-xwallpaper --zoom ~/.config/wallpaper.jpg

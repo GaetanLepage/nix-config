@@ -1,4 +1,0 @@
-#!/bin/sh
-
-bspc monitor DP-1-3 -d 1 2 3 4 5 7 8 && bspc monitor DP-1-1 -d 6 9 10
-

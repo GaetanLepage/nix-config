@@ -1,4 +1,0 @@
-#!/bin/sh
-
-source ~/.config/shell/env_variables
-export ZDOTDIR=$XDG_CONFIG_HOME/zsh
