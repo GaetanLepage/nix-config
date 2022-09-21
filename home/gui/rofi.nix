@@ -1,5 +1,3 @@
-{ ... }:
-
 {
     programs.rofi = {
         enable = true;
