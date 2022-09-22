@@ -18,8 +18,24 @@
     networking.hostName = "cuda";
 
     environment.systemPackages = with pkgs; [
+        # Utils
+
+        # GUI
+        discord
         firefox
+        signal-desktop
     ];
+
+    programs = {
+        neovim = {
+            enable = true;
+
+            defaultEditor = true;
+
+            viAlias = true;
+            vimAlias = true;
+        };
+    };
 
     services.xserver = {
         displayManager.sddm.enable = true;
