@@ -1,3 +1,5 @@
+{ pkgs, ... }:
+
 {
     imports = [
         ./boot.nix
@@ -5,6 +7,10 @@
         ./steam.nix
         ./users.nix
         ./x.nix
+    ];
+
+    environment.systemPackages = with pkgs; [
+        git-crypt
     ];
 
     # Set your time zone.
