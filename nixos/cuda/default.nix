@@ -12,6 +12,7 @@
 
         ../common
 
+        ./ssh.nix
         ./nvidia.nix
         ./wireguard.nix
     ];
@@ -20,10 +21,15 @@
 
     environment.systemPackages = with pkgs; [
         # Utils
+	git
+	git-crypt
+
+	gnomeExtensions.dash-to-dock
 
         # GUI
         discord
         firefox
+        thunderbird
         signal-desktop
     ];
 
@@ -39,8 +45,8 @@
     };
 
     services.xserver = {
-        displayManager.sddm.enable = true;
-        desktopManager.plasma5.enable = true;
+        displayManager.gdm.enable = true;
+        desktopManager.gnome.enable = true;
     };
 
     system = {
