@@ -18,9 +18,9 @@
     boot = {
         initrd = {
             availableKernelModules = [
-                "xhci_pci"
-                "thunderbolt"
                 "nvme"
+                "xhci_pci"
+                "ahci"
                 "usb_storage"
                 "usbhid"
                 "sd_mod"
@@ -29,13 +29,12 @@
 
             luks.devices.crypted.device = "/dev/nvme0n1p2";
         };
-        kernelModules = [ "kvm-intel" ];
+        kernelModules = [ "kvm-amd" ];
         extraModulePackages = [ ];
     };
 
     fileSystems."/" = {
-        # device = "/dev/disk/by-label/nixroot";
-        device = "/dev/mapper/crypted";
+        device = "/dev/disk/by-label/nixroot";
         fsType = "ext4";
     };
 
@@ -44,8 +43,16 @@
         fsType = "vfat";
     };
 
-    swapDevices = [ ];
+    swapDevices = [
+        {
+            device = "/dev/disk/by-label/swap";
+        }
+    ];
 
-    powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";
-    hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+    hardware = {
+        cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+
+        # high-resolution display
+        video.hidpi.enable = lib.mkDefault true;
+    };
 }
