@@ -10,7 +10,6 @@
 }:
 
 {
-    # TODO this is tuxedo hardware file
     imports = [
         (modulesPath + "/installer/scan/not-detected.nix")
     ];
@@ -26,8 +25,6 @@
                 "sd_mod"
             ];
             kernelModules = [ ];
-
-            luks.devices.crypted.device = "/dev/nvme0n1p2";
         };
         kernelModules = [ "kvm-amd" ];
         extraModulePackages = [ ];
