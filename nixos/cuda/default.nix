@@ -14,7 +14,6 @@
 
         ./nvidia.nix
         ./wireguard.nix
-        ./x.nix
     ];
 
     networking.hostName = "cuda";
