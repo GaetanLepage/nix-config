@@ -12,6 +12,8 @@
 
         ../common
 
+        ./nvidia.nix
+        ./wireguard.nix
         ./x.nix
     ];
 
