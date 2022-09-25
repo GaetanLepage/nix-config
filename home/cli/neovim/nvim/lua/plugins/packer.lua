@@ -89,4 +89,4 @@ use 'voldikss/vim-floaterm'             -- A floating terminal window in neovim
 use 'preservim/tagbar'                  -- Easy way to browse the tags of the current file and get
                                         --  an overview of its structure
 use 'terrortylor/nvim-comment'          -- Offer key mapping to comment code
-use 'nvim-neorg/neorg'                  -- Orgmode for neovim
+-- use 'nvim-neorg/neorg'                  -- Orgmode for neovim
