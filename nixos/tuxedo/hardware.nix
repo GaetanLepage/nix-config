@@ -32,15 +32,18 @@
         extraModulePackages = [ ];
     };
 
-    fileSystems."/" = {
-        device = "/dev/mapper/crypted";
-        fsType = "ext4";
+    fileSystems = {
+        "/" = {
+            device = "/dev/mapper/crypted";
+            fsType = "ext4";
+        };
+
+        "/boot" = {
+            device = "/dev/disk/by-label/nixboot";
+            fsType = "vfat";
+        };
     };
 
-    fileSystems."/boot" = {
-        device = "/dev/disk/by-label/nixboot";
-        fsType = "vfat";
-    };
 
     swapDevices = [ ];
 
