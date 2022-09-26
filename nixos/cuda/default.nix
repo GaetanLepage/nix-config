@@ -23,14 +23,16 @@
         # Utils
 	git
 	git-crypt
+	lazygit
 
 	gnomeExtensions.dash-to-dock
 
         # GUI
         discord
         firefox
-        thunderbird
         signal-desktop
+	spotify
+        thunderbird
     ];
 
     programs = {
