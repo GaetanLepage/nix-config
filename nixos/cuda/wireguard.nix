@@ -3,6 +3,6 @@
 
         address = [ "10.10.10.5/32" ];
 
-        privateKeyFile = "/home/gaetan/.dotfiles/secrets/wireguard/cuda-privatekey";
+        privateKeyFile = "/home/gaetan/dotfiles/secrets/wireguard/cuda-privatekey";
     };
 }

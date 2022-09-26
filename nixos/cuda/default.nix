@@ -52,7 +52,7 @@
     system = {
         autoUpgrade = {
             enable = true;
-            flake = "${config.users.users.gaetan.home}/.dotfiles#cuda";
+            flake = "${config.users.users.gaetan.home}/dotfiles#cuda";
             flags = [
                 "--update-input" "nixpkgs"
                 "--commit-lock-file"
