@@ -13,7 +13,7 @@
         # Note: The private key can also be included inline via the privateKey option,
         # but this makes the private key world-readable; thus, using privateKeyFile is
         # recommended.
-        privateKeyFile = "/home/gaetan/dotfiles/secrets/wireguard/cuda-privatekey";
+        privateKeyFile = "/home/gaetan/config/secrets/wireguard/cuda-privatekey";
 
         peers = [
             # For a client configuration, one peer entry for the server will suffice.

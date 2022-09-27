@@ -61,7 +61,7 @@
     #######
     # Nix #
     #######
-    nrs = "sudo nixos-rebuild switch --flake ~/dotfiles/.";
+    nrs = "sudo nixos-rebuild switch --flake ~/config/.";
     ncg = "sudo nix-collect-garbage";
     hms = "home-manager switch";
     hme = "home-manager edit";

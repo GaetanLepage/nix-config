@@ -7,7 +7,7 @@
         listenPort = 51820;
         dns = [ "10.10.10.1" ];
 
-        privateKeyFile = "/home/gaetan/dotfiles/secrets/wireguard/tuxedo-privatekey";
+        privateKeyFile = "/home/gaetan/config/secrets/wireguard/tuxedo-privatekey";
 
         peers = [
             # For a client configuration, one peer entry for the server will suffice.

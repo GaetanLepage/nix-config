@@ -1,8 +1,10 @@
 { config, ... }:
 
 let
-    main_key =  "${config.home.homeDirectory}/dotfiles/secrets/ssh/rsa";
-    hes_key =  "${config.home.homeDirectory}/dotfiles/secrets/ssh/rsa_hes";
+    ssh_keys_dir = "${config.home.homeDirectory}/config/secrets/ssh/";
+
+    main_key = "${ssh_keys_dir}/rsa";
+    hes_key = "${ssh_keys_dir}/rsa_hes";
 
 in {
     programs.ssh = {
