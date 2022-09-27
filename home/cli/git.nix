@@ -5,7 +5,7 @@
         git = {
             enable = true;
 
-            userEmail = "gaetan.lepage@inria.fr";
+            userEmail = "gaetan@glepage.com";
             userName = "Gaetan Lepage";
 
             extraConfig = {
