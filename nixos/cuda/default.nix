@@ -14,6 +14,7 @@
 
         ./ssh.nix
         ./nvidia.nix
+        ./server-tank-nfs.nix
         ./wireguard.nix
     ];
 
