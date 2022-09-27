@@ -5,8 +5,8 @@
     networking.wireguard.interfaces.wg0 = {
 
         # Determines the IP address and subnet of the client's end of the tunnel interface.
-        ips = [ "10.100.0.2/24" ];
-        listenPort = 51820; # to match firewall allowedUDPPorts (without this wg uses random port numbers)
+        ips = [ "10.10.10.5/32" ];
+        listenPort = 51820;
 
         # Path to the private key file.
         #
@@ -23,9 +23,9 @@
                 publicKey = "jWzlVwkNkaO1uj7Qh+Xemo0EtxIYP2ufK+18oPcdvBY=";
 
                 # Forward all the traffic via VPN.
-                allowedIPs = [ "0.0.0.0/0" ];
+                #allowedIPs = [ "0.0.0.0/0" ];
                 # Or forward only particular subnets
-                #allowedIPs = [ "10.100.0.1" "91.108.12.0/22" ];
+                allowedIPs = [ "10.10.10.0/24" ];
 
                 # Set this to the server IP and port.
                 endpoint = "glepage.com:51820";
