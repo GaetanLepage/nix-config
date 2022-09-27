@@ -6,7 +6,6 @@
         ./nix.nix
         ./steam.nix
         ./users.nix
-        ./wireguard.nix
         ./x.nix
     ];
 
