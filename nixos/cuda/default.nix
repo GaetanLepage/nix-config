@@ -21,17 +21,18 @@
 
     environment.systemPackages = with pkgs; [
         # Utils
-	git
-	git-crypt
-	lazygit
+        git
+        git-crypt
+        lazygit
 
-	gnomeExtensions.dash-to-dock
+        gnomeExtensions.dash-to-dock
 
         # GUI
         discord
         firefox
         signal-desktop
-	spotify
+        spotify
+        teamspeak_client
         thunderbird
     ];
 
