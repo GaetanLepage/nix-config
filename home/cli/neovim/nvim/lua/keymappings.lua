@@ -9,9 +9,6 @@ nmap('<Space>', '<NOP>')
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
--- no hl
--- nmap('<leader>h', ':set hlsearch!<CR>')
-
 -- Esc to clear search results
 nmap('<esc>', ':noh<CR>')
 
@@ -20,9 +17,6 @@ nmap('<leader>n', ':NvimTreeToggle<CR>')
 
 -- fix Y behaviour
 nmap('Y', 'y$')
-
--- Enter key is useless anyway
--- nmap('<CR>', ':')
 
 -- back and fourth between the two most recent files
 nmap('<C-c>', ':b#<CR>')
@@ -71,6 +65,3 @@ nmap('<M-k>', ':move-2<CR>')
 nmap('<M-j>', ':move+<CR>')
 
 nmap('<leader>rp', ':!remi push<CR>')
-
--- Spelling
--- nmap('<C-s>', 'a<C-X><C-S>')
