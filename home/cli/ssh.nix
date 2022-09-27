@@ -15,6 +15,11 @@ in {
             ########
             # Home #
             ########
+            cuda = {
+                hostname = "glepage.com";
+                port = 222;
+                user = "gaetan";
+            };
             gaming = {
                 hostname = "glepage.com";
                 port = 223;
