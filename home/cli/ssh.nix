@@ -3,8 +3,8 @@
 let
     ssh_keys_dir = "${config.home.homeDirectory}/config/secrets/ssh/";
 
-    main_key = "${ssh_keys_dir}/rsa";
-    hes_key = "${ssh_keys_dir}/rsa_hes";
+    main_key = "${ssh_keys_dir}rsa_tuxedo";
+    hes_key = "${ssh_keys_dir}rsa_hes";
 
 in {
     programs.ssh = {
