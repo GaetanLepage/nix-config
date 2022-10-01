@@ -31,10 +31,5 @@
     services = {
         blueman-applet.enable = true;
         network-manager-applet.enable = true;
-
-        nextcloud-client = {
-            enable = true;
-            startInBackground = true;
-        };
     };
 }

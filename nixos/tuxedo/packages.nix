@@ -83,7 +83,6 @@
         jitsi-meet-electron
         libreoffice-fresh
         mumble
-        nextcloud-client
         okular
         pcmanfm
         signal-desktop
