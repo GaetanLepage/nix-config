@@ -22,15 +22,18 @@
 
     environment.systemPackages = with pkgs; [
         # Utils
+        btop
         git
         git-crypt
         lazygit
+        unzip
 
         gnomeExtensions.dash-to-dock
 
         # GUI
         discord
         firefox
+        mpv
         signal-desktop
         spotify
         teamspeak_client
