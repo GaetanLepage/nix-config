@@ -26,6 +26,7 @@
         git
         git-crypt
         lazygit
+        ncdu
         unzip
 
         gnomeExtensions.dash-to-dock
