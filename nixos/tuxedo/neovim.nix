@@ -16,12 +16,8 @@
         ];
     };
 
-    environment.systemPackages = [ pkgs.neovim-nightly ];
-
     programs.neovim = {
         enable = true;
-
-        package = pkgs.neovim-nightly;
 
         defaultEditor = true;
 

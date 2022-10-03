@@ -3,10 +3,16 @@
 {
     xdg.configFile.nvim.source = ./nvim;
 
-    home = {
-        packages = with pkgs; [
+    programs.neovim = {
+        enable = true;
+        viAlias = true;
+        vimAlias = true;
+    };
 
-            neovim-nightly
+    home = {
+        shellAliases.v = "nvim";
+
+        packages = with pkgs; [
 
             nodePackages.neovim
             nodejs
@@ -24,11 +30,5 @@
             pstree                                      # For inverse search in vimtex
             rnix-lsp                                    # Nix language server
         ];
-
-        shellAliases = {
-            v   = "${pkgs.neovim-nightly}/bin/nvim";
-            vi  = "${pkgs.neovim-nightly}/bin/nvim";
-            vim = "${pkgs.neovim-nightly}/bin/nvim";
-        };
     };
 }
