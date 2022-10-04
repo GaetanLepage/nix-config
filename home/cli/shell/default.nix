@@ -8,17 +8,16 @@
         ./zsh.nix
     ];
 
-    home = {
-        packages = with pkgs; [
-            direnv                      # Needed by lori
-        ];
-
-        shellAliases = import ./aliases.nix;
-    };
+    home.shellAliases = import ./aliases.nix;
 
     programs = {
         autojump.enable = true;
-        direnv.enable = true;
+
+        direnv = {
+            enable = true;
+            nix-direnv.enable = true;
+        };
+
         fzf.enable = true;
     };
 }

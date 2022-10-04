@@ -5,6 +5,11 @@
     nix = {
         extraOptions = ''
             experimental-features = nix-command flakes
+
+            # Prevent garbage collection from altering nix-shells managed by nix-direnv
+            # https://github.com/nix-community/nix-direnv#installation
+            keep-outputs = true
+            keep-derivations = true
         '';
 
         settings = {

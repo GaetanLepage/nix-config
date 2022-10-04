@@ -22,8 +22,4 @@
         # changes in each release.
         stateVersion = "22.05";
     };
-
-    services = {
-        lorri.enable = true;
-    };
 }
