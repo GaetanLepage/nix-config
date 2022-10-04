@@ -4,7 +4,6 @@
     imports = [
         ./boot.nix
         ./nix.nix
-        ./steam.nix
         ./users.nix
         ./x.nix
     ];
