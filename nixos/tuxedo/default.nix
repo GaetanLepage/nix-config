@@ -14,6 +14,7 @@
 
         ./android.nix
         ./bluetooth.nix
+        ./keyboard.nix
         ./neovim.nix
         ./packages.nix
         ./sound.nix
