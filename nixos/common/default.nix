@@ -5,7 +5,7 @@
         ./boot.nix
         ./nix.nix
         ./users.nix
-        ./x.nix
+        ./xorg.nix
     ];
 
     environment.systemPackages = with pkgs; [

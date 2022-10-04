@@ -20,7 +20,7 @@
         # ./virtualbox.nix
         # ./wacom.nix
         ./wireguard.nix
-        ./x.nix
+        ./xorg.nix
         ./zsh.nix
     ];
 
