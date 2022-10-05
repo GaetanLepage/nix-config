@@ -2,7 +2,7 @@
 
 {
     imports = [
-        ./boot.nix
+        ./bootloader.nix
         ./nix.nix
         ./users.nix
         ./xorg.nix
