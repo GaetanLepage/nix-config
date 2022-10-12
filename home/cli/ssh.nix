@@ -46,6 +46,12 @@ in {
                 user = "galepage";
             };
 
+            # Generic rule for all Inria computers
+            "*.inrialpes.fr" = {
+                user = "galepage";
+                proxyJump = "bastion";
+            };
+
             cluster = {
                 hostname = "access2-cp.inrialpes.fr";
                 user = "galepage";
