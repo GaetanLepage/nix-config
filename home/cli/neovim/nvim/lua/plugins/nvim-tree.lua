@@ -1,4 +1,4 @@
-local tree_cb = require'nvim-tree.config'.nvim_tree_callback
+local tree_cb = require 'nvim-tree.config'.nvim_tree_callback
 
 
 -- Automatically close the tab/vim when nvim-tree is the last window in the tab.

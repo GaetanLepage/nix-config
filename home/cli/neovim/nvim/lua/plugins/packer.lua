@@ -27,7 +27,6 @@ use 'wbthomason/packer.nvim'            -- Packer can manage itself as an option
 -- LSP
 use 'neovim/nvim-lspconfig'             -- A collection of common configurations for the built-in
                                         --  language server client.
-use 'folke/trouble.nvim'                -- Pretty list for showing diagnostics
 use 'lervag/vimtex'                     -- LaTeX support
 
 -- Completion
@@ -41,7 +40,7 @@ use {'tzachar/cmp-tabnine',             -- TabNine
 use 'onsails/lspkind-nvim'              -- vscode-like pictograms to neovim built-in lsp
 
 -- Python folding
-use 'tmhedberg/SimpylFold'
+-- use 'tmhedberg/SimpylFold'
 
 -- Snippets
 use 'L3MON4D3/LuaSnip'                  -- snippet engine
@@ -88,5 +87,5 @@ use 'moll/vim-bbye'                     -- Delete buffers (close files) without 
 use 'voldikss/vim-floaterm'             -- A floating terminal window in neovim
 use 'preservim/tagbar'                  -- Easy way to browse the tags of the current file and get
                                         --  an overview of its structure
-use 'terrortylor/nvim-comment'          -- Offer key mapping to comment code
--- use 'nvim-neorg/neorg'                  -- Orgmode for neovim
+use 'numToStr/Comment.nvim'             -- Offer key mapping to comment code
+use 'nvim-neorg/neorg'

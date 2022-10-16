@@ -21,10 +21,3 @@ nmap('<C-j>',       function() ui.nav_file(1) end)
 nmap('<C-k>',       function() ui.nav_file(2) end)
 nmap('<C-l>',       function() ui.nav_file(3) end)
 nmap('<CR>',        function() ui.nav_file(4) end)
-
--- Terminals
-local term = require('harpoon.term')
-nmap('<leader>tu',  function() term.gotoTerminal(1) end)
-nmap('<leader>te',  function() term.gotoTerminal(2) end)
-nmap('<leader>cu',  function() term.sendCommand(1, 1) end)
-nmap('<leader>ce',  function() term.sendCommand(1, 2) end)

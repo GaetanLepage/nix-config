@@ -1,4 +1,4 @@
-require'colorizer'.setup(
+require 'colorizer'.setup(
     {'*';},
     {
         RGB      = true;         -- #RGB hex codes

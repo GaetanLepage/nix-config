@@ -22,20 +22,15 @@ vim.g.loaded_python_provider = 0    -- Python 2
 
 -- Python 3 provider
 
--- Detect if running nixos
-os.execute("export DISTRO=$(cat /etc/os-release | grep -oP '(?<=^ID=).*')")
-if (os.getenv('DISTRO') == 'nixos') then
-    vim.g.python3_host_prog = '/etc/profiles/per-user/gaetan/bin/python3'
-    vim.g.node_host_prog = '/etc/profiles/per-user/gaetan/bin/neovim-node-host'
-end
+vim.g.python3_host_prog = '/etc/profiles/per-user/gaetan/bin/python3'
+vim.g.node_host_prog = '/etc/profiles/per-user/gaetan/bin/neovim-node-host'
 
 
 --------------
 -- Settings --
 --------------
 
-vim.g.do_filetype_lua = 1       -- Enable filetype matching using fast `filetype.lua`
--- vim.g.did_load_filetypes = 1    -- Disable filetype matching using slow `filetype.vim`
+vim.g.do_filetype_lua = 1   -- Enable filetype matching using fast `filetype.lua`
 
 local o = vim.opt
 
@@ -78,8 +73,9 @@ o.expandtab = true          -- Expand <Tab> to spaces in Insert mode (local to b
 o.smartindent = true        -- Do clever autoindenting
 
 o.textwidth = 100           -- Maximum width of text that is being inserted.  A longer line will be
-	                       -- broken after white space to get this width.
+	                        -- broken after white space to get this width.
 
 -- Folding
-o.foldmethod = 'indent'     -- Set folding type to indent
+o.foldmethod = 'expr'     -- Set folding type to indent
+o.foldexpr = 'nvim_treesitter#foldexpr()'
 o.foldlevel = 99            -- Folds with a level higher than this number will be closed

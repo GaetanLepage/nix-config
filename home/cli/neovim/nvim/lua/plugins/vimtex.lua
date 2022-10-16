@@ -38,12 +38,20 @@ vim.g.vimtex_compiler_progname = 'nvr'
 vim.g.vimtex_quickfix_enabled = 1
 vim.g.vimtex_quickfix_open_on_warning = 0
 
--- utils.nmap('<C-m>', ':VimtexTocToggle <CR>')
+local vimtex_setup_callback = function ()
+    require 'utils'.nmap('<C-m>', ':VimtexTocToggle <CR>')
+
+    -- folding
+    vim.o.foldmethod = 'expr'
+    vim.o.foldexpr = 'vimtex#fold#level(v:lnum)'
+    vim.o.foldtext = 'vimtex#fold#text()'
+end
+
 autocmd(
     'FileType',
     {
         pattern = 'tex,latex',
-        command = 'nnoremap <buffer> m :VimtexView<CR>'
+        callback = vimtex_setup_callback
     }
 )
 
@@ -61,15 +69,9 @@ autocmd(
     'FileType',
     {
         pattern = 'tex,latex,markdown',
-        command = "setlocal spell spelllang=en,fr"
+        command = 'setlocal spell spelllang=en,fr'
     }
 )
-
--- folding
-vim.o.foldmethod = 'expr'
-vim.o.foldexpr = 'vimtex#fold#level(v:lnum)'
-vim.o.foldtext = 'vimtex#fold#text()'
-
 
 -- Compile on initialization, cleanup on quit
 local vimtex_augroup = vim.api.nvim_create_augroup(

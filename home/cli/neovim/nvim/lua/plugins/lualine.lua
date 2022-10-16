@@ -87,8 +87,7 @@ require 'lualine'.setup {
                     return msg
                 end,
                 icon = '',
-                color = {fg = '#ffffff',
-                         gui = 'bold'}
+                color = {fg = '#ffffff', gui = 'bold'}
             },
             'encoding',
             'fileformat',
