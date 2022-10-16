@@ -36,7 +36,7 @@
 
         # Gnome extensions
         gnomeExtensions.dash-to-panel
-        gnomeExtensions.dash-to-vitals
+        gnomeExtensions.vitals
 
         # GUI
         discord
