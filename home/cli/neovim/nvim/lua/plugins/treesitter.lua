@@ -9,6 +9,7 @@ require 'nvim-treesitter.configs'.setup {
         'latex',
         'lua',
         'nix',
+        'norg',
         'python'
     },
 
