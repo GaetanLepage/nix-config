@@ -23,14 +23,20 @@
 
     environment.systemPackages = with pkgs; [
         # Utils
-        btop
         git
         git-crypt
         lazygit
         ncdu
         unzip
 
-        gnomeExtensions.dash-to-dock
+        # System monitor
+        btop
+        htop
+        nvtop
+
+        # Gnome extensions
+        gnomeExtensions.dash-to-panel
+        gnomeExtensions.vitals
 
         # GUI
         discord
