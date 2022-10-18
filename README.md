@@ -10,8 +10,21 @@
 > There's no place like ~/
 
 This is my personal repository for configuration files of all the programs I
-use on a daily basis. This setup aims to be minimal while being pleasing to the
-eye and functional.
+use on a daily basis.
+This setup aims to be minimal while being pleasing to the eye and functional.
+
+## Nix
+
+I now manage all my configuration thanks to Nix:
+
+- [NixOS](https://nixos.org/) on the system side: `nixos/`
+- [home-manager](https://github.com/nix-community/home-manager) for the user-specific configuration:
+    `home/`
+
+Everything is managed thanks to a [nix flake](https://nixos.wiki/wiki/Flakes): `flake.nix`.
+
+
+## Software
 
 | Program               | Name                                                  |
 | :-------------------- | :-----------------------------------------------------|
