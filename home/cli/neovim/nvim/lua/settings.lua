@@ -5,11 +5,13 @@
 local autocmd = vim.api.nvim_create_autocmd
 
 -- Vertically center document when entering insert mode
-autocmd('InsertEnter', {command = 'norm zz'})
+autocmd('InsertEnter', { command = 'norm zz' })
 
 -- Remove trailing whitespace on save
 autocmd('BufWrite', { command = "%s/\\s\\+$//e"})
 
+-- Open help in a vertical split
+autocmd('FileType', { pattern = "help", command = "wincmd L"})
 
 ---------------
 -- Providers --
