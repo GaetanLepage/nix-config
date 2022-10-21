@@ -19,13 +19,20 @@
                 extraGroups = [
                     "wheel"             # Enable ‘sudo’ for the user.
                     "networkmanager"    # Enable user to add and edit network connections
+
+                    "lepage"
                 ];
 
                 hashedPassword = "$6$B8kfsZOV58EoH14x$BfGmC7pgPCUj60hlvjVEOpoynbiF4mezwZe9WF3R9U45lAPlrsBW0QdDOBMoJfP58i7Dr3idq0mV95UG0Uxuv.";
             };
         };
 
-        groups.gaetan.gid = 1000;
+        groups = {
+            gaetan.gid = 1000;
+
+            # To be able to access folders owned by 'lepage' on the server
+            lepage.gid = 1005;
+        };
     };
 
     # Members of group wheel can execute sudo commands without password.
