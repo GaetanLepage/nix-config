@@ -1,3 +1,6 @@
+vim.o.conceallevel = 2
+vim.o.concealcursor = 'nc'
+
 require 'neorg'.setup {
     load = {
         ["core.defaults"] = {},
