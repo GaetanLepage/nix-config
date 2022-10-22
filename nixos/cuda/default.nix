@@ -27,6 +27,7 @@
         git-crypt
         lazygit
         ncdu
+        tmux
         unzip
 
         # System monitor
