@@ -125,6 +125,3 @@ in {
         sshi    = "ssh -J bastion -l galepage";
     };
 }
-
-
-
