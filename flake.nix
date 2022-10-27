@@ -33,6 +33,11 @@
         let
             system = "x86_64-linux";
 
+            # Export the nixpkgs flake output to /etc
+            nixpkgs-outPath = {
+                environment.etc."nix/inputs/nixpkgs".source = nixpkgs.outPath;
+            };
+
         in {
 
             # Tuxedo laptop
@@ -43,6 +48,7 @@
                 modules = [
                     # The system configuration
                     ./nixos/tuxedo
+                    nixpkgs-outPath
 
                     # Home manager configuration
                     home-manager.nixosModules.home-manager
@@ -59,7 +65,10 @@
             # Cuda desktop
             nixosConfigurations.cuda = nixpkgs.lib.nixosSystem {
                 inherit system;
-                modules = [ ./nixos/cuda ];
+                modules = [
+                    ./nixos/cuda
+                    nixpkgs-outPath
+                ];
             };
 
             # Inria

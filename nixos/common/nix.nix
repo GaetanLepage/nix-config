@@ -1,5 +1,4 @@
 {
-
     nixpkgs.config.allowUnfree = true;
 
     nix = {
@@ -23,4 +22,7 @@
             options = "--delete-older-than 2d";
         };
     };
+
+    # set the value NIX_PATH to whatever nixpkgs our flake uses
+    nix.nixPath = [ "nixpkgs=/etc/nix/inputs/nixpkgs" ];
 }
