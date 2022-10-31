@@ -111,7 +111,7 @@ in {
             # Ensimag #
             ###########
             ensimag = {
-                host = "pcserveur.ensimag.frj";
+                host = "pcserveur.ensimag.fr";
                 user = "lepageg";
             };
         };
