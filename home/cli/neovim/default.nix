@@ -14,6 +14,7 @@
 
         packages = with pkgs; [
 
+            gcc                         # Needed to compile some of the tree-sitter parsers.
             nodePackages.neovim
             nodejs
             tree-sitter
