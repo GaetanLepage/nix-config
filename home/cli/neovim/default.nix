@@ -7,14 +7,9 @@
         enable = true;
         viAlias = true;
         vimAlias = true;
-    };
 
-    home = {
-        shellAliases.v = "nvim";
+        extraPackages = with pkgs; [
 
-        packages = with pkgs; [
-
-            gcc                         # Needed to compile some of the tree-sitter parsers.
             nodePackages.neovim
             nodejs
             tree-sitter
@@ -30,6 +25,14 @@
             xdotool                                     # For forward search in zathura
             pstree                                      # For inverse search in vimtex
             rnix-lsp                                    # Nix language server
+        ];
+    };
+
+    home = {
+        shellAliases.v = "nvim";
+
+        packages = with pkgs; [
+            gcc                         # Needed to compile some of the tree-sitter parsers.
         ];
     };
 }
