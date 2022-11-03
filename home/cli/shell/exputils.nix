@@ -1,5 +1,3 @@
-{ pkgs, lib, ... }:
-
 {
     programs.zsh.initExtra = ''
         # define path to the exputils folder
