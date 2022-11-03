@@ -9,6 +9,8 @@
             # https://github.com/nix-community/nix-direnv#installation
             keep-outputs = true
             keep-derivations = true
+
+            warn-dirty = false
         '';
 
         settings = {
