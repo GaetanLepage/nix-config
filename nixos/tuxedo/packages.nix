@@ -6,7 +6,6 @@
         acpilight                   # Screen brightness control
         arandr
         autorandr
-        cachix
         home-manager                # A user environment configurator
         killall
         nfs-utils                   # Linux user-space NFS utilities
