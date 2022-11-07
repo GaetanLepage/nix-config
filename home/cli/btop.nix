@@ -10,7 +10,6 @@
             update_ms       = 1000;
             disks_filter    = "";
             mem_graphs      = false;
-            net_iface       = "wlo1";
         };
     };
 }
