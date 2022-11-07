@@ -1,3 +1,4 @@
+{ pkgs, ... }:
 {
     imports = [ ./cli ];
 
@@ -9,8 +10,6 @@
 
         shellAliases.un = "update_home_manager_inria";
 
-        nix.package = pkgs.nix;
-
         # This value determines the Home Manager release that your
         # configuration is compatible with. This helps avoid breakage
         # when a new Home Manager release introduces backwards
@@ -21,4 +20,6 @@
         # changes in each release.
         stateVersion = "22.05";
     };
+
+    nix.package = pkgs.nix;
 }
