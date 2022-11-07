@@ -6,6 +6,7 @@
         ./git.nix
         ./lf.nix
         ./neovim
+        ./nix.nix
         ./python.nix
         ./shell
         ./ssh.nix
