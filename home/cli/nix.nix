@@ -1,5 +1,11 @@
+{ pkgs, ... }:
 {
-    nix.extraOptions = ''
-        warn-dirty = false
-    '';
+    nix = {
+        package = pkgs.nix;
+
+        settings = {
+            warn-dirty = false;
+            experimental-features = "nix-command flakes";
+        };
+    };
 }
