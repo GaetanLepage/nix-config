@@ -1,7 +1,4 @@
-let
-    eDP-1-edid = "00ffffffffffff0009e5610900000000011e0104a51e137803da25a7544b9925105054000000010101010101010101010101010101019c3e80c870b03c40302036002ebc1000001abc2980c870b03c40302036002dbc10000000000000fe00424f452043510a202020202020000000fe004e4531343057554d2d4e36330a0073";
-
-in {
+{
     home.shellAliases = {
         ah = "autorandr -l home";
         ai = "autorandr -l inria";
@@ -13,7 +10,14 @@ in {
 
         hooks = {};
 
-        profiles = {
+        profiles = let
+
+            eDP-1-edid = "00ffffffffffff0009e5610900000000011e0104a51e137803da25a7544b9925105054000000010101010101010101010101010101019c3e80c870b03c40302036002ebc1000001abc2980c870b03c40302036002dbc10000000000000fe00424f452043510a202020202020000000fe004e4531343057554d2d4e36330a0073";
+
+            wifi-on-hook = "nmcli radio wifi on";
+            wifi-off-hook = "nmcli radio wifi off";
+
+        in {
             laptop = {
                 fingerprint.eDP-1 = eDP-1-edid;
                 config = {
@@ -25,6 +29,7 @@ in {
                         rate = "60.00";
                     };
                 };
+                hooks.postswitch = wifi-on-hook;
             };
 
             inria = {
@@ -42,6 +47,7 @@ in {
                         rate = "59.95";
                     };
                 };
+                hooks.postswitch = wifi-on-hook;
             };
 
             home = {
@@ -59,6 +65,7 @@ in {
                         rate = "120.00";
                     };
                 };
+                hooks.postswitch = wifi-off-hook;
             };
 
             dom = {
