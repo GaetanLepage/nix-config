@@ -1,0 +1,10 @@
+#!/bin/sh
+
+flake_dir="$HOME/config"
+
+rm -f $flake_dir/flake.lock
+
+git -C $flake_dir pull
+
+nix flake update $flake_dir
+home-manager switch --flake $flake_dir\#inria
