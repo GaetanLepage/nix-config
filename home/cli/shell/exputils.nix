@@ -4,10 +4,10 @@
         case "`hostname`" in
 
             alya|auriga|bacchus|chamaeleon|carina|access[1-2]-cp)
-                PATH_TO_EXPUTILS=$HOME/scratch/exputils_sync/code/exputils
+                PATH_TO_EXPUTILS=$HOME/scratch/inria/exputils_commands
                 ;;
             tuxedo)
-                PATH_TO_EXPUTILS=$HOME/inria/code/exputils
+                PATH_TO_EXPUTILS=$HOME/inria/code/exputils_commands
                 ;;
             *)
                 echo "[EXPUTILS] Warning '`hostname`' is an unknown hostname."
