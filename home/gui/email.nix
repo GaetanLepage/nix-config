@@ -12,8 +12,9 @@
 
         name: config: {
             realName = "Gaetan Lepage";
-            thunderbird.enable = true;
             userName = config.address;
+
+            thunderbird.enable = true;
         } // config
 
     ) {
