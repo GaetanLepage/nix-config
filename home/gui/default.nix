@@ -6,6 +6,7 @@
         ./betterlockscreen.nix
         ./bspwm
         ./dunst.nix
+        ./email.nix
         ./firefox.nix
         ./flameshot.nix
         ./gtk.nix
