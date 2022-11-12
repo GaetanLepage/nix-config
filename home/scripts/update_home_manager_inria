@@ -8,3 +8,5 @@ git -C $flake_dir pull
 
 nix flake update $flake_dir
 home-manager switch --flake $flake_dir\#inria
+
+nix-collect-garbage --delete-older-than 2d
