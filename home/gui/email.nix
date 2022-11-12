@@ -14,7 +14,13 @@
             realName = "Gaetan Lepage";
             userName = config.address;
 
-            thunderbird.enable = true;
+            thunderbird = {
+                enable = true;
+                settings = id: {
+                    "mail.identity.id_${id}.reply_on_top" = 1;
+                    "mail.identity.id_${id}.sig_bottom" = false;
+                };
+            };
         } // config
 
     ) {
