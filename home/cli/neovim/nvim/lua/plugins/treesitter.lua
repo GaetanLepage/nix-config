@@ -10,7 +10,8 @@ require 'nvim-treesitter.configs'.setup {
         'lua',
         'nix',
         'norg',
-        'python'
+        'python',
+        'rust'
     },
 
     highlight = {

@@ -26,6 +26,11 @@
         git-crypt
 
         pandoc
+
+        # Rust
+        cargo
+        rustc
+        rustfmt
     ];
 
     ###########

@@ -160,3 +160,8 @@ require 'lspconfig'.pylsp.setup {
         }
     }
 }
+
+-- rust
+require 'lspconfig'.rust_analyzer.setup {
+    capabilities = capabilities
+}

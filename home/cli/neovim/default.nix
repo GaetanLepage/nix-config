@@ -25,6 +25,7 @@
             xdotool                                     # For forward search in zathura
             pstree                                      # For inverse search in vimtex
             rnix-lsp                                    # Nix language server
+            rust-analyzer                               # Rust language server
         ];
     };
 
