@@ -14,7 +14,18 @@ end
 -- Register plugins
 if packer == nil then
     packer = require 'packer'
-    packer.init()
+    packer.init {
+
+        -- By default, packer needs to write un ~/.config/nvim/plugin/, but ~/.config/nvim is linked
+        -- to the /nix/store so not-writeable.
+        -- Here, I set it to ~/.local/share/nvim/plugin/
+        -- https://github.com/wbthomason/packer.nvim/issues/241#issuecomment-841740576
+        compile_path = require 'packer.util'.join_paths(
+            vim.fn.stdpath('data'),
+            'plugin',
+            'packer_compiled.lua'
+        ),
+    }
 end
 
 local use = packer.use
