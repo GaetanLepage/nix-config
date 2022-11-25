@@ -4,6 +4,7 @@
 
     tt = "touchpad_toggle";
 
+    vt = "vim ~/todo.norg";
 
     ##################
     # GNU core utils #
