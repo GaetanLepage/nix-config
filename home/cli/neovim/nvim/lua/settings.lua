@@ -52,8 +52,10 @@ o.modeline = true           -- Tags such as 'vim:ft=sh'
 o.modelines = 100           -- Sets the type of modelines
 o.undofile = true           -- Automatically save and restore undo history
 o.incsearch = true          -- Incremental search: show match for partly typed search command
-o.smartcase = true          -- Override the 'ignorecase' option if the search
-                            -- pattern contains upper case characters
+o.ignorecase = true         -- When the search query is lower-case, match both lower and upper-case
+                            -- patterns
+o.smartcase = true          -- Override the 'ignorecase' option if the search pattern contains upper
+                            -- case characters
 o.scrolloff = 8             -- Number of screen lines to show around the cursor
 o.cursorline = false        -- Highlight the screen line of the cursor
 o.cursorcolumn = false      -- Highlight the screen column of the cursor
