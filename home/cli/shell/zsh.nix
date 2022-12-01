@@ -24,7 +24,10 @@
             enableAutosuggestions = true;
             enableSyntaxHighlighting = true;
 
-            history.size = 50000;
+            history = {
+                path = "${config.xdg.stateHome}/zsh_history";
+                size = 50000;
+            };
 
             oh-my-zsh = {
                 enable = true;

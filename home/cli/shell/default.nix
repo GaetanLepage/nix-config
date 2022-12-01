@@ -1,5 +1,3 @@
-{ pkgs, ... }:
-
 {
     imports = [
         ./exa.nix
