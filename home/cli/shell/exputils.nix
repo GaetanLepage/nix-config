@@ -26,6 +26,7 @@
     home.shellAliases = {
         eupc = "eu_local_inria_push_code";
         eure = "eu_local_inria_run_experiments";
+        eugs = "eu_local_inria_get_status";
         eupd = "eu_local_inria_pull_data";
     };
 }
