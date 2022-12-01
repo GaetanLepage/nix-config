@@ -8,6 +8,7 @@
         ./neovim
         ./nix.nix
         ./python.nix
+        ./rust.nix
         ./shell
         ./ssh.nix
         ./tmux.nix
@@ -26,11 +27,6 @@
         git-crypt
 
         pandoc
-
-        # Rust
-        cargo
-        rustc
-        rustfmt
     ];
 
     ###########
