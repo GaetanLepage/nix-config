@@ -1,4 +1,15 @@
+{ pkgs, ... }:
+
 {
+    environment.systemPackages = with pkgs; [
+
+        pavucontrol
+        playerctl
+
+        # Even though using Pipewire, pulseaudio provides `pactl`
+        pulseaudio
+    ];
+
     hardware.pulseaudio.enable = false;
 
     services.pipewire = {

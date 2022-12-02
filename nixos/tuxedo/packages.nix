@@ -15,11 +15,6 @@
         xorg.xkill
         xorg.xmodmap
 
-        # Audio
-        pavucontrol
-        pulseaudio                  # Even though using Pipewire, pulseaudio provides `pactl`
-        playerctl
-
         # Network
         dig                         # Domain name server
         networkmanagerapplet
