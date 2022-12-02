@@ -9,13 +9,13 @@
     home.shellAliases = import ./aliases.nix;
 
     programs = {
+        atuin.enable = true;
+
         autojump.enable = true;
 
         direnv = {
             enable = true;
             nix-direnv.enable = true;
         };
-
-        fzf.enable = true;
     };
 }

@@ -3,12 +3,10 @@
 {
     imports = [
         ./btop.nix
-        ./git.nix
+        ./dev ./git.nix
         ./lf.nix
         ./neovim
         ./nix.nix
-        ./python.nix
-        ./rust.nix
         ./shell
         ./ssh.nix
         ./tmux.nix
@@ -19,9 +17,18 @@
     programs.home-manager.enable = true;
 
     home.packages = with pkgs; [
-        bat
-        btop
+
+        # Rust implementations of linux commands
+        bat         # cat
+        bottom      # System monitor
+        du-dust     # du
+        fd          # find
+        lfs         # df
+        procs       # ps
         ripgrep
+
+        # Other utils
+        ncdu
 
         git
         git-crypt

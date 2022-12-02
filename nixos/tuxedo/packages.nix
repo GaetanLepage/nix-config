@@ -4,8 +4,6 @@
     environment.systemPackages = with pkgs; [
         # Misc (system utilities)
         acpilight                   # Screen brightness control
-        arandr
-        autorandr
         home-manager                # A user environment configurator
         killall
         nfs-utils                   # Linux user-space NFS utilities
@@ -30,24 +28,15 @@
         wol                         # Wake on Lan
 
         # Software development
-        ctags
         git
-        lazygit
         texlive.combined.scheme-full
 
         # Shell
         bash
-        zsh
-        pfetch
 
         # CLI utilities
-        bat
-        exa
-        fzf
         file
         ncdu
-        ripgrep
-        tmux
         tree
         unzip
         wget
@@ -62,17 +51,9 @@
         vlc
 
         # Window manager
-        betterlockscreen
         bspwm
-        dunst
-        mons
-        picom
-        polybar
-        rofi
-        xwallpaper
 
         # Hardware Monitoring
-        btop
         htop
 
         # GUI applications
@@ -81,7 +62,6 @@
         element-desktop
         jitsi-meet-electron
         libreoffice-fresh
-        mumble
         okular
         pcmanfm
         signal-desktop
@@ -90,11 +70,6 @@
         thunderbird
         zathura
         zotero
-
-        # Languages
-        clang
-        gcc
-        python3
 
         # Misc
         hugo

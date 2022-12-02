@@ -20,7 +20,9 @@
     ];
 
     home.packages = with pkgs; [
+        arandr
         betterlockscreen
+        mons
         xwallpaper
     ];
 

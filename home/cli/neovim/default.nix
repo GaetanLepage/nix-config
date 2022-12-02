@@ -33,6 +33,7 @@
         shellAliases.v = "nvim";
 
         packages = with pkgs; [
+            ctags
             gcc                         # Needed to compile some of the tree-sitter parsers.
         ];
     };
