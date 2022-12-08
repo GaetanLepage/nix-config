@@ -22,8 +22,7 @@ vim.g.loaded_ruby_provider = 0      -- Ruby
 vim.g.loaded_perl_provider = 0      -- Perl
 vim.g.loaded_python_provider = 0    -- Python 2
 
--- Python 3 provider
-
+-- Specify paths to some providers
 vim.g.python3_host_prog = '/etc/profiles/per-user/gaetan/bin/python3'
 vim.g.node_host_prog = '/etc/profiles/per-user/gaetan/bin/neovim-node-host'
 

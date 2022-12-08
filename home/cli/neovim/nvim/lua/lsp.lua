@@ -112,6 +112,9 @@ require 'lspconfig'.pylsp.setup {
                     -- https://vald-phoenix.github.io/pylint-errors/
                     executable = 'pylint',
                     args = {
+                        '--generated-members' ..
+                        '"torch.*"' ..
+
                         '--disable=' ..
                         'C0115,' ..      -- missing-class-docstring
                         'C0116,' ..      -- missing-function-docstring
