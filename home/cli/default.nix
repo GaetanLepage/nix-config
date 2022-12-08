@@ -22,6 +22,7 @@
         bat         # cat
         bottom      # System monitor
         du-dust     # du
+        dua         # du
         fd          # find
         lfs         # df
         procs       # ps
