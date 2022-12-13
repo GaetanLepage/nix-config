@@ -3,7 +3,6 @@
 {
     imports = [
         ./autorandr.nix
-        ./betterlockscreen.nix
         ./bspwm
         ./dunst.nix
         ./email.nix
@@ -12,6 +11,7 @@
         ./gtk.nix
         ./keyboard.nix
         ./kitty.nix
+        ./lockscreen
         ./picom.nix
         ./polybar
         ./rofi.nix
