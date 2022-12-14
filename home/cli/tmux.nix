@@ -20,8 +20,8 @@
         prefix = "C-a";
         shortcut = "a";
 
-        plugins = with pkgs; [
-            tmuxPlugins.gruvbox
+        plugins = with pkgs.tmuxPlugins; [
+            gruvbox
         ];
 
         extraConfig = ''
