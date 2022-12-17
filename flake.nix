@@ -40,35 +40,37 @@
 
         in {
 
-            # Tuxedo laptop
-            nixosConfigurations.tuxedo = nixpkgs.lib.nixosSystem {
+            nixosConfigurations = {
+                # Tuxedo laptop
+                tuxedo = nixpkgs.lib.nixosSystem {
 
-                inherit system;
+                    inherit system;
 
-                modules = [
-                    # The system configuration
-                    ./nixos/tuxedo
-                    nixpkgs-outPath
+                    modules = [
+                        # The system configuration
+                        ./nixos/tuxedo
+                        nixpkgs-outPath
 
-                    # Home manager configuration
-                    home-manager.nixosModules.home-manager
-                    {
-                        home-manager = {
-                            useGlobalPkgs = true;
-                            useUserPackages = true;
-                            users.gaetan = import ./home/tuxedo.nix;
-                        };
-                    }
-                ];
-            };
+                        # Home manager configuration
+                        home-manager.nixosModules.home-manager
+                        {
+                            home-manager = {
+                                useGlobalPkgs = true;
+                                useUserPackages = true;
+                                users.gaetan = import ./home/tuxedo.nix;
+                            };
+                        }
+                    ];
+                };
 
-            # Cuda desktop
-            nixosConfigurations.cuda = nixpkgs.lib.nixosSystem {
-                inherit system;
-                modules = [
-                    ./nixos/cuda
-                    nixpkgs-outPath
-                ];
+                # Cuda desktop
+                cuda = nixpkgs.lib.nixosSystem {
+                    inherit system;
+                    modules = [
+                        ./nixos/cuda
+                        nixpkgs-outPath
+                    ];
+                };
             };
 
             # Inria
