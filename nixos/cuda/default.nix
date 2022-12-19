@@ -43,6 +43,7 @@
         discord
         firefox
         mpv
+        mumble
         signal-desktop
         spotify
         teamspeak_client
