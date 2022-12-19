@@ -34,9 +34,9 @@
             system = "x86_64-linux";
 
             # Export the nixpkgs flake output to /etc
-            # nixpkgs-outPath = {
-            #     environment.etc."nix/inputs/nixpkgs".source = nixpkgs.outPath;
-            # };
+            nixpkgs-outPath = {
+                environment.etc."nix/inputs/nixpkgs".source = nixpkgs.outPath;
+            };
 
         in {
 
@@ -49,7 +49,7 @@
                     modules = [
                         # The system configuration
                         ./nixos/tuxedo
-                        # nixpkgs-outPath
+                        nixpkgs-outPath
 
                         # Home manager configuration
                         home-manager.nixosModules.home-manager
@@ -64,20 +64,20 @@
                 };
 
                 # Cuda desktop
-                # cuda = nixpkgs.lib.nixosSystem {
-                #     inherit system;
-                #     modules = [
-                #         ./nixos/cuda
-                #         nixpkgs-outPath
-                #     ];
-                # };
+                cuda = nixpkgs.lib.nixosSystem {
+                    inherit system;
+                    modules = [
+                        ./nixos/cuda
+                        nixpkgs-outPath
+                    ];
+                };
             };
 
             # Inria
-            # homeConfigurations.inria = home-manager.lib.homeManagerConfiguration {
-            #     pkgs = nixpkgs.legacyPackages.${system};
+            homeConfigurations.inria = home-manager.lib.homeManagerConfiguration {
+                pkgs = nixpkgs.legacyPackages.${system};
 
-            #     modules = [ ./home/inria.nix ];
-            # };
+                modules = [ ./home/inria.nix ];
+            };
         };
 }
