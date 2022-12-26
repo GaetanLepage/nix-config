@@ -56,8 +56,8 @@ vmap('<S-TAB>', '<gv')
 -- nmap('<S-TAB>', ':bprevious<CR>')
 
 -- move selected line / block of text in visual mode
-xmap('K', ':move \'<-2<CR>gv-gv')
-xmap('J', ':move \'>+1<CR>gv-gv')
+vmap('K', ':m \'<-2<CR>gv=gv')
+vmap('J', ':m \'>+1<CR>gv=gv')
 
 -- move current line up/down
 -- M = Alt key
