@@ -62,9 +62,10 @@
     #######
     # Nix #
     #######
-    nrs = "sudo nixos-rebuild switch --flake ~/config/.";
+    nrs = "sudo nixos-rebuild switch --flake ~/config -v";
     ncg = "sudo nix-collect-garbage";
     hms = "home-manager switch";
     hme = "home-manager edit";
     nsp = "nix-shell -p";
+    nfu = "nix flake update";
 }
