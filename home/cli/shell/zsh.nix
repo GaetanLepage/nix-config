@@ -7,13 +7,9 @@
         target = "zsh/zsh_vim_bindings";
     };
 
-    home = {
-        packages = with pkgs; [
+    home.packages = with pkgs; [
             pfetch
-        ];
-
-        sessionVariables.EDITOR = "nvim";
-    };
+    ];
 
     programs = {
         zsh = {

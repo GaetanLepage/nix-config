@@ -32,6 +32,8 @@
     home = {
         shellAliases.v = "nvim";
 
+        sessionVariables.EDITOR = "nvim";
+
         packages = with pkgs; [
             ctags
             gcc                         # Needed to compile some of the tree-sitter parsers.
