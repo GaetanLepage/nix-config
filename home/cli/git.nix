@@ -1,5 +1,3 @@
-{ config, ... }:
-
 {
     programs = {
         git = {
