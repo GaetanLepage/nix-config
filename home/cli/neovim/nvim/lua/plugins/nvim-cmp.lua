@@ -34,7 +34,7 @@ cmp.setup {
         { name = 'nvim_lsp' },
 
         -- TabNine
- 	    { name = 'cmp_tabnine' },
+        { name = 'cmp_tabnine' },
 
         -- Snippets
         { name = 'luasnip' },

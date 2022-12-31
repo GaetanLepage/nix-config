@@ -76,7 +76,7 @@ o.expandtab = true          -- Expand <Tab> to spaces in Insert mode (local to b
 o.autoindent = true         -- Do clever autoindenting
 
 o.textwidth = 100           -- Maximum width of text that is being inserted.  A longer line will be
-	                        -- broken after white space to get this width.
+                            -- broken after white space to get this width.
 
 -- Folding
 o.foldmethod = 'expr'     -- Set folding type to indent

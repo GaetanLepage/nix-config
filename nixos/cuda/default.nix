@@ -60,14 +60,14 @@
             vimAlias = true;
         };
 
-	    singularity.enable = true;
+        singularity.enable = true;
     };
 
     services.xserver = {
         displayManager.gdm = {
-	        enable = true;
-	        autoSuspend = false;
-	    };
+            enable = true;
+            autoSuspend = false;
+        };
 
         desktopManager.gnome.enable = true;
     };
