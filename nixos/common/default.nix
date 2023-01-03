@@ -22,7 +22,11 @@
         keyMap = "fr";
     };
 
-    services.fwupd.enable = true;
+    # LVS (fwupd)
+    services = {
+        fwupd.enable = true;
+        udisks2.enable = true;
+    };
 
     networking = {
 
