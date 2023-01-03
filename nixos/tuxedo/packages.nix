@@ -16,7 +16,6 @@
 
         # Network
         dig                         # Domain name server
-        networkmanagerapplet
         lsof
         speedtest-cli
         wol                         # Wake on Lan
