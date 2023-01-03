@@ -22,6 +22,8 @@
         keyMap = "fr";
     };
 
+    services.fwupd.enable = true;
+
     networking = {
 
         networkmanager.enable = true;
