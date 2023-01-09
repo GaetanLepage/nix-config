@@ -24,6 +24,12 @@
             inputs.nixpkgs.follows = "nixpkgs";
         };
         agenix.url = github:ryantm/agenix;
+
+        nixvim = {
+            # url = github:pta2002/nixvim;
+            url = "/home/gaetan/perso/nix/nixvim";
+            inputs.nixpkgs.follows = "nixpkgs";
+        };
     };
 
     outputs = {
@@ -31,6 +37,7 @@
         nixpkgs,
         home-manager,
         agenix,
+        nixvim,
     }:
         let
             system = "x86_64-linux";
@@ -39,6 +46,8 @@
             nixpkgs-outPath = {
                 environment.etc."nix/inputs/nixpkgs".source = nixpkgs.outPath;
             };
+
+            nixvimModule = nixvim.homeManagerModules.nixvim;
 
         in {
 
@@ -63,7 +72,10 @@
                             home-manager = {
                                 useGlobalPkgs = true;
                                 useUserPackages = true;
-                                users.gaetan = import ./home/tuxedo.nix;
+                                users.gaetan.imports = [
+                                    ./home/tuxedo.nix
+                                    nixvimModule
+                                ];
                             };
                         }
                     ];
