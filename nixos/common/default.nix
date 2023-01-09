@@ -23,10 +23,7 @@
     };
 
     # LVS (fwupd)
-    services = {
-        fwupd.enable = true;
-        udisks2.enable = true;
-    };
+    services.fwupd.enable = true;
 
     networking = {
 
