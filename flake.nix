@@ -22,8 +22,15 @@
       # url = "/home/gaetan/perso/nix/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
     agenix = {
       url = "github:ryantm/agenix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    nixvim = {
+      # url = "github:pta2002/nixvim";
+      url = "/home/gaetan/perso/nix/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
@@ -33,6 +40,7 @@
     nixpkgs,
     home-manager,
     agenix,
+    nixvim,
   }: let
     system = "x86_64-linux";
 
@@ -40,6 +48,8 @@
     nixpkgs-outPath = {
       environment.etc."nix/inputs/nixpkgs".source = nixpkgs.outPath;
     };
+
+    nixvimModule = nixvim.homeManagerModules.nixvim;
   in {
     formatter.${system} = nixpkgs.legacyPackages.${system}.alejandra;
 
@@ -63,7 +73,10 @@
             home-manager = {
               useGlobalPkgs = true;
               useUserPackages = true;
-              users.gaetan = import ./home/tuxedo.nix;
+              users.gaetan.imports = [
+                ./home/tuxedo.nix
+                nixvimModule
+              ];
             };
           }
         ];
@@ -83,7 +96,10 @@
     # Inria
     homeConfigurations.inria = home-manager.lib.homeManagerConfiguration {
       pkgs = nixpkgs.legacyPackages.${system};
-      modules = [./home/inria.nix];
+      modules = [
+        ./home/inria.nix
+        nixvimModule
+      ];
     };
   };
 }
