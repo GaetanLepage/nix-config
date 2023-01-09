@@ -11,6 +11,7 @@
             disks_filter    = "";
             mem_graphs      = false;
             proc_per_core   = true;
+            net_iface       = "wg0";
         };
     };
 }
