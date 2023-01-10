@@ -74,9 +74,9 @@ in {
             ##########
             # GriCAD #
             ##########
-            "*.ciment" = {
+            "bigfoot" = {
                 user = "lepageg-ext";
-                proxyCommand = "ssh -q lepageg-ext@access-gricad.univ-grenoble-alpes.fr 'nc -w 60 `basename %h .ciment` %p'";
+                proxyCommand = "ssh -q lepageg-ext@access-gricad.univ-grenoble-alpes.fr 'nc -w 60 bigfoot %p'";
             };
 
             ############
