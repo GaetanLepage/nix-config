@@ -23,6 +23,9 @@ require'nvim-tree'.setup {
                                             --      of the filename.
     update_cwd          = false,            -- Updates the root directory of the tree on
                                             --      `DirChanged` (when your run `:cd` usually).
+    git = {
+        enable = false
+    },
 
     -- Show lsp diagnostics in the signcolumn.
     diagnostics = {
