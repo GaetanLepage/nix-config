@@ -5,10 +5,10 @@
     # Home Manager needs a bit of information about you and the
     # paths it should manage.
     home = {
-        username = "galepage";
-        homeDirectory = "/home/galepage";
+        username = "lepageg-ext";
+        homeDirectory = "/home/lepageg-ext";
 
-        shellAliases.un = "update_home_manager inria";
+        shellAliases.un = "update_home_manager gricad";
 
         # This value determines the Home Manager release that your
         # configuration is compatible with. This helps avoid breakage
@@ -18,7 +18,7 @@
         # You can update Home Manager without changing this value. See
         # the Home Manager release notes for a list of state version
         # changes in each release.
-        stateVersion = "22.05";
+        stateVersion = "22.11";
     };
 
     nix.package = pkgs.nix;

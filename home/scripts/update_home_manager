@@ -1,5 +1,7 @@
 #!/bin/sh
 
+profile=$1
+
 flake_dir="$HOME/config"
 
 rm -f $flake_dir/flake.lock
@@ -7,6 +9,6 @@ rm -f $flake_dir/flake.lock
 git -C $flake_dir pull
 
 nix flake update $flake_dir
-home-manager switch --flake $flake_dir\#inria -v
+home-manager switch --flake $flake_dir\#$profile -v
 
 nix-collect-garbage --delete-older-than 2d
