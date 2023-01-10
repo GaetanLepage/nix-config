@@ -17,7 +17,6 @@
 
         keyMode = "vi";
 
-        prefix = "C-a";
         shortcut = "a";
 
         plugins = with pkgs.tmuxPlugins; [
