@@ -16,6 +16,8 @@
         escapeTime = 50;
 
         keyMode = "vi";
+        # Overrides the hjkl and HJKL bindings for pane navigation and resizing in VI mode
+        customPaneNavigationAndResize = true;
 
         shortcut = "a";
 
