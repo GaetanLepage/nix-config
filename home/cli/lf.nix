@@ -15,7 +15,7 @@
                 cmd open $ {{
                     case $f in
                         *.log|*.stdout|*.stderr)
-                            less +F -- "$f" ;;
+                            less +G -- "$f" ;;
                         *)
                             case $(file --mime-type "$f" -bL) in
                                 text/*|application/json)
