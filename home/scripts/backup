@@ -1,9 +1,13 @@
 #!/bin/sh
 
+set -e
+
 if ! [ `hostname` = "tuxedo" ]; then
     echo "Not on tuxedo --> exiting"
     exit 1
 fi
+
+dunstify "Starting backup"
 
 DRY_RUN=''
 if [ "$1" = "-d" ]; then
@@ -36,6 +40,8 @@ rsync -zravut $HOME/ server:$dest_path \
     --exclude ".mypy_cache/" \
     --exclude ".npm/" \
     --exclude "node_modules/" \
-    --exclude "server/" \
+    --exclude "temp/" \
     --exclude "venv/" \
     $DRY_RUN
+
+dunstify "Backup succesfull"
