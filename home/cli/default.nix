@@ -30,6 +30,7 @@
 
         # Other utils
         ncdu
+        sshfs
 
         git
         git-crypt
