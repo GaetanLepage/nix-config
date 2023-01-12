@@ -55,6 +55,7 @@
         gcl = "git clone";
         gt  = "git ls-tree -r master --name-only";
         gb  = "git branch";
+        gbl  = "git branch --list";
         gm  = "git merge";
         gf  = "git fetch";
     };
