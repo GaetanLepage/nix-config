@@ -74,20 +74,9 @@
             };
 
             # Inria
-            homeConfigurations =
-            let
+            homeConfigurations.inria = home-manager.lib.homeManagerConfiguration {
                 pkgs = nixpkgs.legacyPackages.${system};
-            in
-            {
-                inria = home-manager.lib.homeManagerConfiguration {
-                    inherit pkgs;
-                    modules = [ ./home/inria.nix ];
-                };
-
-                gricad = home-manager.lib.homeManagerConfiguration {
-                    inherit pkgs;
-                    modules = [ ./home/gricad.nix ];
-                };
+                modules = [ ./home/inria.nix ];
             };
         };
 }
