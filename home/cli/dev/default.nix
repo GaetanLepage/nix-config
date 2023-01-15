@@ -7,5 +7,9 @@
 
     home.packages = with pkgs; [
         nixpkgs-review
+
+        hugo
+
+        texlive.combined.scheme-full
     ];
 }

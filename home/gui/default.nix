@@ -24,6 +24,21 @@
         betterlockscreen
         mons
         xwallpaper
+
+        # GUI applications
+        discord
+        firefox
+        element-desktop
+        jitsi-meet-electron
+        libreoffice-fresh
+        okular
+        pcmanfm
+        signal-desktop
+        slack
+        spotify
+        thunderbird
+        zathura
+        zotero
     ];
 
     xdg.dataFile.wallpaper = {

@@ -22,7 +22,6 @@
 
         # Software development
         git
-        texlive.combined.scheme-full
 
         # Shell
         bash
@@ -48,23 +47,5 @@
 
         # Hardware Monitoring
         htop
-
-        # GUI applications
-        discord
-        firefox
-        element-desktop
-        jitsi-meet-electron
-        libreoffice-fresh
-        okular
-        pcmanfm
-        signal-desktop
-        slack
-        spotify
-        thunderbird
-        zathura
-        zotero
-
-        # Misc
-        hugo
     ];
 }
