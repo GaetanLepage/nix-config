@@ -1,7 +1,5 @@
 #!/bin/sh
 
-set -e
-
 if ! [ `hostname` = "tuxedo" ]; then
     echo "Not on tuxedo --> exiting"
     exit 1
@@ -44,4 +42,22 @@ rsync -zravut $HOME/ server:$dest_path \
     --exclude "venv/" \
     $DRY_RUN
 
-dunstify "Backup succesfull"
+rsync_exit_code=$?
+
+# Handle exit code 24 (i.e. 'Partial transfer due to vanished source files')
+case $rsync_exit_code in
+    0|24)
+        success_message="Backup succesfull"
+        echo $success_message
+        dunstify $success_message
+
+        exit 0
+        ;;
+
+    *)
+        error_message="Backup failed with error $rsync_exit_code"
+        echo $error_message
+        dunstify $error_message
+
+        exit 1
+esac
