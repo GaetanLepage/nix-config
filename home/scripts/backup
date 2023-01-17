@@ -48,7 +48,7 @@ rsync_exit_code=$?
 case $rsync_exit_code in
     0|24)
         success_message="Backup succesfull"
-        echo $success_message
+        echo "=> $success_message"
         dunstify $success_message
 
         exit 0
@@ -56,7 +56,7 @@ case $rsync_exit_code in
 
     *)
         error_message="Backup failed with error $rsync_exit_code"
-        echo $error_message
+        echo "=> $error_message"
         dunstify $error_message
 
         exit 1
