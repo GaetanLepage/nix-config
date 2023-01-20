@@ -15,11 +15,11 @@
     description = "My NixOS/home-manager configuration.";
 
     inputs = {
-        nixpkgs.url = "nixpkgs/nixos-unstable";
+        nixpkgs.url = github:nixos/nixpkgs/nixos-unstable;
         # nixpkgs.url = "/home/gaetan/perso/nix/nixpkgs";
 
         home-manager = {
-            url = "github:nix-community/home-manager/master";
+            url = github:nix-community/home-manager;
             # url = "/home/gaetan/perso/nix/home-manager";
             inputs.nixpkgs.follows = "nixpkgs";
         };
