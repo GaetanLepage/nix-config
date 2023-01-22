@@ -2,7 +2,7 @@
     services.openssh = {
         enable = true;
 
-        passwordAuthentication = false;
+        settings.passwordAuthentication = false;
     };
 
     users.users.gaetan.openssh.authorizedKeys.keys = [
