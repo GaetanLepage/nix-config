@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 {
     imports = [
-        ./cli
+        ./tui
         ./gui
     ];
 
