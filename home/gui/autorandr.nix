@@ -1,6 +1,6 @@
 { pkgs, ... }:
 {
-    # Autostart home-manager
+    # Autostart autorandr at login
     systemd.user.services.autorandr = {
         Unit = {
             Description = "autorandr";
