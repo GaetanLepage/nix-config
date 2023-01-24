@@ -2,7 +2,6 @@
 
 {
     imports = [
-        ./autorandr.nix
         ./bspwm
         ./dunst.nix
         ./email.nix

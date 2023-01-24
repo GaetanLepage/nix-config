@@ -13,6 +13,7 @@
         ../common
 
         ./android.nix
+        ./autorandr.nix
         ./bluetooth.nix
         ./keyboard.nix
         ./neovim.nix

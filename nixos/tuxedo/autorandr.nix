@@ -1,14 +1,10 @@
 {
-    home.shellAliases = {
-        ah = "autorandr -l home";
-        ai = "autorandr -l inria";
-    };
-
-    programs.autorandr = {
+    services.autorandr = {
 
         enable = true;
 
-        hooks = {};
+        defaultTarget = "laptop";
+        ignoreLid = true;
 
         profiles = let
 
@@ -17,12 +13,14 @@
             wifi-on-hook = "nmcli radio wifi on";
             wifi-off-hook = "nmcli radio wifi off";
 
+            mkWifiHook = on: "nmcli radio wifi ${if on then "on" else "off"}";
+
             mkSingleExternalScreen = {
                 externalName ? "DP-1",
                 externalEdid,
                 mode ? "2560x1440",
                 rate ? "60.00",
-                postSwitchHook ? ""
+                wifiState ? true
             }: {
                 fingerprint = {
                     eDP-1 = eDP-1-edid;
@@ -38,7 +36,7 @@
                         inherit rate;
                     };
                 };
-                hooks.postswitch = postSwitchHook;
+                hooks.postswitch = { wifi = mkWifiHook wifiState; };
             };
 
 
@@ -54,28 +52,28 @@
                         rate = "60.00";
                     };
                 };
-                hooks.postswitch = wifi-on-hook;
+                hooks.postswitch = { wifi = mkWifiHook true; };
             };
 
             inria = mkSingleExternalScreen {
                 externalName = "DP-1-1";
                 externalEdid = "00ffffffffffff0010ac7c4157394641221d0104a53c22783eee95a3544c99260f5054a54b00714f8180a940d1c00101010101010101565e00a0a0a029503020350055502100001a000000ff00354b5a485153320a2020202020000000fc0044454c4c20553237313944430a000000fd00384c1e5a19010a202020202020012702031cf14f90050403020716010611121513141f23097f0783010000023a801871382d40582c450055502100001e7e3900a080381f4030203a0055502100001a011d007251d01e206e28550055502100001ebf1600a08038134030203a0055502100001a00000000000000000000000000000000000000000000000000000012";
                 rate = "59.95";
-                postSwitchHook = wifi-off-hook;
+                wifiState = false;
             };
 
             home = mkSingleExternalScreen {
                 externalName = "HDMI-1";
                 externalEdid = "00ffffffffffff001e6dd25b11170400081f010380462778ea8cb5af4f43ab260e5054210800d1c06140010101010101010101010101e9e800a0a0a0535030203500b9882100001a000000fd003c901ee63c000a202020202020000000fc004c4720554c545241474541520a000000ff003130384d41485532415534390a01b102034cf1230907074d100403011f13123f5d5e5f60616d030c001000b83c20006001020367d85dc401788003e30f00186d1a000002053c900004614f614fe2006ae305c000e606050161614f6fc200a0a0a0555030203500b9882100001a565e00a0a0a0295030203500b9882100001a000000000000000000000000000000db";
                 rate = "120.00";
-                postSwitchHook = wifi-off-hook;
+                wifiState = false;
             };
 
             dom = mkSingleExternalScreen {
                 externalName = "HDMI-1";
                 externalEdid = "00ffffffffffff0009d1c578455400002617010380351e782e6b35a455559f270c5054a56b80d1c081c081008180a9c0b30001010101023a801871382d40582c4500132b2100001e000000ff004e39443034313833534c300a20000000fd00324c1e5311000a202020202020000000fc0042656e51204757323436300a200163020322f14f90050403020111121314060715161f2309070765030c00100083010000023a801871382d40582c4500132b2100001f011d8018711c1620582c2500132b2100009f011d007251d01e206e285500132b2100001e8c0ad08a20e02d10103e9600132b21000018000000000000000000000000000000000000000000e7";
                 mode = "1920x1080";
-                postSwitchHook = wifi-on-hook;
+                wifiState = true;
             };
         };
     };
