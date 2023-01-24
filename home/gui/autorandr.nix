@@ -1,17 +1,28 @@
+{ pkgs, ... }:
 {
-    services.autorandr = {
+    # Autostart home-manager
+    systemd.user.services.autorandr = {
+        Unit = {
+            Description = "autorandr";
+            After = [ "graphical-session-pre.target" ];
+            PartOf = [ "graphical-session.target" ];
+        };
+
+        Service = {
+            Type = "oneshot";
+            ExecStart = "${pkgs.autorandr}/bin/autorandr --change --ignore-lid";
+        };
+
+        Install.WantedBy = [ "graphical-session.target" ];
+    };
+
+    programs.autorandr = {
 
         enable = true;
-
-        defaultTarget = "laptop";
-        ignoreLid = true;
 
         profiles = let
 
             eDP-1-edid = "00ffffffffffff0009e5610900000000011e0104a51e137803da25a7544b9925105054000000010101010101010101010101010101019c3e80c870b03c40302036002ebc1000001abc2980c870b03c40302036002dbc10000000000000fe00424f452043510a202020202020000000fe004e4531343057554d2d4e36330a0073";
-
-            wifi-on-hook = "nmcli radio wifi on";
-            wifi-off-hook = "nmcli radio wifi off";
 
             mkWifiHook = on: "nmcli radio wifi ${if on then "on" else "off"}";
 
@@ -36,7 +47,7 @@
                         inherit rate;
                     };
                 };
-                hooks.postswitch = { wifi = mkWifiHook wifiState; };
+                hooks.postswitch = mkWifiHook wifiState;
             };
 
 
@@ -52,7 +63,7 @@
                         rate = "60.00";
                     };
                 };
-                hooks.postswitch = { wifi = mkWifiHook true; };
+                hooks.postswitch = mkWifiHook true;
             };
 
             inria = mkSingleExternalScreen {

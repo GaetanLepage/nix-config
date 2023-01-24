@@ -84,6 +84,9 @@ in {
             bspc desktop 4 -l monocle
             bspc desktop 7 -l monocle
             bspc desktop 8 -l monocle
+
+            # Automatically laod the first autorandr profile
+            autorandr --change --ignore-lid
         '';
 
         startupPrograms = [
