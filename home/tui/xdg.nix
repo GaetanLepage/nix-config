@@ -33,7 +33,7 @@
                 "text/xml"                  = "firefox.desktop";
 
                 # Images
-                "image/gif"                 = "mpvgif.desktop";
+                "image/gif"                 = "org.gnome.gThumb.desktop";
                 "image/heif"                = "org.gnome.gThumb.desktop";
                 "image/jpeg"                = "org.gnome.gThumb.desktop";
                 "image/png"                 = "org.gnome.gThumb.desktop";
