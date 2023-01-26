@@ -42,7 +42,7 @@
     ];
 
     xdg.dataFile.wallpaper = {
-        source = ../wallpaper.jpg;
+        source = ./wallpaper.jpg;
         target = "wallpaper.jpg";
     };
 
