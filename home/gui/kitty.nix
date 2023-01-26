@@ -14,7 +14,7 @@
             bell_on_tab = false;
 
             background = "#0a0a0a";
-            background_opacity = "0.9";
+            background_opacity = "0.95";
         };
     };
 }
