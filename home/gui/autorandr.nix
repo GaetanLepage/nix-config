@@ -16,6 +16,12 @@
         Install.WantedBy = [ "graphical-session.target" ];
     };
 
+    # TODO uncomment when PR is merged
+    # services.autorandr = {
+    #   enable = true;
+    #   ignoreLid = true;
+    # };
+
     programs.autorandr = {
 
         enable = true;
