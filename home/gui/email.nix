@@ -59,36 +59,6 @@
             };
         };
 
-        inp-fr = {
-            address = "gaetan.lepage@grenoble-inp.fr";
-            userName = "gaetan.lepage";
-
-            imap = {
-                host = "imap.grenoble-inp.fr";
-                port = 993;
-            };
-
-            smtp = {
-                host = "smtp.grenoble-inp.fr";
-                port = 587;
-                tls.useStartTls = true;
-            };
-        };
-
-        inp-org = {
-            address = "gaetan.lepage@grenoble-inp.org";
-
-            imap = {
-                host = "imap.partage.renater.fr";
-                port = 993;
-            };
-
-            smtp = {
-                host = "smtp.partage.renater.fr";
-                port = 465;
-            };
-        };
-
         gmx = {
             address = "g.lepage@gmx.com";
 
@@ -111,21 +81,6 @@
         hotmail = {
             address = "gaetlep@hotmail.fr";
             flavor = "outlook.office365.com";
-        };
-
-        lepage-knives = {
-            address = "glepage@lepage-knives.com";
-
-            imap = {
-                host = "imap.ionos.fr";
-                port = 143;
-                tls.useStartTls = true;
-            };
-
-            smtp = {
-                host = "smtp.ionos.fr";
-                port = 465;
-            };
         };
     };
 }
