@@ -117,12 +117,10 @@ in {
         };
     };
 
-    # TODO ssh-agent when on a CLI environment (ex: alya)
-
     home.shellAliases = {
-        s       = "ssh";
-        sa      = "ssh alya";
-        sam     = "ssh alya -t tmux attach-session -t hm";
-        sshi    = "ssh -J bastion -l galepage";
+        s   = "ssh";
+        sa  = "ssh alya";
+        sam = "ssh alya -t tmux attach-session -t hm";
+        si  = "ssh -J bastion -l galepage";
     };
 }
