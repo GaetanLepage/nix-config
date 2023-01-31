@@ -1,4 +1,6 @@
 {
+    home.shellAliases.ssh = "kitty +kitten ssh";
+
     programs.kitty = {
         enable = true;
 
