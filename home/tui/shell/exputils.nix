@@ -4,7 +4,7 @@
         case "`hostname`" in
 
             alya|auriga|bacchus|chamaeleon|carina|access[1-2]-cp)
-                PATH_TO_EXPUTILS=$HOME/scratch/inria/exputils_commands
+                PATH_TO_EXPUTILS=/scratch/alya/galepage/exputils_sync/exputils_commands
                 ;;
             tuxedo)
                 PATH_TO_EXPUTILS=$HOME/inria/code/exputils_commands
