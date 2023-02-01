@@ -13,8 +13,6 @@
             enable_audio_bell = false;
             bell_on_tab = false;
 
-            shell_integration = "no-rc";
-
             background = "#0a0a0a";
             background_opacity = "0.95";
         };
