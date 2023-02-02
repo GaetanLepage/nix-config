@@ -23,12 +23,14 @@
             # url = "/home/gaetan/perso/nix/home-manager";
             inputs.nixpkgs.follows = "nixpkgs";
         };
+        agenix.url = github:ryantm/agenix;
     };
 
     outputs = {
         self,
         nixpkgs,
         home-manager,
+        agenix,
     }:
         let
             system = "x86_64-linux";
@@ -51,6 +53,10 @@
                         ./nixos/tuxedo
                         nixpkgs-outPath
 
+                        # agenix
+                        agenix.nixosModules.default
+                        { environment.systemPackages = [ agenix.packages.x86_64-linux.default ]; }
+
                         # Home manager configuration
                         home-manager.nixosModules.home-manager
                         {
@@ -69,6 +75,7 @@
                     modules = [
                         ./nixos/cuda
                         nixpkgs-outPath
+                        agenix.nixosModules.default
                     ];
                 };
             };

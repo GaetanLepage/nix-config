@@ -1,4 +1,7 @@
+{ config, ... }:
 {
+    age.secrets.wireguard_cuda_private_key.file = ../../secrets/wireguard/wireguard_cuda_private_key.age;
+
     networking.firewall.allowedUDPPorts = [ 51820 ];
 
     # "wg0" is the network interface name. You can name the interface arbitrarily.
@@ -13,7 +16,8 @@
         # Note: The private key can also be included inline via the privateKey option,
         # but this makes the private key world-readable; thus, using privateKeyFile is
         # recommended.
-        privateKeyFile = "/home/gaetan/config/secrets/wireguard/cuda-privatekey";
+        # privateKeyFile = "/home/gaetan/config/secrets/wireguard/cuda-privatekey";
+        privateKeyFile = config.age.secrets.wireguard_cuda_private_key.path;
 
         peers = [
             # For a client configuration, one peer entry for the server will suffice.
