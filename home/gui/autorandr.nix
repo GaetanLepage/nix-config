@@ -1,26 +1,10 @@
 { pkgs, ... }:
 {
     # Autostart autorandr at login
-    systemd.user.services.autorandr = {
-        Unit = {
-            Description = "autorandr";
-            After = [ "graphical-session-pre.target" ];
-            PartOf = [ "graphical-session.target" ];
-        };
-
-        Service = {
-            Type = "oneshot";
-            ExecStart = "${pkgs.autorandr}/bin/autorandr --change --ignore-lid";
-        };
-
-        Install.WantedBy = [ "graphical-session.target" ];
+    services.autorandr = {
+      enable = true;
+      ignoreLid = true;
     };
-
-    # TODO uncomment when PR is merged
-    # services.autorandr = {
-    #   enable = true;
-    #   ignoreLid = true;
-    # };
 
     programs.autorandr = {
 
