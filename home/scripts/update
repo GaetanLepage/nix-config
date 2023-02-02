@@ -51,8 +51,11 @@ case $distro in
                     --target-host root@cuda \
                     --build-host root@cuda
                 ;;
+
             `hostname`|"")
-                sudo nixos-rebuild switch --flake $nix_dir -v
+                sudo nixos-rebuild switch \
+                    --verbose \
+                    --flake $nix_dir
 
                 # Clean the store (garbage collection)
                 # Also removes old generations
