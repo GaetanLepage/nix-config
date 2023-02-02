@@ -43,10 +43,21 @@ case $distro in
         nix flake update $nix_dir -L
 
         # Reload the system configuration
-        sudo nixos-rebuild switch --flake $nix_dir -v
+        case $1 in
+            cuda)
+                nixos-rebuild switch \
+                    --fast \
+                    --flake $nix_dir\#cuda \
+                    --target-host root@cuda \
+                    --build-host root@cuda
+                ;;
+            `hostname`|"")
+                sudo nixos-rebuild switch --flake $nix_dir -v
 
-        # Clean the store (garbage collection)
-        # Also removes old generations
-        sudo nix-collect-garbage --delete-older-than 2d
+                # Clean the store (garbage collection)
+                # Also removes old generations
+                sudo nix-collect-garbage --delete-older-than 2d
+                ;;
+        esac
         ;;
 esac
