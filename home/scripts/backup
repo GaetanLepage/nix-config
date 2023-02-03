@@ -38,6 +38,7 @@ rsync -zravut $HOME/ server:$dest_path \
     --exclude ".mypy_cache/" \
     --exclude ".npm/" \
     --exclude "node_modules/" \
+    --exclude "mnt/" \
     --exclude "temp/" \
     --exclude "venv/" \
     $DRY_RUN
