@@ -1,4 +1,7 @@
+{ config, ... }:
 {
+    age.secrets.wireguard_tuxedo_private_key.file = ../../secrets/wireguard/wireguard_tuxedo_private_key.age;
+
     networking.wg-quick.interfaces.wg0 = {
         address = [ "10.10.10.2/32" ];
 
@@ -7,7 +10,7 @@
 
         autostart = true;
 
-        privateKeyFile = "/home/gaetan/config/secrets/wireguard/tuxedo-privatekey";
+        privateKeyFile = config.age.secrets.wireguard_tuxedo_private_key.path;
 
         peers = [
             # For a client configuration, one peer entry for the server will suffice.

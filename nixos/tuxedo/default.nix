@@ -18,6 +18,7 @@
         ./neovim.nix
         ./packages.nix
         ./sound.nix
+        ./ssh.nix
         # ./virtualbox.nix
         # ./wacom.nix
         ./wireguard.nix
