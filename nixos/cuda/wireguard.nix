@@ -16,7 +16,6 @@
         # Note: The private key can also be included inline via the privateKey option,
         # but this makes the private key world-readable; thus, using privateKeyFile is
         # recommended.
-        # privateKeyFile = "/home/gaetan/config/secrets/wireguard/cuda-privatekey";
         privateKeyFile = config.age.secrets.wireguard_cuda_private_key.path;
 
         peers = [
