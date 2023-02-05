@@ -13,7 +13,9 @@
         ../common
 
         ./android.nix
+        ./autofs.nix
         ./bluetooth.nix
+        ./davfs.nix
         ./keyboard.nix
         ./neovim.nix
         ./packages.nix
