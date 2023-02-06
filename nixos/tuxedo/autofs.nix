@@ -1,6 +1,11 @@
 { pkgs, config, ... }:
 {
-    age.secrets.davfs_nextcloud.file = ../../secrets/davfs_nextcloud.age;
+    age.secrets = {
+        davfs_nextcloud.file = ../../secrets/davfs_nextcloud.age;
+        rsa_sshfs.file = ../../secrets/ssh/rsa_sshfs.age;
+    };
+
+    environment.systemPackages = [ pkgs.sshfs ];
 
     services.autofs = {
         enable = true;
@@ -10,14 +15,49 @@
                 secrets ${config.age.secrets.davfs_nextcloud.path}
             '';
 
-            mapConf = pkgs.writeText "mnt" ''
-              alya      -fstype=nfs4    10.10.10.4:/local_scratch
-              server    -fstype=nfs4    10.10.10.1:/tank
+            uid = toString config.users.users.gaetan.uid;
+            gid = toString config.users.groups.gaetan.gid;
 
-              nextcloud -fstype=davfs,uid=1000,file_mode=600,dir_mode=700,conf=${davfsConf},rw :https\://cloud.glepage.com/remote.php/dav/files/glepage
+            ###############
+            # NFS & DAVFS #
+            ###############
+
+            mapConf = pkgs.writeText "autofs.mnt" ''
+                alya \
+                    -fstype=nfs4 \
+                    10.10.10.4:/local_scratch
+
+                server \
+                    -fstype=nfs4 \
+                    10.10.10.1:/tank
+
+                nextcloud \
+                    -fstype=davfs,uid=${uid},file_mode=600,dir_mode=700,conf=${davfsConf},rw \
+                    :https\://cloud.glepage.com/remote.php/dav/files/glepage
             '';
+
+            #########
+            # SSHFS #
+            #########
+
+            pathToRsaKey = config.age.secrets.rsa_sshfs.path;
+            sshfsOptions = "-fstype=fuse.sshfs,rw,allow_other,IdentityFile=${pathToRsaKey}";
+
+            gricadProxyCommand = "ssh -i ${pathToRsaKey} -q lepageg-ext@access-gricad.univ-grenoble-alpes.fr nc -w 60 bigfoot 22";
+
+            sshfsMapConf = pkgs.writeText "autofs.mnt.sshfs" ''
+                alya \
+                    ${sshfsOptions} \
+                    :galepage@10.10.10.4\:/local_scratch/galepage
+
+                bigfoot \
+                    ${sshfsOptions},ProxyCommand="${gricadProxyCommand}" \
+                    :lepageg-ext@bigfoot\:/bettik/lepageg-ext
+            '';
+
         in ''
-            /mnt file:${mapConf} --timeout 60
+            /mnt        ${mapConf}          --timeout 60
+            /mnt/sshfs  ${sshfsMapConf}     uid=${uid},gid=${gid},--timeout=60,--ghost
         '';
     };
 }
