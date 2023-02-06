@@ -1,6 +1,6 @@
 { config, ... }:
 {
-    age.secrets.wireguard_cuda_private_key.file = ../../secrets/wireguard/wireguard_cuda_private_key.age;
+    age.secrets.wireguard_cuda_private_key.file = ../../secrets/wireguard/cuda-privatekey.age;
 
     networking.firewall.allowedUDPPorts = [ 51820 ];
 

@@ -1,6 +1,6 @@
 { config, ... }:
 {
-    age.secrets.wireguard_tuxedo_private_key.file = ../../secrets/wireguard/wireguard_tuxedo_private_key.age;
+    age.secrets.wireguard_tuxedo_private_key.file = ../../secrets/wireguard/tuxedo-privatekey.age;
 
     networking.wg-quick.interfaces.wg0 = {
         address = [ "10.10.10.2/32" ];
