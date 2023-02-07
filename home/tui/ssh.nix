@@ -79,6 +79,11 @@ in {
                 proxyCommand = "ssh -q lepageg-ext@access-gricad.univ-grenoble-alpes.fr 'nc -w 60 bigfoot %p'";
             };
 
+            "cargo" = {
+                user = "lepageg-ext";
+                proxyCommand = "ssh -q lepageg-ext@access-gricad.univ-grenoble-alpes.fr 'nc -w 60 cargo %p'";
+            };
+
             ############
             # Jean Zay #
             ############

@@ -43,16 +43,16 @@
             pathToRsaKey = config.age.secrets.rsa_sshfs.path;
             sshfsOptions = "-fstype=fuse.sshfs,rw,allow_other,IdentityFile=${pathToRsaKey}";
 
-            gricadProxyCommand = "ssh -i ${pathToRsaKey} -q lepageg-ext@access-gricad.univ-grenoble-alpes.fr nc -w 60 bigfoot 22";
+            gricadProxyCommand = "ssh -i ${pathToRsaKey} -q lepageg-ext@access-gricad.univ-grenoble-alpes.fr nc -w 60 cargo 22";
 
             sshfsMapConf = pkgs.writeText "autofs.mnt.sshfs" ''
                 alya \
                     ${sshfsOptions} \
                     :galepage@10.10.10.4\:/local_scratch/galepage
 
-                bigfoot \
+                gricad \
                     ${sshfsOptions},ProxyCommand="${gricadProxyCommand}" \
-                    :lepageg-ext@bigfoot\:/bettik/lepageg-ext
+                    :lepageg-ext@cargo\:/bettik/lepageg-ext
             '';
 
         in ''
