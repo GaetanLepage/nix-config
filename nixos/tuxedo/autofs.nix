@@ -25,7 +25,7 @@
             mapConf = pkgs.writeText "autofs.mnt" ''
                 alya \
                     -fstype=nfs4 \
-                    10.10.10.4:/local_scratch
+                    10.10.10.4:/local_scratch/galepage
 
                 server \
                     -fstype=nfs4 \
