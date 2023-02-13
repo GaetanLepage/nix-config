@@ -16,6 +16,8 @@
                     case $f in
                         *.log|*.stdout|*.stderr)
                             less +G -- "$f" ;;
+                        *.wav)
+                            paplay $f ;;
                         *)
                             case $(file --mime-type "$f" -bL) in
                                 text/*|application/json)
