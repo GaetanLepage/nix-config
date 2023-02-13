@@ -29,6 +29,8 @@
     ];
 
     networking.hostName = "tuxedo";
+    # Sharing pulseaudio server
+    networking.firewall.allowedTCPPorts = [ 4713 ];
 
     fonts.fonts = with pkgs; [
         noto-fonts
