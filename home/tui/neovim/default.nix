@@ -19,7 +19,7 @@
             nodePackages.bash-language-server           # Bash language server
             nodePackages.typescript                     # TypeScript
             nodePackages.typescript-language-server     # TypeScript language server
-            sumneko-lua-language-server                 # Lua language server
+            lua-language-server                         # Lua language server
             clang-tools                                 # C/C++ language server
             texlab                                      # LaTeX language server
             xdotool                                     # For forward search in zathura
