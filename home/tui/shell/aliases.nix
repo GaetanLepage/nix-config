@@ -22,6 +22,7 @@
     bu      = "backup";
     ka      = "killall";
     cal     = "cal -m";
+    da      = "doas";
     icat    = "kitty +kitten icat";
     jb      = "jobs";
     lo      = "libreoffice";
