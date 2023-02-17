@@ -9,7 +9,7 @@
     gtk = {
         enable = true;
 
-        font.name = "DejaVu Sans 11";
+        font.name = "DejaVu Sans 12";
 
         theme = {
             name = "Matcha-dark-aliz";
