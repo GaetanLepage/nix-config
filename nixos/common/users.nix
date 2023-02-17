@@ -34,7 +34,4 @@
             lepage.gid = 1005;
         };
     };
-
-    # Members of group wheel can execute sudo commands without password.
-    security.sudo.wheelNeedsPassword = false;
 }

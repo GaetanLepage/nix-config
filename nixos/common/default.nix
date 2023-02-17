@@ -4,6 +4,7 @@
     imports = [
         ./bootloader.nix
         ./nix.nix
+        ./security.nix
         ./users.nix
         ./xorg.nix
     ];
