@@ -53,13 +53,13 @@ case $distro in
                 ;;
 
             `hostname`|"")
-                sudo nixos-rebuild switch \
+                doas nixos-rebuild switch \
                     --verbose \
                     --flake $nix_dir
 
                 # Clean the store (garbage collection)
                 # Also removes old generations
-                sudo nix-collect-garbage --delete-older-than 2d
+                doas nix-collect-garbage --delete-older-than 2d
                 ;;
         esac
         ;;

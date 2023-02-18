@@ -20,8 +20,8 @@
             "{F8,XF86PowerOff}"              = "lock";
 
             # Screen brightness
-            "XF86MonBrightnessUp"                   = "sudo xbacklight -inc 10";
-            "XF86MonBrightnessDown"                 = "sudo xbacklight -dec 10";
+            "XF86MonBrightnessUp"                   = "doas xbacklight -inc 10";
+            "XF86MonBrightnessDown"                 = "doas xbacklight -dec 10";
 
             # Mons
             "super + c"                             = "xrandr --output eDP-1 --mode 1920x1200 --primary && mons -o && reload";
@@ -49,12 +49,12 @@
 
             # Bluetooth
             "super + i"                             = "blueman-manager";
-            "super + shift + i"                     = "sudo rfkill unblock bluetooth";
-            "super + ctrl + i"                      = "sudo rfkill block bluetooth";
+            "super + shift + i"                     = "doas rfkill unblock bluetooth";
+            "super + ctrl + i"                      = "doas rfkill block bluetooth";
 
             # Wireguard (VPN)
-            "super + u"                             = "sudo systemctl start wg-quick-wg0";
-            "super + shift + u"                     = "sudo systemctl stop wg-quick-wg0";
+            "super + u"                             = "doas systemctl start wg-quick-wg0";
+            "super + shift + u"                     = "doas systemctl stop wg-quick-wg0";
 
             # Dunst (notifications)
             "super + n"                             = "dunstctl set-paused false";
