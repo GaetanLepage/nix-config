@@ -1,86 +1,85 @@
-{ lib, ... }:
-{
-    programs.thunderbird = {
-        enable = true;
+{lib, ...}: {
+  programs.thunderbird = {
+    enable = true;
 
-        profiles.default = {
-            isDefault = true;
-        };
+    profiles.default = {
+      isDefault = true;
     };
+  };
 
-    accounts.email.accounts = lib.mapAttrs (
+  accounts.email.accounts =
+    lib.mapAttrs (
+      name: config:
+        {
+          realName = "Gaetan Lepage";
+          userName = config.address;
 
-        name: config: {
-            realName = "Gaetan Lepage";
-            userName = config.address;
-
-            thunderbird = {
-                enable = true;
-                settings = id: {
-                    "mail.identity.id_${id}.reply_on_top" = 1;
-                    "mail.identity.id_${id}.sig_bottom" = false;
-                };
+          thunderbird = {
+            enable = true;
+            settings = id: {
+              "mail.identity.id_${id}.reply_on_top" = 1;
+              "mail.identity.id_${id}.sig_bottom" = false;
             };
-        } // config
-
+          };
+        }
+        // config
     ) {
+      perso = {
+        address = "gaetan@glepage.com";
 
-        perso = {
-            address = "gaetan@glepage.com";
+        primary = true;
 
-            primary = true;
-
-            imap = {
-                host = "glepage.com";
-                port = 143;
-                tls.useStartTls = true;
-            };
-
-            smtp = {
-                host = "glepage.com";
-                port = 587;
-                tls.useStartTls = true;
-            };
+        imap = {
+          host = "glepage.com";
+          port = 143;
+          tls.useStartTls = true;
         };
 
-        inria = {
-            address = "gaetan.lepage@inria.fr";
-            userName = "galepage";
+        smtp = {
+          host = "glepage.com";
+          port = 587;
+          tls.useStartTls = true;
+        };
+      };
 
-            imap = {
-                host = "zimbra.inria.fr";
-                port = 993;
-            };
+      inria = {
+        address = "gaetan.lepage@inria.fr";
+        userName = "galepage";
 
-            smtp = {
-                host = "smtp.inria.fr";
-                port = 587;
-                tls.useStartTls = true;
-            };
+        imap = {
+          host = "zimbra.inria.fr";
+          port = 993;
         };
 
-        gmx = {
-            address = "g.lepage@gmx.com";
+        smtp = {
+          host = "smtp.inria.fr";
+          port = 587;
+          tls.useStartTls = true;
+        };
+      };
 
-            imap = {
-                host = "imap.gmx.com";
-                port = 993;
-            };
+      gmx = {
+        address = "g.lepage@gmx.com";
 
-            smtp = {
-                host = "mail.gmx.com";
-                port = 465;
-            };
+        imap = {
+          host = "imap.gmx.com";
+          port = 993;
         };
 
-        gmail = {
-            address = "gaetan.lepage00@gmail.com";
-            flavor = "gmail.com";
+        smtp = {
+          host = "mail.gmx.com";
+          port = 465;
         };
+      };
 
-        hotmail = {
-            address = "gaetlep@hotmail.fr";
-            flavor = "outlook.office365.com";
-        };
+      gmail = {
+        address = "gaetan.lepage00@gmail.com";
+        flavor = "gmail.com";
+      };
+
+      hotmail = {
+        address = "gaetlep@hotmail.fr";
+        flavor = "outlook.office365.com";
+      };
     };
 }

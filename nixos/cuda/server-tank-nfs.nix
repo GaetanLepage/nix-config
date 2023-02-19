@@ -1,16 +1,15 @@
 {
-    fileSystems."/mnt/server" = {
+  fileSystems."/mnt/server" = {
+    device = "10.10.10.1:/tank";
 
-        device = "10.10.10.1:/tank";
+    fsType = "nfs";
 
-        fsType = "nfs";
+    options = [
+      "noauto"
+      "x-systemd.automount"
 
-        options = [
-            "noauto"
-            "x-systemd.automount"
-
-            # disconnects after 10 minutes (i.e. 600 seconds)
-            "x-systemd.idle-timeout=600"
-        ];
-    };
+      # disconnects after 10 minutes (i.e. 600 seconds)
+      "x-systemd.idle-timeout=600"
+    ];
+  };
 }

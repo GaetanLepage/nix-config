@@ -1,54 +1,51 @@
-{ pkgs, ... }:
+{pkgs, ...}: {
+  programs.tmux = {
+    enable = true;
 
-{
-    programs.tmux = {
+    # Rather than constraining window size to the maximum size of any client
+    # connected to the *session*, constrain window size to the maximum size of any
+    # client connected to *that window*. Much more reasonable.
+    aggressiveResize = true;
 
-        enable = true;
+    clock24 = true;
 
-        # Rather than constraining window size to the maximum size of any client
-        # connected to the *session*, constrain window size to the maximum size of any
-        # client connected to *that window*. Much more reasonable.
-        aggressiveResize = true;
+    # Allows for faster key repetition
+    escapeTime = 50;
 
-        clock24 = true;
+    keyMode = "vi";
+    # Overrides the hjkl and HJKL bindings for pane navigation and resizing in VI mode
+    customPaneNavigationAndResize = true;
 
-        # Allows for faster key repetition
-        escapeTime = 50;
+    shortcut = "a";
 
-        keyMode = "vi";
-        # Overrides the hjkl and HJKL bindings for pane navigation and resizing in VI mode
-        customPaneNavigationAndResize = true;
+    plugins = with pkgs.tmuxPlugins; [
+      gruvbox
+    ];
 
-        shortcut = "a";
+    extraConfig = ''
+      # Enable mouse
+      set -g mouse on
 
-        plugins = with pkgs.tmuxPlugins; [
-            gruvbox
-        ];
+      # 2x C-a goes back and fourth between most recent windows
+      bind-key C-a last-window
 
-        extraConfig = ''
-            # Enable mouse
-            set -g mouse on
+      # For neovim
+      set -g focus-events on
 
-            # 2x C-a goes back and fourth between most recent windows
-            bind-key C-a last-window
+      # Update the status line every seconds
+      set -g status-interval 1
 
-            # For neovim
-            set -g focus-events on
+      # auto window rename
+      set -g automatic-rename
+      set -g automatic-rename-format '#{pane_current_command}'
+    '';
+  };
 
-            # Update the status line every seconds
-            set -g status-interval 1
-
-            # auto window rename
-            set -g automatic-rename
-            set -g automatic-rename-format '#{pane_current_command}'
-        '';
-    };
-
-    home.shellAliases = {
-        tm  = "tmux";
-        tms = "tmux new -s";
-        tml = "tmux list-sessions";
-        tma = "tmux attach -t";
-        tmk = "tmux kill-session -t";
-    };
+  home.shellAliases = {
+    tm = "tmux";
+    tms = "tmux new -s";
+    tml = "tmux list-sessions";
+    tma = "tmux attach -t";
+    tmk = "tmux kill-session -t";
+  };
 }

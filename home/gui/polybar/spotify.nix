@@ -1,17 +1,17 @@
 {
-    type = "custom/script";
+  type = "custom/script";
 
-    interval = 1;
+  interval = 1;
 
-    click = {
-        left = "playerctl -p spotify play-pause";
-        right = "bspc desktop -f 9";
-    };
+  click = {
+    left = "playerctl -p spotify play-pause";
+    right = "bspc desktop -f 9";
+  };
 
-    format = {
-        text = "<label>";
-        prefix = " ";
-    };
+  format = {
+    text = "<label>";
+    prefix = " ";
+  };
 
-    exec = "python $XDG_CONFIG_HOME/polybar/spotify.py -f '{artist} ~ {song}' -t 60";
+  exec = "python $XDG_CONFIG_HOME/polybar/spotify.py -f '{artist} ~ {song}' -t 60";
 }

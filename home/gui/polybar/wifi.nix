@@ -1,15 +1,15 @@
 {
-    type = "internal/network";
+  type = "internal/network";
 
-    interface = "wlo1";
-    interval = 0.5;
+  interface = "wlo1";
+  interval = 0.5;
 
-    label.connected = "   %essid%";
+  label.connected = "   %essid%";
 
-    format = {
-        connected = "<label-connected>";
-        disconnected = "";
-    };
+  format = {
+    connected = "<label-connected>";
+    disconnected = "";
+  };
 
-    ramp-signal = [ "" "" "" "" "" ];
+  ramp-signal = ["" "" "" "" ""];
 }

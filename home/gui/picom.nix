@@ -1,13 +1,13 @@
 {
-    services.picom = {
-        enable = true;
+  services.picom = {
+    enable = true;
 
-        backend = "glx";
+    backend = "glx";
 
-        settings.blur = {
-            method = "gaussian";
-            size = 10;
-            deviation = 10.0;
-        };
+    settings.blur = {
+      method = "gaussian";
+      size = 10;
+      deviation = 10.0;
     };
+  };
 }

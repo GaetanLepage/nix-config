@@ -1,12 +1,10 @@
-{ pkgs, ... }:
+{pkgs, ...}: {
+  environment.systemPackages = with pkgs; [
+    virtualbox
+  ];
 
-{
-    environment.systemPackages = with pkgs; [
-        virtualbox
-    ];
+  services.xserver.wacom.enable = true;
+  virtualisation.virtualbox.host.enable = true;
 
-    services.xserver.wacom.enable = true;
-    virtualisation.virtualbox.host.enable = true;
-
-    users.extraGroups.vboxusers.members = [ "gaetan" ];
+  users.extraGroups.vboxusers.members = ["gaetan"];
 }

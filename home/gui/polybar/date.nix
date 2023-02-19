@@ -1,8 +1,8 @@
 {
-    type = "internal/date";
+  type = "internal/date";
 
-    interval = 5;
+  interval = 5;
 
-    date = " %d/%m/%Y";
-    label = " %date%";
+  date = " %d/%m/%Y";
+  label = " %date%";
 }

@@ -1,11 +1,11 @@
 {
-    environment.shellAliases.sudo = "doas";
+  environment.shellAliases.sudo = "doas";
 
-    security = {
-        sudo.enable = false;
-        doas = {
-            enable = true;
-            wheelNeedsPassword = false;
-        };
+  security = {
+    sudo.enable = false;
+    doas = {
+      enable = true;
+      wheelNeedsPassword = false;
     };
+  };
 }

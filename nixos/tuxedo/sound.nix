@@ -1,32 +1,29 @@
-{ pkgs, ... }:
+{pkgs, ...}: {
+  environment.systemPackages = with pkgs; [
+    pavucontrol
+    playerctl
 
-{
-    environment.systemPackages = with pkgs; [
+    # Even though using Pipewire, pulseaudio provides `pactl`
+    pulseaudio
+  ];
 
-        pavucontrol
-        playerctl
+  hardware.pulseaudio.enable = false;
 
-        # Even though using Pipewire, pulseaudio provides `pactl`
-        pulseaudio
-    ];
+  services.pipewire = {
+    enable = true;
 
-    hardware.pulseaudio.enable = false;
+    pulse.enable = true;
 
-    services.pipewire = {
-        enable = true;
-
-        pulse.enable = true;
-
-        alsa = {
-            enable = true;
-            support32Bit = true;
-        };
-
-        # config.pipewire."context.modules" = [ { name = "module-native-protocol-tcp"; } ];
+    alsa = {
+      enable = true;
+      support32Bit = true;
     };
 
-    # Enable sound. Set to `false` if using PipeWire
-    sound.enable = false;
+    # config.pipewire."context.modules" = [ { name = "module-native-protocol-tcp"; } ];
+  };
 
-    nixpkgs.config.pulseaudio = true;
+  # Enable sound. Set to `false` if using PipeWire
+  sound.enable = false;
+
+  nixpkgs.config.pulseaudio = true;
 }

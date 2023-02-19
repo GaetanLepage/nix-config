@@ -1,10 +1,8 @@
-{ pkgs, ... }:
+{pkgs, ...}: {
+  services.xserver.wacom.enable = true;
 
-{
-    services.xserver.wacom.enable = true;
-
-    environment.systemPackages = with pkgs; [
-        libwacom
-        xf86_input_wacom
-    ];
+  environment.systemPackages = with pkgs; [
+    libwacom
+    xf86_input_wacom
+  ];
 }

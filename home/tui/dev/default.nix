@@ -1,15 +1,14 @@
-{ pkgs, ... }:
-{
-    imports = [
-        ./python.nix
-        ./rust.nix
-    ];
+{pkgs, ...}: {
+  imports = [
+    ./python.nix
+    ./rust.nix
+  ];
 
-    home.packages = with pkgs; [
-        nixpkgs-review
+  home.packages = with pkgs; [
+    nixpkgs-review
 
-        hugo
+    hugo
 
-        texlive.combined.scheme-full
-    ];
+    texlive.combined.scheme-full
+  ];
 }

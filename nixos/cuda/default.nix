@@ -1,93 +1,92 @@
 {
-    config,
-    pkgs,
-    lib,
-    ...
-}:
+  config,
+  pkgs,
+  lib,
+  ...
+}: {
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware.nix
 
-{
-    imports = [
-        # Include the results of the hardware scan.
-        ./hardware.nix
+    ../common
 
-        ../common
+    ./steam.nix
+    ./ssh.nix
+    ./nvidia.nix
+    ./server-tank-nfs.nix
+    ./wireguard.nix
+  ];
 
-        ./steam.nix
-        ./ssh.nix
-        ./nvidia.nix
-        ./server-tank-nfs.nix
-        ./wireguard.nix
-    ];
+  networking.hostName = "cuda";
 
-    networking.hostName = "cuda";
+  environment.systemPackages = with pkgs; [
+    # Utils
+    git
+    git-crypt
+    lazygit
+    ncdu
+    tmux
+    unzip
 
-    environment.systemPackages = with pkgs; [
-        # Utils
-        git
-        git-crypt
-        lazygit
-        ncdu
-        tmux
-        unzip
+    # System monitor
+    btop
+    htop
+    nvtop
 
-        # System monitor
-        btop
-        htop
-        nvtop
+    # Gnome extensions
+    gnomeExtensions.dash-to-panel
+    gnomeExtensions.vitals
 
-        # Gnome extensions
-        gnomeExtensions.dash-to-panel
-        gnomeExtensions.vitals
+    # GUI
+    discord
+    firefox
+    mpv
+    mumble
+    signal-desktop
+    spotify
+    teamspeak_client
+    thunderbird
+  ];
 
-        # GUI
-        discord
-        firefox
-        mpv
-        mumble
-        signal-desktop
-        spotify
-        teamspeak_client
-        thunderbird
-    ];
+  programs = {
+    neovim = {
+      enable = true;
 
-    programs = {
-        neovim = {
-            enable = true;
+      defaultEditor = true;
 
-            defaultEditor = true;
-
-            viAlias = true;
-            vimAlias = true;
-        };
-
-        singularity.enable = true;
+      viAlias = true;
+      vimAlias = true;
     };
 
-    services.xserver = {
-        displayManager.gdm = {
-            enable = true;
-            autoSuspend = false;
-        };
+    singularity.enable = true;
+  };
 
-        desktopManager.gnome.enable = true;
+  services.xserver = {
+    displayManager.gdm = {
+      enable = true;
+      autoSuspend = false;
     };
 
-    system = {
-        autoUpgrade = {
-            enable = true;
-            flake = "${config.users.users.gaetan.home}/config#cuda";
-            flags = [
-                "--update-input" "nixpkgs"
-                "--commit-lock-file"
-            ];
-        };
+    desktopManager.gnome.enable = true;
+  };
 
-        # This value determines the NixOS release from which the default
-        # settings for stateful data, like file locations and database versions
-        # on your system were taken. It‘s perfectly fine and recommended to leave
-        # this value at the release version of the first install of this system.
-        # Before changing this value read the documentation for this option
-        # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-        stateVersion = "22.05"; # Did you read the comment?
+  system = {
+    autoUpgrade = {
+      enable = true;
+      flake = "${config.users.users.gaetan.home}/config#cuda";
+      flags = [
+        "--update-input"
+        "nixpkgs"
+        "--commit-lock-file"
+      ];
     };
+
+    # This value determines the NixOS release from which the default
+    # settings for stateful data, like file locations and database versions
+    # on your system were taken. It‘s perfectly fine and recommended to leave
+    # this value at the release version of the first install of this system.
+    # Before changing this value read the documentation for this option
+    # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
+    stateVersion = "22.05"; # Did you read the comment?
+  };
 }
