@@ -14,6 +14,7 @@
     ./ssh.nix
     ./tmux.nix
     ./xdg.nix
+    ./zellij.nix
   ];
 
   # Let Home Manager install and manage itself.

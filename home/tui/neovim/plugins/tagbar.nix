@@ -5,7 +5,9 @@
       extraConfig.width = 50;
     };
 
-    # TODO mapping
-    # require 'utils'.nmap('<C-g>', ':TagbarToggle<CR>')
+    maps.normal."<C-g>" = {
+      action = ":TagbarToggle<cr>";
+      silent = true;
+    };
   };
 }

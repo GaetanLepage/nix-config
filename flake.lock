@@ -8,11 +8,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1676904327,
-        "narHash": "sha256-MWzkgEHBlLVds0zxJUIZLFxmMTBk0VnhL/JvaKD/HqM=",
+        "lastModified": 1677453742,
+        "narHash": "sha256-/DNOThcCGz21Met/aMhm7NGqughtpxQzrlAqTuq+YZQ=",
         "owner": "ryantm",
         "repo": "agenix",
-        "rev": "53da86e9765ae2f952b82080a7ef1a6d28bd7ba3",
+        "rev": "4828951d9d05accd244bf8c24706f046b485aceb",
         "type": "github"
       },
       "original": {
@@ -89,26 +89,23 @@
         "utils": "utils"
       },
       "locked": {
-        "lastModified": 1676892629,
-        "narHash": "sha256-rlvsqoSBO5dCwfnn7xvImYREidIPJaiFS3b54TZF4pU=",
-        "owner": "nix-community",
-        "repo": "home-manager",
-        "rev": "72ce74d3eae78a6b31538ea7ebe0c1fcf4a10f7a",
-        "type": "github"
+        "lastModified": 1677704978,
+        "narHash": "sha256-coQwcRkNlCGlF01JoR+1ZCN+Ya+V4ujE69szpr/vM1I=",
+        "type": "git",
+        "url": "file:///home/gaetan/perso/nix/home-manager"
       },
       "original": {
-        "owner": "nix-community",
-        "repo": "home-manager",
-        "type": "github"
+        "type": "git",
+        "url": "file:///home/gaetan/perso/nix/home-manager"
       }
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1676721149,
-        "narHash": "sha256-mN2EpTGxxVNnFZLoLWRwh6f7UWhXy4qE+wO2CZyrXps=",
+        "lastModified": 1677587185,
+        "narHash": "sha256-zYT66MAYwctAQqI5VBw3LbBXiSKdB8vuMAqCGG8onbE=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "5f4e07deb7c44f27d498f8df9c5f34750acf52d2",
+        "rev": "68196a61c26748d3e53a6803de3d2f8c69f27831",
         "type": "github"
       },
       "original": {
@@ -127,11 +124,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1676908485,
-        "narHash": "sha256-tYiZV1zPPu95x/OB9Xdx1V+ViuYQfCDSJZiBiLLpn8k=",
-        "ref": "refs/heads/cmp-lsp",
-        "rev": "edad227d44f16c1bf24eda81cb6e3ecaa6f48ed7",
-        "revCount": 287,
+        "lastModified": 1677708459,
+        "narHash": "sha256-1QfFnnR6DC732hqEae7sTZt2xbZfGyOcZiB7EWCHUyE=",
+        "ref": "refs/heads/vimtex",
+        "rev": "3a5720035bf091b45fd99ae9848743427c7f948e",
+        "revCount": 331,
         "type": "git",
         "url": "file:///home/gaetan/perso/nix/nixvim"
       },

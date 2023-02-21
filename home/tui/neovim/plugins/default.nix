@@ -2,9 +2,11 @@
   imports = [
     ./barbar.nix
     ./comment.nix
+    ./floaterm.nix
     ./harpoon.nix
-    ./lsp.nix
+    ./lsp
     ./lualine.nix
+    ./markdown-preview.nix
     ./neorg.nix
     ./nvim-tree.nix
     ./startify.nix
@@ -26,18 +28,12 @@
         };
       };
 
-      markdown-preview = {
-        enable = true;
-
-        autoStart = true;
-        autoClose = false;
-
-        theme = "dark";
-      };
-
       nvim-autopairs.enable = true;
 
-      nvim-colorizer.enable = true;
+      nvim-colorizer = {
+        enable = true;
+        userDefaultOptions.names = false;
+      };
     };
   };
 }

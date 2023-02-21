@@ -1,42 +1,32 @@
 {pkgs, ...}: {
   programs.nixvim = {
-    extraPlugins = [pkgs.vimPlugins.neorg];
-
     options = {
       conceallevel = 2;
       concealcursor = "nc";
     };
 
-    extraConfigLua = ''
-      require 'neorg'.setup {
-          load = {
-              ["core.defaults"] = {},
+    plugins.neorg = {
+      enable = true;
 
-              ["core.keybinds"] = {
-                  config = {
-                      hook = function(keybinds)
-                          keybinds.unmap('norg', 'n', '<C-s>')
-                      end
-                  }
-              },
+      modules = {
+        "core.defaults" = {};
 
-              ["core.norg.dirman"] = {
-                  config = {
-                      workspaces = {
-                          notes = "~/notes"
-                      }
-                  }
-              },
+        "core.keybinds".config.hook = {
+          __raw = ''
+            function(keybinds)
+              keybinds.unmap('norg', 'n', '<C-s>')
+            end
+          '';
+        };
 
-              ["core.norg.concealer"] = { },
+        "core.norg.dirman".config.workspaces = {
+          notes = "~/notes";
+          nix = "~/perso/nix/notes";
+        };
 
-              ["core.norg.completion"] = {
-                  config = {
-                      engine = "nvim-cmp"
-                  }
-              }
-          }
-      }
-    '';
+        "core.norg.concealer" = {};
+        "core.norg.completion".config.engine = "nvim-cmp";
+      };
+    };
   };
 }

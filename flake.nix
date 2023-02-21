@@ -29,8 +29,8 @@
     };
 
     nixvim = {
-      # url = "github:pta2002/nixvim";
-      url = "/home/gaetan/perso/nix/nixvim";
+      url = "github:pta2002/nixvim";
+      # url = "/home/gaetan/perso/nix/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
