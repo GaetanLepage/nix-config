@@ -65,5 +65,6 @@
   hme = "home-manager edit";
   nsp = "nix-shell -p";
   nfu = "nix flake update";
+  nfm = "nix fmt";
   uc = "nixos-rebuild switch --fast --flake ~/config#cuda --target-host root@cuda --build-host root@cuda";
 }
