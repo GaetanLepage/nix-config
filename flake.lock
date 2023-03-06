@@ -8,11 +8,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1677453742,
-        "narHash": "sha256-/DNOThcCGz21Met/aMhm7NGqughtpxQzrlAqTuq+YZQ=",
+        "lastModified": 1677969766,
+        "narHash": "sha256-AIp/ZYZMNLDZR/H7iiAlaGpu4lcXsVt9JQpBlf43HRY=",
         "owner": "ryantm",
         "repo": "agenix",
-        "rev": "4828951d9d05accd244bf8c24706f046b485aceb",
+        "rev": "03b51fe8e459a946c4b88dcfb6446e45efb2c24e",
         "type": "github"
       },
       "original": {
@@ -89,23 +89,26 @@
         "utils": "utils"
       },
       "locked": {
-        "lastModified": 1677704978,
-        "narHash": "sha256-coQwcRkNlCGlF01JoR+1ZCN+Ya+V4ujE69szpr/vM1I=",
-        "type": "git",
-        "url": "file:///home/gaetan/perso/nix/home-manager"
+        "lastModified": 1678019241,
+        "narHash": "sha256-ntj0u3guaIu9dT8aZ3HtnEVhIsibtM7EaG/2VteKaTw=",
+        "owner": "nix-community",
+        "repo": "home-manager",
+        "rev": "e314f6cf211e480ab8fa101a017e593a9bb9f21b",
+        "type": "github"
       },
       "original": {
-        "type": "git",
-        "url": "file:///home/gaetan/perso/nix/home-manager"
+        "owner": "nix-community",
+        "repo": "home-manager",
+        "type": "github"
       }
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1677587185,
-        "narHash": "sha256-zYT66MAYwctAQqI5VBw3LbBXiSKdB8vuMAqCGG8onbE=",
+        "lastModified": 1677932085,
+        "narHash": "sha256-+AB4dYllWig8iO6vAiGGYl0NEgmMgGHpy9gzWJ3322g=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "68196a61c26748d3e53a6803de3d2f8c69f27831",
+        "rev": "3c5319ad3aa51551182ac82ea17ab1c6b0f0df89",
         "type": "github"
       },
       "original": {
@@ -124,17 +127,17 @@
         ]
       },
       "locked": {
-        "lastModified": 1677708459,
-        "narHash": "sha256-1QfFnnR6DC732hqEae7sTZt2xbZfGyOcZiB7EWCHUyE=",
-        "ref": "refs/heads/vimtex",
-        "rev": "3a5720035bf091b45fd99ae9848743427c7f948e",
-        "revCount": 331,
-        "type": "git",
-        "url": "file:///home/gaetan/perso/nix/nixvim"
+        "lastModified": 1677896773,
+        "narHash": "sha256-YfmVSWbVm2J/AxW5u+QvyLg6TVxV87lL8eJo2cNejB4=",
+        "owner": "pta2002",
+        "repo": "nixvim",
+        "rev": "c5f31f5677fdc254919a53976a3968dfbc92de0d",
+        "type": "github"
       },
       "original": {
-        "type": "git",
-        "url": "file:///home/gaetan/perso/nix/nixvim"
+        "owner": "pta2002",
+        "repo": "nixvim",
+        "type": "github"
       }
     },
     "poetry2nix": {
