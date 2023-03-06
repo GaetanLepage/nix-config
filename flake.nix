@@ -95,7 +95,13 @@
 
     # Inria
     homeConfigurations.inria = home-manager.lib.homeManagerConfiguration {
-      pkgs = nixpkgs.legacyPackages.${system};
+      pkgs = import nixpkgs {
+        system = "x86_64-linux";
+        config = {
+          allowUnfree = true;
+          cudaSupport = true;
+        };
+      };
       modules = [
         ./home/inria.nix
         nixvimModule
