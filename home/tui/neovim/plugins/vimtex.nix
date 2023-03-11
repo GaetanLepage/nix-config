@@ -1,6 +1,5 @@
 {pkgs, ...}: {
   programs.nixvim = {
-
     plugins.vimtex = {
       enable = true;
 
@@ -45,7 +44,7 @@
 
     autoCmd = [
       {
-        event = [ "BufEnter" "BufWinEnter" ];
+        event = ["BufEnter" "BufWinEnter"];
         pattern = "*.tex";
         command = "set filetype=tex \"| VimtexTocOpen";
       }
@@ -53,7 +52,7 @@
       # Folding
       {
         event = "FileType";
-        pattern = [ "tex" "latex" ];
+        pattern = ["tex" "latex"];
         callback.__raw = ''
           function ()
             vim.o.foldmethod = 'expr'

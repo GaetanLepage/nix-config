@@ -19,8 +19,7 @@
 
         # Rename
         "<F2>" = "vim.lsp.buf.rename";
-      }
-    ;
+      };
 
     plugins = {
       lsp = {

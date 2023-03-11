@@ -13,8 +13,6 @@
       # Hijack the cursor in the tree to put it at the start of the filename.
       hijackCursor = true;
 
-      disableNetrw = true;
-
       diagnostics = {
         enable = true;
 

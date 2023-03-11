@@ -3,7 +3,6 @@
     plugins.markdown-preview = {
       enable = true;
 
-      autoStart = true;
       autoClose = false;
 
       theme = "dark";
