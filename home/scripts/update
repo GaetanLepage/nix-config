@@ -59,7 +59,7 @@ case $distro in
 
                 # Clean the store (garbage collection)
                 # Also removes old generations
-                doas nix-collect-garbage --delete-older-than 2d
+                # doas nix-collect-garbage --delete-older-than 2d
                 ;;
         esac
         ;;
