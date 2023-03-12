@@ -30,6 +30,7 @@
     lfs # df
     procs # ps
     ripgrep
+    comma # runs programs without installing them
 
     # Other utils
     ncdu
