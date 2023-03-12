@@ -58,7 +58,7 @@
             :lepageg-ext@cargo\:/bettik/lepageg-ext
       '';
     in ''
-      /mnt        ${mapConf}          --timeout 60
+      /mnt        ${mapConf}          --timeout 600
       /mnt/sshfs  ${sshfsMapConf}     uid=${uid},gid=${gid},--timeout=60,--ghost
     '';
   };
