@@ -14,6 +14,7 @@
   cp = "cp -iv";
   mkd = "mkdir -pv";
   f = "fg";
+  cat = "bat -p";
 
   ########
   # Misc #
@@ -66,5 +67,7 @@
   nsp = "nix-shell -p";
   nfu = "nix flake update";
   nfm = "nix fmt";
+  nfc = "nix flake check";
+  nfmc = "nix fmt && nix flake check";
   uc = "nixos-rebuild switch --fast --flake ~/config#cuda --target-host root@cuda --build-host root@cuda";
 }
