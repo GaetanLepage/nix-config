@@ -9,6 +9,11 @@
         pattern = "norg";
         command = "setlocal conceallevel=2";
       }
+      {
+        event = "BufWritePre";
+        pattern = "*.norg";
+        command = "normal gg=G``zz";
+      }
     ];
 
     plugins.neorg = {
