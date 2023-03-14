@@ -8,7 +8,7 @@
     ./lualine.nix
     ./markdown-preview.nix
     ./neorg.nix
-    ./nvim-tree.nix
+    ./neo-tree.nix
     ./startify.nix
     ./tagbar.nix
     ./telescope.nix
