@@ -1,29 +1,26 @@
-{lib, ...}: {
+{
   programs.nixvim = {
-    maps.normal =
-      lib.mapAttrs (key: luaFunc: {
-        silent = true;
-        action = luaFunc;
-        lua = true;
-      })
-      {
-        "gd" = "vim.lsp.buf.definition";
-        "gD" = "vim.lsp.buf.references";
-        "gt" = "vim.lsp.buf.type_definition";
-        "gi" = "vim.lsp.buf.implementation";
-        "K" = "vim.lsp.buf.hover";
-
-        # Navigate in diagnostics
-        "<leader>k" = "vim.diagnostic.goto_prev";
-        "<leader>j" = "vim.diagnostic.goto_next";
-
-        # Rename
-        "<F2>" = "vim.lsp.buf.rename";
-      };
-
     plugins = {
       lsp = {
         enable = true;
+
+        keymaps = {
+          silent = true;
+          diagnostic = {
+            # Navigate in diagnostics
+            "<leader>k" = "goto_prev";
+            "<leader>j" = "goto_next";
+          };
+
+          lspBuf = {
+            gd = "definition";
+            gD = "references";
+            gt = "type_definition";
+            gi = "implementation";
+            K = "hover";
+            "<F2>" = "rename";
+          };
+        };
 
         servers = {
           bashls.enable = true;
