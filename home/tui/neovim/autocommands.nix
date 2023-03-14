@@ -19,6 +19,13 @@
       command = "wincmd L";
     }
 
+    # Set indentation to 2 spaces for nix files
+    {
+      event = "FileType";
+      pattern = "nix";
+      command = "setlocal tabstop=2 shiftwidth=2";
+    }
+
     # Enable spellcheck for some filetypes
     {
       event = "FileType";
