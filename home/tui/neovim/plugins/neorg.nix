@@ -7,7 +7,7 @@
       {
         event = "FileType";
         pattern = "norg";
-        command = "set conceallevel=2";
+        command = "setlocal conceallevel=2";
       }
     ];
 
