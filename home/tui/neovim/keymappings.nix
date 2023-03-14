@@ -1,8 +1,4 @@
-{
-  config,
-  lib,
-  ...
-}: {
+{config, ...}: {
   programs.nixvim = {
     globals = {
       mapleader = " ";
@@ -29,14 +25,8 @@
       normal."<leader>s" = ":w<CR>";
       normal."<C-s>" = ":w<CR>";
 
-      # better window movement TODO change
-      # normal."<C-h>" = "<C-w>h";
-      # normal."<C-j>" = "<C-w>j";
-      # normal."<C-k>" = "<C-w>k";
-      # normal."<C-l>" = "<C-w>l";
+      # navigate to left/right window
       normal."<leader>h" = "<C-w>h";
-      # normal."<leader>j" = "<C-w>j";
-      # normal."<leader>k" = "<C-w>k";
       normal."<leader>l" = "<C-w>l";
 
       # resize with arrows

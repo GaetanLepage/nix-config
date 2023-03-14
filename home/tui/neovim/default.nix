@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{
   imports = [
     ./autocommands.nix
     ./completion.nix
