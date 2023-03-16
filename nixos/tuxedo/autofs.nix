@@ -43,6 +43,11 @@
       # SSHFS #
       #########
 
+      # NOTE:
+      # It is needed to ssh a first time (as root !):
+      # ssh -i /run/agenix/rsa_sshfs -o ProxyCommand="ssh -i /run/agenix/rsa_sshfs -q lepageg-ext@access-gricad.univ-grenoble-alpes.fr nc -w 60 cargo 22" lepageg-ext@cargo
+      # ssh -i /run/agenix/rsa_sshfs galepage@10.10.10.4
+
       pathToRsaKey = config.age.secrets.rsa_sshfs.path;
       sshfsOptions = "-fstype=fuse.sshfs,rw,allow_other,IdentityFile=${pathToRsaKey}";
 
