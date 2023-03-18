@@ -1,13 +1,12 @@
 {
-  programs.nixvim = {
-    plugins.barbar.enable = true;
+  programs.nixvim.plugins.barbar = {
+    enable = true;
+    keymaps = {
+      silent = true;
 
-    # TODO upstream bindings
-    maps.normal = {
-      "<TAB>" = ":BufferNext<CR>";
-      "<S-TAB>" = ":BufferPrevious<CR>";
-
-      "<C-w>" = ":BufferClose<CR>";
+      next = "<TAB>";
+      previous = "<S-TAB>";
+      close = "<C-w>";
     };
   };
 }
