@@ -1,5 +1,4 @@
-{ config, ... }:
-{
+{config, ...}: {
   imports = [
     ./exa.nix
     ./exputils.nix
@@ -11,7 +10,7 @@
     shellAliases = import ./aliases.nix;
 
     sessionVariables = {
-      XCOMPOSECACHE="${config.xdg.cacheHome}/X11/xcompose";
+      XCOMPOSECACHE = "${config.xdg.cacheHome}/X11/xcompose";
     };
   };
 
