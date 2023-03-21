@@ -25,7 +25,7 @@
   da = "doas";
   icat = "kitty +kitten icat";
   jb = "jobs";
-  lo = "libreoffice";
+  lo = "soffice";
   ns = "nvidia-smi";
   py = "python";
   t = "date +'%a %b %e %R:%S %Z %Y'";
