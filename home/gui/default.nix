@@ -9,7 +9,7 @@
     ./gtk.nix
     ./keyboard.nix
     ./kitty.nix
-    ./lockscreen
+    ./lockscreen.nix
     ./picom.nix
     ./polybar
     ./rofi.nix
@@ -21,7 +21,6 @@
     arandr
     betterlockscreen
     mons
-    xwallpaper
 
     # GUI applications
     discord
@@ -38,11 +37,6 @@
     zathura
     zotero
   ];
-
-  xdg.dataFile.wallpaper = {
-    source = ./wallpaper.jpg;
-    target = "wallpaper.jpg";
-  };
 
   services = {
     blueman-applet.enable = true;

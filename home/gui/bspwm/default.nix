@@ -1,4 +1,8 @@
-{config, ...}: let
+{
+  config,
+  pkgs,
+  ...
+}: let
   extra_rules_script_path = "bspwm/extra_rules.sh";
 in {
   xsession.windowManager.bspwm = {
@@ -83,7 +87,7 @@ in {
     '';
 
     startupPrograms = [
-      "xwallpaper --zoom ${config.xdg.dataFile.wallpaper.target}"
+      "${pkgs.xwallpaper}/bin/xwallpaper --zoom ${../wallpaper.png}"
 
       # GUI apps
       "pidof kitty || ( bspc desktop -f 1 && kitty )"

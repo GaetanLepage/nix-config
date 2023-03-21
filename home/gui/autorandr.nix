@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{
   # Autostart autorandr at login
   services.autorandr = {
     enable = true;
