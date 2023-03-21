@@ -75,7 +75,7 @@
 
       # picom
       "super + p" = "systemctl --user start picom && dunstify 'started picom'";
-      "super + shift + p" = "systemctl --user stop  picom && dunstify 'stopped picom'";
+      "super + shift + p" = "systemctl --user stop picom && dunstify 'stopped picom'";
 
       # screenshot (flameshot)
       "Print" = "flameshot gui";

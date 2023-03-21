@@ -38,7 +38,10 @@
             inherit rate;
           };
         };
-        hooks.postswitch = mkWifiHook wifiState;
+        hooks.postswitch = ''
+          ${mkWifiHook wifiState}
+          systemctl --user start picom
+        '';
       };
     in {
       laptop = {
@@ -52,7 +55,10 @@
             rate = "60.00";
           };
         };
-        hooks.postswitch = mkWifiHook true;
+        hooks.postswitch = ''
+          ${mkWifiHook true}
+          systemctl --user stop picom
+        '';
       };
 
       inria = mkSingleExternalScreen {
