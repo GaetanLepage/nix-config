@@ -1,9 +1,4 @@
-{
-  config,
-  pkgs,
-  lib,
-  ...
-}: {
+{pkgs, ...}: {
   imports = [
     # Include the results of the hardware scan.
     ./hardware.nix
@@ -14,7 +9,6 @@
     ./autofs.nix
     ./bluetooth.nix
     ./davfs.nix
-    ./keyboard.nix
     ./neovim.nix
     ./packages.nix
     ./sound.nix
