@@ -24,7 +24,6 @@
 
     # GUI applications
     discord
-    firefox
     element-desktop
     jitsi-meet-electron
     libreoffice-fresh
