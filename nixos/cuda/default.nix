@@ -13,6 +13,7 @@
     ./ssh.nix
     ./nvidia.nix
     ./server-tank-nfs.nix
+    ./xmrig.nix
     ./wireguard.nix
   ];
 
