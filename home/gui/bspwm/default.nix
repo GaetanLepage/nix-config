@@ -1,10 +1,5 @@
+{ pkgs, ... }:
 {
-  config,
-  pkgs,
-  ...
-}: let
-  extra_rules_script_path = "bspwm/extra_rules.sh";
-in {
   xsession.windowManager.bspwm = {
     enable = true;
 
@@ -74,7 +69,7 @@ in {
     extraConfig = ''
 
       # Add custom rules for Spotify and zotero
-      bspc config external_rules_command ${config.xdg.configHome}/${extra_rules_script_path}
+      bspc config external_rules_command ${./extra_rules.sh}
 
       # Automatically set certain worskpaces' layout
       bspc desktop 2 -l monocle
@@ -104,11 +99,5 @@ in {
       # polybar
       "killall polybar; polybar bar -r"
     ];
-  };
-
-  xdg.configFile.bspwm_extra_rules = {
-    executable = true;
-    target = extra_rules_script_path;
-    source = ./extra_rules.sh;
   };
 }
