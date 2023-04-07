@@ -1,7 +1,7 @@
 {
   programs.nixvim = {
     maps.normal."<leader>n" = {
-      action = ":NeoTreeFocusToggle<CR>";
+      action = ":Neotree action=focus reveal toggle<CR>";
       silent = true;
     };
 
