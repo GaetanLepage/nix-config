@@ -10,7 +10,6 @@
         bash
         c
         html
-        help # neovim help
         javascript
         latex
         lua
@@ -18,6 +17,7 @@
         norg
         python
         rust
+        vimdoc
       ];
     };
 
