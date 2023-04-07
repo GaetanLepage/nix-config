@@ -20,7 +20,7 @@
       enable = true;
 
       modules = {
-        "core.defaults" = {};
+        "core.defaults".__empty = null;
 
         "core.keybinds".config.hook.__raw = ''
           function(keybinds)
@@ -33,7 +33,7 @@
           nix = "~/perso/nix/notes";
         };
 
-        "core.norg.concealer" = {};
+        "core.norg.concealer".__empty = null;
         "core.norg.completion".config.engine = "nvim-cmp";
       };
     };
