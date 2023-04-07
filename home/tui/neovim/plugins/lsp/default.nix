@@ -29,6 +29,7 @@
           lua-ls.enable = true;
           pylsp = import ./pylsp-settings.nix;
           texlab.enable = true;
+          typst-lsp.enable = true;
           rust-analyzer.enable = true;
         };
       };
