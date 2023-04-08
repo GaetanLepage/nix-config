@@ -19,7 +19,6 @@
   ########
   # Misc #
   ########
-  bu = "backup";
   ka = "killall";
   cal = "cal -m";
   da = "doas";

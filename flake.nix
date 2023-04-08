@@ -74,7 +74,7 @@
               useGlobalPkgs = true;
               useUserPackages = true;
               users.gaetan.imports = [
-                ./home/tuxedo.nix
+                ./home/tuxedo
                 nixvimModule
               ];
             };

@@ -1,11 +1,9 @@
 {
-  config,
-  pkgs,
-  ...
-}: {
   imports = [
-    ./tui
-    ./gui
+    ../tui
+    ../gui
+
+    ./backup
   ];
 
   nixpkgs.config.allowUnfree = true;
@@ -33,28 +31,4 @@
         pactl load-module module-native-protocol-tcp > /dev/null
     fi
   '';
-
-  # Backup script
-  systemd.user = {
-    services.backup = {
-      Unit.Description = "Home backup script";
-
-      Service = {
-        Type = "oneshot";
-        Environment = "SSH_AUTH_SOCK=/run/user/1000/keyring/ssh";
-        ExecStart = "${pkgs.bash}/bin/bash -l -c ${config.home.homeDirectory}/${config.xdg.configFile.scripts.target}/backup";
-      };
-    };
-
-    timers.backup = {
-      Unit.Description = "Home backup script";
-
-      Timer = {
-        OnCalendar = "*-*-* 13:00:00";
-        Unit = "backup.service";
-      };
-
-      Install.WantedBy = ["timers.target"];
-    };
-  };
 }

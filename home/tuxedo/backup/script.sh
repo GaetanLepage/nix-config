@@ -1,10 +1,5 @@
 #!/bin/sh
 
-if ! [ `hostname` = "tuxedo" ]; then
-    echo "Not on tuxedo --> exiting"
-    exit 1
-fi
-
 dunstify "Starting backup"
 
 DRY_RUN=''
