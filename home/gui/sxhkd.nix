@@ -16,7 +16,7 @@
       "super + @Escape" = "pkill -USR1 -x sxhkd";
 
       # Lock
-      "{F8,XF86PowerOff}" = "lock";
+      "{F8,XF86PowerOff}" = builtins.toString ./lock_screen.sh;
 
       # Screen brightness
       "XF86MonBrightnessUp" = "doas xbacklight -inc 10";
