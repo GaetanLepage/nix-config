@@ -12,7 +12,8 @@ git -C $flake_dir pull
 
 nix flake update $flake_dir
 
-rm $HOME/.config/user-dirs.dirs
+[ -f $XDG_CONFIG_HOME/user-dirs.dirs ] && rm $HOME/.config/user-dirs.dirs
+
 home-manager switch --flake $flake_dir\#$profile -v
 
 nix-collect-garbage --delete-older-than 2d
