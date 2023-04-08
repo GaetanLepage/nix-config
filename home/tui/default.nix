@@ -45,10 +45,8 @@
   ###########
   # Scripts #
   ###########
-  xdg.configFile.scripts.source = ../scripts;
   # Add the scripts directory to PATH
-  # install_dotfiles.sh script
   home.sessionPath = [
-    "${config.home.homeDirectory}/${config.xdg.configFile.scripts.target}"
+    (builtins.toString ../scripts)
   ];
 }
