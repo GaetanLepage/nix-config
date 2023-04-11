@@ -1,4 +1,4 @@
-{...}: {
+{pkgs, ...}: {
   services.polybar = {
     enable = true;
 
@@ -45,7 +45,7 @@
       "module/time" = import ./time.nix;
       "module/date" = import ./date.nix;
       "module/vpn" = import ./vpn.nix;
-      "module/dunst" = import ./dunst.nix;
+      "module/dunst" = import ./dunst.nix pkgs;
     };
 
     script = "";
@@ -66,12 +66,6 @@
     polybar-helper = {
       source = ./helper.sh;
       target = "polybar/helper.sh";
-    };
-
-    polybar-dunst = {
-      source = ./dunst.sh;
-      target = "polybar/dunst.sh";
-      executable = true;
     };
 
     polybar-vpn = {
