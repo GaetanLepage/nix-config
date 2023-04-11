@@ -103,7 +103,7 @@
         };
       };
       modules = [
-        ./home/inria.nix
+        ./home/inria
         nixvimModule
       ];
     };

@@ -1,5 +1,8 @@
 {pkgs, ...}: {
-  imports = [./tui];
+  imports = [
+    ../tui
+    ./update.nix
+  ];
 
   # Home Manager needs a bit of information about you and the
   # paths it should manage.
@@ -8,6 +11,7 @@
     homeDirectory = "/home/galepage";
 
     shellAliases.un = "update_home_manager inria";
+    shellAliases.update = "sudo nala upgrade";
 
     sessionVariables.PULSE_SERVER = "tcp:10.10.10.2:4713";
 
