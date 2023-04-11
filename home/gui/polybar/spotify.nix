@@ -13,5 +13,5 @@
     prefix = " ";
   };
 
-  exec = "python $XDG_CONFIG_HOME/polybar/spotify.py -f '{artist} ~ {song}' -t 60";
+  exec = "python ${./spotify.py} -f '{artist} ~ {song}' -t 60";
 }

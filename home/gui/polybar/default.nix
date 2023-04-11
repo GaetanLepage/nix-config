@@ -50,11 +50,4 @@
 
     script = "";
   };
-
-  xdg.configFile = {
-    polybar-spotify = {
-      source = ./spotify.py;
-      target = "polybar/spotify.py";
-    };
-  };
 }
