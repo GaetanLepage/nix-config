@@ -44,7 +44,7 @@
       "module/battery" = import ./battery.nix;
       "module/time" = import ./time.nix;
       "module/date" = import ./date.nix;
-      "module/vpn" = import ./vpn.nix;
+      "module/vpn" = import ./vpn.nix pkgs;
       "module/dunst" = import ./dunst.nix pkgs;
     };
 
@@ -61,23 +61,6 @@
     polybar-spotify = {
       source = ./spotify.py;
       target = "polybar/spotify.py";
-    };
-
-    polybar-helper = {
-      source = ./helper.sh;
-      target = "polybar/helper.sh";
-    };
-
-    polybar-vpn = {
-      source = ./vpn.sh;
-      target = "polybar/vpn.sh";
-      executable = true;
-    };
-
-    polybar-toggle-wg = {
-      source = ./toggle_wireguard.sh;
-      target = "polybar/toggle_wireguard.sh";
-      executable = true;
     };
   };
 }
