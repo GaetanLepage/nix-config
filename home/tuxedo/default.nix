@@ -5,6 +5,7 @@
 
     ./backup
     ./touchpad_toggle
+    ./update.nix
   ];
 
   nixpkgs.config.allowUnfree = true;

@@ -1,41 +1,9 @@
-#!/usr/bin/env bash
-
-# Stop execution if an error occurs
-set -e
-
-distro=$(cat /etc/os-release | grep -oP '(?<=^ID=).*')
-# echo "Detected distribution: $distro"
-
-case $distro in
-    # Ubuntu / Debian
-    ubuntu|debian|pop)
-        if `command -v nala > /dev/null`; then
-            sudo nala upgrade
-        else
-            sudo apt-get update
-            sudo apt-get dist-upgrade
-        fi
-        ;;
-
-    arch)
-
-        if which paru >/dev/null 2>&1; then
-            # echo 'Update using paru'
-            prog='paru'
-
-        elif which yay >/dev/null 2>&1; then
-            # echo 'Update using yay'
-            prog='yay'
-
-        else
-            # echo 'Update using pacman'
-            prog='sudo pacman'
-        fi
-
-        $prog -Syu --noconfirm
-        ;;
-
-    nixos)
+{pkgs, ...}: {
+  home.sessionPath = let
+    updateScript =
+      pkgs.writeShellScriptBin
+      "update"
+      ''
         # Path to the folder containing `flake.nix`
         nix_dir=$HOME/config
 
@@ -62,5 +30,8 @@ case $distro in
                 # doas nix-collect-garbage --delete-older-than 2d
                 ;;
         esac
-        ;;
-esac
+      '';
+
+    updateScriptPath = "${toString updateScript}/bin";
+  in [updateScriptPath];
+}
