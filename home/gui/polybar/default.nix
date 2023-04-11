@@ -52,12 +52,6 @@
   };
 
   xdg.configFile = {
-    polybar-launcher = {
-      source = ./polybar.sh;
-      target = "polybar/polybar.sh";
-      executable = true;
-    };
-
     polybar-spotify = {
       source = ./spotify.py;
       target = "polybar/spotify.py";
