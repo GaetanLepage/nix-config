@@ -1,28 +1,39 @@
-{pkgs, ...}: {
-  home.sessionPath = let
-    updateScript =
-      pkgs.writeShellScriptBin
-      "update"
-      ''
-        set -e
+{pkgs, ...}: let
+  updateScriptName = "update-home-manager";
+  updateScript =
+    pkgs.writeShellScriptBin
+    updateScriptName
+    ''
+      set -e
 
-        profile=$1
+      profile="inria"
 
-        flake_dir="$HOME/config"
+      flake_dir="$HOME/config"
 
-        rm -f $flake_dir/flake.lock
+      rm -f $flake_dir/flake.lock
 
-        git -C $flake_dir pull
+      git -C $flake_dir pull
 
-        nix flake update $flake_dir
+      nix flake update $flake_dir
 
-        [ -f $XDG_CONFIG_HOME/user-dirs.dirs ] && rm $HOME/.config/user-dirs.dirs
+      [ -f $XDG_CONFIG_HOME/user-dirs.dirs ] && rm $HOME/.config/user-dirs.dirs
 
-        home-manager switch --flake $flake_dir\#$profile -v
+      home-manager switch --flake $flake_dir\#$profile -v
 
-        nix-collect-garbage --delete-older-than 2d
-      '';
+      nix-collect-garbage --delete-older-than 2d
+    '';
 
-    updateScriptPath = "${toString updateScript}/bin";
-  in [updateScriptPath];
+  updateScriptPath = "${toString updateScript}/bin";
+in {
+  home = {
+    sessionPath = [updateScriptPath];
+
+    shellAliases = {
+      # update home-manager
+      un = updateScriptName;
+
+      # update the system
+      update = "sudo nala upgrade";
+    };
+  };
 }
