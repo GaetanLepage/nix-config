@@ -1,9 +1,6 @@
 {
   programs.nixvim = {
     globals = {
-      # Enable filetype matching using fast `filetype.lua`
-      do_filetype_lua = 1;
-
       # Disable useless providers
       loaded_ruby_provider = 0; # Ruby
       loaded_perl_provider = 0; # Perl
