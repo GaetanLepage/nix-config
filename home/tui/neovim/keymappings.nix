@@ -16,7 +16,6 @@
 
       # back and fourth between the two most recent files
       normal."<C-c>" = ":b#<CR>";
-      normal."<leader>c" = ":b#<CR>";
 
       # close by Ctrl+x
       normal."<C-x>" = ":close<CR>";
