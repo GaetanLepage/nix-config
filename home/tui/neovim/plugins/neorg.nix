@@ -33,13 +33,13 @@
           end
         '';
 
-        "core.norg.dirman".config.workspaces = {
+        "core.dirman".config.workspaces = {
           notes = "~/notes";
           nix = "~/perso/nix/notes";
         };
 
-        "core.norg.concealer".__empty = null;
-        "core.norg.completion".config.engine = "nvim-cmp";
+        "core.concealer".__empty = null;
+        "core.completion".config.engine = "nvim-cmp";
       };
     };
   };
