@@ -5,6 +5,7 @@
     ./security.nix
     ./users.nix
     ./xorg.nix
+    ./zsh.nix
   ];
 
   environment.systemPackages = with pkgs; [
