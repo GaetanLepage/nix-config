@@ -123,5 +123,6 @@ in {
     sa = "ssh alya";
     sam = "ssh alya -t tmux attach-session -t hm";
     si = "ssh -J bastion -l galepage";
+    sc = "ssh cuda";
   };
 }
