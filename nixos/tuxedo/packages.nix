@@ -6,7 +6,6 @@
     killall
     nfs-utils # Linux user-space NFS utilities
     nix-index
-    xclip
     xorg.xbacklight
     xorg.xev
     xorg.xkill

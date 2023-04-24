@@ -7,6 +7,13 @@
       loaded_python_provider = 0; # Python 2
     };
 
+    clipboard = {
+      # Use system clipboard
+      register = "unnamedplus";
+
+      providers.xclip.enable = true;
+    };
+
     options = {
       updatetime = 100; # Faster completion
 
@@ -14,7 +21,6 @@
       relativenumber = true; # Relative line numbers
       number = true; # Display the absolute line number of the current line
       hidden = true; # Keep closed buffer open in the background
-      clipboard = "unnamedplus"; # Use system clipboard
       mouse = "a"; # Enable mouse control
       splitbelow = true; # A new window is put below the current one
       splitright = true; # A new window is put right of the current one

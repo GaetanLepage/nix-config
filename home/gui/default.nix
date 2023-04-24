@@ -22,6 +22,9 @@
     betterlockscreen
     mons
 
+    # Helpers
+    xclip
+
     # GUI applications
     discord
     element-desktop
