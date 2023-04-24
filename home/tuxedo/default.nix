@@ -24,7 +24,7 @@
     # You can update Home Manager without changing this value. See
     # the Home Manager release notes for a list of state version
     # changes in each release.
-    stateVersion = "22.05";
+    stateVersion = "22.11";
   };
 
   # Load the pulseaudio module that enables sharing audio devices with computers on the network.
