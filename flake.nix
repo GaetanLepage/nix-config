@@ -89,6 +89,19 @@
           ./nixos/cuda
           nixpkgs-outPath
           agenix.nixosModules.default
+
+          # Home manager configuration
+          home-manager.nixosModules.home-manager
+          {
+            home-manager = {
+              useGlobalPkgs = true;
+              useUserPackages = true;
+              users.gaetan.imports = [
+                ./home/cuda
+                nixvimModule
+              ];
+            };
+          }
         ];
       };
     };
