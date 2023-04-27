@@ -7,7 +7,6 @@
           # Misc
           pip
           setuptools
-          dbus-python # Needed by the polybar spotify script
 
           # RL
           gymnasium

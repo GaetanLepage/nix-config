@@ -33,7 +33,7 @@
       "module/bspwm" = import ./bspwm.nix;
 
       # Center
-      "module/spotify" = import ./spotify.nix;
+      "module/spotify" = import ./spotify.nix pkgs;
 
       # Right
       "module/brightness" = import ./brightness.nix;

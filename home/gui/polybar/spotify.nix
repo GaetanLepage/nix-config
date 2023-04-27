@@ -1,4 +1,4 @@
-{
+pkgs: {
   type = "custom/script";
 
   interval = 1;
@@ -13,5 +13,7 @@
     prefix = " ";
   };
 
-  exec = "python ${./spotify.py} -f '{artist} ~ {song}' -t 60";
+  exec = let
+    python = pkgs.python3.withPackages (ps: [ps.dbus-python]);
+  in "${python}/bin/python ${./spotify.py} -f '{artist} ~ {song}' -t 60";
 }
