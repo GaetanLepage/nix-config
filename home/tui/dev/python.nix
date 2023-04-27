@@ -17,6 +17,9 @@
         ]))
     ];
 
-    shellAliases."pyp" = "PYTHONPATH=. python";
+    shellAliases = {
+      "pyp" = "PYTHONPATH=. python";
+      "ruff" = "${pkgs.ruff}/bin/ruff --config=${../neovim/plugins/lsp/ruff.toml}";
+    };
   };
 }
