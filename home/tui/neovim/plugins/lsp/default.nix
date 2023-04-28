@@ -28,8 +28,7 @@
           nil_ls.enable = true;
           lua-ls.enable = true;
           pylsp = {
-            cmd = ["pylsp"];
-            # cmd = [ "pylsp" "-vvv" "--log-file" "pylsp.log"];
+            # cmd = ["pylsp" "-vvv" "--log-file" "pylsp.log"];
             enable = true;
             settings = {
               plugins = {
