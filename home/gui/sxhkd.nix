@@ -9,9 +9,6 @@
       # System #
       ##########
 
-      # Reload script
-      "super + r" = "reload";
-
       # make sxhkd reload its configuration files:
       "super + @Escape" = "pkill -USR1 -x sxhkd";
 
