@@ -2,6 +2,7 @@
   imports = [
     ./wayland
 
+    ./dunst.nix
     ./email.nix
     ./firefox.nix
     ./flameshot.nix

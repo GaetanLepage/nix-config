@@ -1,7 +1,6 @@
 {pkgs, ...}: {
   imports = [
     ./bspwm
-    ./dunst.nix
     ./keyboard.nix
     ./kitty.nix
     ./lockscreen.nix

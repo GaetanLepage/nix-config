@@ -35,8 +35,8 @@
   ##############
   # NFS mounts #
   ##############
-  ms = "sudo mount 10.10.10.1:/tank /mnt/server && dunstify 'server mounted'";
-  us = "sudo umount /mnt/server && dunstify 'server unmounted'";
+  ms = "sudo mount 10.10.10.1:/tank /mnt/server && notify-send 'server mounted'";
+  us = "sudo umount /mnt/server && notify-send 'server unmounted'";
 
   ##############
   # Networking #

@@ -82,8 +82,10 @@
           "${mod}+Shift+u" = "exec doas systemctl stop wg-quick-wg0";
 
           # Dunst (notifications)
-          "${mod}+n" = "exec ${pkgs.mako}/bin/makoctl set-mode silent";
-          "${mod}+Shift+n" = "exec ${pkgs.mako}/bin/makoctl set-mode default";
+          # "${mod}+n" = "exec ${pkgs.mako}/bin/makoctl set-mode silent";
+          # "${mod}+Shift+n" = "exec ${pkgs.mako}/bin/makoctl set-mode default";
+          "${mod}+n" = "exec ${pkgs.dunst}/bin/dunstctl set-paused false";
+          "${mod}+Shift+n" = "exec ${pkgs.dunst}/bin/dunstctl set-paused true";
         }
         ################
         # Applications #
