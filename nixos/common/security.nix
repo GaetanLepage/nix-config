@@ -7,5 +7,8 @@
       enable = true;
       wheelNeedsPassword = false;
     };
+
+    # Needed for wayland
+    polkit.enable = true;
   };
 }

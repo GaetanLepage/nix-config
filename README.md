@@ -30,9 +30,9 @@ Everything is managed thanks to a [nix flake](https://nixos.wiki/wiki/Flakes): `
 | :-------------------- | :-----------------------------------------------------|
 | Linux Distribution    | [NixOS](https://nixos.org/)                           |
 | Web Browser           | [Firefox](https://www.mozilla.org/en-US/firefox/new/) |
-| Window Manager        | [bspwm](https://github.com/baskerville/bspwm)         |
-| Bar                   | [polybar](https://github.com/jaagr/polybar)           |
-| Terminal Emulator     | [Kitty](https://sw.kovidgoyal.net/kitty/)             |
+| Window Manager        | [sway](https://swaywm.org/)                           |
+| Bar                   | [waybar](https://github.com/Alexays/Waybar)           |
+| Terminal Emulator     | [foot](https://codeberg.org/dnkl/foot)                |
 | Code Editor           | [Neovim](https://neovim.io/)                          |
 | Program Launcher      | [rofi](https://github.com/DaveDavenport/rofi)         |
 | Shell                 | [zsh](https://www.zsh.org/)                           |

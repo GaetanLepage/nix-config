@@ -1,0 +1,31 @@
+* {
+  font-family: "DejaVu Sans Mono";
+  font-size: 24px;
+
+  border: none;
+  border-radius: 4px;
+  color: #ffffff;
+}
+
+window#waybar {
+  background: #000000;
+  color: #ffffff;
+}
+
+/* ----------- WORKSPACES ----------- */
+#workspaces button {
+  /* padding: 0 6px; */
+  /* border-bottom: 2px solid #${base0D}; */
+}
+
+#workspaces button.focused {
+  background: #4e4e4e;
+  /* border-bottom: 2px solid #${base01}; */
+}
+
+
+/* ----------- WORKSPACES ----------- */
+      /* focused = {background = "#4e4e4e";}; */
+      /* occupied = {}; */
+      /* urgent = {background = "#821717";}; */
+      /* empty = {foreground = "#4e4e4e";}; */

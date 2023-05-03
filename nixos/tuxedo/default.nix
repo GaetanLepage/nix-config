@@ -15,8 +15,9 @@
     ./ssh.nix
     # ./virtualbox.nix
     # ./wacom.nix
+    ./wayland.nix
     ./wireguard.nix
-    ./xorg.nix
+    # ./xorg.nix
   ];
 
   networking.hostName = "tuxedo";

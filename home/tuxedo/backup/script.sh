@@ -1,6 +1,6 @@
 #!/bin/sh
 
-dunstify "Starting backup"
+notify-send "Starting backup"
 
 DRY_RUN=''
 if [ "$1" = "-d" ]; then
@@ -44,7 +44,7 @@ case $rsync_exit_code in
     0|24)
         success_message="Backup succesfull"
         echo "=> $success_message"
-        dunstify $success_message
+        notify-send $success_message
 
         exit 0
         ;;
@@ -52,7 +52,7 @@ case $rsync_exit_code in
     *)
         error_message="Backup failed with error $rsync_exit_code"
         echo "=> $error_message"
-        dunstify $error_message
+        notify-send $error_message
 
         exit 1
 esac

@@ -1,4 +1,4 @@
-{
+{pkgs, ...}: {
   services.sxhkd = {
     enable = true;
 
@@ -13,7 +13,14 @@
       "super + @Escape" = "pkill -USR1 -x sxhkd";
 
       # Lock
-      "{F8,XF86PowerOff}" = builtins.toString ./lock_screen.sh;
+      "{F8,XF86PowerOff}" = let
+        playerctl = "${pkgs.playerctl}/bin/playerctl";
+        lock = pkgs.writeScript "lock" ''
+          ${playerctl} pause
+          ${playerctl} -p spotify pause
+          ${pkgs.swaylock}/bin/swaylock
+        '';
+      in "${lock}";
 
       # Screen brightness
       "XF86MonBrightnessUp" = "doas xbacklight -inc 10";
