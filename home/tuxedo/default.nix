@@ -4,7 +4,6 @@
     ../gui
 
     ./backup
-    ./touchpad_toggle
     ./update.nix
   ];
 

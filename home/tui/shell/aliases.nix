@@ -2,8 +2,6 @@
   todo = "rg TODO";
   td = "rg TODO";
 
-  tt = "touchpad_toggle";
-
   vt = "vim ~/perso/todo.norg";
 
   ##################
