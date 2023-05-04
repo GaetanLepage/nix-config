@@ -65,6 +65,7 @@ in {
         hostname = "auriga.inrialpes.fr";
         user = "galepage";
         proxyJump = "bastion";
+        setEnv.TERM = "xterm-256color";
       };
 
       ##########
