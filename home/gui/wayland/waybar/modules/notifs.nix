@@ -1,20 +1,20 @@
-pkgs: {
-  type = "custom/script";
-
+pkgs: let
+  dunstctl = "${pkgs.dunst}/bin/dunstctl";
+in {
   interval = 1;
 
-  exec = pkgs.writeShellScript "dunst-polybar" ''
-    ${builtins.readFile ./helper.sh}
+  # Disable hover
+  tooltip = false;
+  return-type = "json";
 
-    if [ "$(dunstctl is-paused)" == "true" ]; then
-        print_line "  " $RED
+  exec = pkgs.writeShellScript "dunst-waybar" ''
+
+    if [ "$(${dunstctl} is-paused)" == "true" ]; then
+        echo '{"class": "off", "text": " "}'
     else
-        # print_line "  " $GREEN
-        echo "  "
+        echo '{"class": "on", "text": ""}'
     fi
   '';
 
-  click-left = "dunstctl set-paused toggle";
-
-  format.padding = 0;
+  on-click = "${dunstctl} set-paused toggle";
 }

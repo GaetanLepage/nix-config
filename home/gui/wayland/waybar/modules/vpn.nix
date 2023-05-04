@@ -1,30 +1,38 @@
 pkgs: {
-  type = "custom/script";
-
   interval = 1;
 
-  exec = pkgs.writeShellScript "vpn-polybar" ''
+  # Disable hover
+  tooltip = false;
+  return-type = "json";
+
+  exec = pkgs.writeShellScript "vpn-waybar" ''
 
     type nmcli >/dev/null 2>&1 || exit
-
-    ${builtins.readFile ./helper.sh}
 
     is_con_active() {
         return `nmcli connection show --active | grep $1 > /dev/null`
     }
 
     if `is_con_active wireguard`; then
-        echo " wireguard"
+        echo '{"text": " wireguard"}'
 
     elif `is_con_active vpn_inria`; then
-        echo " inria"
+        echo '{"text": " inria"}'
 
     else
-        print_line " no vpn " $RED
+        echo '{"class": "disconnected", "text": " no vpn"}'
     fi
   '';
 
-  click-left = builtins.toString ./toggle_wireguard.sh;
+  on-click = pkgs.writeShellScript "toggle-wireguard" ''
 
-  format.padding = 0;
+    if `nmcli connection show --active | grep wireguard > /dev/null`; then
+        doas systemctl stop wg-quick-wg0
+        notify-send " wireguard off"
+
+    else
+        doas systemctl start wg-quick-wg0
+        notify-send " wireguard on"
+    fi
+  '';
 }

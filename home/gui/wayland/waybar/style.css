@@ -1,5 +1,6 @@
 * {
-  font-family: "DejaVu Sans Mono";
+  font-family: "Ubuntu Nerd Font", "NotoSans Mono";
+
   font-size: 24px;
 
   border: none;
@@ -7,25 +8,62 @@
   color: #ffffff;
 }
 
+button label {
+  all: unset;
+}
+
 window#waybar {
-  background: #000000;
+  background: #0a0a0a;
   color: #ffffff;
+  border-radius: 0px;
 }
 
 /* ----------- WORKSPACES ----------- */
 #workspaces button {
-  /* padding: 0 6px; */
-  /* border-bottom: 2px solid #${base0D}; */
+  padding: 0 8px;
+  border: 1px solid #ffffff;
+  margin: 0 4px 0 0;
+  background: #0a0a0a;
 }
 
 #workspaces button.focused {
-  background: #4e4e4e;
-  /* border-bottom: 2px solid #${base01}; */
+  color: #0a0a0a;
+  background: #ffffff;
+}
+#workspaces button.urgent {
+  background: #fb4934;
+}
+/* Empty */
+#workspaces button.persistent {
+  color: #4e4e4e;
+  border: 1px solid #4e4e4e;
 }
 
 
-/* ----------- WORKSPACES ----------- */
-      /* focused = {background = "#4e4e4e";}; */
-      /* occupied = {}; */
-      /* urgent = {background = "#821717";}; */
-      /* empty = {foreground = "#4e4e4e";}; */
+/* ----------- MODULES ----------- */
+#backlight,
+#pulseaudio,
+#memory,
+#cpu,
+#network,
+#custom-vpn,
+#battery,
+#clock,
+#clock-date,
+#custom-notifs
+{
+  padding: 0 10px;
+  margin: 2px 4px;
+  background: #4e4e4e;
+  font-size: 20px;
+  color: #0a0a0a;
+  background: #ffffff;
+}
+
+#pulseaudio.muted,
+#custom-vpn.disconnected,
+#custom-notifs.off
+{
+    background: #fb4934;
+    color: #ffffff;
+}

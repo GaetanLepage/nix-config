@@ -3,6 +3,8 @@ pkgs: {
 
   interval = 1;
 
+  max-length = 20;
+
   click = {
     left = "playerctl -p spotify play-pause";
     right = "bspc desktop -f 9";
