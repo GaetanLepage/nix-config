@@ -107,6 +107,7 @@
       };
 
       startup = [
+        {command = "systemctl --user import-environment";}
         {
           command = let
             setWallpaper = pkgs.writeShellScript "set-wallpaper" ''
