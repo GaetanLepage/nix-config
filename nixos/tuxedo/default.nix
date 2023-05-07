@@ -29,7 +29,7 @@
     (nerdfonts.override {
       fonts = [
         "DejaVuSansMono"
-        "Ubuntu"
+        "UbuntuMono"
       ];
     })
   ];

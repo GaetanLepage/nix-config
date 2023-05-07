@@ -29,12 +29,12 @@ pkgs: {
   pulseaudio = {
     format = "{icon} {volume}%";
     format-bluetooth = "{volume}% {icon}";
-    format-muted = "婢 muted";
+    format-muted = "󰖁 muted";
     format-icons = {
       headphone = "";
-      hands-free = "";
-      headset = "";
-      default = "墳";
+      hands-free = "󰋎";
+      headset = "󰋎";
+      default = "󰕾";
     };
 
     # Interaction
@@ -52,7 +52,7 @@ pkgs: {
     interval = 1;
     tooltip = false;
     # format = " {usage:02}%";
-    format = " {icon0}{icon1}{icon2}{icon3}{icon4}{icon5}{icon6}{icon7} {usage:02}%";
+    format = "󰍛 {icon0}{icon1}{icon2}{icon3}{icon4}{icon5}{icon6}{icon7} {usage:02}%";
     format-icons = ["▁" "▂" "▃" "▄" "▅" "▆" "▇" "█"];
   };
 
@@ -74,8 +74,8 @@ pkgs: {
     adapter = "AC0";
 
     format = "{icon}  {capacity}%";
-    format-full = "{icon}  {capacity}% ﮣ";
-    format-charging = "{icon}  {capacity}% ﮣ";
+    format-full = "{icon}  {capacity}% 󰚥";
+    format-charging = "{icon}  {capacity}% 󰚥";
 
     format-icons = ["" "" "" "" ""];
   };

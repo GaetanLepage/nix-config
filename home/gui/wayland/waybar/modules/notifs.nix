@@ -12,7 +12,7 @@ in {
     if [ "$(${dunstctl} is-paused)" == "true" ]; then
         echo '{"class": "off", "text": " "}'
     else
-        echo '{"class": "on", "text": ""}'
+        echo '{"class": "on", "text": " "}'
     fi
   '';
 
