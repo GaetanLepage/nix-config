@@ -13,6 +13,7 @@
     ./packages.nix
     ./sound.nix
     ./ssh.nix
+    ./thunar.nix
     # ./virtualbox.nix
     # ./wacom.nix
     ./wayland.nix

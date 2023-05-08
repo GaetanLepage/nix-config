@@ -29,7 +29,6 @@
     zotero
 
     # Misc
-    xfce.thunar
     spotify
   ];
 
