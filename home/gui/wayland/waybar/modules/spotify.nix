@@ -1,5 +1,5 @@
 pkgs: {
-  format = "  {}";
+  format = "󰝚  {}";
 
   interval = 1;
 
