@@ -21,7 +21,7 @@ window#waybar {
 /* ----------- WORKSPACES ----------- */
 #workspaces button {
   padding: 0 8px;
-  border: 1px solid #ffffff;
+  border: 1px solid #4e4e4e;
   margin: 0 4px 0 0;
   background: #0a0a0a;
 }
@@ -36,7 +36,6 @@ window#waybar {
 /* Empty */
 #workspaces button.persistent {
   color: #4e4e4e;
-  border: 1px solid #4e4e4e;
 }
 
 
