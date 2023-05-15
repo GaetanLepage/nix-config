@@ -33,6 +33,9 @@
 
       # Whether to warn about dirty Git/Mercurial trees.
       warn-dirty = false;
+
+      # Allow the use of cachix
+      trusted-users = ["root" "gaetan"];
     };
 
     gc = {
