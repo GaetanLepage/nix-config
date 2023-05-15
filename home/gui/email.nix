@@ -72,11 +72,6 @@
         };
       };
 
-      gmail = {
-        address = "gaetan.lepage00@gmail.com";
-        flavor = "gmail.com";
-      };
-
       hotmail = {
         address = "gaetlep@hotmail.fr";
         flavor = "outlook.office365.com";
