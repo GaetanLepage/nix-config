@@ -4,6 +4,7 @@
   users.users.gaetan.extraGroups = ["video"];
 
   programs.sway.enable = true;
+  # programs.river.enable = true;
 
   xdg = {
     portal = {
@@ -25,6 +26,7 @@
     displayManager = {
       gdm.enable = true;
       defaultSession = "sway";
+      # defaultSession = "river";
     };
   };
 }
