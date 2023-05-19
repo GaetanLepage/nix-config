@@ -60,7 +60,7 @@ pkgs: {
     tooltip = false;
 
     format = "{ifname}";
-    format-wifi = " {essid}";
+    format-wifi = "  {essid}";
     format-ethernet = "󰈀 {ipaddr}";
     format-disconnected = "";
   };
