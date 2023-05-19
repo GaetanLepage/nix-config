@@ -60,6 +60,9 @@ in {
         # hostname = "alya.inrialpes.fr";
         user = "galepage";
         # proxyJump = "bastion";
+
+        # Pulse server forwarding
+        setEnv.PULSE_SERVER = "tcp:10.10.10.2:4713";
       };
       auriga = {
         hostname = "auriga.inrialpes.fr";
