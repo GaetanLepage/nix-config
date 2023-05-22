@@ -30,7 +30,7 @@
           pylsp = {
             # cmd = ["pylsp" "-vvv" "--log-file" "pylsp.log"];
             enable = true;
-            extraOptions.settings = {
+            settings = {
               plugins = {
                 pylsp_mypy = {
                   enabled = true;
