@@ -4,7 +4,7 @@
     ./comment.nix
     ./floaterm.nix
     ./harpoon.nix
-    ./lsp
+    ./lsp.nix
     ./lualine.nix
     ./markdown-preview.nix
     ./neorg.nix

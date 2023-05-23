@@ -39,6 +39,14 @@
                 };
                 jedi_completion.fuzzy = true;
 
+                ruff = {
+                  enabled = true;
+                  lineLength = 100;
+                  perFileIgnores = {
+                    "__init__.py" = ["F401"];
+                  };
+                };
+
                 # We don't need those as ruff-lsp is already providing such features.
                 autopep8.enabled = false;
                 flake8.enabled = false;
@@ -51,12 +59,6 @@
                 yapf.enabled = false;
               };
             };
-          };
-          ruff-lsp = {
-            enable = true;
-            extraOptions.init_options.settings.args = [
-              "--config=${./ruff.toml}"
-            ];
           };
           texlab.enable = true;
           typst-lsp.enable = true;
