@@ -2,6 +2,7 @@
   imports = [
     ./python.nix
     ./rust.nix
+    ./typst.nix
   ];
 
   home.packages = with pkgs; [

@@ -28,7 +28,6 @@
           nil_ls.enable = true;
           lua-ls.enable = true;
           texlab.enable = true;
-          typst-lsp.enable = true;
           rust-analyzer.enable = true;
         };
       };
