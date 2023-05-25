@@ -27,39 +27,6 @@
           clangd.enable = true;
           nil_ls.enable = true;
           lua-ls.enable = true;
-          pylsp = {
-            # cmd = ["pylsp" "-vvv" "--log-file" "pylsp.log"];
-            enable = true;
-            settings = {
-              plugins = {
-                pylsp_mypy = {
-                  enabled = true;
-                  live_mode = false;
-                  dmypy = true;
-                };
-                jedi_completion.fuzzy = true;
-
-                ruff = {
-                  enabled = true;
-                  lineLength = 100;
-                  perFileIgnores = {
-                    "__init__.py" = ["F401"];
-                  };
-                };
-
-                # We don't need those as ruff-lsp is already providing such features.
-                autopep8.enabled = false;
-                flake8.enabled = false;
-                mccabe.enabled = false;
-                preload.enabled = false;
-                pycodestyle.enabled = false;
-                pydocstyle.enabled = false;
-                pyflakes.enabled = false;
-                pylint.enabled = false;
-                yapf.enabled = false;
-              };
-            };
-          };
           texlab.enable = true;
           typst-lsp.enable = true;
           rust-analyzer.enable = true;
