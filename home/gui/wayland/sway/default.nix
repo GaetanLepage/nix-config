@@ -32,6 +32,9 @@
           app_id = "thunderbird";
           title = "Edit Event*";
         }
+        # Matplotlib plots
+        {class = "matplotlib";}
+        {app_id = "python3";}
       ];
 
       fonts = {
