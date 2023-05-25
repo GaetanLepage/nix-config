@@ -2,7 +2,7 @@
   todo = "rg TODO";
   td = "rg TODO";
 
-  vt = "vim ~/perso/todo.norg";
+  vt = "vim ~/perso/notes/todo.norg";
 
   ##################
   # GNU core utils #
