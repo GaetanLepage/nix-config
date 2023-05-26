@@ -1,4 +1,11 @@
 {pkgs, ...}: {
+  environment.systemPackages = with pkgs.xorg; [
+    xbacklight
+    xev
+    xkill
+    xmodmap
+  ];
+
   services = {
     # Don’t shutdown when power button is short-pressed
     logind.extraConfig = ''

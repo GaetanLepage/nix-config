@@ -1,15 +1,9 @@
 {pkgs, ...}: {
   environment.systemPackages = with pkgs; [
     # Misc (system utilities)
-    acpilight # Screen brightness control
-    home-manager # A user environment configurator
     killall
     nfs-utils # Linux user-space NFS utilities
     nix-index
-    xorg.xbacklight
-    xorg.xev
-    xorg.xkill
-    xorg.xmodmap
 
     # Network
     dig # Domain name server
@@ -19,9 +13,6 @@
 
     # Software development
     git
-
-    # Shell
-    bash
 
     # CLI utilities
     file
@@ -38,9 +29,6 @@
     imagemagick
     mpv
     vlc
-
-    # Window manager
-    bspwm
 
     # Hardware Monitoring
     htop
