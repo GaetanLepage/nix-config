@@ -19,6 +19,10 @@
     # the Home Manager release notes for a list of state version
     # changes in each release.
     stateVersion = "22.11";
+
+    sessionVariables = {
+      LD_PRELOAD = "/lib/x86_64-linux-gnu/libnss_sss.so.2";
+    };
   };
 
   nix.package = pkgs.nix;
