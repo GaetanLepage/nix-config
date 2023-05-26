@@ -4,7 +4,6 @@
     ./nix.nix
     ./security.nix
     ./users.nix
-    # ./xorg.nix
     ./zsh.nix
   ];
 

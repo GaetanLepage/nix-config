@@ -9,11 +9,12 @@
 
     ../common
 
-    # ./steam.nix
+    ./steam.nix
     ./ssh.nix
     ./nvidia.nix
     ./server-tank-nfs.nix
     ./wireguard.nix
+    ./xorg.nix
   ];
 
   networking.hostName = "cuda";
