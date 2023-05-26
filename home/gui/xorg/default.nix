@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  config,
+  ...
+}: {
   imports = [
     ./bspwm
     ./keyboard.nix
@@ -9,11 +13,17 @@
     ./sxhkd.nix
   ];
 
-  home.packages = with pkgs; [
-    arandr
-    mons
+  home = {
+    packages = with pkgs; [
+      arandr
+      mons
 
-    # Helpers
-    xclip
-  ];
+      # Helpers
+      xclip
+    ];
+
+    sessionVariables = {
+      XCOMPOSECACHE = "${config.xdg.cacheHome}/X11/xcompose";
+    };
+  };
 }
