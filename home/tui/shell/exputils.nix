@@ -9,18 +9,19 @@
         tuxedo)
             PATH_TO_EXPUTILS=$HOME/inria/code/exputils_commands
             ;;
-        *)
-            echo "[EXPUTILS] Warning '`hostname`' is an unknown hostname."
-            ;;
     esac
 
-    if [ -f "$PATH_TO_EXPUTILS/commands/eu_setup.sh" ] ; then
+    if [ -n "$PATH_TO_EXPUTILS" ]; then
+      if [ -f "$PATH_TO_EXPUTILS/commands/eu_setup.sh" ]; then
         . "$PATH_TO_EXPUTILS/commands/eu_setup.sh" "$PATH_TO_EXPUTILS"
+      fi
+
+      # set default project for exputils commands
+      export EU_DEFAULT_PRJ=rlan
+
+      # activate the default project
+      source eu_activate $EU_DEFAULT_PRJ
     fi
-    # set default project for exputils commands
-    export EU_DEFAULT_PRJ=rlan
-    # activate the default project
-    source eu_activate $EU_DEFAULT_PRJ
   '';
 
   home.shellAliases = {
