@@ -47,11 +47,11 @@
         "." = "set hidden!";
 
         # Yank
-        "y" = "";
-        "yy" = "copy";
-        "yn" = "yank-basename";
-        "yp" = "yank-path";
-        "yd" = "yank-dirname";
+        y = "";
+        yy = "copy";
+        yn = "yank-basename";
+        yp = "yank-path";
+        yd = "yank-dirname";
 
         # Common directories
         gd = "cd ${config.xdg.userDirs.download}";
