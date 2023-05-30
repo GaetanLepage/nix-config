@@ -1,6 +1,8 @@
 {
   imports = [
     ../tui
+
+    ./csgo
   ];
 
   nixpkgs.config.allowUnfree = true;
