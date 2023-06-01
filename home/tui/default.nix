@@ -31,6 +31,7 @@
     procs # ps
     ripgrep
     comma # runs programs without installing them
+    nix-index # used in conjunction with comma
 
     # Other utils
     ncdu

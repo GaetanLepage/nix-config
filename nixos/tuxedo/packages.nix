@@ -3,7 +3,6 @@
     # Misc (system utilities)
     killall
     nfs-utils # Linux user-space NFS utilities
-    nix-index
 
     # Network
     dig # Domain name server
