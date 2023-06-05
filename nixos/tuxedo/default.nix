@@ -18,7 +18,6 @@
     # ./wacom.nix
     ./wayland.nix
     ./wireguard.nix
-    # ./xorg.nix
   ];
 
   networking.hostName = "tuxedo";
