@@ -52,11 +52,11 @@
         wifiState = false;
       };
 
-      # dom = mkSingleExternalScreen {
-      #   externalCriteria = "HDMI-1";
-      #   mode = "1920x1080";
-      #   wifiState = true;
-      # };
+      dom = mkSingleExternalScreen {
+        externalCriteria = "BNQ BenQ GW2460 N9D04183SL0";
+        mode = "1920x1080";
+        wifiState = true;
+      };
     };
   };
 }
