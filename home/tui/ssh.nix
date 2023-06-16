@@ -62,7 +62,10 @@ in {
         # proxyJump = "bastion";
 
         # Pulse server forwarding
-        setEnv.PULSE_SERVER = "tcp:10.10.10.2:4713";
+        setEnv = {
+          PULSE_SERVER = "tcp:10.10.10.2:4713";
+          TERM = "xterm-256color";
+        };
       };
       auriga = {
         hostname = "auriga.inrialpes.fr";
