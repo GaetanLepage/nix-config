@@ -8,8 +8,7 @@
   home.packages = with pkgs; [
     nixpkgs-review
     alejandra
-
-    hugo
+    statix
 
     texlive.combined.scheme-full
   ];
