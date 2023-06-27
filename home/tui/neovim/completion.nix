@@ -48,7 +48,11 @@
           {name = "nvim_lsp";}
           {name = "cmp_tabnine";}
           {name = "luasnip";}
-          {name = "buffer";}
+          {
+            name = "buffer";
+            # Words from other open buffers can also be suggested.
+            option.get_bufnrs.__raw = "vim.api.nvim_list_bufs";
+          }
           {name = "neorg";}
         ];
       };
