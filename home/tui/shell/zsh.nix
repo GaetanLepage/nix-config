@@ -19,7 +19,7 @@
       dotDir = ".config/zsh";
 
       enableAutosuggestions = true;
-      enableSyntaxHighlighting = true;
+      syntaxHighlighting.enable = true;
 
       history = {
         path = "${config.xdg.stateHome}/zsh_history";
