@@ -20,7 +20,7 @@
 
       home-manager switch --flake $flake_dir\#$profile -v
 
-      nix-collect-garbage --delete-older-than 2d
+      # nix-collect-garbage --delete-older-than 2d
     '';
 
   updateScriptPath = "${toString updateScript}/bin";
