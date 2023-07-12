@@ -7,6 +7,7 @@
       "https://cache.nixos.org"
       "https://cache.nixos.org/"
       "https://cuda-maintainers.cachix.org"
+      "https://nixvim.cachix.org"
     ];
 
     trusted-public-keys = [
