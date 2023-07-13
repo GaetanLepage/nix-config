@@ -51,8 +51,8 @@ window#waybar {
 #clock-date,
 #custom-notifs
 {
-  padding: 0 10px;
-  margin: 2px 4px;
+  padding: 0 8px;
+  margin: 2px 2px;
   background: #4e4e4e;
   font-size: 20px;
   color: #0a0a0a;
