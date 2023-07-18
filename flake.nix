@@ -74,7 +74,7 @@
               useGlobalPkgs = true;
               useUserPackages = true;
               users.gaetan.imports = [
-                ./home/tuxedo
+                ./home/hosts/tuxedo
                 nixvimModule
               ];
             };
@@ -97,7 +97,7 @@
               useGlobalPkgs = true;
               useUserPackages = true;
               users.gaetan.imports = [
-                ./home/cuda
+                ./home/hosts/cuda
                 nixvimModule
               ];
             };
@@ -116,7 +116,7 @@
         };
       };
       modules = [
-        ./home/inria
+        ./home/hosts/inria
         nixvimModule
       ];
     };

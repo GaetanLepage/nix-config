@@ -1,14 +1,19 @@
-{pkgs, ...}: {
+{
   imports = [
-    ../tui
+    ../../modules/tui
+    ../../modules/gui
+
+    ./backup
     ./update.nix
   ];
+
+  nixpkgs.config.allowUnfree = true;
 
   # Home Manager needs a bit of information about you and the
   # paths it should manage.
   home = {
-    username = "galepage";
-    homeDirectory = "/home/galepage";
+    username = "gaetan";
+    homeDirectory = "/home/gaetan";
 
     # This value determines the Home Manager release that your
     # configuration is compatible with. This helps avoid breakage
@@ -19,11 +24,12 @@
     # the Home Manager release notes for a list of state version
     # changes in each release.
     stateVersion = "22.11";
-
-    sessionVariables = {
-      LD_PRELOAD = "/lib/x86_64-linux-gnu/libnss_sss.so.2";
-    };
   };
 
-  nix.package = pkgs.nix;
+  # Load the pulseaudio module that enables sharing audio devices with computers on the network.
+  programs.zsh.initExtra = ''
+    if ! pactl list | grep -q "tcp"; then
+        pactl load-module module-native-protocol-tcp > /dev/null
+    fi
+  '';
 }

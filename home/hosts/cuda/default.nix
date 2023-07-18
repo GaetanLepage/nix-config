@@ -1,6 +1,6 @@
 {
   imports = [
-    ../tui
+    ../../modules/tui
 
     ./csgo
   ];
