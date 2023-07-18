@@ -117,7 +117,7 @@
           "${mod}+Shift+r" = "reload";
 
           # kill window
-          "${mod}+a" = "kill";
+          "${mod}+Shift+a" = "kill";
 
           # alternate between the tiled and monocle layout
           "${mod}+z" = "layout toggle splith tabbed";
@@ -156,6 +156,8 @@
 
           # resize a window
           "${mod}+r" = "mode resize";
+
+          "${mod}+a" = "workspace number 1";
         }
         // (
           lib.listToAttrs (
