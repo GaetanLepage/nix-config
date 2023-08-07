@@ -3,8 +3,14 @@ pkgs: {
 
   interval = 1;
 
+  # Pause current song when clicking on the widget
   on-click = "${pkgs.playerctl}/bin/playerctl -p spotify play-pause";
-  on-click-right = "${pkgs.sway}/bin/swaymsg '[class=Spotify]' focus";
+
+  # Focus spotify when right-clicking on the widget
+  on-click-right = toString (pkgs.writeShellScript "focus-spotify" ''
+    spotify_id=$(${pkgs.sway}/bin/swaymsg -t get_tree | ${pkgs.jq}/bin/jq '.. | objects | select(.name == "Spotify") | .id')
+    ${pkgs.sway}/bin/swaymsg \[con_id=$spotify_id\] focus
+  '');
 
   # Disable hover
   tooltip = false;

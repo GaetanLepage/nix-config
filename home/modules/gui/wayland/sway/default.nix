@@ -11,14 +11,14 @@
         "number 2" = [{app_id = "firefox";}];
         "number 4" = [{app_id = "thunderbird";}];
         "number 6" = [{class = "Signal";}];
-        "number 7" = [{class = "Zotero";}];
+        "number 7" = [{app_id = "Zotero";}];
         "number 8" = [
-          {class = "Element";}
-          {class = "Slack";}
-          {class = "discord";}
-          {class = "Jitsi Meet";}
+          {app_id = "Element";}
+          {app_id = "Slack";}
+          {app_id = "discord";}
+          {app_id = "Jitsi Meet";}
         ];
-        "number 9" = [{class = "Spotify";}];
+        "number 9" = [{app_id = "Spotify";}];
         "number 10" = [{title = "btop";}];
       };
 
