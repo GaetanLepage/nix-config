@@ -24,7 +24,7 @@
   # Sharing pulseaudio server
   networking.firewall.allowedTCPPorts = [4713];
 
-  fonts.fonts = with pkgs; [
+  fonts.packages = with pkgs; [
     noto-fonts
     (nerdfonts.override {
       fonts = [
