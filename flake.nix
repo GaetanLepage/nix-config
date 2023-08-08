@@ -33,6 +33,11 @@
       # url = "/home/gaetan/perso/nix/nixvim/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    nix-index-database = {
+      url = "github:Mic92/nix-index-database";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
@@ -41,6 +46,7 @@
     home-manager,
     agenix,
     nixvim,
+    nix-index-database,
   }: let
     system = "x86_64-linux";
 
@@ -49,7 +55,10 @@
       environment.etc."nix/inputs/nixpkgs".source = nixpkgs.outPath;
     };
 
-    nixvimModule = nixvim.homeManagerModules.nixvim;
+    homeManagerModules = [
+      nixvim.homeManagerModules.nixvim
+      nix-index-database.hmModules.nix-index
+    ];
   in {
     formatter.${system} = nixpkgs.legacyPackages.${system}.alejandra;
 
@@ -73,10 +82,11 @@
             home-manager = {
               useGlobalPkgs = true;
               useUserPackages = true;
-              users.gaetan.imports = [
-                ./home/hosts/tuxedo
-                nixvimModule
-              ];
+              users.gaetan.imports =
+                [
+                  ./home/hosts/tuxedo
+                ]
+                ++ homeManagerModules;
             };
           }
         ];
@@ -96,10 +106,11 @@
             home-manager = {
               useGlobalPkgs = true;
               useUserPackages = true;
-              users.gaetan.imports = [
-                ./home/hosts/cuda
-                nixvimModule
-              ];
+              users.gaetan.imports =
+                [
+                  ./home/hosts/cuda
+                ]
+                ++ homeManagerModules;
             };
           }
         ];
@@ -115,10 +126,11 @@
           cudaSupport = true;
         };
       };
-      modules = [
-        ./home/hosts/inria
-        nixvimModule
-      ];
+      modules =
+        [
+          ./home/hosts/inria
+        ]
+        ++ homeManagerModules;
     };
   };
 }
