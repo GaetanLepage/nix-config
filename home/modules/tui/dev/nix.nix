@@ -2,6 +2,7 @@
   home = {
     packages = with pkgs; [
       alejandra
+      nix-init
       nix-output-monitor
       nixpkgs-review
       statix
