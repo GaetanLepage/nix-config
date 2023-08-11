@@ -1,8 +1,9 @@
 {pkgs, ...}: {
   home = {
     packages = with pkgs; [
-      nixpkgs-review
       alejandra
+      nix-output-monitor
+      nixpkgs-review
       statix
     ];
 
