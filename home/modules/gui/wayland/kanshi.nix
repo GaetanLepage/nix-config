@@ -43,7 +43,7 @@
       inria = mkSingleExternalScreen {
         externalCriteria = "Dell Inc. DELL U2719DC 88QSTS2";
         mode = "2560x1440@59.95Hz";
-        wifiState = true;
+        wifiState = false;
       };
 
       home = mkSingleExternalScreen {
