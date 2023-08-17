@@ -23,7 +23,6 @@
     # Utils
     git
     git-crypt
-    lazygit
     ncdu
     tmux
     unzip
