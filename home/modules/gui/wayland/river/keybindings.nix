@@ -14,7 +14,7 @@
       {
         "None F8" = let
           playerctl = "${pkgs.playerctl}/bin/playerctl";
-          lock = pkgs.writeScript "lock" ''
+          lock = pkgs.writeShellScript "lock" ''
             ${playerctl} pause
             ${playerctl} -p spotify pause
             ${pkgs.swaylock}/bin/swaylock

@@ -1,5 +1,14 @@
 {pkgs, ...}: let
-  backupScript = pkgs.writeShellScriptBin "backup" (builtins.readFile ./script.sh);
+  backupScript =
+    pkgs.writeShellApplication
+    {
+      name = "backup";
+      text = builtins.readFile ./script.sh;
+      runtimeInputs = with pkgs; [
+        rsync
+        libnotify
+      ];
+    };
   backupScriptPath = "${toString backupScript}/bin";
 in {
   home = {

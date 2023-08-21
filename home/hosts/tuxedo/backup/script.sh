@@ -1,5 +1,3 @@
-#!/bin/sh
-
 notify-send "Starting backup"
 
 DRY_RUN=''
@@ -10,7 +8,7 @@ fi
 
 dest_path=/tank/gaetan/backup/home
 
-rsync -zravut $HOME/ server:$dest_path \
+rsync -zravut "$HOME/" server:$dest_path \
     --human-readable \
     --delete \
     --delete-excluded \
@@ -44,7 +42,7 @@ case $rsync_exit_code in
     0|24)
         success_message="Backup succesfull"
         echo "=> $success_message"
-        notify-send $success_message
+        notify-send "$success_message"
 
         exit 0
         ;;
@@ -52,7 +50,7 @@ case $rsync_exit_code in
     *)
         error_message="Backup failed with error $rsync_exit_code"
         echo "=> $error_message"
-        notify-send $error_message
+        notify-send "$error_message"
 
         exit 1
 esac

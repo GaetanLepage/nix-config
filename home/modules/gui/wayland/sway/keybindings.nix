@@ -17,7 +17,7 @@
         {
           F8 = let
             playerctl = "${pkgs.playerctl}/bin/playerctl";
-            lock = pkgs.writeScript "lock" ''
+            lock = pkgs.writeShellScript "lock" ''
               ${playerctl} pause
               ${playerctl} -p spotify pause
               ${pkgs.swaylock}/bin/swaylock
@@ -66,7 +66,7 @@
         // {
           # Toggle touchpad
           F9 = let
-            showTouchpadState = pkgs.writeScript "show-touchpad-state" ''
+            showTouchpadState = pkgs.writeShellScript "show-touchpad-state" ''
               status=$(swaymsg -t get_inputs | ${pkgs.jq}/bin/jq --raw-output '.[] | select(.type=="touchpad") | .libinput.send_events')
               notify-send "Touchpad $status"
             '';

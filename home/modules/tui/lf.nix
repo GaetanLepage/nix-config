@@ -65,8 +65,6 @@
       };
 
       previewer.source = pkgs.writeShellScript "lf-previewer.sh" ''
-        #!/bin/sh
-
         file=$1
         case "$file" in
             *.tar*) tar tf "$file";;
