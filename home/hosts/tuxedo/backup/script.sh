@@ -1,7 +1,7 @@
 notify-send "Starting backup"
 
 DRY_RUN=''
-if [ "$1" = "-d" ]; then
+if [ "${1-}" = "-d" ]; then
     DRY_RUN='--dry-run'
 fi
 

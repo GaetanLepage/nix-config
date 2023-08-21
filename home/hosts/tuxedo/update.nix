@@ -1,7 +1,6 @@
 {pkgs, ...}: {
-  home.sessionPath = let
-    updateScript =
-      pkgs.writeShellScriptBin
+  home.packages = [
+    (pkgs.writeShellScriptBin
       "update"
       ''
         # Path to the folder containing `flake.nix`
@@ -30,8 +29,6 @@
                 # doas nix-collect-garbage --delete-older-than 2d
                 ;;
         esac
-      '';
-
-    updateScriptPath = "${toString updateScript}/bin";
-  in [updateScriptPath];
+      '')
+  ];
 }

@@ -9,10 +9,9 @@
         libnotify
       ];
     };
-  backupScriptPath = "${toString backupScript}/bin";
 in {
   home = {
-    sessionPath = [backupScriptPath];
+    packages = [backupScript];
     shellAliases.bu = "backup";
   };
 
@@ -24,7 +23,7 @@ in {
       Service = {
         Type = "oneshot";
         Environment = "SSH_AUTH_SOCK=/run/user/1000/keyring/ssh";
-        ExecStart = "${pkgs.bash}/bin/bash -l -c ${backupScriptPath}/backup";
+        ExecStart = "${backupScript}/bin/backup";
       };
     };
 

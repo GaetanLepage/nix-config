@@ -22,11 +22,9 @@
 
       # nix-collect-garbage --delete-older-than 2d
     '';
-
-  updateScriptPath = "${toString updateScript}/bin";
 in {
   home = {
-    sessionPath = [updateScriptPath];
+    packages = [updateScript];
 
     shellAliases = {
       # update home-manager
