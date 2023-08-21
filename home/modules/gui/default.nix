@@ -2,6 +2,7 @@
   imports = [
     ./wayland
 
+    ./bg-stream.nix
     ./dunst.nix
     ./email.nix
     ./firefox.nix

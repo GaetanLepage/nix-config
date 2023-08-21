@@ -41,12 +41,4 @@
 
     pandoc
   ];
-
-  ###########
-  # Scripts #
-  ###########
-  # Add the scripts directory to PATH
-  home.sessionPath = [
-    (builtins.toString ../scripts)
-  ];
 }
