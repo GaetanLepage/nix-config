@@ -7,6 +7,10 @@
     enable = true;
 
     settings = {
+      # Make zellij UI more compact
+      pane_frames = false;
+      default_layout = "compact";
+
       theme = "gruvbox-dark";
 
       themes = {
