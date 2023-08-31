@@ -9,6 +9,7 @@
 
     ../common
 
+    ./nix-remote-builder.nix
     ./steam.nix
     ./ssh.nix
     ./nvidia.nix
