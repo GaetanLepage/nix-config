@@ -3,6 +3,7 @@
     ./bootloader.nix
     ./nix.nix
     ./security.nix
+    ./ssh.nix
     ./users.nix
     ./zsh.nix
   ];

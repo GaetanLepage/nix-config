@@ -11,7 +11,6 @@
 
     ./nix-remote-builder.nix
     ./steam.nix
-    ./ssh.nix
     ./nvidia.nix
     ./server-tank-nfs.nix
     ./wireguard.nix
