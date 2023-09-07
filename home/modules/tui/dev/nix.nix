@@ -3,6 +3,7 @@
     packages = with pkgs; [
       alejandra
       nix-init
+      nix-update
       nix-output-monitor
       nixpkgs-review
       statix
