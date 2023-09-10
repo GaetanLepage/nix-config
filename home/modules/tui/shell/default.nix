@@ -1,7 +1,7 @@
 {
   imports = [
-    ./exa.nix
     ./exputils.nix
+    ./eza.nix
     ./remi.nix
     ./zsh.nix
   ];
