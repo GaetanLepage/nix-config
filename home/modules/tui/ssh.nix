@@ -114,14 +114,6 @@ in {
         proxyJump = "faster";
         forwardAgent = false;
       };
-
-      ###########
-      # Ensimag #
-      ###########
-      ensimag = {
-        host = "pcserveur.ensimag.fr";
-        user = "lepageg";
-      };
     };
   };
 
