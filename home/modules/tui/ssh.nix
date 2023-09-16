@@ -24,7 +24,6 @@ in {
         user = "uc";
       };
       server.hostname = "glepage.com";
-      backup.hostname = "cordineaux.glepage.com";
       router = {
         hostname = "192.168.1.1";
         user = "root";
@@ -33,6 +32,12 @@ in {
         hostname = "10.10.10.3";
         port = 2222;
       };
+
+      ##############
+      # Cordineaux #
+      ##############
+      backup.hostname = "cordineaux.glepage.com";
+      acl-desktop.hostname = "10.10.10.20";
 
       #########
       # Inria #
