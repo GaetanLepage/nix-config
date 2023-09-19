@@ -8,14 +8,12 @@
     ./todo.nix
   ];
 
-  home = {
-    shellAliases.v = "nvim";
-
-    sessionVariables.EDITOR = "nvim";
-  };
+  home.shellAliases.v = "nvim";
 
   programs.nixvim = {
     enable = true;
+    defaultEditor = true;
+
     viAlias = true;
     vimAlias = true;
 
