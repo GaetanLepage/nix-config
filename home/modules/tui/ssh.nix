@@ -85,11 +85,13 @@ in {
       "bigfoot" = {
         user = "lepageg-ext";
         proxyCommand = "ssh -q lepageg-ext@access-gricad.univ-grenoble-alpes.fr 'nc -w 60 bigfoot %p'";
+        setEnv.TERM = "xterm-256color";
       };
 
       "cargo" = {
         user = "lepageg-ext";
         proxyCommand = "ssh -q lepageg-ext@access-gricad.univ-grenoble-alpes.fr 'nc -w 60 cargo %p'";
+        setEnv.TERM = "xterm-256color";
       };
 
       ############
