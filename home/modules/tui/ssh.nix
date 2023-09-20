@@ -37,7 +37,10 @@ in {
       # Cordineaux #
       ##############
       backup.hostname = "cordineaux.glepage.com";
-      acl-desktop.hostname = "10.10.10.20";
+      acl-desktop = {
+        hostname = "10.10.10.20";
+        user = "root";
+      };
 
       #########
       # Inria #
