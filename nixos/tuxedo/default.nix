@@ -14,7 +14,6 @@
     ./sound.nix
     ./thunar.nix
     # ./virtualbox.nix
-    # ./wacom.nix
     ./wayland.nix
     ./wireguard.nix
   ];
