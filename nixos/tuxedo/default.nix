@@ -13,7 +13,6 @@
     ./packages.nix
     ./sound.nix
     ./thunar.nix
-    # ./virtualbox.nix
     ./wayland.nix
     ./wireguard.nix
   ];
