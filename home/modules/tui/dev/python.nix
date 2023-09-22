@@ -46,12 +46,6 @@
             };
             jedi_completion.fuzzy = true;
 
-            # Enable formatting
-            black = {
-              enabled = true;
-              cache_config = true;
-            };
-
             ruff = {
               enabled = true;
               lineLength = 100;
