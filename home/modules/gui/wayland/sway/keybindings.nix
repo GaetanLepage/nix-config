@@ -107,6 +107,9 @@
 
           # file manager
           "${mod}+F3" = "exec ${pkgs.xfce.thunar}/bin/thunar";
+
+          "${mod}+Shift+F7" = "exec bg_stream lofi";
+          "${mod}+F7" = "exec bg_stream stop";
         }
         ########
         # Sway #
