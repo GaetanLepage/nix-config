@@ -5,6 +5,8 @@
     settings = {
       experimental-features = "nix-command flakes";
 
+      max-jobs = "auto";
+
       # The timeout (in seconds) for establishing connections in the binary cache substituter.
       # It corresponds to curl’s –connect-timeout option. A value of 0 means no limit.
       connect-timeout = 5;
@@ -36,6 +38,8 @@
 
       # Allow the use of cachix
       trusted-users = ["root" "gaetan"];
+
+      builders-use-substitutes = true;
     };
 
     gc = {
