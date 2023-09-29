@@ -28,7 +28,7 @@ in {
         hostname = "192.168.1.1";
         user = "root";
       };
-      oneplus = {
+      pixel = {
         hostname = "10.10.10.3";
         port = 2222;
       };
