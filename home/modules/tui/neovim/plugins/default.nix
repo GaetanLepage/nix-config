@@ -34,6 +34,8 @@
         enable = true;
         userDefaultOptions.names = false;
       };
+
+      oil.enable = true;
     };
   };
 }
