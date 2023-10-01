@@ -8,9 +8,9 @@
       enable = true;
 
       commands = {
-        "yank-dirname" = "$dirname     -- '$f' | head -c-1 | xclip -i -selection clipboard";
-        "yank-path" = "$printf '%s'   '$fx'             | xclip -i -selection clipboard";
-        "yank-basename" = "$basename -a -- $fx  | head -c-1 | xclip -i -selection clipboard";
+        yank-dirname = "$dirname     -- '$f' | head -c-1 | xclip -i -selection clipboard";
+        yank-path = "$printf '%s'   '$fx'             | xclip -i -selection clipboard";
+        yank-basename = "$basename -a -- $fx  | head -c-1 | xclip -i -selection clipboard";
       };
 
       extraConfig = ''
