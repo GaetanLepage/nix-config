@@ -9,6 +9,7 @@
 
     ../common
 
+    ./github-runner.nix
     ./nix-remote-builder.nix
     ./steam.nix
     ./nvidia.nix
