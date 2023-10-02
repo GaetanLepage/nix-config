@@ -244,17 +244,17 @@
         "pre-commit-hooks": "pre-commit-hooks"
       },
       "locked": {
-        "lastModified": 1696176774,
-        "narHash": "sha256-v8wBRXh3Xxu21pz5KPA50w445ghGO0OSPnM/13xvNy4=",
-        "ref": "refs/heads/main",
-        "rev": "47b72e41dde4bd1ca89c6852f20d2818587342d4",
-        "revCount": 658,
-        "type": "git",
-        "url": "file:///home/gaetan/perso/nix/nixvim/nixvim"
+        "lastModified": 1696335513,
+        "narHash": "sha256-NBrQ0ij5nbCAdgo8A3FUx0HeVlHayIKhq4p3CTuS2uQ=",
+        "owner": "nix-community",
+        "repo": "nixvim",
+        "rev": "418bf5da17a2f6d1ae942899882f7ff62d2ee145",
+        "type": "github"
       },
       "original": {
-        "type": "git",
-        "url": "file:///home/gaetan/perso/nix/nixvim/nixvim"
+        "owner": "nix-community",
+        "repo": "nixvim",
+        "type": "github"
       }
     },
     "poetry2nix": {
@@ -296,11 +296,11 @@
         "nixpkgs-stable": "nixpkgs-stable"
       },
       "locked": {
-        "lastModified": 1695576016,
-        "narHash": "sha256-71KxwRhTfVuh7kNrg3/edNjYVg9DCyKZl2QIKbhRggg=",
+        "lastModified": 1696158581,
+        "narHash": "sha256-h0vY4E7Lx95lpYQbG2w4QH4yG5wCYOvPJzK93wVQbT0=",
         "owner": "cachix",
         "repo": "pre-commit-hooks.nix",
-        "rev": "cb770e93516a1609652fa8e945a0f310e98f10c0",
+        "rev": "033453f85064ccac434dfd957f95d8457901ecd6",
         "type": "github"
       },
       "original": {
