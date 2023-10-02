@@ -31,16 +31,14 @@
       };
     };
 
-    maps.normal = {
-      # "<C-m>" = {
-      #   action = ":VimtexToggle<CR>";
-      #   silent = true;
-      # };
-      "m" = {
+    keymaps = [
+      {
+        mode = "n";
+        key = "m";
         action = ":VimtexView<CR>";
-        silent = true;
-      };
-    };
+        options.silent = true;
+      }
+    ];
 
     autoCmd = [
       {

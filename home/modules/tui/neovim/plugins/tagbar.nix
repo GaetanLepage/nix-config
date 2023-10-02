@@ -5,9 +5,13 @@
       extraConfig.width = 50;
     };
 
-    maps.normal."<C-g>" = {
-      action = ":TagbarToggle<cr>";
-      silent = true;
-    };
+    keymaps = [
+      {
+        mode = "n";
+        key = "<C-g>";
+        action = ":TagbarToggle<cr>";
+        options.silent = true;
+      }
+    ];
   };
 }

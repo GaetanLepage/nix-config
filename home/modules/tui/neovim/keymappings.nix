@@ -1,55 +1,77 @@
-{config, ...}: {
+{
+  config,
+  lib,
+  ...
+}: {
   programs.nixvim = {
     globals = {
       mapleader = " ";
       maplocalleader = " ";
     };
 
-    maps = config.nixvim.helpers.mkMaps {silent = true;} {
-      normal."<Space>" = "<NOP>";
+    keymaps = let
+      normal =
+        lib.mapAttrsToList
+        (key: action: {
+          mode = "n";
+          inherit action key;
+        })
+        {
+          "<Space>" = "<NOP>";
 
-      # Esc to clear search results
-      normal."<esc>" = ":noh<CR>";
+          # Esc to clear search results
+          "<esc>" = ":noh<CR>";
 
-      # fix Y behaviour
-      normal."Y" = "y$";
+          # fix Y behaviour
+          "Y" = "y$";
 
-      # back and fourth between the two most recent files
-      normal."<C-c>" = ":b#<CR>";
+          # back and fourth between the two most recent files
+          "<C-c>" = ":b#<CR>";
 
-      # close by Ctrl+x
-      normal."<C-x>" = ":close<CR>";
+          # close by Ctrl+x
+          "<C-x>" = ":close<CR>";
 
-      # save by Space+s or Ctrl+s
-      normal."<leader>s" = ":w<CR>";
-      normal."<C-s>" = ":w<CR>";
+          # save by Space+s or Ctrl+s
+          "<leader>s" = ":w<CR>";
+          "<C-s>" = ":w<CR>";
 
-      # navigate to left/right window
-      normal."<leader>h" = "<C-w>h";
-      normal."<leader>l" = "<C-w>l";
+          # navigate to left/right window
+          "<leader>h" = "<C-w>h";
+          "<leader>l" = "<C-w>l";
 
-      # resize with arrows
-      normal."<C-Up>" = ":resize -2<CR>";
-      normal."<C-Down>" = ":resize +2<CR>";
-      normal."<C-Left>" = ":vertical resize +2<CR>";
-      normal."<C-Right>" = ":vertical resize -2<CR>";
+          # resize with arrows
+          "<C-Up>" = ":resize -2<CR>";
+          "<C-Down>" = ":resize +2<CR>";
+          "<C-Left>" = ":vertical resize +2<CR>";
+          "<C-Right>" = ":vertical resize -2<CR>";
 
-      # better indenting
-      visual.">" = ">gv";
-      visual."<" = "<gv";
-      visual."<TAB>" = ">gv";
-      visual."<S-TAB>" = "<gv";
+          # move current line up/down
+          # M = Alt key
+          "<M-k>" = ":move-2<CR>";
+          "<M-j>" = ":move+<CR>";
 
-      # move selected line / block of text in visual mode
-      visual."K" = ":m '<-2<CR>gv=gv";
-      visual."J" = ":m '>+1<CR>gv=gv";
+          "<leader>rp" = ":!remi push<CR>";
+        };
+      visual =
+        lib.mapAttrsToList
+        (key: action: {
+          mode = "v";
+          inherit action key;
+        })
+        {
+          # better indenting
+          ">" = ">gv";
+          "<" = "<gv";
+          "<TAB>" = ">gv";
+          "<S-TAB>" = "<gv";
 
-      # move current line up/down
-      # M = Alt key
-      normal."<M-k>" = ":move-2<CR>";
-      normal."<M-j>" = ":move+<CR>";
-
-      normal."<leader>rp" = ":!remi push<CR>";
-    };
+          # move selected line / block of text in visual mode
+          "K" = ":m '<-2<CR>gv=gv";
+          "J" = ":m '>+1<CR>gv=gv";
+        };
+    in
+      config.nixvim.helpers.keymaps.mkKeymaps
+      {options.silent = true;}
+      (normal ++ visual);
   };
 }

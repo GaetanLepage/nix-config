@@ -8,9 +8,13 @@
       theme = "dark";
     };
 
-    maps.normal."<leader>m" = {
-      action = ":MarkdownPreview<cr>";
-      silent = true;
-    };
+    keymaps = [
+      {
+        mode = "n";
+        key = "<leader>m";
+        action = ":MarkdownPreview<cr>";
+        options.silent = true;
+      }
+    ];
   };
 }
