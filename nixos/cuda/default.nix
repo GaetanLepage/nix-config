@@ -73,7 +73,7 @@
 
   system = {
     autoUpgrade = {
-      enable = true;
+      enable = false; # TODO Doesn't work: use a SSH private key with agenix
       flake = "${config.users.users.gaetan.home}/config#cuda";
       flags = [
         "--update-input"
