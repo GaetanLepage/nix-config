@@ -31,4 +31,6 @@
       # defaultSession = "river";
     };
   };
+
+  services.geoclue2.enable = true;
 }
