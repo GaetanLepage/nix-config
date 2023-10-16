@@ -43,6 +43,7 @@
               enabled = true;
               live_mode = false;
               dmypy = true;
+              dmypy_status_file = "/tmp/.dmypy.json";
             };
             jedi_completion.fuzzy = true;
 
