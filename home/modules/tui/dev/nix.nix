@@ -8,6 +8,7 @@
       nix-output-monitor
       nixpkgs-review
       statix
+      vimPluginsUpdater
     ];
 
     sessionVariables.NIXPKGS_ALLOW_UNFREE = 1;
