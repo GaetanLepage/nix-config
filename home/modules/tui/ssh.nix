@@ -3,6 +3,7 @@
 
   main_key = "${ssh_keys_dir}rsa_tuxedo";
   hes_key = "${ssh_keys_dir}rsa_hes";
+  gricad_key = "${ssh_keys_dir}rsa_for_gricad";
 in {
   programs.ssh = {
     enable = true;
@@ -89,12 +90,14 @@ in {
         user = "lepageg-ext";
         proxyCommand = "ssh -q lepageg-ext@access-gricad.univ-grenoble-alpes.fr 'nc -w 60 bigfoot %p'";
         setEnv.TERM = "xterm-256color";
+        identityFile = gricad_key;
       };
 
       "cargo" = {
         user = "lepageg-ext";
         proxyCommand = "ssh -q lepageg-ext@access-gricad.univ-grenoble-alpes.fr 'nc -w 60 cargo %p'";
         setEnv.TERM = "xterm-256color";
+        identityFile = gricad_key;
       };
 
       ############
