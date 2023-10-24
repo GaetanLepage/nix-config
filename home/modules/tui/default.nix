@@ -7,7 +7,7 @@
     ./neovim
     ./nix.nix
     ./shell
-    ./ssh.nix
+    ./ssh
     ./tmux.nix
     ./xdg.nix
     ./zellij.nix
