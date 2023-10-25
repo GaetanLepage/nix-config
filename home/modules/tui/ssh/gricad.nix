@@ -18,4 +18,8 @@ in
     bigfoot.proxyCommand = mkProxyCommand "bigfoot";
 
     cargo.proxyCommand = mkProxyCommand "cargo";
+
+    "access-gricad.univ-grenoble-alpes.fr" = {};
+    "trinity.univ-grenoble-alpes.fr" = {};
+    "rotule.univ-grenoble-alpes.fr" = {};
   }
