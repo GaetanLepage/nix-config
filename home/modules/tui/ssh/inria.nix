@@ -49,8 +49,10 @@ lib.mapAttrs
     lib.genAttrs
     [
       "auriga"
+      "bacchus"
       "pictor"
       "kapelos"
+      "ursa"
     ]
     (
       _: {
