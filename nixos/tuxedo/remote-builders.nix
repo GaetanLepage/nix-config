@@ -1,6 +1,7 @@
 {config, ...}: {
   age.secrets = {
     alya-remote-builder-ssh-key.file = ../../secrets/ssh/alya_remote_builder.age;
+    cuda-remote-builder-ssh-key.file = ../../secrets/ssh/cuda-remote-builder.age;
     darwin-build-box-ssh-key.file = ../../secrets/ssh/darwin-build-box.age;
   };
 
@@ -11,6 +12,8 @@
       {
         hostName = "10.10.10.5";
         sshUser = "nix";
+        sshKey = config.age.secrets.cuda-remote-builder-ssh-key.path;
+        publicHostKey = "c3NoLWVkMjU1MTkgQUFBQUMzTnphQzFsWkRJMU5URTVBQUFBSURKMjVOWVVUSHRuTlpZOVdDYW12OFpHYzAwekc0RXFKaHllam8zVG1xT3UK";
         system = "x86_64-linux";
         maxJobs = 12;
         supportedFeatures = [
