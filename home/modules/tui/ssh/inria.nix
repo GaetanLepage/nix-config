@@ -50,6 +50,7 @@ lib.mapAttrs
     [
       "auriga"
       "bacchus"
+      "mensa"
       "pictor"
       "kapelos"
       "ursa"
