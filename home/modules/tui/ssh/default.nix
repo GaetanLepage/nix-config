@@ -23,7 +23,15 @@
       // (import ./perso.nix {
         inherit lib;
         identityFile = getIdentityFile "perso";
-      });
+      })
+      // {
+        darwin = {
+          hostname = "darwin-build-box.nix-community.org";
+          user = "glepage";
+          identityFile = getIdentityFile "darwin-build-box";
+          setEnv.TERM = "xterm-256color";
+        };
+      };
   };
 
   home.shellAliases = {
