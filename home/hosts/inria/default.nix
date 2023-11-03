@@ -31,6 +31,8 @@ in {
     };
   };
 
+  programs.tmate.enable = true;
+
   xdg.userDirs = with lib; {
     desktop = mkForce "${homeDirectory}/Desktop";
     documents = mkForce "${homeDirectory}/Documents";
