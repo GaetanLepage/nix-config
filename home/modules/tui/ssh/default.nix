@@ -25,6 +25,14 @@
         identityFile = getIdentityFile "perso";
       })
       // {
+        arm = {
+          hostname = "aarch64.nixos.community";
+          user = "glepage";
+          identityFile = getIdentityFile "aarch64-build-box";
+          setEnv.TERM = "xterm-256color";
+        };
+      }
+      // {
         darwin = {
           hostname = "darwin-build-box.nix-community.org";
           user = "glepage";
