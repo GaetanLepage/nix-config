@@ -2,6 +2,7 @@
   age.secrets = {
     alya-remote-builder-ssh-key.file = ../../secrets/ssh/alya-remote-builder.age;
     cuda-remote-builder-ssh-key.file = ../../secrets/ssh/cuda-remote-builder.age;
+    aarch64-build-box-ssh-key.file = ../../secrets/ssh/aarch64-build-box.age;
     darwin-build-box-ssh-key.file = ../../secrets/ssh/darwin-build-box.age;
   };
 
@@ -36,7 +37,20 @@
           "benchmark"
         ];
       }
-      # Darwin
+      # ARM build box
+      {
+        hostName = "aarch64.nixos.community";
+        sshUser = "glepage";
+        sshKey = config.age.secrets.aarch64-build-box-ssh-key.path;
+        publicHostKey = "c3NoLWVkMjU1MTkgQUFBQUMzTnphQzFsWkRJMU5URTVBQUFBSU1VVHo1aTl1NUgyRkhOQW1aSnlvSmZJR3lVbS9IZkdoZnduYzE0MkwzZHMK";
+        systems = [
+          "aarch64-linux"
+        ];
+        supportedFeatures = [
+          "big-parallel"
+        ];
+      }
+      # Darwin build box
       {
         hostName = "darwin-build-box.nix-community.org";
         sshUser = "glepage";
