@@ -19,6 +19,13 @@
             settings = id: {
               "mail.identity.id_${id}.reply_on_top" = 1;
               "mail.identity.id_${id}.sig_bottom" = false;
+              # Sorting
+              "mailnews.default_sort_order" = 2; # descending
+              "mailnews.default_sort_type" = 18; # by date
+              # Disable telemetry
+              "toolkit.telemetry.enabled" = false;
+              "toolkit.telemetry.rejected" = true;
+              "toolkit.telemetry.prompted" = 2;
             };
           };
         }
