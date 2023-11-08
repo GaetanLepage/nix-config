@@ -9,7 +9,19 @@
       nixpkgs-review
       statix
       vimPluginsUpdater
+      (
+        pkgs.writeShellScriptBin "nix_build" ''
+          nom-build --argstr system $1 -A $2
+        ''
+      )
     ];
+
+    shellAliases = {
+      "nb" = "nix_build x86_64-linux";
+      "nba" = "nix_build aarch64-linux";
+      "nbd" = "nix_build x86_64-darwin";
+      "nbda" = "nix_build aarch64-darwin";
+    };
 
     sessionVariables.NIXPKGS_ALLOW_UNFREE = 1;
   };
