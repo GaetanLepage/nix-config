@@ -8,6 +8,7 @@ in {
   imports = [
     ../../modules/tui
     ./update.nix
+    ./test_python_env.nix
   ];
 
   # Home Manager needs a bit of information about you and the
