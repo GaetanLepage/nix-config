@@ -4,6 +4,7 @@
     cuda-remote-builder-ssh-key.file = ../../secrets/ssh/cuda-remote-builder.age;
     aarch64-build-box-ssh-key.file = ../../secrets/ssh/aarch64-build-box.age;
     darwin-build-box-ssh-key.file = ../../secrets/ssh/darwin-build-box.age;
+    linux-build-box-ssh-key.file = ../../secrets/ssh/linux-build-box.age;
   };
 
   nix = {
@@ -59,6 +60,24 @@
         systems = [
           "aarch64-darwin"
           "x86_64-darwin"
+        ];
+      }
+      # Linux build box
+      {
+        hostName = "build-box.nix-community.org";
+        sshUser = "glepage";
+        sshKey = config.age.secrets.linux-build-box-ssh-key.path;
+        publicHostKey = "c3NoLWVkMjU1MTkgQUFBQUMzTnphQzFsWkRJMU5URTVBQUFBSUVsSVE1NHFBeTdEaDYzckJ1ZFlLZGJ6SkhycmJyck1YTFlsN1BrbWs4OEgK";
+        systems = [
+          "i686-linux"
+          "riscv64-linux"
+          "x86_64-linux"
+        ];
+        supportedFeatures = [
+          "benchmark"
+          "big-parallel"
+          "kvm"
+          "nixos-test"
         ];
       }
     ];
