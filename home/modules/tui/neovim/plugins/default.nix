@@ -2,6 +2,7 @@
   imports = [
     ./barbar.nix
     ./comment.nix
+    ./efm.nix
     ./floaterm.nix
     ./harpoon.nix
     ./lsp.nix
