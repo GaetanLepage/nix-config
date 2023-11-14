@@ -47,6 +47,7 @@
         systems = [
           "aarch64-linux"
         ];
+        maxJobs = 64;
         supportedFeatures = [
           "big-parallel"
         ];
@@ -57,6 +58,7 @@
         sshUser = "glepage";
         sshKey = config.age.secrets.darwin-build-box-ssh-key.path;
         publicHostKey = "c3NoLWVkMjU1MTkgQUFBQUMzTnphQzFsWkRJMU5URTVBQUFBSUtYN1cxenR6QXRWWFQrTkJNSVRVK0pMWGNJRTVIVEVPZDdRM2ZRTnU4MFMK";
+        maxJobs = 32;
         systems = [
           "aarch64-darwin"
           "x86_64-darwin"
@@ -68,6 +70,7 @@
         sshUser = "glepage";
         sshKey = config.age.secrets.linux-build-box-ssh-key.path;
         publicHostKey = "c3NoLWVkMjU1MTkgQUFBQUMzTnphQzFsWkRJMU5URTVBQUFBSUVsSVE1NHFBeTdEaDYzckJ1ZFlLZGJ6SkhycmJyck1YTFlsN1BrbWs4OEgK";
+        maxJobs = 16;
         systems = [
           "i686-linux"
           "riscv64-linux"
