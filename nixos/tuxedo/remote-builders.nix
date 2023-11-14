@@ -10,8 +10,8 @@
   nix = {
     distributedBuilds = true;
     buildMachines = [
-      # cuda
       {
+        # cuda
         hostName = "10.10.10.5";
         sshUser = "nix";
         sshKey = config.age.secrets.cuda-remote-builder-ssh-key.path;
@@ -24,8 +24,8 @@
           "benchmark"
         ];
       }
-      # Alya
       {
+        # Alya
         hostName = "10.10.10.4";
         sshUser = "root";
         sshKey = config.age.secrets.alya-remote-builder-ssh-key.path;
@@ -38,8 +38,8 @@
           "benchmark"
         ];
       }
-      # ARM build box
       {
+        # ARM build box
         hostName = "aarch64.nixos.community";
         sshUser = "glepage";
         sshKey = config.age.secrets.aarch64-build-box-ssh-key.path;
@@ -51,8 +51,8 @@
           "big-parallel"
         ];
       }
-      # Darwin build box
       {
+        # Darwin build box
         hostName = "darwin-build-box.nix-community.org";
         sshUser = "glepage";
         sshKey = config.age.secrets.darwin-build-box-ssh-key.path;
@@ -62,8 +62,8 @@
           "x86_64-darwin"
         ];
       }
-      # Linux build box
       {
+        # Linux build box
         hostName = "build-box.nix-community.org";
         sshUser = "glepage";
         sshKey = config.age.secrets.linux-build-box-ssh-key.path;
