@@ -39,6 +39,14 @@
           identityFile = getIdentityFile "darwin-build-box";
           setEnv.TERM = "xterm-256color";
         };
+      }
+      // {
+        linux-build-box = {
+          hostname = "build-box.nix-community.org";
+          user = "glepage";
+          identityFile = getIdentityFile "linux-build-box";
+          setEnv.TERM = "xterm-256color";
+        };
       };
   };
 
