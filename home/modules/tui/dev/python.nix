@@ -43,27 +43,23 @@
       lsp.servers = {
         efm.filetypes = ["python"];
         pylsp = {
+          # cmd = ["pylsp" "-vvv"];
           # cmd = ["pylsp" "-vvv" "--log-file" "pylsp.log"];
           enable = true;
           settings = {
             plugins = {
-              # pylsp_mypy = {
-              #   enabled = true;
-              #   live_mode = false;
-              #   dmypy = true;
-              #   dmypy_status_file = "/tmp/.dmypy.json";
-              # };
               jedi_completion.fuzzy = true;
 
-              # ruff = {
-              #   enabled = true;
-              #   lineLength = 100;
-              #   perFileIgnores = {
-              #     "__init__.py" = ["F401"];
-              #   };
-              # };
+              pylsp_mypy.enabled = true;
+              ruff = {
+                enabled = false;
+                lineLength = 100;
+                perFileIgnores = {
+                  "__init__.py" = ["F401"];
+                };
+              };
 
-              # We don't need those as ruff-lsp is already providing such features.
+              # We don't need those as ruff is already providing such features.
               autopep8.enabled = false;
               flake8.enabled = false;
               mccabe.enabled = false;
