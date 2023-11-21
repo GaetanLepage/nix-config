@@ -49,7 +49,7 @@
       {
         # ARM build box
         hostName = "aarch64.nixos.community";
-        sshUser = "glepage.com";
+        sshUser = "glepage";
         sshKey = config.age.secrets.aarch64-build-box-ssh-key.path;
         publicHostKey = "c3NoLWVkMjU1MTkgQUFBQUMzTnphQzFsWkRJMU5URTVBQUFBSU1VVHo1aTl1NUgyRkhOQW1aSnlvSmZJR3lVbS9IZkdoZnduYzE0MkwzZHMK";
         systems = [
@@ -63,7 +63,7 @@
       {
         # Darwin build box
         hostName = "darwin-build-box.nix-community.org";
-        sshUser = "glepage.com";
+        sshUser = "glepage";
         sshKey = config.age.secrets.darwin-build-box-ssh-key.path;
         publicHostKey = "c3NoLWVkMjU1MTkgQUFBQUMzTnphQzFsWkRJMU5URTVBQUFBSUtYN1cxenR6QXRWWFQrTkJNSVRVK0pMWGNJRTVIVEVPZDdRM2ZRTnU4MFMK";
         maxJobs = 32;
@@ -75,7 +75,7 @@
       {
         # Linux build box
         hostName = "build-box.nix-community.org";
-        sshUser = "glepage.com";
+        sshUser = "glepage";
         sshKey = config.age.secrets.linux-build-box-ssh-key.path;
         publicHostKey = "c3NoLWVkMjU1MTkgQUFBQUMzTnphQzFsWkRJMU5URTVBQUFBSUVsSVE1NHFBeTdEaDYzckJ1ZFlLZGJ6SkhycmJyck1YTFlsN1BrbWs4OEgK";
         maxJobs = 16;
