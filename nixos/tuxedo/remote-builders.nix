@@ -19,34 +19,6 @@
 
     buildMachines = [
       {
-        # cuda
-        hostName = "10.10.10.5";
-        sshUser = "nix";
-        sshKey = config.age.secrets.cuda-remote-builder-ssh-key.path;
-        publicHostKey = "c3NoLWVkMjU1MTkgQUFBQUMzTnphQzFsWkRJMU5URTVBQUFBSURKMjVOWVVUSHRuTlpZOVdDYW12OFpHYzAwekc0RXFKaHllam8zVG1xT3UK";
-        system = "x86_64-linux";
-        maxJobs = 12;
-        supportedFeatures = [
-          "kvm"
-          "big-parallel"
-          "benchmark"
-        ];
-      }
-      {
-        # Alya
-        hostName = "10.10.10.4";
-        sshUser = "root";
-        sshKey = config.age.secrets.alya-remote-builder-ssh-key.path;
-        publicHostKey = "c3NoLWVkMjU1MTkgQUFBQUMzTnphQzFsWkRJMU5URTVBQUFBSUxLTnozOWJFSzR4M1JWeHEvekFyb1A2ZE13VFdUd2FabTBJUi9lTmFJeHYK";
-        system = "x86_64-linux";
-        maxJobs = 16;
-        supportedFeatures = [
-          "kvm"
-          "big-parallel"
-          "benchmark"
-        ];
-      }
-      {
         # ARM build box
         hostName = "aarch64.nixos.community";
         sshUser = "glepage";
