@@ -39,11 +39,6 @@ lib.mapAttrs
         TERM = "xterm-256color";
       };
     };
-    # auriga = {
-    #   hostname = "auriga.inrialpes.fr";
-    #   proxyJump = "bastion";
-    #   setEnv.TERM = "xterm-256color";
-    # };
   }
   // (
     lib.genAttrs
