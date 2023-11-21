@@ -7,7 +7,6 @@
     # Network
     dig # Domain name server
     lsof
-    speedtest-rs
     wol # Wake on Lan
 
     # Software development
