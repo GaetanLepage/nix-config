@@ -11,6 +11,8 @@
 
       # disconnects after 10 minutes (i.e. 600 seconds)
       "x-systemd.idle-timeout=600"
+
+      "x-systemd.mount-timeout=10"
     ];
   };
 }
