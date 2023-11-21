@@ -48,6 +48,7 @@ lib.mapAttrs
       "chamaeleon"
       "kapelos"
       "mensa"
+      "octans"
       "peirasmos"
       "pictor"
       "scorpio"
