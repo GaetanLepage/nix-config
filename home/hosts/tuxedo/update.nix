@@ -22,7 +22,8 @@
             `hostname`|"")
                 doas nixos-rebuild switch \
                     --verbose \
-                    --flake $nix_dir
+                    --flake $nix_dir \
+                    --builders ""
 
                 # Clean the store (garbage collection)
                 # Also removes old generations
