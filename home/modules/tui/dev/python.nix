@@ -33,6 +33,7 @@
   '';
 
   programs.nixvim = {
+    filetype.extension.gin = "gin";
     plugins = {
       efmls-configs.setup.python = {
         formatter = "ruff";
@@ -40,6 +41,7 @@
           "mypy"
         ];
       };
+      treesitter.languageRegister.python = ["gin"];
       efmls-configs.setup.python.formatter = "ruff";
       lsp.servers = {
         efm.filetypes = ["python"];
