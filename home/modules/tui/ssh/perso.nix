@@ -37,7 +37,7 @@ lib.mapAttrs
   ##############
   # Cordineaux #
   ##############
-  backup.hostname = "cordineaux.glepage.com";
+  feroe.hostname = "feroe.glepage.com";
 
   acl-desktop = {
     hostname = "10.10.10.20";
