@@ -40,6 +40,7 @@
           "mypy"
         ];
       };
+      efmls-configs.setup.python.formatter = "ruff";
       lsp.servers = {
         efm.filetypes = ["python"];
         pylsp = {
