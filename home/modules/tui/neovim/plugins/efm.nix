@@ -2,10 +2,6 @@
   programs.nixvim.plugins = {
     lsp.servers.efm = {
       enable = true;
-      filetypes = [
-        "bash"
-        "sh"
-      ];
       extraOptions.init_options = {
         documentFormatting = true;
         documentRangeFormatting = true;
@@ -21,14 +17,6 @@
       lspServersToEnable = ["efm"];
     };
 
-    efmls-configs = {
-      enable = true;
-      setup = {
-        bash = {
-          formatter = "shfmt";
-          linter = "shellcheck";
-        };
-      };
-    };
+    efmls-configs.enable = true;
   };
 }

@@ -23,7 +23,6 @@
         };
 
         servers = {
-          bashls.enable = true;
           clangd.enable = true;
           lua-ls.enable = true;
           nil_ls.enable = true;
