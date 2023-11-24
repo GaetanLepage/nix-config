@@ -5,7 +5,9 @@
 }: {
   home = {
     packages = with pkgs; [
+      bacon
       cargo
+      gcc
       rustc
       rustfmt
     ];
