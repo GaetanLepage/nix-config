@@ -11,7 +11,6 @@
     ./davfs.nix
     ./neovim.nix
     ./packages.nix
-    ./remote-builders.nix
     ./sound.nix
     ./thunar.nix
     ./wayland.nix

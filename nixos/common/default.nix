@@ -2,6 +2,7 @@
   imports = [
     ./bootloader.nix
     ./nix.nix
+    ./remote-builders.nix
     ./security.nix
     ./ssh.nix
     ./users.nix
