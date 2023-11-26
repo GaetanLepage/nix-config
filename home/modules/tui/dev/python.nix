@@ -39,9 +39,8 @@
       filetype.extension.gin = "gin";
       plugins = {
         treesitter.languageRegister.python = ["gin"];
-        efmls-configs.setup.python.formatter = "ruff";
+        lsp-format.lspServersToEnable = ["ruff-lsp"];
         lsp.servers = {
-          efm.filetypes = ["python"];
           ruff-lsp.enable = true;
           pylsp = {
             # cmd = ["pylsp" "-vvv"];
