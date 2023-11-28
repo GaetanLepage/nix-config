@@ -17,6 +17,8 @@
           rootDir = ''
             require 'lspconfig.util'.root_pattern('.git', 'main.typ')
           '';
+          # Conflicts with typst.vim
+          extraOptions.settings.exportPdf = "never";
         };
       };
 
