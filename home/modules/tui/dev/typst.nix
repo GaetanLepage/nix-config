@@ -20,7 +20,10 @@
         };
       };
 
-      typst-vim.enable = true;
+      typst-vim = {
+        enable = true;
+        pdfViewer = "zathura";
+      };
     };
   };
 }
