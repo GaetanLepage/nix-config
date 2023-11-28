@@ -30,5 +30,8 @@
 
     # Hardware Monitoring
     htop
+
+    # Misc
+    obs-studio
   ];
 }
