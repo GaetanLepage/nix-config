@@ -45,6 +45,7 @@ lib.mapAttrs
     [
       "auriga"
       "bacchus"
+      "carina"
       "chamaeleon"
       "kapelos"
       "mensa"
