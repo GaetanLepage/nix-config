@@ -1,7 +1,5 @@
 {config, ...}: {
   age.secrets = {
-    alya-remote-builder-ssh-key.file = ../../secrets/ssh/alya-remote-builder.age;
-    cuda-remote-builder-ssh-key.file = ../../secrets/ssh/cuda-remote-builder.age;
     aarch64-build-box-ssh-key.file = ../../secrets/ssh/aarch64-build-box.age;
     darwin-build-box-ssh-key.file = ../../secrets/ssh/darwin-build-box.age;
     linux-build-box-ssh-key.file = ../../secrets/ssh/linux-build-box.age;
