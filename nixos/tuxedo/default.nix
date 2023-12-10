@@ -10,6 +10,7 @@
     ./bluetooth.nix
     ./davfs.nix
     ./neovim.nix
+    ./obs.nix
     ./packages.nix
     ./sound.nix
     ./thunar.nix
