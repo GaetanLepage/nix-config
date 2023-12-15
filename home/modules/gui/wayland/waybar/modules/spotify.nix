@@ -8,7 +8,7 @@ pkgs: {
 
   # Focus spotify when right-clicking on the widget
   on-click-right = toString (pkgs.writeShellScript "focus-spotify" ''
-    spotify_id=$(${pkgs.sway}/bin/swaymsg -t get_tree | ${pkgs.jq}/bin/jq '.. | objects | select(.name == "Spotify") | .id')
+    spotify_id=$(${pkgs.sway}/bin/swaymsg -t get_tree | ${pkgs.jq}/bin/jq '.. | objects | select(.name == "Spotify Premium") | .id')
     ${pkgs.sway}/bin/swaymsg \[con_id=$spotify_id\] focus
   '');
 
