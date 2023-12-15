@@ -131,6 +131,8 @@
           # Back and forth desktop
           "${mod}+b" = "workspace back_and_forth";
 
+          "${mod}+Shift+p" = "move workspace to output right";
+
           # STATE/FLAGS
 
           "${mod}+f" = "fullscreen toggle";
