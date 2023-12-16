@@ -41,6 +41,9 @@
           "aarch64-darwin"
           "x86_64-darwin"
         ];
+        supportedFeatures = [
+          "big-parallel"
+        ];
       }
       {
         # Linux build box
