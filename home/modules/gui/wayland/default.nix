@@ -26,9 +26,4 @@
     _JAVA_AWT_WM_NONREPARENTING = "1";
     XDG_SESSION_TYPE = "wayland";
   };
-
-  services = {
-    blueman-applet.enable = true;
-    network-manager-applet.enable = true;
-  };
 }
