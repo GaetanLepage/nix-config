@@ -16,6 +16,7 @@
       "nba" = "nom-build --system aarch64-linux -A";
       "nbd" = "nom-build --system x86_64-darwin -A";
       "nbda" = "nom-build --system aarch64-darwin -A";
+      "ur" = "unlink result";
     };
 
     sessionVariables.NIXPKGS_ALLOW_UNFREE = 1;
