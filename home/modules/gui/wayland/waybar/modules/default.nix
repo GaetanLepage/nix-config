@@ -24,6 +24,7 @@ pkgs: {
   backlight = {
     device = "intel_backlight";
     format = " {percent}%";
+    scroll-step = 10.0;
   };
 
   pulseaudio = {
