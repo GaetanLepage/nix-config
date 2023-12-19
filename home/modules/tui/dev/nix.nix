@@ -9,17 +9,6 @@
       nixpkgs-review
       statix
       vimPluginsUpdater
-      (
-        writeShellApplication {
-          name = "print-init-lua";
-          runtimeInputs = [stylua bat];
-          text = ''
-            last_line=$(tail -n 1 ./result/bin/nvim)
-            config_file_path=$(echo "$last_line" | grep -oP -- '-u \K[^ ]+')
-            stylua - <"$config_file_path" | bat --language=lua
-          '';
-        }
-      )
     ];
 
     shellAliases = {
