@@ -15,8 +15,7 @@
       lsp.servers.efm.filetypes = ["typst"];
 
       lsp.servers.typst-lsp = {
-        # TODO re-enable when fixed
-        enable = false;
+        enable = true;
         rootDir = ''
           require 'lspconfig.util'.root_pattern('.git', 'main.typ')
         '';
