@@ -10,7 +10,7 @@
       assigns = {
         "number 2" = [{app_id = "firefox";}];
         "number 4" = [{app_id = "thunderbird";}];
-        "number 6" = [{class = "Signal";}];
+        "number 6" = [{app_id = "signal";}];
         "number 7" = [{class = "Zotero";}];
         "number 8" = [
           {app_id = "Element";}
