@@ -31,6 +31,7 @@
       modelines = 100; # Sets the type of modelines
       undofile = true; # Automatically save and restore undo history
       incsearch = true; # Incremental search: show match for partly typed search command
+      inccommand = "split"; # Search and replace: preview changes in quickfix list
       ignorecase = true; # When the search query is lower-case, match both lower and upper-case
       #   patterns
       smartcase = true; # Override the 'ignorecase' option if the search pattern contains upper
