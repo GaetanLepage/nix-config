@@ -53,6 +53,11 @@
     gpl = "git pull";
     gps = "git push";
 
+    # fetch
+    gf = "git fetch";
+    gfo = "git fetch origin";
+    gfu = "git fetch upstream";
+
     gs = "git status";
     gd = "git diff";
     gch = "git checkout";
@@ -66,6 +71,5 @@
     gb = "git branch";
     gbl = "git branch --list";
     gm = "git merge";
-    gf = "git fetch";
   };
 }
