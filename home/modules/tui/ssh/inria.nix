@@ -43,10 +43,12 @@ lib.mapAttrs
   // (
     lib.genAttrs
     [
+      "andromeda"
       "auriga"
       "bacchus"
       "carina"
       "chamaeleon"
+      "hydra"
       "kapelos"
       "mensa"
       "octans"
@@ -54,6 +56,7 @@ lib.mapAttrs
       "pictor"
       "scorpio"
       "ursa"
+      "virgo"
     ]
     (
       _: {
