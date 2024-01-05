@@ -47,8 +47,6 @@
         lsp.servers = {
           ruff-lsp.enable = true;
           pylsp = {
-            # cmd = ["pylsp" "-vvv"];
-            # cmd = ["pylsp" "-vvv" "--log-file" "pylsp.log"];
             enable = true;
             settings = {
               plugins = {
