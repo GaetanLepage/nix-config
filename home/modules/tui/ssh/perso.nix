@@ -18,7 +18,7 @@ lib.mapAttrs
   ########
   cuda.port = 222;
 
-  gaming = {
+  tv = {
     port = 223;
     user = "uc";
   };
