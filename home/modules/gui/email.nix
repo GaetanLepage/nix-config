@@ -37,13 +37,13 @@
         primary = true;
 
         imap = {
-          host = "glepage.com";
+          host = "mail.glepage.com";
           port = 143;
           tls.useStartTls = true;
         };
 
         smtp = {
-          host = "glepage.com";
+          host = "mail.glepage.com";
           port = 587;
           tls.useStartTls = true;
         };
