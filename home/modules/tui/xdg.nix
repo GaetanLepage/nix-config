@@ -31,6 +31,8 @@
         # Text
         "text/html" = "firefox.desktop";
         "text/xml" = "firefox.desktop";
+        "x-scheme-handler/http" = "firefox.desktop";
+        "x-scheme-handler/https" = "firefox.desktop";
 
         # Images
         "image/gif" = "org.gnome.gThumb.desktop";
