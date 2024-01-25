@@ -6,7 +6,14 @@
         pattern = "norg";
         command = "setlocal conceallevel=1";
       }
+    ];
+
+    files."after/ftplugin/norg.lua".keymaps = [
       {
+        mode = "n";
+        key = "<C-g>";
+        action = ":Neorg toc<CR>";
+        options.silent = true;
       }
     ];
 
@@ -37,6 +44,7 @@
 
         "core.concealer".__empty = null;
         "core.completion".config.engine = "nvim-cmp";
+        "core.qol.toc".config.close_after_use = true;
       };
     };
   };
