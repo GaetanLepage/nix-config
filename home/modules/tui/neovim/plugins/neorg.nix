@@ -7,9 +7,6 @@
         command = "setlocal conceallevel=1";
       }
       {
-        event = "BufWritePre";
-        pattern = "*.norg";
-        command = "normal gg=G``zz";
       }
     ];
 
