@@ -36,10 +36,6 @@
 
         # Vim keybindings
         source ${config.home.homeDirectory}/${config.xdg.configFile.zsh_vim_bindings.target}
-
-        # Run the ssh-agent
-        eval `gnome-keyring-daemon --start --components=ssh --daemonize 2> /dev/null`
-        export SSH_AUTH_SOCK
       '';
     };
 

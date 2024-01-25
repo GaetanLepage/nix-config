@@ -3,6 +3,10 @@
   lib,
   ...
 }: {
+  # Gnome keyring
+  services.gnome-keyring.enable = true;
+  home.sessionVariables.SSH_AUTH_SOCK = "/run/user/$UID/keyring/ssh";
+
   programs.ssh = {
     enable = true;
 
