@@ -36,5 +36,10 @@
     };
   };
 
-  home.shellAliases.lg = "lazygit";
+  home.shellAliases = {
+    lg = "lazygit";
+
+    gfu = "git fetch upstream";
+    gfo = "git fetch origin";
+  };
 }
