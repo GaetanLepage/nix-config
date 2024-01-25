@@ -1,8 +1,7 @@
 {
   programs.fish.shellInit = ''
     # define path to the exputils folder
-    # switch $(hostname)
-    switch tuxedo
+    switch $(hostname)
       case alya auriga bacchus chamaeleon carina access[1-2]-cp
         set -gx PATH_TO_EXPUTILS /scratch/alya/galepage/exputils_sync/exputils_commands
       case tuxedo
