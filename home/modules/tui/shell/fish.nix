@@ -14,6 +14,7 @@
         bind l accept-autosuggestion
 
         # Emulates vim's cursor shape behavior
+        set -g fish_vi_force_cursor 1
         # Set the normal and visual mode cursors to a block
         set fish_cursor_default block
         # Set the insert mode cursor to a line
