@@ -27,6 +27,10 @@ lib.mapAttrs
   router = {
     hostname = "192.168.1.1";
     user = "root";
+    extraOptions = {
+      HostKeyAlgorithms = "+ssh-rsa";
+      PubkeyAcceptedKeyTypes = "+ssh-rsa";
+    };
   };
 
   pixel = {
