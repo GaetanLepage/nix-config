@@ -36,40 +36,5 @@
     };
   };
 
-  home.shellAliases = {
-    g = "git";
-    lg = "lazygit";
-
-    # add
-    ga = "git add";
-    gaa = "git add *";
-
-    # commit
-    gc = "git commit";
-    gcm = "git commit -m";
-    gca = "git commit -am";
-
-    # pull/push
-    gpl = "git pull";
-    gps = "git push";
-
-    # fetch
-    gf = "git fetch";
-    gfo = "git fetch origin";
-    gfu = "git fetch upstream";
-
-    gs = "git status";
-    gd = "git diff";
-    gch = "git checkout";
-    gnb = "git checkout -b";
-    gac = "git add . && git commit";
-    grs = "git restore --staged .";
-    gre = "git restore";
-    gr = "git remote";
-    gcl = "git clone";
-    gt = "git ls-tree -r master --name-only";
-    gb = "git branch";
-    gbl = "git branch --list";
-    gm = "git merge";
-  };
+  home.shellAliases.lg = "lazygit";
 }
