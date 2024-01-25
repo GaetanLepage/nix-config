@@ -1,27 +1,25 @@
 {
-  programs.zsh.initExtra = ''
+  programs.fish.shellInit = ''
     # define path to the exputils folder
-    case "`hostname`" in
+    # switch $(hostname)
+    switch tuxedo
+      case alya auriga bacchus chamaeleon carina access[1-2]-cp
+        set -gx PATH_TO_EXPUTILS /scratch/alya/galepage/exputils_sync/exputils_commands
+      case tuxedo
+        set -gx PATH_TO_EXPUTILS $HOME/inria/code/exputils_commands
+    end
 
-        alya|auriga|bacchus|chamaeleon|carina|access[1-2]-cp)
-            PATH_TO_EXPUTILS=/scratch/alya/galepage/exputils_sync/exputils_commands
-            ;;
-        tuxedo)
-            PATH_TO_EXPUTILS=$HOME/inria/code/exputils_commands
-            ;;
-    esac
-
-    if [ -n "$PATH_TO_EXPUTILS" ]; then
-      if [ -f "$PATH_TO_EXPUTILS/commands/eu_setup.sh" ]; then
-        . "$PATH_TO_EXPUTILS/commands/eu_setup.sh" "$PATH_TO_EXPUTILS"
-      fi
+    if [ -n "$PATH_TO_EXPUTILS" ]
+      if [ -f "$PATH_TO_EXPUTILS/commands/eu_setup.sh" ]
+        bass source "$PATH_TO_EXPUTILS/commands/eu_setup.sh" "$PATH_TO_EXPUTILS"
+      end
 
       # set default project for exputils commands
-      export EU_DEFAULT_PRJ=rlan
+      set -gx EU_DEFAULT_PRJ rlan
 
       # activate the default project
-      source eu_activate $EU_DEFAULT_PRJ
-    fi
+      bass source eu_activate $EU_DEFAULT_PRJ
+    end
   '';
 
   home.shellAliases = {

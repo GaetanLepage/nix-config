@@ -2,8 +2,8 @@
   imports = [
     ./exputils.nix
     ./eza.nix
+    ./fish.nix
     ./remi.nix
-    ./zsh.nix
   ];
 
   home = {

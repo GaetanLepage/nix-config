@@ -1,12 +1,12 @@
 {pkgs, ...}: {
   imports = [
     ./bootloader.nix
+    ./fish.nix
     ./nix.nix
     ./remote-builders.nix
     ./security.nix
     ./ssh.nix
     ./users.nix
-    ./zsh.nix
   ];
 
   environment.systemPackages = with pkgs; [

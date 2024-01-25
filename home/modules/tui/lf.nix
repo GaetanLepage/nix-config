@@ -78,20 +78,12 @@
     };
 
     # lfcd (cd to last visited directory)
-    zsh.initExtra = ''
-      lfcd () {
-          tmp="$(mktemp)"
-          lf -last-dir-path="$tmp" "$@"
-          if [ -f "$tmp" ]; then
-              dir="$(cat "$tmp")"
-              rm -f "$tmp"
-              if [ -d "$dir" ]; then
-                  if [ "$dir" != "$(pwd)" ]; then
-                      cd "$dir"
-                  fi
-              fi
-          fi
-      }
+    fish.shellInit = ''
+      function lfcd --wraps="lf" --description="lf - Terminal file manager (changing directory on exit)"
+        # `command` is needed in case `lfcd` is aliased to `lf`.
+        # Quotes will cause `cd` to not change directory if `lf` prints nothing to stdout due to an error.
+        cd "$(command lf -print-last-dir $argv)"
+      end
     '';
   };
 
