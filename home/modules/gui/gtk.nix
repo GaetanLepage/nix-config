@@ -32,6 +32,9 @@ in {
       "file://${config.home.homeDirectory}/temp"
       "file:///mnt"
       "file:///mnt/server"
+
+      "file://${config.home.homeDirectory}/inria/communication/repo/reading_group"
+      "file://${config.home.homeDirectory}/inria/communication/repo/meetings"
     ];
 
     gtk2.configLocation = "${config.xdg.configHome}/gtk-2.0/gtkrc";
