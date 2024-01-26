@@ -13,5 +13,7 @@
       enable = true;
       highlightDefinitions.enable = true;
     };
+
+    hmts.enable = true;
   };
 }
