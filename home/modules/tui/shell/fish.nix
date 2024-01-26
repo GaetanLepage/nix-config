@@ -9,6 +9,9 @@
         # don't greet
         function fish_greeting; end
 
+        # Map '-' to cd back to previous directory
+        abbr -a -- - prevd
+
         # use vi bindings
         fish_vi_key_bindings
         bind l accept-autosuggestion
