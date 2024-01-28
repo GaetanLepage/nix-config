@@ -49,73 +49,43 @@
     nix-index-database,
   }: let
     system = "x86_64-linux";
+    inherit (import nixpkgs {inherit system;}) lib;
 
-    # Export the nixpkgs flake output to /etc
-    nixpkgs-outPath = {
-      environment.etc."nix/inputs/nixpkgs".source = nixpkgs.outPath;
-    };
-
-    homeManagerModules = [
+    homeManagerModules = hostname: [
       nixvim.homeManagerModules.nixvim
       nix-index-database.hmModules.nix-index
+      ./home/hosts/${hostname}
     ];
   in {
     formatter.${system} = nixpkgs.legacyPackages.${system}.alejandra;
 
-    nixosConfigurations = {
-      # Tuxedo laptop
-      tuxedo = nixpkgs.lib.nixosSystem {
-        inherit system;
+    nixosConfigurations = let
+      mkHost = hostname:
+        nixpkgs.lib.nixosSystem {
+          inherit system;
 
-        modules = [
-          # The system configuration
-          ./nixos/tuxedo
-          nixpkgs-outPath
+          modules = [
+            # The system configuration
+            ./nixos/${hostname}
+            {nix.nixPath = ["nixpkgs=${nixpkgs.outPath}"];}
 
-          # agenix
-          agenix.nixosModules.default
-          {environment.systemPackages = [agenix.packages.x86_64-linux.default];}
+            # agenix
+            agenix.nixosModules.default
+            {environment.systemPackages = [agenix.packages.x86_64-linux.default];}
 
-          # Home manager configuration
-          home-manager.nixosModules.home-manager
-          {
-            home-manager = {
-              useGlobalPkgs = true;
-              useUserPackages = true;
-              users.gaetan.imports =
-                [
-                  ./home/hosts/tuxedo
-                ]
-                ++ homeManagerModules;
-            };
-          }
-        ];
-      };
-
-      # Cuda desktop
-      cuda = nixpkgs.lib.nixosSystem {
-        inherit system;
-        modules = [
-          ./nixos/cuda
-          nixpkgs-outPath
-          agenix.nixosModules.default
-
-          # Home manager configuration
-          home-manager.nixosModules.home-manager
-          {
-            home-manager = {
-              useGlobalPkgs = true;
-              useUserPackages = true;
-              users.gaetan.imports =
-                [
-                  ./home/hosts/cuda
-                ]
-                ++ homeManagerModules;
-            };
-          }
-        ];
-      };
-    };
+            # Home manager configuration
+            home-manager.nixosModules.home-manager
+            {
+              home-manager = {
+                useGlobalPkgs = true;
+                useUserPackages = true;
+                users.gaetan.imports = homeManagerModules hostname;
+              };
+            }
+          ];
+        };
+    in
+      lib.genAttrs ["tuxedo" "cuda"] mkHost;
 
     # Inria
     homeConfigurations.inria = home-manager.lib.homeManagerConfiguration {
@@ -126,11 +96,7 @@
           cudaSupport = true;
         };
       };
-      modules =
-        [
-          ./home/hosts/inria
-        ]
-        ++ homeManagerModules;
+      modules = homeManagerModules "inria";
     };
   };
 }

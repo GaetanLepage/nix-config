@@ -56,8 +56,5 @@
       dates = "weekly";
       options = "--delete-older-than 2d";
     };
-
-    # set the value NIX_PATH to whatever nixpkgs our flake uses
-    nixPath = ["nixpkgs=/etc/nix/inputs/nixpkgs"];
   };
 }
