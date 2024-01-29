@@ -9,7 +9,7 @@
 
   accounts.email.accounts =
     lib.mapAttrs (
-      name: config:
+      _: config:
         {
           realName = "Gaetan Lepage";
           userName = config.address;
