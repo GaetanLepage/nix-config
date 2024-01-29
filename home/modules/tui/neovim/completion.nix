@@ -17,7 +17,7 @@
             luasnip = "[snip]";
             buffer = "[buffer]";
             neorg = "[neorg]";
-            cmp_tabnine = "[TabNine]";
+            cmp_tabby = "[Tabby]";
           };
         };
       };
@@ -46,7 +46,7 @@
         sources = [
           {name = "path";}
           {name = "nvim_lsp";}
-          {name = "cmp_tabnine";}
+          {name = "cmp_tabby";}
           {name = "luasnip";}
           {
             name = "buffer";
@@ -56,6 +56,8 @@
           {name = "neorg";}
         ];
       };
+
+      cmp-tabby.host = "http://10.10.10.4:8080";
     };
   };
 }
