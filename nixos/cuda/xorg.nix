@@ -11,7 +11,7 @@
     '';
 
     # Configure keymap in X11
-    layout = "fr";
+    xkb.layout = "fr";
 
     # Doesn't work + messed up when playing CS
     # xkbOptions = "caps:swapescape";

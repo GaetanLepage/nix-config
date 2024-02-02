@@ -21,7 +21,7 @@
   services.xserver = {
     enable = true;
 
-    layout = "fr";
+    xkb.layout = "fr";
 
     libinput.enable = true;
 
