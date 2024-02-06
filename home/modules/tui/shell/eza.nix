@@ -3,7 +3,7 @@
 
   home.shellAliases = {
     ls = "eza";
-    l = "eza -lFhg";
-    ll = "eza -alFhg";
+    l = "eza -lhg";
+    ll = "eza -alhg";
   };
 }
