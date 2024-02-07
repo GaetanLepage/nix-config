@@ -1,21 +1,17 @@
 {
   programs.nixvim = {
-    autoCmd = [
-      {
-        event = "FileType";
-        pattern = "norg";
-        command = "setlocal conceallevel=1";
-      }
-    ];
+    files."after/ftplugin/norg.lua" = {
+      localOptions.conceallevel = 1;
 
-    files."after/ftplugin/norg.lua".keymaps = [
-      {
-        mode = "n";
-        key = "<C-g>";
-        action = ":Neorg toc<CR>";
-        options.silent = true;
-      }
-    ];
+      keymaps = [
+        {
+          mode = "n";
+          key = "<C-g>";
+          action = ":Neorg toc<CR>";
+          options.silent = true;
+        }
+      ];
+    };
 
     plugins.neorg = {
       enable = true;
