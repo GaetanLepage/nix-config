@@ -26,11 +26,24 @@
     libinput.enable = true;
 
     displayManager = {
-      gdm.enable = true;
+      sddm = {
+        enable = true;
+        wayland.enable = true;
+        autoNumlock = true;
+        theme = "where_is_my_sddm_theme";
+      };
       defaultSession = "sway";
-      # defaultSession = "river";
     };
   };
+  environment.systemPackages = [
+    (pkgs.where-is-my-sddm-theme.override {
+      themeConfig.General = {
+        background = "${pkgs.nixos-artwork.wallpapers.nineish-dark-gray.gnomeFilePath}";
+        backgroundMode = "fill";
+        cursorColor = "#ffffff";
+      };
+    })
+  ];
 
   services.geoclue2.enable = true;
 }
