@@ -1,6 +1,10 @@
 {pkgs, ...}: {
   environment.systemPackages = with pkgs; [
-    obs-studio
+    (wrapOBS.override {inherit obs-studio;} {
+      plugins = with obs-studio-plugins; [
+        obs-composite-blur
+      ];
+    })
   ];
 
   hardware.opengl = {
