@@ -11,7 +11,10 @@
   };
 
   programs = {
-    autojump.enable = true;
+    zoxide = {
+      enable = true;
+      options = ["--cmd" "j"];
+    };
 
     direnv = {
       enable = true;
