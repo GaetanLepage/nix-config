@@ -15,6 +15,7 @@
     ./steam.nix
     ./nvidia.nix
     ./server-tank-nfs.nix
+    ./tabby.nix
     ./wireguard.nix
     ./xorg.nix
   ];
