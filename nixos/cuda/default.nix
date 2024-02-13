@@ -10,7 +10,6 @@
     ../common
 
     ./hercules-ci.nix
-    ./github-runner.nix
     ./nix-remote-builder.nix
     ./steam.nix
     ./nvidia.nix
