@@ -13,7 +13,7 @@ lib.mapAttrs
 )
 (
   {
-    bastion.hostname = "bastion.inrialpes.fr";
+    bastion.hostname = "ssh-gra.inria.fr";
 
     # Generic rule for all Inria computers
     "*.inrialpes.fr" = {
