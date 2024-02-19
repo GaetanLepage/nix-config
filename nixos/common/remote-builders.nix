@@ -58,7 +58,8 @@
         systems = [
           "i686-linux"
           "riscv64-linux"
-          "x86_64-linux"
+          # Disable `x86_64-linux` because there is no point in using a remote builder instead of the local machine.
+          # "x86_64-linux"
         ];
         supportedFeatures = [
           "benchmark"
