@@ -13,7 +13,7 @@
             gymnasium
             matplotlib
             numpy
-            torch-bin
+            torch
             tensorboard
           ]
       ))
