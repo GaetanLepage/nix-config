@@ -8,7 +8,6 @@
     ./android.nix
     ./autofs.nix
     ./bluetooth.nix
-    ./davfs.nix
     ./neovim.nix
     ./obs.nix
     ./packages.nix

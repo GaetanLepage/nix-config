@@ -3,10 +3,7 @@
   config,
   ...
 }: {
-  age.secrets = {
-    davfs_nextcloud.file = ../../secrets/davfs_nextcloud.age;
-    rsa_sshfs.file = ../../secrets/ssh/rsa_sshfs.age;
-  };
+  age.secrets.rsa_sshfs.file = ../../secrets/ssh/rsa_sshfs.age;
 
   environment.systemPackages = [pkgs.sshfs];
 
@@ -14,10 +11,6 @@
     enable = true;
 
     autoMaster = let
-      davfsConf = pkgs.writeText "davfs2.conf" ''
-        secrets ${config.age.secrets.davfs_nextcloud.path}
-      '';
-
       uid = toString config.users.users.gaetan.uid;
       gid = toString config.users.groups.gaetan.gid;
 
@@ -33,10 +26,6 @@
         server \
             -fstype=nfs4 \
             10.10.10.1:/tank
-
-        nextcloud \
-            -fstype=davfs,uid=${uid},file_mode=600,dir_mode=700,conf=${davfsConf},rw \
-            :https\://cloud.glepage.com/remote.php/dav/files/glepage
       '';
 
       #########
