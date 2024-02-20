@@ -12,11 +12,15 @@
     ];
 
     shellAliases = {
-      "nb" = "nom-build --system x86_64-linux -A";
-      "nba" = "nom-build --system aarch64-linux -A";
-      "nbd" = "nom-build --system x86_64-darwin -A";
-      "nbda" = "nom-build --system aarch64-darwin -A";
-      "ur" = "unlink result";
+      nb = "nom-build --system x86_64-linux -A";
+      nba = "nom-build --system aarch64-linux -A";
+      nbd = "nom-build --system x86_64-darwin -A";
+      nbda = "nom-build --system aarch64-darwin -A";
+      ur = "unlink result";
+
+      nu = "nix-update";
+      nuc = "nix-update --commit";
+      nucb = "nix-update --commit --build";
     };
 
     sessionVariables.NIXPKGS_ALLOW_UNFREE = 1;
