@@ -36,6 +36,9 @@
   services = {
     blueman-applet.enable = true;
     network-manager-applet.enable = true;
-    udiskie.enable = true;
+    udiskie = {
+      enable = true;
+      tray = "never";
+    };
   };
 }
