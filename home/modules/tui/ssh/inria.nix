@@ -41,6 +41,7 @@ lib.mapAttrs
   // (
     lib.genAttrs
     [
+      "gpu*-perception"
       "andromeda"
       "auriga"
       "bacchus"
