@@ -21,6 +21,7 @@ rsync -zravut "$HOME/" server:$dest_path \
 	--exclude ".config/Slack/" \
 	--exclude "**/.julia/" \
 	--exclude "*.o" \
+	--exclude ".icons/" \
 	--exclude ".mozilla/firefox/gaetan/storage/default/https+++app.slack.com/" \
 	--exclude ".local/share/lbry/" \
 	--exclude ".local/share/nvim/" \
