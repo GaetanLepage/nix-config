@@ -1,8 +1,8 @@
 {config, ...}: {
   age.secrets = {
-    aarch64-build-box-ssh-key.file = ../../secrets/ssh/aarch64-build-box.age;
-    darwin-build-box-ssh-key.file = ../../secrets/ssh/darwin-build-box.age;
-    linux-build-box-ssh-key.file = ../../secrets/ssh/linux-build-box.age;
+    aarch64-build-box-ssh-key.rekeyFile = ./ssh-keys/aarch64-build-box.age;
+    darwin-build-box-ssh-key.rekeyFile = ./ssh-keys/darwin-build-box.age;
+    linux-build-box-ssh-key.rekeyFile = ./ssh-keys/linux-build-box.age;
   };
 
   nix = {

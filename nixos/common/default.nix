@@ -3,7 +3,7 @@
     ./bootloader.nix
     ./fish.nix
     ./nix.nix
-    # ./remote-builders.nix
+    ./remote-builders
     ./security.nix
     ./ssh.nix
     ./users.nix
