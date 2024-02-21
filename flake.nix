@@ -32,6 +32,10 @@
       url = "github:ryantm/agenix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    agenix-rekey = {
+      url = "github:oddlama/agenix-rekey";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     nixvim = {
       url = "github:nix-community/nixvim";
@@ -51,6 +55,7 @@
     flake-parts,
     home-manager,
     agenix,
+    agenix-rekey,
     nixvim,
     nix-index-database,
   } @ inputs:
@@ -65,6 +70,11 @@
           ./home/hosts/${hostname}
         ];
       in {
+        agenix-rekey = agenix-rekey.configure {
+          userFlake = self;
+          nodes = self.nixosConfigurations;
+        };
+
         nixosConfigurations = let
           mkHost = hostname:
             nixpkgs.lib.nixosSystem {
@@ -77,7 +87,9 @@
 
                 # agenix
                 agenix.nixosModules.default
-                {environment.systemPackages = [agenix.packages.x86_64-linux.default];}
+                agenix-rekey.nixosModules.default
+                # TODO remove
+                # {environment.systemPackages = [agenix.packages.x86_64-linux.default];}
 
                 # Home manager configuration
                 home-manager.nixosModules.home-manager
@@ -115,6 +127,18 @@
         ...
       }: {
         formatter = pkgs.alejandra;
+
+        devShells.default = let
+          pkgs = import inputs.nixpkgs {
+            inherit system;
+            overlays = [agenix-rekey.overlays.default];
+          };
+        in
+          pkgs.mkShell {
+            packages = [
+              pkgs.agenix-rekey
+            ];
+          };
       };
     };
 }

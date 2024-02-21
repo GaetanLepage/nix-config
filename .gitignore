@@ -2,3 +2,4 @@
 result
 
 flake.lock
+.direnv/
