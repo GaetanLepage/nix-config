@@ -23,7 +23,6 @@
   environment.systemPackages = with pkgs; [
     # Utils
     git
-    git-crypt
     ncdu
     tmux
     unzip

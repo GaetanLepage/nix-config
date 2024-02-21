@@ -37,8 +37,6 @@
     sshfs
 
     git
-    git-crypt
-
     pandoc
   ];
 }

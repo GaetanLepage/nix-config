@@ -9,9 +9,6 @@
     ./users.nix
   ];
 
-  environment.systemPackages = with pkgs; [
-    git-crypt
-  ];
 
   # Set your time zone.
   time.timeZone = "Europe/Paris";
