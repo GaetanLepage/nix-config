@@ -1,14 +1,15 @@
-{pkgs, ...}: {
+{
   imports = [
     ./bootloader.nix
     ./fish.nix
     ./nix.nix
-    ./remote-builders.nix
+    # ./remote-builders.nix
     ./security.nix
     ./ssh.nix
     ./users.nix
   ];
 
+  age.rekey.masterIdentities = [../../identity.age];
 
   # Set your time zone.
   time.timeZone = "Europe/Paris";

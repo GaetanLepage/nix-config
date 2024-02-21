@@ -14,10 +14,12 @@
     ./sound.nix
     ./thunar.nix
     ./wayland.nix
-    ./wireguard.nix
+    ./wireguard
   ];
 
   networking.hostName = "tuxedo";
+  age.rekey.hostPubkey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFw27a8MzCrI+oAoL+HsoYEq4YZrNv0TJYpOEb9rMZxV";
+
   # Sharing pulseaudio server
   networking.firewall.allowedTCPPorts = [4713];
 

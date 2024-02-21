@@ -14,11 +14,12 @@
     ./nvidia.nix
     ./server-tank-nfs.nix
     ./tabby.nix
-    ./wireguard.nix
+    ./wireguard
     ./xorg.nix
   ];
 
   networking.hostName = "cuda";
+  age.rekey.hostPubkey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDJ25NYUTHtnNZY9WCamv8ZGc00zG4EqJhyejo3TmqOu";
 
   environment.systemPackages = with pkgs; [
     # Utils

@@ -1,5 +1,5 @@
 {config, ...}: {
-  age.secrets.wireguard_cuda_private_key.file = ../../secrets/wireguard/cuda-privatekey.age;
+  age.secrets.wireguard-private-key.rekeyFile = ./private-key.age;
 
   networking = {
     firewall.allowedUDPPorts = [51820];
@@ -15,7 +15,7 @@
       # Note: The private key can also be included inline via the privateKey option,
       # but this makes the private key world-readable; thus, using privateKeyFile is
       # recommended.
-      privateKeyFile = config.age.secrets.wireguard_cuda_private_key.path;
+      privateKeyFile = config.age.secrets.wireguard-private-key.path;
 
       peers = [
         # For a client configuration, one peer entry for the server will suffice.
