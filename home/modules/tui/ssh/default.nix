@@ -27,31 +27,7 @@
       // (import ./perso.nix {
         inherit lib;
         identityFile = getIdentityFile "perso";
-      })
-      // {
-        arm = {
-          hostname = "aarch64.nixos.community";
-          user = "glepage";
-          identityFile = getIdentityFile "aarch64-build-box";
-          setEnv.TERM = "xterm-256color";
-        };
-      }
-      // {
-        darwin = {
-          hostname = "darwin-build-box.nix-community.org";
-          user = "glepage";
-          identityFile = getIdentityFile "darwin-build-box";
-          setEnv.TERM = "xterm-256color";
-        };
-      }
-      // {
-        linux-build-box = {
-          hostname = "build-box.nix-community.org";
-          user = "glepage";
-          identityFile = getIdentityFile "linux-build-box";
-          setEnv.TERM = "xterm-256color";
-        };
-      };
+      });
   };
 
   home.shellAliases = {
