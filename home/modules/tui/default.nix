@@ -37,6 +37,5 @@
     sshfs
 
     git
-    pandoc
   ];
 }
