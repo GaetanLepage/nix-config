@@ -15,6 +15,8 @@ lib.mapAttrs
   {
     bastion.hostname = "ssh-gra.inria.fr";
 
+    "gitlab.inria.fr" = {};
+
     # Generic rule for all Inria computers
     "*.inrialpes.fr" = {
       proxyJump = "alya";
