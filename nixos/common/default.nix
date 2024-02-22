@@ -5,7 +5,7 @@
     ./nix.nix
     ./remote-builders
     ./security.nix
-    ./ssh.nix
+    ./ssh
     ./users.nix
   ];
 

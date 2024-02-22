@@ -32,6 +32,8 @@ in {
     };
   };
 
+  sshKeysPathPrefix = "${homeDirectory}/.ssh/";
+
   programs.tmate.enable = true;
 
   xdg.userDirs = with lib; {
