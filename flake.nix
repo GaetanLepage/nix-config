@@ -28,6 +28,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    disko = {
+      url = "github:nix-community/disko";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     agenix = {
       url = "github:ryantm/agenix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -52,6 +57,7 @@
   outputs = {
     self,
     nixpkgs,
+    disko,
     flake-parts,
     home-manager,
     agenix,
@@ -84,6 +90,9 @@
                 # The system configuration
                 ./nixos/${hostname}
                 {nix.nixPath = ["nixpkgs=${nixpkgs.outPath}"];}
+
+                # disko
+                disko.nixosModules.disko
 
                 # agenix
                 agenix.nixosModules.default
@@ -137,6 +146,7 @@
           pkgs.mkShell {
             packages = [
               pkgs.agenix-rekey
+              disko.packages.${system}.disko
             ];
           };
       };
