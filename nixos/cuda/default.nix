@@ -9,6 +9,7 @@
 
     ../common
 
+    ./disko.nix
     ./nix-remote-builder.nix
     ./steam.nix
     ./nvidia.nix

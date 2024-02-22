@@ -24,24 +24,6 @@
     extraModulePackages = [];
   };
 
-  fileSystems = {
-    "/" = {
-      device = "/dev/disk/by-label/nixroot";
-      fsType = "ext4";
-    };
-
-    "/boot" = {
-      device = "/dev/disk/by-label/nixboot";
-      fsType = "vfat";
-    };
-  };
-
-  swapDevices = [
-    {
-      device = "/dev/disk/by-label/swap";
-    }
-  ];
-
   hardware = {
     cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
   };
