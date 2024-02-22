@@ -1,9 +1,9 @@
-{pkgs, ...}: {
+{
   programs.nixvim = {
     plugins.vimtex = {
       enable = true;
 
-      extraConfig = {
+      settings = {
         view_method = "zathura";
 
         quickfix_enabled = true;

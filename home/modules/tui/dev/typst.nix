@@ -25,7 +25,7 @@
 
       typst-vim = {
         enable = true;
-        pdfViewer = "zathura";
+        settings.pdf_viewer = "zathura";
       };
     };
   };
