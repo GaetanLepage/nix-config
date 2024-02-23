@@ -1,25 +1,33 @@
+temp/
+
+#########################
+# Exclude most dotfiles #
+#########################
 .cache/
-.config/cargo/
-.config/discord/
-.config/Discord/
-.config/Jitsi Meet/
-.config/Microsoft/
-.config/Slack/
+.config/
 .icons/
+# backup fish folder (for history)
++ /.local/share/fish/***
++ /.local/
++ /.local/share/
+/.local/share/*
+/.local/*
+
+#############
+# Languages #
+#############
+**/*.direnv/
 **/.julia/
-.local/share/lbry/
-.local/share/nvim/
-.local/share/R/
-.local/share/Steam/
-.local/share/TelegramDesktop/
-.mozilla/firefox/gaetan/storage/default/https+++app.slack.com/
 .mypy_cache/
-node_modules/
+**/*node_modules/
 .npm/
 *.o
-.pki/
 __pycache__
-temp/
-.tldrc/
 **/venv/
+
+########
+# Misc #
+########
+.mozilla/firefox/gaetan/storage/default/https+++app.slack.com/
+.pki/
 .wget-hsts
