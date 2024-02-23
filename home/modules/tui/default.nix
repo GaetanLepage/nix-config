@@ -35,6 +35,7 @@
     # Other utils
     ncdu
     sshfs
+    tlrc
 
     git
   ];
