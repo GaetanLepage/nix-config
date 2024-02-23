@@ -11,28 +11,7 @@ rsync -zravut "$HOME/" server:$dest_path \
 	--human-readable \
 	--delete \
 	--delete-excluded \
-	--exclude "__pycache__/" \
-	--exclude ".cache/" \
-	--exclude ".config/cargo/" \
-	--exclude ".config/discord/" \
-	--exclude ".config/Discord/" \
-	--exclude ".config/Jitsi Meet/" \
-	--exclude ".config/Microsoft/" \
-	--exclude ".config/Slack/" \
-	--exclude "**/.julia/" \
-	--exclude "*.o" \
-	--exclude ".icons/" \
-	--exclude ".mozilla/firefox/gaetan/storage/default/https+++app.slack.com/" \
-	--exclude ".local/share/lbry/" \
-	--exclude ".local/share/nvim/" \
-	--exclude ".local/share/R/" \
-	--exclude ".local/share/Steam/" \
-	--exclude ".local/share/TelegramDesktop/" \
-	--exclude ".mypy_cache/" \
-	--exclude ".npm/" \
-	--exclude "node_modules/" \
-	--exclude "temp/" \
-	--exclude "venv/" \
+	--exclude-from=@excludes@ \
 	$DRY_RUN
 
 rsync_exit_code=$?

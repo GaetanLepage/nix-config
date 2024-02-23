@@ -3,7 +3,12 @@
     pkgs.writeShellApplication
     {
       name = "backup";
-      text = builtins.readFile ./script.sh;
+      text =
+        builtins.readFile
+        (pkgs.substituteAll {
+          src = ./script.sh;
+          excludes = ./excludes.txt;
+        });
       runtimeInputs = with pkgs; [
         rsync
         libnotify
