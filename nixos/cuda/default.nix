@@ -27,23 +27,13 @@
     ncdu
     tmux
     unzip
+    vim
 
     # System monitor
     btop
     htop
     nvtop
   ];
-
-  programs = {
-    neovim = {
-      enable = true;
-
-      defaultEditor = true;
-
-      viAlias = true;
-      vimAlias = true;
-    };
-  };
 
   system = {
     autoUpgrade = {
