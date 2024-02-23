@@ -137,18 +137,19 @@
       }: {
         formatter = pkgs.alejandra;
 
-        devShells.default = let
+        packages = let
           pkgs = import inputs.nixpkgs {
             inherit system;
             overlays = [agenix-rekey.overlays.default];
           };
-        in
-          pkgs.mkShell {
-            packages = [
-              pkgs.agenix-rekey
-              disko.packages.${system}.disko
-            ];
-          };
+        in {
+          agenix = pkgs.agenix-rekey;
+          disko = disko.packages.${system}.disko;
+        };
+
+        devShells.default = pkgs.mkShell {
+          packages = builtins.attrValues config.packages;
+        };
       };
     };
 }
