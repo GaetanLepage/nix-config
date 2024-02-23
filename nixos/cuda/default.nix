@@ -9,14 +9,13 @@
 
     ../common
 
+    ./desktop
     ./disko.nix
     ./nix-remote-builder.nix
-    ./steam.nix
     ./nvidia.nix
     ./server-tank-nfs.nix
     ./tabby.nix
     ./wireguard
-    ./xorg.nix
   ];
 
   networking.hostName = "cuda";
@@ -33,20 +32,6 @@
     btop
     htop
     nvtop
-
-    # Gnome extensions
-    gnomeExtensions.dash-to-panel
-    gnomeExtensions.vitals
-
-    # GUI
-    discord
-    firefox
-    mpv
-    mumble
-    signal-desktop
-    spotify
-    teamspeak_client
-    thunderbird
   ];
 
   programs = {
@@ -60,17 +45,6 @@
     };
 
     singularity.enable = true;
-  };
-
-  services.xserver = {
-    enable = true;
-    displayManager.gdm = {
-      enable = true;
-      wayland = true;
-      autoSuspend = false;
-    };
-
-    desktopManager.gnome.enable = true;
   };
 
   system = {
