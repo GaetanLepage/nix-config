@@ -43,8 +43,6 @@
       viAlias = true;
       vimAlias = true;
     };
-
-    singularity.enable = true;
   };
 
   system = {
