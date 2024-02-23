@@ -19,7 +19,7 @@
   ];
 
   networking.hostName = "cuda";
-  # age.rekey.hostPubkey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDJ25NYUTHtnNZY9WCamv8ZGc00zG4EqJhyejo3TmqOu";
+  age.rekey.hostPubkey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAtUnNTeHgiIakeJF+DrDtLyZFH1TYztokuW/BjAmRQf";
 
   environment.systemPackages = with pkgs; [
     # Utils
