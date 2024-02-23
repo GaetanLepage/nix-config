@@ -28,7 +28,7 @@
     du-dust # du
     dua # du
     fd # find
-    lfs # df
+    dysk # df
     procs # ps
     ripgrep
 
