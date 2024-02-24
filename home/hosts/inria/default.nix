@@ -36,6 +36,8 @@ in {
 
   programs.tmate.enable = true;
 
+  programs.nixvim.plugins.cmp-tabby.host = lib.mkForce "localhost:8080";
+
   xdg.userDirs = with lib; {
     desktop = mkForce "${homeDirectory}/Desktop";
     documents = mkForce "${homeDirectory}/Documents";
