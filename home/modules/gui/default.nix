@@ -8,6 +8,7 @@
     ./firefox.nix
     ./flameshot.nix
     ./gtk.nix
+    ./nheko.nix
     ./rofi.nix
     ./zathura.nix
   ];
@@ -19,7 +20,6 @@
 
     # IM
     discord
-    nheko
     jitsi-meet-electron
     signal-desktop
     slack
