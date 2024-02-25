@@ -15,19 +15,16 @@
         "thunderbolt"
         "nvme"
         "usb_storage"
-        "usbhid"
         "sd_mod"
       ];
-      kernelModules = [];
-
-      luks.devices.crypted.device = "/dev/nvme0n1p2";
+      kernelModules = ["dm-snapshot"];
     };
-    kernelModules = ["kvm-intel"];
+    kernelModules = ["kvm-amd"];
     extraModulePackages = [];
   };
 
-  powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";
-  hardware = {
-    cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
-  };
+  networking.useDHCP = lib.mkDefault true;
+
+  nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
+  hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 }
