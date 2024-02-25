@@ -19,7 +19,7 @@
   ];
 
   networking.hostName = "framework";
-  age.rekey.hostPubkey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFw27a8MzCrI+oAoL+HsoYEq4YZrNv0TJYpOEb9rMZxV";
+  age.rekey.hostPubkey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIM+Md7yZTk3GWd0XVRQkplboDPLGkSqE/o6/SsfrrGGS";
 
   # Sharing pulseaudio server
   networking.firewall.allowedTCPPorts = [4713];
