@@ -71,8 +71,8 @@ pkgs: {
   battery = {
     tooltip = false;
 
-    bat = "BAT0";
-    adapter = "AC0";
+    bat = "BAT1";
+    adapter = "ACAD";
 
     format = "{icon}  {capacity}%";
     format-full = "{icon}  {capacity}% 󰚥";
