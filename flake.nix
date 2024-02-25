@@ -33,6 +33,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+
     agenix = {
       url = "github:ryantm/agenix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -56,14 +58,15 @@
 
   outputs = {
     self,
-    nixpkgs,
+    agenix,
+    agenix-rekey,
     disko,
     flake-parts,
     home-manager,
-    agenix,
-    agenix-rekey,
-    nixvim,
     nix-index-database,
+    nixos-hardware,
+    nixpkgs,
+    nixvim,
   } @ inputs:
     flake-parts.lib.mkFlake {inherit inputs;} {
       systems = nixpkgs.lib.systems.flakeExposed;
@@ -82,38 +85,40 @@
         };
 
         nixosConfigurations = let
-          mkHost = hostname:
+          mkHost = hostname: extraModules:
             nixpkgs.lib.nixosSystem {
               inherit system;
 
-              modules = [
-                # The system configuration
-                ./nixos/${hostname}
-                {nix.nixPath = ["nixpkgs=${nixpkgs.outPath}"];}
+              modules =
+                [
+                  # The system configuration
+                  ./nixos/${hostname}
+                  {nix.nixPath = ["nixpkgs=${nixpkgs.outPath}"];}
 
-                # disko
-                disko.nixosModules.disko
+                  # disko
+                  disko.nixosModules.disko
 
-                # agenix
-                agenix.nixosModules.default
-                agenix-rekey.nixosModules.default
-                # TODO remove
-                # {environment.systemPackages = [agenix.packages.x86_64-linux.default];}
+                  # agenix
+                  agenix.nixosModules.default
+                  agenix-rekey.nixosModules.default
 
-                # Home manager configuration
-                home-manager.nixosModules.home-manager
-                {
-                  home-manager = {
-                    useGlobalPkgs = true;
-                    useUserPackages = true;
-                    users.gaetan.imports = homeManagerModules hostname;
-                  };
-                }
-              ];
+                  # Home manager configuration
+                  home-manager.nixosModules.home-manager
+                  {
+                    home-manager = {
+                      useGlobalPkgs = true;
+                      useUserPackages = true;
+                      users.gaetan.imports = homeManagerModules hostname;
+                    };
+                  }
+                ]
+                ++ extraModules;
             };
         in {
-          framework = mkHost "framework";
-          cuda = mkHost "cuda";
+          framework = mkHost "framework" [];
+          cuda = mkHost "cuda" [
+            nixos-hardware.nixosModules.framework-13-7040-amd
+          ];
         };
 
         # Inria
