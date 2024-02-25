@@ -2,6 +2,7 @@
   config,
   lib,
   modulesPath,
+  pkgs,
   ...
 }: {
   imports = [
@@ -9,6 +10,9 @@
   ];
 
   boot = {
+    # Use latest linux kernel
+    kernelPackages = pkgs.linuxPackages_latest;
+
     initrd = {
       availableKernelModules = [
         "xhci_pci"
