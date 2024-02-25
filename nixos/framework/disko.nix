@@ -34,8 +34,15 @@
       pool = {
         type = "lvm_vg";
         lvs = {
+          swap = {
+            size = "16G";
+            content = {
+              type = "swap";
+              randomEncryption = true;
+            };
+          };
           root = {
-            size = "100%";
+            size = "100%FREE";
             content = {
               type = "filesystem";
               format = "ext4";
@@ -43,13 +50,6 @@
               mountOptions = [
                 "defaults"
               ];
-            };
-          };
-          swap = {
-            size = "16G";
-            content = {
-              type = "swap";
-              randomEncryption = true;
             };
           };
         };
