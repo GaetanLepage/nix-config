@@ -112,7 +112,7 @@
               ];
             };
         in {
-          tuxedo = mkHost "tuxedo";
+          framework = mkHost "framework";
           cuda = mkHost "cuda";
         };
 

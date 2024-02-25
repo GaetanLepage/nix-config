@@ -4,7 +4,7 @@
     switch $(hostname)
       case alya auriga bacchus chamaeleon carina access[1-2]-cp
         set -gx PATH_TO_EXPUTILS /scratch/alya/galepage/exputils_sync/exputils_commands
-      case tuxedo
+      case framework
         set -gx PATH_TO_EXPUTILS $HOME/inria/code/exputils_commands
     end
 
