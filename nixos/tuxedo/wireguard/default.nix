@@ -9,7 +9,6 @@
 
     autostart = true;
 
-    # privateKeyFile = config.age.secrets.wireguard_tuxedo_private_key.path;
     privateKeyFile = config.age.secrets.wireguard-private-key.path;
 
     peers = [
