@@ -4,7 +4,6 @@ temp/
 # Exclude most dotfiles #
 #########################
 .cache/
-.config/
 .icons/
 # backup fish folder (for history)
 + /.local/share/fish/***
