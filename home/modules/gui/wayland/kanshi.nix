@@ -32,8 +32,9 @@
         outputs = [
           {
             criteria = "eDP-1";
-            mode = "1920x1200";
+            mode = "2256x1504";
             position = "0,0";
+            scale = 1.3;
             status = "enable";
           }
         ];
