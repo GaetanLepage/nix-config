@@ -26,20 +26,6 @@
     extraModulePackages = [];
   };
 
-  fileSystems = {
-    "/" = {
-      device = "/dev/mapper/crypted";
-      fsType = "ext4";
-    };
-
-    "/boot" = {
-      device = "/dev/disk/by-label/nixboot";
-      fsType = "vfat";
-    };
-  };
-
-  swapDevices = [];
-
   powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";
   hardware = {
     cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
