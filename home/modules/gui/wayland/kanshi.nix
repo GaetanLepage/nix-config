@@ -49,7 +49,7 @@
 
       home = mkSingleExternalScreen {
         externalCriteria = "LG Electronics LG ULTRAGEAR 108MAHU2AU49";
-        mode = "2560x1440@120Hz";
+        mode = "2560x1440@143.932999Hz";
         wifiState = false;
       };
 
