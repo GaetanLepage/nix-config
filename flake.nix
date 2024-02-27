@@ -150,7 +150,6 @@
           };
         in {
           agenix = pkgs.agenix-rekey;
-          disko = disko.packages.${system}.disko;
         };
 
         devShells.default = pkgs.mkShellNoCC {
