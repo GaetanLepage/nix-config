@@ -158,7 +158,7 @@
           disko = disko.packages.${system}.disko;
         };
 
-        devShells.default = pkgs.mkShell {
+        devShells.default = pkgs.mkShellNoCC {
           packages = builtins.attrValues config.packages;
         };
       };
