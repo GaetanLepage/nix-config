@@ -9,7 +9,7 @@
     ./users.nix
   ];
 
-  age.rekey.masterIdentities = [../../.identity.age];
+  age.rekey.masterIdentities = [../../.secrets/identity.age];
 
   # Set your time zone.
   time.timeZone = "Europe/Paris";
