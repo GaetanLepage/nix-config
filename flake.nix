@@ -116,10 +116,10 @@
                 ++ extraModules;
             };
         in {
-          framework = mkHost "framework" [];
-          cuda = mkHost "cuda" [
+          framework = mkHost "framework" [
             nixos-hardware.nixosModules.framework-13-7040-amd
           ];
+          cuda = mkHost "cuda" [];
         };
 
         # Inria
