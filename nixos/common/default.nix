@@ -9,7 +9,10 @@
     ./users.nix
   ];
 
-  age.rekey.masterIdentities = [../../.secrets/identity.age];
+  age.rekey = {
+    storageMode = "local";
+    masterIdentities = [../../.secrets/identity.age];
+  };
 
   # Set your time zone.
   time.timeZone = "Europe/Paris";

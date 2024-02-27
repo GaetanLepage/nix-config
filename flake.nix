@@ -101,12 +101,7 @@
                   # agenix
                   agenix.nixosModules.default
                   agenix-rekey.nixosModules.default
-                  {
-                    age.rekey = {
-                      storageMode = "local";
-                      localStorageDir = ./.secrets/${hostname};
-                    };
-                  }
+                  {age.rekey.localStorageDir = ./.secrets/${hostname};}
 
                   # Home manager configuration
                   home-manager.nixosModules.home-manager
