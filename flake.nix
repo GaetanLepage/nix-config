@@ -93,7 +93,6 @@
                 [
                   # The system configuration
                   ./nixos/${hostname}
-                  {nix.nixPath = ["nixpkgs=${nixpkgs.outPath}"];}
 
                   # disko
                   disko.nixosModules.disko
