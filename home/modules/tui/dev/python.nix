@@ -10,7 +10,6 @@
             setuptools
 
             # RL
-            gymnasium
             matplotlib
             numpy
             torch
