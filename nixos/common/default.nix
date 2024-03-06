@@ -2,6 +2,7 @@
   imports = [
     ./bootloader.nix
     ./fish.nix
+    ./github-token
     ./nix.nix
     ./remote-builders
     ./security.nix

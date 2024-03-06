@@ -1,5 +1,6 @@
 {pkgs, ...}: {
   imports = [
+    ./github-token.nix
     ./nix.nix
     ./python.nix
     ./rust.nix
