@@ -18,6 +18,11 @@
       nbda = "nom-build --system aarch64-darwin -A";
       ur = "unlink result";
 
+      nr = "nixpkgs-review pr --post-result --no-shell";
+      nra = "nixpkgs-review pr --post-result --no-shell --system aarch64-linux";
+      nrd = "nixpkgs-review pr --post-result --no-shell --system x86_64-darwin";
+      nrda = "nixpkgs-review pr --post-result --no-shell --system aarch64-darwin";
+
       nu = "nix-update";
       nuc = "nix-update --commit";
       nucb = "nix-update --commit --build";
