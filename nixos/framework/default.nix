@@ -37,6 +37,9 @@
   services = {
     gnome.gnome-keyring.enable = true;
     udisks2.enable = true;
+
+    # Default is "poweroff" which shutdowns the laptop as soon as the power button is pressed.
+    logind.powerKey = "lock";
   };
 
   # Some programs need SUID wrappers, can be configured further or are started in user sessions.
