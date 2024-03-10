@@ -18,8 +18,6 @@
       enable = true;
       support32Bit = true;
     };
-
-    # config.pipewire."context.modules" = [ { name = "module-native-protocol-tcp"; } ];
   };
 
   # Enable sound. Set to `false` if using PipeWire
