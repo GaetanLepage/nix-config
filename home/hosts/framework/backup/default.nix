@@ -1,4 +1,8 @@
-{pkgs, ...}: let
+{
+  pkgs,
+  lib,
+  ...
+}: let
   backupScript =
     pkgs.writeShellApplication
     {
@@ -28,7 +32,7 @@ in {
       Service = {
         Type = "oneshot";
         Environment = "SSH_AUTH_SOCK=/run/user/1000/keyring/ssh";
-        ExecStart = "${backupScript}/bin/backup";
+        ExecStart = lib.getExe backupScript;
       };
     };
 
