@@ -1,6 +1,7 @@
 {pkgs, ...}: {
   imports = [
     ./keybindings.nix
+    ./swaylock.nix
   ];
 
   wayland.windowManager.sway = {

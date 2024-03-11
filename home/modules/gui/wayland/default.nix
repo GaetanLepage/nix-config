@@ -8,7 +8,6 @@
     ./gammastep.nix
     ./kanshi.nix
     ./sway
-    ./swaylock.nix
     ./waybar
   ];
 
