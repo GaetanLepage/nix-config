@@ -6,6 +6,9 @@
 }: {
   wayland.windowManager.sway.config = let
     mod = "Mod4";
+
+    inherit (lib) getExe;
+    playerctl = getExe pkgs.playerctl;
   in {
     modifier = mod;
 
@@ -14,19 +17,18 @@
       # System #
       ##########
       {
-        F8 = let
-          playerctl = "${pkgs.playerctl}/bin/playerctl";
-          lock = pkgs.writeShellScript "lock" ''
+        F8 = "exec ${
+          pkgs.writeShellScript "lock" ''
             ${playerctl} pause
             ${playerctl} -p spotify pause
-            ${pkgs.swaylock}/bin/swaylock
-          '';
-        in "exec ${lock}";
+            ${getExe config.programs.swaylock.package}
+          ''
+        }";
 
-        XF86MonBrightnessUp = "exec ${pkgs.light}/bin/light -A 10";
-        XF86MonBrightnessDown = "exec ${pkgs.light}/bin/light -U 10";
+        XF86MonBrightnessUp = "exec ${getExe pkgs.light} -A 10";
+        XF86MonBrightnessDown = "exec ${getExe pkgs.light} -U 10";
 
-        "${mod}+g" = "exec ${pkgs.pavucontrol}/bin/pavucontrol";
+        "${mod}+g" = "exec ${getExe pkgs.pavucontrol}";
       }
       // (
         let
@@ -49,13 +51,11 @@
       )
       // (
         let
-          playerctl = "exec ${pkgs.playerctl}/bin/playerctl";
-
-          next = "${playerctl} next";
-          previous = "${playerctl} previous";
+          next = "exec ${playerctl} next";
+          previous = "exec ${playerctl} previous";
         in {
-          XF86AudioPlay = "${playerctl} play-pause";
-          XF86AudioPause = "${playerctl} pause";
+          XF86AudioPlay = "exec ${playerctl} play-pause";
+          XF86AudioPause = "exec ${playerctl} pause";
           XF86AudioNext = next;
           "${mod}+Right" = next;
           XF86AudioPrev = previous;
@@ -81,8 +81,6 @@
         "${mod}+Shift+u" = "exec doas systemctl stop wg-quick-wg0";
 
         # Dunst (notifications)
-        # "${mod}+n" = "exec ${pkgs.mako}/bin/makoctl set-mode silent";
-        # "${mod}+Shift+n" = "exec ${pkgs.mako}/bin/makoctl set-mode default";
         "${mod}+n" = "exec ${pkgs.dunst}/bin/dunstctl set-paused false";
         "${mod}+Shift+n" = "exec ${pkgs.dunst}/bin/dunstctl set-paused true";
       }
@@ -91,21 +89,21 @@
       ################
       // {
         # Terminal
-        "${mod}+Return" = "exec ${pkgs.foot}/bin/foot";
+        "${mod}+Return" = "exec ${getExe pkgs.foot}";
 
         # Rofi
-        "${mod}+d" = "exec ${config.programs.rofi.package}/bin/rofi -show run";
+        "${mod}+d" = "exec ${getExe config.programs.rofi.package} -show run";
 
         # Web browser
-        "${mod}+w" = "exec ${pkgs.firefox}/bin/firefox";
+        "${mod}+w" = "exec ${getExe pkgs.firefox}";
 
         # screenshot (flameshot)
         # "Print" = "exec ${pkgs.flameshot}/bin/flameshot gui";
         # TODO switch back to normal mapping (above) when issue is fixed
-        "Print" = "exec ${pkgs.flameshot}/bin/flameshot gui --raw | wl-copy";
+        "Print" = "exec ${getExe pkgs.flameshot} gui --raw | wl-copy";
 
         # file manager
-        "${mod}+F3" = "exec ${pkgs.xfce.thunar}/bin/thunar";
+        "${mod}+F3" = "exec ${getExe pkgs.xfce.thunar}";
 
         "${mod}+Shift+F7" = "exec bg_stream lofi";
         "${mod}+F7" = "exec bg_stream stop";
