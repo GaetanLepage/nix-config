@@ -6,6 +6,7 @@
   imports = [
     ./foot.nix
     ./gammastep.nix
+    # ./hyprland
     ./kanshi.nix
     ./sway
     ./waybar
