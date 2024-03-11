@@ -53,14 +53,8 @@
           repeat_rate = "50";
         };
 
-        # "type:pointer" = {
-        #   accel_profile = "flat";
-        #   pointer_accel = "0.3";
-        # };
-
         "type:touchpad" = {
           tap = "enabled";
-          # natural_scroll = "enabled";
         };
       };
 
