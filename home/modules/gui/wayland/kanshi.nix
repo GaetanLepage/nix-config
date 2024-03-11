@@ -31,18 +31,31 @@
         ];
         exec = mkWifiHook wifiState;
       };
+
+      laptopOutput = {
+        criteria = "eDP-1";
+        mode = "2256x1504";
+        position = "0,0";
+        scale = 1.333333;
+        status = "enable";
+      };
+
+      homeScreen = {
+        criteria = "LG Electronics LG ULTRAGEAR 108MAHU2AU49";
+        mode = "2560x1440@143.932999Hz";
+      };
     in {
       laptop = {
-        outputs = [
-          {
-            criteria = "eDP-1";
-            mode = "2256x1504";
-            position = "0,0";
-            scale = 1.3;
-            status = "enable";
-          }
-        ];
+        outputs = [laptopOutput];
         exec = mkWifiHook true;
+      };
+
+      stream = {
+        outputs = [
+          (homeScreen // {position = "0,0";})
+          (laptopOutput // {position = "2560,0";})
+        ];
+        exec = mkWifiHook false;
       };
 
       inria = mkSingleExternalScreen {
@@ -52,8 +65,8 @@
       };
 
       home = mkSingleExternalScreen {
-        externalCriteria = "LG Electronics LG ULTRAGEAR 108MAHU2AU49";
-        mode = "2560x1440@143.932999Hz";
+        externalCriteria = homeScreen.criteria;
+        inherit (homeScreen) mode;
         wifiState = false;
       };
 
