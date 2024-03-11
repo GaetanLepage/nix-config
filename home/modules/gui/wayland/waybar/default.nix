@@ -2,36 +2,31 @@
   programs.waybar = {
     enable = true;
 
+    settings.main =
+      {
+        layer = "top";
+        position = "bottom";
+        height = 32;
 
-    settings = [
-      (
-        {
-          layer = "top";
-          position = "bottom";
-          height = 32;
+        fixed-center = false;
 
-          fixed-center = false;
+        modules-center = ["custom/spotify"];
+        modules-right = [
+          "backlight"
+          "pulseaudio"
+          "memory"
+          "cpu"
+          "network"
+          "custom/vpn"
+          "battery"
+          "clock"
+          "clock#date"
+          "custom/notifs"
 
-          modules-left = ["sway/workspaces"];
-          modules-center = ["custom/spotify"];
-          modules-right = [
-            "backlight"
-            "pulseaudio"
-            "memory"
-            "cpu"
-            "network"
-            "custom/vpn"
-            "battery"
-            "clock"
-            "clock#date"
-            "custom/notifs"
-
-            "tray"
-          ];
-        }
-        // (import ./modules pkgs)
-      )
-    ];
+          "tray"
+        ];
+      }
+      // (import ./modules pkgs);
     style = builtins.readFile ./style.css;
   };
 }

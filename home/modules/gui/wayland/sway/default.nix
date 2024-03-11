@@ -2,6 +2,7 @@
   imports = [
     ./keybindings.nix
     ./swaylock.nix
+    ./waybar.nix
   ];
 
   wayland.windowManager.sway = {
