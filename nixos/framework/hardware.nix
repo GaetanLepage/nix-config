@@ -3,10 +3,12 @@
   lib,
   modulesPath,
   pkgs,
+  inputs,
   ...
 }: {
   imports = [
     (modulesPath + "/installer/scan/not-detected.nix")
+    inputs.nixos-hardware.nixosModules.framework-13-7040-amd
   ];
 
   boot = {

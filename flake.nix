@@ -70,23 +70,19 @@
 
   outputs = {
     self,
-    agenix,
     agenix-rekey,
-    disko,
     flake-parts,
     home-manager,
     nix-index-database,
-    nixos-hardware,
     nixpkgs,
     nixvim,
+    ...
   } @ inputs:
     flake-parts.lib.mkFlake {inherit inputs;} {
       systems = nixpkgs.lib.systems.flakeExposed;
 
       flake = let
-        system = "x86_64-linux";
         homeManagerModules = hostname: [
-          nixvim.homeManagerModules.nixvim
           nix-index-database.hmModules.nix-index
           ./home/hosts/${hostname}
         ];
@@ -97,40 +93,29 @@
         };
 
         nixosConfigurations = let
-          mkHost = hostname: extraModules:
+          mkHost = hostname:
             nixpkgs.lib.nixosSystem {
-              inherit system;
+              system = "x86_64-linux";
+              specialArgs.inputs = inputs;
+              modules = [
+                # The system configuration
+                ./nixos/${hostname}
 
-              modules =
-                [
-                  # The system configuration
-                  ./nixos/${hostname}
-
-                  # disko
-                  disko.nixosModules.disko
-
-                  # agenix
-                  agenix.nixosModules.default
-                  agenix-rekey.nixosModules.default
-                  {age.rekey.localStorageDir = ./.secrets/${hostname};}
-
-                  # Home manager configuration
-                  home-manager.nixosModules.home-manager
-                  {
-                    home-manager = {
-                      useGlobalPkgs = true;
-                      useUserPackages = true;
-                      users.gaetan.imports = homeManagerModules hostname;
-                    };
-                  }
-                ]
-                ++ extraModules;
+                # Home manager configuration
+                home-manager.nixosModules.home-manager
+                {
+                  home-manager = {
+                    useGlobalPkgs = true;
+                    useUserPackages = true;
+                    users.gaetan.imports = homeManagerModules hostname;
+                    extraSpecialArgs.inputs = inputs;
+                  };
+                }
+              ];
             };
         in {
-          framework = mkHost "framework" [
-            nixos-hardware.nixosModules.framework-13-7040-amd
-          ];
-          cuda = mkHost "cuda" [];
+          framework = mkHost "framework";
+          cuda = mkHost "cuda";
         };
 
         # Inria

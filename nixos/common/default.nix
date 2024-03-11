@@ -1,5 +1,7 @@
-{
+{inputs, ...}: {
   imports = [
+    inputs.disko.nixosModules.disko
+    ./agenix.nix
     ./bootloader.nix
     ./fish.nix
     ./github-token
@@ -9,11 +11,6 @@
     ./ssh
     ./users.nix
   ];
-
-  age.rekey = {
-    storageMode = "local";
-    masterIdentities = [../../.secrets/identity.age];
-  };
 
   # Set your time zone.
   time.timeZone = "Europe/Paris";
