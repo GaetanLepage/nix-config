@@ -1,5 +1,6 @@
 {pkgs, ...}: {
   imports = [
+    ./apptainer.nix
     ./github-token.nix
     ./nix.nix
     ./python.nix
