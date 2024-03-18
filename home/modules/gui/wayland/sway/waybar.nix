@@ -4,7 +4,7 @@
       modules-left = ["sway/workspaces"];
 
       "sway/workspaces" = {
-        persistent_workspaces = {
+        persistent-workspaces = {
           "1" = [];
           "2" = [];
           "3" = [];
