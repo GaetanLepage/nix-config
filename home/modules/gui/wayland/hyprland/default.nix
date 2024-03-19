@@ -1,5 +1,6 @@
 {
   imports = [
+    ./dynamic-borders
     ./keybindings.nix
     ./lock.nix
     ./wallpaper.nix
