@@ -1,25 +1,35 @@
 {
+  lib,
+  pkgs,
+  ...
+}: {
   programs.waybar = {
     settings.main = {
       modules-left = ["hyprland/workspaces"];
 
-      "hyprland/workspaces" = {
-        persistent_workspaces = {
-          "1" = [];
-          "2" = [];
-          "3" = [];
-          "4" = [];
-          "5" = [];
-          "6" = [];
-          "7" = [];
-          "8" = [];
-          "9" = [];
-          "10" = [];
-        };
-
-        on-scroll-up = "hyprctl dispatch workspace e-1";
-        on-scroll-down = "hyprctl dispatch workspace e+1";
-      };
+      "hyprland/workspaces" =
+        {
+          persistent_workspaces = {
+            "1" = [];
+            "2" = [];
+            "3" = [];
+            "4" = [];
+            "5" = [];
+            "6" = [];
+            "7" = [];
+            "8" = [];
+            "9" = [];
+            "10" = [];
+          };
+        }
+        // (let
+          activeWorkspace = "$(hyprctl activeworkspace -j | ${lib.getExe pkgs.jq} '.id')";
+          isNotFirst = "[ ${activeWorkspace} -gt 1 ]";
+          isNotLast = "[ ${activeWorkspace} -lt 10 ]";
+        in {
+          on-scroll-up = "${isNotFirst} && hyprctl dispatch workspace e-1";
+          on-scroll-down = "${isNotLast} && hyprctl dispatch workspace e+1";
+        });
     };
 
     style = ''
