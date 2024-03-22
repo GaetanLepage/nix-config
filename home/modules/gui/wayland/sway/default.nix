@@ -1,4 +1,9 @@
-{pkgs, ...}: {
+{
+  lib,
+  config,
+  pkgs,
+  ...
+}: {
   imports = [
     ./keybindings.nix
     ./swaylock.nix
@@ -59,7 +64,7 @@
         };
       };
 
-      bars = [{command = "${pkgs.waybar}/bin/waybar";}];
+      bars = [{command = lib.getExe config.programs.waybar.package;}];
 
       colors = let
         background = "#282828";
