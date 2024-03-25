@@ -127,6 +127,7 @@
               cudaSupport = true;
             };
           };
+          extraSpecialArgs.inputs = inputs;
           modules = homeManagerModules "inria";
         };
       };
