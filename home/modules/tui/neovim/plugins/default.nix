@@ -23,7 +23,7 @@
     plugins = {
       gitsigns = {
         enable = true;
-        signs = {
+        settings.signs = {
           add.text = "+";
           change.text = "~";
         };
