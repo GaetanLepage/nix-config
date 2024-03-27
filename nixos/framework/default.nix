@@ -38,6 +38,9 @@
     gnome.gnome-keyring.enable = true;
     udisks2.enable = true;
 
+    # Disable fingerprint sensor
+    fprintd.enable = false;
+
     # Default is "poweroff" which shutdowns the laptop as soon as the power button is pressed.
     logind.powerKey = "lock";
   };
