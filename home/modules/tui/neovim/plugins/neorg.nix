@@ -1,7 +1,7 @@
 {
   programs.nixvim = {
     files."after/ftplugin/norg.lua" = {
-      localOptions.conceallevel = 1;
+      localOpts.conceallevel = 1;
 
       keymaps = [
         {
