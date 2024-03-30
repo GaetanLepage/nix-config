@@ -2,6 +2,16 @@
   programs.waybar = {
     enable = true;
 
+    package = pkgs.waybar.overrideAttrs (_: {
+      patches = [
+        # Fixes sway workspaces (https://github.com/Alexays/Waybar/issues/3009)
+        (pkgs.fetchpatch {
+          url = "https://github.com/Alexays/Waybar/commit/2ffd9a94a505a2e7e933ea8303f9cf2af33c35fe.patch";
+          hash = "sha256-u87t6zzslk1mzSfi4HQ6zDPFr7qMfsvymTy3HBxVTJQ=";
+        })
+      ];
+    });
+
     settings.main =
       {
         layer = "top";
