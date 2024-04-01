@@ -4,10 +4,13 @@
       alejandra
       nix-init
       nix-tree
-      nix-update
       nix-output-monitor
-      nixpkgs-review
       statix
+
+      # nixpkgs
+      nix-update
+      nixpkgs-review
+      luarocks-packages-updater
       vimPluginsUpdater
     ];
 
