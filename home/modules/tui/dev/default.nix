@@ -2,7 +2,7 @@
   imports = [
     ./apptainer.nix
     ./github-token.nix
-    ./nix.nix
+    ./nix
     ./python.nix
     ./rust.nix
     ./shell.nix

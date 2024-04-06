@@ -12,6 +12,14 @@
       nixpkgs-review
       luarocks-packages-updater
       vimPluginsUpdater
+      (pkgs.writeShellApplication {
+        name = "nixpkgs-review-tmux";
+        text = builtins.readFile ./review.sh;
+        runtimeInputs = with pkgs; [
+          nixpkgs-review
+          tmux
+        ];
+      })
     ];
 
     shellAliases = {
@@ -25,6 +33,8 @@
       nra = "nixpkgs-review pr --post-result --no-shell --system aarch64-linux";
       nrd = "nixpkgs-review pr --post-result --no-shell --system x86_64-darwin";
       nrda = "nixpkgs-review pr --post-result --no-shell --system aarch64-darwin";
+
+      nrt = "nixpkgs-review-tmux";
 
       nu = "nix-update";
       nuc = "nix-update --commit";
