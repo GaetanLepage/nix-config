@@ -34,7 +34,7 @@ function rev {
 }
 
 case $arch in
-all)
+all | "")
 	rev x86_64-linux
 	rev aarch64-linux
 	rev x86_64-darwin
@@ -57,9 +57,6 @@ all)
 		rev aarch64-darwin
 		;;
 	esac
-	;;
-"")
-	rev x86_64-linux
 	;;
 esac
 
