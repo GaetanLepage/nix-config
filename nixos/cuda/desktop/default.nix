@@ -1,5 +1,6 @@
 {pkgs, ...}: {
   imports = [
+    ./sound.nix
     ./steam.nix
     ./xorg.nix
   ];
