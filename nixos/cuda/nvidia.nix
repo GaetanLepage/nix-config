@@ -1,5 +1,7 @@
-{
+{pkgs, ...}: {
   services.xserver.videoDrivers = ["nvidia"];
+
+  environment.systemPackages = [pkgs.nvtopPackages.nvidia];
 
   hardware = {
     opengl = {

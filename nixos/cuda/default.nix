@@ -32,7 +32,6 @@
     # System monitor
     btop
     htop
-    nvtopPackages.nvidia
   ];
 
   system = {
