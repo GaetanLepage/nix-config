@@ -7,10 +7,6 @@
 
       max-jobs = "auto";
 
-      # The timeout (in seconds) for establishing connections in the binary cache substituter.
-      # It corresponds to curl’s –connect-timeout option. A value of 0 means no limit.
-      connect-timeout = 5;
-
       # The maximum number of parallel TCP connections used to fetch files from binary caches and by other downloads.
       # It defaults to 25. 0 means no limit.
       http-connections = 128;
@@ -29,10 +25,6 @@
       min-free = 128000000; # 128 MB
       max-free = 1000000000; # 1 GB
 
-      # If set to true, Nix will fall back to building from source if a binary substitute
-      # fails. This is equivalent to the –fallback flag. The default is false.
-      fallback = true;
-
       # Prevent garbage collection from altering nix-shells managed by nix-direnv
       # https://github.com/nix-community/nix-direnv#installation
       keep-outputs = true;
@@ -45,10 +37,33 @@
       # Whether to warn about dirty Git/Mercurial trees.
       warn-dirty = false;
 
+      ################
+      # Substituters #
+      ################
+      # The timeout (in seconds) for establishing connections in the binary cache substituter.
+      # It corresponds to curl’s –connect-timeout option. A value of 0 means no limit.
+      connect-timeout = 5;
+
       # Allow the use of cachix
       trusted-users = ["root" "gaetan"];
 
       builders-use-substitutes = true;
+
+      # If set to true, Nix will fall back to building from source if a binary substitute
+      # fails. This is equivalent to the –fallback flag. The default is false.
+      fallback = true;
+
+      substituters = [
+        "https://cache.nixos.org"
+        "https://cuda-maintainers.cachix.org"
+        "https://nix-community.cachix.org"
+      ];
+
+      trusted-public-keys = [
+        "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
+        "cuda-maintainers.cachix.org-1:0dq3bujKpuEPMCX6U4WylrUDZ9JyUG0VpVZa7CNfq5E="
+        "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+      ];
     };
 
     gc = {
