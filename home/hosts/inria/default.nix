@@ -23,7 +23,6 @@ in {
   };
 
   sshKeysPathPrefix = "${homeDirectory}/.ssh/";
-  githubTokenFile = "${homeDirectory}/github-token";
 
   programs.tmate.enable = true;
 
