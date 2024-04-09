@@ -2,7 +2,7 @@
 shopt -s extglob
 
 pr_number=$1
-arch=$2
+arch=${2:-""}
 
 current_dir=$(basename "$PWD")
 if [ "$current_dir" != "nixpkgs" ]; then
