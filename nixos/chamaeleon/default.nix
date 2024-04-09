@@ -5,6 +5,7 @@
     ../common
 
     ./disko.nix
+    ./remote-builders
     ./wireguard
   ];
 
