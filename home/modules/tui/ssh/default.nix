@@ -39,7 +39,8 @@
     home.shellAliases = {
       s = "ssh";
       sa = "ssh alya";
-      sc = "ssh cuda";
+      sc = "ssh chamaeleon";
+      scu = "ssh cuda";
     };
   };
 }
