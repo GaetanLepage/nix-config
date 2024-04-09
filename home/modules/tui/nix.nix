@@ -7,7 +7,6 @@
 
     substituters = [
       "https://cache.nixos.org"
-      "https://cache.nixos.org/"
       "https://cuda-maintainers.cachix.org"
       "https://nix-community.cachix.org"
     ];
