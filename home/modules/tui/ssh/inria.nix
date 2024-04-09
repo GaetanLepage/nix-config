@@ -22,6 +22,11 @@ lib.mapAttrs
       proxyJump = "alya";
     };
 
+    chamaeleon = {
+      hostname = "10.10.10.6";
+      user = "gaetan";
+    };
+
     cluster = {
       hostname = "access2-cp.inrialpes.fr";
       proxyJump = "alya";
@@ -48,7 +53,6 @@ lib.mapAttrs
       "auriga"
       "bacchus"
       "carina"
-      "chamaeleon"
       "hydra"
       "kapelos"
       "mensa"
