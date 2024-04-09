@@ -1,4 +1,4 @@
-{
+{lib, ...}: {
   imports = [
     ./hardware.nix
 
@@ -12,4 +12,6 @@
 
   networking.hostName = "chamaeleon";
   age.rekey.hostPubkey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIkCMDmzVqqHUv7ClNSAaVTNFzy5ZBrHuDoKymQN85ye";
+
+  nix.gc.options = lib.mkForce "--delete-older-than 14d";
 }
