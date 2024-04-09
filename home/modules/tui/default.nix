@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  lib,
+  ...
+}: {
   imports = [
     ./btop.nix
     ./dev
@@ -21,22 +25,27 @@
     nix-index-database.comma.enable = true;
   };
 
-  home.packages = with pkgs; [
-    # Rust implementations of linux commands
-    bat # cat
-    bottom # System monitor
-    du-dust # du
-    dua # du
-    fd # find
-    dysk # df
-    procs # ps
-    ripgrep
+  home = {
+    username = lib.mkDefault "gaetan";
+    homeDirectory = lib.mkDefault "/home/gaetan";
 
-    # Other utils
-    ncdu
-    sshfs
-    tlrc
+    packages = with pkgs; [
+      # Rust implementations of linux commands
+      bat # cat
+      bottom # System monitor
+      du-dust # du
+      dua # du
+      fd # find
+      dysk # df
+      procs # ps
+      ripgrep
 
-    git
-  ];
+      # Other utils
+      ncdu
+      sshfs
+      tlrc
+
+      git
+    ];
+  };
 }
