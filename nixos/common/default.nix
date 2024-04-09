@@ -10,6 +10,7 @@
     ./security.nix
     ./ssh
     ./users.nix
+    ./wireguard.nix
   ];
 
   # Set your time zone.
