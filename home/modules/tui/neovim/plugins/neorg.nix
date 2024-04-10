@@ -14,7 +14,7 @@
     };
 
     plugins.neorg = {
-      enable = true;
+      enable = false; # TODO re-enable when neorg is fixed
 
       modules = {
         "core.defaults".__empty = null;
