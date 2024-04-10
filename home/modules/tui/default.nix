@@ -41,6 +41,7 @@
       ripgrep
 
       # Other utils
+      htop
       ncdu
       sshfs
       tlrc
