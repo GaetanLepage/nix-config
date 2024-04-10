@@ -26,7 +26,6 @@
   ns = "nvidia-smi";
   py = "python";
   t = "date +'%a %b %e %R:%S %Z %Y'";
-  u = "update";
   wttr = "curl wttr.in/Grenoble+38000";
   x = "xdg-open";
 

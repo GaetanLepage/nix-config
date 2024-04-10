@@ -1,6 +1,11 @@
-{pkgs, ...}: {
-  home.packages = [
-    (pkgs.writeShellScriptBin
+{
+  pkgs,
+  lib,
+  ...
+}: {
+  home = let
+    update =
+      pkgs.writeShellScriptBin
       "update"
       ''
         # Path to the folder containing `flake.nix`
@@ -30,6 +35,9 @@
                 # doas nix-collect-garbage --delete-older-than 2d
                 ;;
         esac
-      '')
-  ];
+      '';
+  in {
+    shellAliases.u = lib.getExe update;
+    packages = [update];
+  };
 }
