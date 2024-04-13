@@ -18,13 +18,7 @@
     };
   };
 
-  services.xserver = {
-    enable = true;
-
-    xkb.layout = "fr";
-
-    libinput.enable = true;
-
+  services = {
     displayManager = {
       sddm = {
         enable = true;
@@ -33,6 +27,13 @@
         theme = "where_is_my_sddm_theme";
       };
       defaultSession = "sway";
+    };
+
+    xserver = {
+      enable = true;
+
+      xkb.layout = "fr";
+      libinput.enable = true;
     };
   };
   environment.systemPackages = [
