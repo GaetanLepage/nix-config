@@ -19,36 +19,20 @@ lib.mapAttrs
 
     # Generic rule for all Inria computers
     "*.inrialpes.fr" = {
-      proxyJump = "alya";
+      proxyJump = "bastion";
     };
 
     chamaeleon = {
-      hostname = "10.10.10.6";
       user = "gaetan";
-    };
-
-    cluster = {
-      hostname = "access2-cp.inrialpes.fr";
-      proxyJump = "alya";
-    };
-
-    # Workstations
-    alya = {
-      hostname = "10.10.10.4";
-      # hostname = "alya.inrialpes.fr";
-      # proxyJump = "bastion";
-
-      setEnv = {
-        # Pulse server forwarding
-        PULSE_SERVER = "tcp:10.10.10.2:4713";
-        TERM = "xterm-256color";
-      };
+      proxyJump = "bastion";
     };
   }
   // (
     lib.genAttrs
     [
+      "access2-cp"
       "gpu*-perception"
+      "alya"
       "andromeda"
       "auriga"
       "bacchus"
@@ -65,7 +49,7 @@ lib.mapAttrs
     ]
     (
       _: {
-        proxyJump = "alya";
+        proxyJump = "bastion";
         setEnv.TERM = "xterm-256color";
       }
     )
