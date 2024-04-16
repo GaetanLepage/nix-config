@@ -24,7 +24,7 @@ lib.mapAttrs
 
     chamaeleon = {
       user = "gaetan";
-      proxyJump = "bastion";
+      hostname = "10.10.10.6";
     };
   }
   // (
