@@ -15,10 +15,10 @@
           source_labels = ["instance"];
 
           # Match `hostname` in `hostname:1234`
-          # regex = "(.+):\d+";
+          # regex = "(.+):\\d+";
 
           # Match `hostname` in `hostname-unwanted:1234`
-          regex = "([a-z]+)[-]?[a-z]*:\d+";
+          regex = "([^:-]+)(-.+)?:\\d+";
           target_label = "instance";
         }
       ];
@@ -29,7 +29,7 @@
         static_configs = [
           {
             targets = [
-              "localhost:${builtins.toString config.services.prometheus.exporters.node.port}"
+              "chamaeleon:${builtins.toString config.services.prometheus.exporters.node.port}"
               "alya:9100"
               "auriga:9100"
               "gpu8-perception:9100"
