@@ -64,7 +64,7 @@
       )
       // {
         # Toggle touchpad
-        F9 = let
+        "Shift+F9" = let
           showTouchpadState = pkgs.writeShellScript "show-touchpad-state" ''
             status=$(swaymsg -t get_inputs | ${pkgs.jq}/bin/jq --raw-output '.[] | select(.type=="touchpad") | .libinput.send_events')
             notify-send "Touchpad $status"
