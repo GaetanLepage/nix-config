@@ -22,18 +22,26 @@
           target_label = "instance";
         }
       ];
+
+      getHostnames = port:
+        builtins.map
+        (n: "${n}:${toString port}")
+        [
+          "alya"
+          "auriga"
+          "gpu8-perception"
+        ];
     in [
       {
         job_name = "node_exporter_metrics";
         scrape_interval = "5s";
         static_configs = [
           {
-            targets = [
-              "chamaeleon:${builtins.toString config.services.prometheus.exporters.node.port}"
-              "alya:9100"
-              "auriga:9100"
-              "gpu8-perception:9100"
-            ];
+            targets =
+              [
+                "chamaeleon:${builtins.toString config.services.prometheus.exporters.node.port}"
+              ]
+              ++ (getHostnames 9100);
           }
         ];
         inherit metric_relabel_configs;
@@ -43,11 +51,7 @@
         scrape_interval = "5s";
         static_configs = [
           {
-            targets = [
-              "alya:9400"
-              "auriga:9400"
-              "gpu8-perception:9400"
-            ];
+            targets = getHostnames 9400;
           }
         ];
         inherit metric_relabel_configs;
