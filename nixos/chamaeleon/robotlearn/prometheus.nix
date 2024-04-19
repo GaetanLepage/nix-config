@@ -29,7 +29,12 @@
         [
           "alya"
           "auriga"
+          "gpu4-perception"
+          "gpu5-perception"
+          "gpu6-perception"
+          "gpu7-perception"
           "gpu8-perception"
+          "mensa"
         ];
     in [
       {
