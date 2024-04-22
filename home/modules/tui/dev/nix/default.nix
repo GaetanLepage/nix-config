@@ -24,9 +24,9 @@
 
     shellAliases = {
       nb = "nom-build --system x86_64-linux -A";
-      nba = "nom-build --system aarch64-linux -A";
-      nbd = "nom-build --system x86_64-darwin -A";
-      nbda = "nom-build --system aarch64-darwin -A";
+      nba = "nom-build --max-jobs 0 --system aarch64-linux -A";
+      nbd = "nom-build --max-jobs 0 --system x86_64-darwin -A";
+      nbda = "nom-build --max-jobs 0 --system aarch64-darwin -A";
       ur = "unlink result";
 
       nr = "nixpkgs-review pr --post-result --no-shell";
