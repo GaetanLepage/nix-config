@@ -98,9 +98,7 @@
         "${mod}+w" = "exec ${getExe pkgs.firefox}";
 
         # screenshot (flameshot)
-        # "Print" = "exec ${pkgs.flameshot}/bin/flameshot gui";
-        # TODO switch back to normal mapping (above) when issue is fixed
-        "Print" = "exec ${getExe pkgs.flameshot} gui --raw | wl-copy";
+        Print = "exec ${getExe pkgs.flameshot} gui";
 
         # file manager
         "${mod}+F3" = "exec ${getExe pkgs.xfce.thunar}";

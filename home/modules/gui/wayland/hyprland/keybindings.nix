@@ -80,9 +80,7 @@
         "$mod, w, exec, firefox"
 
         # screenshot (flameshot)
-        # ", Print, exec, ${lib.getExe pkgs.flameshot} gui";
-        # TODO switch back to normal mapping (above) when issue is fixed
-        ", Print, exec, ${lib.getExe pkgs.flameshot} gui --raw | wl-copy"
+        ", Print, exec, ${lib.getExe pkgs.flameshot} gui"
 
         "$mod, F3, exec, ${lib.getExe pkgs.xfce.thunar}"
 

@@ -27,7 +27,6 @@
         wdisplays
         wlr-randr
         wl-clipboard
-        grim # needed by flameshot
       ];
 
       sessionVariables = {
