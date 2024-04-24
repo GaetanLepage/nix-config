@@ -47,6 +47,14 @@
   programs.nixvim = {
     plugins.lsp.servers.nil_ls.enable = true;
 
+    # Set indentation to 2 spaces
+    files."after/ftplugin/nix.lua" = {
+      localOpts = {
+        tabstop = 2;
+        shiftwidth = 2;
+      };
+    };
+
     autoCmd = [
       {
         event = "BufWritePost";
