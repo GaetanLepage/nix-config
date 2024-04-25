@@ -9,7 +9,7 @@
 
     ../common
 
-    # ./desktop
+    ./desktop
     ./disko.nix
     ./nix-remote-builder.nix
     ./nvidia.nix
