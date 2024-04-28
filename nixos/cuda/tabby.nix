@@ -1,11 +1,11 @@
 {
   users.users.gaetan.extraGroups = ["docker"];
+  hardware.nvidia-container-toolkit.enable = true;
   virtualisation = {
     podman = {
       enable = true;
       dockerCompat = true;
     };
-    containers.cdi.dynamic.nvidia.enable = true;
 
     oci-containers.containers.tabby = {
       image = "tabbyml/tabby";
