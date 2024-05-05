@@ -29,12 +29,8 @@
       defaultSession = "sway";
     };
 
-    xserver = {
-      enable = true;
-
-      xkb.layout = "fr";
-      libinput.enable = true;
-    };
+    libinput.enable = true;
+    xserver.xkb.layout = "fr";
   };
   environment.systemPackages = [
     (pkgs.where-is-my-sddm-theme.override {
