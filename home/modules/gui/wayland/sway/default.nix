@@ -115,21 +115,21 @@
         {
           command = let
             setWallpaper = pkgs.writeShellScript "set-wallpaper" ''
-              ${pkgs.killall}/bin/killall swaybg
-              ${pkgs.swaybg}/bin/swaybg -m fill -i ${../wallpaper.png}
+              ${lib.getExe pkgs.killall} swaybg
+              ${lib.getExe pkgs.swaybg} -m fill -i ${../wallpaper.png}
             '';
           in "${setWallpaper}";
           always = true;
         }
         {
-          command = "${pkgs.kanshi}/bin/kanshi";
+          command = lib.getExe pkgs.kanshi;
           always = true;
         }
         {command = "firefox";}
         {command = "thunderbird";}
         {command = "signal-desktop";}
         {command = "pidof btop || foot --title btop btop";}
-        {command = "${pkgs.foot}/bin/foot";}
+        {command = lib.getExe pkgs.foot;}
       ];
     };
   };
