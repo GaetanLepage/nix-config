@@ -45,9 +45,9 @@
       filetype.extension.gin = "gin";
       plugins = {
         treesitter.languageRegister.python = ["gin"];
-        lsp-format.lspServersToEnable = ["ruff-lsp"];
+        lsp-format.lspServersToEnable = ["ruff"];
         lsp.servers = {
-          ruff-lsp.enable = true;
+          ruff.enable = true;
           pylsp = {
             enable = true;
             settings = {
@@ -56,7 +56,7 @@
 
                 pylsp_mypy.enabled = true;
 
-                # We don't need those as ruff-lsp is already providing such features.
+                # We don't need those as ruff is already providing such features.
                 autopep8.enabled = false;
                 flake8.enabled = false;
                 mccabe.enabled = false;
