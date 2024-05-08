@@ -21,11 +21,5 @@
         maxJobs = 48;
         speedFactor = 3;
       }
-      {
-        hostName = "gpu8-perception";
-        publicHostKey = "c3NoLWVkMjU1MTkgQUFBQUMzTnphQzFsWkRJMU5URTVBQUFBSVBmTnFIQVNqcXRFNnNJTlM4b2c0bS9qaW0rUjVzTStHcVc5blRkaTNEM24gcm9vdEB1YnVudHUtc2VydmVyCg==";
-        maxJobs = 40;
-        speedFactor = 2;
-      }
     ];
 }
