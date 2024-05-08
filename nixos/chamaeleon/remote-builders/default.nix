@@ -4,16 +4,19 @@
   };
 
   nix.buildMachines =
-    builtins.map (conf:
-      {
-        sshUser = "root";
-        sshKey = config.age.secrets.builder-ssh-key.path;
-        systems = ["x86_64-linux"];
-        supportedFeatures = [
-          "big-parallel"
-        ];
-      }
-      // conf)
+    builtins.map
+    (
+      conf:
+        {
+          sshUser = "root";
+          sshKey = config.age.secrets.builder-ssh-key.path;
+          systems = ["x86_64-linux"];
+          supportedFeatures = [
+            "big-parallel"
+          ];
+        }
+        // conf
+    )
     [
       {
         hostName = "auriga";
