@@ -130,6 +130,7 @@
         {command = "signal-desktop";}
         {command = "pidof btop || foot --title btop btop";}
         {command = lib.getExe pkgs.foot;}
+        {command = "doas ${pkgs.g810-led}/bin/g610-led -a ff";}
       ];
     };
   };
