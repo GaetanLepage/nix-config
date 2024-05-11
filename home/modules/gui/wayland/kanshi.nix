@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  lib,
+  ...
+}: {
   home.packages = [
     pkgs.kanshi
   ];
@@ -6,75 +10,98 @@
   services.kanshi = {
     enable = true;
 
-    profiles = let
+    settings = let
+      laptopScreenName = "eDP-1";
+      disabledLaptopScreen = {
+        criteria = laptopScreenName;
+        status = "disable";
+      };
+
       mkWifiHook = on: "${pkgs.networkmanager}/bin/nmcli radio wifi ${
         if on
         then "on"
         else "off"
       }";
 
-      mkSingleExternalScreen = {
-        externalCriteria ? "DP-1",
-        mode,
-        wifiState ? true,
-      }: {
-        outputs = [
-          {
-            criteria = "eDP-1";
-            status = "disable";
-          }
-          {
-            criteria = externalCriteria;
-            inherit mode;
+      home = let
+        homeScreenName = "LG Electronics LG ULTRAGEAR 108MAHU2AU49";
+      in [
+        {
+          # Home screen config
+          output = {
+            criteria = homeScreenName;
+            mode = "2560x1440@143.932999Hz";
             position = "0,0";
-          }
-        ];
-        exec = mkWifiHook wifiState;
-      };
+          };
+        }
 
-      laptopOutput = {
-        criteria = "eDP-1";
-        mode = "2256x1504";
-        position = "0,0";
-        scale = 1.333333;
-        status = "enable";
-      };
+        # home
+        {
+          profile = {
+            name = "home";
+            outputs = [
+              disabledLaptopScreen
+              {criteria = homeScreenName;}
+            ];
+            exec = mkWifiHook false;
+          };
+        }
 
-      homeScreen = {
-        criteria = "LG Electronics LG ULTRAGEAR 108MAHU2AU49";
-        mode = "2560x1440@143.932999Hz";
-      };
-    in {
-      laptop = {
-        outputs = [laptopOutput];
-        exec = mkWifiHook true;
-      };
+        # stream
+        {
+          profile = {
+            name = "stream";
+            outputs = [
+              {criteria = homeScreenName;}
+              {
+                criteria = laptopScreenName;
+                position = "2560,0";
+              }
+            ];
+            exec = mkWifiHook false;
+          };
+        }
+      ];
+    in
+      [
+        # Laptop screen (default configuration)
+        {
+          output = {
+            criteria = laptopScreenName;
+            mode = "2256x1504";
+            position = "0,0";
+            scale = 1.333333;
+            status = "enable";
+          };
+        }
 
-      stream = {
-        outputs = [
-          (homeScreen // {position = "0,0";})
-          (laptopOutput // {position = "2560,0";})
-        ];
-        exec = mkWifiHook false;
-      };
+        ## PROFILES ##
 
-      inria = mkSingleExternalScreen {
-        externalCriteria = "Dell Inc. DELL U2719DC 88QSTS2";
-        mode = "2560x1440@59.95Hz";
-        wifiState = true;
-      };
+        # laptop
+        {
+          profile = {
+            name = "laptop";
+            outputs = [{criteria = laptopScreenName;}];
+            exec = mkWifiHook true;
+          };
+        }
 
-      home = mkSingleExternalScreen {
-        externalCriteria = homeScreen.criteria;
-        inherit (homeScreen) mode;
-        wifiState = false;
-      };
-
-      dom = mkSingleExternalScreen {
-        externalCriteria = "BNQ BenQ GW2460 N9D04183SL0";
-        mode = "1920x1080";
-        wifiState = true;
-      };
-    };
+        # inria
+        {
+          profile = {
+            name = "inria";
+            outputs = [
+              disabledLaptopScreen
+              {
+                criteria = "Dell Inc. DELL U2719DC 88QSTS2";
+                position = "0,0";
+                mode = "2560x1440@59.95Hz";
+              }
+            ];
+            exec = mkWifiHook false;
+          };
+        }
+      ]
+      ++ home;
   };
 }
