@@ -16,6 +16,13 @@
         criteria = laptopScreenName;
         status = "disable";
       };
+      laptopScreen = {
+        criteria = laptopScreenName;
+        mode = "2256x1504";
+        position = "0,0";
+        scale = 1.333333;
+        status = "enable";
+      };
 
       mkWifiHook = on: "${pkgs.networkmanager}/bin/nmcli radio wifi ${
         if on
@@ -25,23 +32,19 @@
 
       home = let
         homeScreenName = "LG Electronics LG ULTRAGEAR 108MAHU2AU49";
+        homeScreen = {
+          criteria = homeScreenName;
+          mode = "2560x1440@143.932999Hz";
+          position = "0,0";
+        };
       in [
-        {
-          # Home screen config
-          output = {
-            criteria = homeScreenName;
-            mode = "2560x1440@143.932999Hz";
-            position = "0,0";
-          };
-        }
-
         # home
         {
           profile = {
             name = "home";
             outputs = [
               disabledLaptopScreen
-              {criteria = homeScreenName;}
+              homeScreen
             ];
             exec = mkWifiHook false;
           };
@@ -52,11 +55,8 @@
           profile = {
             name = "stream";
             outputs = [
-              {criteria = homeScreenName;}
-              {
-                criteria = laptopScreenName;
-                position = "2560,0";
-              }
+              homeScreen
+              (laptopScreen // {position = "2560,0";})
             ];
             exec = mkWifiHook false;
           };
@@ -64,24 +64,11 @@
       ];
     in
       [
-        # Laptop screen (default configuration)
-        {
-          output = {
-            criteria = laptopScreenName;
-            mode = "2256x1504";
-            position = "0,0";
-            scale = 1.333333;
-            status = "enable";
-          };
-        }
-
-        ## PROFILES ##
-
         # laptop
         {
           profile = {
             name = "laptop";
-            outputs = [{criteria = laptopScreenName;}];
+            outputs = [laptopScreen];
             exec = mkWifiHook true;
           };
         }
