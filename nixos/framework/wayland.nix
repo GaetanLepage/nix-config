@@ -4,7 +4,6 @@
   users.users.gaetan.extraGroups = ["video"];
 
   programs.sway.enable = true;
-  programs.hyprland.enable = false;
 
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
