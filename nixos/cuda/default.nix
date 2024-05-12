@@ -12,7 +12,6 @@
     ./desktop
     ./disko.nix
     ./nix-remote-builder.nix
-    ./nvidia.nix
     ./server-tank-nfs.nix
     ./tabby.nix
     ./wireguard
@@ -33,6 +32,8 @@
     btop
     htop
   ];
+
+  my-modules.nvidia.enable = true;
 
   system = {
     autoUpgrade = {
