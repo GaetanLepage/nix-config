@@ -85,7 +85,7 @@
                 mode = "2560x1440@59.95Hz";
               }
             ];
-            exec = mkWifiHook false;
+            exec = mkWifiHook true;
           };
         }
       ]
