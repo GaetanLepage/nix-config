@@ -12,6 +12,8 @@
     cfg = config.my-modules.nvidia;
   in
     lib.mkIf cfg.enable {
+      nixpkgs.config.cudaSupport = true;
+
       services.xserver.videoDrivers = ["nvidia"];
 
       environment.systemPackages = [pkgs.nvtopPackages.nvidia];
