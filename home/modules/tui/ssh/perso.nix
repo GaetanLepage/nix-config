@@ -47,4 +47,9 @@ lib.mapAttrs
     hostname = "10.10.10.20";
     user = "root";
   };
+
+  dolibarr = {
+    hostname = "85.215.154.207";
+    user = "root";
+  };
 }
