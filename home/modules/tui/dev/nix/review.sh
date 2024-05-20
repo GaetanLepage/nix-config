@@ -26,7 +26,7 @@ function rev {
 	tmux new-window -t "$pr_number":"$window_id"
 	tmux rename-window -t "$pr_number":"$window_id" "$1"
 
-	command="sleep 1 && nixpkgs-review pr --no-shell --post-result --system $1 $pr_number"
+	command="nixpkgs-review pr --no-shell --post-result --system $1 $pr_number"
 	tmux send-keys -t "$pr_number":"$window_id" "$command" C-m
 
 	((window_id++))
