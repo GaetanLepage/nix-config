@@ -8,6 +8,7 @@
     ./gammastep.nix
     ./kanshi.nix
     ./sway
+    ./river
     ./waybar
   ];
 
