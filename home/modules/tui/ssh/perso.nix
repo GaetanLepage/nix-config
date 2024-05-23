@@ -49,7 +49,7 @@ lib.mapAttrs
   };
 
   dolibarr = {
-    hostname = "85.215.154.207";
+    hostname = "dolibarr.lepage-knives.com";
     user = "root";
   };
 }
