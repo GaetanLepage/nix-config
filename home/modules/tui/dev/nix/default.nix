@@ -10,6 +10,7 @@
       # nixpkgs
       nix-update
       nixpkgs-review
+      nixfmt-rfc-style
       luarocks-packages-updater
       vimPluginsUpdater
       (pkgs.writeShellApplication {
