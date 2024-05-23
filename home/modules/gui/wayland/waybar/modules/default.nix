@@ -14,7 +14,7 @@ pkgs: {
     format-bluetooth = "{volume}% {icon}";
     format-muted = "󰖁 muted";
     format-icons = {
-      headphone = "";
+      headphone = " ";
       hands-free = "󰋎";
       headset = "󰋎";
       default = "󰕾";
