@@ -26,6 +26,8 @@
   };
 
   home = {
+    stateVersion = "24.11";
+
     username = lib.mkDefault "gaetan";
     homeDirectory = lib.mkDefault "/home/gaetan";
 
