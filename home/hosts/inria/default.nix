@@ -15,8 +15,6 @@ in {
     username = "galepage";
     inherit homeDirectory;
 
-    stateVersion = "22.11";
-
     sessionVariables = {
       LD_PRELOAD = "/lib/x86_64-linux-gnu/libnss_sss.so.2";
     };
