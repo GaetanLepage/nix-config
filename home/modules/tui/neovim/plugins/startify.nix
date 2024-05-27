@@ -20,6 +20,13 @@
       # If you set this option to 1 and your 'encoding' is "utf-8", Unicode box-drawing characters will
       # be used instead.
       use_unicode = true;
+
+      lists = [{type = "dir";}];
+      files_number = 30;
+
+      skiplist = [
+        "flake.lock"
+      ];
     };
   };
 }
