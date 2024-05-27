@@ -11,7 +11,7 @@
       {
         mode = "n";
         key = "<C-t>";
-        action = ''
+        action.__raw = ''
           function()
             require('telescope.builtin').live_grep({
               default_text="TODO",
@@ -19,7 +19,6 @@
             })
           end
         '';
-        lua = true;
         options.silent = true;
       }
     ];
