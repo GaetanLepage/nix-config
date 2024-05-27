@@ -37,6 +37,11 @@
       };
 
       oil.enable = true;
+
+      trim = {
+        enable = true;
+        settings.highlight = true;
+      };
     };
   };
 }
