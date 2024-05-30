@@ -40,7 +40,14 @@
 
       trim = {
         enable = true;
-        settings.highlight = true;
+        settings = {
+          highlight = true;
+          ft_blocklist = [
+            "floaterm"
+            "lspinfo"
+            "TelescopePrompt"
+          ];
+        };
       };
     };
   };
