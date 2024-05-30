@@ -18,7 +18,10 @@
 
       typst-vim = {
         enable = true;
-        settings.pdf_viewer = "zathura";
+        settings = {
+          auto_open_quickfix = false;
+          pdf_viewer = "zathura";
+        };
       };
     };
   };
