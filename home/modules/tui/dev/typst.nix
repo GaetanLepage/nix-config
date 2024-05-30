@@ -8,7 +8,7 @@
   programs.nixvim = {
     plugins = {
       # EFM
-      efmls-configs.setup.typst.formatter = "typstfmt";
+      efmls-configs.setup.typst.formatter = "typstyle";
       lsp.servers.efm.filetypes = ["typst"];
 
       lsp.servers.tinymist = {
