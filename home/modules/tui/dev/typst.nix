@@ -11,13 +11,9 @@
       efmls-configs.setup.typst.formatter = "typstfmt";
       lsp.servers.efm.filetypes = ["typst"];
 
-      lsp.servers.typst-lsp = {
+      lsp.servers.tinymist = {
         enable = true;
-        rootDir = ''
-          require 'lspconfig.util'.root_pattern('.git', 'main.typ')
-        '';
-        # Conflicts with typst.vim
-        extraOptions.settings.exportPdf = "never";
+        settings.formatterMode = "typstyle";
       };
 
       typst-vim = {
