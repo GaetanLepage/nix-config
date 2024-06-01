@@ -14,7 +14,7 @@ pkgs: {
     }
 
     if `is_con_active wireguard`; then
-        echo '{"text": " wireguard"}'
+        echo '{"text": " wg"}'
 
     elif `is_con_active vpn_inria`; then
         echo '{"text": " inria"}'
