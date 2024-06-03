@@ -31,12 +31,11 @@
       };
     };
 
-    keymaps = [
+    files."after/ftplugin/tex.lua".keymaps = [
       {
         mode = "n";
         key = "m";
-        action = ":VimtexView<CR>";
-        options.silent = true;
+        action = ":VimtexView<cr>";
       }
     ];
 
