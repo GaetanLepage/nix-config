@@ -23,7 +23,7 @@
         # allowedIPs = [ "10.10.10.0/24" ];
 
         # Set this to the server IP and port.
-        endpoint = "109.13.20.45:51820";
+        endpoint = "79.88.104.190:51820";
 
         # Send keepalives every 25 seconds. Important to keep NAT tables alive.
         persistentKeepalive = 25;
