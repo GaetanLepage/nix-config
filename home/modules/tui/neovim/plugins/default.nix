@@ -45,6 +45,7 @@
           ft_blocklist = [
             "floaterm"
             "lspinfo"
+            "neo-tree"
             "TelescopePrompt"
           ];
         };
