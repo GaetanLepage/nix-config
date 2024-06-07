@@ -1,8 +1,4 @@
-{
-  pkgs,
-  lib,
-  ...
-}: {
+{pkgs, ...}: {
   # light (backlight control)
   programs.light.enable = true;
   users.users.gaetan.extraGroups = ["video"];
@@ -20,13 +16,6 @@
   };
 
   services = {
-    greetd = {
-      enable = false;
-      settings.default_session = {
-        command = "${lib.getExe pkgs.greetd.tuigreet} --time --remember --cmd sway";
-        user = "greeter";
-      };
-    };
     displayManager = {
       sddm = {
         enable = true;
