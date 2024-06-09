@@ -62,12 +62,8 @@
 
   outputs = {
     self,
-    agenix-rekey,
     flake-parts,
-    home-manager,
-    nix-index-database,
     nixpkgs,
-    nixvim,
     ...
   } @ inputs:
     flake-parts.lib.mkFlake {inherit inputs;} {
