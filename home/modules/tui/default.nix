@@ -1,6 +1,7 @@
 {
   pkgs,
   lib,
+  inputs,
   ...
 }: {
   imports = [
@@ -15,6 +16,7 @@
     ./tmux.nix
     ./xdg.nix
     ./zellij.nix
+    inputs.nix-index-database.hmModules.nix-index
   ];
 
   programs = {
