@@ -43,6 +43,7 @@
         settings = {
           highlight = true;
           ft_blocklist = [
+            "checkhealth"
             "floaterm"
             "lspinfo"
             "neo-tree"
