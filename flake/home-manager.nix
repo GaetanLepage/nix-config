@@ -1,14 +1,4 @@
-{
-  inputs,
-  homeManagerModules,
-  ...
-}: {
-  _module.args = {
-    homeManagerModules = hostname: [
-      ../home/hosts/${hostname}
-    ];
-  };
-
+{inputs, ...}: {
   # Inria
   flake.homeConfigurations.inria = inputs.home-manager.lib.homeManagerConfiguration {
     pkgs = import inputs.nixpkgs {
@@ -19,6 +9,6 @@
       };
     };
     extraSpecialArgs.inputs = inputs;
-    modules = homeManagerModules "inria";
+    modules = [../home/hosts/inria];
   };
 }
