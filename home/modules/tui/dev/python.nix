@@ -12,8 +12,7 @@
             # RL
             matplotlib
             numpy
-            torch
-            tensorboard
+            torch-bin
           ]
       ))
 
