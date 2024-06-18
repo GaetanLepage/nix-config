@@ -21,7 +21,7 @@
       {
         hostName = "auriga";
         publicHostKey = "c3NoLWVkMjU1MTkgQUFBQUMzTnphQzFsWkRJMU5URTVBQUFBSUU3Vi9GRW9EQmxwQWg3NzM3VjJRcTYzbXA2Nk85WVhMRWRBREIzRVZEMmggcm9vdEBwb3Atb3MK";
-        maxJobs = 48;
+        maxJobs = 2;
         speedFactor = 3;
       }
     ];
