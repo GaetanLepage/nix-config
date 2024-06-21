@@ -45,6 +45,7 @@
           "x86_64-darwin"
         ];
         supportedFeatures = [
+          "apple-virt"
           "big-parallel"
         ];
       }
