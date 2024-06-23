@@ -13,7 +13,10 @@ in {
   gtk = {
     enable = true;
 
-    font.name = "DejaVu Sans 12";
+    font = {
+      name = "DejaVu Sans";
+      size = 12;
+    };
 
     theme = {
       name = "Matcha-dark-aliz";
