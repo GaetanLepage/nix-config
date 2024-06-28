@@ -20,7 +20,7 @@
           command = ''
             hostname=$1
 
-            echo "=> Deploying system '$hostname'"
+            echo -e "\n=> Deploying system '$hostname'"
             nixos-rebuild switch \
                 --fast \
                 --flake .#$hostname \
