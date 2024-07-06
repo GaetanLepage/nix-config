@@ -19,7 +19,7 @@
 
     # IM
     discord
-    nheko
+    element-desktop
     jitsi-meet-electron
     signal-desktop
     slack
