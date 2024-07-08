@@ -20,7 +20,7 @@
         "number 6" = [{app_id = "signal";}];
         "number 7" = [{class = "Zotero";}];
         "number 8" = [
-          {app_id = "Element";}
+          {app_id = "nheko";}
           {app_id = "Slack";}
           {app_id = "discord";}
           {app_id = "Jitsi Meet";}
