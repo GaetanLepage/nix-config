@@ -5,8 +5,11 @@
 
       nixvimInjections = true;
 
+      settings = {
+        highlight.enable = true;
+        indent.enable = true;
+      };
       folding = true;
-      indent = true;
     };
 
     treesitter-refactor = {
