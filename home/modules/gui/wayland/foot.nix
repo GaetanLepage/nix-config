@@ -6,7 +6,6 @@
       main = {
         font = "DejaVu Sans Mono:size=18";
         font-size-adjustment = 1;
-        dpi-aware = "no";
       };
 
       mouse.hide-when-typing = "yes";
