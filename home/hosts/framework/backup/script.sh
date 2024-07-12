@@ -5,7 +5,7 @@ if [ "${1-}" = "-d" ]; then
 	DRY_RUN='--dry-run'
 fi
 
-dest_path=/tank/gaetan/backup/home
+dest_path=/tank/gaetan/backup/homedir
 
 rsync -zravut "$HOME/" server:$dest_path \
 	--human-readable \
