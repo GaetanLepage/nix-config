@@ -13,7 +13,6 @@
     ./disko.nix
     ./nix-remote-builder.nix
     ./server-tank-nfs.nix
-    ./tabby.nix
     ./wireguard
   ];
 

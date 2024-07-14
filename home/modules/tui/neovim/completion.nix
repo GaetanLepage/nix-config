@@ -17,7 +17,6 @@
             luasnip = "[snip]";
             buffer = "[buffer]";
             neorg = "[neorg]";
-            cmp_tabby = "[Tabby]";
           };
         };
       };
@@ -41,7 +40,6 @@
           sources = [
             {name = "path";}
             {name = "nvim_lsp";}
-            {name = "cmp_tabby";}
             {name = "luasnip";}
             {
               name = "buffer";
@@ -52,9 +50,6 @@
           ];
         };
       };
-
-      # cuda
-      cmp-tabby.settings.host = "http://10.10.10.5:8080";
     };
   };
 }
