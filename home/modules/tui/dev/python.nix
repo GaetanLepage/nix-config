@@ -2,7 +2,7 @@
   home = {
     packages = with pkgs; [
       # Python
-      (python3.withPackages (
+      (python311.withPackages (
         ps:
           with ps; [
             # Misc
