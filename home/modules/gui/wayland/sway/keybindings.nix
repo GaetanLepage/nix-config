@@ -97,6 +97,18 @@
         # Web browser
         "${mod}+w" = "exec ${getExe pkgs.firefox}";
 
+        # btop
+        "${mod}+Shift+b" = let
+          foot = getExe config.programs.foot.package;
+          btop = getExe config.programs.btop.package;
+          swaymsg = lib.getExe' config.wayland.windowManager.sway.package "swaymsg";
+
+          runOrFocusBtop = pkgs.writeShellScript "btop" ''
+            ${swaymsg} workspace 10
+            pidof btop || ${foot} --title btop ${btop}
+          '';
+        in "exec ${runOrFocusBtop}";
+
         # screenshot (flameshot)
         Print = "exec ${getExe pkgs.flameshot} gui";
 
