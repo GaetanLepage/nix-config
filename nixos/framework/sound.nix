@@ -20,8 +20,5 @@
     };
   };
 
-  # Enable sound. Set to `false` if using PipeWire
-  sound.enable = false;
-
   nixpkgs.config.pulseaudio = true;
 }
