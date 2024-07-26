@@ -32,7 +32,10 @@
     htop
   ];
 
-  my-modules.nvidia.enable = true;
+  my-modules = {
+    nvidia.enable = true;
+    remote-builders.enableX86 = true;
+  };
 
   system = {
     autoUpgrade = {
