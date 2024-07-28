@@ -3,6 +3,10 @@
   lib,
   ...
 }: {
+  imports = [
+    ./nix-builders.nix
+  ];
+
   options.sshKeysPathPrefix = lib.mkOption {
     type = lib.types.str;
     default = "/run/agenix/ssh-";
