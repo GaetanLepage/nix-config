@@ -1,6 +1,7 @@
 {
   config,
   lib,
+  osConfig,
   ...
 }: {
   options.githubToken = {
@@ -10,7 +11,7 @@
     lib.mkIf config.githubToken.enable
     {
       home.sessionVariables = let
-        token = "$(cat /run/agenix/github-token)";
+        token = "$(cat ${osConfig.age.secrets.github-token.path})";
       in {
         GITHUB_API_TOKEN = token;
         GITHUB_TOKEN = token;
