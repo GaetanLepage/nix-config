@@ -24,7 +24,6 @@
 
         servers = {
           clangd.enable = true;
-          lua-ls.enable = true;
           texlab.enable = true;
         };
       };
