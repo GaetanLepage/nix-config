@@ -25,6 +25,7 @@
 
     shellAliases = {
       nb = "nom-build --system x86_64-linux -A";
+      nbl = "nom-build --system x86_64-linux --builders '' -A";
       nba = "nom-build --max-jobs 0 --system aarch64-linux -A";
       nbd = "nom-build --max-jobs 0 --system x86_64-darwin -A";
       nbda = "nom-build --max-jobs 0 --system aarch64-darwin -A";
