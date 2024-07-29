@@ -15,6 +15,14 @@
     enable = true;
     defaultEditor = true;
 
+    performance.combinePlugins = {
+      enable = true;
+      standalonePlugins = [
+        "hmts.nvim"
+        "nvim-treesitter"
+      ];
+    };
+
     viAlias = true;
     vimAlias = true;
 
