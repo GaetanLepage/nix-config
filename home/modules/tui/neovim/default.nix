@@ -15,12 +15,15 @@
     enable = true;
     defaultEditor = true;
 
-    performance.combinePlugins = {
-      enable = true;
-      standalonePlugins = [
-        "hmts.nvim"
-        "nvim-treesitter"
-      ];
+    performance = {
+      combinePlugins = {
+        enable = true;
+        standalonePlugins = [
+          "hmts.nvim"
+          "nvim-treesitter"
+        ];
+      };
+      byteCompileLua.enable = true;
     };
 
     viAlias = true;
