@@ -5,7 +5,7 @@
     address = ["10.10.10.2/32"];
 
     listenPort = 51820;
-    dns = ["10.10.10.1"];
+    dns = ["10.10.10.8"];
 
     autostart = true;
 
@@ -23,7 +23,7 @@
         # allowedIPs = [ "10.10.10.0/24" ];
 
         # Set this to the server IP and port.
-        endpoint = "79.88.104.190:51820";
+        endpoint = "162.19.67.38:51820";
 
         # Send keepalives every 25 seconds. Important to keep NAT tables alive.
         persistentKeepalive = 25;
