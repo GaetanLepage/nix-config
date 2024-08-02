@@ -22,7 +22,7 @@
 
         peers = [
           {
-            endpoint = "glepage.com:51820";
+            endpoint = "vpn.glepage.com:51820";
             publicKey = "jWzlVwkNkaO1uj7Qh+Xemo0EtxIYP2ufK+18oPcdvBY=";
 
             # Forward all the traffic via VPN.
