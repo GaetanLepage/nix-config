@@ -22,6 +22,7 @@ lib.mapAttrs
     port = 223;
     user = "uc";
   };
+  vps.hostname = "vps.glepage.com";
 
   server = {};
   router = {
