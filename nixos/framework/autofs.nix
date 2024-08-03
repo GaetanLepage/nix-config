@@ -10,7 +10,7 @@
 
         server \
             -fstype=nfs4 \
-            10.10.10.1:/tank
+            10.10.10.8:/tank
       '';
     in ''
       /mnt        ${mapConf}          --timeout 600
