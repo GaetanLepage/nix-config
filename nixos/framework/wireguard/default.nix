@@ -5,7 +5,7 @@
     address = ["10.10.10.2/32"];
 
     listenPort = 51820;
-    dns = ["10.10.10.8"];
+    dns = ["10.10.10.1"];
 
     autostart = true;
 
