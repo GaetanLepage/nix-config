@@ -6,7 +6,6 @@ lib.mapAttrs
 (
   blockName: blockConfig:
     {
-      hostname = "glepage.com";
       user = "gaetan";
       inherit identityFile;
     }
@@ -16,15 +15,17 @@ lib.mapAttrs
   ########
   # Home #
   ########
-  cuda.port = 222;
 
+  # coloc
+  cuda = {
+    hostname = "uc.glepage.com";
+    port = 222;
+  };
   tv = {
+    hostname = "uc.glepage.com";
     port = 223;
     user = "uc";
   };
-  vps.hostname = "vps.glepage.com";
-
-  server = {};
   router = {
     hostname = "192.168.1.1";
     user = "root";
@@ -33,6 +34,9 @@ lib.mapAttrs
       PubkeyAcceptedKeyTypes = "+ssh-rsa";
     };
   };
+  server.hostname = "uc.glepage.com";
+
+  vps.hostname = "vps.glepage.com";
 
   pixel = {
     hostname = "10.10.10.3";
