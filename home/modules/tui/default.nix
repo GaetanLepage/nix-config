@@ -51,6 +51,7 @@
       tlrc
 
       git
+      wget
     ];
   };
 }
