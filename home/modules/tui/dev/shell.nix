@@ -1,25 +1,13 @@
-{
+{pkgs, ...}: {
   programs = {
     nixvim = {
+      extraPackages = with pkgs; [
+        shellcheck
+        shfmt
+      ];
       plugins = {
-        efmls-configs.setup = let
-          shellTools = {
-            formatter = "shfmt";
-            linter = "shellcheck";
-          };
-        in {
-          bash = shellTools;
-          sh = shellTools;
-        };
-
-        lsp.servers = {
-          bashls.enable = true;
-
-          efm.filetypes = [
-            "bash"
-            "sh"
-          ];
-        };
+        lsp.servers.bashls.enable = true;
+        lsp-format.lspServersToEnable = ["bashls"];
       };
     };
   };
