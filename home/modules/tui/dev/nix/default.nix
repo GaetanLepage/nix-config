@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  lib,
+  ...
+}: {
   home = {
     packages = with pkgs; [
       alejandra
@@ -47,7 +51,38 @@
   };
 
   programs.nixvim = {
-    plugins.lsp.servers.nil-ls.enable = true;
+    extraConfigLuaPre = let
+      nixfmtPath = lib.getExe pkgs.nixfmt-rfc-style;
+      alejandraPath = lib.getExe pkgs.alejandra;
+    in ''
+      local get_nix_formatter = function()
+        local match = function(name)
+          return string.find(
+            vim.fn.getcwd(),
+            "/" .. name .. "/"
+          )
+        end
+
+        -- remove when nixpkgs will have formatted the code base
+        if match("nixpkgs") then
+          return ""
+        end
+
+        if match("nixpkgs") or match("nixvim") then
+          return "${nixfmtPath}"
+        end
+
+        return "${alejandraPath}"
+      end
+    '';
+
+    plugins = {
+      lsp.servers.nil-ls = {
+        enable = true;
+        settings.formatting.command = [{__raw = "get_nix_formatter()";}];
+      };
+      lsp-format.lspServersToEnable = ["nil_ls"];
+    };
 
     # Set indentation to 2 spaces
     files."after/ftplugin/nix.lua" = {
@@ -56,53 +91,5 @@
         shiftwidth = 2;
       };
     };
-
-    autoCmd = [
-      {
-        event = "BufWritePost";
-        pattern = "*.nix";
-        callback.__raw = ''
-          function()
-            -- No formatting in nixpkgs
-            local file_absolute_path = vim.fn.expand('%:p')
-            if string.find(file_absolute_path, "/nixpkgs/") then
-              return
-            end
-
-            vim.fn.jobstart(
-              {"nix", "fmt"},
-              {
-                stderr_buffered = true,
-
-                on_stderr=function(_, data)
-                  if data then
-                    for _, line in ipairs(data) do
-                      -- Ignore cases where formatting is not possible
-                      if string.find(line, "error: could not find a flake.nix file") then
-                        return
-                      end
-                      if string.find(line, "does not provide attribute") then
-                        return
-                      end
-                    end
-                    print("nix fmt: error!")
-                  end
-                end,
-
-                on_exit=function(_, exit_code, _)
-                  -- Refresh the file
-                  vim.api.nvim_command("checktime")
-
-                  -- Formatting was succesful
-                  if exit_code == 0 then
-                    print("nix fmt: OK")
-                  end
-                end
-              }
-            )
-          end
-        '';
-      }
-    ];
   };
 }
