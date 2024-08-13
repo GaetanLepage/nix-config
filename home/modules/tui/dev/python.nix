@@ -12,7 +12,7 @@
             # RL
             matplotlib
             numpy
-            torch-bin
+            torch
           ]
       ))
 
