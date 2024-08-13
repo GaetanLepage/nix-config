@@ -67,11 +67,13 @@ pkgs: {
   clock = {
     interval = 5;
     format = "  {:%H:%M}";
+    tooltip = false; # disable hover
   };
 
   "clock#date" = {
     interval = 5;
     format = "  {:%d/%m/%Y}";
+    tooltip = false; # disable hover
   };
 
   "custom/notifs" = import ./notifs.nix pkgs;
