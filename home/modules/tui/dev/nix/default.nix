@@ -58,7 +58,7 @@
       local get_nix_formatter = function()
         local match = function(name)
           return string.find(
-            vim.fn.getcwd(),
+            vim.fn.getcwd() .. "/",
             "/" .. name .. "/"
           )
         end
