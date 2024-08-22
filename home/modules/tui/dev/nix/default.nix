@@ -81,7 +81,7 @@
         enable = true;
         settings.formatting.command = [{__raw = "get_nix_formatter()";}];
       };
-      lsp-format.lspServersToEnable = ["nil_ls"];
+      lsp-format.lspServersToEnable = ["nil-ls"];
     };
 
     # Set indentation to 2 spaces
