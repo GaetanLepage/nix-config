@@ -1,6 +1,7 @@
 {
   pkgs,
   lib,
+  config,
   ...
 }: {
   home = {
@@ -45,6 +46,8 @@
       nu = "nix-update";
       nuc = "nix-update --commit";
       nucb = "nix-update --commit --build";
+
+      clean-reviews = "rm -rf ${config.xdg.cacheHome}/nixpkgs-review";
     };
 
     sessionVariables.NIXPKGS_ALLOW_UNFREE = 1;
