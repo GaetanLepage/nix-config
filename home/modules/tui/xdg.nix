@@ -39,6 +39,7 @@
         "image/heif" = "org.gnome.gThumb.desktop";
         "image/jpeg" = "org.gnome.gThumb.desktop";
         "image/png" = "org.gnome.gThumb.desktop";
+        "image/svg+xml" = "org.gnome.gThumb.desktop";
         "image/webp" = "org.gnome.gThumb.desktop";
         "application/octet-stream" = "org.gnome.gThumb.desktop"; # matplotlib figures
 
