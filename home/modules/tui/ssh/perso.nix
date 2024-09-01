@@ -18,8 +18,8 @@ lib.mapAttrs
 
   # coloc
   cuda = {
-    hostname = "uc.glepage.com";
-    port = 222;
+    hostname = "feroe.glepage.com";
+    port = 223;
   };
   router = {
     hostname = "192.168.1.1";
@@ -29,7 +29,10 @@ lib.mapAttrs
       PubkeyAcceptedKeyTypes = "+ssh-rsa";
     };
   };
-  server.hostname = "uc.glepage.com";
+  server = {
+    hostname = "feroe.glepage.com";
+    port = 222;
+  };
 
   vps.hostname = "vps.glepage.com";
 
