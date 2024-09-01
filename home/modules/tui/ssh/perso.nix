@@ -21,11 +21,6 @@ lib.mapAttrs
     hostname = "uc.glepage.com";
     port = 222;
   };
-  tv = {
-    hostname = "uc.glepage.com";
-    port = 223;
-    user = "uc";
-  };
   router = {
     hostname = "192.168.1.1";
     user = "root";
