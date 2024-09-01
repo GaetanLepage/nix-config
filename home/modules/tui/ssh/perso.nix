@@ -48,11 +48,6 @@ lib.mapAttrs
   ##############
   feroe.hostname = "feroe.glepage.com";
 
-  acl-desktop = {
-    hostname = "10.10.10.20";
-    user = "root";
-  };
-
   dolibarr = {
     hostname = "dolibarr.lepage-knives.com";
     user = "root";
