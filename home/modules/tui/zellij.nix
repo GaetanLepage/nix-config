@@ -1,6 +1,7 @@
 {
   home.shellAliases = {
     zj = "zellij";
+    zz = "zellij attach --create main";
   };
 
   programs.zellij = {
