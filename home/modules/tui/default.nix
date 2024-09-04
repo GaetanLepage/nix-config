@@ -46,6 +46,7 @@
 
       # Other utils
       htop
+      mprocs
       ncdu
       sshfs
       tlrc
