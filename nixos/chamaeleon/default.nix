@@ -5,7 +5,7 @@
     ../common
 
     ./disko.nix
-    ./remote-builders
+    # ./remote-builders
     ./wireguard
     ./robotlearn
   ];
