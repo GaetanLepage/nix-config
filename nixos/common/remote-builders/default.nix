@@ -4,7 +4,10 @@
   ...
 }: {
   options = {
-    my-modules.remote-builders.enableX86 = lib.mkEnableOption "";
+    my-modules.remote-builders.linuxMaxJobs = lib.mkOption {
+      type = lib.types.ints.unsigned;
+      default = 16;
+    };
   };
 
   config = let
@@ -70,14 +73,13 @@
           sshUser = "glepage";
           sshKey = config.age.secrets.linux-build-box-ssh-key.path;
           publicHostKey = "c3NoLWVkMjU1MTkgQUFBQUMzTnphQzFsWkRJMU5URTVBQUFBSUVsSVE1NHFBeTdEaDYzckJ1ZFlLZGJ6SkhycmJyck1YTFlsN1BrbWs4OEgK";
-          maxJobs = 16;
+          maxJobs = cfg.linuxMaxJobs;
           speedFactor = 1;
-          systems =
-            [
-              "i686-linux"
-              "riscv64-linux"
-            ]
-            ++ (lib.optional cfg.enableX86 "x86_64-linux");
+          systems = [
+            "i686-linux"
+            "riscv64-linux"
+            "x86_64-linux"
+          ];
           supportedFeatures = [
             "benchmark"
             "big-parallel"
