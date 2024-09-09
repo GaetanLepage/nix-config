@@ -4,7 +4,7 @@
       enable = true;
 
       settings = {
-        auto_close = false;
+        auto_close = 0;
         theme = "dark";
       };
     };
