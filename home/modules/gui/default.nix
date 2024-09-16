@@ -16,6 +16,8 @@
     libnotify
 
     ## GUI applications
+    inkscape
+    drawio
 
     # IM
     discord
