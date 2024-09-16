@@ -36,8 +36,8 @@ in {
       "file:///mnt"
       "file:///mnt/server"
 
-      "file://${config.home.homeDirectory}/inria/communication/repo/reading_group"
-      "file://${config.home.homeDirectory}/inria/communication/repo/meetings"
+      "file://${config.home.homeDirectory}/inria/code/rlan/output/plots"
+      "file://${config.home.homeDirectory}/inria/communication/manuscript/figures"
     ];
 
     gtk2.configLocation = "${config.xdg.configHome}/gtk-2.0/gtkrc";
