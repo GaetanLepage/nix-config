@@ -18,10 +18,6 @@
 
       mypy
     ];
-
-    shellAliases = {
-      pyp = "PYTHONPATH=. python";
-    };
   };
 
   programs = {
