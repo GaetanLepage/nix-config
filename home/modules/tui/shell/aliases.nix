@@ -63,5 +63,4 @@
   nfm = "nix fmt";
   nfc = "nix flake check --all-systems";
   nfmc = "nix fmt && nix flake check --all-systems";
-  uc = "nixos-rebuild switch --fast --flake ~/config#cuda --target-host root@cuda --build-host root@cuda";
 }
