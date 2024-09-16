@@ -50,8 +50,6 @@
   wgd = "sudo systemctl stop wg-quick-wg0";
   viu = "nmcli connection up vpn_inria";
   vid = "nmcli connection down vpn_inria";
-  veu = "nmcli connection up vpn_ensimag";
-  ved = "nmcli connection down vpn_ensimag";
 
   #######
   # Nix #
