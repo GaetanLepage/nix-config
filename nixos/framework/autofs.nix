@@ -3,6 +3,7 @@
     enable = true;
 
     autoMaster = let
+      # inria (alya)
       mapConf = pkgs.writeText "autofs.mnt" ''
         alya \
             -fstype=nfs4 \

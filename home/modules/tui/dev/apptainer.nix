@@ -1,4 +1,5 @@
 {
+  # inria
   programs.nixvim = {
     filetype.extension.def = "apptainer";
 

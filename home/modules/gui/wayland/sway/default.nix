@@ -18,12 +18,12 @@
         "number 2" = [{app_id = "firefox";}];
         "number 4" = [{app_id = "thunderbird";}];
         "number 6" = [{app_id = "signal";}];
-        "number 7" = [{class = "Zotero";}];
+        "number 7" = [{class = "Zotero";}]; # inria
         "number 8" = [
           {app_id = "nheko";}
-          {app_id = "Slack";}
+          {app_id = "Slack";} # inria
           {app_id = "discord";}
-          {app_id = "Jitsi Meet";}
+          {app_id = "Jitsi Meet";} # inria
         ];
         "number 9" = [{app_id = "Spotify";}];
         "number 10" = [{title = "btop";}];
@@ -40,8 +40,8 @@
           title = "Edit Event*";
         }
         # Matplotlib plots
-        {class = "matplotlib";}
-        {app_id = "python3";}
+        {class = "matplotlib";} # inria
+        {app_id = "python3";} # inria
       ];
 
       fonts = {

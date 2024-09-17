@@ -10,7 +10,7 @@
         user = "glepage";
         setEnv.TERM = "xterm-256color";
       }
-      # TODO: remove this along with alya/inria HM-only config
+      # inria
       // (lib.optionalAttrs (osConfig != null) {
         identityFile = osConfig.age.secrets.${v.sshKeyName}.path;
       }))

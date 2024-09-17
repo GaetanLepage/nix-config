@@ -24,12 +24,12 @@
     nheko
     jitsi-meet-electron
     signal-desktop
-    slack
+    slack # inria
 
     # Office / productivity
     libreoffice-fresh
     okular
-    zotero
+    zotero # inria
 
     # Misc
     spotify

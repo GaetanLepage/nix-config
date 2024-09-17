@@ -2,6 +2,7 @@
   home = {
     packages = with pkgs; [
       # Python
+      # inria
       (python311.withPackages (
         ps:
           with ps; [
@@ -30,9 +31,9 @@
     };
 
     nixvim = {
-      filetype.extension.gin = "gin";
+      filetype.extension.gin = "gin"; # inria
       plugins = {
-        treesitter.languageRegister.python = ["gin"];
+        treesitter.languageRegister.python = ["gin"]; # inria
         lsp-format.lspServersToEnable = ["ruff"];
         lsp.servers = {
           ruff.enable = true;

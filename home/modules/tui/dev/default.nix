@@ -1,6 +1,6 @@
 {pkgs, ...}: {
   imports = [
-    ./apptainer.nix
+    ./apptainer.nix # inria
     ./github-token.nix
     ./lua.nix
     ./nix
@@ -18,6 +18,7 @@
     };
   };
 
+  # inria
   home.packages = with pkgs; [
     texlive.combined.scheme-full
   ];

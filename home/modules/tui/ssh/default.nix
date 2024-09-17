@@ -7,6 +7,7 @@
     ./nix-builders.nix
   ];
 
+  # inria (no need for this complex implem when I'll be on NixOS-only)
   options.sshKeysPathPrefix = lib.mkOption {
     type = lib.types.str;
     default = "/run/agenix/ssh-";
@@ -27,10 +28,12 @@
           "*".identityFile = getIdentityFile "perso";
         }
         // (import ./gricad.nix {
+          # inria
           inherit lib;
           identityFile = getIdentityFile "gricad";
         })
         // (import ./inria.nix {
+          # inria
           inherit lib;
           identityFile = getIdentityFile "inria";
         })
@@ -42,7 +45,7 @@
 
     home.shellAliases = {
       s = "ssh";
-      sa = "ssh alya";
+      sa = "ssh alya"; # inria
       sc = "ssh cuda";
     };
   };

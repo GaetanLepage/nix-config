@@ -12,6 +12,7 @@
       rustfmt
     ];
 
+    # inria ?
     sessionVariables.CARGO_HOME = "${config.xdg.dataHome}/cargo";
   };
 

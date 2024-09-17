@@ -23,6 +23,6 @@
   in {
     framework = mkHost "framework";
     cuda = mkHost "cuda";
-    chamaeleon = mkHost "chamaeleon";
+    chamaeleon = mkHost "chamaeleon"; # inria
   };
 }

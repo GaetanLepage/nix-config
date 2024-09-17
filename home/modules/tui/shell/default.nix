@@ -1,9 +1,9 @@
 {
   imports = [
-    ./exputils.nix
+    ./exputils.nix # inria
     ./eza.nix
     ./fish.nix
-    ./remi.nix
+    ./remi.nix # inria
   ];
 
   home = {

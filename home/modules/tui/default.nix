@@ -30,8 +30,8 @@
   home = {
     stateVersion = "24.11";
 
-    username = lib.mkDefault "gaetan";
-    homeDirectory = lib.mkDefault "/home/gaetan";
+    username = lib.mkDefault "gaetan"; # inria (remove mkDefault)
+    homeDirectory = lib.mkDefault "/home/gaetan"; # inria
 
     packages = with pkgs; [
       # Rust implementations of linux commands
