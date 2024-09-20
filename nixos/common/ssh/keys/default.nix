@@ -8,9 +8,10 @@
           mode = "600";
         })
       [
-        "perso"
         "gricad"
         "inria"
+        "lepage-knives"
+        "perso"
       ]
     );
 }
