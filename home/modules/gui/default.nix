@@ -22,7 +22,6 @@
     # IM
     discord
     nheko
-    jitsi-meet-electron
     signal-desktop
     slack # inria
 
