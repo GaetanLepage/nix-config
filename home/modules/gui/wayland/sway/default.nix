@@ -18,7 +18,7 @@
         "number 2" = [{app_id = "firefox";}];
         "number 4" = [{app_id = "thunderbird";}];
         "number 6" = [{app_id = "signal";}];
-        "number 7" = [{class = "Zotero";}]; # inria
+        "number 7" = [{app_id = "Zotero";}]; # inria
         "number 8" = [
           {app_id = "nheko";}
           {app_id = "Slack";} # inria
