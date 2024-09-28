@@ -9,6 +9,8 @@
 
     ../common
 
+    ./mistral
+
     ./desktop
     ./disko.nix
     ./nfs.nix
