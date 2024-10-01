@@ -1,9 +1,9 @@
 {pkgs, ...}: {
-  environment.systemPackages = with pkgs; [
-    (wrapOBS.override {inherit obs-studio;} {
-      plugins = with obs-studio-plugins; [
-        obs-composite-blur
-      ];
-    })
-  ];
+  programs.obs-studio = {
+    enable = true;
+
+    plugins = with pkgs.obs-studio-plugins; [
+      obs-composite-blur
+    ];
+  };
 }
