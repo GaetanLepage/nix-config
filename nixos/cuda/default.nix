@@ -38,16 +38,6 @@
   my-modules.nvidia.enable = true;
 
   system = {
-    autoUpgrade = {
-      enable = false; # TODO Doesn't work: use a SSH private key with agenix
-      flake = "${config.users.users.gaetan.home}/config#cuda";
-      flags = [
-        "--update-input"
-        "nixpkgs"
-        "--commit-lock-file"
-      ];
-    };
-
     # This value determines the NixOS release from which the default
     # settings for stateful data, like file locations and database versions
     # on your system were taken. It‘s perfectly fine and recommended to leave
