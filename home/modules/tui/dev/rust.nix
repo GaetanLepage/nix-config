@@ -18,8 +18,8 @@
 
   programs.nixvim = {
     plugins = {
-      lsp-format.lspServersToEnable = ["rust-analyzer"];
-      lsp.servers.rust-analyzer = {
+      lsp-format.lspServersToEnable = ["rust_analyzer"];
+      lsp.servers.rust_analyzer = {
         enable = true;
         installCargo = true;
         installRustc = true;
