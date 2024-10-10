@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  config,
+  ...
+}: {
   home = {
     packages = with pkgs; [
       # Python
@@ -19,6 +23,8 @@
 
       mypy
     ];
+
+    sessionVariables.MYPY_CACHE_DIR = "${config.xdg.cacheHome}/mypy";
   };
 
   programs = {
