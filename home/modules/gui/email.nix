@@ -49,6 +49,7 @@
         };
       };
 
+      # inria
       inria = {
         address = "gaetan.lepage@inria.fr";
         userName = "galepage";
@@ -84,6 +85,7 @@
         flavor = "outlook.office365.com";
       };
 
+      # inria
       uga = {
         address = "gaetan.lepage@univ-grenoble-alpes.fr";
 
