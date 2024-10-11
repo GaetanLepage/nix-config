@@ -7,7 +7,7 @@
     packages = with pkgs; [
       # Python
       # inria
-      (python311.withPackages (
+      (python3.withPackages (
         ps:
           with ps; [
             # Misc
