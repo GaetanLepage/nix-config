@@ -10,6 +10,9 @@
         user = "glepage";
         setEnv.TERM = "xterm-256color";
       }
+      // (lib.optionalAttrs (v ? port) {
+        inherit (v) port;
+      })
       # inria
       // (lib.optionalAttrs (osConfig != null) {
         identityFile = osConfig.age.secrets.${v.sshKeyName}.path;
@@ -26,6 +29,11 @@
       linux-build-box = {
         hostname = "build-box.nix-community.org";
         sshKeyName = "linux-build-box-ssh-key";
+      };
+      jrs = {
+        hostname = "jonringer.us";
+        sshKeyName = "ssh-jonringer-server";
+        port = 2222;
       };
     };
 }
