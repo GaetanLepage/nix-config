@@ -12,6 +12,9 @@
 
       max-jobs = "auto";
 
+      # Make legacy nix commands use the XDG base directories instead of creating directories in $HOME.
+      use-xdg-base-directories = true;
+
       # The maximum number of parallel TCP connections used to fetch files from binary caches and by other downloads.
       # It defaults to 25. 0 means no limit.
       http-connections = 128;
