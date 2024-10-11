@@ -12,6 +12,7 @@
         "inria" # inria
         "lepage-knives"
         "perso"
+        "jonringer-server"
       ]
     );
 }
