@@ -31,7 +31,6 @@ in {
 
       Service = {
         Type = "oneshot";
-        Environment = "SSH_AUTH_SOCK=/run/user/1000/keyring/ssh";
         ExecStart = lib.getExe backupScript;
       };
     };
