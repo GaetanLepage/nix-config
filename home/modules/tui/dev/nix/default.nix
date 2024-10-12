@@ -34,7 +34,7 @@
       nba = "nom-build --max-jobs 0 --system aarch64-linux -A";
       nbd = "nom-build --max-jobs 0 --system x86_64-darwin -A";
       nbda = "nom-build --max-jobs 0 --system aarch64-darwin -A";
-      ur = ''find . -wholename "./result*" -type l -exec unlink {} \;'';
+      ur = "${lib.getExe pkgs.fd} --max-depth 1 'result*' --exec unlink";
 
       nr = "nixpkgs-review pr --post-result --no-shell";
       nra = "nixpkgs-review pr --post-result --no-shell --system aarch64-linux";
