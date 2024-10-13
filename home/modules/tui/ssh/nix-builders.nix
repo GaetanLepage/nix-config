@@ -9,10 +9,9 @@
         inherit (v) hostname;
         user = "glepage";
         setEnv.TERM = "xterm-256color";
+        forwardAgent = v.forwardAgent or null;
+        port = v.port or null;
       }
-      // (lib.optionalAttrs (v ? port) {
-        inherit (v) port;
-      })
       # inria
       // (lib.optionalAttrs (osConfig != null) {
         identityFile = osConfig.age.secrets.${v.sshKeyName}.path;
@@ -34,6 +33,7 @@
         hostname = "jonringer.us";
         sshKeyName = "ssh-jonringer-server";
         port = 2222;
+        forwardAgent = true;
       };
     };
 }
