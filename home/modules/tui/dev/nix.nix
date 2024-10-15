@@ -42,7 +42,7 @@
 
   programs = {
     fish.shellAbbrs = {
-      nrev = "nixpkgs-review pr --no-shell --systems all --num-parallel-evals 4 --post-result";
+      nrv = "nixpkgs-review pr --no-shell --systems all --num-parallel-evals 4 --post-result";
     };
 
     nixvim = {
