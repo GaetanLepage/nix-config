@@ -14,7 +14,9 @@
         # Update the flake's inputs
         nix flake update $nix_dir -L
 
-        doas nixos-rebuild switch \
+        # TODO: revert to original command when https://github.com/NixOS/nix/issues/10202 is fixed
+        # doas nixos-rebuild switch \
+        nixos-rebuild switch --use-remote-sudo \
             --verbose \
             --fast \
             --flake $nix_dir \
