@@ -12,7 +12,7 @@
         nix_dir=$HOME/config
 
         # Update the flake's inputs
-        nix flake update $nix_dir -L
+        nix flake update --flake $nix_dir -L
 
         # TODO: revert to original command when https://github.com/NixOS/nix/issues/10202 is fixed
         # doas nixos-rebuild switch \
