@@ -43,6 +43,7 @@
       s = "ssh";
       sa = "ssh alya"; # inria
       sc = "ssh cuda";
+      sj = "ssh jrs";
     };
   };
 }
