@@ -2,6 +2,7 @@
   services.gammastep = {
     enable = true;
 
-    provider = "geoclue2";
+    latitude = 45.5;
+    longitude = 5.0;
   };
 }
