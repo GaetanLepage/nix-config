@@ -17,15 +17,12 @@
   };
 
   programs.nixvim = {
-    plugins = {
-      lsp-format.lspServersToEnable = ["rust_analyzer"];
-      lsp.servers.rust_analyzer = {
-        enable = true;
-        installCargo = true;
-        installRustc = true;
-        settings = {
-          cargo.features = "all";
-        };
+    plugins.lsp.servers.rust_analyzer = {
+      enable = true;
+      installCargo = true;
+      installRustc = true;
+      settings = {
+        cargo.features = "all";
       };
     };
   };

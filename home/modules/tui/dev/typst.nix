@@ -16,8 +16,6 @@
     ];
 
     plugins = {
-      lsp-format.lspServersToEnable = ["tinymist"];
-
       lsp.servers.tinymist = {
         enable = true;
         settings.formatterMode = "typstyle";

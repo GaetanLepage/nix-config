@@ -5,10 +5,7 @@
         shellcheck
         shfmt
       ];
-      plugins = {
-        lsp.servers.bashls.enable = true;
-        lsp-format.lspServersToEnable = ["bashls"];
-      };
+      plugins.lsp.servers.bashls.enable = true;
     };
   };
 }

@@ -71,12 +71,9 @@
         end
       '';
 
-      plugins = {
-        lsp.servers.nil_ls = {
-          enable = true;
-          settings.formatting.command = [{__raw = "get_nix_formatter()";}];
-        };
-        lsp-format.lspServersToEnable = ["nil_ls"];
+      plugins.lsp.servers.nil_ls = {
+        enable = true;
+        settings.formatting.command = [{__raw = "get_nix_formatter()";}];
       };
 
       # Set indentation to 2 spaces

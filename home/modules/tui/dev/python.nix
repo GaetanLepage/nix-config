@@ -40,7 +40,6 @@
       filetype.extension.gin = "gin"; # inria
       plugins = {
         treesitter.languageRegister.python = ["gin"]; # inria
-        lsp-format.lspServersToEnable = ["ruff"];
         lsp.servers = {
           ruff.enable = true;
           pylsp = {
