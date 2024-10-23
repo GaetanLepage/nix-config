@@ -26,5 +26,5 @@ Everything is managed thanks to a [nix flake](https://nixos.wiki/wiki/Flakes): `
 | Terminal Emulator     | [foot](https://codeberg.org/dnkl/foot)                |
 | Code Editor           | [Neovim](https://neovim.io/)                          |
 | Program Launcher      | [rofi](https://github.com/DaveDavenport/rofi)         |
-| Shell                 | [zsh](https://www.zsh.org/)                           |
+| Shell                 | [fish](https://fishshell.com/)                        |
 | PDF viewer            | [Zathura](https://pwmt.org/projects/zathura/)         |
