@@ -39,6 +39,12 @@
             hostname = "github.com";
             identityFile = getIdentityFile "lepage-knives";
           };
+
+          dolibarr = {
+            hostname = "dolibarr.lepage-knives.com";
+            user = "root";
+            identityFile = getIdentityFile "lepage-knives";
+          };
         };
     };
 

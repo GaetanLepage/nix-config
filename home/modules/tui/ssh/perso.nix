@@ -53,9 +53,4 @@ lib.mapAttrs
   # Cordineaux #
   ##############
   feroe.hostname = "feroe.glepage.com";
-
-  dolibarr = {
-    hostname = "dolibarr.lepage-knives.com";
-    user = "root";
-  };
 }
