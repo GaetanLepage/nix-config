@@ -22,11 +22,6 @@ lib.mapAttrs
     "*.inrialpes.fr" = {
       proxyJump = "bastion";
     };
-
-    chamaeleon = {
-      user = "gaetan";
-      hostname = "10.10.10.6";
-    };
   }
   // (
     lib.genAttrs

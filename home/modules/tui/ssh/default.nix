@@ -20,10 +20,7 @@
       matchBlocks = let
         getIdentityFile = keyName: config.sshKeysPathPrefix + keyName;
       in
-        {
-          "*".identityFile = getIdentityFile "perso";
-        }
-        // (import ./gricad.nix {
+        (import ./gricad.nix {
           # inria
           inherit lib;
           identityFile = getIdentityFile "gricad";
