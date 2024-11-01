@@ -33,7 +33,13 @@
         // (import ./perso.nix {
           inherit lib;
           identityFile = getIdentityFile "perso";
-        });
+        })
+        // {
+          github-lk = {
+            hostname = "github.com";
+            identityFile = getIdentityFile "lepage-knives";
+          };
+        };
     };
 
     home.shellAliases = {
