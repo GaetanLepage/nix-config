@@ -9,8 +9,6 @@
     ip = lib.mkOption {
       type = lib.types.str;
     };
-
-    redirectAll = lib.mkEnableOption "";
   };
 
   config = let
@@ -30,13 +28,7 @@
             # Forward all the traffic via VPN.
             #allowedIPs = [ "0.0.0.0/0" ];
             # Or forward only particular subnets
-            allowedIPs = [
-              (
-                if cfg.redirectAll
-                then "0.0.0.0/0"
-                else "10.10.10.0/24"
-              )
-            ];
+            allowedIPs = ["10.10.10.0/24"];
 
             # Send keepalives every 25 seconds. Important to keep NAT tables alive.
             persistentKeepalive = 25;
