@@ -4,5 +4,6 @@
   my-modules.wireguard = {
     enable = true;
     ip = "10.10.10.2";
+    redirectAll = true;
   };
 }
