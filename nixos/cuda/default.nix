@@ -11,7 +11,7 @@
 
     ./mistral
 
-    ./desktop
+    # ./desktop
     ./disko.nix
     ./nfs.nix
     ./nix-remote-builder.nix
