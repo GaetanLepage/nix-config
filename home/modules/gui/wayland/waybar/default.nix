@@ -1,4 +1,9 @@
-{pkgs, ...}: {
+{
+  lib,
+  pkgs,
+  config,
+  ...
+}: {
   programs.waybar = {
     enable = true;
 
@@ -26,7 +31,7 @@
           "tray"
         ];
       }
-      // (import ./modules pkgs);
+      // (import ./modules {inherit lib config pkgs;});
     style = builtins.readFile ./style.css;
   };
 }

@@ -1,21 +1,43 @@
-pkgs: {
+{
+  lib,
+  config,
+  pkgs,
+  ...
+}: {
   format = "󰝚  {}";
 
   interval = 1;
 
   # Pause current song when clicking on the widget
-  on-click = "${pkgs.playerctl}/bin/playerctl -p spotify play-pause";
+  on-click = "${lib.getExe pkgs.playerctl} -p spotify play-pause";
 
   # Focus spotify when right-clicking on the widget
-  on-click-right = toString (pkgs.writeShellScript "focus-spotify" ''
-    spotify_id=$(${pkgs.sway}/bin/swaymsg -t get_tree | ${pkgs.jq}/bin/jq '.. | objects | select(.name == "Spotify Premium") | .id')
-    ${pkgs.sway}/bin/swaymsg \[con_id=$spotify_id\] focus
-  '');
+  on-click-right = lib.getExe (pkgs.writeShellApplication {
+    name = "focus-spotify";
+
+    runtimeInputs = [
+      config.wayland.windowManager.sway.package
+      pkgs.jq
+    ];
+
+    text = ''
+      spotify_id=$(swaymsg -t get_tree | jq '.. | objects | select(.name == "Spotify Premium") | .id')
+      swaymsg \[con_id="$spotify_id"\] focus
+    '';
+  });
 
   # Disable hover
   tooltip = false;
 
   exec = let
-    python = pkgs.python3.withPackages (ps: [ps.dbus-python]);
-  in "${python}/bin/python ${./spotify.py} -f '{artist} ~ {song}' -t 60";
+    script =
+      pkgs.writers.writePython3
+      "spotify-waybar"
+      {
+        libraries = with pkgs.python3Packages; [dbus-python];
+        doCheck = false;
+      } (
+        builtins.readFile ./spotify.py
+      );
+  in "${script} -f '{artist} ~ {song}' -t 60";
 }

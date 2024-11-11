@@ -1,5 +1,9 @@
-pkgs: let
-  dunstctl = "${pkgs.dunst}/bin/dunstctl";
+{
+  lib,
+  pkgs,
+  config,
+}: let
+  dunstctl = lib.getExe' config.services.dunst.package "dunstctl";
 in {
   interval = 1;
 

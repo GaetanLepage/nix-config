@@ -1,6 +1,10 @@
-pkgs: {
+{
+  lib,
+  pkgs,
+  config,
+}: {
   # CENTER
-  "custom/spotify" = import ./spotify.nix pkgs;
+  "custom/spotify" = import ./spotify.nix {inherit lib config pkgs;};
 
   # RIGHT
   backlight = {
@@ -49,7 +53,7 @@ pkgs: {
     format-disconnected = "";
   };
 
-  "custom/vpn" = import ./vpn.nix pkgs;
+  "custom/vpn" = import ./vpn.nix {inherit pkgs lib;};
 
   battery = {
     tooltip = false;
@@ -76,7 +80,7 @@ pkgs: {
     tooltip = false; # disable hover
   };
 
-  "custom/notifs" = import ./notifs.nix pkgs;
+  "custom/notifs" = import ./notifs.nix {inherit lib config pkgs;};
 
   tray = {
     icon-size = 20;
