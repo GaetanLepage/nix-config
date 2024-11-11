@@ -12,19 +12,9 @@
   on-click = "${lib.getExe pkgs.playerctl} -p spotify play-pause";
 
   # Focus spotify when right-clicking on the widget
-  on-click-right = lib.getExe (pkgs.writeShellApplication {
-    name = "focus-spotify";
-
-    runtimeInputs = [
-      config.wayland.windowManager.sway.package
-      pkgs.jq
-    ];
-
-    text = ''
-      spotify_id=$(swaymsg -t get_tree | jq '.. | objects | select(.name == "Spotify Premium") | .id')
-      swaymsg \[con_id="$spotify_id"\] focus
-    '';
-  });
+  on-click-right = let
+    swaymsg = lib.getExe' config.wayland.windowManager.sway.package "swaymsg";
+  in "${swaymsg} \[app_id=spotify\] focus";
 
   # Disable hover
   tooltip = false;
