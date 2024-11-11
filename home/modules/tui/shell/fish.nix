@@ -1,10 +1,14 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  lib,
+  ...
+}: {
   programs = {
     fish = {
       enable = true;
 
       interactiveShellInit = ''
-        ${pkgs.pfetch}/bin/pfetch
+        ${lib.getExe pkgs.pfetch}
 
         # don't greet
         function fish_greeting; end

@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  lib,
+  pkgs,
+  ...
+}: {
   home.packages = [
     pkgs.kanshi
   ];
@@ -20,7 +24,7 @@
         status = "enable";
       };
 
-      mkWifiHook = on: "${pkgs.networkmanager}/bin/nmcli radio wifi ${
+      mkWifiHook = on: "${lib.getExe' pkgs.networkmanager "nmcli"} radio wifi ${
         if on
         then "on"
         else "off"

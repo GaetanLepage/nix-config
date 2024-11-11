@@ -7,8 +7,13 @@
   wayland.windowManager.sway.config = let
     mod = "Mod4";
 
-    inherit (lib) getExe;
+    inherit (lib) getExe getExe';
+    dunst = getExe config.services.dunst.package;
+    foot = getExe config.programs.foot.package;
+    light = getExe pkgs.light;
+    pactl = getExe' pkgs.pulseaudio "pactl";
     playerctl = getExe pkgs.playerctl;
+    swaymsg = getExe' config.wayland.windowManager.sway.package "swaymsg";
   in {
     modifier = mod;
 
@@ -25,16 +30,15 @@
           ''
         }";
 
-        XF86MonBrightnessUp = "exec ${getExe pkgs.light} -A 10";
-        XF86MonBrightnessDown = "exec ${getExe pkgs.light} -U 10";
+        XF86MonBrightnessUp = "exec ${light} -A 10";
+        XF86MonBrightnessDown = "exec ${light} -U 10";
 
         "${mod}+g" = "exec ${getExe pkgs.pavucontrol}";
       }
       // (
         let
-          pactl = "exec ${pkgs.pulseaudio}/bin/pactl";
-          unmute = "${pactl} set-sink-mute @DEFAULT_SINK@ off";
-          volumePrefix = "${pactl} set-sink-volume @DEFAULT_SINK@";
+          unmute = "exec ${pactl} set-sink-mute @DEFAULT_SINK@ off";
+          volumePrefix = "exec ${pactl} set-sink-volume @DEFAULT_SINK@";
           commandPrefix = "${unmute}; ${volumePrefix}";
 
           volumeDown = "${commandPrefix} -5%";
@@ -46,7 +50,7 @@
           "${mod}+Down" = volumeDown;
           XF86AudioLowerVolume = volumeDown;
 
-          XF86AudioMute = "${pactl} set-sink-mute @DEFAULT_SINK@ toggle";
+          XF86AudioMute = "exec ${pactl} set-sink-mute @DEFAULT_SINK@ toggle";
         }
       )
       // (
@@ -66,13 +70,13 @@
         # Toggle touchpad
         "Shift+F9" = let
           showTouchpadState = pkgs.writeShellScript "show-touchpad-state" ''
-            status=$(swaymsg -t get_inputs | ${pkgs.jq}/bin/jq --raw-output '.[] | select(.type=="touchpad") | .libinput.send_events')
+            status=$(${swaymsg} -t get_inputs | ${getExe pkgs.jq} --raw-output '.[] | select(.type=="touchpad") | .libinput.send_events')
             notify-send "Touchpad $status"
           '';
         in "input type:touchpad events toggle enabled disabled; exec ${showTouchpadState}";
 
         # Bluetooth
-        "${mod}+i" = "exec ${pkgs.blueman}/bin/blueman-manager";
+        "${mod}+i" = "exec ${getExe' pkgs.blueman "blueman-manager"}";
         "${mod}+Shift+i" = "exec doas rfkill unblock bluetooth";
         "${mod}+Ctrl+i" = "exec doas rfkill block bluetooth";
 
@@ -81,27 +85,25 @@
         "${mod}+Shift+u" = "exec doas systemctl stop wg-quick-wg0";
 
         # Dunst (notifications)
-        "${mod}+n" = "exec ${pkgs.dunst}/bin/dunstctl set-paused false";
-        "${mod}+Shift+n" = "exec ${pkgs.dunst}/bin/dunstctl set-paused true";
+        "${mod}+n" = "exec ${dunst} set-paused false";
+        "${mod}+Shift+n" = "exec ${dunst} set-paused true";
       }
       ################
       # Applications #
       ################
       // {
         # Terminal
-        "${mod}+Return" = "exec ${getExe pkgs.foot}";
+        "${mod}+Return" = "exec ${foot}";
 
         # Rofi
         "${mod}+d" = "exec ${getExe config.programs.rofi.package} -show run";
 
         # Web browser
-        "${mod}+w" = "exec ${getExe pkgs.firefox}";
+        "${mod}+w" = "exec ${getExe config.programs.firefox.package}";
 
         # btop
         "${mod}+Shift+b" = let
-          foot = getExe config.programs.foot.package;
           btop = getExe config.programs.btop.package;
-          swaymsg = lib.getExe' config.wayland.windowManager.sway.package "swaymsg";
 
           runOrFocusBtop = pkgs.writeShellScript "btop" ''
             ${swaymsg} workspace 10
@@ -110,7 +112,7 @@
         in "exec ${runOrFocusBtop}";
 
         # screenshot (flameshot)
-        Print = "exec ${getExe pkgs.flameshot} gui";
+        Print = "exec ${getExe config.services.flameshot.package} gui";
 
         # file manager
         "${mod}+F3" = "exec ${getExe pkgs.xfce.thunar}";
@@ -123,7 +125,7 @@
       ########
       // {
         # quit/restart sway
-        "${mod}+Shift+q" = "exec ${pkgs.sway}/bin/swaymsg exit";
+        "${mod}+Shift+q" = "exec ${swaymsg} exit";
         "${mod}+Shift+r" = "reload";
 
         # kill window
@@ -133,7 +135,7 @@
         "${mod}+z" = "layout toggle splith tabbed";
 
         # Cycle through the nodes (leaves only) of the current desktop
-        "${mod}+space" = "exec ${pkgs.i3-cycle-focus}/bin/i3-cycle-focus cycle";
+        "${mod}+space" = "exec ${getExe pkgs.i3-cycle-focus} cycle";
 
         # Back and forth desktop
         "${mod}+b" = "workspace back_and_forth";
