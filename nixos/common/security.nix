@@ -1,5 +1,5 @@
 {
-  environment.shellAliases.sudo = "doas";
+  # environment.shellAliases.sudo = "doas";
 
   security = {
     # TODO: revert to original command when https://github.com/NixOS/nix/issues/10202 is fixed
