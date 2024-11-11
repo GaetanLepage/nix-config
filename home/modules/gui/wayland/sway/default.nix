@@ -128,7 +128,7 @@
         {command = "firefox";}
         {command = "thunderbird";}
         {command = lib.getExe pkgs.foot;}
-        {command = "doas ${lib.getExe' pkgs.g810-led "g610-led"} -a ff";}
+        {command = "${lib.getExe' pkgs.g810-led "g610-led"} -a ff";}
       ];
     };
   };
