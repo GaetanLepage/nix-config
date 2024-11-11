@@ -16,8 +16,11 @@
         group = "gaetan";
 
         extraGroups = [
-          "wheel" # Enable ‘sudo’ for the user.
-          "networkmanager" # Enable user to add and edit network connections
+          # Enable ‘sudo’ for the user.
+          "wheel"
+
+          # Enable user to add and edit network connections
+          "networkmanager"
 
           "lepage"
         ];
