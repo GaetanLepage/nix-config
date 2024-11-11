@@ -31,7 +31,7 @@
             ;;
 
           trap)
-            #  Nation
+            # Nation
             play_stream "6Qq2OMFh8Pc"
             ;;
         esac
