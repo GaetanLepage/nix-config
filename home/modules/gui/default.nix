@@ -8,7 +8,6 @@
     ./firefox.nix
     ./flameshot.nix
     ./gtk.nix
-    ./rofi.nix
     ./zathura.nix
   ];
 

@@ -7,6 +7,7 @@
     ./foot.nix
     ./gammastep.nix
     ./kanshi.nix
+    ./rofi.nix
     ./sway
     ./waybar
   ];
@@ -19,8 +20,6 @@
   };
 
   config = {
-    programs.rofi.package = pkgs.rofi-wayland;
-
     home = {
       packages = with pkgs; [
         wdisplays
