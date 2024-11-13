@@ -3,10 +3,6 @@
   pkgs,
   ...
 }: {
-  home.packages = [
-    pkgs.kanshi
-  ];
-
   services.kanshi = {
     enable = true;
 
