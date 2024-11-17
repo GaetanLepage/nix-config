@@ -128,7 +128,6 @@
         {command = "firefox";}
         {command = "thunderbird";}
         {command = lib.getExe pkgs.foot;}
-        {command = "${lib.getExe' pkgs.g810-led "g610-led"} -a ff";}
       ];
     };
   };

@@ -43,6 +43,15 @@
 
     # Default is "poweroff" which shutdowns the laptop as soon as the power button is pressed.
     logind.powerKey = "lock";
+
+    # Keyboard led config
+    g810-led = {
+      enable = true;
+      profile = ''
+        a ff      # Set all keys on
+        c         # Commit changes
+      '';
+    };
   };
 
   # Some programs need SUID wrappers, can be configured further or are started in user sessions.

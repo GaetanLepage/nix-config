@@ -22,9 +22,6 @@
           # Enable user to add and edit network connections
           "networkmanager"
 
-          # for running g810-led without needing sudo
-          "plugdev"
-
           "lepage"
         ];
 
