@@ -33,7 +33,7 @@
     (pkgs.where-is-my-sddm-theme.override {
       variants = ["qt5"];
       themeConfig.General = {
-        background = "${pkgs.nixos-artwork.wallpapers.nineish-dark-gray.gnomeFilePath}";
+        background = pkgs.nixos-artwork.wallpapers.nineish-dark-gray.gnomeFilePath;
         backgroundMode = "fill";
         cursorColor = "#ffffff";
       };
