@@ -25,7 +25,7 @@
           {app_id = "discord";}
           {app_id = "Jitsi Meet";} # inria
         ];
-        "number 9" = [{app_id = "Spotify";}];
+        "number 9" = [{app_id = "spotify";}];
         "number 10" = [{title = "btop";}];
       };
 
