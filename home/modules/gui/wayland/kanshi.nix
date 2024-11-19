@@ -51,8 +51,8 @@
           profile = {
             name = "stream";
             outputs = [
-              homeScreen
-              (laptopScreen // {position = "2560,0";})
+              (laptopScreen // {position = "0,310";})
+              (homeScreen // {position = "1694,0";})
             ];
             exec = mkWifiHook false;
           };
