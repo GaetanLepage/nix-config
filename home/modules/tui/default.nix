@@ -15,6 +15,7 @@
     ./ssh
     ./tmux.nix
     ./xdg.nix
+    ./yazi.nix
     ./zellij.nix
     inputs.nix-index-database.hmModules.nix-index
   ];
