@@ -8,7 +8,6 @@
     ./btop.nix
     ./dev
     ./git.nix
-    ./lf.nix
     ./neovim
     ./nix.nix
     ./shell
