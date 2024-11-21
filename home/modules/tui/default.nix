@@ -25,6 +25,12 @@
 
     # runs programs without installing them
     nix-index-database.comma.enable = true;
+
+    bottom.enable = true;
+    bat.enable = true;
+    fd.enable = true;
+    htop.enable = true;
+    ripgrep.enable = true;
   };
 
   home = {
@@ -35,17 +41,12 @@
 
     packages = with pkgs; [
       # Rust implementations of linux commands
-      bat # cat
-      bottom # System monitor
       du-dust # du
       dua # du
-      fd # find
       dysk # df
       procs # ps
-      ripgrep
 
       # Other utils
-      htop
       mprocs
       ncdu
       sshfs
