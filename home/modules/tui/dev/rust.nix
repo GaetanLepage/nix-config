@@ -5,7 +5,6 @@
 }: {
   home = {
     packages = with pkgs; [
-      bacon
       cargo
       gcc
       rustc
@@ -16,13 +15,17 @@
     sessionVariables.CARGO_HOME = "${config.xdg.dataHome}/cargo";
   };
 
-  programs.nixvim = {
-    plugins.lsp.servers.rust_analyzer = {
-      enable = true;
-      installCargo = true;
-      installRustc = true;
-      settings = {
-        cargo.features = "all";
+  programs = {
+    bacon.enable = true;
+
+    nixvim = {
+      plugins.lsp.servers.rust_analyzer = {
+        enable = true;
+        installCargo = true;
+        installRustc = true;
+        settings = {
+          cargo.features = "all";
+        };
       };
     };
   };
