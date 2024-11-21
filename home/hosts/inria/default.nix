@@ -20,8 +20,6 @@ in {
     };
   };
 
-  sshKeysPathPrefix = "${homeDirectory}/.ssh/";
-
   programs.btop.enable = lib.mkForce false;
 
   xdg.userDirs = with lib; {

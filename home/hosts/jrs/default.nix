@@ -10,7 +10,5 @@ in {
     inherit homeDirectory;
   };
 
-  sshKeysPathPrefix = "${homeDirectory}/.ssh/";
-
   nix.package = pkgs.nix;
 }
