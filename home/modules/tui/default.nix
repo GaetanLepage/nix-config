@@ -50,7 +50,6 @@
       # Other utils
       mprocs
       ncdu
-      sshfs
       tlrc
 
       wget
