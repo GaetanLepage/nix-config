@@ -11,7 +11,7 @@
       rustfmt
     ];
 
-    # inria ?
+    # By default, it is in ~/.cargo
     sessionVariables.CARGO_HOME = "${config.xdg.dataHome}/cargo";
   };
 
