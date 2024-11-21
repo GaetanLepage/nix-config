@@ -18,8 +18,6 @@
       enable = true;
       settings = {
         gui = {
-          # showFileTree = false;
-
           theme = {
             activeBorderColor = ["blue" "bold"];
             selectedLineBgColor = ["white"];
