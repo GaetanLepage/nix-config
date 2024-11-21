@@ -21,7 +21,6 @@ in {
   };
 
   sshKeysPathPrefix = "${homeDirectory}/.ssh/";
-  githubToken.enable = false;
 
   programs.btop.enable = lib.mkForce false;
 

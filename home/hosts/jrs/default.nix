@@ -11,7 +11,6 @@ in {
   };
 
   sshKeysPathPrefix = "${homeDirectory}/.ssh/";
-  githubToken.enable = false;
 
   nix.package = pkgs.nix;
 }
