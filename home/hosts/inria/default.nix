@@ -23,7 +23,6 @@ in {
   sshKeysPathPrefix = "${homeDirectory}/.ssh/";
   githubToken.enable = false;
 
-  programs.tmate.enable = true;
   programs.btop.enable = lib.mkForce false;
 
   xdg.userDirs = with lib; {
