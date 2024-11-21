@@ -5,9 +5,9 @@
   ...
 }: {
   imports = [
-    ./btop.nix
     ./dev
     ./git.nix
+    ./monitoring.nix
     ./neovim
     ./nix.nix
     ./shell
@@ -26,10 +26,8 @@
     # runs programs without installing them
     nix-index-database.comma.enable = true;
 
-    bottom.enable = true;
     bat.enable = true;
     fd.enable = true;
-    htop.enable = true;
     jq.enable = true;
     ripgrep.enable = true;
   };
@@ -51,7 +49,6 @@
       mprocs
       ncdu
       tlrc
-
       wget
     ];
   };
