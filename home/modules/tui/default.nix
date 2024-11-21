@@ -51,7 +51,6 @@
       sshfs
       tlrc
 
-      git
       wget
     ];
   };
