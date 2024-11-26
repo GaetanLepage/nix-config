@@ -13,7 +13,6 @@
       default_layout = "compact";
 
       theme = "gruvbox-dark";
-      support_kitty_keyboard_protocol = false;
 
       themes = {
         gruvbox-dark = {
