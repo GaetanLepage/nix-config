@@ -26,12 +26,8 @@
 
   fonts.packages = with pkgs; [
     noto-fonts
-    (nerdfonts.override {
-      fonts = [
-        "DejaVuSansMono"
-        "UbuntuMono"
-      ];
-    })
+    nerd-fonts.dejavu-sans-mono
+    nerd-fonts.ubuntu-mono
   ];
 
   services = {
