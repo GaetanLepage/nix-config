@@ -58,11 +58,6 @@
             )
           end
 
-          -- remove when nixpkgs will have formatted the code base
-          if match("nixpkgs") then
-            return ""
-          end
-
           if match("nixpkgs") or match("nixvim") or match("neovim%-nightly%-overlay") then
             return "${nixfmtPath}"
           end
