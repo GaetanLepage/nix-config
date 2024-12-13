@@ -71,15 +71,8 @@
         settings.formatting.command = [{__raw = "get_nix_formatter()";}];
       };
 
-      # Set indentation to 2 spaces
       files."after/ftplugin/nix.lua" = {
-        keymaps = [
-          {
-            key = "<leader>f";
-            action = "<cmd>!nixfmt %<CR>";
-            options.silent = true;
-          }
-        ];
+        # Set indentation to 2 spaces
         localOpts = {
           tabstop = 2;
           shiftwidth = 2;
