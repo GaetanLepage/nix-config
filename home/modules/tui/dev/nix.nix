@@ -58,7 +58,12 @@
             )
           end
 
-          if match("nixpkgs") or match("nixvim") or match("neovim%-nightly%-overlay") then
+          if (
+            match("nixpkgs")
+            or match("nixvim")
+            or match("neovim%-nightly%-overlay")
+            or match("nixpkgs%-review")
+          ) then
             return "${nixfmtPath}"
           end
 
