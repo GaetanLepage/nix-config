@@ -60,6 +60,7 @@
   ncg = "sudo nix-collect-garbage";
   hms = "home-manager switch"; # inria
   hme = "home-manager edit"; # inria
+  hmn = "home-manager news";
   nsp = "nix-shell -p";
   nfu = "nix flake update";
   nfm = "nix fmt";
