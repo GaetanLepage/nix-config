@@ -93,19 +93,6 @@ in {
             home.status = "enable";
           };
         };
-        stream = {
-          inherit (cfg._profiles.home) wifi;
-          screens = {
-            laptop = {
-              status = "enable";
-              position = "0,310";
-            };
-            home = {
-              status = "enable";
-              position = "1694,0";
-            };
-          };
-        };
         inria = {
           screens = {
             laptop.status = "disable";

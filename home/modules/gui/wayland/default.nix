@@ -8,6 +8,7 @@
     ./gammastep.nix
     ./kanshi.nix
     ./rofi.nix
+    ./streaming.nix
     ./sway
     ./waybar
   ];
