@@ -19,6 +19,9 @@
     colorschemes.gruvbox.enable = true;
 
     plugins = {
+      # Lazy loading
+      lz-n.enable = true;
+
       web-devicons.enable = true;
 
       gitsigns = {
@@ -36,7 +39,10 @@
         settings.user_default_options.names = false;
       };
 
-      oil.enable = true;
+      oil = {
+        enable = true;
+        lazyLoad.settings.cmd = "Oil";
+      };
 
       trim = {
         enable = true;

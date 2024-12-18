@@ -16,6 +16,8 @@
     plugins.neorg = {
       enable = true;
 
+      lazyLoad.settings.ft = "norg";
+
       settings = {
         lazy_loading = true;
         load = {
