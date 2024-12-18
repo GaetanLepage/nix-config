@@ -65,6 +65,7 @@
           supportedFeatures = [
             "apple-virt"
             "big-parallel"
+            "nixos-test"
           ];
         }
         {
