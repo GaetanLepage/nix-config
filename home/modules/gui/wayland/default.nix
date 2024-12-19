@@ -6,7 +6,7 @@
   imports = [
     ./foot.nix
     ./gammastep.nix
-    ./kanshi.nix
+    ./kanshi
     ./rofi.nix
     ./streaming.nix
     ./sway
