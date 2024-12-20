@@ -40,8 +40,9 @@
           identityFile = getIdentityFile "lepage-knives";
         };
 
-        dolibarr = {
-          hostname = "dolibarr.lepage-knives.com";
+        vps-lepage-knives = {
+          host = "lepage-knives vps.lepage-knives.com";
+          hostname = "vps.lepage-knives.com";
           user = "root";
           identityFile = getIdentityFile "lepage-knives";
         };
