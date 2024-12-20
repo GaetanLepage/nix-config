@@ -49,6 +49,12 @@ lib.mapAttrs
     hostname = "10.10.10.6";
   };
 
+  vps-lepage-knives = {
+    host = "lepage-knives vps.lepage-knives.com";
+    hostname = "vps.lepage-knives.com";
+    user = "root";
+  };
+
   ##############
   # Cordineaux #
   ##############

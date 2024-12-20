@@ -33,15 +33,7 @@
       // (import ./perso.nix {
         inherit lib;
         identityFile = getIdentityFile "perso";
-      })
-      // {
-        vps-lepage-knives = {
-          host = "lepage-knives vps.lepage-knives.com";
-          hostname = "vps.lepage-knives.com";
-          user = "root";
-          identityFile = getIdentityFile "lepage-knives";
-        };
-      };
+      });
   };
 
   home.shellAliases = {
