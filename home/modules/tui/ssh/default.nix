@@ -35,11 +35,6 @@
         identityFile = getIdentityFile "perso";
       })
       // {
-        github-lk = {
-          hostname = "github.com";
-          identityFile = getIdentityFile "lepage-knives";
-        };
-
         vps-lepage-knives = {
           host = "lepage-knives vps.lepage-knives.com";
           hostname = "vps.lepage-knives.com";
