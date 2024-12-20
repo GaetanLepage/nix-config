@@ -10,7 +10,6 @@
       [
         "gricad" # inria
         "inria" # inria
-        "lepage-knives"
         "perso"
         "jonringer-server"
       ]
