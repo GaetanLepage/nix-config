@@ -31,7 +31,7 @@
         };
         cargoDeps = old.cargoDeps.overrideAttrs (lib.const {
           inherit src;
-          outputHash = "sha256-+hlPv7KjNX6QmwAsjMAeGwFUgKrr96IWkbyayHqkHKM=";
+          outputHash = "sha256-L/0VX46NKU5kk/xIoE/R0V3/tQ4Ueg9eCSWfhmreSNM=";
         });
       }));
       toggle-script = pkgs.writeShellScript "mute-obs" ''
