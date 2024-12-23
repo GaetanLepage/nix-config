@@ -2,11 +2,8 @@
   imports = [
     ./agenix.nix
     ./devshell.nix
+    ./treefmt.nix
     ./home-manager.nix
     ./nixos.nix
   ];
-
-  perSystem = {pkgs, ...}: {
-    formatter = pkgs.alejandra;
-  };
 }
