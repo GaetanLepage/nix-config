@@ -9,7 +9,8 @@
 
     ../common
 
-    ./mistral
+    # ./mistral
+    ./ollama.nix
 
     # ./desktop
     ./disko.nix
