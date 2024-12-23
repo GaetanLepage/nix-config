@@ -8,7 +8,7 @@
     substituters = [
       "https://cache.nixos.org"
       "https://nix-community.cachix.org"
-      "https://cache.jonringer.us"
+      # "https://cache.jonringer.us"
     ];
 
     trusted-public-keys = [
