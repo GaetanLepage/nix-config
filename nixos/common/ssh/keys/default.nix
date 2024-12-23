@@ -1,17 +1,22 @@
-{lib, ...}: {
-  age.secrets = with lib;
+{ lib, ... }:
+{
+  age.secrets =
+    with lib;
     listToAttrs (
-      map (keyName:
-        nameValuePair "ssh-${keyName}" {
-          rekeyFile = ./${keyName}.age;
-          owner = "gaetan";
-          mode = "600";
-        })
-      [
-        "gricad" # inria
-        "inria" # inria
-        "perso"
-        "jonringer-server"
-      ]
+      map
+        (
+          keyName:
+          nameValuePair "ssh-${keyName}" {
+            rekeyFile = ./${keyName}.age;
+            owner = "gaetan";
+            mode = "600";
+          }
+        )
+        [
+          "gricad" # inria
+          "inria" # inria
+          "perso"
+          "jonringer-server"
+        ]
     );
 }

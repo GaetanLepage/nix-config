@@ -2,9 +2,11 @@
   lib,
   pkgs,
   config,
-}: let
+}:
+let
   dunstctl = lib.getExe' config.services.dunst.package "dunstctl";
-in {
+in
+{
   interval = 1;
 
   # Disable hover

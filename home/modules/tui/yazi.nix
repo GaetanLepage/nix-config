@@ -1,4 +1,5 @@
-{config, ...}: {
+{ config, ... }:
+{
   programs.yazi = {
     enable = true;
 
@@ -7,20 +8,26 @@
     keymap = {
       manager.prepend_keymap = [
         {
-          on = ["<C-f>"];
+          on = [ "<C-f>" ];
           run = "find";
         }
         {
-          on = ["A"];
+          on = [ "A" ];
           run = "create --dir";
         }
         {
-          on = ["g" "d"];
+          on = [
+            "g"
+            "d"
+          ];
           run = "cd ${config.xdg.userDirs.download}";
           desc = "Go to the downloads directory";
         }
         {
-          on = ["g" "t"];
+          on = [
+            "g"
+            "t"
+          ];
           run = "cd ~/temp";
           desc = "Go to the temp directory";
         }

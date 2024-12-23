@@ -1,4 +1,5 @@
-{config, ...}: {
+{ config, ... }:
+{
   networking.firewall.allowedTCPPorts = [
     config.services.grafana.settings.server.http_port
   ];

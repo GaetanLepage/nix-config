@@ -4,20 +4,22 @@
   config,
   pkgs,
   ...
-}: {
+}:
+{
   options.my-modules.nvidia = {
     enable = lib.mkEnableOption "nvidia";
   };
 
-  config = let
-    cfg = config.my-modules.nvidia;
-  in
+  config =
+    let
+      cfg = config.my-modules.nvidia;
+    in
     lib.mkIf cfg.enable {
       # nixpkgs.config.cudaSupport = true;
 
-      services.xserver.videoDrivers = ["nvidia"];
+      services.xserver.videoDrivers = [ "nvidia" ];
 
-      environment.systemPackages = [pkgs.nvtopPackages.nvidia];
+      environment.systemPackages = [ pkgs.nvtopPackages.nvidia ];
 
       hardware = {
         graphics = {

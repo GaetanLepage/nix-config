@@ -1,16 +1,18 @@
 {
   lib,
   pkgs,
-}: {
+}:
+{
   interval = 1;
 
   # Disable hover
   tooltip = false;
   return-type = "json";
 
-  exec = let
-    nmcli = lib.getExe' pkgs.networkmanager "nmcli";
-  in
+  exec =
+    let
+      nmcli = lib.getExe' pkgs.networkmanager "nmcli";
+    in
     pkgs.writeShellScript "vpn-waybar" ''
       is_con_active() {
           return $(${nmcli} connection show --active | grep $1 > /dev/null)

@@ -2,9 +2,11 @@
   pkgs,
   lib,
   ...
-}: let
+}:
+let
   homeDirectory = "/home/galepage";
-in {
+in
+{
   imports = [
     ../../modules/tui
     ./update.nix

@@ -2,23 +2,23 @@
   pkgs,
   config,
   ...
-}: {
+}:
+{
   home = {
     packages = with pkgs; [
       # Python
       # inria
       (python3.withPackages (
-        ps:
-          with ps; [
-            # Misc
-            pip
-            setuptools
+        ps: with ps; [
+          # Misc
+          pip
+          setuptools
 
-            # RL
-            matplotlib
-            numpy
-            torch
-          ]
+          # RL
+          matplotlib
+          numpy
+          torch
+        ]
       ))
 
       mypy
@@ -54,7 +54,7 @@
         ];
       };
       plugins = {
-        treesitter.languageRegister.python = ["gin"]; # inria
+        treesitter.languageRegister.python = [ "gin" ]; # inria
         lsp.servers = {
           ruff.enable = true;
           pylsp = {

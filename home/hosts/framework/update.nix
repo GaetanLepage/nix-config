@@ -2,12 +2,11 @@
   pkgs,
   lib,
   ...
-}: {
-  home = let
-    update =
-      pkgs.writeShellScriptBin
-      "update"
-      ''
+}:
+{
+  home =
+    let
+      update = pkgs.writeShellScriptBin "update" ''
         # Path to the folder containing `flake.nix`
         nix_dir=$HOME/config
 
@@ -22,8 +21,9 @@
             --flake $nix_dir \
             --builders ""
       '';
-  in {
-    shellAliases.u = lib.getExe update;
-    packages = [update];
-  };
+    in
+    {
+      shellAliases.u = lib.getExe update;
+      packages = [ update ];
+    };
 }

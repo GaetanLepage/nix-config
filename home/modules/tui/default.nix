@@ -3,7 +3,8 @@
   lib,
   inputs,
   ...
-}: {
+}:
+{
   imports = [
     ./dev
     ./git.nix

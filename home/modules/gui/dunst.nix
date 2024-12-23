@@ -41,9 +41,9 @@
       # Specific rules #
       ##################
 
-      urgency_low = {};
+      urgency_low = { };
 
-      urgency_normal = {};
+      urgency_normal = { };
 
       urgency_critical = {
         frame_color = "#cc241d";

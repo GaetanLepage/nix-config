@@ -1,6 +1,10 @@
 {
   programs.nixvim = {
-    opts.completeopt = ["menu" "menuone" "noselect"];
+    opts.completeopt = [
+      "menu"
+      "menuone"
+      "noselect"
+    ];
 
     plugins = {
       luasnip.enable = true;
@@ -39,16 +43,16 @@
           };
 
           sources = [
-            {name = "path";}
-            {name = "nvim_lsp";}
-            {name = "luasnip";}
+            { name = "path"; }
+            { name = "nvim_lsp"; }
+            { name = "luasnip"; }
             {
               name = "buffer";
               # Words from other open buffers can also be suggested.
               option.get_bufnrs.__raw = "vim.api.nvim_list_bufs";
             }
-            {name = "neorg";}
-            {name = "nixpkgs_maintainers";}
+            { name = "neorg"; }
+            { name = "nixpkgs_maintainers"; }
           ];
         };
       };

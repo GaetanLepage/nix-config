@@ -2,12 +2,14 @@
   pkgs,
   config,
   ...
-}: let
+}:
+let
   cursor = {
     name = "Numix-Cursor-Light";
     package = pkgs.numix-cursor-theme;
   };
-in {
+in
+{
   home.pointerCursor = cursor;
 
   gtk = {

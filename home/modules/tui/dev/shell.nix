@@ -1,4 +1,5 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   programs = {
     nixvim = {
       extraPackages = with pkgs; [

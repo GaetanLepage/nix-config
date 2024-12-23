@@ -2,25 +2,25 @@
   pkgs,
   lib,
   ...
-}: let
-  backupScript =
-    pkgs.writeShellApplication
-    {
-      name = "backup";
-      text =
-        builtins.readFile
-        (pkgs.substituteAll {
-          src = ./script.sh;
-          excludes = ./excludes.txt;
-        });
-      runtimeInputs = with pkgs; [
-        rsync
-        libnotify
-      ];
-    };
-in {
+}:
+let
+  backupScript = pkgs.writeShellApplication {
+    name = "backup";
+    text = builtins.readFile (
+      pkgs.substituteAll {
+        src = ./script.sh;
+        excludes = ./excludes.txt;
+      }
+    );
+    runtimeInputs = with pkgs; [
+      rsync
+      libnotify
+    ];
+  };
+in
+{
   home = {
-    packages = [backupScript];
+    packages = [ backupScript ];
     shellAliases.bu = "backup";
   };
 
@@ -43,7 +43,7 @@ in {
         Unit = "backup.service";
       };
 
-      Install.WantedBy = ["timers.target"];
+      Install.WantedBy = [ "timers.target" ];
     };
   };
 }

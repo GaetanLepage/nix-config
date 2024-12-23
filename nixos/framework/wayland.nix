@@ -1,7 +1,8 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   # light (backlight control)
   programs.light.enable = true;
-  users.users.gaetan.extraGroups = ["video"];
+  users.users.gaetan.extraGroups = [ "video" ];
 
   programs.sway.enable = true;
 
@@ -31,7 +32,7 @@
   };
   environment.systemPackages = [
     (pkgs.where-is-my-sddm-theme.override {
-      variants = ["qt5"];
+      variants = [ "qt5" ];
       themeConfig.General = {
         background = pkgs.nixos-artwork.wallpapers.nineish-dark-gray.gnomeFilePath;
         backgroundMode = "fill";

@@ -2,7 +2,8 @@
   lib,
   config,
   ...
-}: {
+}:
+{
   options.my-modules.wireguard = {
     enable = lib.mkEnableOption "wireguard";
 
@@ -11,12 +12,13 @@
     };
   };
 
-  config = let
-    cfg = config.my-modules.wireguard;
-  in
+  config =
+    let
+      cfg = config.my-modules.wireguard;
+    in
     lib.mkIf cfg.enable {
       networking.wireguard.interfaces.wg0 = {
-        ips = ["${cfg.ip}/32"];
+        ips = [ "${cfg.ip}/32" ];
         listenPort = 51820;
         privateKeyFile = config.age.secrets.wireguard-private-key.path;
 
@@ -28,7 +30,7 @@
             # Forward all the traffic via VPN.
             #allowedIPs = [ "0.0.0.0/0" ];
             # Or forward only particular subnets
-            allowedIPs = ["10.10.10.0/24"];
+            allowedIPs = [ "10.10.10.0/24" ];
 
             # Send keepalives every 25 seconds. Important to keep NAT tables alive.
             persistentKeepalive = 25;

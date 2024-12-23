@@ -19,8 +19,11 @@
       settings = {
         gui = {
           theme = {
-            activeBorderColor = ["blue" "bold"];
-            selectedLineBgColor = ["white"];
+            activeBorderColor = [
+              "blue"
+              "bold"
+            ];
+            selectedLineBgColor = [ "white" ];
           };
         };
         git = {

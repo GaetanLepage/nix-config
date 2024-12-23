@@ -5,7 +5,8 @@
   pkgs,
   inputs,
   ...
-}: {
+}:
+{
   imports = [
     (modulesPath + "/installer/scan/not-detected.nix")
     inputs.nixos-hardware.nixosModules.framework-13-7040-amd
@@ -23,10 +24,10 @@
         "usb_storage"
         "sd_mod"
       ];
-      kernelModules = ["dm-snapshot"];
+      kernelModules = [ "dm-snapshot" ];
     };
-    kernelModules = ["kvm-amd"];
-    extraModulePackages = [];
+    kernelModules = [ "kvm-amd" ];
+    extraModulePackages = [ ];
   };
 
   networking.useDHCP = lib.mkDefault true;

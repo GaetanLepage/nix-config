@@ -2,7 +2,8 @@
   osConfig,
   lib,
   ...
-}: {
+}:
+{
   imports = [
     ./nix-builders.nix
   ];
@@ -10,16 +11,20 @@
   programs.ssh = {
     enable = true;
 
-    matchBlocks = let
-      sshKeysPathPrefix =
-        if osConfig ? age
-        # if using NixOS + agenix:
-        then "/run/agenix/ssh-"
-        # on non-NixOS:
-        else "~/.ssh/";
+    matchBlocks =
+      let
+        sshKeysPathPrefix =
+          if
+            osConfig ? age
+          # if using NixOS + agenix:
+          then
+            "/run/agenix/ssh-"
+          # on non-NixOS:
+          else
+            "~/.ssh/";
 
-      getIdentityFile = keyName: sshKeysPathPrefix + keyName;
-    in
+        getIdentityFile = keyName: sshKeysPathPrefix + keyName;
+      in
       (import ./gricad.nix {
         # inria
         inherit lib;

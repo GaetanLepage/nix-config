@@ -5,7 +5,7 @@
       openFirewall = true;
       host = "10.10.10.5";
       acceleration = "cuda";
-      loadModels = ["llama3.2"];
+      loadModels = [ "llama3.2" ];
     };
   };
 }

@@ -4,19 +4,21 @@
   pkgs,
   utils,
   ...
-}: let
+}:
+let
   inherit (lib) literalExpression types getExe;
   inherit (utils) escapeSystemdExecArgs;
 
   cfg = config.services.mistral-rs;
-  mistralrsPackage = cfg.package.override {inherit (cfg) acceleration;};
+  mistralrsPackage = cfg.package.override { inherit (cfg) acceleration; };
 
   staticUser = cfg.user != null && cfg.group != null;
-in {
+in
+{
   options = {
     services.mistral-rs = {
       enable = lib.mkEnableOption "mistral.rs server for local large language models";
-      package = lib.mkPackageOption pkgs "mistral-rs" {};
+      package = lib.mkPackageOption pkgs "mistral-rs" { };
 
       user = lib.mkOption {
         type = with types; nullOr str;
@@ -112,7 +114,7 @@ in {
 
       extraFlags = lib.mkOption {
         type = types.listOf types.str;
-        default = [];
+        default = [ ];
         example = [
           "--log"
           "/var/log/mistral-rs.log"
@@ -125,7 +127,7 @@ in {
 
       extraCommandFlags = lib.mkOption {
         type = types.listOf types.str;
-        default = [];
+        default = [ ];
         example = [
           "--model-id"
           "meta-llama/Meta-Llama-3.1-8B-Instruct"
@@ -183,13 +185,13 @@ in {
         isSystemUser = true;
         group = cfg.group;
       };
-      groups.${cfg.group} = {};
+      groups.${cfg.group} = { };
     };
 
     systemd.services.mistral-rs = {
       description = "Server for local large language models";
-      wantedBy = ["multi-user.target"];
-      after = ["network.target"];
+      wantedBy = [ "multi-user.target" ];
+      after = [ "network.target" ];
       # environment =
       #   cfg.environmentVariables
       #   // {
@@ -228,7 +230,7 @@ in {
             ++ cfg.extraCommandFlags
           );
           WorkingDirectory = cfg.home; # TODO
-          StateDirectory = ["mistral-rs"]; # TODO
+          StateDirectory = [ "mistral-rs" ]; # TODO
           BindReadOnlyPaths = [
             "-/tmp"
           ];
@@ -328,9 +330,9 @@ in {
     #   '';
     # };
 
-    networking.firewall = lib.mkIf cfg.openFirewall {allowedTCPPorts = [cfg.port];};
+    networking.firewall = lib.mkIf cfg.openFirewall { allowedTCPPorts = [ cfg.port ]; };
 
-    environment.systemPackages = [mistralrsPackage];
+    environment.systemPackages = [ mistralrsPackage ];
   };
 
   meta.maintainers = with lib.maintainers; [

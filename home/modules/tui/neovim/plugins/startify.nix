@@ -21,7 +21,7 @@
       # be used instead.
       use_unicode = true;
 
-      lists = [{type = "dir";}];
+      lists = [ { type = "dir"; } ];
       files_number = 30;
 
       skiplist = [

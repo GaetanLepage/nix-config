@@ -1,6 +1,8 @@
-{pkgs, ...}: let
+{ pkgs, ... }:
+let
   homeDirectory = "/home/glepage";
-in {
+in
+{
   imports = [
     ../../modules/tui
   ];

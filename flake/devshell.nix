@@ -1,44 +1,47 @@
-{inputs, ...}: {
+{ inputs, ... }:
+{
   imports = [
     inputs.devshell.flakeModule
   ];
 
-  perSystem = {
-    config,
-    pkgs,
-    system,
-    ...
-  }: {
-    devshells.default = {
-      packages = [
-        inputs.agenix-rekey.packages.${system}.default
-      ];
+  perSystem =
+    {
+      config,
+      pkgs,
+      system,
+      ...
+    }:
+    {
+      devshells.default = {
+        packages = [
+          inputs.agenix-rekey.packages.${system}.default
+        ];
 
-      commands = [
-        {
-          name = "deploy";
-          command = ''
-            hostname=$1
+        commands = [
+          {
+            name = "deploy";
+            command = ''
+              hostname=$1
 
-            echo -e "\n=> Deploying system '$hostname'"
-            nixos-rebuild switch \
-                --fast \
-                --flake .#$hostname \
-                --target-host root@$hostname \
-                --build-host root@$hostname
-          '';
-        }
-        {
-          name = "update";
-          command = ''
-            echo "=> Updating flake inputs"
-            nix flake update
+              echo -e "\n=> Deploying system '$hostname'"
+              nixos-rebuild switch \
+                  --fast \
+                  --flake .#$hostname \
+                  --target-host root@$hostname \
+                  --build-host root@$hostname
+            '';
+          }
+          {
+            name = "update";
+            command = ''
+              echo "=> Updating flake inputs"
+              nix flake update
 
-            deploy cuda
-            deploy chamaeleon
-          '';
-        }
-      ];
+              deploy cuda
+              deploy chamaeleon
+            '';
+          }
+        ];
+      };
     };
-  };
 }

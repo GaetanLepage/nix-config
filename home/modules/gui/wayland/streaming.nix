@@ -3,7 +3,8 @@
   config,
   pkgs,
   ...
-}: {
+}:
+{
   services = {
     kanshi._profiles.stream = {
       inherit (config.services.kanshi._profiles.home) wifi;
@@ -21,28 +22,34 @@
   };
 
   wayland.windowManager.sway.config.keybindings = {
-    F6 = let
-      obs-do = lib.getExe (pkgs.obs-do.overrideAttrs (old: rec {
-        src = pkgs.fetchFromGitHub {
-          owner = "GaetanLepage";
-          repo = "obs-do";
-          rev = "81a1f85a48e23c3f4b31a418c889ace38ea51b35";
-          hash = "sha256-fe4kWF+d6dtwTP7IuOu0OiesSNx+UYXJ8xgqCZcimoM=";
-        };
-        cargoDeps = old.cargoDeps.overrideAttrs (lib.const {
-          inherit src;
-          outputHash = "sha256-L/0VX46NKU5kk/xIoE/R0V3/tQ4Ueg9eCSWfhmreSNM=";
-        });
-      }));
-      toggle-script = pkgs.writeShellScript "mute-obs" ''
-        if ${obs-do} toggle-mute; then
-          if ${obs-do} get-mute | grep true; then
-            notify-send "Microphone muted"
-          else
-            notify-send "Microphone un-muted"
+    F6 =
+      let
+        obs-do = lib.getExe (
+          pkgs.obs-do.overrideAttrs (old: rec {
+            src = pkgs.fetchFromGitHub {
+              owner = "GaetanLepage";
+              repo = "obs-do";
+              rev = "81a1f85a48e23c3f4b31a418c889ace38ea51b35";
+              hash = "sha256-fe4kWF+d6dtwTP7IuOu0OiesSNx+UYXJ8xgqCZcimoM=";
+            };
+            cargoDeps = old.cargoDeps.overrideAttrs (
+              lib.const {
+                inherit src;
+                outputHash = "sha256-L/0VX46NKU5kk/xIoE/R0V3/tQ4Ueg9eCSWfhmreSNM=";
+              }
+            );
+          })
+        );
+        toggle-script = pkgs.writeShellScript "mute-obs" ''
+          if ${obs-do} toggle-mute; then
+            if ${obs-do} get-mute | grep true; then
+              notify-send "Microphone muted"
+            else
+              notify-send "Microphone un-muted"
+            fi
           fi
-        fi
-      '';
-    in "exec ${toggle-script}";
+        '';
+      in
+      "exec ${toggle-script}";
   };
 }

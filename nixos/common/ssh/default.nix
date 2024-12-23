@@ -5,12 +5,14 @@
     settings.PasswordAuthentication = false;
   };
 
-  users.users = let
-    persoKey = builtins.readFile ./keys/perso.pub;
-  in {
-    gaetan.openssh.authorizedKeys.keys = [persoKey];
-    root.openssh.authorizedKeys.keys = [persoKey];
-  };
+  users.users =
+    let
+      persoKey = builtins.readFile ./keys/perso.pub;
+    in
+    {
+      gaetan.openssh.authorizedKeys.keys = [ persoKey ];
+      root.openssh.authorizedKeys.keys = [ persoKey ];
+    };
 
   imports = [
     ./keys

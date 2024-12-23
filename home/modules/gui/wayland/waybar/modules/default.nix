@@ -2,9 +2,10 @@
   lib,
   pkgs,
   config,
-}: {
+}:
+{
   # CENTER
-  "custom/spotify" = import ./spotify.nix {inherit lib config pkgs;};
+  "custom/spotify" = import ./spotify.nix { inherit lib config pkgs; };
 
   # RIGHT
   backlight = {
@@ -41,7 +42,16 @@
     # format = " {usage:02}%";
     format = "  {usage:02}%";
     # format = "  {icon0}{icon1}{icon2}{icon3}{icon4}{icon5}{icon6}{icon7}{icon8}{icon9}{icon10}{icon11}{icon12}{icon13}{icon14}{icon15} {usage:02}%";
-    format-icons = ["▁" "▂" "▃" "▄" "▅" "▆" "▇" "█"];
+    format-icons = [
+      "▁"
+      "▂"
+      "▃"
+      "▄"
+      "▅"
+      "▆"
+      "▇"
+      "█"
+    ];
   };
 
   network = {
@@ -53,7 +63,7 @@
     format-disconnected = "";
   };
 
-  "custom/vpn" = import ./vpn.nix {inherit pkgs lib;};
+  "custom/vpn" = import ./vpn.nix { inherit pkgs lib; };
 
   battery = {
     tooltip = false;
@@ -65,7 +75,13 @@
     format-full = "{icon}  {capacity}% 󰚥";
     format-charging = "{icon}  {capacity}% 󰚥";
 
-    format-icons = ["" "" "" "" ""];
+    format-icons = [
+      ""
+      ""
+      ""
+      ""
+      ""
+    ];
   };
 
   clock = {
@@ -80,7 +96,7 @@
     tooltip = false; # disable hover
   };
 
-  "custom/notifs" = import ./notifs.nix {inherit lib config pkgs;};
+  "custom/notifs" = import ./notifs.nix { inherit lib config pkgs; };
 
   tray = {
     icon-size = 20;

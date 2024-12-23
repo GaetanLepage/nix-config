@@ -3,60 +3,60 @@
   lib,
 }:
 lib.mapAttrs
-(
-  blockName: blockConfig:
+  (
+    blockName: blockConfig:
     {
       user = "gaetan";
       inherit identityFile;
     }
     // blockConfig
-)
-{
-  ########
-  # Home #
-  ########
+  )
+  {
+    ########
+    # Home #
+    ########
 
-  # coloc
-  cuda = {
-    hostname = "feroe.glepage.com";
-    port = 223;
-  };
-  router = {
-    hostname = "192.168.1.1";
-    user = "root";
-    extraOptions = {
-      HostKeyAlgorithms = "+ssh-rsa";
-      PubkeyAcceptedKeyTypes = "+ssh-rsa";
+    # coloc
+    cuda = {
+      hostname = "feroe.glepage.com";
+      port = 223;
     };
-  };
-  server = {
-    hostname = "feroe.glepage.com";
-    port = 222;
-  };
+    router = {
+      hostname = "192.168.1.1";
+      user = "root";
+      extraOptions = {
+        HostKeyAlgorithms = "+ssh-rsa";
+        PubkeyAcceptedKeyTypes = "+ssh-rsa";
+      };
+    };
+    server = {
+      hostname = "feroe.glepage.com";
+      port = 222;
+    };
 
-  vps.hostname = "vps.glepage.com";
+    vps.hostname = "vps.glepage.com";
 
-  pixel = {
-    hostname = "10.10.10.3";
-    port = 2222;
-  };
+    pixel = {
+      hostname = "10.10.10.3";
+      port = 2222;
+    };
 
-  "github.com".user = "git";
+    "github.com".user = "git";
 
-  # inria
-  chamaeleon = {
-    user = "gaetan";
-    hostname = "10.10.10.6";
-  };
+    # inria
+    chamaeleon = {
+      user = "gaetan";
+      hostname = "10.10.10.6";
+    };
 
-  vps-lepage-knives = {
-    host = "lepage-knives vps.lepage-knives.com";
-    hostname = "vps.lepage-knives.com";
-    user = "root";
-  };
+    vps-lepage-knives = {
+      host = "lepage-knives vps.lepage-knives.com";
+      hostname = "vps.lepage-knives.com";
+      user = "root";
+    };
 
-  ##############
-  # Cordineaux #
-  ##############
-  feroe.hostname = "feroe.glepage.com";
-}
+    ##############
+    # Cordineaux #
+    ##############
+    feroe.hostname = "feroe.glepage.com";
+  }

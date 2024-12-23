@@ -1,4 +1,5 @@
-{inputs, ...}: {
+{ inputs, ... }:
+{
   flake.homeConfigurations = {
     # inria
     inria = inputs.home-manager.lib.homeManagerConfiguration {
@@ -10,7 +11,7 @@
         };
       };
       extraSpecialArgs.inputs = inputs;
-      modules = [../home/hosts/inria];
+      modules = [ ../home/hosts/inria ];
     };
 
     jrs = inputs.home-manager.lib.homeManagerConfiguration {
@@ -21,7 +22,7 @@
         };
       };
       extraSpecialArgs.inputs = inputs;
-      modules = [../home/hosts/jrs];
+      modules = [ ../home/hosts/jrs ];
     };
   };
 }

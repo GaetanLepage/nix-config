@@ -3,7 +3,7 @@
     allowUnfree = true;
 
     # Needed by the nheko matrix client
-    permittedInsecurePackages = ["olm-3.2.16"];
+    permittedInsecurePackages = [ "olm-3.2.16" ];
   };
 
   nix = {
@@ -53,7 +53,10 @@
       connect-timeout = 5;
 
       # Allow the use of cachix
-      trusted-users = ["root" "gaetan"];
+      trusted-users = [
+        "root"
+        "gaetan"
+      ];
 
       builders-use-substitutes = true;
 

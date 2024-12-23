@@ -1,30 +1,29 @@
-{pkgs, ...}: let
+{ pkgs, ... }:
+let
   updateScriptName = "update-home-manager";
-  updateScript =
-    pkgs.writeShellScriptBin
-    updateScriptName
-    ''
-      set -e
+  updateScript = pkgs.writeShellScriptBin updateScriptName ''
+    set -e
 
-      profile="inria"
+    profile="inria"
 
-      flake_dir="$HOME/config"
+    flake_dir="$HOME/config"
 
-      rm -f $flake_dir/flake.lock
+    rm -f $flake_dir/flake.lock
 
-      git -C $flake_dir pull
+    git -C $flake_dir pull
 
-      nix flake update $flake_dir
+    nix flake update $flake_dir
 
-      [ -f $XDG_CONFIG_HOME/user-dirs.dirs ] && rm $HOME/.config/user-dirs.dirs
+    [ -f $XDG_CONFIG_HOME/user-dirs.dirs ] && rm $HOME/.config/user-dirs.dirs
 
-      home-manager switch --flake $flake_dir\#$profile -v
+    home-manager switch --flake $flake_dir\#$profile -v
 
-      # nix-collect-garbage --delete-older-than 2d
-    '';
-in {
+    # nix-collect-garbage --delete-older-than 2d
+  '';
+in
+{
   home = {
-    packages = [updateScript];
+    packages = [ updateScript ];
 
     shellAliases = {
       # update home-manager

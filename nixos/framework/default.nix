@@ -1,4 +1,5 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   imports = [
     # Include the results of the hardware scan.
     ./hardware.nix
@@ -22,7 +23,7 @@
   age.rekey.hostPubkey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIM+Md7yZTk3GWd0XVRQkplboDPLGkSqE/o6/SsfrrGGS";
 
   # Sharing pulseaudio server
-  networking.firewall.allowedTCPPorts = [4713];
+  networking.firewall.allowedTCPPorts = [ 4713 ];
 
   fonts.packages = with pkgs; [
     noto-fonts

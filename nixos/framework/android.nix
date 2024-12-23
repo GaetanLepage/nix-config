@@ -1,9 +1,10 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   programs.adb.enable = true;
 
   environment.systemPackages = with pkgs; [
     jmtpfs
   ];
 
-  users.users.gaetan.extraGroups = ["adbusers"];
+  users.users.gaetan.extraGroups = [ "adbusers" ];
 }
