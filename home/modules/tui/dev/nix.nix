@@ -47,34 +47,11 @@
     };
 
     nixvim = {
-      extraConfigLuaPre = let
-        nixfmtPath = lib.getExe pkgs.nixfmt-rfc-style;
-        alejandraPath = lib.getExe pkgs.alejandra;
-      in ''
-        local get_nix_formatter = function()
-          local match = function(name)
-            return string.find(
-              vim.fn.getcwd() .. "/",
-              "/" .. name .. "/"
-            )
-          end
-
-          if (
-            match("nixpkgs")
-            or match("nixvim")
-            or match("neovim%-nightly%-overlay")
-            or match("nixpkgs%-review")
-          ) then
-            return "${nixfmtPath}"
-          end
-
-          return "${alejandraPath}"
-        end
-      '';
-
       plugins.lsp.servers.nil_ls = {
         enable = true;
-        settings.formatting.command = [{__raw = "get_nix_formatter()";}];
+        settings.formatting.command = [
+          (lib.getExe pkgs.nixfmt-rfc-style)
+        ];
       };
 
       files."after/ftplugin/nix.lua" = {
