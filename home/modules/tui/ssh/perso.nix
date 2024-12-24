@@ -29,7 +29,7 @@ lib.mapAttrs
         PubkeyAcceptedKeyTypes = "+ssh-rsa";
       };
     };
-    server = {
+    tank = {
       hostname = "feroe.glepage.com";
       port = 222;
     };
