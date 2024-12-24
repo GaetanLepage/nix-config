@@ -56,6 +56,7 @@
   #######
   # TODO: revert to original command when https://github.com/NixOS/nix/issues/10202 is fixed
   # nrs = "sudo nixos-rebuild switch --flake ~/config -v";
+  d = "deploy";
   nrs = "nixos-rebuild switch --use-remote-sudo --flake ~/config -v";
   ncg = "sudo nix-collect-garbage";
   hms = "home-manager switch"; # inria
