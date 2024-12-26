@@ -18,7 +18,7 @@ lib.mapAttrs
 
     # coloc
     cuda = {
-      hostname = "feroe.glepage.com";
+      hostname = "cuda.glepage.com";
       port = 223;
     };
     router = {
@@ -30,7 +30,7 @@ lib.mapAttrs
       };
     };
     tank = {
-      hostname = "feroe.glepage.com";
+      hostname = "tank.glepage.com";
       port = 222;
     };
 
