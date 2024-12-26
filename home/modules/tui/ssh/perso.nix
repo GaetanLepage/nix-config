@@ -58,5 +58,5 @@ lib.mapAttrs
     ##############
     # Cordineaux #
     ##############
-    feroe.hostname = "feroe.glepage.com";
+    feroe.hostname = "10.10.10.23";
   }
