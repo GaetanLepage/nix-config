@@ -26,16 +26,17 @@
       let
         obs-do = lib.getExe (
           pkgs.obs-do.overrideAttrs (old: rec {
+            version = "0.1.6";
             src = pkgs.fetchFromGitHub {
-              owner = "GaetanLepage";
+              owner = "jonhoo";
               repo = "obs-do";
-              rev = "81a1f85a48e23c3f4b31a418c889ace38ea51b35";
-              hash = "sha256-fe4kWF+d6dtwTP7IuOu0OiesSNx+UYXJ8xgqCZcimoM=";
+              tag = "v0.1.6";
+              hash = "sha256-t6m/PX4GMCFH9wFrOaU/dcrbKitUXQlOcU7aUyJPpxA=";
             };
             cargoDeps = old.cargoDeps.overrideAttrs (
               lib.const {
                 inherit src;
-                outputHash = "sha256-L/0VX46NKU5kk/xIoE/R0V3/tQ4Ueg9eCSWfhmreSNM=";
+                outputHash = "sha256-ggxNVgtSAU8tr4mPUvhXIqq02v47y+arMUbk0zlc5yY=";
               }
             );
           })
