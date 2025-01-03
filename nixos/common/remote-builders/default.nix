@@ -61,7 +61,7 @@
             hostName = "darwin-build-box.nix-community.org";
             sshUser = "glepage";
             sshKey = config.age.secrets.darwin-build-box-ssh-key.path;
-            publicHostKey = "c3NoLWVkMjU1MTkgQUFBQUMzTnphQzFsWkRJMU5URTVBQUFBSURadytaazZkS2lpWFZ4MlpsbzY3YjZ1UTNvK0JoUG45VVU5QkM2U0lnWjQgCg==";
+            publicHostKey = "c3NoLWVkMjU1MTkgQUFBQUMzTnphQzFsWkRJMU5URTVBQUFBSUtNSGhsY243ZlVwVXVpT0ZlSWhEcUJ6Qk5Gc2JOcXErTnB6dUdYM2U2enYgCg=";
             maxJobs = 32;
             systems = [
               "aarch64-darwin"
