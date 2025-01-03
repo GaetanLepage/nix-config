@@ -1,6 +1,6 @@
 {
   fileSystems."/mnt/server" = {
-    device = "10.10.10.1:/tank";
+    device = "10.10.10.8:/tank";
 
     fsType = "nfs";
 
