@@ -44,7 +44,7 @@
   programs = {
     fish = {
       shellAbbrs = {
-        nrv = "nixpkgs-review pr --no-shell --systems all --num-parallel-evals 4 --post-result";
+        nrv = "nixpkgs-review pr --no-shell --systems 'x86_64-linux x86_64-darwin aarch64-darwin' --num-parallel-evals 4 --post-result";
       };
 
       functions = {
