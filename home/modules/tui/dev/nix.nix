@@ -42,8 +42,14 @@
   };
 
   programs = {
-    fish.shellAbbrs = {
-      nrv = "nixpkgs-review pr --no-shell --systems all --num-parallel-evals 4 --post-result";
+    fish = {
+      shellAbbrs = {
+        nrv = "nixpkgs-review pr --no-shell --systems all --num-parallel-evals 4 --post-result";
+      };
+
+      functions = {
+        cl = "ssh cuda $argv | wl-copy";
+      };
     };
 
     nixvim = {
