@@ -7,7 +7,7 @@
   options = {
     my-modules.remote-builders.linuxMaxJobs = lib.mkOption {
       type = lib.types.ints.unsigned;
-      default = 16;
+      default = 24;
     };
   };
 
@@ -62,7 +62,7 @@
             sshUser = "glepage";
             sshKey = config.age.secrets.darwin-build-box-ssh-key.path;
             publicHostKey = "c3NoLWVkMjU1MTkgQUFBQUMzTnphQzFsWkRJMU5URTVBQUFBSUtNSGhsY243ZlVwVXVpT0ZlSWhEcUJ6Qk5Gc2JOcXErTnB6dUdYM2U2enYgCg=";
-            maxJobs = 32;
+            maxJobs = 10;
             systems = [
               "aarch64-darwin"
               "x86_64-darwin"
