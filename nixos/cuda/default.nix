@@ -1,5 +1,4 @@
 {
-  config,
   pkgs,
   ...
 }:
@@ -20,6 +19,9 @@
     ./server-tank-nfs.nix
     ./wireguard
   ];
+
+  # TODO: temporarily emulate ARM64
+  boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
 
   networking.hostName = "cuda";
   age.rekey.hostPubkey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAtUnNTeHgiIakeJF+DrDtLyZFH1TYztokuW/BjAmRQf";

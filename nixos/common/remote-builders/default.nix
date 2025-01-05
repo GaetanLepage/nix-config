@@ -39,23 +39,23 @@
         settings.builders-use-substitutes = true;
 
         buildMachines = [
-          {
-            # ARM build box
-            hostName = "aarch64.nixos.community";
-            sshUser = "glepage";
-            sshKey = config.age.secrets.aarch64-build-box-ssh-key.path;
-            publicHostKey = "c3NoLWVkMjU1MTkgQUFBQUMzTnphQzFsWkRJMU5URTVBQUFBSU1VVHo1aTl1NUgyRkhOQW1aSnlvSmZJR3lVbS9IZkdoZnduYzE0MkwzZHMK";
-            systems = [
-              "aarch64-linux"
-            ];
-            maxJobs = 64;
-            supportedFeatures = [
-              "benchmark"
-              "big-parallel"
-              "kvm"
-              "nixos-test"
-            ];
-          }
+          # {
+          #   # ARM build box
+          #   hostName = "aarch64.nixos.community";
+          #   sshUser = "glepage";
+          #   sshKey = config.age.secrets.aarch64-build-box-ssh-key.path;
+          #   publicHostKey = "c3NoLWVkMjU1MTkgQUFBQUMzTnphQzFsWkRJMU5URTVBQUFBSU1VVHo1aTl1NUgyRkhOQW1aSnlvSmZJR3lVbS9IZkdoZnduYzE0MkwzZHMK";
+          #   systems = [
+          #     "aarch64-linux"
+          #   ];
+          #   maxJobs = 64;
+          #   supportedFeatures = [
+          #     "benchmark"
+          #     "big-parallel"
+          #     "kvm"
+          #     "nixos-test"
+          #   ];
+          # }
           {
             # Darwin build box
             hostName = "darwin-build-box.nix-community.org";
