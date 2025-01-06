@@ -22,8 +22,8 @@
       )
       {
         arm = {
-          hostname = "aarch64.nixos.community";
-          sshKeyName = "aarch64-build-box-ssh-key";
+          hostname = "aarch64-build-box.nix-community.org";
+          sshKeyName = "linux-build-box-ssh-key";
         };
         darwin = {
           hostname = "darwin-build-box.nix-community.org";

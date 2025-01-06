@@ -23,7 +23,6 @@
             owner = "gaetan";
           })
           {
-            aarch64-build-box-ssh-key.rekeyFile = ./ssh-keys/aarch64-build-box.age;
             darwin-build-box-ssh-key.rekeyFile = ./ssh-keys/darwin-build-box.age;
             linux-build-box-ssh-key.rekeyFile = ./ssh-keys/linux-build-box.age;
           };
@@ -41,14 +40,14 @@
         buildMachines = [
           {
             # ARM build box
-            hostName = "aarch64.nixos.community";
+            hostName = "aarch64-build-box.nix-community.org";
             sshUser = "glepage";
-            sshKey = config.age.secrets.aarch64-build-box-ssh-key.path;
-            publicHostKey = "c3NoLWVkMjU1MTkgQUFBQUMzTnphQzFsWkRJMU5URTVBQUFBSU1VVHo1aTl1NUgyRkhOQW1aSnlvSmZJR3lVbS9IZkdoZnduYzE0MkwzZHMK";
+            sshKey = config.age.secrets.linux-build-box-ssh-key.path;
+            publicHostKey = "c3NoLWVkMjU1MTkgQUFBQUMzTnphQzFsWkRJMU5URTVBQUFBSUc5dXlmaHlsaStCUnRrNjR5K25pcXRiK3NLcXVSR0daODdmNFlSYzhFRTEK";
             systems = [
               "aarch64-linux"
             ];
-            maxJobs = 64;
+            maxJobs = 80;
             supportedFeatures = [
               "benchmark"
               "big-parallel"
