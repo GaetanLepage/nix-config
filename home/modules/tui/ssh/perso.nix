@@ -50,7 +50,7 @@ lib.mapAttrs
     };
 
     vps-lepage-knives = {
-      host = "lepage-knives vps.lepage-knives.com";
+      host = "lk lepage-knives vps.lepage-knives.com";
       hostname = "vps.lepage-knives.com";
       user = "root";
     };
