@@ -11,14 +11,6 @@
     ./typst.nix
   ];
 
-  programs.gh = {
-    enable = true;
-
-    settings = {
-      git_protocol = "ssh";
-    };
-  };
-
   # inria
   home.packages = with pkgs; [
     texlive.combined.scheme-full
