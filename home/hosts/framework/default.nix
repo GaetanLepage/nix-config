@@ -1,3 +1,4 @@
+{ pkgs, ... }:
 {
   imports = [
     ../../modules/tui
@@ -18,4 +19,9 @@
         pactl load-module module-native-protocol-tcp > /dev/null
     end
   '';
+
+  # inria
+  home.packages = with pkgs; [
+    texlive.combined.scheme-full
+  ];
 }

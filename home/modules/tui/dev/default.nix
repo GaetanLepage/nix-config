@@ -1,4 +1,3 @@
-{ pkgs, ... }:
 {
   imports = [
     ./apptainer.nix # inria
@@ -9,10 +8,5 @@
     ./rust.nix
     ./shell.nix
     ./typst.nix
-  ];
-
-  # inria
-  home.packages = with pkgs; [
-    texlive.combined.scheme-full
   ];
 }
