@@ -13,6 +13,7 @@
     ./neovim.nix
     ./obs.nix
     ./packages.nix
+    ./printing.nix
     ./sound.nix
     ./thunar.nix
     ./wayland.nix
