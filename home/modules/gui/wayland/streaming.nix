@@ -5,6 +5,10 @@
   ...
 }:
 {
+  home.shellAliases = {
+    vs = "vim /tmp/stream.txt";
+  };
+
   services = {
     kanshi._profiles.stream = {
       inherit (config.services.kanshi._profiles.home) wifi;
