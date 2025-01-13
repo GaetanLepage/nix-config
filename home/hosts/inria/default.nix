@@ -1,11 +1,9 @@
 {
-  pkgs,
   lib,
+  config,
+  pkgs,
   ...
 }:
-let
-  homeDirectory = "/home/galepage";
-in
 {
   imports = [
     ../../modules/tui
@@ -15,7 +13,7 @@ in
 
   home = {
     username = "galepage";
-    inherit homeDirectory;
+    homeDirectory = "/home/galepage";
 
     sessionVariables = {
       LD_PRELOAD = "/lib/x86_64-linux-gnu/libnss_sss.so.2";
@@ -24,15 +22,15 @@ in
 
   programs.btop.enable = lib.mkForce false;
 
-  xdg.userDirs = with lib; {
-    desktop = mkForce "${homeDirectory}/Desktop";
-    documents = mkForce "${homeDirectory}/Documents";
-    download = mkForce "${homeDirectory}/Downloads";
-    music = mkForce "${homeDirectory}/Music";
-    pictures = mkForce "${homeDirectory}/Pictures";
-    publicShare = mkForce "${homeDirectory}/Public";
-    templates = mkForce "${homeDirectory}/Templates";
-    videos = mkForce "${homeDirectory}/Videos";
+  xdg.userDirs = lib.mapAttrs (n: v: lib.mkForce "${config.home.homeDirectory}/${v}") {
+    desktop = "Desktop";
+    documents = "Documents";
+    download = "Downloads";
+    music = "Music";
+    pictures = "Pictures";
+    publicShare = "Public";
+    templates = "Templates";
+    videos = "Videos";
   };
 
   nix.package = pkgs.nix;
