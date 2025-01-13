@@ -33,6 +33,10 @@ lib.mapAttrs
       hostname = "tank.glepage.com";
       port = 222;
     };
+    borg = {
+      hostname = "zh5071.rsync.net";
+      user = "zh5071";
+    };
 
     vps.hostname = "vps.glepage.com";
 
@@ -49,10 +53,17 @@ lib.mapAttrs
       hostname = "10.10.10.6";
     };
 
+    #################
+    # Lepage Knives #
+    #################
     vps-lepage-knives = {
       host = "lk lepage-knives vps.lepage-knives.com";
       hostname = "vps.lepage-knives.com";
       user = "root";
+    };
+    borg-lk = {
+      hostname = "zh5001.rsync.net";
+      user = "zh5001";
     };
 
     ##############
