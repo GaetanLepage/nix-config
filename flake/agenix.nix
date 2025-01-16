@@ -11,21 +11,12 @@
 
   perSystem =
     {
-      config,
-      pkgs,
-      system,
+      inputs',
       ...
     }:
     {
-      packages =
-        let
-          pkgs = import inputs.nixpkgs {
-            inherit system;
-            overlays = [ inputs.agenix-rekey.overlays.default ];
-          };
-        in
-        {
-          agenix = pkgs.agenix-rekey;
-        };
+      devshells.default.packages = [
+        inputs'.agenix-rekey.packages.default
+      ];
     };
 }

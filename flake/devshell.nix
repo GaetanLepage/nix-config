@@ -13,10 +13,6 @@
     }:
     {
       devshells.default = {
-        packages = [
-          inputs.agenix-rekey.packages.${system}.default
-        ];
-
         commands = [
           {
             name = "deploy";
