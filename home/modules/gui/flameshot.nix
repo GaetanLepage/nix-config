@@ -1,3 +1,4 @@
+{ config, ... }:
 {
   services.flameshot = {
     enable = true;
@@ -8,7 +9,7 @@
         drawFontSize = 23;
         drawThickness = 3;
 
-        savePath = "/home/gaetan/downloads";
+        savePath = config.xdg.userDirs.download;
         savePathFixed = false;
 
         disabledTrayIcon = true;
