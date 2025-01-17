@@ -24,12 +24,6 @@
   # Sharing pulseaudio server
   networking.firewall.allowedTCPPorts = [ 4713 ];
 
-  fonts.packages = with pkgs; [
-    noto-fonts
-    nerd-fonts.dejavu-sans-mono
-    nerd-fonts.ubuntu-mono
-  ];
-
   services = {
     gnome.gnome-keyring.enable = true;
     udisks2.enable = true;

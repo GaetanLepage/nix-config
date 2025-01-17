@@ -4,6 +4,12 @@
 
   programs.sway.enable = true;
 
+  fonts.packages = with pkgs; [
+    noto-fonts
+    nerd-fonts.dejavu-sans-mono
+    nerd-fonts.ubuntu-mono
+  ];
+
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
   xdg.portal = {
