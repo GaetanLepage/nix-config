@@ -11,7 +11,6 @@
     ./bluetooth.nix
     ./disko.nix
     ./neovim.nix
-    ./obs.nix
     ./packages.nix
     ./printing.nix
     ./sound.nix

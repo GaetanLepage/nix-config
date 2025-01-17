@@ -8,6 +8,7 @@
     ./github-token
     ./nix.nix
     ./nvidia.nix
+    ./obs.nix
     ./remote-builders
     ./security.nix
     ./ssh
