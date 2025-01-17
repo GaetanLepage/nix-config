@@ -14,6 +14,7 @@
     ./ssh
     ./users.nix
     ./wireguard.nix
+    ./wayland.nix
   ];
 
   # Set your time zone.

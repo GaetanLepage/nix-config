@@ -1,7 +1,5 @@
 { pkgs, ... }:
 {
-  # light (backlight control)
-  programs.light.enable = true;
   users.users.gaetan.extraGroups = [ "video" ];
 
   programs.sway.enable = true;
