@@ -5,7 +5,6 @@
     ../../modules/gui
 
     ./backup
-    ./update.nix
   ];
 
   # Allows auto-unlocking of the gnome keyring at login
