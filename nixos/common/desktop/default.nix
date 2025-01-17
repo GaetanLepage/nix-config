@@ -1,6 +1,7 @@
 { pkgs, ... }:
 {
   imports = [
+    ./thunar.nix
     ./wayland.nix
   ];
 

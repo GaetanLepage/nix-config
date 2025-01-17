@@ -1,4 +1,3 @@
-{ pkgs, ... }:
 {
   imports = [
     # Include the results of the hardware scan.
@@ -14,7 +13,6 @@
     ./packages.nix
     ./printing.nix
     ./sound.nix
-    ./thunar.nix
     ./wireguard
   ];
 
