@@ -4,6 +4,7 @@
     inputs.disko.nixosModules.disko
     ./agenix.nix
     ./bootloader.nix
+    ./desktop
     ./fish.nix
     ./github-token
     ./nix.nix
@@ -14,7 +15,6 @@
     ./ssh
     ./users.nix
     ./wireguard.nix
-    ./wayland.nix
   ];
 
   # Set your time zone.
