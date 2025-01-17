@@ -27,6 +27,15 @@
 
     libinput.enable = true;
     xserver.xkb.layout = "fr";
+
+    # Keyboard led config
+    g810-led = {
+      enable = true;
+      profile = ''
+        a ff      # Set all keys on
+        c         # Commit changes
+      '';
+    };
   };
   environment.systemPackages = [
     (pkgs.where-is-my-sddm-theme.override {
