@@ -15,7 +15,7 @@
     # ./desktop
     ./disko.nix
     ./nfs.nix
-    ./nix-remote-builder.nix
+    # ./nix-remote-builder.nix
     ./server-tank-nfs.nix
     ./wireguard
   ];
