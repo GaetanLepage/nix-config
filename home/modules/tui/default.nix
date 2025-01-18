@@ -52,6 +52,9 @@
       ncdu
       tlrc
       wget
+
+      # Network
+      dig
     ];
   };
 }
