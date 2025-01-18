@@ -122,7 +122,7 @@
           Print = "exec ${getExe config.services.flameshot.package} gui";
 
           # file manager
-          "${mod}+F3" = "exec ${getExe pkgs.xfce.thunar}";
+          "${mod}+F3" = "exec thunar";
 
           "${mod}+Shift+F7" = "exec bg_stream lofi";
           "${mod}+F7" = "exec bg_stream stop";
