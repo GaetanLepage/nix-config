@@ -6,6 +6,9 @@
   ];
 
   services = {
+    gnome.gnome-keyring.enable = true;
+    udisks2.enable = true;
+
     # Keyboard led config
     g810-led = {
       enable = true;

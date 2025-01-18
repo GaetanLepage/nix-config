@@ -23,9 +23,6 @@
   networking.firewall.allowedTCPPorts = [ 4713 ];
 
   services = {
-    gnome.gnome-keyring.enable = true;
-    udisks2.enable = true;
-
     # Disable fingerprint sensor
     fprintd.enable = false;
 
