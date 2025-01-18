@@ -20,6 +20,7 @@
       services.xserver.videoDrivers = [ "nvidia" ];
 
       environment.systemPackages = [ pkgs.nvtopPackages.nvidia ];
+      programs.sway.package = pkgs.sway.override { extraOptions = [ "--unsupported-gpu" ]; };
 
       hardware = {
         graphics = {
