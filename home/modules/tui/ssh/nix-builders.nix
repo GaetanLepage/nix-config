@@ -10,7 +10,7 @@
         _: v:
         {
           inherit (v) hostname;
-          user = "glepage";
+          user = v.user or "glepage";
           setEnv.TERM = "xterm-256color";
           forwardAgent = v.forwardAgent or null;
           port = v.port or null;
@@ -38,6 +38,11 @@
           sshKeyName = "ssh-jonringer-server";
           port = 2222;
           forwardAgent = true;
+        };
+        libero = {
+          user = "root";
+          hostname = "185.119.168.14";
+          sshKeyName = "ssh-liberodark-builder";
         };
       };
 }
