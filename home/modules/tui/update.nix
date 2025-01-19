@@ -10,7 +10,7 @@
         # Path to the folder containing `flake.nix`
         nix_dir=$HOME/config
 
-        if [ -d "$nix_dir" ]; then
+        if ! [ -d "$nix_dir" ]; then
           echo "ERROR: '$nix_dir' does not exist"
           exit 1
         fi
