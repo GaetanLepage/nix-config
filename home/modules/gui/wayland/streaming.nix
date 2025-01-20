@@ -1,28 +1,11 @@
 {
   lib,
-  config,
   pkgs,
   ...
 }:
 {
   home.shellAliases = {
     vs = "vim /tmp/stream.txt";
-  };
-
-  services = {
-    kanshi._profiles.stream = {
-      inherit (config.services.kanshi._profiles.home) wifi;
-      screens = {
-        laptop = {
-          status = "enable";
-          position = "0,310";
-        };
-        home = {
-          status = "enable";
-          position = "1694,0";
-        };
-      };
-    };
   };
 
   wayland.windowManager.sway.config.keybindings = {

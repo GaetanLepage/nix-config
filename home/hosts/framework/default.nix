@@ -5,6 +5,7 @@
     ../../modules/gui
 
     ./backup
+    ./kanshi.nix
   ];
 
   # Load the pulseaudio module that enables sharing audio devices with computers on the network.
