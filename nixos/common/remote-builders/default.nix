@@ -7,7 +7,7 @@
   options = {
     my-modules.remote-builders.linuxMaxJobs = lib.mkOption {
       type = lib.types.ints.unsigned;
-      default = 24;
+      default = 8;
     };
   };
 
@@ -47,7 +47,7 @@
             systems = [
               "aarch64-linux"
             ];
-            maxJobs = 80;
+            maxJobs = 20;
             supportedFeatures = [
               "benchmark"
               "big-parallel"
