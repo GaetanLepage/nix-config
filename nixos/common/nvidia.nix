@@ -29,6 +29,9 @@
         };
 
         nvidia = {
+          # Use latest drivers
+          package = config.boot.kernelPackages.nvidiaPackages.latest;
+
           # Modesetting is required.
           modesetting.enable = true;
 
