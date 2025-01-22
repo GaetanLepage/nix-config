@@ -494,22 +494,6 @@
         "type": "github"
       }
     },
-    "nixpkgs-tree-sitter": {
-      "locked": {
-        "lastModified": 1735514485,
-        "narHash": "sha256-Zww5ANfNtI0O1sj7ZbePNYC1xi5TJYnKHAz9F97DobI=",
-        "owner": "khaneliman",
-        "repo": "nixpkgs",
-        "rev": "01ab8a5a632ed4eeed0ea6e9b307d67675f48af6",
-        "type": "github"
-      },
-      "original": {
-        "owner": "khaneliman",
-        "ref": "treesitter",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
     "nixvim": {
       "inputs": {
         "devshell": "devshell_3",
@@ -595,7 +579,6 @@
         "nix-index-database": "nix-index-database",
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs",
-        "nixpkgs-tree-sitter": "nixpkgs-tree-sitter",
         "nixvim": "nixvim",
         "treefmt-nix": "treefmt-nix_3"
       }
