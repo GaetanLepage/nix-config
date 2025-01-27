@@ -61,7 +61,7 @@
             sshUser = "glepage";
             sshKey = config.age.secrets.darwin-build-box-ssh-key.path;
             publicHostKey = "c3NoLWVkMjU1MTkgQUFBQUMzTnphQzFsWkRJMU5URTVBQUFBSUtNSGhsY243ZlVwVXVpT0ZlSWhEcUJ6Qk5Gc2JOcXErTnB6dUdYM2U2enYgCg=";
-            maxJobs = 4;
+            maxJobs = 2;
             systems = [
               "aarch64-darwin"
               "x86_64-darwin"
