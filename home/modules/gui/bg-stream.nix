@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ lib, pkgs, ... }:
 {
   home.packages = [
     (pkgs.writeShellApplication {
@@ -23,7 +23,7 @@
 
         case $stream_name in
           stop)
-            killall mpv
+            ${lib.getExe pkgs.killall} mpv
             notify-send "Stopping stream"
             ;;
 
