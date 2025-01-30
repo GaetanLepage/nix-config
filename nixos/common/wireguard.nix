@@ -11,7 +11,10 @@
       type = lib.types.str;
     };
 
-    redirectAllTraffic = lib.mkEnableOption "";
+    redirectAllTraffic = lib.mkOption {
+      type = lib.types.bool;
+      default = true;
+    };
 
     allowedIPs = lib.mkOption {
       type = lib.types.str;
