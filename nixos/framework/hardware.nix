@@ -12,6 +12,9 @@
     inputs.nixos-hardware.nixosModules.framework-13-7040-amd
   ];
 
+  # https://github.com/NixOS/nixos-hardware/issues/1330
+  hardware.framework.enableKmod = false;
+
   boot = {
     # Use latest linux kernel
     kernelPackages = pkgs.linuxPackages_latest;
