@@ -27,15 +27,6 @@
                   --build-host root@$hostname
             '';
           }
-          {
-            name = "update";
-            command = ''
-              echo "=> Updating flake inputs"
-              nix flake update
-
-              deploy cuda
-            '';
-          }
         ];
       };
     };
