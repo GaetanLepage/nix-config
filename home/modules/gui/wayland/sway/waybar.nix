@@ -19,6 +19,7 @@
 
         # enable-bar-scroll = true;
         disable-scroll-wraparound = true;
+        disable-scroll = true;
       };
     };
 
