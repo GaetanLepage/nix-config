@@ -16,11 +16,7 @@ lib.mapAttrs
     # Home #
     ########
 
-    # coloc
-    cuda = {
-      hostname = "cuda.glepage.com";
-      port = 223;
-    };
+    cuda.hostname = "10.10.10.5";
     router = {
       hostname = "192.168.1.1";
       user = "root";
