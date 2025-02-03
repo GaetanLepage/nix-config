@@ -47,12 +47,6 @@ lib.mapAttrs
 
     "github.com".user = "git";
 
-    # inria
-    chamaeleon = {
-      user = "gaetan";
-      hostname = "10.10.10.6";
-    };
-
     #################
     # Lepage Knives #
     #################

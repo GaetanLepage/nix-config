@@ -34,7 +34,6 @@
               nix flake update
 
               deploy cuda
-              deploy chamaeleon
             '';
           }
         ];

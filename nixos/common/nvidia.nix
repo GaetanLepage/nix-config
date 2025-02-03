@@ -1,4 +1,3 @@
-# inria: this can be moved in cuda when chamaeleon will be gone
 {
   lib,
   config,
