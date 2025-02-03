@@ -17,7 +17,7 @@
           "10" = [ ];
         };
 
-        enable-bar-scroll = true;
+        # enable-bar-scroll = true;
         disable-scroll-wraparound = true;
       };
     };
