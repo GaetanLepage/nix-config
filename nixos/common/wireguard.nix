@@ -36,10 +36,6 @@
           {
             endpoint = "162.19.67.38:51820";
             publicKey = "jWzlVwkNkaO1uj7Qh+Xemo0EtxIYP2ufK+18oPcdvBY=";
-
-            # Forward all the traffic via VPN.
-            #allowedIPs = [ "0.0.0.0/0" ];
-            # Or forward only particular subnets
             allowedIPs = [ cfg.allowedIPs ];
 
             # Send keepalives every 25 seconds. Important to keep NAT tables alive.
