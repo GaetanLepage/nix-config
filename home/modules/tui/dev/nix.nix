@@ -23,6 +23,7 @@
 
     shellAliases = {
       cn = "cd ~/nix/nixpkgs";
+      cnp = "cd ~/nix/nixpkgs-packages";
 
       nb = "nom-build --system x86_64-linux -A";
       nbl = "nom-build --system x86_64-linux --builders '' -A";
