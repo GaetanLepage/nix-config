@@ -11,7 +11,6 @@
     ./disko.nix
     ./neovim.nix
     ./packages.nix
-    ./printing.nix
     ./sound.nix
     ./wireguard
   ];
