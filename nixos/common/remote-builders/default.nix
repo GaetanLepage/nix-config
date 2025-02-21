@@ -43,6 +43,7 @@
             hostName = "aarch64-build-box.nix-community.org";
             sshUser = "glepage";
             sshKey = config.age.secrets.linux-build-box-ssh-key.path;
+            # base64 -w0 /etc/ssh/ssh_host_ed25519_key.pub
             publicHostKey = "c3NoLWVkMjU1MTkgQUFBQUMzTnphQzFsWkRJMU5URTVBQUFBSUc5dXlmaHlsaStCUnRrNjR5K25pcXRiK3NLcXVSR0daODdmNFlSYzhFRTEK";
             systems = [
               "aarch64-linux"
@@ -60,6 +61,7 @@
             hostName = "darwin-build-box.nix-community.org";
             sshUser = "glepage";
             sshKey = config.age.secrets.darwin-build-box-ssh-key.path;
+            # base64 -w0 -i /etc/ssh/ssh_host_ed25519_key.pub
             publicHostKey = "c3NoLWVkMjU1MTkgQUFBQUMzTnphQzFsWkRJMU5URTVBQUFBSUtNSGhsY243ZlVwVXVpT0ZlSWhEcUJ6Qk5Gc2JOcXErTnB6dUdYM2U2enYgCg==";
             maxJobs = 2;
             systems = [
@@ -77,6 +79,7 @@
             hostName = "build-box.nix-community.org";
             sshUser = "glepage";
             sshKey = config.age.secrets.linux-build-box-ssh-key.path;
+            # base64 -w0 /etc/ssh/ssh_host_ed25519_key.pub
             publicHostKey = "c3NoLWVkMjU1MTkgQUFBQUMzTnphQzFsWkRJMU5URTVBQUFBSUVsSVE1NHFBeTdEaDYzckJ1ZFlLZGJ6SkhycmJyck1YTFlsN1BrbWs4OEgK";
             maxJobs = cfg.linuxMaxJobs;
             speedFactor = 1;
