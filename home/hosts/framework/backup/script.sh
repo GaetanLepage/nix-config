@@ -7,7 +7,7 @@ fi
 
 dest_path=/tank/gaetan/backup/homedir
 
-rsync -zravut "$HOME/" server:$dest_path \
+rsync -zravut "$HOME/" tank:$dest_path \
     --human-readable \
     --delete \
     --delete-excluded \
