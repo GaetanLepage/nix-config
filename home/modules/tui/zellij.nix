@@ -7,6 +7,9 @@
   programs.zellij = {
     enable = true;
 
+    # Disable auto-starting zellij
+    enableFishIntegration = false;
+
     settings = {
       # Make zellij UI more compact
       pane_frames = false;
