@@ -16,7 +16,7 @@
     enable = true;
     defaultEditor = true;
 
-    nixpkgs.useGlobalPackages = true;
+    # nixpkgs.useGlobalPackages = true;
 
     performance = {
       combinePlugins = {
