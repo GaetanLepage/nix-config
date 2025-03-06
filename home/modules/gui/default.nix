@@ -31,7 +31,7 @@
 
     # Office / productivity
     libreoffice-fresh
-    okular # inria ? (also delete keyboard shortcuts file)
+    kdePackages.okular # inria ? (also delete keyboard shortcuts file)
     zotero # inria
 
     # Misc
