@@ -32,7 +32,7 @@
 
     home-manager = {
       url = "github:nix-community/home-manager";
-      # url = "/home/gaetan/perso/nix/home-manager";
+      # url = "/home/gaetan/nix/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
