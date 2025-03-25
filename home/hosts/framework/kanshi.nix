@@ -19,6 +19,11 @@
         position = "0,0";
         mode = "1920x1080@60.000Hz";
       };
+      hp = {
+        criteria = "Hewlett Packard HP LA2405x CN43510531";
+        position = "0,0";
+        mode = "1920x1200@59.950Hz";
+      };
     };
     _profiles = {
       laptop = {
@@ -36,7 +41,7 @@
         wifi = false;
         screens = {
           laptop.status = "disable";
-          benq.status = "enable";
+          hp.status = "enable";
         };
       };
       inria = {
