@@ -14,6 +14,11 @@
         position = "0,0";
         mode = "2560x1440@59.95Hz";
       };
+      benq = {
+        criteria = "BNQ BenQ GW2460 N9D04183SL0";
+        position = "0,0";
+        mode = "1920x1080@60.000Hz";
+      };
     };
     _profiles = {
       laptop = {
@@ -25,6 +30,13 @@
         screens = {
           laptop.status = "disable";
           home.status = "enable";
+        };
+      };
+      studio = {
+        wifi = false;
+        screens = {
+          laptop.status = "disable";
+          benq.status = "enable";
         };
       };
       inria = {
