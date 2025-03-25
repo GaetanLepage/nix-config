@@ -15,7 +15,7 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    # nixpkgs.url = "/home/gaetan/perso/nix/nixpkgs";
+    # nixpkgs.url = "/home/gaetan/nix/nixpkgs";
 
     flake-parts = {
       url = "github:hercules-ci/flake-parts";
