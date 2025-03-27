@@ -43,6 +43,7 @@
         # Matplotlib plots
         { class = "matplotlib"; } # inria
         { app_id = "python3"; } # inria
+        { app_id = "xdg-desktop-portal-gtk"; } # file picker
       ];
 
       fonts = {
