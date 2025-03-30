@@ -1,9 +1,4 @@
 {
-  lib,
-  config,
-  ...
-}:
-{
   imports = [
     ./barbar.nix
     ./comment.nix
