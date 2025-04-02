@@ -4,7 +4,7 @@
     enable = true;
     package = pkgs.rofi-wayland;
 
-    font = "DejaVu Sans Mono 16";
+    font = "DejaVu Sans Mono 18";
     theme = "gruvbox-dark";
   };
 }
