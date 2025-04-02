@@ -4,6 +4,9 @@
       ctrl-o = "projects::OpenRecent";
       ctrl-shift-o = "workspace::Open";
       ctrl-t = "workspace::NewCenterTerminal";
+      "alt-space" = "terminal_panel::ToggleFocus";
+      "space n" = "workspace::ToggleLeftDock";
+      ctrl-f = "project_search::ToggleFocus"; # TODO
     };
   }
   {
@@ -14,6 +17,9 @@
         { advance_downwards = false; }
       ];
       "space h" = "pane::RevealInProjectPanel";
+      tab = "pane::ActivateNextItem";
+      shift-tab = "pane::ActivatePreviousItem";
+      "space b" = "tab_switcher::Toggle";
     };
   }
   {
@@ -41,8 +47,6 @@
     bindings = {
       alt-h = "pane::ActivatePreviousItem";
       alt-l = "pane::ActivateNextItem";
-      alt-j = "terminal_panel::ToggleFocus";
-      alt-k = "terminal_panel::ToggleFocus";
     };
   }
   {
@@ -54,6 +58,12 @@
         "pane::CloseActiveItem"
         { close_pinned = false; }
       ];
+    };
+  }
+  {
+    context = "ProjectPanel";
+    bindings = {
+      "space l" = "project_panel::ToggleFocus";
     };
   }
 ]

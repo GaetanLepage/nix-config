@@ -19,16 +19,25 @@ in
     hour_format = "hour24";
     ui_font_family = font_family;
     ui_font_size = font_size;
+    project_panel = {
+      hide_gitignore = true;
+    };
 
     # Terminal
     terminal = {
       inherit font_family font_size;
+      line_height = "standard";
     };
 
     # Editor
-    show_whitespaces = "none";
-    vim_mode = true;
     theme = "Ayu Dark";
+    vim_mode = true;
+    relative_line_numbers = true;
+    show_whitespaces = "none";
+    scroll_beyond_last_line = "off";
+    git = {
+      inline_blame.enabled = false;
+    };
 
     buffer_font_family = font_family;
     buffer_font_size = font_size;
