@@ -2,6 +2,7 @@
   lib,
   config,
   pkgs,
+  osConfig,
   ...
 }:
 {
@@ -13,6 +14,7 @@
 
   wayland.windowManager.sway = {
     enable = true;
+    xwayland = osConfig.programs.sway.xwayland.enable;
 
     config = {
       assigns = {

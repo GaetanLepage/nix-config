@@ -2,7 +2,10 @@
 {
   users.users.gaetan.extraGroups = [ "video" ];
 
-  programs.sway.enable = true;
+  programs.sway = {
+    enable = true;
+    xwayland.enable = false;
+  };
 
   fonts.packages = with pkgs; [
     noto-fonts
@@ -33,7 +36,6 @@
 
     libinput.enable = true;
     xserver.xkb.layout = "fr";
-
   };
 
   environment.systemPackages = [
