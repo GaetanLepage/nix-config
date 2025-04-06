@@ -4,7 +4,10 @@
 
   programs.sway = {
     enable = true;
-    xwayland.enable = false;
+
+    # Discord is the only application needing xwayland
+    # TODO: disable when possible
+    xwayland.enable = true;
   };
 
   fonts.packages = with pkgs; [
