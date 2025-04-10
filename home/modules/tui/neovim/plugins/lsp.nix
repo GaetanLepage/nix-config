@@ -33,6 +33,7 @@
 
         servers = {
           clangd.enable = true;
+          cmake.enable = true;
           texlab.enable = true; # inria
         };
       };
