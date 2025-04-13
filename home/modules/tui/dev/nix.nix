@@ -12,6 +12,7 @@
       nix-tree
       nix-output-monitor
       statix
+      patchelf
 
       # nixpkgs
       nix-update
