@@ -4,13 +4,19 @@
   ...
 }:
 let
-  cursor = {
+  cursorTheme = {
     name = "Numix-Cursor-Light";
     package = pkgs.numix-cursor-theme;
   };
 in
 {
-  home.pointerCursor = cursor;
+  home.pointerCursor = {
+    enable = true;
+    inherit (cursorTheme)
+      name
+      package
+      ;
+  };
 
   gtk = {
     enable = true;
@@ -30,7 +36,7 @@ in
       package = pkgs.papirus-icon-theme;
     };
 
-    cursorTheme = cursor;
+    inherit cursorTheme;
 
     gtk3.bookmarks = [
       "file://${config.xdg.userDirs.download}"
