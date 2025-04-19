@@ -1,12 +1,5 @@
 {
   programs.nixvim = {
-    highlight.Todo = {
-      fg = "Blue";
-      bg = "Yellow";
-    };
-
-    match.TODO = "TODO";
-
     keymaps = [
       {
         mode = "n";
