@@ -9,7 +9,8 @@
   ];
   programs = {
     zed-editor = {
-      enable = true;
+      # TODO: entirely remove the module?
+      enable = false;
 
       extensions = [
         "git-firefly"
