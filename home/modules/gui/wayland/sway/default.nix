@@ -119,14 +119,10 @@
       startup = [
         { command = "systemctl --user import-environment"; }
         {
-          command =
-            let
-              setWallpaper = pkgs.writeShellScript "set-wallpaper" ''
-                ${lib.getExe pkgs.killall} swaybg
-                ${lib.getExe pkgs.swaybg} -m fill -i ${../wallpaper.png}
-              '';
-            in
-            "${setWallpaper}";
+          command = "${pkgs.writeShellScript "set-wallpaper" ''
+            ${lib.getExe pkgs.killall} swaybg
+            ${lib.getExe pkgs.swaybg} -m fill -i ${../wallpaper.png}
+          ''}";
           always = true;
         }
         {
