@@ -39,6 +39,12 @@
       nuc = "nix-update --commit";
       nucb = "nix-update --commit --build";
 
+      nrb = "nix-remote-build";
+      nrba = "nix-remote-build arm";
+      nrbd = "nix-remote-build darwin";
+      nrbj = "nix-remote-build jrs";
+      nrbl = "nix-remote-build linux-build-box";
+
       clean-reviews = "rm -rf ${config.xdg.cacheHome}/nixpkgs-review/*";
     };
 
@@ -53,6 +59,12 @@
 
       functions = {
         cl = "ssh cuda $argv | wl-copy";
+
+        nix-remote-build = ''
+          nix-copy-closure --to $argv[1] $argv[2]
+
+          ssh $argv[1] nom-build $argv[2..-1]
+        '';
       };
     };
 
