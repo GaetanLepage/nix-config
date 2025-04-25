@@ -14,6 +14,7 @@
 
     # ./desktop
     ./disko.nix
+    ./harmonia
     ./nfs.nix
     # ./nix-remote-builder.nix
     ./server-tank-nfs.nix
