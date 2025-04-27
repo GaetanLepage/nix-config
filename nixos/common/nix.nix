@@ -63,16 +63,6 @@
       # If set to true, Nix will fall back to building from source if a binary substitute
       # fails. This is equivalent to the –fallback flag. The default is false.
       fallback = true;
-
-      substituters = [
-        "https://cache.nixos.org"
-        "https://nix-community.cachix.org"
-      ];
-
-      trusted-public-keys = [
-        "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
-        "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
-      ];
     };
 
     gc = {

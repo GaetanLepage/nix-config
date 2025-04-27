@@ -1,4 +1,4 @@
-{ inputs, ... }:
+{ inputs, config, ... }:
 {
   flake.nixosConfigurations =
     let
@@ -10,6 +10,7 @@
           modules = [
             # The system configuration
             ../nixos/${hostname}
+            config.substituters.module
 
             # Home manager configuration
             inputs.home-manager.nixosModules.home-manager
@@ -17,7 +18,10 @@
               home-manager = {
                 useGlobalPkgs = true;
                 useUserPackages = true;
-                users.gaetan.imports = [ ../home/hosts/${hostname} ];
+                users.gaetan.imports = [
+                  ../home/hosts/${hostname}
+                  config.substituters.module
+                ];
                 extraSpecialArgs.inputs = inputs;
               };
             }

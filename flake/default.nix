@@ -1,9 +1,12 @@
 {
   imports = [
+    ./modules
+
     ./agenix.nix
     ./devshell.nix
-    ./treefmt.nix
     ./home-manager.nix
     ./nixos.nix
+    ./substituters.nix
+    ./treefmt.nix
   ];
 }

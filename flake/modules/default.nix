@@ -1,0 +1,5 @@
+{
+  imports = [
+    ./substituters.nix
+  ];
+}
