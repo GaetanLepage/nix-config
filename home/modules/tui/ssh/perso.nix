@@ -40,6 +40,7 @@ lib.mapAttrs
       hostname = "10.10.10.3";
       port = 2222;
     };
+    framework.hostname = "framework";
 
     "github.com".user = "git";
 
