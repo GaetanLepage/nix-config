@@ -1,6 +1,6 @@
 {
   programs.nixvim = {
-    diagnostics.virtual_text = true;
+    diagnostic.config.virtual_text = true;
 
     plugins = {
       lsp-format = {
