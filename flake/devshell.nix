@@ -15,6 +15,19 @@
       devshells.default = {
         commands = [
           {
+            name = "update";
+            command = ''
+              echo "=> Updating flake inputs"
+              nix flake update
+
+              deploy
+
+              git add flake.lock
+              git commit -m "flake.lock: Update"
+              git push
+            '';
+          }
+          {
             name = "rebuild";
             command = ''
               hostname=$1
