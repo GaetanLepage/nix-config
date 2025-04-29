@@ -30,6 +30,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    deploy-rs.url = "github:serokell/deploy-rs";
+
     home-manager = {
       url = "github:nix-community/home-manager";
       # url = "/home/gaetan/nix/home-manager";
