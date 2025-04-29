@@ -21,6 +21,10 @@ in
               type = types.str;
               default = "x86_64-linux";
             };
+
+            deploy = {
+              remoteBuild = lib.mkEnableOption "";
+            };
           };
         };
       in
