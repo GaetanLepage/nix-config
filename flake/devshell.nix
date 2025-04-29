@@ -15,7 +15,7 @@
       devshells.default = {
         commands = [
           {
-            name = "deploy";
+            name = "rebuild";
             command = ''
               hostname=$1
 
