@@ -22,6 +22,14 @@
         settings.formatterMode = "typstyle";
       };
 
+      typst-preview = {
+        enable = true;
+
+        settings = {
+          dependencies_bin.tinymist = "tinymist";
+        };
+      };
+
       typst-vim = {
         enable = true;
         settings = {
