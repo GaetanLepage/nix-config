@@ -8,7 +8,6 @@
   home = {
     packages = with pkgs; [
       alejandra
-      nix-init
       nix-tree
       nix-output-monitor
       statix
@@ -65,6 +64,13 @@
 
           ssh $argv[1] nom-build $argv[2..-1]
         '';
+      };
+    };
+
+    nix-init = {
+      enable = true;
+      settings = {
+        maintainers = [ "GaetanLepage" ];
       };
     };
 
