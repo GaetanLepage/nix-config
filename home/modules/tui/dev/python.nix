@@ -10,18 +10,10 @@
       # inria
       (python3.withPackages (
         ps: with ps; [
-          # Misc
-          pip
-          setuptools
-
-          # RL
           matplotlib
           numpy
-          torch
         ]
       ))
-
-      mypy
     ];
 
     sessionVariables.MYPY_CACHE_DIR = "${config.xdg.cacheHome}/mypy";
