@@ -54,6 +54,16 @@ lib.mapAttrs
       "*.inrialpes.fr" = {
         proxyJump = "bastion";
       };
+
+      g5k = {
+        hostname = "access.grid5000.fr";
+        user = "glepage";
+      };
+      abaca = {
+        hostname = "grenoble";
+        user = "glepage";
+        proxyJump = "g5k";
+      };
     }
     // workstations
   )
