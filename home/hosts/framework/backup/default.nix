@@ -7,8 +7,7 @@ let
   backupScript = pkgs.writeShellApplication {
     name = "backup";
     text = builtins.readFile (
-      pkgs.substituteAll {
-        src = ./script.sh;
+      pkgs.replaceVars ./script.sh {
         excludes = ./excludes.txt;
       }
     );
