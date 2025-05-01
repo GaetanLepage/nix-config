@@ -3,27 +3,9 @@
   identityFile,
   lib,
 }:
-lib.mapAttrs
-  (
-    blockName: blockConfig:
-    {
-      user = "galepage";
-      inherit identityFile;
-    }
-    // blockConfig
-  )
-  (
-    {
-      bastion.hostname = "ssh-gra.inria.fr";
-
-      "gitlab.inria.fr" = { };
-
-      # Generic rule for all Inria computers
-      "*.inrialpes.fr" = {
-        proxyJump = "bastion";
-      };
-    }
-    // (lib.genAttrs
+let
+  workstations =
+    lib.genAttrs
       [
         "access2-cp"
         "gpu*-perception"
@@ -50,6 +32,28 @@ lib.mapAttrs
           PULSE_SERVER = "tcp:10.10.10.2:4713";
           TERM = "xterm-256color";
         };
-      })
-    )
+      });
+
+in
+lib.mapAttrs
+  (
+    blockName: blockConfig:
+    {
+      user = "galepage";
+      inherit identityFile;
+    }
+    // blockConfig
+  )
+  (
+    {
+      bastion.hostname = "ssh-gra.inria.fr";
+
+      "gitlab.inria.fr" = { };
+
+      # Generic rule for all Inria computers
+      "*.inrialpes.fr" = {
+        proxyJump = "bastion";
+      };
+    }
+    // workstations
   )
