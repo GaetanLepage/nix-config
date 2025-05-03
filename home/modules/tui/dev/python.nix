@@ -31,20 +31,8 @@
 
     nixvim = {
       filetype.extension.gin = "gin"; # inria
+
       files."after/ftplugin/python.lua" = {
-        autoCmd = [
-          {
-            event = "BufWritePre";
-            callback.__raw = ''
-              function()
-                vim.lsp.buf.code_action {
-                  context = {only = {"source.fixAll.ruff"}},
-                  apply = true
-                }
-              end
-            '';
-          }
-        ];
       };
       plugins = {
         treesitter.languageRegister.python = [ "gin" ]; # inria
