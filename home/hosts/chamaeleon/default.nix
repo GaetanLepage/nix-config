@@ -1,6 +1,0 @@
-{
-  # inria
-  imports = [
-    ../../modules/tui
-  ];
-}
