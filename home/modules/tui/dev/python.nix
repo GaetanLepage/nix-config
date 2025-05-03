@@ -27,6 +27,7 @@
         line-length = 100;
       };
     };
+    uv.enable = true;
 
     nixvim = {
       filetype.extension.gin = "gin"; # inria
