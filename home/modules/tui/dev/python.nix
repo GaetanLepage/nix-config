@@ -33,6 +33,21 @@
       filetype.extension.gin = "gin"; # inria
 
       files."after/ftplugin/python.lua" = {
+        keymaps = [
+          {
+            mode = "n";
+            key = "<leader>i";
+            action.__raw = ''
+              function()
+                vim.lsp.buf.code_action {
+                  context = {only = {"source.fixAll.ruff"}},
+                  apply = true
+                }
+              end
+            '';
+            options.silent = true;
+          }
+        ];
       };
       plugins = {
         treesitter.languageRegister.python = [ "gin" ]; # inria
