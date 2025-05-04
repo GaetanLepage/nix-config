@@ -63,6 +63,7 @@ lib.mapAttrs
         hostname = "grenoble";
         user = "glepage";
         proxyJump = "g5k";
+        setEnv.TERM = "xterm-256color";
       };
     }
     // workstations
