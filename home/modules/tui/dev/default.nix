@@ -1,6 +1,7 @@
 {
   imports = [
     ./apptainer.nix # inria
+    ./cmake.nix
     ./github-token.nix
     ./lua.nix
     ./nix.nix
