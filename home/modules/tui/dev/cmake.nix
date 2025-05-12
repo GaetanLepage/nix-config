@@ -5,6 +5,7 @@
 {
   home.packages = with pkgs; [
     cmake
+    gnumake
   ];
 
   programs.nixvim = {
