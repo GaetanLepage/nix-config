@@ -4,6 +4,8 @@ This is my personal repository for configuration files of all the programs I
 use on a daily basis.
 This setup aims to be minimal while being pleasing to the eye and functional.
 
+![](./.assets/screenshot.png)
+
 ## Nix
 
 I now manage all my configuration thanks to Nix:
