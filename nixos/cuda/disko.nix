@@ -1,7 +1,7 @@
 {
   disko.devices.disk.ssd = {
     type = "disk";
-    device = "/dev/disk/by-id/nvme-CT1000P3PSSD8_2226E6424FDD";
+    device = "/dev/disk/by-id/nvme-Samsung_SSD_990_EVO_Plus_2TB_S7U7NJ0Y425443X";
     content = {
       type = "gpt";
       partitions = {
@@ -15,7 +15,7 @@
           };
         };
         swap = {
-          size = "8G";
+          size = "64G";
           content = {
             type = "swap";
             resumeDevice = true; # resume from hiberation from this device
