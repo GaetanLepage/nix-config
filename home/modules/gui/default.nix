@@ -9,6 +9,7 @@
     ./firefox.nix
     ./flameshot.nix
     ./gtk.nix
+    ./nheko.nix
     ./zathura.nix
   ];
 
@@ -25,7 +26,6 @@
 
     # IM
     discord
-    nheko
     signal-desktop
     slack # inria
 
