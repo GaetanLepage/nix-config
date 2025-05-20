@@ -1,3 +1,4 @@
+{ lib, ... }:
 {
   boot.loader = {
     systemd-boot = {
@@ -7,7 +8,7 @@
 
     efi.canTouchEfiVariables = true;
 
-    timeout = 0;
+    timeout = lib.mkDefault 0;
 
     grub.enable = false;
   };
