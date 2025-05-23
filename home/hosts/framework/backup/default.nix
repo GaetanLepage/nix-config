@@ -8,7 +8,7 @@ let
     name = "backup";
     text = builtins.readFile (
       pkgs.replaceVars ./script.sh {
-        excludes = ./excludes.txt;
+        excludes = "${./excludes.txt}";
       }
     );
     runtimeInputs = with pkgs; [
