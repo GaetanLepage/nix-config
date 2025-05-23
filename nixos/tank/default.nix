@@ -46,6 +46,10 @@
 
   services.nginx.enable = lib.mkForce false;
 
+  my-modules = {
+    cloudBackup.enable = true;
+  };
+
   environment.systemPackages = with pkgs; [
     # Network
     lsof
