@@ -11,6 +11,7 @@
     ./packages.nix
     ./remote-builders
     ./security.nix
+    ./servers
     ./ssh-client
     ./ssh-server.nix
     ./users.nix
