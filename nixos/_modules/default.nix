@@ -6,7 +6,6 @@
     ./bootloader.nix
     ./desktop
     ./dev
-    ./github-token
     ./nix.nix
     ./packages.nix
     ./security.nix

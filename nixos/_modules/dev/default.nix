@@ -25,6 +25,12 @@ in
       sshClient.enable = true;
     };
 
+    # GitHub token
+    age.secrets.github-token = {
+      rekeyFile = ./github-token.age;
+      owner = "gaetan";
+    };
+
     # Fish shell
     users.users.gaetan.shell = pkgs.fish;
     programs.fish.enable = true;
