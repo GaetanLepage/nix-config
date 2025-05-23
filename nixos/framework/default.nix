@@ -37,6 +37,8 @@
     dconf.enable = true;
   };
 
+  boot.loader.timeout = 0;
+
   my-modules.remote-builders.linuxMaxJobs = 0;
 
   system = {

@@ -8,7 +8,7 @@
 
     efi.canTouchEfiVariables = true;
 
-    timeout = lib.mkDefault 0;
+    timeout = lib.mkDefault 10;
 
     grub.enable = false;
   };
