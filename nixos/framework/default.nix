@@ -40,7 +40,7 @@
   boot.loader.timeout = 0;
 
   my-modules = {
-    remote-builders = {
+    remoteBuilders = {
       enable = true;
       linuxMaxJobs = 0;
     };

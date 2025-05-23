@@ -5,7 +5,7 @@
 }:
 {
   options = {
-    my-modules.remote-builders = {
+    my-modules.remoteBuilders = {
       enable = lib.mkEnableOption "";
 
       linuxMaxJobs = lib.mkOption {
@@ -17,7 +17,7 @@
 
   config =
     let
-      cfg = config.my-modules.remote-builders;
+      cfg = config.my-modules.remoteBuilders;
     in
     lib.mkIf cfg.enable {
       age.secrets =
