@@ -37,13 +37,13 @@
   boot.loader.timeout = 0;
 
   my-modules = {
-    remoteBuilders = {
-      enable = true;
-      linuxMaxJobs = 0;
-    };
     desktop.enable = true;
     sshClient.enable = true;
-    dev.enable = true;
+    dev = {
+      enable = true;
+
+      remoteBuilders.linuxMaxJobs = 0;
+    };
   };
 
   system = {

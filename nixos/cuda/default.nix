@@ -22,7 +22,6 @@
 
   my-modules = {
     sshClient.enable = true;
-    remoteBuilders.enable = true;
     desktop = {
       enable = true;
       nvidia = true;
