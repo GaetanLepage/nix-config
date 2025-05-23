@@ -45,6 +45,7 @@
       linuxMaxJobs = 0;
     };
     desktop.enable = true;
+    sshClient.enable = true;
   };
 
   system = {

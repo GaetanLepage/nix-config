@@ -1,13 +1,27 @@
-{ lib, ... }:
+{ lib, config, ... }:
+let
+  cfg = config.my-modules.sshClient;
+in
 {
-  age.secrets =
-    with lib;
-    listToAttrs (
+  options = {
+    my-modules.sshClient = {
+      enable = lib.mkEnableOption "";
+    };
+  };
+
+  config = lib.mkIf cfg.enable {
+    # Start the OpenSSH agent when you log in.
+    # The OpenSSH agent remembers private keys for you so that you don’t have to type in passphrases
+    # every time you make an SSH connection.
+    # Use ssh-add to add a key to the agent.
+    programs.ssh.startAgent = true;
+
+    age.secrets = lib.listToAttrs (
       map
         (
           keyName:
-          nameValuePair "ssh-${keyName}" {
-            rekeyFile = ./${keyName}.age;
+          lib.nameValuePair "ssh-${keyName}" {
+            rekeyFile = ./keys/${keyName}.age;
             owner = "gaetan";
             mode = "600";
           }
@@ -29,4 +43,5 @@
           "liberodark-builder"
         ]
     );
+  };
 }

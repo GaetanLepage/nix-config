@@ -10,7 +10,8 @@
     ./nix.nix
     ./remote-builders
     ./security.nix
-    ./ssh
+    ./ssh-client
+    ./ssh-server.nix
     ./users.nix
     ./wireguard.nix
   ];
