@@ -2,8 +2,12 @@
   nixosHosts = {
     cuda = {
       hasHM = true;
+      unstable = true;
       deploy.remoteBuild = true;
     };
-    framework.hasHM = true;
+    framework = {
+      hasHM = true;
+      unstable = true;
+    };
   };
 }

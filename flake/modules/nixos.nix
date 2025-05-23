@@ -22,6 +22,10 @@ in
               default = "x86_64-linux";
             };
 
+            unstable = lib.mkOption {
+              type = types.bool;
+            };
+
             deploy = {
               remoteBuild = lib.mkEnableOption "";
             };
@@ -38,7 +42,10 @@ in
       let
         mkHost =
           hostname: options:
-          inputs.nixpkgs.lib.nixosSystem {
+          let
+            nixpkgs' = if options.unstable then inputs.nixpkgs else inputs.nixpkgs-stable;
+          in
+          nixpkgs'.lib.nixosSystem {
             inherit (options) system;
             specialArgs.inputs = inputs;
             modules =
