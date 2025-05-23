@@ -1,6 +1,7 @@
 { pkgs, ... }:
 {
   imports = [
+    ./obs.nix
     ./printing.nix
     ./thunar.nix
     ./wayland.nix
