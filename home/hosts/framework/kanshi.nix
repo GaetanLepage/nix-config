@@ -56,9 +56,10 @@
         screens = {
           laptop = {
             status = "enable";
-            position = "0,310";
+            # position = "0,310";
+            position = "0,0";
           };
-          home = {
+          hp = {
             status = "enable";
             position = "1694,0";
           };
