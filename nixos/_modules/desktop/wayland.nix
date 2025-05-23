@@ -2,6 +2,8 @@
 {
   users.users.gaetan.extraGroups = [ "video" ];
 
+  security.polkit.enable = true;
+
   programs.sway = {
     enable = true;
 
