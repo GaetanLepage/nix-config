@@ -18,5 +18,9 @@
     tank = {
       unstable = false;
     };
+
+    feroe = {
+      unstable = false;
+    };
   };
 }
