@@ -17,6 +17,8 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     # nixpkgs.url = "/home/gaetan/nix/nixpkgs";
 
+    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-25.05-small";
+
     flake-parts = {
       url = "github:hercules-ci/flake-parts";
       inputs.nixpkgs-lib.follows = "nixpkgs";
