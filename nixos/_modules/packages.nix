@@ -3,11 +3,13 @@
   environment.systemPackages = with pkgs; [
     # Utils
     dua
+    fd
     file
     git
     killall
     ncdu
     nfs-utils # Linux user-space NFS utilities
+    ripgrep
     tmux
     tree
     unzip
