@@ -3,6 +3,7 @@
 
   my-modules.wireguard = {
     enable = true;
+    redirectAllTraffic = true;
     ip = "10.10.10.2";
   };
 }
