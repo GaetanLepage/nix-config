@@ -21,7 +21,6 @@
   time.hardwareClockInLocalTime = true;
 
   my-modules = {
-    sshClient.enable = true;
     desktop = {
       enable = true;
       nvidia = true;

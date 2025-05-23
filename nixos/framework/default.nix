@@ -38,7 +38,6 @@
 
   my-modules = {
     desktop.enable = true;
-    sshClient.enable = true;
     dev = {
       enable = true;
 

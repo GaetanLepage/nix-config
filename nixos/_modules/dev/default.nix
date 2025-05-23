@@ -9,6 +9,7 @@ let
 in
 {
   imports = [
+    ./ssh-client
     ./remote-builders
   ];
 
@@ -19,7 +20,10 @@ in
   };
 
   config = lib.mkIf cfg.enable {
-    my-modules.dev.remoteBuilders.enable = true;
+    my-modules.dev = {
+      remoteBuilders.enable = true;
+      sshClient.enable = true;
+    };
 
     # Fish shell
     users.users.gaetan.shell = pkgs.fish;

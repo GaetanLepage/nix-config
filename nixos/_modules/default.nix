@@ -11,7 +11,6 @@
     ./packages.nix
     ./security.nix
     ./servers
-    ./ssh-client
     ./ssh-server.nix
     ./users.nix
     ./wireguard.nix

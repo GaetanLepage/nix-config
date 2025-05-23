@@ -1,10 +1,10 @@
 { lib, config, ... }:
 let
-  cfg = config.my-modules.sshClient;
+  cfg = config.my-modules.dev.sshClient;
 in
 {
   options = {
-    my-modules.sshClient = {
+    my-modules.dev.sshClient = {
       enable = lib.mkEnableOption "";
     };
   };
