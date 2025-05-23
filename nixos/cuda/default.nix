@@ -46,6 +46,7 @@
       enable = true;
       nvidia = true;
     };
+    dev.enable = true;
   };
 
   system = {

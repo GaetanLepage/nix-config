@@ -5,7 +5,7 @@
     ./agenix.nix
     ./bootloader.nix
     ./desktop
-    ./fish.nix
+    ./dev
     ./github-token
     ./nix.nix
     ./remote-builders
