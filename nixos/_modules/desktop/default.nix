@@ -8,6 +8,10 @@ let
   cfg = config.my-modules.desktop;
 in
 {
+  imports = [
+    ./nvidia.nix
+  ];
+
   options = {
     my-modules.desktop = {
       enable = lib.mkEnableOption "";

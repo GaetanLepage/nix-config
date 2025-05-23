@@ -40,8 +40,10 @@
   ];
 
   my-modules = {
-    nvidia.enable = true;
-    desktop.enable = true;
+    desktop = {
+      enable = true;
+      nvidia = true;
+    };
   };
 
   system = {

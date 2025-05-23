@@ -8,7 +8,6 @@
     ./fish.nix
     ./github-token
     ./nix.nix
-    ./nvidia.nix
     ./remote-builders
     ./security.nix
     ./ssh
