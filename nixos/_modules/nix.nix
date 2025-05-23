@@ -1,9 +1,6 @@
 {
   nixpkgs.config = {
     allowUnfree = true;
-
-    # Needed by the nheko matrix client
-    permittedInsecurePackages = [ "olm-3.2.16" ];
   };
 
   nix = {

@@ -21,6 +21,9 @@
     };
   };
 
+  # Needed by the nheko matrix client
+  nixpkgs.config.permittedInsecurePackages = [ "olm-3.2.16" ];
+
   environment.systemPackages = with pkgs; [
     discord
 
