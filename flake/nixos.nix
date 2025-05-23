@@ -9,5 +9,9 @@
       hasHM = true;
       unstable = true;
     };
+
+    tank = {
+      unstable = false;
+    };
   };
 }
