@@ -10,7 +10,6 @@
     ./bluetooth.nix
     ./disko.nix
     ./neovim.nix
-    ./packages.nix
     ./sound.nix
     ./wireguard
   ];

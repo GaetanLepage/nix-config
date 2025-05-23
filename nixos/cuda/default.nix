@@ -1,8 +1,4 @@
 {
-  pkgs,
-  ...
-}:
-{
   imports = [
     # Include the results of the hardware scan.
     ./hardware.nix
@@ -25,19 +21,6 @@
   age.rekey.hostPubkey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIM8hW7fGKCrOavX/WKjhGyyjxo0HBCT265HpsiV68gTR";
 
   time.hardwareClockInLocalTime = true;
-
-  environment.systemPackages = with pkgs; [
-    # Utils
-    git
-    ncdu
-    tmux
-    unzip
-    vim
-
-    # System monitor
-    btop
-    htop
-  ];
 
   my-modules = {
     sshClient.enable = true;

@@ -8,6 +8,7 @@
     ./dev
     ./github-token
     ./nix.nix
+    ./packages.nix
     ./remote-builders
     ./security.nix
     ./ssh-client
