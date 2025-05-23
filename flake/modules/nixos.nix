@@ -52,6 +52,7 @@ in
               [
                 # The system configuration
                 ../../nixos/${hostname}
+                ../../nixos/_modules
 
                 config.substituters.module
               ]

@@ -3,8 +3,6 @@
     # Include the results of the hardware scan.
     ./hardware.nix
 
-    ../_modules
-
     ./android.nix
     ./autofs.nix
     ./bluetooth.nix
