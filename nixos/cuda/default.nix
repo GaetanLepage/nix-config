@@ -39,7 +39,10 @@
     htop
   ];
 
-  my-modules.nvidia.enable = true;
+  my-modules = {
+    nvidia.enable = true;
+    desktop.enable = true;
+  };
 
   system = {
     # This value determines the NixOS release from which the default

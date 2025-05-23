@@ -39,7 +39,10 @@
 
   boot.loader.timeout = 0;
 
-  my-modules.remote-builders.linuxMaxJobs = 0;
+  my-modules = {
+    remote-builders.linuxMaxJobs = 0;
+    desktop.enable = true;
+  };
 
   system = {
     autoUpgrade.enable = false;
