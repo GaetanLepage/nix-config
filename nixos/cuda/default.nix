@@ -7,7 +7,7 @@
     # Include the results of the hardware scan.
     ./hardware.nix
 
-    ../common
+    ../_modules
 
     # ./mistral
     ./ollama.nix

@@ -3,7 +3,7 @@
     # Include the results of the hardware scan.
     ./hardware.nix
 
-    ../common
+    ../_modules
 
     ./android.nix
     ./autofs.nix
