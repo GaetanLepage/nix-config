@@ -5,9 +5,13 @@
 }:
 {
   options = {
-    my-modules.remote-builders.linuxMaxJobs = lib.mkOption {
-      type = lib.types.ints.unsigned;
-      default = 8;
+    my-modules.remote-builders = {
+      enable = lib.mkEnableOption "";
+
+      linuxMaxJobs = lib.mkOption {
+        type = lib.types.ints.unsigned;
+        default = 8;
+      };
     };
   };
 
@@ -15,7 +19,7 @@
     let
       cfg = config.my-modules.remote-builders;
     in
-    {
+    lib.mkIf cfg.enable {
       age.secrets =
         lib.mapAttrs
           (n: v: {

@@ -40,6 +40,7 @@
   ];
 
   my-modules = {
+    remote-builders.enable = true;
     desktop = {
       enable = true;
       nvidia = true;
