@@ -52,6 +52,7 @@ in
                 ../../nixos/${hostname}
                 ../../nixos/_modules
 
+                config.flake.modules.nixos.core
                 (config.flake.modules.nixos."host_${hostname}" or { })
               ]
               ++ lib.optionals options.hasHM [
