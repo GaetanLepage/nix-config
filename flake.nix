@@ -83,7 +83,6 @@
     }@inputs:
     flake-parts.lib.mkFlake { inherit inputs; } {
       imports = [
-        ./flake
         (inputs.import-tree ./modules)
       ];
     };
