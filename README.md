@@ -1,10 +1,8 @@
 # ❄️ My NixOS Configuration
 
-This is my personal repository for configuration files of all the programs I
-use on a daily basis.
-This setup aims to be minimal while being pleasing to the eye and functional.
+This repository holds the configuration for all my Linux systems.
+It includes both my servers, my laptop and my desktop.
 
-![](./.assets/screenshot.png)
 
 ## Nix
 
@@ -16,8 +14,23 @@ I now manage all my configuration thanks to Nix:
 
 Everything is managed thanks to a [nix flake](https://nixos.wiki/wiki/Flakes): `flake.nix`.
 
+## Systems
 
-## Software
+| Hostname      | NixOS?    | Comment                           |
+| :------------ | :-------- | :-------------------------------- |
+| `framework`   | Yes       | Laptop                            |
+| `cuda`        | Yes       | Personal workstation              |
+| `alya`        | No        | Pro workstation                   |
+| `vps`         | Yes       | VPS (VPN, mail server, etc.)      |
+| `tank`        | Yes       | NAS (ZFS, Nextcloud, etc.)        |
+| `feroe`       | Yes       | Backup (replication of `tank`)    |
+
+### Linux working environment
+
+![](./.assets/screenshot.png)
+
+Here are the programs I use on my working systems.
+I keep my configuration minimal and efficient.
 
 | Program               | Name                                                  |
 | :-------------------- | :-----------------------------------------------------|
