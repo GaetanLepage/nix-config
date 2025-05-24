@@ -1,0 +1,4 @@
+{
+  flake.modules.nixos.core = {
+  };
+}
