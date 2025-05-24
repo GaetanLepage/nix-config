@@ -29,6 +29,11 @@ in
             deploy = {
               remoteBuild = lib.mkEnableOption "";
             };
+
+            imports = lib.mkOption {
+              type = types.listOf types.anything; # TODO
+              default = [ ];
+            };
           };
         };
       in
@@ -56,6 +61,7 @@ in
 
                 config.substituters.module
               ]
+              ++ options.imports
               ++ lib.optionals options.hasHM [
                 # Home manager configuration
                 inputs.home-manager.nixosModules.home-manager
