@@ -1,0 +1,5 @@
+{
+  nixosHosts.tank = {
+    unstable = false;
+  };
+}

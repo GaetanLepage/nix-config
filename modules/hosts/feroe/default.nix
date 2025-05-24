@@ -1,0 +1,5 @@
+{
+  nixosHosts.feroe = {
+    unstable = false;
+  };
+}
