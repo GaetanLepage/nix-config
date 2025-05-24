@@ -1,10 +1,7 @@
 {
   imports = [
-    ./modules
-
     ./home-manager.nix
     ./nixos.nix
-    ./substituters.nix
     ./treefmt.nix
   ];
 

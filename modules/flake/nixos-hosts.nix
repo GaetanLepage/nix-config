@@ -62,7 +62,8 @@ in
                     users.gaetan.imports = [
                       ../../home/hosts/${hostname}
 
-                      config.substituters.module
+                      config.flake.modules.homeManager.core
+                      (config.flake.modules.homeManager."host_${hostname}" or { })
                     ];
                     extraSpecialArgs.inputs = inputs;
                   };
