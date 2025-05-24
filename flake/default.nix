@@ -2,7 +2,6 @@
   imports = [
     ./modules
 
-    ./devshell.nix
     ./home-manager.nix
     ./nixos.nix
     ./substituters.nix
