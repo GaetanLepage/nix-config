@@ -58,6 +58,8 @@ in
                 # The system configuration
                 ../../nixos/${hostname}
                 ../../nixos/_modules
+
+                config.flake.modules.nixos.core
               ]
               ++ options.imports
               ++ lib.optionals options.hasHM [
