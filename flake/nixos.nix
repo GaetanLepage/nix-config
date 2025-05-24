@@ -6,11 +6,6 @@
       deploy.remoteBuild = true;
     };
 
-    framework = {
-      hasHM = true;
-      unstable = true;
-    };
-
     vps = {
       unstable = false;
     };
