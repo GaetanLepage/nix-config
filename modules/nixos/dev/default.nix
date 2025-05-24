@@ -7,6 +7,7 @@ in
     { config, ... }:
     {
       imports = with config'.flake.modules.nixos; [
+        homeManager
         remote-builders
         ssh-client
         substituters
