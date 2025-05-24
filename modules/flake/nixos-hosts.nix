@@ -51,8 +51,6 @@ in
                 # The system configuration
                 ../../nixos/${hostname}
                 ../../nixos/_modules
-
-                config.substituters.module
               ]
               ++ lib.optionals options.hasHM [
                 # Home manager configuration
