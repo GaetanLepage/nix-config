@@ -32,7 +32,7 @@ in
     };
 
     # Fish shell
-    users.users.gaetan.shell = pkgs.fish;
+    users.users.gaetan.shell = config.programs.fish.package;
     programs.fish.enable = true;
     environment.pathsToLink = [ "/share/fish" ];
   };
