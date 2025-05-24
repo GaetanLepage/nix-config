@@ -7,8 +7,6 @@
 {
   imports = [
     ../../modules/tui
-    ./update.nix
-    ./test_python_env.nix
   ];
 
   home = {
