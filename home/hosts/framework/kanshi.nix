@@ -8,12 +8,6 @@
         position = "0,0";
         scale = 1.333333;
       };
-      # inria
-      inria = {
-        criteria = "Dell Inc. DELL U2719DC 88QSTS2";
-        position = "0,0";
-        mode = "2560x1440@59.95Hz";
-      };
       benq = {
         criteria = "BNQ BenQ GW2460 N9D04183SL0";
         position = "0,0";
@@ -43,13 +37,6 @@
           laptop.status = "disable";
           hp.status = "enable";
         };
-      };
-      inria = {
-        screens = {
-          laptop.status = "disable";
-          inria.status = "enable";
-        };
-        wifi = true;
       };
       stream = {
         inherit (config.services.kanshi._profiles.home) wifi;
