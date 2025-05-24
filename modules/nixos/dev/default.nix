@@ -5,6 +5,7 @@ topLevel: {
       imports = with topLevel.config.flake.modules.nixos; [
         remote-builders
         ssh-client
+        substituters
       ];
 
       # GitHub token
