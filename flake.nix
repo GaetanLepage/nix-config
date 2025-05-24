@@ -31,6 +31,7 @@
       url = "github:numtide/treefmt-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    import-tree.url = "github:vic/import-tree";
 
     deploy-rs.url = "github:serokell/deploy-rs";
 
@@ -81,6 +82,9 @@
       ...
     }@inputs:
     flake-parts.lib.mkFlake { inherit inputs; } {
-      imports = [ ./flake ];
+      imports = [
+        ./flake
+        (inputs.import-tree ./modules)
+      ];
     };
 }
