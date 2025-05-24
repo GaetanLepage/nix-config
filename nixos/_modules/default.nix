@@ -5,7 +5,6 @@
     ./agenix.nix
     ./bootloader.nix
     ./desktop
-    ./dev
     ./nix.nix
     ./packages.nix
     ./security.nix
