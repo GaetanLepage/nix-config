@@ -2,7 +2,6 @@
   imports = [
     ./modules
 
-    ./agenix.nix
     ./devshell.nix
     ./home-manager.nix
     ./nixos.nix
