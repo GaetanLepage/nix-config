@@ -38,11 +38,7 @@
 
   my-modules = {
     desktop.enable = true;
-    dev = {
-      enable = true;
-
-      remoteBuilders.linuxMaxJobs = 0;
-    };
+    remoteBuilders.linuxMaxJobs = 0;
   };
 
   system = {
