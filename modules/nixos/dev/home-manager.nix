@@ -6,7 +6,7 @@ in
   flake.modules.nixos.homeManager =
     { config, ... }:
     let
-      inherit (config.networking) hostname;
+      inherit (config.networking) hostName;
     in
     {
       imports = [
@@ -18,10 +18,10 @@ in
         useUserPackages = true;
 
         users.gaetan.imports = [
-          ../../../home/hosts/${hostname} # TODO
+          ../../../home/hosts/${hostName} # TODO
 
           config'.flake.modules.homeManager.core
-          (config'.flake.modules.homeManager."host_${hostname}" or { })
+          (config'.flake.modules.homeManager."host_${hostName}" or { })
         ];
 
         extraSpecialArgs.inputs = inputs;
