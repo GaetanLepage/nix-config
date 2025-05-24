@@ -9,6 +9,7 @@ in
       imports = with config'.flake.modules.nixos; [
         remote-builders
         ssh-client
+        substituters
       ];
 
       # GitHub token

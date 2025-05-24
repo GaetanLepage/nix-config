@@ -58,8 +58,6 @@ in
                 # The system configuration
                 ../../nixos/${hostname}
                 ../../nixos/_modules
-
-                config.substituters.module
               ]
               ++ options.imports
               ++ lib.optionals options.hasHM [
