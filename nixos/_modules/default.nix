@@ -2,7 +2,6 @@
 {
   imports = [
     inputs.disko.nixosModules.disko
-    ./agenix.nix
     ./bootloader.nix
     ./desktop
     ./packages.nix
