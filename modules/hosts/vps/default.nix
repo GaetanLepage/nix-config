@@ -1,0 +1,5 @@
+{
+  nixosHosts.vps = {
+    unstable = false;
+  };
+}
