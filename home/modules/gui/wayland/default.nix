@@ -6,7 +6,6 @@
   imports = [
     ./foot.nix
     ./gammastep.nix
-    ./rofi.nix
     ./streaming.nix
     ./sway
     ./waybar
