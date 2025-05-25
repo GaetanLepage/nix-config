@@ -1,14 +1,7 @@
-{ config, ... }:
 {
   flake.modules.homeManager.wayland =
     { pkgs, ... }:
     {
-      imports = with config.flake.modules.homeManager; [
-        foot
-        gammastep
-        rofi
-      ];
-
       home = {
         packages = with pkgs; [
           wdisplays
