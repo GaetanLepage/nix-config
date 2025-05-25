@@ -1,7 +1,6 @@
 {
   pkgs,
   lib,
-  inputs,
   ...
 }:
 {
@@ -18,15 +17,11 @@
     ./xdg.nix
     ./yazi.nix
     ./zellij.nix
-    inputs.nix-index-database.hmModules.nix-index
   ];
 
   programs = {
     # Let Home Manager install and manage itself.
     home-manager.enable = true;
-
-    # runs programs without installing them
-    nix-index-database.comma.enable = true;
 
     bat.enable = true;
     fd.enable = true;
