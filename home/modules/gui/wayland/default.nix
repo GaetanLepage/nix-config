@@ -4,7 +4,6 @@
 }:
 {
   imports = [
-    ./foot.nix
     ./gammastep.nix
     ./streaming.nix
     ./sway
