@@ -20,9 +20,6 @@
   ];
 
   programs = {
-    # Let Home Manager install and manage itself.
-    home-manager.enable = true;
-
     bat.enable = true;
     fd.enable = true;
     jq.enable = true;
@@ -30,8 +27,6 @@
   };
 
   home = {
-    stateVersion = "24.11";
-
     username = lib.mkDefault "gaetan"; # inria (remove mkDefault)
     homeDirectory = lib.mkDefault "/home/gaetan"; # inria
 
