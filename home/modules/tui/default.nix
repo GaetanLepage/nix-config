@@ -27,9 +27,6 @@
   };
 
   home = {
-    username = lib.mkDefault "gaetan"; # inria (remove mkDefault)
-    homeDirectory = lib.mkDefault "/home/gaetan"; # inria
-
     packages = with pkgs; [
       # Rust implementations of linux commands
       du-dust # du
