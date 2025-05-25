@@ -4,7 +4,6 @@
     ./wayland
 
     ./bg-stream.nix
-    ./dunst.nix
     ./firefox.nix
     ./flameshot.nix
     ./gtk.nix
