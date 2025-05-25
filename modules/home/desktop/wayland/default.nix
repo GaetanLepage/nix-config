@@ -1,0 +1,5 @@
+{
+  flake.modules.homeManager.wayland = {
+
+  };
+}
