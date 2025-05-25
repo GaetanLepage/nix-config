@@ -4,6 +4,5 @@
     ../../modules/gui
 
     ./backup
-    ./kanshi.nix
   ];
 }
