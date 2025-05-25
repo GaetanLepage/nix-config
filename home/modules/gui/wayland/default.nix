@@ -1,6 +1,5 @@
 {
   pkgs,
-  lib,
   ...
 }:
 {
@@ -12,13 +11,6 @@
     ./sway
     ./waybar
   ];
-
-  options = {
-    wallpaper = lib.mkOption {
-      type = lib.types.str;
-      default = builtins.toString ./wallpaper.png;
-    };
-  };
 
   config = {
     home = {
