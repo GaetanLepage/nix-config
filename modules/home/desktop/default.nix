@@ -5,6 +5,7 @@
       email
       kanshi
       wayland
+      zathura
     ];
   };
 }
