@@ -5,6 +5,7 @@
     {
       imports = with config.flake.modules.homeManager; [
         foot
+        gammastep
         rofi
       ];
 
