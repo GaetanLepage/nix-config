@@ -9,7 +9,6 @@
     ./flameshot.nix
     ./gtk.nix
     ./nheko.nix
-    ./zathura.nix
   ];
 
   # Allows auto-unlocking of the gnome keyring at login
