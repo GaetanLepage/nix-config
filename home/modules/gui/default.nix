@@ -5,7 +5,6 @@
 
     ./bg-stream.nix
     ./dunst.nix
-    ./email.nix
     ./firefox.nix
     ./flameshot.nix
     ./gtk.nix
