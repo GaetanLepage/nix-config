@@ -1,5 +1,4 @@
 {
   imports = [
-    ./streaming.nix
   ];
 }
