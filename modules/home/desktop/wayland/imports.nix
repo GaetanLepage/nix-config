@@ -6,5 +6,6 @@
     rofi
     sway
     swaylock
+    waybar
   ];
 }
