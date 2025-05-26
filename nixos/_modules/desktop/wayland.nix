@@ -7,6 +7,9 @@
   programs.sway = {
     enable = true;
 
+    # Prevent extra packages from being automatically installed along sway
+    extraPackages = [ ];
+
     # Discord is the only application needing xwayland
     # TODO: disable when possible
     xwayland.enable = true;
