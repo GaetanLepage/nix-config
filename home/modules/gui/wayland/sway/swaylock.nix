@@ -5,7 +5,7 @@
     settings = {
       daemonize = true;
 
-      image = ../wallpaper.png;
+      image = ./wallpaper.png;
       indicator-x-position = 100;
       indicator-y-position = 100;
     };

@@ -121,7 +121,7 @@
         {
           command = "${pkgs.writeShellScript "set-wallpaper" ''
             ${lib.getExe pkgs.killall} swaybg
-            ${lib.getExe pkgs.swaybg} -m fill -i ${../wallpaper.png}
+            ${lib.getExe pkgs.swaybg} -m fill -i ${./wallpaper.png}
           ''}";
           always = true;
         }
