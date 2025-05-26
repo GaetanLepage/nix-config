@@ -4,7 +4,7 @@
     ./hardware.nix
 
     ./autofs.nix
-    ./disko.nix
+    ./sound.nix
     ./wireguard
   ];
 }
