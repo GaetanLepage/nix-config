@@ -53,6 +53,8 @@ in
                 # The system configuration
                 ../../nixos/${hostname}
                 ../../nixos/_modules
+
+                (config.flake.modules.nixos."host_${hostname}" or { })
               ]
               ++ lib.optionals options.hasHM [
                 # Home manager configuration
