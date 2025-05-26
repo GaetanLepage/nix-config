@@ -1,5 +1,4 @@
 {
   imports = [
-    ../../modules/tui
   ];
 }
