@@ -5,10 +5,16 @@
     dunst
     email
     firefox
+    foot
+    gammastep
     gtk
     kanshi
     keyring
+    rofi
+    sway
+    swaylock
     udiskie
+    waybar
     wayland
     zathura
   ];
