@@ -1,6 +1,5 @@
 {
   imports = [
     ./sound.nix
-    ./wireguard
   ];
 }
