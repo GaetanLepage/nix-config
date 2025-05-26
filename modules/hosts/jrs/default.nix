@@ -13,7 +13,6 @@
     modules = with config.flake.modules.homeManager; [
       core
       host_jrs
-      ../../../home/modules/tui # TODO
     ];
   };
 }
