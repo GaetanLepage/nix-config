@@ -1,5 +1,0 @@
-{
-  programs.nheko = {
-    enable = true;
-  };
-}
