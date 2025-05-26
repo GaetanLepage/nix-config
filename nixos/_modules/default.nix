@@ -3,7 +3,6 @@
   imports = [
     inputs.disko.nixosModules.disko
     ./bootloader.nix
-    ./desktop
     ./packages.nix
     ./security.nix
     ./servers

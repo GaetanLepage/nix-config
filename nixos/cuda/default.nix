@@ -21,12 +21,5 @@
 
   time.hardwareClockInLocalTime = true;
 
-  my-modules = {
-    desktop = {
-      enable = true;
-      nvidia = true;
-    };
-  };
-
   system.stateVersion = "24.05";
 }
