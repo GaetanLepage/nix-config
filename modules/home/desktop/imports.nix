@@ -5,6 +5,7 @@
     email
     gtk
     kanshi
+    udiskie
     wayland
     zathura
   ];
