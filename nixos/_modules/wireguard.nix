@@ -18,6 +18,10 @@
     allowedIPs = lib.mkOption {
       type = lib.types.str;
     };
+
+    privateKeyFile = lib.mkOption {
+      type = lib.types.path;
+    };
   };
 
   config =
@@ -45,6 +49,9 @@
     in
     lib.mkIf cfg.enable (
       lib.mkMerge [
+        {
+          age.secrets.wireguard-private-key.rekeyFile = cfg.privateKeyFile;
+        }
         (lib.mkIf cfg.redirectAllTraffic {
 
           wireguardClient.allowedIPs = lib.mkDefault "0.0.0.0/0";
