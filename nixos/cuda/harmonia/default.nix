@@ -15,7 +15,7 @@ in
       config.age.secrets.harmonia-private-key.path
     ];
 
-    settings.bind = "${config.my-modules.wireguard.ip}:${toString port}";
+    settings.bind = "${config.wireguardClient.ip}:${toString port}";
   };
 
   networking.firewall.allowedTCPPorts = [ port ];

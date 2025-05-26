@@ -4,7 +4,7 @@
   ...
 }:
 {
-  options.my-modules.wireguard = {
+  options.wireguardClient = {
     enable = lib.mkEnableOption "wireguard";
 
     ip = lib.mkOption {
@@ -22,7 +22,7 @@
 
   config =
     let
-      cfg = config.my-modules.wireguard;
+      cfg = config.wireguardClient;
 
       localIp = "${cfg.ip}/32";
       dnsIp = "10.10.10.1";
@@ -47,7 +47,7 @@
       lib.mkMerge [
         (lib.mkIf cfg.redirectAllTraffic {
 
-          my-modules.wireguard.allowedIPs = lib.mkDefault "0.0.0.0/0";
+          wireguardClient.allowedIPs = lib.mkDefault "0.0.0.0/0";
 
           networking.wg-quick.interfaces.wg0 = commonConfig // {
             address = [ localIp ];
@@ -57,7 +57,7 @@
         })
         (lib.mkIf (!cfg.redirectAllTraffic) {
 
-          my-modules.wireguard.allowedIPs = lib.mkDefault "10.10.10.0/24";
+          wireguardClient.allowedIPs = lib.mkDefault "10.10.10.0/24";
 
           networking = {
             # Use my own DNS server.
