@@ -14,7 +14,6 @@
     modules = with config.flake.modules.homeManager; [
       core
       host_inria
-      ../../../home/modules/tui # TODO
     ];
   };
 }
