@@ -5,6 +5,11 @@
   ...
 }:
 {
+  services = {
+    blueman-applet.enable = true;
+    network-manager-applet.enable = true;
+  };
+
   programs.waybar = {
     enable = true;
 
