@@ -23,9 +23,5 @@
 
   boot.loader.systemd-boot.enable = lib.mkForce false;
 
-  my-modules = {
-    cloudBackup.enable = true;
-  };
-
   system.stateVersion = "24.05";
 }
