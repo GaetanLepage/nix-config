@@ -7,7 +7,6 @@
     ./autofs.nix
     ./bluetooth.nix
     ./disko.nix
-    ./neovim.nix
     ./sound.nix
     ./wireguard
   ];
