@@ -17,7 +17,6 @@
     ./update.nix
     ./xdg.nix
     ./yazi.nix
-    ./zed-editor
     ./zellij.nix
     inputs.nix-index-database.hmModules.nix-index
   ];
