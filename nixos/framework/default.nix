@@ -32,7 +32,6 @@
   boot.loader.timeout = 0;
 
   my-modules = {
-    desktop.enable = true;
     remoteBuilders.linuxMaxJobs = 0;
   };
 
