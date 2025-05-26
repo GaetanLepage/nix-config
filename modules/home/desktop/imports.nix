@@ -4,6 +4,7 @@
     desktop-programs
     dunst
     email
+    firefox
     flameshot
     gtk
     kanshi
