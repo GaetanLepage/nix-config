@@ -1,6 +1,7 @@
 { config, ... }:
 {
   flake.modules.homeManager.desktop.imports = with config.flake.modules.homeManager; [
+    bg-stream
     desktop-programs
     dunst
     email
