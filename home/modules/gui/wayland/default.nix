@@ -1,6 +1,5 @@
 {
   imports = [
     ./streaming.nix
-    ./waybar
   ];
 }
