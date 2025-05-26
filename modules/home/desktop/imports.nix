@@ -6,6 +6,7 @@
     flameshot
     gtk
     kanshi
+    keyring
     udiskie
     wayland
     zathura
