@@ -4,6 +4,7 @@
     desktop-programs
     dunst
     email
+    firefox
     gtk
     kanshi
     keyring
