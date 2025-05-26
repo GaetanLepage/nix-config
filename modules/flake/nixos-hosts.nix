@@ -49,7 +49,6 @@ in
             modules = [
               # The system configuration
               ../../nixos/${hostname} # TODO
-              ../../nixos/_modules # TODO
 
               config.flake.modules.nixos.core
               (config.flake.modules.nixos."host_${hostname}" or { })
