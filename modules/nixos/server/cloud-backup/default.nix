@@ -1,15 +1,6 @@
-{ lib, config, ... }:
-let
-  cfg = config.my-modules.cloudBackup;
-in
 {
-  options = {
-    my-modules.cloudBackup = {
-      enable = lib.mkEnableOption "";
-    };
-  };
-
-  config = lib.mkIf cfg.enable (
+  flake.modules.nixos.cloud-backup =
+    { config, ... }:
     let
       rsyncUser = "zh5071";
       rsyncHost = "${rsyncUser}.rsync.net";
@@ -60,6 +51,5 @@ in
           yearly = 10;
         };
       };
-    }
-  );
+    };
 }

@@ -22,10 +22,6 @@
     zfs.extraPools = [ "backup_pool" ];
   };
 
-  my-modules = {
-    cloudBackup.enable = true;
-  };
-
   ###################
   # ZFS replication #
   ###################
