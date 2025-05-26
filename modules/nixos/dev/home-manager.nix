@@ -15,8 +15,6 @@ topLevel@{ inputs, ... }:
         useUserPackages = true;
 
         users.gaetan.imports = [
-          ../../../home/hosts/${hostName} # TODO
-
           topLevel.config.flake.modules.homeManager.core
           (topLevel.config.flake.modules.homeManager."host_${hostName}" or { })
         ];
