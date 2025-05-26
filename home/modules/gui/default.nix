@@ -9,8 +9,6 @@
   ];
 
   home.packages = with pkgs; [
-    libnotify
-
     ## GUI applications
     inkscape # inria
     drawio # inria
