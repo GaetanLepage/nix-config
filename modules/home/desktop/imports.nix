@@ -13,6 +13,7 @@
     kanshi
     keyring
     rofi
+    streaming
     sway
     swaylock
     udiskie
