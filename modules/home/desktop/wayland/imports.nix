@@ -4,5 +4,7 @@
     foot
     gammastep
     rofi
+    sway
+    swaylock
   ];
 }
