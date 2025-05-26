@@ -3,7 +3,6 @@
     # Include the results of the hardware scan.
     ./hardware.nix
 
-    ./android.nix
     ./autofs.nix
     ./disko.nix
     ./wireguard
