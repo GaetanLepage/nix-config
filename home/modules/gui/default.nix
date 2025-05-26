@@ -5,7 +5,6 @@
 
     ./bg-stream.nix
     ./firefox.nix
-    ./flameshot.nix
     ./nheko.nix
   ];
 
