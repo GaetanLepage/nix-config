@@ -2,6 +2,8 @@
   flake.modules.homeManager.desktop-programs =
     { pkgs, ... }:
     {
+      programs.nheko.enable = true;
+
       home.packages = with pkgs; [
         ## GUI applications
         inkscape # inria
