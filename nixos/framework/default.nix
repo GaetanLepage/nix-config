@@ -5,7 +5,6 @@
 
     ./android.nix
     ./autofs.nix
-    ./bluetooth.nix
     ./disko.nix
     ./wireguard
   ];
