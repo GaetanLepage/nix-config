@@ -18,8 +18,6 @@ in
         useUserPackages = true;
 
         users.gaetan.imports = [
-          ../../../home/hosts/${hostName} # TODO
-
           config'.flake.modules.homeManager.core
           (config'.flake.modules.homeManager."host_${hostName}" or { })
         ];
