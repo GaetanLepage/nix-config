@@ -14,9 +14,6 @@
   networking.hostName = "framework";
   age.rekey.hostPubkey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIM+Md7yZTk3GWd0XVRQkplboDPLGkSqE/o6/SsfrrGGS";
 
-  # Sharing pulseaudio server
-  networking.firewall.allowedTCPPorts = [ 4713 ];
-
   services = {
     # Disable fingerprint sensor
     fprintd.enable = false;

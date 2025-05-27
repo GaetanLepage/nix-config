@@ -28,8 +28,6 @@ let
       (_: {
         proxyJump = "bastion";
         setEnv = {
-          # Pulse server forwarding
-          PULSE_SERVER = "tcp:10.10.10.2:4713";
           TERM = "xterm-256color";
         };
       });
