@@ -2,7 +2,6 @@
 {
   environment.systemPackages = with pkgs; [
     pavucontrol
-    playerctl
 
     # Even though using Pipewire, pulseaudio provides `pactl`
     pulseaudio
