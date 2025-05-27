@@ -27,8 +27,8 @@
 
     # Interaction
     scroll-step = 5;
-    on-click = "pactl set-sink-mute @DEFAULT_SINK@ toggle";
-    on-click-right = "pavucontrol";
+    on-click = "${lib.getExe' pkgs.pulseaudio "pactl"} set-sink-mute @DEFAULT_SINK@ toggle";
+    on-click-right = lib.getExe pkgs.pavucontrol;
   };
 
   memory = {
