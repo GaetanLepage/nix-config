@@ -22,6 +22,7 @@ in
     lib.mkMerge [
       (import ./obs.nix { inherit pkgs; })
       (import ./printing.nix)
+      (import ./sound.nix)
       (import ./thunar.nix)
       (import ./wayland.nix { inherit pkgs; })
       {
