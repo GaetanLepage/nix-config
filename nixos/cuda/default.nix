@@ -6,9 +6,9 @@
     # ./mistral
     ./ollama.nix
 
-    # ./desktop
     ./disko.nix
     # ./gaming.nix
+    # ./gnome-desktop.nix
     ./harmonia
     ./nfs.nix
     # ./nix-remote-builder.nix
