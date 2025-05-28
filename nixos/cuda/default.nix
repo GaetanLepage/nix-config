@@ -8,6 +8,7 @@
 
     # ./desktop
     ./disko.nix
+    # ./gaming.nix
     ./harmonia
     ./nfs.nix
     # ./nix-remote-builder.nix

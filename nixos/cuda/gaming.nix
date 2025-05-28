@@ -1,4 +1,7 @@
 {
+  # Enable the xone driver for Xbox controllers
+  hardware.xone.enable = true;
+
   programs.steam = {
     enable = true;
 

@@ -2,12 +2,8 @@
 {
   imports = [
     ./sound.nix
-    ./steam.nix
     ./xorg.nix
   ];
-
-  # Enable the xone driver for Xbox controllers
-  hardware.xone.enable = true;
 
   services.xserver = {
     enable = true;
