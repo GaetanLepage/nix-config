@@ -1,0 +1,27 @@
+{ config, ... }:
+let
+  config' = config;
+in
+{
+  flake.modules.nixos.dev =
+    { config, ... }:
+    {
+      imports = with config'.flake.modules.nixos; [
+        homeManager
+        remote-builders
+        ssh-client
+        substituters
+      ];
+
+      # GitHub token
+      age.secrets.github-token = {
+        rekeyFile = ./github-token.age;
+        owner = "gaetan";
+      };
+
+      # Fish shell
+      users.users.gaetan.shell = config.programs.fish.package;
+      programs.fish.enable = true;
+      environment.pathsToLink = [ "/share/fish" ];
+    };
+}
