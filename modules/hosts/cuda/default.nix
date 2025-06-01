@@ -9,5 +9,6 @@
     dev
     desktop
     nvidia
+    ./_nixos
   ];
 }
