@@ -12,6 +12,10 @@ in
       enable = true;
       frontendScheme = "https";
       frontendHostname = domain;
+
+      settings = {
+        service.allowiconchanges = false;
+      };
     };
   };
 
