@@ -27,6 +27,10 @@ in
         "wiki.${domain}".extraConfig = ''
           redir https://robotlearn.gitlabpages.inria.fr/wiki/
         '';
+
+        "http://vllm.${domain}".extraConfig = ''
+          reverse_proxy 10.10.10.9:8000
+        '';
       };
 
       reverseProxies = {
@@ -34,6 +38,15 @@ in
           localIp = "10.10.10.7";
           port = 8000;
         };
+
+        "clackathon.${domain}" = {
+          localIp = "10.10.10.9"; # peirasmos
+          port = 5000;
+        };
+        # "vllm.${domain}" = {
+        #   localIp = "10.10.10.9"; # peirasmos
+        #   port = 8000;
+        # };
 
         "ollama.${domain}" = {
           localIp = "10.10.10.4"; # auriga
