@@ -13,8 +13,6 @@ in
       let
         nixosHostType = types.submodule {
           options = {
-            hasHM = lib.mkEnableOption "";
-
             system = mkOption {
               type = types.str;
               default = "x86_64-linux";
@@ -46,32 +44,14 @@ in
           nixpkgs'.lib.nixosSystem {
             inherit (options) system;
             specialArgs.inputs = inputs;
-            modules =
-              [
-                # The system configuration
-                ../../nixos/${hostname}
-                ../../nixos/_modules
+            modules = [
+              # The system configuration
+              ../../nixos/${hostname} # TODO
+              ../../nixos/_modules # TODO
 
-                config.flake.modules.nixos.core
-                (config.flake.modules.nixos."host_${hostname}" or { })
-              ]
-              ++ lib.optionals options.hasHM [
-                # Home manager configuration
-                inputs.home-manager.nixosModules.home-manager
-                {
-                  home-manager = {
-                    useGlobalPkgs = true;
-                    useUserPackages = true;
-                    users.gaetan.imports = [
-                      ../../home/hosts/${hostname}
-
-                      config.flake.modules.homeManager.core
-                      (config.flake.modules.homeManager."host_${hostname}" or { })
-                    ];
-                    extraSpecialArgs.inputs = inputs;
-                  };
-                }
-              ];
+              config.flake.modules.nixos.core
+              (config.flake.modules.nixos."host_${hostname}" or { })
+            ];
           };
       in
       lib.mapAttrs mkHost config.nixosHosts;
