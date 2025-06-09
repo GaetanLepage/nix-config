@@ -13,8 +13,6 @@ in
       let
         nixosHostType = types.submodule {
           options = {
-            buildLocally = lib.mkEnableOption "";
-
             hasHM = lib.mkEnableOption "";
 
             system = mkOption {
