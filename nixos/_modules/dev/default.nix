@@ -1,0 +1,39 @@
+{
+  lib,
+  config,
+  pkgs,
+  ...
+}:
+let
+  cfg = config.my-modules.dev;
+in
+{
+  imports = [
+    ./ssh-client
+    ./remote-builders
+  ];
+
+  options = {
+    my-modules.dev = {
+      enable = lib.mkEnableOption "";
+    };
+  };
+
+  config = lib.mkIf cfg.enable {
+    my-modules.dev = {
+      remoteBuilders.enable = true;
+      sshClient.enable = true;
+    };
+
+    # GitHub token
+    age.secrets.github-token = {
+      rekeyFile = ./github-token.age;
+      owner = "gaetan";
+    };
+
+    # Fish shell
+    users.users.gaetan.shell = config.programs.fish.package;
+    programs.fish.enable = true;
+    environment.pathsToLink = [ "/share/fish" ];
+  };
+}
