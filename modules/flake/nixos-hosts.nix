@@ -45,9 +45,6 @@ in
             inherit (options) system;
             specialArgs.inputs = inputs;
             modules = [
-              # The system configuration
-              ../../nixos/${hostname} # TODO
-
               config.flake.modules.nixos.core
               (config.flake.modules.nixos."host_${hostname}" or { })
             ];
