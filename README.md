@@ -6,13 +6,24 @@ It includes both my servers, my laptop and my desktop.
 
 ## Nix
 
-I now manage all my configuration thanks to Nix:
-
-- [NixOS](https://nixos.org/) on the system side: `nixos/`
-- [home-manager](https://github.com/nix-community/home-manager) for the user-specific configuration:
-    `home/`
-
+I now manage all my configuration thanks to Nix.
 Everything is managed thanks to a [nix flake](https://nixos.wiki/wiki/Flakes): `flake.nix`.
+It relies heavily on the [Dendritic pattern](https://github.com/mightyiam/dendritic).
+Each file is a [flake-parts](https://flake.parts) module.
+
+### Repository structure
+
+Everything is stored under the `modules/` folder and imported automatically thanks to [vic/import-tree](https://github.com/vic/import-tree).
+
+```
+├── flake.nix
+├── modules/
+│   ├── flake/      # flake modules
+│   ├── home/       # shared home-manager modules
+│   ├── hosts/      # declaration of the NixOS/HM hosts
+│   └── nixos/      # shared nixos modules
+└── .secrets        # (age encrypted) secrets for each system
+```
 
 ## Systems
 
