@@ -16,7 +16,7 @@ Each file is a [flake-parts](https://flake.parts) module.
 Everything is stored under the `modules/` folder and imported automatically thanks to [vic/import-tree](https://github.com/vic/import-tree).
 
 ```
-├── flake.nix
+├── flake.nix       # Entry-point of the flake
 ├── modules/
 │   ├── flake/      # flake modules
 │   ├── home/       # shared home-manager modules
@@ -54,3 +54,8 @@ I keep my configuration minimal and efficient.
 | Program Launcher      | [rofi](https://github.com/DaveDavenport/rofi)         |
 | Shell                 | [fish](https://fishshell.com/)                        |
 | PDF viewer            | [Zathura](https://pwmt.org/projects/zathura/)         |
+
+
+## Acknowledgements
+
+Thanks to [@mightyiam](https://github.com/mightyiam) and [@drupol](https://github.com/drupol) for helping me migrating my configuration to the dendritic pattern.
