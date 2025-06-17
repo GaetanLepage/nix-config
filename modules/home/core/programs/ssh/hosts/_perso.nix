@@ -43,6 +43,7 @@ lib.mapAttrs
     framework.hostname = "framework";
 
     "github.com".user = "git";
+    "gitlab.com".user = "git";
 
     #################
     # Lepage Knives #
