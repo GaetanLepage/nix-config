@@ -53,5 +53,9 @@
       gfo = "git fetch origin";
       gpc = "gh pr checkout";
     };
+
+    programs.fish.shellAbbrs = {
+      B = "git checkout master || git checkout main && git pull && git checkout -b";
+    };
   };
 }
