@@ -1,7 +1,12 @@
 {
   flake.modules.nixos.desktop = {
     services = {
-      gnome.gnome-keyring.enable = true;
+      gnome = {
+        gnome-keyring.enable = true;
+
+        # programs.ssh.startAgent is already providing an SSH agent
+        gcr-ssh-agent.enable = false;
+      };
       udisks2.enable = true;
 
       # Keyboard led config
