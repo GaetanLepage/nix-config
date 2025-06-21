@@ -48,6 +48,12 @@ in
 
           bootstrap_dns = [ "9.9.9.9" ];
         };
+
+        querylog = {
+          # Disable saving DNS queries to /var/lib/AdguardHome/data/querylog.json as it quickly
+          # gets very heavy.
+          file_enabled = false;
+        };
       };
 
       mutableSettings = false;
