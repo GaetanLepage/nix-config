@@ -35,7 +35,7 @@
 
       programs.fish = {
         shellAbbrs = {
-          nrv = "nixpkgs-review pr --systems all --post-result";
+          nrv = "nixpkgs-review pr --post-result";
         };
 
         functions = {
