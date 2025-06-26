@@ -4,6 +4,17 @@
       allowUnfree = true;
     };
 
+    programs.nh = {
+      enable = true;
+
+      clean = {
+        enable = true;
+
+        dates = "05:00";
+        extraArgs = "--keep 5 --keep-since 8d";
+      };
+    };
+
     nix = {
       settings = {
         experimental-features = "nix-command flakes";
@@ -61,12 +72,6 @@
         # If set to true, Nix will fall back to building from source if a binary substitute
         # fails. This is equivalent to the –fallback flag. The default is false.
         fallback = true;
-      };
-
-      gc = {
-        automatic = true;
-        dates = "05:00";
-        options = "--delete-older-than 8d";
       };
     };
   };

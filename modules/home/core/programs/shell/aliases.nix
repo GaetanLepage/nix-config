@@ -60,7 +60,6 @@
       # nrs = "sudo nixos-rebuild switch --flake ~/config -v";
       d = "deploy";
       nrs = "nixos-rebuild switch --sudo --flake ~/config";
-      ncg = "sudo nix-collect-garbage";
       hms = "home-manager switch"; # inria
       hme = "home-manager edit"; # inria
       hmn = "home-manager news";
