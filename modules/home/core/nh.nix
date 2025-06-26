@@ -1,6 +1,6 @@
 {
   flake.modules.homeManager.nh =
-    { config, ... }:
+    { lib, config, ... }:
     {
       home.shellAliases = {
         u = "nh os switch -u";
@@ -9,7 +9,7 @@
       programs.nh = {
         enable = true;
 
-        flake = "${config.home.homeDirectory}/config";
+        flake = lib.mkDefault "${config.home.homeDirectory}/config";
 
         clean = {
           enable = true;

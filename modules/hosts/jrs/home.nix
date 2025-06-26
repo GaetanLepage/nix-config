@@ -7,6 +7,8 @@
         homeDirectory = "/home/glepage";
       };
 
+      programs.nh.flake = "github:GaetanLepage/nix-config";
+
       nix.package = pkgs.nix;
     };
 }

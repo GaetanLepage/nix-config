@@ -16,7 +16,10 @@
         };
       };
 
-      programs.btop.enable = lib.mkForce false;
+      programs = {
+        btop.enable = lib.mkForce false;
+        nh.flake = "github:GaetanLepage/nix-config";
+      };
 
       xdg.userDirs = lib.mapAttrs (n: v: lib.mkForce "${config.home.homeDirectory}/${v}") {
         desktop = "Desktop";
