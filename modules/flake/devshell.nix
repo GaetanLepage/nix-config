@@ -33,9 +33,8 @@
               hostname=$1
 
               echo -e "\n=> Deploying system '$hostname'"
-              nixos-rebuild switch \
-                  --fast \
-                  --flake .#$hostname \
+              nh os switch \
+                  --hostname $hostname \
                   --target-host root@$hostname \
                   --build-host root@$hostname
             '';

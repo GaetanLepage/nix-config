@@ -4,8 +4,8 @@
     home-manager
     nix
     nix-index-database
+    nh
     substituters
-    update-script
     xdg
   ];
 }
