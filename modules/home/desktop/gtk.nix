@@ -46,8 +46,10 @@
           "file:///mnt"
           "file:///mnt/server"
 
+          # inria
           "file://${config.home.homeDirectory}/inria/code/rlan/output/plots"
           "file://${config.home.homeDirectory}/inria/communication/manuscript/figures"
+          "file://${config.home.homeDirectory}/inria/communication/defense/slides"
         ];
 
         gtk2.configLocation = "${config.xdg.configHome}/gtk-2.0/gtkrc";
