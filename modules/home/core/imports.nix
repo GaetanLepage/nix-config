@@ -5,7 +5,6 @@
     nix
     nix-index-database
     nh
-    substituters
     xdg
   ];
 }
