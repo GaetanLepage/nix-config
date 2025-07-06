@@ -29,20 +29,21 @@
               hp.status = "enable";
             };
           };
-          stream = {
-            inherit (config.services.kanshi._profiles.home) wifi;
-            screens = {
-              laptop = {
-                status = "enable";
-                # position = "0,310";
-                position = "0,0";
-              };
-              hp = {
-                status = "enable";
-                position = "1694,0";
-              };
-            };
-          };
+          # inria (studio)
+          # stream = {
+          #   inherit (config.services.kanshi._profiles.home) wifi;
+          #   screens = {
+          #     laptop = {
+          #       status = "enable";
+          #       # position = "0,310";
+          #       position = "0,0";
+          #     };
+          #     hp = {
+          #       status = "enable";
+          #       position = "1694,0";
+          #     };
+          #   };
+          # };
         };
       };
     };
