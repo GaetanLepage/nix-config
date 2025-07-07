@@ -47,6 +47,18 @@ pr_desc=$(awk -v replacement="$change_desc" '
 
 git push -u origin "$branch_name"
 
-gh pr create \
-    --title "$commit_subject" \
-    --body "$pr_desc"
+gh_pr_output=$(gh pr create --title "$commit_subject" --body "$pr_desc")
+
+pr_number=$(echo "$gh_pr_output" | awk -F/ '/github.com.*\/pull\// {print $NF}')
+
+read -r -p "Do you want to run nixpkgs-review-gha? [Y/n] " response
+response=${response,,} # to lowercase
+
+if [[ "$response" =~ ^(yes|y|)$ ]]; then
+    echo "Running nixpkgs-review-gha..."
+    gh workflow \
+        run review.yml \
+        --ref main \
+        --repo GaetanLepage/nixpkgs-review-gha \
+        --field pr="$pr_number"
+fi
