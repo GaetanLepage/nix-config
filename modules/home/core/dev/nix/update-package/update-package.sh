@@ -3,10 +3,20 @@ branch_name="update/$pname"
 
 set -eu
 
+function log() {
+    echo "-------------------------------------------------------"
+    echo "=> $1"
+    echo "-------------------------------------------------------"
+}
+
+log "Checking out master"
 git checkout master
 git pull
+
+log "Checking out new branch '$branch_name'"
 git checkout -b "$branch_name"
 
+log "Updating '$pname'"
 nix-update --commit "$pname"
 
 pr_template=$(cat .github/PULL_REQUEST_TEMPLATE.md)
@@ -45,9 +55,15 @@ pr_desc=$(awk -v replacement="$change_desc" '
   { print }
 ' <<<"$pr_template")
 
+log "Pushing changes to '$branch_name'"
+
 git push -u origin "$branch_name"
 
+log "Creating PR"
+
 gh_pr_output=$(gh pr create --title "$commit_subject" --body "$pr_desc")
+
+echo "$gh_pr_output"
 
 pr_number=$(echo "$gh_pr_output" | awk -F/ '/github.com.*\/pull\// {print $NF}')
 
