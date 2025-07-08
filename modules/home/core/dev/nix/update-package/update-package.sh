@@ -17,7 +17,7 @@ log "Checking out new branch '$branch_name'"
 git checkout -b "$branch_name"
 
 log "Updating '$pname'"
-nix-update --commit "$pname"
+nix-update --commit "$@"
 
 pr_template=$(cat .github/PULL_REQUEST_TEMPLATE.md)
 
