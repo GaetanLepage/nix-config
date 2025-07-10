@@ -23,8 +23,5 @@
       # Disable fingerprint authentification for SDDM (display manager)
       # If enable, both password AND fingerprints are required
       security.pam.services.login.fprintAuth = false;
-
-      # Set up auto login (disk encryption password must be provided at startup anyway)
-      services.displayManager.autoLogin.user = "gaetan";
     };
 }
