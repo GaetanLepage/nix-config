@@ -2,7 +2,7 @@
 {
   flake.modules.homeManager.nix-index-database = {
     imports = [
-      inputs.nix-index-database.hmModules.nix-index
+      inputs.nix-index-database.homeModules.nix-index
     ];
 
     # runs programs without installing them
