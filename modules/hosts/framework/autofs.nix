@@ -7,12 +7,7 @@
 
         autoMaster =
           let
-            # inria (alya)
             mapConf = pkgs.writeText "autofs.mnt" ''
-              alya \
-                  -fstype=nfs4 \
-                  10.10.10.4:/galepage
-
               cuda \
                   -fstype=nfs4 \
                   10.10.10.5:/home/gaetan
