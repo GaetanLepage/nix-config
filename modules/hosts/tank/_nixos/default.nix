@@ -28,7 +28,6 @@
     ./deluge
     ./invidious
     # ./jitsi.nix
-    ./mumble.nix
     ./nextcloud
     ./pigallery2.nix
     ./wireguard

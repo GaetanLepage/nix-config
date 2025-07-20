@@ -10,6 +10,7 @@
     ./hedgedoc.nix
     ./inria.nix
     ./microbin.nix
+    ./mumble.nix
     ./vaultwarden
     ./vikunja.nix
     ./wireguard
