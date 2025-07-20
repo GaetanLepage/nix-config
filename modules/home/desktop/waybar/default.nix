@@ -37,7 +37,8 @@
 
             "tray"
           ];
-        } // (import ./_modules { inherit lib config pkgs; });
+        }
+        // (import ./_modules { inherit lib config pkgs; });
         style = builtins.readFile ./style.css;
       };
     };

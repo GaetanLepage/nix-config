@@ -12,20 +12,19 @@
       xdg = {
         enable = true;
 
-        userDirs =
-          {
-            enable = true;
-          }
-          // (lib.mapAttrs (_: folderName: "${config.home.homeDirectory}/${folderName}") {
-            desktop = "desktop";
-            documents = "documents";
-            download = "downloads";
-            music = "music";
-            pictures = "pictures";
-            publicShare = "public";
-            templates = "templates";
-            videos = "videos";
-          });
+        userDirs = {
+          enable = true;
+        }
+        // (lib.mapAttrs (_: folderName: "${config.home.homeDirectory}/${folderName}") {
+          desktop = "desktop";
+          documents = "documents";
+          download = "downloads";
+          music = "music";
+          pictures = "pictures";
+          publicShare = "public";
+          templates = "templates";
+          videos = "videos";
+        });
 
         mimeApps = {
           enable = true;

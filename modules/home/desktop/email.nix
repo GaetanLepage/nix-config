@@ -55,11 +55,13 @@
             address = "gaetan@glepage.com";
 
             primary = true;
-          } // glepageDefaults;
+          }
+          // glepageDefaults;
 
           dev = {
             address = "dev@glepage.com";
-          } // glepageDefaults;
+          }
+          // glepageDefaults;
 
           # inria
           inria = {
