@@ -12,7 +12,7 @@
         # nixpkgs
         nix-update
         nixpkgs-review
-        nixfmt-rfc-style
+        nixfmt
         luarocks-packages-updater
         vimPluginsUpdater
       ];
