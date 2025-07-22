@@ -16,7 +16,6 @@
       rdc = "remi desktop command";
       rdi = "remi desktop interactive";
       rda = "remi desktop attach-session";
-      rdeu = "remi desktop -s exputils.sh";
 
       # Cluster
       rc = "remi cluster";
@@ -24,7 +23,6 @@
       rci = "remi cluster interactive";
       rcst = "remi cluster stat";
       rck = "remi cluster kill";
-      rceu = "remi cluster -s exputils.sh";
 
       # Gricad
       rgs = "remi gricad script";
