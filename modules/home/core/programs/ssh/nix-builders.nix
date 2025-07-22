@@ -17,7 +17,6 @@
               forwardAgent = v.forwardAgent or null;
               port = v.port or null;
             }
-            # inria
             // (lib.optionalAttrs (osConfig != null) {
               identityFile = osConfig.age.secrets.${v.sshKeyName}.path;
             })
