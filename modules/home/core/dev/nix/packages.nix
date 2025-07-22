@@ -13,6 +13,7 @@
         nix-update
         nixpkgs-review
         nixfmt
+        nixfmt-tree
         luarocks-packages-updater
         vimPluginsUpdater
       ];
