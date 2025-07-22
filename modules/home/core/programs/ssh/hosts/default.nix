@@ -20,12 +20,7 @@
 
           getIdentityFile = keyName: sshKeysPathPrefix + keyName;
         in
-        (import ./_gricad.nix {
-          # inria
-          inherit lib;
-          identityFile = getIdentityFile "gricad";
-        })
-        // (import ./_inria.nix {
+        (import ./_inria.nix {
           # inria
           inherit lib;
           identityFile = getIdentityFile "inria";
