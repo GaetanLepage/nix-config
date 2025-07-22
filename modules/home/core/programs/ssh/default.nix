@@ -31,6 +31,7 @@
               # Home #
               ########
 
+              framework.hostname = "10.10.10.2";
               cuda.hostname = "10.10.10.5";
               router = {
                 hostname = "192.168.1.1";
@@ -55,7 +56,6 @@
                 hostname = "10.10.10.3";
                 port = 2222;
               };
-              framework.hostname = "framework";
 
               "github.com".user = "git";
               "gitlab.com".user = "git";
