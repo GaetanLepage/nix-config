@@ -32,7 +32,7 @@
             command = ''
               hostname=$1
 
-              echo -e "\n=> Deploying system '$hostname'"
+              echo "=> Deploying system '$hostname'"
               nh os switch \
                   --hostname $hostname \
                   --target-host root@$hostname \
