@@ -2,12 +2,12 @@
   flake.modules.nixos.nvidia =
     { pkgs, config, ... }:
     {
-      nixpkgs.config.cudaSupport = true;
-
-      services.xserver.videoDrivers = [ "nvidia" ];
-
-      environment.systemPackages = [ pkgs.nvtopPackages.nvidia ];
-      programs.sway.package = pkgs.sway.override { extraOptions = [ "--unsupported-gpu" ]; };
+      # PROPRIERARY DRIVER #######################################################################
+      # nixpkgs.config.cudaSupport = true;
+      # services.xserver.videoDrivers = [ "nvidia" ];
+      # environment.systemPackages = [ pkgs.nvtopPackages.nvidia ];
+      # programs.sway.package = pkgs.sway.override { extraOptions = [ "--unsupported-gpu" ]; };
+      ############################################################################################
 
       hardware = {
         graphics = {
