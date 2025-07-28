@@ -10,7 +10,7 @@
 
     services.kanshi._profiles = {
       main = {
-        screens.home.status = "enable";
+        screens.lg_27.status = "enable";
         wifi = false;
       };
     };

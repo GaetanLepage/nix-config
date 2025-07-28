@@ -19,7 +19,7 @@
             wifi = false;
             screens = {
               laptop.status = "disable";
-              home.status = "enable";
+              lg_27.status = "enable";
             };
           };
         };
