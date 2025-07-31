@@ -29,7 +29,6 @@
     ./invidious
     # ./jitsi.nix
     ./nextcloud
-    ./pigallery2.nix
     ./wireguard
   ];
 
