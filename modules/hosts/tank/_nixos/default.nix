@@ -26,6 +26,7 @@
 
     # Services
     ./deluge
+    ./immich.nix
     ./invidious
     # ./jitsi.nix
     ./nextcloud
