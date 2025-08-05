@@ -5,8 +5,8 @@
 
   # framework laptop
   "OWezLnTrXzr1YFRs96urcqkOF6J+55S3c1NI0Jq4AXk=" = 2;
-  # Phone
-  "1ywYvNhuFgVKQdFZpg76yIvQQFZA9aUikle5TLN5yDU=" = 3;
+  # pixel
+  "RFUhsb5AaUgBjrVbJakYWtp5YXeXNibjvSOcWOOkXAE=" = 3;
   # cuda
   "J+STSrQtKJQoUNykoVF3c9ngaVUkMO3FLefQjIX1qBw=" = 5;
   # alya
