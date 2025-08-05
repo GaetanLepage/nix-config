@@ -9,12 +9,8 @@
   "RFUhsb5AaUgBjrVbJakYWtp5YXeXNibjvSOcWOOkXAE=" = 3;
   # cuda
   "J+STSrQtKJQoUNykoVF3c9ngaVUkMO3FLefQjIX1qBw=" = 5;
-  # alya
-  "3QKHdugbpjZj/VnRr1SUpPgTGVvRT2w/U6T6v1wONSw=" = 7;
   # tank
   "CG842e862qJY1J3L9rS15plnuLb8dyh+3K4bC04JnkU=" = 8;
-  #peirasmos
-  "8SZhWDf1DRufNoVN44+lRl1AkmfhonVCRsBK27DZPgA=" = 9;
 
   #################
   # Lepage family #
