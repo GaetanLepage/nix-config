@@ -14,10 +14,6 @@ in
 
       "gaetan-medium@${domain}"
       "gaetan-twitter-public@${domain}" # @GaetanLepage_
-
-      # Grenug
-      "mail@grenug.fr"
-      "contact@grenug.fr"
     ];
   };
 

@@ -24,18 +24,6 @@ in
 
         file_server browse
       '';
-
-      # Grenug
-      "www.grenug.fr".extraConfig = ''
-        redir https://grenug.fr
-      '';
-
-      "grenug.fr".extraConfig = ''
-        root * /var/www/grenug/
-        encode gzip
-
-        file_server browse
-      '';
     };
 
     reverseProxies = {

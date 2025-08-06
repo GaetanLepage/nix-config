@@ -17,7 +17,6 @@ in
 
     domains = [
       base_domain
-      "grenug.fr"
     ];
 
     # Let the server create new (self signed) certificates on the fly.
