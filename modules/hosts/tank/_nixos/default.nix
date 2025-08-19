@@ -28,7 +28,6 @@
     ./deluge
     ./immich.nix
     ./invidious
-    # ./jitsi.nix
     ./nextcloud
     ./wireguard
   ];

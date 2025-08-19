@@ -8,6 +8,7 @@
     ./caddy.nix
     ./email
     ./hedgedoc.nix
+    ./jitsi.nix
     ./microbin
     ./mumble.nix
     ./vaultwarden
