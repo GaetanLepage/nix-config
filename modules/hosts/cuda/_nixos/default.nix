@@ -4,7 +4,6 @@
     ./hardware.nix
 
     # ./mistral
-    ./ollama.nix
 
     ./disko.nix
     # ./gaming.nix
