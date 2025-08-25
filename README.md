@@ -31,6 +31,7 @@ Everything is stored under the `modules/` folder and imported automatically than
 | :------------ | :-------- | :-------------------------------- |
 | `framework`   | Yes       | Laptop                            |
 | `cuda`        | Yes       | Personal workstation              |
+| `paris`       | Yes       | Linux x86 (CUDA-enabled) builder  |
 | `vps`         | Yes       | VPS (VPN, mail server, etc.)      |
 | `tank`        | Yes       | NAS (ZFS, Nextcloud, etc.)        |
 | `feroe`       | Yes       | Backup (replication of `tank`)    |
