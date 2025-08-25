@@ -30,7 +30,7 @@ in
       "jellyfin.${domain_name}".port = 8096;
 
       "cache.${domain_name}" = {
-        localIp = "10.10.10.5";
+        localIp = "10.10.10.4";
         port = 5000;
       };
     };

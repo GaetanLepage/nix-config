@@ -4,6 +4,7 @@
     ./hardware.nix
 
     ./disko.nix
+    ./harmonia
     ./wireguard
   ];
 
