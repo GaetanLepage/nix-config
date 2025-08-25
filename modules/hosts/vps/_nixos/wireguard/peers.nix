@@ -7,6 +7,8 @@
   "OWezLnTrXzr1YFRs96urcqkOF6J+55S3c1NI0Jq4AXk=" = 2;
   # pixel
   "RFUhsb5AaUgBjrVbJakYWtp5YXeXNibjvSOcWOOkXAE=" = 3;
+  # paris
+  "bIabGhTidWV5tDS70feoTzBNk2wcq0Sf4j6qdG2Kwic=" = 4;
   # cuda
   "J+STSrQtKJQoUNykoVF3c9ngaVUkMO3FLefQjIX1qBw=" = 5;
   # tank
