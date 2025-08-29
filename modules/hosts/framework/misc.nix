@@ -11,7 +11,7 @@
 
       services = {
         # Default is "poweroff" which shutdowns the laptop as soon as the power button is pressed.
-        logind.powerKey = "lock";
+        logind.settings.Login.HandlePowerKey = "lock";
       };
 
       programs = {
