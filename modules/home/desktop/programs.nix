@@ -12,12 +12,10 @@
         # IM
         discord
         signal-desktop
-        slack # inria
 
         # Office / productivity
         libreoffice-fresh
         kdePackages.okular # inria ? (also delete keyboard shortcuts file)
-        pdfpc # inria
         zotero # inria
 
         # Misc
