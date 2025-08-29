@@ -5,7 +5,6 @@
 
     ./disko.nix
     ./harmonia
-    ./ollama.nix
     ./wireguard
   ];
 
