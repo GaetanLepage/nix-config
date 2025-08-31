@@ -10,6 +10,7 @@
         patchelf
 
         # nixpkgs
+        hydra-check
         nix-update
         nixpkgs-review
         nixfmt
