@@ -1,0 +1,68 @@
+name: flake-update
+
+on:
+  schedule:
+    # Runs at 04:00 UTC daily
+    - cron: "0 4 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write        # push branches
+  pull-requests: write   # open PRs & enable auto-merge
+
+concurrency:
+  group: flake-lock-updater
+  cancel-in-progress: false
+
+jobs:
+  update-flake-lock:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout (full history for clean diffs)
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Install Nix
+        uses: DeterminateSystems/nix-installer-action@v13
+
+      - name: Update flake.lock
+        run: |
+          set -euo pipefail
+          nix --version
+          nix flake update
+          # if nothing changed, bail out early
+          if git diff --quiet -- flake.lock; then
+            echo "No flake.lock changes."
+            echo "no_changes=true" >> $GITHUB_OUTPUT
+          else
+            echo "no_changes=false" >> $GITHUB_OUTPUT
+          fi
+        id: update
+
+      - name: Create pull request
+        if: steps.update.outputs.no_changes == 'false'
+        id: cpr
+        uses: peter-evans/create-pull-request@v7
+        with:
+          token: ${{ github.token }}
+          commit-message: "flake.lock: Update"
+          title: "flake.lock: Update"
+          body: |
+            Automated `nix flake update`.
+
+            - Created by the daily updater workflow
+            - If CI is green, this PR will auto-merge
+          branch: bot/flake-lock-update
+          delete-branch: true
+          signoff: false
+          add-paths: |
+            flake.lock
+
+      - name: Enable auto-merge (squash)
+        if: steps.update.outputs.no_changes == 'false'
+        uses: peter-evans/enable-pull-request-automerge@v3
+        with:
+          token: ${{ github.token }}
+          pull-request-number: ${{ steps.cpr.outputs.pull-request-number }}
+          merge-method: squash
