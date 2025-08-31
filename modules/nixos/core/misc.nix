@@ -13,6 +13,8 @@
     # LVS (fwupd)
     services.fwupd.enable = true;
 
+    programs.nix-ld.enable = true;
+
     networking = {
       networkmanager.enable = true;
       firewall.enable = true;

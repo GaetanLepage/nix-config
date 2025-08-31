@@ -2,6 +2,7 @@
   flake.modules.homeManager.core =
     {
       pkgs,
+      lib,
       config,
       ...
     }:
@@ -19,6 +20,7 @@
         ];
 
         sessionVariables.MYPY_CACHE_DIR = "${config.xdg.cacheHome}/mypy";
+        sessionVariables.UV_PYTHON = lib.getExe pkgs.python3;
       };
 
       programs = {
