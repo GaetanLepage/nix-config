@@ -21,10 +21,6 @@ in
             unstable = lib.mkOption {
               type = types.bool;
             };
-
-            deploy = {
-              remoteBuild = lib.mkEnableOption "";
-            };
           };
         };
       in

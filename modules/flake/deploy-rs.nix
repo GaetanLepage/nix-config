@@ -10,17 +10,13 @@ let
 in
 {
   flake = {
-    deploy.nodes = lib.mapAttrs (
-      hostname: options:
-      {
-        inherit hostname;
-        profiles.system = {
-          user = "root";
-          path = deploy-rs.lib.${options.system}.activate.nixos self.nixosConfigurations.${hostname};
-        };
-      }
-      // options.deploy
-    ) config.nixosHosts;
+    deploy.nodes = lib.mapAttrs (hostname: options: {
+      inherit hostname;
+      profiles.system = {
+        user = "root";
+        path = deploy-rs.lib.${options.system}.activate.nixos self.nixosConfigurations.${hostname};
+      };
+    }) config.nixosHosts;
   };
 
   perSystem =
