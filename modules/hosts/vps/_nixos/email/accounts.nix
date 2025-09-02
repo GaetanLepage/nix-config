@@ -18,7 +18,13 @@ in
   };
 
   # GitHub notifications & co
-  "dev@${domain}".hashedPassword = "$2b$05$WSWCiow5WoKz6KbeYM2kDu9up1bs743gqZlt75K.eIkIvWf7.BUDO";
+  "dev@${domain}" = {
+    hashedPassword = "$2b$05$WSWCiow5WoKz6KbeYM2kDu9up1bs743gqZlt75K.eIkIvWf7.BUDO";
+
+    aliases = [
+      "github-bot@${domain}"
+    ];
+  };
 
   "backup-tank@${domain}".hashedPassword =
     "$2b$05$4tevC0VlFz25.MbqUJj9IOS0fTuK6FwCoG4SEYosN9hDFiILHaXCS";
