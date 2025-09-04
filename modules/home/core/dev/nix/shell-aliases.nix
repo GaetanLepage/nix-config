@@ -29,6 +29,7 @@
         nrbd = "nix-remote-build darwin";
         nrbj = "nix-remote-build jrs";
         nrbl = "nix-remote-build linux-build-box";
+        nrbp = "nix-remote-build paris";
 
         clean-reviews = "rm -rf ${config.xdg.cacheHome}/nixpkgs-review/*";
       };
