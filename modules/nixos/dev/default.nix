@@ -15,6 +15,9 @@ topLevel: {
         owner = "gaetan";
       };
 
+      # Enable nix-ld for easier uv use
+      programs.nix-ld.enable = true;
+
       # Fish shell
       users.users.gaetan.shell = config.programs.fish.package;
       programs.fish.enable = true;
