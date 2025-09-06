@@ -50,10 +50,7 @@ jobs:
           title: "flake.lock: Update"
           body: |
             Automated `nix flake update`.
-
-            - Created by the daily updater workflow
-            - If CI is green, this PR will auto-merge
-          branch: bot/flake-lock-update
+          branch: flake-lock-update
           delete-branch: true
           signoff: false
           add-paths: |
