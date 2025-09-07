@@ -45,7 +45,7 @@ jobs:
         id: cpr
         uses: peter-evans/create-pull-request@v7
         with:
-          token: ${{ github.token }}
+          token: ${{ secrets.BOT_GITHUB_TOKEN }}
           commit-message: "flake.lock: Update"
           title: "flake.lock: Update"
           body: |
@@ -60,6 +60,6 @@ jobs:
         if: steps.update.outputs.no_changes == 'false'
         uses: peter-evans/enable-pull-request-automerge@v3
         with:
-          token: ${{ github.token }}
+          token: ${{ secrets.BOT_GITHUB_TOKEN }}
           pull-request-number: ${{ steps.cpr.outputs.pull-request-number }}
           merge-method: squash
