@@ -18,5 +18,10 @@ in
     settings.bind = "${config.wireguardClient.ip}:${toString port}";
   };
 
+  systemd.services.harmonia.after = [
+    # Ensure Wireguard has started before running harmonia
+    "wg-quick-wg0.service"
+  ];
+
   networking.firewall.allowedTCPPorts = [ port ];
 }
