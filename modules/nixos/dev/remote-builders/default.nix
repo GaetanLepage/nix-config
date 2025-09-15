@@ -51,7 +51,7 @@
               systems = [
                 "aarch64-linux"
               ];
-              maxJobs = 1;
+              maxJobs = 2;
               supportedFeatures = [
                 "benchmark"
                 "big-parallel"
@@ -66,7 +66,7 @@
               sshKey = config.age.secrets.darwin-build-box-ssh-key.path;
               # base64 -w0 -i /etc/ssh/ssh_host_ed25519_key.pub
               publicHostKey = "c3NoLWVkMjU1MTkgQUFBQUMzTnphQzFsWkRJMU5URTVBQUFBSUtNSGhsY243ZlVwVXVpT0ZlSWhEcUJ6Qk5Gc2JOcXErTnB6dUdYM2U2enYgCg==";
-              maxJobs = 1;
+              maxJobs = 2;
               systems = [
                 "aarch64-darwin"
                 "x86_64-darwin"
