@@ -11,7 +11,7 @@
         wheelNeedsPassword = false;
       };
       doas = {
-        enable = true;
+        enable = false;
         wheelNeedsPassword = false;
       };
     };
