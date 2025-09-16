@@ -40,11 +40,6 @@
               port = 2222;
               forwardAgent = true;
             };
-            libero = {
-              user = "root";
-              hostname = "185.119.168.14";
-              sshKeyName = "ssh-liberodark-builder";
-            };
           };
     };
 }
