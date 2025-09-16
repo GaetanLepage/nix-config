@@ -52,6 +52,10 @@
             framework.hostname = "10.10.10.2";
             cuda.hostname = "10.10.10.5";
             paris.hostname = "10.10.10.4";
+            builder = {
+              hostname = "91.224.148.57";
+              identityFile = sshKeysPathPrefix + "liberodark-builder";
+            };
             router = {
               hostname = "192.168.1.1";
               user = "root";
