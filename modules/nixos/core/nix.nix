@@ -64,7 +64,7 @@
         # Allow the use of cachix
         trusted-users = [
           "root"
-          "gaetan"
+          "@wheel"
         ];
 
         builders-use-substitutes = true;
