@@ -1,10 +1,10 @@
 {
   flake.modules.homeManager.core =
-    { lib, ... }:
+    { lib, config, ... }:
     {
       home = {
         username = lib.mkDefault "gaetan"; # inria (remove mkDefault)
-        homeDirectory = lib.mkDefault "/home/gaetan"; # inria
+        homeDirectory = "/home/${config.home.username}";
       };
     };
 }
