@@ -8,10 +8,6 @@
         autoMaster =
           let
             mapConf = pkgs.writeText "autofs.mnt" ''
-              cuda \
-                  -fstype=nfs4 \
-                  10.10.10.5:/home/gaetan
-
               server \
                   -fstype=nfs4 \
                   10.10.10.8:/tank

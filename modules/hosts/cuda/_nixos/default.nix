@@ -9,7 +9,6 @@
     ./disko.nix
     # ./gaming.nix
     # ./gnome-desktop.nix
-    ./nfs.nix
     # ./nix-remote-builder.nix
     ./server-tank-nfs.nix
     ./wireguard
