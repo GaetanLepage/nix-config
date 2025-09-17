@@ -8,7 +8,7 @@
         shellWrapperName = "r";
 
         keymap = {
-          manager.prepend_keymap = [
+          mgr.prepend_keymap = [
             {
               on = [ "<C-f>" ];
               run = "find";
