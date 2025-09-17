@@ -2,6 +2,8 @@
   flake.modules.homeManager.core =
     { lib, config, ... }:
     {
+      services.ssh-agent.enable = true;
+
       programs.ssh = {
         enable = true;
 
