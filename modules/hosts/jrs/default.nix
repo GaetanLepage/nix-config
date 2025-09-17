@@ -1,3 +1,7 @@
 {
-  homeHosts.jrs = { };
+  homeHosts.jrs = {
+    modules = [
+      { home.username = "glepage"; }
+    ];
+  };
 }
