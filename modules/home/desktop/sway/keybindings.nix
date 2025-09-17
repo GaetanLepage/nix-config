@@ -84,12 +84,12 @@
 
               # Bluetooth
               "${mod}+i" = "exec ${getExe' pkgs.blueman "blueman-manager"}";
-              "${mod}+Shift+i" = "exec doas rfkill unblock bluetooth";
-              "${mod}+Ctrl+i" = "exec doas rfkill block bluetooth";
+              "${mod}+Shift+i" = "exec sudo rfkill unblock bluetooth";
+              "${mod}+Ctrl+i" = "exec sudo rfkill block bluetooth";
 
               # Wireguard (VPN)
-              "${mod}+u" = "exec doas systemctl start wg-quick-wg0";
-              "${mod}+Shift+u" = "exec doas systemctl stop wg-quick-wg0";
+              "${mod}+u" = "exec sudo systemctl start wg-quick-wg0";
+              "${mod}+Shift+u" = "exec sudo systemctl stop wg-quick-wg0";
 
               # Dunst (notifications)
               "${mod}+n" = "exec ${dunst} set-paused false";
