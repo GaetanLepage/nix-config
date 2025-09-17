@@ -22,7 +22,7 @@ in
           };
 
           modules = lib.mkOption {
-            type = with types; listOf anything;
+            type = with types; listOf deferredModule;
             default = [ ];
           };
         };
