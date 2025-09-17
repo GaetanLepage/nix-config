@@ -4,6 +4,7 @@
     imports = with config.flake.modules.homeManager; [
       csConfig
       desktop
+      ssh-hosts
     ];
 
     wayland.windowManager.sway.extraOptions = [ "--unsupported-gpu" ];
