@@ -4,8 +4,6 @@
       todo = "rg TODO";
       td = "rg TODO";
 
-      vt = "vim ~/perso/notes/todo.norg";
-
       ##################
       # GNU core utils #
       ##################
@@ -22,20 +20,10 @@
       ka = "killall";
       cal = "cal -m";
       da = "doas";
-      icat = "kitty +kitten icat";
       jb = "jobs";
-      lo = "soffice";
-      ns = "nvidia-smi";
       py = "python";
       t = "date +'%a %b %e %R:%S %Z %Y'";
-      wttr = "curl wttr.in/Grenoble+38000";
       x = "xdg-open";
-
-      ##############
-      # NFS mounts #
-      ##############
-      ms = "sudo mount 10.10.10.1:/tank /mnt/server && notify-send 'server mounted'";
-      us = "sudo umount /mnt/server && notify-send 'server unmounted'";
 
       ##############
       # Networking #
@@ -57,7 +45,6 @@
       # Nix #
       #######
       d = "deploy";
-      hmn = "home-manager news";
       nsp = "nix-shell -p";
       nfu = "nix flake update";
       nfm = "nix fmt";
