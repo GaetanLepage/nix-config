@@ -5,7 +5,6 @@ topLevel: {
       imports = with topLevel.config.flake.modules.nixos; [
         home-manager
         remote-builders
-        ssh-client
         substituters
       ];
 
