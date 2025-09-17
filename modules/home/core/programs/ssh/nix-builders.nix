@@ -9,29 +9,20 @@
       programs.ssh.matchBlocks =
         lib.mapAttrs
           (
-            _: v:
+            _: hostname:
             {
-              inherit (v) hostname;
-              user = v.user or "glepage";
+              inherit hostname;
+              user = "glepage";
               setEnv.TERM = "xterm-256color";
             }
             // (lib.optionalAttrs (osConfig != null) {
-              identityFile = osConfig.age.secrets.${v.sshKeyName}.path;
+              identityFile = osConfig.age.secrets.ssh-nix-community.path;
             })
           )
           {
-            arm = {
-              hostname = "aarch64-build-box.nix-community.org";
-              sshKeyName = "linux-build-box-ssh-key";
-            };
-            darwin = {
-              hostname = "darwin-build-box.nix-community.org";
-              sshKeyName = "darwin-build-box-ssh-key";
-            };
-            linux-build-box = {
-              hostname = "build-box.nix-community.org";
-              sshKeyName = "linux-build-box-ssh-key";
-            };
+            arm = "aarch64-build-box.nix-community.org";
+            darwin = "darwin-build-box.nix-community.org";
+            linux-build-box = "build-box.nix-community.org";
           };
     };
 }

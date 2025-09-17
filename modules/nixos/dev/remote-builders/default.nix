@@ -19,19 +19,14 @@
       };
 
       config = {
-        age.secrets =
-          lib.mapAttrs
-            (n: v: {
-              inherit (v) rekeyFile;
-              owner = "gaetan";
-            })
-            {
-              # ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAz5sm1A3hfzn+BxJjZGt5nnqTdEW8G+X5Sqstc//Lz1
-              darwin-build-box-ssh-key.rekeyFile = ./ssh-darwin-build-box.age;
+        age.secrets = {
+          ssh-nix-community = {
+            owner = "gaetan";
 
-              # ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOupOoulINUeCUKLfBllcS1Rulc1LzYnIOITXqEyYaao
-              linux-build-box-ssh-key.rekeyFile = ./ssh-linux-build-box.age;
-            };
+            # ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOupOoulINUeCUKLfBllcS1Rulc1LzYnIOITXqEyYaao
+            rekeyFile = ./ssh-nix-community.age;
+          };
+        };
 
         nix = {
           distributedBuilds = true;
@@ -48,7 +43,7 @@
               # ARM build box
               hostName = "aarch64-build-box.nix-community.org";
               sshUser = "glepage";
-              sshKey = config.age.secrets.linux-build-box-ssh-key.path;
+              sshKey = config.age.secrets.ssh-nix-community.path;
               # base64 -w0 /etc/ssh/ssh_host_ed25519_key.pub
               publicHostKey = "c3NoLWVkMjU1MTkgQUFBQUMzTnphQzFsWkRJMU5URTVBQUFBSUc5dXlmaHlsaStCUnRrNjR5K25pcXRiK3NLcXVSR0daODdmNFlSYzhFRTEK";
               systems = [
@@ -66,7 +61,7 @@
               # Darwin build box
               hostName = "darwin-build-box.nix-community.org";
               sshUser = "glepage";
-              sshKey = config.age.secrets.darwin-build-box-ssh-key.path;
+              sshKey = config.age.secrets.ssh-nix-community.path;
               # base64 -w0 -i /etc/ssh/ssh_host_ed25519_key.pub
               publicHostKey = "c3NoLWVkMjU1MTkgQUFBQUMzTnphQzFsWkRJMU5URTVBQUFBSUtNSGhsY243ZlVwVXVpT0ZlSWhEcUJ6Qk5Gc2JOcXErTnB6dUdYM2U2enYgCg==";
               maxJobs = 2;
@@ -84,7 +79,7 @@
               # Linux build box
               hostName = "build-box.nix-community.org";
               sshUser = "glepage";
-              sshKey = config.age.secrets.linux-build-box-ssh-key.path;
+              sshKey = config.age.secrets.ssh-nix-community.path;
               # base64 -w0 /etc/ssh/ssh_host_ed25519_key.pub
               publicHostKey = "c3NoLWVkMjU1MTkgQUFBQUMzTnphQzFsWkRJMU5URTVBQUFBSUVsSVE1NHFBeTdEaDYzckJ1ZFlLZGJ6SkhycmJyck1YTFlsN1BrbWs4OEgK";
               maxJobs = cfg.linuxMaxJobs;
