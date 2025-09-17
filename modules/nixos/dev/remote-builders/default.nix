@@ -26,8 +26,11 @@
               owner = "gaetan";
             })
             {
-              darwin-build-box-ssh-key.rekeyFile = ./ssh-keys/darwin-build-box.age;
-              linux-build-box-ssh-key.rekeyFile = ./ssh-keys/linux-build-box.age;
+              # ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAz5sm1A3hfzn+BxJjZGt5nnqTdEW8G+X5Sqstc//Lz1
+              darwin-build-box-ssh-key.rekeyFile = ./ssh-darwin-build-box.age;
+
+              # ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOupOoulINUeCUKLfBllcS1Rulc1LzYnIOITXqEyYaao
+              linux-build-box-ssh-key.rekeyFile = ./ssh-linux-build-box.age;
             };
 
         nix = {
