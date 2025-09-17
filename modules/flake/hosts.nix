@@ -20,6 +20,11 @@ in
           unstable = lib.mkOption {
             type = types.bool;
           };
+
+          modules = lib.mkOption {
+            type = with types; listOf anything;
+            default = [ ];
+          };
         };
       };
     in
@@ -43,7 +48,8 @@ in
               modules = [
                 config.flake.modules.nixos.core
                 (config.flake.modules.nixos."host_${hostname}" or { })
-              ];
+              ]
+              ++ options.modules;
             };
         in
         lib.mapAttrs mkHost config.nixosHosts;
@@ -74,7 +80,8 @@ in
                     nix.package = pkgs.nix;
                   }
                 )
-              ];
+              ]
+              ++ options.modules;
             };
         in
         lib.mapAttrs mkHost config.homeHosts;
