@@ -2,6 +2,10 @@
   flake.modules.homeManager.core =
     { lib, config, ... }:
     {
+      imports = [
+        ./_keys
+      ];
+
       programs.ssh = {
         enable = true;
 
