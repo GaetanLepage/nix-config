@@ -1,7 +1,7 @@
 # inria
 {
   flake.modules.homeManager.core =
-    { lib, ... }:
+    { lib, config, ... }:
     {
       programs.ssh.matchBlocks =
         let
@@ -39,7 +39,7 @@
             blockName: blockConfig:
             {
               user = "galepage";
-              identityFile = "/run/agenix/ssh-inria";
+              identityFile = config.age.secrets.ssh-inria.path;
             }
             // blockConfig
           )

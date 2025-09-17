@@ -1,17 +1,6 @@
 {
   flake.modules.homeManager.core =
-    { lib, osConfig, ... }:
-    let
-      sshKeysPathPrefix =
-        if
-          osConfig ? age
-        # if using NixOS + agenix:
-        then
-          "/run/agenix/ssh-"
-        # on non-NixOS:
-        else
-          "~/.ssh/";
-    in
+    { lib, config, ... }:
     {
       programs.ssh = {
         enable = true;
@@ -40,7 +29,7 @@
             _: v:
             {
               user = "gaetan";
-              identityFile = sshKeysPathPrefix + "perso";
+              identityFile = config.age.secrets.ssh-perso.path;
             }
             // v
           )
@@ -54,7 +43,13 @@
             paris.hostname = "10.10.10.4";
             builder = {
               hostname = "91.224.148.57";
-              identityFile = sshKeysPathPrefix + "liberodark-builder";
+              identityFile = config.age.secrets.ssh-builder.path;
+            };
+            jrs = {
+              hostname = "jonringer.us";
+              user = "glepage";
+              identityFile = config.age.secrets.ssh-jonringer-server.path;
+              port = 2222;
             };
             router = {
               hostname = "192.168.1.1";
