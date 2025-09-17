@@ -25,7 +25,14 @@
             controlPath = "~/.ssh/master-%r@%n:%p";
             controlPersist = "no";
           };
+
+          "github.com" = {
+            identityFile = [ config.age.secrets.ssh-github.path ];
+          };
         };
       };
+
+      # ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIA3pKoSya7AukHN9XjglUutnbEvZ1sx1RHOV8CaKy+vi
+      age.secrets.ssh-github.rekeyFile = ./ssh-github.age;
     };
 }
