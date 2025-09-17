@@ -75,7 +75,6 @@ in
                 (
                   { pkgs, config, ... }@homeArgs:
                   {
-                    programs.nh.flake = "github:GaetanLepage/nix-config";
                     nix.package = homeArgs.pkgs.nix;
                     age.identityPaths = [ "${homeArgs.config.home.homeDirectory}/.ssh/agenix" ];
                   }
