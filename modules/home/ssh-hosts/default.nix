@@ -64,9 +64,6 @@
               port = 2222;
             };
 
-            "github.com".user = "git";
-            "gitlab.com".user = "git";
-
             #################
             # Lepage Knives #
             #################
