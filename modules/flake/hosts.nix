@@ -73,10 +73,11 @@ in
               modules = [
                 config.flake.modules.homeManager.core
                 (
-                  { pkgs, ... }:
+                  { pkgs, config, ... }@homeArgs:
                   {
                     programs.nh.flake = "github:GaetanLepage/nix-config";
-                    nix.package = pkgs.nix;
+                    nix.package = homeArgs.pkgs.nix;
+                    age.identityPaths = [ "${homeArgs.config.home.homeDirectory}/.ssh/agenix" ];
                   }
                 )
               ]
