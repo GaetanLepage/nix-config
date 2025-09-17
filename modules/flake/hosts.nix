@@ -69,6 +69,7 @@ in
               extraSpecialArgs = {
                 inputs = inputs;
                 inherit configName;
+                nhSwitchCommand = "nh home switch --configuration ${configName}";
               };
               modules = [
                 config.flake.modules.homeManager.core

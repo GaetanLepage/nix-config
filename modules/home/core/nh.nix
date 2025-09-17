@@ -1,10 +1,9 @@
 {
   flake.modules.homeManager.nh =
-    { lib, ... }:
+    { nhSwitchCommand, ... }:
     {
       home.shellAliases = {
-        u = "nh os switch -u";
-        nrs = "nh os switch";
+        u = nhSwitchCommand;
       };
 
       programs.nh = {
