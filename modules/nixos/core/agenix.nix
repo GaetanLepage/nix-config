@@ -11,7 +11,7 @@
       age.rekey = {
         storageMode = "local";
         masterIdentities = [ ../../../.secrets/identity.age ];
-        localStorageDir = ../../../.secrets/${config.networking.hostName};
+        localStorageDir = ../../../.secrets/nixos/${config.networking.hostName};
       };
     };
 }
