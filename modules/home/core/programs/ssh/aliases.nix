@@ -1,7 +1,6 @@
 {
   flake.modules.homeManager.core = {
     home.shellAliases = {
-      s = "ssh";
       sb = "ssh builder";
       sba = "ssh builder -t zellij attach --create main";
       sc = "ssh cuda";

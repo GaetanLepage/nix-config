@@ -17,6 +17,7 @@
       ########
       # Misc #
       ########
+      s = "ssh";
       ka = "killall";
       cal = "cal -m";
       da = "doas";
