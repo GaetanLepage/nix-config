@@ -1,9 +1,9 @@
 {
   flake.modules.homeManager.core =
-    { config, ... }:
+    { lib, config, ... }:
     {
       home = {
-        username = "gaetan";
+        username = lib.mkDefault "gaetan";
         homeDirectory = "/home/${config.home.username}";
       };
     };
