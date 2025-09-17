@@ -72,7 +72,6 @@ in
               };
               modules = [
                 config.flake.modules.homeManager.core
-                (config.flake.modules.homeManager."host_${configName}" or { })
                 (
                   { pkgs, ... }:
                   {
