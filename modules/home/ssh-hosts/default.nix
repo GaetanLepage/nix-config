@@ -29,7 +29,6 @@
 
             framework.hostname = "10.10.10.2";
             cuda.hostname = "10.10.10.5";
-            paris.hostname = "10.10.10.4";
             builder = {
               hostname = "91.224.148.57";
               identityFile = config.age.secrets.ssh-builder.path;
