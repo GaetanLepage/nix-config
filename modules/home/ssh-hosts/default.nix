@@ -40,14 +40,6 @@
               identityFile = config.age.secrets.ssh-jonringer-server.path;
               port = 2222;
             };
-            router = {
-              hostname = "192.168.1.1";
-              user = "root";
-              extraOptions = {
-                HostKeyAlgorithms = "+ssh-rsa";
-                PubkeyAcceptedKeyTypes = "+ssh-rsa";
-              };
-            };
             tank = {
               hostname = "tank.glepage.com";
               port = 222;
