@@ -55,6 +55,10 @@
               port = 2222;
             };
 
+            # Explicitly add them so that ssh-perso is used to authentificate
+            "github.com" = { };
+            "gitlab.com" = { };
+
             #################
             # Lepage Knives #
             #################
