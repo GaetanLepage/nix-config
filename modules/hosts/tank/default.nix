@@ -2,9 +2,10 @@
 {
   nixosHosts.tank = {
     unstable = false;
+
+    modules = [
+      config.flake.modules.nixos.server
+      ./_nixos
+    ];
   };
-  flake.modules.nixos.host_tank.imports = with config.flake.modules.nixos; [
-    server
-    ./_nixos
-  ];
 }
