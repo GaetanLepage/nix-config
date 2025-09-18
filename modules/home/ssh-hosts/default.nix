@@ -75,7 +75,7 @@
             ##############
             # Cordineaux #
             ##############
-            feroe.hostname = "10.10.10.23";
+            backup.hostname = "10.10.10.23";
           };
     };
 }

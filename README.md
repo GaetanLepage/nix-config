@@ -35,7 +35,7 @@ Everything is stored under the `modules/` folder and imported automatically than
 | `jrs`         | home-manager  | Jon Ringer's x86 builder          |
 | `vps`         | NixOS         | VPS (VPN, mail server, etc.)      |
 | `tank`        | NixOS         | NAS (ZFS, Nextcloud, etc.)        |
-| `feroe`       | NixOS         | Backup (replication of `tank`)    |
+| `backup`      | NixOS         | Backup (replication of `tank`)    |
 
 ### Linux working environment
 
