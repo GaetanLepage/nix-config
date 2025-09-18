@@ -7,12 +7,5 @@
 
   users.users.gaetan.extraGroups = [ "caddy" ];
 
-  services.caddy = {
-    enable = true;
-
-    reverseProxies."router.glepage.com" = {
-      localIp = "192.168.1.1";
-      vpn = true;
-    };
-  };
+  services.caddy.enable = true;
 }
