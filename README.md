@@ -27,14 +27,15 @@ Everything is stored under the `modules/` folder and imported automatically than
 
 ## Systems
 
-| Hostname      | NixOS?    | Comment                           |
-| :------------ | :-------- | :-------------------------------- |
-| `framework`   | Yes       | Laptop                            |
-| `cuda`        | Yes       | Personal workstation              |
-| `paris`       | Yes       | Linux x86 builder                 |
-| `vps`         | Yes       | VPS (VPN, mail server, etc.)      |
-| `tank`        | Yes       | NAS (ZFS, Nextcloud, etc.)        |
-| `feroe`       | Yes       | Backup (replication of `tank`)    |
+| Hostname      | Config type   | Comment                           |
+| :------------ | :-------------| :-------------------------------- |
+| `framework`   | NixOS         | Laptop                            |
+| `cuda`        | NixOS         | Personal workstation              |
+| `builder`     | home-manager  | Linux x86 builder                 |
+| `jrs`         | home-manager  | Jon Ringer's x86 builder          |
+| `vps`         | NixOS         | VPS (VPN, mail server, etc.)      |
+| `tank`        | NixOS         | NAS (ZFS, Nextcloud, etc.)        |
+| `feroe`       | NixOS         | Backup (replication of `tank`)    |
 
 ### Linux working environment
 
