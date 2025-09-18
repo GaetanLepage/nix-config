@@ -1,5 +1,5 @@
 {
-  flake.modules.nixos.host_feroe =
+  flake.modules.nixos.host_backup =
     { pkgs, ... }:
     {
       # Needed for ZFS

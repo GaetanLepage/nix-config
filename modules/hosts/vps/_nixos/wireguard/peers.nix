@@ -22,6 +22,6 @@
   "h9/IH7UOiK0d9NXZ1liIsiJrQoSzJa5TqGFC0rQnKw0=" = 21;
   # Laptop TL
   "sHlIzQ1NMKcTQfr30Ss+LtqbauBySpQN4+WvW5SOXXI=" = 22;
-  # feroe
+  # backup
   "GXT4bebPRfYqR3cvODMZsR2GdCsldnAe6BnkMhI6rTs=" = 23;
 }

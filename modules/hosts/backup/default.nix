@@ -1,11 +1,11 @@
 { config, ... }:
 {
-  nixosHosts.feroe = {
+  nixosHosts.backup = {
     unstable = false;
   };
 
-  flake.modules.nixos.host_feroe = {
-    networking.hostName = "feroe";
+  flake.modules.nixos.host_backup = {
+    networking.hostName = "backup";
 
     age.rekey.hostPubkey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDBSFYOqETOI1WDbKieqGIz5iHzys9n92eo/KBhPHeJh";
 
