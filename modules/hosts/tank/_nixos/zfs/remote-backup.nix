@@ -12,7 +12,7 @@
 
     identityFilePath = config.age.secrets.zfs-remote-backup-ssh-key.path;
 
-    host = "10.10.10.23";
+    host = "10.10.10.4";
     username = "zfs";
     remoteFilesystem = "backup_pool/tank_backup";
   };
