@@ -33,9 +33,7 @@
             sshKey = config.age.secrets.ssh-nix-community.path;
             # base64 -w0 /etc/ssh/ssh_host_ed25519_key.pub
             publicHostKey = "c3NoLWVkMjU1MTkgQUFBQUMzTnphQzFsWkRJMU5URTVBQUFBSUc5dXlmaHlsaStCUnRrNjR5K25pcXRiK3NLcXVSR0daODdmNFlSYzhFRTEK";
-            systems = [
-              "aarch64-linux"
-            ];
+            system = "aarch64-linux";
             maxJobs = 2;
             supportedFeatures = [
               "benchmark"
