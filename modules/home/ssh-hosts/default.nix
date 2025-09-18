@@ -64,8 +64,6 @@
               port = 2222;
             };
 
-            "github.com".identityFile = [ config.age.secrets.ssh-perso.path ];
-
             #################
             # Lepage Knives #
             #################
