@@ -2,9 +2,10 @@
 {
   nixosHosts.vps = {
     unstable = false;
+
+    modules = [
+      config.flake.modules.nixos.server
+      ./_nixos
+    ];
   };
-  flake.modules.nixos.host_vps.imports = with config.flake.modules.nixos; [
-    server
-    ./_nixos
-  ];
 }
