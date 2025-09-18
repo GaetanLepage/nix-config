@@ -11,19 +11,14 @@ let
       priority = 2;
     }
     {
-      url = "https://cache.glepage.com";
-      publicKey = "cache.glepage.com:iaI4fkpeSy8sg8u5M8KnMsl4mSS1vwMYWj+ipqz9ugg=";
-      priority = 3;
-    }
-    {
       url = "https://cache.flox.dev";
       publicKey = "flox-cache-public-1:7F4OyH7ZCnFhcze3fJdfyXYLQw/aV7GEed86nQ7IsOs=";
-      priority = 4;
+      priority = 3;
     }
     # {
     #   url = "https://cache.jonringer.us";
     #   publicKey = "cache.jonringer.us:BZogIwFAp94LYcmaOi6xkHGJeRhMcQtFO8l6AmJNsng=";
-    #   priority = 5;
+    #   priority = 4;
     # }
   ];
 in

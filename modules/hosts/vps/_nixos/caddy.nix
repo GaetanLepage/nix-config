@@ -27,11 +27,6 @@ in
     };
 
     reverseProxies = {
-      "cache.${domain_name}" = {
-        localIp = "10.10.10.4";
-        port = 5000;
-      };
-
       "bbox.${domain_name}" = {
         localIp = "feroe.${domain_name}";
         tlsInsecureSkipVerify = true;
