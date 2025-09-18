@@ -6,19 +6,24 @@ let
       priority = 1;
     }
     {
+      url = "https://nix-cache.ynh.ovh";
+      publicKey = "nix-cache.ynh.ovh:9qrjMrCm2hFYIuEgexkBxJTG0/6kT2jqd8muFtUezbk=";
+      priority = 2;
+    }
+    {
       url = "https://nix-community.cachix.org";
       publicKey = "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs=";
-      priority = 2;
+      priority = 3;
     }
     {
       url = "https://cache.flox.dev";
       publicKey = "flox-cache-public-1:7F4OyH7ZCnFhcze3fJdfyXYLQw/aV7GEed86nQ7IsOs=";
-      priority = 3;
+      priority = 4;
     }
     # {
     #   url = "https://cache.jonringer.us";
     #   publicKey = "cache.jonringer.us:BZogIwFAp94LYcmaOi6xkHGJeRhMcQtFO8l6AmJNsng=";
-    #   priority = 4;
+    #   priority = 5;
     # }
   ];
 in
