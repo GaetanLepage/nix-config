@@ -4,6 +4,6 @@
 
     privateKeyFile = ./private-key.age;
     redirectAllTraffic = false;
-    ip = "10.10.10.23";
+    ip = "10.10.10.4";
   };
 }
