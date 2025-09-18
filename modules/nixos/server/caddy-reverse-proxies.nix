@@ -26,6 +26,12 @@
                     type = lib.types.str;
                     default = "localhost";
                   };
+
+                  tlsInsecureSkipVerify = lib.mkOption {
+                    type = lib.types.bool;
+                    default = false;
+                    description = "Reverse proxy to a self-signed HTTPS endpoint";
+                  };
                 };
               }
             );
@@ -48,7 +54,10 @@
             virtualHosts = lib.mapAttrs (domain: opts: {
               extraConfig =
                 let
-                  proxyStr = opts.localIp + lib.optionalString (opts.port != null) ":${toString opts.port}";
+                  proxyStr =
+                    opts.localIp
+                    + (lib.optionalString (opts.port != null) ":${toString opts.port}")
+                    + (lib.optionalString opts.tlsInsecureSkipVerify "{ transport http { tls_insecure_skip_verify } }");
                 in
                 if opts.vpn then
                   ''
