@@ -48,9 +48,7 @@
       d = "deploy";
       nsp = "nix-shell -p";
       nfu = "nix flake update";
-      nfm = "nix fmt";
       nfc = "nix flake check --all-systems";
-      nfmc = "nix fmt && nix flake check --all-systems";
     };
   };
 }
