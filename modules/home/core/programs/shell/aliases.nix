@@ -48,7 +48,7 @@
       d = "deploy";
       nsp = "nix-shell -p";
       nfu = "nix flake update";
-      nfc = "nix flake check --all-systems";
+      nfc = "nix flake check";
     };
   };
 }
