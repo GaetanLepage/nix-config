@@ -7,7 +7,7 @@
     }:
     {
       age.secrets.ssh-nix-community = {
-        rekeyFile = ../../../../nixos/dev/remote-builders/ssh-nix-community.age;
+        rekeyFile = ./ssh-nix-community.age;
         mode = "600";
       };
 
