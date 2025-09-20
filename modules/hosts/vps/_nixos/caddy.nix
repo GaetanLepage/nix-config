@@ -27,6 +27,10 @@ in
     };
 
     reverseProxies = {
+      "jellyfin.${domain_name}" = {
+        localIp = "10.10.10.8";
+        port = 8096;
+      };
       "bbox.${domain_name}" = {
         localIp = "feroe.${domain_name}";
         tlsInsecureSkipVerify = true;
