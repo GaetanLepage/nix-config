@@ -59,6 +59,15 @@
             "github.com" = { };
             "gitlab.com" = { };
 
+            ada = {
+              user = "root";
+              hostname = "144.76.101.55";
+            };
+            pascal = {
+              user = "root";
+              hostname = "95.216.72.164";
+            };
+
             #################
             # Lepage Knives #
             #################
