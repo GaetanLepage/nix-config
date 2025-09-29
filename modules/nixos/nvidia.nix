@@ -9,6 +9,12 @@
       programs.sway.package = pkgs.sway.override { extraOptions = [ "--unsupported-gpu" ]; };
       ############################################################################################
 
+      # This machine can run cuda tests
+      programs.nix-required-mounts = {
+        enable = true;
+        presets.nvidia-gpu.enable = true;
+      };
+
       hardware = {
         graphics = {
           enable = true;
