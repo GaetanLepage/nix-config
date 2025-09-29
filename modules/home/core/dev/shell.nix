@@ -8,7 +8,7 @@
             shellcheck
             shfmt
           ];
-          plugins.lsp.servers.bashls.enable = true;
+          lsp.servers.bashls.enable = true;
         };
       };
     };

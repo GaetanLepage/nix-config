@@ -3,10 +3,10 @@
     { lib, pkgs, ... }:
     {
       programs.nixvim = {
-        plugins.lsp.servers.nil_ls = {
+        lsp.servers.nil_ls = {
           enable = true;
-          settings.formatting.command = [
-            (lib.getExe pkgs.nixfmt)
+          settings.settings.formatting.command = [
+              (lib.getExe pkgs.nixfmt)
           ];
         };
 

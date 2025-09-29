@@ -11,10 +11,8 @@
       ];
 
       programs.nixvim = {
-        plugins = {
-          lsp-format.settings.cmake.exclude = [ "cmake" ];
-          lsp.servers.cmake.enable = true;
-        };
+        lsp.servers.cmake.enable = true;
+        plugins.lsp-format.settings.cmake.exclude = [ "cmake" ];
       };
     };
 }

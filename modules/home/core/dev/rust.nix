@@ -22,11 +22,9 @@
         bacon.enable = true;
 
         nixvim = {
-          plugins.lsp.servers.rust_analyzer = {
+          lsp.servers.rust_analyzer = {
             enable = true;
-            installCargo = true;
-            installRustc = true;
-            settings = {
+            settings.settings = {
               cargo.features = "all";
             };
           };

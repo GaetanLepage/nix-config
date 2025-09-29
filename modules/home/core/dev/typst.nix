@@ -18,12 +18,12 @@
           }
         ];
 
-        plugins = {
-          lsp.servers.tinymist = {
-            enable = true;
-            settings.formatterMode = "typstyle";
-          };
+        lsp.servers.tinymist = {
+          enable = true;
+          settings.settings.formatterMode = "typstyle";
+        };
 
+        plugins = {
           typst-preview = {
             enable = true;
 
