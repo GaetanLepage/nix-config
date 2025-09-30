@@ -61,11 +61,11 @@
 
             ada = {
               user = "root";
-              hostname = "144.76.101.55";
+              hostname = "ada.nixos-cuda.org";
             };
             pascal = {
               user = "root";
-              hostname = "95.216.72.164";
+              hostname = "pascal.nixos-cuda.org";
             };
 
             #################
