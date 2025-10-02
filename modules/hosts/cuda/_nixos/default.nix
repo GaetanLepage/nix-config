@@ -3,9 +3,6 @@
     # Include the results of the hardware scan.
     ./hardware.nix
 
-    # ./mistral
-    ./ollama.nix
-
     ./disko.nix
     # ./gaming.nix
     # ./gnome-desktop.nix
