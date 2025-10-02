@@ -49,6 +49,8 @@
     home.shellAliases = {
       lg = "lazygit";
 
+      gs = "git switch";
+      gsc = "git switch -c";
       gfu = "git fetch upstream";
       gfo = "git fetch origin";
       gpc = "gh pr checkout";
