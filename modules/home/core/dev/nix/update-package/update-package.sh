@@ -10,11 +10,11 @@ function log() {
 }
 
 log "Checking out master"
-git checkout master
+git switch master
 git pull
 
 log "Checking out new branch '$branch_name'"
-git checkout -b "$branch_name"
+git switch -c "$branch_name"
 
 log "Updating '$pname'"
 nix-update --commit "$@"
