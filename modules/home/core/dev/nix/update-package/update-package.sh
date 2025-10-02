@@ -40,12 +40,14 @@ maintainers=$(nix-instantiate --eval -E "$get_maintainers" --raw)
 
 commit_desc=$(echo "$commit_body" | sed '/^[[:space:]]*$/d')
 
-change_desc="$commit_desc
+pr_desc="$commit_desc"
+if [ -n "$maintainers" ]; then
+    pr_desc="$pr_desc
 
-cc $maintainers
-"
+cc $maintainers"
+fi
 
-pr_desc=$(awk -v replacement="$change_desc" '
+pr_body=$(awk -v replacement="$pr_desc" '
   BEGIN { found=0 }
   /^<!-- Please check what applies\./ {
     print replacement
@@ -61,7 +63,7 @@ git push -u origin "$branch_name"
 
 log "Creating PR"
 
-gh_pr_output=$(gh pr create --title "$commit_subject" --body "$pr_desc")
+gh_pr_output=$(gh pr create --title "$commit_subject" --body "$pr_body")
 
 echo "$gh_pr_output"
 
