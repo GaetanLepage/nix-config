@@ -34,6 +34,10 @@
     import-tree.url = "github:vic/import-tree";
 
     deploy-rs.url = "github:serokell/deploy-rs";
+    colmena = {
+      url = "github:zhaofengli/colmena";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     home-manager = {
       url = "github:nix-community/home-manager";
