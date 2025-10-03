@@ -10,27 +10,72 @@ in
 {
   options =
     let
-      hostType = types.submodule {
-        options = {
-          system = mkOption {
-            type = types.str;
-            default = "x86_64-linux";
-          };
+      baseHostModule =
+        { config, ... }:
+        {
+          options = {
+            system = mkOption {
+              type = types.str;
+              default = "x86_64-linux";
+            };
 
-          unstable = lib.mkOption {
-            type = types.bool;
-          };
+            unstable = lib.mkOption {
+              type = types.bool;
+            };
 
-          modules = lib.mkOption {
-            type = with types; listOf deferredModule;
-            default = [ ];
+            modules = lib.mkOption {
+              type = with types; listOf deferredModule;
+              default = [ ];
+            };
+
+            nixpkgs = lib.mkOption {
+              type = types.pathInStore;
+            };
+            pkgs = lib.mkOption {
+              type = types.pkgs;
+            };
+          };
+          config = {
+            nixpkgs = if config.unstable then inputs.nixpkgs else inputs.nixpkgs-stable;
+            pkgs = import config.nixpkgs {
+              inherit (config) system;
+              config.allowUnfree = true;
+            };
           };
         };
-      };
+
+      hostTypeNixos = types.submodule [
+        baseHostModule
+        (
+          { name, ... }:
+          {
+            modules = [
+              config.flake.modules.nixos.core
+              { networking.hostName = name; }
+              (config.flake.modules.nixos."host_${name}" or { })
+            ];
+          }
+        )
+      ];
+      hostTypeHomeManager = types.submodule [
+        baseHostModule
+        {
+          modules = [
+            config.flake.modules.homeManager.core
+            (
+              { pkgs, config, ... }:
+              {
+                nix.package = pkgs.nix;
+                age.identityPaths = [ "${config.home.homeDirectory}/.ssh/agenix" ];
+              }
+            )
+          ];
+        }
+      ];
     in
     {
-      nixosHosts = mkOption { type = types.attrsOf hostType; };
-      homeHosts = mkOption { type = types.attrsOf hostType; };
+      nixosHosts = mkOption { type = types.attrsOf hostTypeNixos; };
+      homeHosts = mkOption { type = types.attrsOf hostTypeHomeManager; };
     };
 
   config = {
@@ -39,17 +84,10 @@ in
         let
           mkHost =
             hostname: options:
-            let
-              nixpkgs' = if options.unstable then inputs.nixpkgs else inputs.nixpkgs-stable;
-            in
-            nixpkgs'.lib.nixosSystem {
-              inherit (options) system;
+
+            options.nixpkgs.lib.nixosSystem {
+              inherit (options) system modules;
               specialArgs.inputs = inputs;
-              modules = [
-                config.flake.modules.nixos.core
-                (config.flake.modules.nixos."host_${hostname}" or { })
-              ]
-              ++ options.modules;
             };
         in
         lib.mapAttrs mkHost config.nixosHosts;
@@ -59,29 +97,12 @@ in
           mkHost =
             configName: options:
             inputs.home-manager.lib.homeManagerConfiguration {
-              pkgs = import inputs.nixpkgs {
-                inherit (options) system;
-                config = {
-                  allowUnfree = true;
-                };
-              };
-
               extraSpecialArgs = {
                 inputs = inputs;
                 inherit configName;
                 nhSwitchCommand = "nh home switch --configuration ${configName}";
               };
-              modules = [
-                config.flake.modules.homeManager.core
-                (
-                  { pkgs, config, ... }@homeArgs:
-                  {
-                    nix.package = homeArgs.pkgs.nix;
-                    age.identityPaths = [ "${homeArgs.config.home.homeDirectory}/.ssh/agenix" ];
-                  }
-                )
-              ]
-              ++ options.modules;
+              inherit (options) pkgs modules;
             };
         in
         lib.mapAttrs mkHost config.homeHosts;
