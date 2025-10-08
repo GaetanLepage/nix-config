@@ -1,5 +1,6 @@
 {
   homeHosts.jrs = {
+    unstable = true;
     modules = [
       {
         home.username = "glepage";
