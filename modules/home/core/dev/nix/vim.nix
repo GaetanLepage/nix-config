@@ -5,7 +5,7 @@
       programs.nixvim = {
         lsp.servers.nil_ls = {
           enable = true;
-          settings.settings.formatting.command = [
+          config.settings.formatting.command = [
             (lib.getExe pkgs.nixfmt)
           ];
         };

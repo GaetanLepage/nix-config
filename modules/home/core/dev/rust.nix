@@ -24,7 +24,7 @@
         nixvim = {
           lsp.servers.rust_analyzer = {
             enable = true;
-            settings.settings = {
+            config.settings = {
               cargo.features = "all";
             };
           };

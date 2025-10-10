@@ -20,7 +20,7 @@
 
         lsp.servers.tinymist = {
           enable = true;
-          settings.settings.formatterMode = "typstyle";
+          config.settings.formatterMode = "typstyle";
         };
 
         plugins = {

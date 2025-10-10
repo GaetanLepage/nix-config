@@ -55,7 +55,7 @@
             ruff.enable = true;
             pylsp = {
               enable = true;
-              settings.settings = {
+              config.settings = {
                 plugins = {
                   jedi_completion.fuzzy = true;
 
