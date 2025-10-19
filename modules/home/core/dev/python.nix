@@ -18,7 +18,10 @@
           ))
         ];
 
-        sessionVariables.MYPY_CACHE_DIR = "${config.xdg.cacheHome}/mypy";
+        sessionVariables = {
+          MYPY_CACHE_DIR = "${config.xdg.cacheHome}/mypy";
+          PYTHON_HISTORY = "${config.xdg.dataHome}/python_history";
+        };
       };
 
       programs = {
