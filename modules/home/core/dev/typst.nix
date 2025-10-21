@@ -20,7 +20,10 @@
 
         lsp.servers.tinymist = {
           enable = true;
-          config.settings.formatterMode = "typstyle";
+          config.settings = {
+            formatterMode = "typstyle";
+            projectResolution = "lockDatabase";
+          };
         };
 
         plugins = {
