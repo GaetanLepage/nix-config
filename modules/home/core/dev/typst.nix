@@ -23,6 +23,7 @@
           config.settings = {
             formatterMode = "typstyle";
             projectResolution = "lockDatabase";
+            exportPdf = "onType";
           };
         };
 
