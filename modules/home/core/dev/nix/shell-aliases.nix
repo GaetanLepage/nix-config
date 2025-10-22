@@ -18,6 +18,9 @@
         nbda = "nom-build --max-jobs 0 --system aarch64-darwin -A";
         ur = "${lib.getExe pkgs.fd} --no-ignore --max-depth 1 'result*' --exec unlink";
 
+        nct = "nix-copy-closure --to";
+        ncf = "nix-copy-closure --from";
+
         nr = "nixpkgs-review";
 
         nu = "nix-update";
