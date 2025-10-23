@@ -9,11 +9,6 @@
 
       age.rekey.hostPubkey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIM+Md7yZTk3GWd0XVRQkplboDPLGkSqE/o6/SsfrrGGS";
 
-      services = {
-        # Default is "poweroff" which shutdowns the laptop as soon as the power button is pressed.
-        logind.settings.Login.HandlePowerKey = "lock";
-      };
-
       programs = {
         # light (backlight control)
         light.enable = true;

@@ -9,6 +9,9 @@
       };
       udisks2.enable = true;
 
+      # Default is "poweroff" which shutdowns the computer as soon as the power button is pressed.
+      logind.settings.Login.HandlePowerKey = "lock";
+
       # Keyboard led config
       g810-led = {
         enable = true;
