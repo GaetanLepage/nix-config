@@ -10,7 +10,9 @@
         ];
 
         sessionVariables = {
-          NIXOS_OZONE_WL = 1;
+          # Unset NIXOS_OZONE_WL fixes flickering Discord on sway+Nvidia
+          # https://discourse.nixos.org/t/nvidia-sway-flickering/65262/18
+          # NIXOS_OZONE_WL = 1;
 
           SDL_VIDEODRIVER = "wayland";
           QT_QPA_PLATFORM = "wayland";
