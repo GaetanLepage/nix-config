@@ -63,9 +63,17 @@
               user = "root";
               hostname = "ada.nixos-cuda.org";
             };
+            atlas = {
+              user = "root";
+              hostname = "atlas.nixos-cuda.org";
+            };
             pascal = {
               user = "root";
               hostname = "pascal.nixos-cuda.org";
+            };
+            hydra = {
+              user = "root";
+              hostname = "hydra.nixos-cuda.org";
             };
 
             #################

@@ -14,7 +14,7 @@
             "bacchus"
             "carina"
             "chamaeleon"
-            "hydra"
+            # "hydra"
             "kapelos"
             "mensa"
             "octans"
