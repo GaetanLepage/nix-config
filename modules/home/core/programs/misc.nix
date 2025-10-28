@@ -20,6 +20,7 @@
           # Other utils
           mprocs
           ncdu
+          nixos-anywhere
           tlrc
           wget
 
