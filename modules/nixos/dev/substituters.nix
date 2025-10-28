@@ -20,6 +20,11 @@ let
       publicKey = "flox-cache-public-1:7F4OyH7ZCnFhcze3fJdfyXYLQw/aV7GEed86nQ7IsOs=";
       priority = 4;
     }
+    {
+      url = "https://cache.nixos-cuda.org";
+      publicKey = "cache.nixos-cuda.org:74DUi4Ye579gUqzH4ziL9IyiJBlDpMRn9MBN8oNan9M=";
+      priority = 5;
+    }
     # {
     #   url = "https://cache.jonringer.us";
     #   publicKey = "cache.jonringer.us:BZogIwFAp94LYcmaOi6xkHGJeRhMcQtFO8l6AmJNsng=";
