@@ -7,7 +7,6 @@
       inlayHints.enable = true;
       servers = {
         clangd.enable = true;
-        texlab.enable = true; # inria
         lua_ls = {
           enable = true;
           config.settings.diagnostics.globals = [ "vim" ];
