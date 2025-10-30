@@ -58,6 +58,7 @@
             # Explicitly add them so that ssh-perso is used to authentificate
             "github.com" = { };
             "gitlab.com" = { };
+            "codeberg.org" = { };
 
             ada = {
               user = "root";
