@@ -12,7 +12,7 @@
       home = {
         packages = with pkgs; [
           # Rust implementations of linux commands
-          du-dust # du
+          dust # du
           dua # du
           dysk # df
           procs # ps
