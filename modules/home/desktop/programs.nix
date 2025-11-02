@@ -19,6 +19,7 @@
         zotero # inria
 
         # Misc
+        losslesscut-bin
         spotify
       ];
     };
