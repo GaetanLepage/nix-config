@@ -45,6 +45,7 @@
           "file://${config.home.homeDirectory}/temp"
           "file:///mnt"
           "file:///mnt/server"
+          "file:///mnt/server/gaetan/photos/1_grimpe"
         ];
 
         gtk2.configLocation = "${config.xdg.configHome}/gtk-2.0/gtkrc";
