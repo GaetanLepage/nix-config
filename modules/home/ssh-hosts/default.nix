@@ -4,7 +4,9 @@
     {
       imports = [
         ./_keys
+
         ./_inria.nix
+        ./_nixos_cuda.nix
       ];
 
       home.shellAliases = {
@@ -59,23 +61,6 @@
             "github.com" = { };
             "gitlab.com" = { };
             "codeberg.org" = { };
-
-            ada = {
-              user = "root";
-              hostname = "ada.nixos-cuda.org";
-            };
-            atlas = {
-              user = "root";
-              hostname = "atlas.nixos-cuda.org";
-            };
-            pascal = {
-              user = "root";
-              hostname = "pascal.nixos-cuda.org";
-            };
-            hydra = {
-              user = "root";
-              hostname = "hydra.nixos-cuda.org";
-            };
 
             #################
             # Lepage Knives #
