@@ -4,7 +4,7 @@
       gnome = {
         gnome-keyring.enable = true;
 
-        # programs.ssh.startAgent is already providing an SSH agent
+        # Already using home-manager's services.ssh-agent
         gcr-ssh-agent.enable = false;
       };
       udisks2.enable = true;
