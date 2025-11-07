@@ -1,5 +1,9 @@
 { config, ... }:
 {
+  imports = [
+    ./companion.nix
+  ];
+
   age.secrets.invidious-extra-settings = {
     rekeyFile = ./extra-settings.age;
     owner = "invidious";
