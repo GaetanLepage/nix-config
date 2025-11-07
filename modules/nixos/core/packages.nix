@@ -25,6 +25,8 @@
         # System monitor
         btop
         htop
+        # TODO: add when 25.11 is out
+        # systemd-manager-tui
       ];
 
       programs.neovim = {
