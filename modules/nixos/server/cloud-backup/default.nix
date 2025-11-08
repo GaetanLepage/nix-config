@@ -6,7 +6,14 @@
       rsyncHost = "${rsyncUser}.rsync.net";
 
       rsyncRepo = "${rsyncUser}@${rsyncHost}:backup_${config.networking.hostName}";
-      BORG_RSH = "ssh -i ${config.age.secrets.rsync-net-ssh-private-key.path}";
+
+      environmentVariables = {
+        BORG_RSH = "ssh -i ${config.age.secrets.rsync-net-ssh-private-key.path}";
+
+        # Required by rsync.net since May 2025
+        # They do not support relying on the default 'borg' executable
+        BORG_REMOTE_PATH = "borg14";
+      };
     in
     {
       age.secrets = {
@@ -22,7 +29,7 @@
         "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJtclizeBy1Uo3D86HpgD3LONGVH0CJ0NT+YfZlldAJd";
 
       environment = {
-        variables.BORG_RSH = BORG_RSH;
+        variables = environmentVariables;
         shellAliases.list-borg-backups = "borg list ${rsyncRepo}";
       };
 
@@ -32,13 +39,7 @@
           mode = "repokey";
           passCommand = "cat ${config.age.secrets.borg-backup-passphrase.path}";
         };
-        environment = {
-          BORG_RSH = BORG_RSH;
-
-          # Required by rsync.net since May 2025
-          # They do not support relying on the default 'borg' executable
-          BORG_REMOTE_PATH = "borg14";
-        };
+        environment = environmentVariables;
         repo = rsyncRepo;
         compression = "auto,zstd";
         startAt = "daily";
