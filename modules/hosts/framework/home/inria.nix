@@ -4,7 +4,7 @@
     {
       # inria
       home.packages = with pkgs; [
-        pdfsam-basic
+        # pdfsam-basic
         liberation-sans-narrow
       ];
     };
