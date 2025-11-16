@@ -1,36 +1,41 @@
 { config, ... }:
 {
-  flake.modules.homeManager.host_cuda = {
-    imports = with config.flake.modules.homeManager; [
-      csConfig
-      desktop
-      ssh-hosts
-    ];
+  flake.modules.homeManager.host_cuda =
+    { lib, ... }:
+    {
+      imports = with config.flake.modules.homeManager; [
+        csConfig
+        desktop
+        ssh-hosts
+      ];
 
-    wayland.windowManager.sway.extraOptions = [ "--unsupported-gpu" ];
+      # Unset NIXOS_OZONE_WL fixes flickering Discord on sway+Nvidia
+      # https://discourse.nixos.org/t/nvidia-sway-flickering/65262/18
+      home.sessionVariables.NIXOS_OZONE_WL = lib.mkForce 0;
+      wayland.windowManager.sway.extraOptions = [ "--unsupported-gpu" ];
 
-    services.kanshi._profiles = {
-      main = {
-        screens = {
-          lg_27.status = "enable";
-          benq.status = "disable";
-        };
-        wifi = false;
-      };
-      stream = {
-        screens = {
-          lg_27 = {
-            status = "enable";
-            position = "0,247";
+      services.kanshi._profiles = {
+        main = {
+          screens = {
+            lg_27.status = "enable";
+            benq.status = "disable";
           };
-          benq = {
-            status = "enable";
-            position = "2560,0";
-            transform = "90";
-          };
+          wifi = false;
         };
-        wifi = false;
+        stream = {
+          screens = {
+            lg_27 = {
+              status = "enable";
+              position = "0,247";
+            };
+            benq = {
+              status = "enable";
+              position = "2560,0";
+              transform = "90";
+            };
+          };
+          wifi = false;
+        };
       };
     };
-  };
 }

@@ -23,9 +23,7 @@
         nerd-fonts.ubuntu-mono
       ];
 
-      # Unset NIXOS_OZONE_WL fixes flickering Discord on sway+Nvidia
-      # https://discourse.nixos.org/t/nvidia-sway-flickering/65262/18
-      # environment.sessionVariables.NIXOS_OZONE_WL = "1";
+      environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
       xdg.portal = {
         enable = true;
