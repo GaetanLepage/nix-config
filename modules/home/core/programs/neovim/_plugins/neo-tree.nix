@@ -18,6 +18,11 @@
           width = 30;
           auto_expand_width = true;
         };
+        filesystem = {
+          filtered_items.hide_by_pattern = [
+            "*.pdf"
+          ];
+        };
       };
     };
   };
