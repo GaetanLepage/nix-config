@@ -9,9 +9,15 @@
       config,
       pkgs,
       system,
+      lib,
       ...
     }:
     {
+      checks.devshells = pkgs.symlinkJoin {
+        name = "devshells-checks";
+        paths = lib.attrValues config.devShells;
+      };
+
       devshells.default = {
         commands = [
           {
