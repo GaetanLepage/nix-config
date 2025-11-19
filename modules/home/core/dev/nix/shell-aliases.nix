@@ -38,6 +38,7 @@
 
       programs.fish = {
         shellAbbrs = {
+          nl = "nix log";
           nrv = "nixpkgs-review pr --systems all";
         };
 
