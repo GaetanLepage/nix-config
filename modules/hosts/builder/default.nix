@@ -1,3 +1,4 @@
+{ config, ... }:
 {
   homeHosts.builder = {
     unstable = true;
@@ -8,7 +9,7 @@
         nix.settings.extra-platforms = [ ];
       }
 
-      ./_gitub-ssh-auth.nix
+      config.flake.modules.homeManager.ssh-github
     ];
   };
 }
