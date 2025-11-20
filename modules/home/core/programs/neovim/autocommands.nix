@@ -18,8 +18,6 @@
       {
         event = "FileType";
         pattern = [
-          "tex" # inria
-          "latex" # inria
           "markdown"
         ];
         command = "setlocal spell spelllang=en";

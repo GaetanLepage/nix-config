@@ -34,13 +34,10 @@
       # Wifi
       wu = "nmcli radio wifi on";
       wd = "nmcli radio wifi off";
-      edu = "nmcli radio wifi on && nmcli con up eduroam"; # inria
 
       # VPN
       wgu = "sudo systemctl start wg-quick-wg0";
       wgd = "sudo systemctl stop wg-quick-wg0";
-      viu = "nmcli connection up vpn_inria"; # inria
-      vid = "nmcli connection down vpn_inria"; # inria
 
       #######
       # Nix #

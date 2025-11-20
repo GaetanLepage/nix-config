@@ -8,14 +8,7 @@
     {
       home = {
         packages = with pkgs; [
-          # Python
-          # inria
-          (python3.withPackages (
-            ps: with ps; [
-              matplotlib
-              numpy
-            ]
-          ))
+          python3
         ];
 
         sessionVariables = {
@@ -35,8 +28,6 @@
         uv.enable = true;
 
         nixvim = {
-          filetype.extension.gin = "gin"; # inria
-
           files."after/ftplugin/python.lua" = {
             keymaps = [
               {
@@ -78,9 +69,6 @@
                 };
               };
             };
-          };
-          plugins = {
-            treesitter.languageRegister.python = [ "gin" ]; # inria
           };
         };
       };
