@@ -19,6 +19,7 @@
         event = "FileType";
         pattern = [
           "markdown"
+          "typst"
         ];
         command = "setlocal spell spelllang=en";
       }
