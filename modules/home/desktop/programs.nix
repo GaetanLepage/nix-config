@@ -5,10 +5,6 @@
       programs.nheko.enable = true;
 
       home.packages = with pkgs; [
-        ## GUI applications
-        inkscape # inria
-        drawio # inria
-
         # IM
         discord
         signal-desktop
