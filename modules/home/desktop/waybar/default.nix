@@ -29,7 +29,6 @@
             "memory"
             "cpu"
             "network"
-            # "custom/vpn"
             "battery"
             "clock"
             "clock#date"

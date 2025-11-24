@@ -63,8 +63,6 @@
     format-disconnected = "";
   };
 
-  "custom/vpn" = import ./vpn.nix { inherit pkgs lib; };
-
   battery = {
     tooltip = false;
 
