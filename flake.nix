@@ -17,7 +17,7 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     # nixpkgs.url = "/home/gaetan/nix/nixpkgs";
 
-    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-25.05-small";
+    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-25.11-small";
 
     flake-parts = {
       url = "github:hercules-ci/flake-parts";
@@ -73,7 +73,7 @@
     };
 
     simple-nixos-mailserver = {
-      url = "gitlab:simple-nixos-mailserver/nixos-mailserver/nixos-25.05";
+      url = "gitlab:simple-nixos-mailserver/nixos-mailserver/nixos-25.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
