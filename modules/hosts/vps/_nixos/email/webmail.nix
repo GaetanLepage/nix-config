@@ -35,8 +35,17 @@
         inherit hostName;
 
         extraConfig = ''
-          $config['smtp_server'] = 'tls://${config.mailserver.fqdn}';
+          // IMAP
+          $config['imap_host'] = 'ssl://${config.mailserver.fqdn}';
+          $config['imap_conn_options'] = array(
+              'ssl' => array(
+                  'verify_peer' => false,
+                  'verify_peer_name' => false,
+              ),
+          );
 
+          // SMTP
+          $config['smtp_host'] = 'ssl://${config.mailserver.fqdn}:465';
           $config['smtp_conn_options'] = array(
               'ssl' => array(
                   'verify_peer' => false,

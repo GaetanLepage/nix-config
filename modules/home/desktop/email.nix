@@ -39,14 +39,12 @@
           glepageDefaults = {
             imap = {
               host = "mail.glepage.com";
-              port = 143;
-              tls.useStartTls = true;
+              port = 993;
             };
 
             smtp = {
               host = "mail.glepage.com";
-              port = 587;
-              tls.useStartTls = true;
+              port = 465;
             };
           };
         in

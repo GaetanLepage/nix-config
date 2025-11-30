@@ -13,6 +13,9 @@ in
 
   mailserver = {
     enable = true;
+
+    stateVersion = 3;
+
     fqdn = "mail.${base_domain}";
 
     domains = [
