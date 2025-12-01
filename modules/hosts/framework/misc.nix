@@ -2,8 +2,6 @@
   flake.modules.nixos.host_framework =
     { pkgs, ... }:
     {
-      networking.hostName = "framework";
-
       # inria (needed for the VPN)
       networking.networkmanager.plugins = [ pkgs.networkmanager-openconnect ];
 

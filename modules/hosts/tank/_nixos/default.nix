@@ -33,13 +33,9 @@
     ./wireguard
   ];
 
-  networking = {
-    hostName = "tank";
-
-    # Needed for ZFS
-    # generated using `head -c 8 /etc/machine-id`
-    hostId = "f504d887";
-  };
+  # Needed for ZFS
+  # generated using `head -c 8 /etc/machine-id`
+  networking.hostId = "f504d887";
 
   age.rekey.hostPubkey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDpwnnDFq6MrqjvwYikioz5kr3iOgD3iC+rPm6rC2O4b";
 

@@ -11,7 +11,6 @@
     ./wireguard
   ];
 
-  networking.hostName = "cuda";
   age.rekey.hostPubkey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIM8hW7fGKCrOavX/WKjhGyyjxo0HBCT265HpsiV68gTR";
 
   time.hardwareClockInLocalTime = true;
