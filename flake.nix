@@ -76,6 +76,11 @@
       url = "gitlab:simple-nixos-mailserver/nixos-mailserver/nixos-25.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    dnscontrol-nix = {
+      url = "git+https://codeberg.org/hu5ky/dnscontrol-nix.git";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =

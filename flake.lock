@@ -190,6 +190,28 @@
         "type": "github"
       }
     },
+    "dnscontrol-nix": {
+      "inputs": {
+        "flake-utils": "flake-utils_2",
+        "nixpkgs": [
+          "nixpkgs"
+        ],
+        "treefmt-nix": "treefmt-nix_2"
+      },
+      "locked": {
+        "lastModified": 1754681896,
+        "narHash": "sha256-0K0jxLI9yQDDNJ6mfxCtZUapxBrPiUAvFcNNvDCI+/s=",
+        "ref": "refs/heads/main",
+        "rev": "91dbb68213faa7db12fa78ba7ef0c88cb59e69bb",
+        "revCount": 12,
+        "type": "git",
+        "url": "https://codeberg.org/hu5ky/dnscontrol-nix.git"
+      },
+      "original": {
+        "type": "git",
+        "url": "https://codeberg.org/hu5ky/dnscontrol-nix.git"
+      }
+    },
     "flake-compat": {
       "flake": false,
       "locked": {
@@ -323,6 +345,24 @@
         "owner": "numtide",
         "repo": "flake-utils",
         "rev": "c0e246b9b83f637f4681389ecabcb2681b4f3af0",
+        "type": "github"
+      },
+      "original": {
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "type": "github"
+      }
+    },
+    "flake-utils_2": {
+      "inputs": {
+        "systems": "systems_3"
+      },
+      "locked": {
+        "lastModified": 1731533236,
+        "narHash": "sha256-l0KFg5HjrsfsO/JpG+r7fRrqm12kzFHyUHqHCVpMMbI=",
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "rev": "11707dc2f618dd54ca8739b309ec4fc024de578b",
         "type": "github"
       },
       "original": {
@@ -548,6 +588,22 @@
     },
     "nixpkgs_2": {
       "locked": {
+        "lastModified": 1747958103,
+        "narHash": "sha256-qmmFCrfBwSHoWw7cVK4Aj+fns+c54EBP8cGqp/yK410=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "fe51d34885f7b5e3e7b59572796e1bcb427eccb1",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "nixpkgs-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs_3": {
+      "locked": {
         "lastModified": 1766070988,
         "narHash": "sha256-G/WVghka6c4bAzMhTwT2vjLccg/awmHkdKSd2JrycLc=",
         "owner": "nixos",
@@ -568,7 +624,7 @@
         "nixpkgs": [
           "nixpkgs"
         ],
-        "systems": "systems_3"
+        "systems": "systems_4"
       },
       "locked": {
         "lastModified": 1766168819,
@@ -615,16 +671,17 @@
         "deploy-rs": "deploy-rs",
         "devshell": "devshell_2",
         "disko": "disko",
+        "dnscontrol-nix": "dnscontrol-nix",
         "flake-parts": "flake-parts_2",
         "home-manager": "home-manager_2",
         "import-tree": "import-tree",
         "nix-index-database": "nix-index-database",
         "nixos-hardware": "nixos-hardware",
-        "nixpkgs": "nixpkgs_2",
+        "nixpkgs": "nixpkgs_3",
         "nixpkgs-stable": "nixpkgs-stable",
         "nixvim": "nixvim",
         "simple-nixos-mailserver": "simple-nixos-mailserver",
-        "treefmt-nix": "treefmt-nix_2"
+        "treefmt-nix": "treefmt-nix_3"
       }
     },
     "simple-nixos-mailserver": {
@@ -712,6 +769,21 @@
         "type": "github"
       }
     },
+    "systems_4": {
+      "locked": {
+        "lastModified": 1681028828,
+        "narHash": "sha256-Vy1rq5AaRuLzOxct8nz4T6wlgyUR7zLU309k9mBC768=",
+        "owner": "nix-systems",
+        "repo": "default",
+        "rev": "da67096a3b9bf56a91d16901293e51ba5b49a27e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-systems",
+        "repo": "default",
+        "type": "github"
+      }
+    },
     "treefmt-nix": {
       "inputs": {
         "nixpkgs": [
@@ -734,6 +806,24 @@
       }
     },
     "treefmt-nix_2": {
+      "inputs": {
+        "nixpkgs": "nixpkgs_2"
+      },
+      "locked": {
+        "lastModified": 1753772294,
+        "narHash": "sha256-8rkd13WfClfZUBIYpX5dvG3O9V9w3K9FPQ9rY14VtBE=",
+        "owner": "numtide",
+        "repo": "treefmt-nix",
+        "rev": "6b9214fffbcf3f1e608efa15044431651635ca83",
+        "type": "github"
+      },
+      "original": {
+        "owner": "numtide",
+        "repo": "treefmt-nix",
+        "type": "github"
+      }
+    },
+    "treefmt-nix_3": {
       "inputs": {
         "nixpkgs": [
           "nixpkgs"
