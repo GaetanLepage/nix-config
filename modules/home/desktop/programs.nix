@@ -11,7 +11,6 @@
 
         # Office / productivity
         libreoffice-fresh
-        zotero # inria
 
         # Misc
         losslesscut-bin
