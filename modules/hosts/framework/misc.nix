@@ -2,9 +2,6 @@
   flake.modules.nixos.host_framework =
     { pkgs, ... }:
     {
-      # inria (needed for the VPN)
-      networking.networkmanager.plugins = [ pkgs.networkmanager-openconnect ];
-
       age.rekey.hostPubkey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIM+Md7yZTk3GWd0XVRQkplboDPLGkSqE/o6/SsfrrGGS";
 
       programs = {
