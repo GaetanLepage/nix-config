@@ -22,7 +22,7 @@
     nginx.enable = lib.mkForce false;
   };
 
-  age.rekey.hostPubkey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIO1Oy9/d0KtPZSf1bhJjItykOJEz43uPLNpYPdJ8bd8x";
+  age.rekey.hostPubkey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKdmJihZSPw7rbpaNG8Pixa3kCWTXzO9ZYnhmqvSn8/d";
 
   boot.loader.systemd-boot.enable = lib.mkForce false;
 

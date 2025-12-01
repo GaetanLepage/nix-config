@@ -5,7 +5,7 @@
   ];
 
   disko.devices = {
-    disk.disk1 = {
+    disk.root-ssd = {
       device = "/dev/sda";
       type = "disk";
 

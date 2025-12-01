@@ -39,7 +39,7 @@
 
             peers = [
               {
-                endpoint = "162.19.67.38:51820";
+                endpoint = "91.99.205.143:51820";
                 publicKey = "jWzlVwkNkaO1uj7Qh+Xemo0EtxIYP2ufK+18oPcdvBY=";
                 allowedIPs = [ cfg.allowedIPs ];
 

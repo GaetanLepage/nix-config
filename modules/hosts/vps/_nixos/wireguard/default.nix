@@ -15,7 +15,7 @@
 
   networking =
     let
-      externalInterface = "ens3";
+      externalInterface = "enp1s0";
       internalInterface = "wg0";
       port = 51820;
 
