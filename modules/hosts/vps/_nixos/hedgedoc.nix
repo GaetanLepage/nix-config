@@ -10,6 +10,8 @@ in
 
     # Database
     postgresql = {
+      enable = true;
+
       ensureDatabases = [ databaseName ];
       ensureUsers = [
         {
