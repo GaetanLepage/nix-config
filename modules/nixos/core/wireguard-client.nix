@@ -56,7 +56,7 @@
             }
             (lib.mkIf cfg.redirectAllTraffic {
 
-              wireguardClient.allowedIPs = lib.mkDefault "0.0.0.0/0";
+              wireguardClient.allowedIPs = lib.mkDefault "0.0.0.0/0, ::/0";
 
               networking.wg-quick.interfaces.wg0 = commonConfig // {
                 address = [ localIp ];

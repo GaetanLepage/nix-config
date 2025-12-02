@@ -7,11 +7,29 @@
 {
   age.secrets.wireguard-private-key.rekeyFile = ./private-key.age;
 
+  # Enable both ipv4 and ipv6 forwarding
+  boot.kernel.sysctl = {
+    "net.ipv4.ip_forward" = 1;
+    "net.ipv6.conf.all.forwarding" = 1;
+  };
+
   networking =
     let
       externalInterface = "ens3";
       internalInterface = "wg0";
       port = 51820;
+
+      mkIpTablesCmd =
+        exec: flag:
+        "${lib.getExe' pkgs.iptables exec} -w -t nat -${flag} POSTROUTING -o ${externalInterface} -j MASQUERADE";
+
+      mkPostCmd =
+        flag:
+        let
+          ipv4Cmd = mkIpTablesCmd "iptables" flag;
+          ipv6Cmd = mkIpTablesCmd "ip6tables" flag;
+        in
+        "${ipv4Cmd}; ${ipv6Cmd}";
     in
     {
       # Open ports
@@ -41,14 +59,10 @@
         # like a VPN.
         # For this to work you have to set the dnsserver IP of your router (or dnsserver of
         # choice) in your clients
-        postSetup = ''
-          ${pkgs.iptables}/bin/iptables -t nat -A POSTROUTING -s 10.10.10.0/24 -o ${external_interface} -j MASQUERADE
-        '';
+        postSetup = mkPostCmd "A";
 
         # This undoes the above command
-        postShutdown = ''
-          ${pkgs.iptables}/bin/iptables -t nat -D POSTROUTING -s 10.10.10.0/24 -o ${external_interface} -j MASQUERADE
-        '';
+        postShutdown = mkPostCmd "D";
 
         # Path to the private key file.
         #
