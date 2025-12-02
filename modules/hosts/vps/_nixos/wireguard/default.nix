@@ -9,7 +9,8 @@
 
   networking =
     let
-      external_interface = "ens3";
+      externalInterface = "ens3";
+      internalInterface = "wg0";
       port = 51820;
     in
     {
@@ -25,11 +26,11 @@
       # enable NAT
       nat = {
         enable = true;
-        externalInterface = external_interface;
-        internalInterfaces = [ "wg0" ];
+        inherit externalInterface;
+        internalInterfaces = [ internalInterface ];
       };
 
-      wireguard.interfaces.wg0 = {
+      wireguard.interfaces.${internalInterface} = {
         # Determines the IP address and subnet of the server's end of the tunnel interface.
         ips = [ "10.10.10.1/24" ];
 
