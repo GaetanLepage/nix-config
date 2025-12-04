@@ -96,22 +96,6 @@
             address = "gaetlep@hotmail.fr";
             flavor = "outlook.office365.com";
           };
-
-          # inria
-          uga = {
-            address = "gaetan.lepage@univ-grenoble-alpes.fr";
-
-            imap = {
-              host = "zimbra.univ-grenoble-alpes.fr";
-              port = 993;
-            };
-
-            smtp = {
-              host = "smtps.univ-grenoble-alpes.fr";
-              port = 587;
-              tls.useStartTls = true;
-            };
-          };
         };
     };
 }
