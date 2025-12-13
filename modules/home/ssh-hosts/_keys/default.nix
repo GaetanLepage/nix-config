@@ -20,7 +20,7 @@
         "jonringer-server"
 
         # ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJfOUACs5oAn4Hyt6uMM5e/Xux0/5ODvSeg5zOy4MY1b
-        "builder"
+        "liberodark"
       ]
   );
 }
