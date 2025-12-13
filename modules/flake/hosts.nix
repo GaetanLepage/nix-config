@@ -2,6 +2,7 @@
   inputs,
   lib,
   config,
+  self,
   ...
 }:
 let
@@ -107,5 +108,20 @@ in
         in
         lib.mapAttrs mkHost config.homeHosts;
     };
+
+    perSystem =
+      { pkgs, ... }:
+      {
+        checks = {
+          nixos-hosts = pkgs.symlinkJoin {
+            name = "nixos-hosts-checks";
+            paths = lib.mapAttrsToList (_: cfg: cfg.config.system.build.toplevel) self.nixosConfigurations;
+          };
+          home-hosts = pkgs.symlinkJoin {
+            name = "home-hosts-checks";
+            paths = lib.mapAttrsToList (_: cfg: cfg.activationPackage) self.homeConfigurations;
+          };
+        };
+      };
   };
 }
