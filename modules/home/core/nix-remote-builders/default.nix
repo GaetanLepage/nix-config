@@ -1,5 +1,9 @@
 {
   flake.modules.homeManager.core = {
+    imports = [
+      ./_ssh
+    ];
+
     nix = {
       distributedBuilds = true;
 
