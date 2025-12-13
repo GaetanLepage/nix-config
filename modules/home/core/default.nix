@@ -1,10 +1,15 @@
 {
   flake.modules.homeManager.core =
-    { lib, config, ... }:
+    {
+      lib,
+      pkgs,
+      config,
+      ...
+    }:
     {
       home = {
         username = lib.mkDefault "gaetan";
-        homeDirectory = "/home/${config.home.username}";
+        homeDirectory = "/${if pkgs.stdenv.isLinux then "home" else "Users"}/${config.home.username}";
       };
     };
 }

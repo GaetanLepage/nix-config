@@ -9,7 +9,7 @@
     {
       home.packages = [ pkgs.xdg-utils ];
 
-      xdg = {
+      xdg = lib.optionalAttrs pkgs.stdenv.hostPlatform.isLinux {
         enable = true;
 
         userDirs = {
