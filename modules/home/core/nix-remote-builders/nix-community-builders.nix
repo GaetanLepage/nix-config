@@ -27,7 +27,7 @@
           inherit sshUser sshKey;
           # base64 -w0 -i /etc/ssh/ssh_host_ed25519_key.pub
           publicHostKey = "c3NoLWVkMjU1MTkgQUFBQUMzTnphQzFsWkRJMU5URTVBQUFBSUtNSGhsY243ZlVwVXVpT0ZlSWhEcUJ6Qk5Gc2JOcXErTnB6dUdYM2U2enYgCg==";
-          maxJobs = 2;
+          maxJobs = 4;
           systems = [
             "aarch64-darwin"
             "x86_64-darwin"
