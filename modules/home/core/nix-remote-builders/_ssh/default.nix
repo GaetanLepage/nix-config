@@ -43,6 +43,7 @@
           })
           {
             builder = "91.224.148.57";
+            darwin = "91.224.148.58";
           };
     in
     community-builders // liberodark-builders;
