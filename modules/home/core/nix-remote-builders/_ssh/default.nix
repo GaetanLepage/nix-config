@@ -30,7 +30,7 @@
           })
           {
             arm = "aarch64-build-box.nix-community.org";
-            darwin = "darwin-build-box.nix-community.org";
+            darwin-build-box = "darwin-build-box.nix-community.org";
             linux-build-box = "build-box.nix-community.org";
           };
 
