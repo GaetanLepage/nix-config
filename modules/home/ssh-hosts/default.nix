@@ -31,10 +31,6 @@
 
             framework.hostname = "10.10.10.2";
             cuda.hostname = "10.10.10.5";
-            builder = {
-              hostname = "91.224.148.57";
-              identityFile = config.age.secrets.ssh-builder.path;
-            };
             jrs = {
               hostname = "jonringer.us";
               user = "glepage";
