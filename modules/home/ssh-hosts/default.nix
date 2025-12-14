@@ -9,11 +9,6 @@
         ./_nixos_cuda.nix
       ];
 
-      home.shellAliases = {
-        sb = "ssh builder";
-        sba = "ssh builder -t zellij attach --create main";
-      };
-
       programs.ssh.matchBlocks =
         lib.mapAttrs
           (
