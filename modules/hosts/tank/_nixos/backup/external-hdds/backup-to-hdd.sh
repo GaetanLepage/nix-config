@@ -14,9 +14,10 @@ $body
     echo "$message" | msmtp \
         --auth=on \
         --tls=on \
+        --tls-starttls=off \
         --tls-certcheck=off \
         --host mail.glepage.com \
-        --port 587 \
+        --port 465 \
         --user backup-tank@glepage.com \
         --from backup-tank@glepage.com \
         --passwordeval "cat $EMAIL_PASSWORD_PATH" \
