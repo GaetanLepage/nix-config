@@ -20,6 +20,7 @@
 
   home.shellAliases = {
     sb = "ssh builder";
+    sd = "ssh darwin";
     sba = "ssh builder -t zellij attach --create main";
   };
 
