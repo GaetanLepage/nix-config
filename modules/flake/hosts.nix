@@ -4,7 +4,7 @@
   config,
   self,
   ...
-}:
+}@flakeArgs:
 let
   inherit (lib) types mkOption;
 in
@@ -12,7 +12,7 @@ in
   options =
     let
       baseHostModule =
-        { config, ... }:
+        { config, name, ... }:
         {
           options = {
             system = mkOption {
@@ -35,6 +35,11 @@ in
             pkgs = lib.mkOption {
               type = types.pkgs;
             };
+
+            # Contains the final package for this configuration
+            package = lib.mkOption {
+              type = types.package;
+            };
           };
           config = {
             nixpkgs = if config.unstable then inputs.nixpkgs else inputs.nixpkgs-stable;
@@ -55,23 +60,28 @@ in
               { networking.hostName = name; }
               (config.flake.modules.nixos."host_${name}" or { })
             ];
+            package = self.nixosConfigurations.${name}.config.system.build.toplevel;
           }
         )
       ];
       hostTypeHomeManager = types.submodule [
         baseHostModule
-        {
-          modules = [
-            config.flake.modules.homeManager.core
-            (
-              { pkgs, config, ... }:
-              {
-                nix.package = pkgs.nix;
-                age.identityPaths = [ "${config.home.homeDirectory}/.ssh/agenix" ];
-              }
-            )
-          ];
-        }
+        (
+          { name, ... }:
+          {
+            modules = [
+              config.flake.modules.homeManager.core
+              (
+                { pkgs, config, ... }:
+                {
+                  nix.package = pkgs.nix;
+                  age.identityPaths = [ "${config.home.homeDirectory}/.ssh/agenix" ];
+                }
+              )
+            ];
+            package = self.homeConfigurations.${name}.activationPackage;
+          }
+        )
       ];
     in
     {
@@ -110,18 +120,31 @@ in
     };
 
     perSystem =
-      { pkgs, ... }:
       {
-        checks = {
-          nixos-hosts = pkgs.symlinkJoin {
-            name = "nixos-hosts-checks";
-            paths = lib.mapAttrsToList (_: cfg: cfg.config.system.build.toplevel) self.nixosConfigurations;
+        pkgs,
+        lib,
+        system,
+        ...
+      }:
+      {
+        checks =
+          let
+            filterSystem = lib.filterAttrs (n: cfg: cfg.system == system);
+
+            extractChecks =
+              name: configs:
+              pkgs.symlinkJoin {
+                name = "${name}-checks";
+                paths = lib.pipe configs [
+                  filterSystem
+                  (lib.mapAttrsToList (_: cfg: cfg.package))
+                ];
+              };
+          in
+          lib.mapAttrs extractChecks {
+            nixos-hosts = config.nixosHosts;
+            home-hosts = config.homeHosts;
           };
-          home-hosts = pkgs.symlinkJoin {
-            name = "home-hosts-checks";
-            paths = lib.mapAttrsToList (_: cfg: cfg.activationPackage) self.homeConfigurations;
-          };
-        };
       };
   };
 }
