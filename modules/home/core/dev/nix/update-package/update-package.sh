@@ -69,14 +69,10 @@ echo "$gh_pr_output"
 
 pr_number=$(echo "$gh_pr_output" | awk -F/ '/github.com.*\/pull\// {print $NF}')
 
-read -r -p "Do you want to run nixpkgs-review-gha? [Y/n] " response
+read -r -p "Do you want to run nixpkgs-review? [Y/n] " response
 response=${response,,} # to lowercase
 
 if [[ "$response" =~ ^(yes|y|)$ ]]; then
-    echo "Running nixpkgs-review-gha..."
-    gh workflow \
-        run review.yml \
-        --ref main \
-        --repo GaetanLepage/nixpkgs-review-gha \
-        --field pr="$pr_number"
+    echo "Running nixpkgs-review..."
+    nixpkgs-review pr --systems all "$pr_number"
 fi
