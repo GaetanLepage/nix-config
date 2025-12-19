@@ -26,6 +26,7 @@
           };
         };
         uv.enable = true;
+        ty.enable = true;
 
         nixvim = {
           files."after/ftplugin/python.lua" = {
