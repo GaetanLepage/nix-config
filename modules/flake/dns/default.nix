@@ -22,6 +22,8 @@
 
         records =
           let
+            defaultTtl = "3600";
+
             vpsIpv4 = "91.99.205.143";
             vpsIpv6 = "2a01:4f8:1c1c:eb4::64";
             feroeIpv4 = "89.80.115.41";
@@ -110,23 +112,26 @@
                   vpn = "vps";
                   webmail = "vps";
                 };
+
+            allRecords =
+              hostRecords
+              ++ serviceRecords
+              ++ mailRecords
+              ++ [
+                {
+                  type = "a";
+                  label = "@";
+                  address = vpsIpv4;
+                }
+                # Bluesky
+                {
+                  type = "txt";
+                  label = "_atproto";
+                  text = "did=did:plc:dxqyu7dirrjse6jvviq7dyaw";
+                }
+              ];
           in
-          hostRecords
-          ++ serviceRecords
-          ++ mailRecords
-          ++ [
-            {
-              type = "a";
-              label = "@";
-              address = vpsIpv4;
-            }
-            # Bluesky
-            {
-              type = "txt";
-              label = "_atproto";
-              text = "did=did:plc:dxqyu7dirrjse6jvviq7dyaw";
-            }
-          ];
+          map (record: { ttl = defaultTtl; } // record) allRecords;
       };
     };
   };
