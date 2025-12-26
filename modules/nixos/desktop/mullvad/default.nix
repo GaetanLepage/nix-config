@@ -4,7 +4,7 @@
     {
       age.secrets.mullvad-private-key.rekeyFile = ./private-key.age;
       networking.wg-quick.interfaces.mullvad = {
-        address = [ "10.74.225.36/32,fc00:bbbb:bbbb:bb01::b:e123/128" ];
+        address = [ "10.68.186.120/32,fc00:bbbb:bbbb:bb01::5:ba77/128" ];
         dns = [ "10.64.0.1" ];
         autostart = false;
         listenPort = 51820;
