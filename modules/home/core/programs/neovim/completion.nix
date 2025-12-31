@@ -10,51 +10,50 @@
       plugins = {
         luasnip.enable = true;
 
-        lspkind = {
-          enable = true;
-
-          settings.cmp = {
-            enable = true;
-            menu = {
-              nvim_lsp = "[LSP]";
-              nvim_lua = "[api]";
-              path = "[path]";
-              luasnip = "[snip]";
-              buffer = "[buffer]";
-              neorg = "[neorg]";
-              nixpkgs_maintainers = "[nixpkgs]";
-            };
-          };
-        };
-
-        cmp = {
+        blink-cmp = {
           enable = true;
 
           settings = {
-            snippet.expand = "function(args) require('luasnip').lsp_expand(args.body) end";
+            cmdline.enabled = false;
 
-            mapping = {
-              "<C-d>" = "cmp.mapping.scroll_docs(-4)";
-              "<C-f>" = "cmp.mapping.scroll_docs(4)";
-              "<C-Space>" = "cmp.mapping.complete()";
-              "<C-e>" = "cmp.mapping.close()";
-              "<Tab>" = "cmp.mapping(cmp.mapping.select_next_item(), {'i', 's'})";
-              "<S-Tab>" = "cmp.mapping(cmp.mapping.select_prev_item(), {'i', 's'})";
-              "<CR>" = "cmp.mapping.confirm({ select = true })";
+            snippets.preset = "luasnip";
+
+            completion = {
+              list.selection.preselect = false;
+              documentation = {
+                auto_show = true;
+                auto_show_delay_ms = 0;
+              };
             };
 
-            sources = [
-              { name = "path"; }
-              { name = "nvim_lsp"; }
-              { name = "luasnip"; }
-              {
-                name = "buffer";
+            keymap = {
+              "<Tab>" = [
+                "select_next"
+                "fallback"
+              ];
+              "<S-Tab>" = [
+                "select_prev"
+                "fallback"
+              ];
+              "<CR>" = [
+                "select_and_accept"
+                "fallback"
+              ];
+            };
+
+            sources = {
+              default = [
+                "lsp"
+                "path"
+                "snippets"
+                "buffer"
+                # "nixpkgs_maintainers" TODO
+              ];
+              providers = {
                 # Words from other open buffers can also be suggested.
-                option.get_bufnrs.__raw = "vim.api.nvim_list_bufs";
-              }
-              { name = "neorg"; }
-              { name = "nixpkgs_maintainers"; }
-            ];
+                buffer.opts.get_bufnrs.__raw = "vim.api.nvim_list_bufs";
+              };
+            };
           };
         };
       };
