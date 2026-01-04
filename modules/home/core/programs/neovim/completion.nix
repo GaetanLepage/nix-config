@@ -79,10 +79,7 @@
                 };
                 per_filetype = {
                   markdown = [
-                    {
-                      __unkeyed = "nixpkgs_maintainers";
-                      inherit_defaults = true;
-                    }
+                    "nixpkgs_maintainers"
                   ];
                 };
               };
