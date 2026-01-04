@@ -79,12 +79,10 @@
                 };
                 per_filetype = {
                   markdown = [
-                    "nixpkgs_maintainers"
-                    # TODO: https://github.com/nix-community/nixvim/pull/4137
-                    # {
-                    #   __unkeyed = "nixpkgs_maintainers";
-                    #   inherit_defaults = true;
-                    # }
+                    {
+                      __unkeyed = "nixpkgs_maintainers";
+                      inherit_defaults = true;
+                    }
                   ];
                 };
               };
