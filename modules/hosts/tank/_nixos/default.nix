@@ -13,6 +13,7 @@
     ./users.nix
     ./zfs
     ./disko.nix
+    ./mullvad
 
     # File sharing
     ./nfs.nix

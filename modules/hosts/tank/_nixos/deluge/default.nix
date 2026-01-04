@@ -48,6 +48,10 @@ in
         listen_ports = seedingPorts;
         max_active_seeding = 200;
         max_upload_slots_global = 200;
+
+        # Route all traffix through mullvad
+        listen_interface = "mullvad";
+        outgoing_interface = "mullvad";
       };
     };
   };
