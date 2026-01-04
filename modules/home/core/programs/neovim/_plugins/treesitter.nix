@@ -13,7 +13,10 @@
     };
 
     treesitter-refactor = {
-      enable = true;
+      # TODO: incompatible with treesitter-nvim's main branch
+      # Consider switching to nvim-treesitter-locals
+      # https://github.com/NixOS/nixpkgs/pull/476829
+      enable = false;
 
       settings = {
         highlight_definitions = {

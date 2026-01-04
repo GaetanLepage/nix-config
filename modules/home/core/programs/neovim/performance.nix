@@ -11,7 +11,10 @@
             "neorg"
             "nvim-treesitter"
 
-            # `.gitignore` conflicts with blink-cmp's
+            # `queries/lua/highlights.scm` conflicts with nvim-treesitter-grammars
+            "snacks.nvim"
+
+            # `.gitignore` conflicts with blink-cmp
             "typst-preview.nvim"
           ];
         };
