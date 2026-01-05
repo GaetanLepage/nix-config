@@ -48,8 +48,6 @@
         # without a Google account.
         registration_enabled = false;
 
-        hmac_key = "ef9Shohh6hucuaK5thae";
-
         # Enable/Disable the "Popular" tab on the main page
         popular_enabled = false;
 
