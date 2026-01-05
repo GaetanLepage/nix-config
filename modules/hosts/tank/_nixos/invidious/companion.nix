@@ -10,7 +10,11 @@ in
   };
 
   services.invidious.settings = {
-    invidious_companion.private_url = "http://localhost:${companionPort}/companion";
+    invidious_companion = [
+      {
+        private_url = "http://localhost:${companionPort}/companion";
+      }
+    ];
   };
 
   virtualisation = {

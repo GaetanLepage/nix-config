@@ -33,7 +33,7 @@
     postgresqlBackup.enable = true;
 
     invidious = {
-      enable = false; # TODO: try again on 25.11
+      enable = true;
 
       # package = (import inputs.nixpkgs {inherit (pkgs) system;}).invidious;
 
