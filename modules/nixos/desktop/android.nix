@@ -2,9 +2,8 @@
   flake.modules.nixos.android =
     { pkgs, ... }:
     {
-      programs.adb.enable = true;
-
       environment.systemPackages = with pkgs; [
+        android-tools
         jmtpfs
       ];
 
