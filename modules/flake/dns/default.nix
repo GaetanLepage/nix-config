@@ -99,6 +99,7 @@
                   paste = "vps";
                   bbox = "vps";
                   adguard = "vps";
+                  chat = "vps";
                   cloud = "tank";
                   deluge = "tank";
                   dns = "vps";
