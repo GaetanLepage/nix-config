@@ -3,11 +3,7 @@ let
   companionPort = "8282";
 in
 {
-  age.secrets.invidious-companion-secret = {
-    rekeyFile = ./companion-secret.age;
-    # owner = "invidious";
-    # group = "invidious";
-  };
+  age.secrets.invidious-companion-secret.rekeyFile = ./companion-secret.age;
 
   services.invidious.settings = {
     invidious_companion = [
@@ -19,6 +15,10 @@ in
 
   virtualisation = {
     podman.enable = true;
+
+    # To update the image:
+    # sudo podman pull quay.io/invidious/invidious-companion:latest
+    # sudo systemctl restart podman-invidious-companion.service
     oci-containers = {
       backend = "podman";
       containers.invidious-companion = {
