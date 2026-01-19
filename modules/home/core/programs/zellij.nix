@@ -24,7 +24,12 @@
               "Ctrl b"
               "Ctrl p"
               "Ctrl s"
+
+              # This is too dangerous. I hit it all the time
+              "Ctrl q"
             ];
+            "bind \"Ctrl Q\"".Quit._args = [ ];
+
             "bind \"Ctrl B\"".SwitchToMode._args = [ "tmux" ];
             "bind \"Ctrl P\"".SwitchToMode._args = [ "pane" ];
             "bind \"Ctrl S\"".SwitchToMode._args = [ "scroll" ];
