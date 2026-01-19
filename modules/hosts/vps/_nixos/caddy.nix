@@ -31,11 +31,6 @@ in
         localIp = "10.10.10.8";
         port = 8096;
       };
-      "chat.${domain_name}" = {
-        localIp = "10.10.10.5";
-        port = 8080;
-        vpn = true;
-      };
       "bbox.${domain_name}" = {
         localIp = "feroe.${domain_name}";
         tlsInsecureSkipVerify = true;
