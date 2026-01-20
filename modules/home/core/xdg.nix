@@ -7,7 +7,12 @@
       ...
     }:
     {
-      home.packages = [ pkgs.xdg-utils ];
+      home = {
+        packages = [ pkgs.xdg-utils ];
+
+        # Make programs use XDG directories whenever supported
+        preferXdgDirectories = true;
+      };
 
       xdg = lib.optionalAttrs pkgs.stdenv.hostPlatform.isLinux {
         enable = true;
