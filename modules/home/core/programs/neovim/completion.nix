@@ -9,27 +9,10 @@
           "noselect"
         ];
 
-        extraPlugins = [
-          (pkgs.vimUtils.buildVimPlugin {
-            pname = "blink-cmp-nixpkgs-maintainers";
-            version = "1";
-            src = pkgs.fetchFromGitHub {
-              owner = "GaetanLepage";
-              repo = "blink-cmp-nixpkgs-maintainers";
-              rev = "b572f807ca3b4b6f87c791b0d5ceaa81dbb00d70";
-              hash = "sha256-ollZI9Bd3eAKvzS84oIzToVruYbCERKKhZpIR+cBxBE=";
-            };
-            dependencies = [
-              pkgs.vimPlugins.blink-cmp
-            ];
-          })
-        ];
-
         plugins = {
           luasnip.enable = true;
 
-          cmp-nixpkgs-maintainers.enable = lib.mkForce false;
-
+          blink-cmp-nixpkgs-maintainers.enable = true;
           blink-cmp = {
             enable = true;
 
