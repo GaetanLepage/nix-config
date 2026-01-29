@@ -13,12 +13,18 @@ in
     ];
   };
 
+  environment.shellAliases = {
+    update-invidious-companion =
+      let
+        updateContainer = "podman pull quay.io/invidious/invidious-companion:latest";
+        restartSystemService = "systemctl restart podman-invidious-companion.service";
+      in
+      "${updateContainer} && ${restartSystemService}";
+  };
+
   virtualisation = {
     podman.enable = true;
 
-    # To update the image:
-    # sudo podman pull quay.io/invidious/invidious-companion:latest
-    # sudo systemctl restart podman-invidious-companion.service
     oci-containers = {
       backend = "podman";
       containers.invidious-companion = {
