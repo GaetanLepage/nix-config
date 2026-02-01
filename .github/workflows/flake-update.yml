@@ -56,10 +56,10 @@ jobs:
           add-paths: |
             flake.lock
 
-      - name: Enable auto-merge (squash)
+      - name: Enable auto-merge (rebase)
         if: steps.update.outputs.no_changes == 'false'
         uses: peter-evans/enable-pull-request-automerge@v3
         with:
           token: ${{ secrets.BOT_GITHUB_TOKEN }}
           pull-request-number: ${{ steps.cpr.outputs.pull-request-number }}
-          merge-method: squash
+          merge-method: rebase
