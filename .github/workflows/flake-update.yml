@@ -29,26 +29,15 @@ jobs:
           nix --version
 
           # update flake inputs, create a commit with more details in the message
-          nix flake update --commit-lock-file
+          nix flake update
 
           # check if commit was made, if nothing changed, bail out early
-          if git diff --quiet '@{upstream}..' -- flake.lock; then
+          if git diff --quiet -- flake.lock; then
             echo "No flake.lock changes." | tee -a "$GITHUB_STEP_SUMMARY"
             echo "have_changes=" >> "$GITHUB_OUTPUT"
-            exit
+          else
+            echo "have_changes=true" >> "$GITHUB_OUTPUT"
           fi
-
-          echo "have_changes=true" >> "$GITHUB_OUTPUT"
-          {
-            echo "commit_message<<EOF"
-            git log -n 1 --format='%b'
-            echo "EOF"
-          } >> "$GITHUB_OUTPUT"
-          {
-            echo '```'
-            git log -n 1 --format='%b'
-            echo '```'
-          } >> "$GITHUB_STEP_SUMMARY"
         id: update
 
       - name: Create pull request
@@ -71,7 +60,7 @@ jobs:
           delete-branch: true
 
       - name: Enable auto-merge (rebase)
-        if: steps.update.outputs.no_changes == 'false'
+        if: steps.update.outputs.have_changes
         uses: peter-evans/enable-pull-request-automerge@v3
         with:
           token: ${{ secrets.BOT_GITHUB_TOKEN }}
