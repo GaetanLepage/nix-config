@@ -29,10 +29,10 @@ jobs:
           nix --version
 
           # update flake inputs, create a commit with more details in the message
-          nix flake update --commit-lock-file
+          nix flake update
 
           # check if commit was made, if nothing changed, bail out early
-          if git diff --quiet '@{upstream}..' -- flake.lock; then
+          if git diff --quiet -- flake.lock; then
             echo "No flake.lock changes." | tee -a "$GITHUB_STEP_SUMMARY"
             echo "have_changes=" >> "$GITHUB_OUTPUT"
             exit
