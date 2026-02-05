@@ -21,7 +21,7 @@
       };
 
       # Prevents GTK from saving "recently accessed files"
-      xdg.dataFile."recently-used.xbel/0" = {
+      xdg.dataFile."recently-used.xbel" = {
         force = true;
         text = "";
       };
