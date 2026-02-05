@@ -14,7 +14,7 @@
         preferXdgDirectories = true;
       };
 
-      xdg = lib.optionalAttrs pkgs.stdenv.hostPlatform.isLinux {
+      xdg = {
         enable = true;
 
         userDirs = {
@@ -32,7 +32,7 @@
         });
 
         mimeApps = {
-          enable = true;
+          enable = pkgs.stdenv.hostPlatform.isLinux;
 
           defaultApplications = {
             # Applications
