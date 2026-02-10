@@ -1,7 +1,7 @@
 flakeArgs:
 let
   inherit (flakeArgs.lib) types mapAttrs mkOption;
-  baseHostModule = import ./_base-host-module.nix { inherit (flakeArgs) lib inputs; };
+  inherit (import ./_utils { inherit (flakeArgs) lib inputs; }) baseHostModule homeManagerModule;
 in
 {
   options = {
@@ -9,6 +9,7 @@ in
       let
         hostType = types.submodule [
           baseHostModule
+          homeManagerModule
           (
             {
               name,
