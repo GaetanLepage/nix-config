@@ -63,6 +63,7 @@
     };
     agenix-rekey = {
       url = "github:oddlama/agenix-rekey";
+      # url = "/Users/gaetan/agenix-rekey";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
