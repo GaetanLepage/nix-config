@@ -1,0 +1,50 @@
+{
+  inputs,
+  lib,
+  config,
+  self,
+  ...
+}:
+let
+  inherit (lib) types mkOption;
+  baseHostModule = import ./_base-host-module.nix { inherit lib inputs; };
+in
+{
+  options = {
+    nixosHosts =
+      let
+        hostType = types.submodule [
+          baseHostModule
+          (
+            { name, ... }:
+            {
+              modules = [
+                config.flake.modules.nixos.core
+                { networking.hostName = name; }
+                (config.flake.modules.nixos."host_${name}" or { })
+              ];
+              package = self.nixosConfigurations.${name}.config.system.build.toplevel;
+            }
+          )
+        ];
+      in
+      mkOption {
+        type = types.attrsOf hostType;
+        default = { };
+      };
+  };
+
+  config = {
+    flake.nixosConfigurations =
+      let
+        mkHost =
+          hostname: options:
+
+          options.nixpkgs.lib.nixosSystem {
+            inherit (options) system modules;
+            specialArgs.inputs = inputs;
+          };
+      in
+      lib.mapAttrs mkHost config.nixosHosts;
+  };
+}
