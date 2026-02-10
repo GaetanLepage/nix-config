@@ -27,7 +27,7 @@ topLevel@{ inputs, ... }:
         ];
 
         extraSpecialArgs = {
-          inputs = inputs;
+          inherit inputs;
           configName = "nixos_${hostName}";
           nhSwitchCommand = "nh os switch";
         };
