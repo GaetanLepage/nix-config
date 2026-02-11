@@ -1,5 +1,4 @@
-topLevel@{ inputs, ... }:
-{
+flakeArgs: {
   flake.modules.nixos.home-manager =
     { config, ... }:
     let
@@ -8,7 +7,7 @@ topLevel@{ inputs, ... }:
     in
     {
       imports = [
-        inputs.home-manager.nixosModules.home-manager
+        flakeArgs.inputs.home-manager.nixosModules.home-manager
       ];
 
       home-manager = {
@@ -16,8 +15,8 @@ topLevel@{ inputs, ... }:
         useUserPackages = true;
 
         users.${userName}.imports = [
-          topLevel.config.flake.modules.homeManager.core
-          (topLevel.config.flake.modules.homeManager."host_${hostName}" or { })
+          flakeArgs.config.flake.modules.homeManager.core
+          (flakeArgs.config.flake.modules.homeManager."host_${hostName}" or { })
           {
             age = {
               identityPaths = [ config.age.secrets.agenix-home-secret-key.path ];
@@ -27,7 +26,7 @@ topLevel@{ inputs, ... }:
         ];
 
         extraSpecialArgs = {
-          inherit inputs;
+          inherit (flakeArgs) inputs;
           configName = "nixos_${hostName}";
           nhSwitchCommand = "nh os switch";
         };
