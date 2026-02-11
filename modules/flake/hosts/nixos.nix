@@ -21,7 +21,6 @@ in
               modules = [
                 config.flake.modules.nixos.core
                 { networking.hostName = name; }
-                (config.flake.modules.nixos."host_${name}" or { })
               ];
               package = self.nixosConfigurations.${name}.config.system.build.toplevel;
             }
