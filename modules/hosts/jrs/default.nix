@@ -1,6 +1,7 @@
 {
   homeHosts.jrs = {
     unstable = true;
+    system = "x86_64-linux";
     modules = [
       {
         home.username = "glepage";

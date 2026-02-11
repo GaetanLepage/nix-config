@@ -23,6 +23,8 @@ in
                 { networking.hostName = name; }
               ];
               package = self.nixosConfigurations.${name}.config.system.build.toplevel;
+
+              system = lib.mkDefault "x86_64-linux";
             }
           )
         ];
