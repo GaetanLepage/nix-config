@@ -4,17 +4,6 @@
       allowUnfree = true;
     };
 
-    programs.nh = {
-      enable = true;
-
-      clean = {
-        enable = true;
-
-        dates = "05:00";
-        extraArgs = "--keep 5 --keep-since 8d";
-      };
-    };
-
     nix = {
       settings = {
         experimental-features = "nix-command flakes";

@@ -5,6 +5,7 @@
 
     agenix
     bootloader
+    nh
     nix
     security
     ssh-server
