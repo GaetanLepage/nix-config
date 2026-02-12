@@ -7,7 +7,7 @@
 }:
 let
   inherit (lib) types mkOption;
-  inherit (import ./_utils { inherit lib inputs; }) baseHostModule;
+  inherit (import ./_utils { inherit lib inputs; }) baseHostModule homeManagerModule;
 in
 {
   options = {
@@ -15,6 +15,7 @@ in
       let
         hostType = types.submodule [
           baseHostModule
+          homeManagerModule
           (
             { name, ... }:
             {
