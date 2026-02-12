@@ -11,5 +11,14 @@
       dev
       nvidia
     ]);
+
+    homeManagerModules = [
+      ./_home.nix
+    ]
+    ++ (with config.flake.modules.homeManager; [
+      csConfig
+      desktop
+      ssh-hosts
+    ]);
   };
 }

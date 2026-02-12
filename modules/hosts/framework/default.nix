@@ -10,5 +10,13 @@
       desktop
       dev
     ]);
+
+    homeManagerModules = [
+      ./_home
+    ]
+    ++ (with config.flake.modules.homeManager; [
+      desktop
+      ssh-hosts
+    ]);
   };
 }
