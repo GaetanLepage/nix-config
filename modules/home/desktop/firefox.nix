@@ -20,10 +20,10 @@
           '';
         in
         {
-          gaetan = {
+          perso = {
             id = 0;
             isDefault = true;
-            path = "gaetan";
+            path = "perso";
             inherit
               settings
               userChrome
