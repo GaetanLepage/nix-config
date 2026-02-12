@@ -27,6 +27,6 @@ __pycache__
 ########
 # Misc #
 ########
-.mozilla/firefox/gaetan/storage/default/https+++app.slack.com/
+.mozilla/firefox/*/storage/default/https+++app.slack.com/
 .pki/
 .wget-hsts
