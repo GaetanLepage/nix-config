@@ -30,7 +30,21 @@ in
                 (
                   { pkgs, config, ... }:
                   {
+                    home.homeDirectory =
+                      let
+                        inherit (pkgs.stdenv) hostPlatform;
+                        prefix =
+                          if hostPlatform.isLinux then
+                            "home"
+                          else if hostPlatform.isDarwin then
+                            "Users"
+                          else
+                            throw "Invalid hostPlatform: ${hostPlatform}";
+                      in
+                      "/${prefix}/${config.home.username}";
+
                     nix.package = pkgs.nix;
+
                     age.identityPaths = [ "${config.home.homeDirectory}/.ssh/agenix" ];
                   }
                 )

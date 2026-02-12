@@ -17,6 +17,9 @@ flakeArgs: {
           flakeArgs.config.flake.modules.homeManager.core
           (flakeArgs.config.flake.modules.homeManager."host_${hostName}" or { })
           {
+            # Ensure that the NixOS's HOMEDIR for this user is the same as home-manager's
+            home.homeDirectory = config.users.users.${primaryUser}.home;
+
             age = {
               identityPaths = [ config.age.secrets.agenix-home-secret-key.path ];
               rekey.hostPubkey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBE+2at1NN5ahYloIOYXyEhGi6lRN4PoapQz6CNoTo0r";

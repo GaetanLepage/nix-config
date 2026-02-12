@@ -10,7 +10,6 @@
     {
       home = {
         username = primaryUser;
-        homeDirectory = "/${if pkgs.stdenv.isLinux then "home" else "Users"}/${config.home.username}";
       };
     };
 }
