@@ -19,9 +19,6 @@
     ./nfs.nix
     ./samba.nix
 
-    # Web server
-    ./caddy.nix
-
     # Database
     ./postgresql.nix
 
