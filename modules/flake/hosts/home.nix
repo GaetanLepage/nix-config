@@ -20,6 +20,11 @@ in
             {
               finalPackage = self.homeConfigurations.${name}.activationPackage;
 
+              specialArgs = {
+                configName = name;
+                nhSwitchCommand = "nh home switch --configuration ${name}";
+              };
+
               modules = [
                 config.flake.modules.homeManager.core
                 (
@@ -46,14 +51,7 @@ in
         mkHost =
           configName: options:
           inputs.home-manager.lib.homeManagerConfiguration {
-            extraSpecialArgs = {
-              inherit
-                inputs
-                configName
-                ;
-              nhSwitchCommand = "nh home switch --configuration ${configName}";
-              inherit (options) primaryUser;
-            };
+            extraSpecialArgs = options.specialArgs;
             inherit (options) pkgs modules;
           };
       in

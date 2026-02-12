@@ -26,6 +26,11 @@ let
           default = "gaetan";
         };
 
+        specialArgs = mkOption {
+          type = with types; attrsOf anything;
+          default = { };
+        };
+
         nixpkgs = mkOption {
           type = types.pathInStore;
         };
@@ -43,6 +48,10 @@ let
         pkgs = import config.nixpkgs {
           inherit (config) system;
           config.allowUnfree = true;
+        };
+        specialArgs = {
+          inherit inputs;
+          inherit (config) primaryUser;
         };
       };
     };

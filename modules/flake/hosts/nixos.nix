@@ -42,11 +42,11 @@ in
           hostname: options:
 
           options.nixpkgs.lib.nixosSystem {
-            inherit (options) system modules;
-            specialArgs = {
-              inherit inputs;
-              inherit (options) primaryUser;
-            };
+            inherit (options)
+              system
+              modules
+              specialArgs
+              ;
           };
       in
       lib.mapAttrs mkHost config.nixosHosts;
