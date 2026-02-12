@@ -1,5 +1,6 @@
 {
   config,
+  primaryUser,
   ...
 }:
 let
@@ -15,7 +16,7 @@ in
     inherit (config.services.deluge) group;
   };
 
-  users.users.gaetan.extraGroups = [
+  users.users.${primaryUser}.extraGroups = [
     config.services.deluge.group
   ];
 

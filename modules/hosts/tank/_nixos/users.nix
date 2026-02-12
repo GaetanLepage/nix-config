@@ -1,3 +1,4 @@
+{ primaryUser, ... }:
 {
   users = {
     users = {
@@ -37,7 +38,7 @@
 
         members = [
           "lepage"
-          "gaetan"
+          primaryUser
           "tanguy"
           "anne-catherine"
         ];

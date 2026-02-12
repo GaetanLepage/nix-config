@@ -4,11 +4,12 @@
       lib,
       pkgs,
       config,
+      primaryUser,
       ...
     }:
     {
       home = {
-        username = lib.mkDefault "gaetan";
+        username = primaryUser;
         homeDirectory = "/${if pkgs.stdenv.isLinux then "home" else "Users"}/${config.home.username}";
       };
     };

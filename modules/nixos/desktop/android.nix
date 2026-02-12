@@ -1,12 +1,12 @@
 {
   flake.modules.nixos.android =
-    { pkgs, ... }:
+    { pkgs, primaryUser, ... }:
     {
       environment.systemPackages = with pkgs; [
         android-tools
         jmtpfs
       ];
 
-      users.users.gaetan.extraGroups = [ "adbusers" ];
+      users.users.${primaryUser}.extraGroups = [ "adbusers" ];
     };
 }

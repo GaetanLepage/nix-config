@@ -1,6 +1,11 @@
 {
   flake.modules.homeManager.ssh-hosts =
-    { lib, config, ... }:
+    {
+      lib,
+      config,
+      primaryUser,
+      ...
+    }:
     {
       imports = [
         ./_keys
@@ -14,7 +19,7 @@
           (
             _: v:
             {
-              user = "gaetan";
+              user = primaryUser;
               identityFile = config.age.secrets.ssh-perso.path;
             }
             // v

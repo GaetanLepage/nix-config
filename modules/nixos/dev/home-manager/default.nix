@@ -1,9 +1,8 @@
 flakeArgs: {
   flake.modules.nixos.home-manager =
-    { config, ... }:
+    { config, primaryUser, ... }:
     let
       inherit (config.networking) hostName;
-      userName = "gaetan";
     in
     {
       imports = [
@@ -14,7 +13,7 @@ flakeArgs: {
         useGlobalPkgs = true;
         useUserPackages = true;
 
-        users.${userName}.imports = [
+        users.${primaryUser}.imports = [
           flakeArgs.config.flake.modules.homeManager.core
           (flakeArgs.config.flake.modules.homeManager."host_${hostName}" or { })
           {
@@ -27,6 +26,7 @@ flakeArgs: {
 
         extraSpecialArgs = {
           inherit (flakeArgs) inputs;
+          inherit primaryUser;
           configName = "nixos_${hostName}";
           nhSwitchCommand = "nh os switch";
         };
@@ -34,7 +34,7 @@ flakeArgs: {
 
       age.secrets.agenix-home-secret-key = {
         rekeyFile = ./agenix-home-secret-key.age;
-        owner = userName;
+        owner = primaryUser;
       };
     };
 }

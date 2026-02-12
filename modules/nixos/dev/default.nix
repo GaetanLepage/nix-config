@@ -1,6 +1,6 @@
 flakeArgs: {
   flake.modules.nixos.dev =
-    { config, ... }:
+    { config, primaryUser, ... }:
     {
       imports = with flakeArgs.config.flake.modules.nixos; [
         home-manager
@@ -11,7 +11,7 @@ flakeArgs: {
       programs.nix-ld.enable = true;
 
       # Fish shell
-      users.users.gaetan.shell = config.programs.fish.package;
+      users.users.${primaryUser}.shell = config.programs.fish.package;
       programs.fish.enable = true;
       environment.pathsToLink = [ "/share/fish" ];
     };

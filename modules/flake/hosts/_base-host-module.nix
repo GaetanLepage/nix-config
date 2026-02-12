@@ -21,6 +21,11 @@ let
           default = [ ];
         };
 
+        primaryUser = mkOption {
+          type = types.str;
+          default = "gaetan";
+        };
+
         nixpkgs = mkOption {
           type = types.pathInStore;
         };

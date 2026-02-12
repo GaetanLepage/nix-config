@@ -51,6 +51,7 @@ in
                 configName
                 ;
               nhSwitchCommand = "nh home switch --configuration ${configName}";
+              inherit (options) primaryUser;
             };
             inherit (options) pkgs modules;
           };

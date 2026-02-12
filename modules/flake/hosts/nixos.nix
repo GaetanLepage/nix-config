@@ -43,7 +43,10 @@ in
 
           options.nixpkgs.lib.nixosSystem {
             inherit (options) system modules;
-            specialArgs.inputs = inputs;
+            specialArgs = {
+              inherit inputs;
+              inherit (options) primaryUser;
+            };
           };
       in
       lib.mapAttrs mkHost config.nixosHosts;

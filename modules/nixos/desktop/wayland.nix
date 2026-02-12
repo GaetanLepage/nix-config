@@ -1,8 +1,8 @@
 {
   flake.modules.nixos.desktop =
-    { pkgs, ... }:
+    { pkgs, primaryUser, ... }:
     {
-      users.users.gaetan.extraGroups = [ "video" ];
+      users.users.${primaryUser}.extraGroups = [ "video" ];
 
       security.polkit.enable = true;
 
