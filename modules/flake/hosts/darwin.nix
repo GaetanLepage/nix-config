@@ -22,6 +22,7 @@ in
               finalPackage = flakeArgs.self.darwinConfigurations.${name}.config.system.build.toplevel;
 
               modules = [
+                flakeArgs.config.flake.modules.darwin.core
                 {
                   networking.hostName = name;
                   nixpkgs.hostPlatform = config.system;
