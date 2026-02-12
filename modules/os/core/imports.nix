@@ -3,6 +3,7 @@
   flake.modules =
     let
       moduleNames = [
+        "nix"
       ];
 
       getImports = lib.attrVals moduleNames;
