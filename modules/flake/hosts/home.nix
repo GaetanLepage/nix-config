@@ -7,7 +7,7 @@
 }:
 let
   inherit (lib) types mkOption;
-  baseHostModule = import ./_base-host-module.nix { inherit lib inputs; };
+  inherit (import ./_utils { inherit lib inputs; }) baseHostModule;
 in
 {
   options = {
