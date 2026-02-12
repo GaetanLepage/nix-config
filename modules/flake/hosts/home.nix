@@ -18,6 +18,8 @@ in
           (
             { name, ... }:
             {
+              finalPackage = self.homeConfigurations.${name}.activationPackage;
+
               modules = [
                 config.flake.modules.homeManager.core
                 (
@@ -28,7 +30,6 @@ in
                   }
                 )
               ];
-              finalPackage = self.homeConfigurations.${name}.activationPackage;
             }
           )
         ];
