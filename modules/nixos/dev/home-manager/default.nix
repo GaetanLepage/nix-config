@@ -15,7 +15,6 @@ flakeArgs: {
 
         users.${primaryUser}.imports = [
           flakeArgs.config.flake.modules.homeManager.core
-          (flakeArgs.config.flake.modules.homeManager."host_${hostName}" or { })
           {
             # Ensure that the NixOS's HOMEDIR for this user is the same as home-manager's
             home.homeDirectory = config.users.users.${primaryUser}.home;
