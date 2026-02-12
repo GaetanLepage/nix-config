@@ -21,7 +21,7 @@
               name = "${name}-checks";
               paths = lib.pipe configs [
                 filterSystem
-                (lib.mapAttrsToList (_: cfg: cfg.package))
+                (lib.mapAttrsToList (_: cfg: cfg.finalPackage))
               ];
             };
         in

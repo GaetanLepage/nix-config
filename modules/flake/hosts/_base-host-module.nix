@@ -29,7 +29,7 @@ let
         };
 
         # Contains the final package for this configuration
-        package = mkOption {
+        finalPackage = mkOption {
           type = types.package;
         };
       };

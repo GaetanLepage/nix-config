@@ -28,7 +28,7 @@ in
                   }
                 )
               ];
-              package = self.homeConfigurations.${name}.activationPackage;
+              finalPackage = self.homeConfigurations.${name}.activationPackage;
             }
           )
         ];
