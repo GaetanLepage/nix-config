@@ -4,7 +4,7 @@
       enable = true;
 
       settings = {
-        model = "openai/gpt-5.2-codex";
+        model = "openai/gpt-5.3-codex";
       };
     };
 
