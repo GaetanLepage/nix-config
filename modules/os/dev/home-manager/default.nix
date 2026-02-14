@@ -40,7 +40,7 @@ flakeArgs: {
         };
     in
     {
-      nixos.home-manager =
+      nixos.dev =
         { config, ... }:
         {
           imports = [
@@ -54,7 +54,7 @@ flakeArgs: {
           };
         };
 
-      darwin.home-manager =
+      darwin.dev =
         { config, ... }:
         {
           imports = [
