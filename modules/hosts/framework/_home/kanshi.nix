@@ -13,7 +13,7 @@
         wifi = true;
       };
       home = {
-        wifi = false;
+        wifi = true;
         screens = {
           laptop.status = "disable";
           lg_27.status = "enable";
