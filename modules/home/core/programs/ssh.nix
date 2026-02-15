@@ -4,7 +4,7 @@
     {
       # SSH keyring
       services.ssh-agent.enable = true;
-      home.sessionVariables.SSH_AUTH_SOCK = "$XDG_RUNTIME_DIR/ssh-agent";
+      home.sessionVariables.SSH_AUTH_SOCK = lib.mkDefault "$XDG_RUNTIME_DIR/ssh-agent";
 
       programs.ssh = {
         enable = true;
