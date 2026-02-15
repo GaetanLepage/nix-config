@@ -28,6 +28,7 @@
         lib.mapAttrs extractChecks {
           nixos-hosts = config.nixosHosts;
           home-hosts = config.homeHosts;
+          darwin-hosts = config.darwinHosts;
         };
     };
 }
