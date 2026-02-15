@@ -6,7 +6,10 @@
 }:
 let
   hostToColmena = targetHost: options: {
-    deployment.targetHost = targetHost;
+    deployment = {
+      inherit targetHost;
+      inherit (options) tags;
+    };
     imports = options.modules;
   };
 in
@@ -18,7 +21,7 @@ in
         nixpkgs = import inputs.nixpkgs { system = "x86_64-linux"; };
 
         specialArgs.inputs = inputs;
-        nodeNixpkgs = lib.mapAttrs (_: options: options.pkgs) config.nixosHosts;
+        nodeNixpkgs = lib.mapAttrs (_: builtins.getAttr "pkgs") config.nixosHosts;
       };
     }
     // (lib.mapAttrs hostToColmena config.nixosHosts)

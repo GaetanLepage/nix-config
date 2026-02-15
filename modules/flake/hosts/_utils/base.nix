@@ -21,6 +21,11 @@ in
       default = [ ];
     };
 
+    tags = mkOption {
+      type = with types; listOf str;
+      default = [ ];
+    };
+
     primaryUser = mkOption {
       type = types.str;
       default = "gaetan";
