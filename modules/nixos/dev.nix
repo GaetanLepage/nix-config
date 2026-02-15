@@ -1,4 +1,4 @@
-flakeArgs: {
+{
   flake.modules.nixos.dev =
     { config, primaryUser, ... }:
     {
