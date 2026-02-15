@@ -33,11 +33,9 @@ let
   ];
 in
 {
-  flake.modules.nixos.substituters = {
-    nix.settings = {
-      trusted-public-keys = builtins.catAttrs "publicKey" substituters;
+  nix.settings = {
+    trusted-public-keys = builtins.catAttrs "publicKey" substituters;
 
-      substituters = builtins.map (def: "${def.url}?priority=${toString def.priority}") substituters;
-    };
+    substituters = builtins.map (def: "${def.url}?priority=${toString def.priority}") substituters;
   };
 }
