@@ -2,6 +2,7 @@
 {
   nixosHosts.backup = {
     unstable = false;
+    tags = [ "server" ];
 
     modules = [
       {
