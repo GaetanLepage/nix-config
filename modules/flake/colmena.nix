@@ -22,6 +22,7 @@ in
 
         specialArgs.inputs = inputs;
         nodeNixpkgs = lib.mapAttrs (_: builtins.getAttr "pkgs") config.nixosHosts;
+        nodeSpecialArgs = lib.mapAttrs (_: builtins.getAttr "specialArgs") config.nixosHosts;
       };
     }
     // (lib.mapAttrs hostToColmena config.nixosHosts)
