@@ -3,7 +3,6 @@ flakeArgs: {
     { config, primaryUser, ... }:
     {
       imports = with flakeArgs.config.flake.modules.nixos; [
-        home-manager
         substituters
       ];
 
