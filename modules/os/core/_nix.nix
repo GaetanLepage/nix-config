@@ -1,3 +1,4 @@
+{ primaryUser, ... }:
 {
   nixpkgs.config = {
     allowUnfree = true;
@@ -51,6 +52,7 @@
 
       # Allow the use of cachix
       trusted-users = [
+        primaryUser
         "root"
         "@wheel"
       ];
