@@ -6,6 +6,12 @@ let
       imports = [
         ./_substituters.nix
       ];
+
+      users.users.${primaryUser}.shell = config.programs.fish.package;
+      programs.fish.enable = true;
+      environment.shells = [
+        config.programs.fish.package
+      ];
     };
 in
 {

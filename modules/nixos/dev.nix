@@ -6,8 +6,6 @@
       programs.nix-ld.enable = true;
 
       # Fish shell
-      users.users.${primaryUser}.shell = config.programs.fish.package;
-      programs.fish.enable = true;
       environment.pathsToLink = [ "/share/fish" ];
     };
 }
