@@ -40,6 +40,7 @@
         shellAbbrs = {
           nl = "nix log";
           nrv = "nixpkgs-review pr --systems all";
+          nbc = "nom-build --arg config '{ allowUnfree = true; cudaSupport = true; }' -A";
         };
 
         functions = {
