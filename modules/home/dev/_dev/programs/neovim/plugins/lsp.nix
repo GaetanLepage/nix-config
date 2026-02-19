@@ -32,6 +32,7 @@
             gi.lspBufAction = "implementation";
             K.lspBufAction = "hover";
             "<F2>".lspBufAction = "rename";
+            "<leader>f".lspBufAction = "format";
           };
     };
 
