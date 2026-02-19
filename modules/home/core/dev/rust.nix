@@ -9,7 +9,7 @@
       home = {
         packages = with pkgs; [
           cargo
-          gcc
+          stdenv.cc.cc # GCC
           rustc
           rustfmt
         ];
