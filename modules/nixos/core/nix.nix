@@ -1,3 +1,4 @@
+{ primaryUser, ... }:
 {
   flake.modules.nixos.nix = {
     nixpkgs.config = {
@@ -54,6 +55,7 @@
         trusted-users = [
           "root"
           "@wheel"
+          primaryUser
         ];
 
         builders-use-substitutes = true;
