@@ -1,0 +1,53 @@
+{
+  pkgs,
+  config,
+  ...
+}:
+{
+  home = {
+    packages = with pkgs; [
+      python3
+    ];
+
+    sessionVariables = {
+      MYPY_CACHE_DIR = "${config.xdg.cacheHome}/mypy";
+      PYTHON_HISTORY = "${config.xdg.dataHome}/python_history";
+    };
+  };
+
+  programs = {
+    ruff = {
+      enable = true;
+
+      settings = {
+        line-length = 100;
+      };
+    };
+    uv.enable = true;
+    ty.enable = true;
+
+    nixvim = {
+      files."after/ftplugin/python.lua" = {
+        keymaps = [
+          {
+            mode = "n";
+            key = "<leader>i";
+            action.__raw = ''
+              function()
+                vim.lsp.buf.code_action {
+                  context = {only = {"source.fixAll.ruff"}},
+                  apply = true
+                }
+              end
+            '';
+            options.silent = true;
+          }
+        ];
+      };
+      lsp.servers = {
+        ruff.enable = true;
+        ty.enable = true;
+      };
+    };
+  };
+}
