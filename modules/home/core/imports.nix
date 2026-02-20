@@ -5,7 +5,6 @@
     dev
     home-manager
     nix
-    nix-index-database
     nh
     xdg
   ];
