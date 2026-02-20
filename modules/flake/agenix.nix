@@ -6,7 +6,8 @@
 {
   flake.agenix-rekey = inputs.agenix-rekey.configure {
     userFlake = self;
-    inherit (self) nixosConfigurations homeConfigurations;
+    inherit (self) homeConfigurations;
+    nixosConfigurations = (self.nixosConfigurations or { }) // (self.darwinConfigurations or { });
   };
 
   perSystem =
