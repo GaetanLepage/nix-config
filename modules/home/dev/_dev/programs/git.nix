@@ -13,6 +13,7 @@
         github.user = "GaetanLepage";
         mergetool.prompt = false;
         pull.rebase = false;
+        init.defaultBranch = "master";
       };
     };
 
