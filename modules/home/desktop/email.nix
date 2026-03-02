@@ -61,23 +61,6 @@
           }
           // glepageDefaults;
 
-          # inria
-          inria = {
-            address = "gaetan.lepage@inria.fr";
-            userName = "galepage";
-
-            imap = {
-              host = "zimbra.inria.fr";
-              port = 993;
-            };
-
-            smtp = {
-              host = "smtp.inria.fr";
-              port = 587;
-              tls.useStartTls = true;
-            };
-          };
-
           gmx = {
             address = "g.lepage@gmx.com";
 
