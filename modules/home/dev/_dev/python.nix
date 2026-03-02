@@ -13,6 +13,10 @@
       MYPY_CACHE_DIR = "${config.xdg.cacheHome}/mypy";
       PYTHON_HISTORY = "${config.xdg.dataHome}/python_history";
     };
+
+    shellAliases = {
+      vac = "source .venv/bin/activate.fish";
+    };
   };
 
   programs = {
