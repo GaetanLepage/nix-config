@@ -10,9 +10,6 @@
         }
       )
       [
-        # ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPK93KfprlwjY7soWarL9CVH36EdH6ceGtAZv7uJvF/Z
-        "inria" # inria
-
         # ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEJSonNBBb1DlhaO4EfMh3TbIIsV25phZQ9vp/qKOw9E
         "perso"
 

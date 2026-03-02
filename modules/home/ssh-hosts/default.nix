@@ -10,7 +10,6 @@
       imports = [
         ./_keys
 
-        ./_inria.nix
         ./_nixos_cuda.nix
       ];
 
