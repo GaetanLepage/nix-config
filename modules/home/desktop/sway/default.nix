@@ -24,8 +24,8 @@
               title = "Edit Event*";
             }
             # Matplotlib plots
-            { class = "matplotlib"; } # inria
-            { app_id = "python3"; } # inria
+            { class = "matplotlib"; }
+            { app_id = "python3"; }
             { app_id = "xdg-desktop-portal-gtk"; } # file picker
           ];
 
