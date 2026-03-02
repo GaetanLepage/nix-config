@@ -26,6 +26,7 @@
           "^data/"
           "%.ipynb"
           "%.pdf"
+          "%.lock"
         ];
         set_env.COLORTERM = "truecolor";
       };
