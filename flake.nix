@@ -5,7 +5,7 @@
 # ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
 # website:  glepage.com
 # github:   https://github.com/gaetanlepage
-# email:    gaetan.lepage@inria.fr
+# email:    gaetan@glepage.com
 #
 # #------------------------------------------------#
 # | Nix flake configuration (NixOS + home-manager) |
