@@ -4,7 +4,7 @@
     enable = true;
 
     settings = {
-      model = lib.mkDefault "openai/gpt-5.3-codex";
+      model = lib.mkDefault "anthropic/claude-opus-4-6";
       permission = {
         external_directory = {
           # /nix/store entries are world-readable (RO) anyway
