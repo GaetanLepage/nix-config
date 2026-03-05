@@ -4,6 +4,7 @@
     alejandra
     nix-tree
     nix-output-monitor
+    nil
     statix
     patchelf
 
