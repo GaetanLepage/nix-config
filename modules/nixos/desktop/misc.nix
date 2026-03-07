@@ -15,6 +15,7 @@
       # Keyboard led config
       g810-led = {
         enable = true;
+        earlySetup = true;
         profile = ''
           a ff      # Set all keys on
           c         # Commit changes
