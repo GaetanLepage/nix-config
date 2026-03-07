@@ -14,7 +14,7 @@
           inherit (lib) getExe getExe';
           dunst = getExe config.services.dunst.package;
           foot = getExe config.programs.foot.package;
-          light = getExe pkgs.light;
+          brightnessctl = getExe pkgs.brightnessctl;
           pactl = getExe' pkgs.pulseaudio "pactl";
           playerctl = getExe pkgs.playerctl;
           swaymsg = getExe' config.wayland.windowManager.sway.package "swaymsg";
@@ -33,8 +33,8 @@
                 ${getExe config.programs.swaylock.package}
               ''}";
 
-              XF86MonBrightnessUp = "exec ${light} -A 10";
-              XF86MonBrightnessDown = "exec ${light} -U 10";
+              XF86MonBrightnessUp = "exec ${brightnessctl} set +10%";
+              XF86MonBrightnessDown = "exec ${brightnessctl} set 10%-";
 
               "${mod}+g" = "exec ${getExe pkgs.pavucontrol}";
             }
