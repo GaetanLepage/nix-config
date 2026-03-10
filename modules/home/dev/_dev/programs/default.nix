@@ -11,7 +11,6 @@
     ./ssh.nix
     ./tmux.nix
     ./yazi.nix
-    ./zed-editor.nix
     ./zellij.nix
   ];
 }
