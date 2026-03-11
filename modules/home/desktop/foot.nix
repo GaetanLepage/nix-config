@@ -16,7 +16,7 @@
           scrollback-down-line = "Control+Shift+j";
         };
 
-        colors = {
+        colors-dark = {
           background = "0a0a0a";
           foreground = "ebdbb2";
           regular0 = "282828";
