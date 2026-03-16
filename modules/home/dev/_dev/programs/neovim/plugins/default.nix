@@ -24,6 +24,7 @@
 
       web-devicons.enable = true;
 
+      fugitive.enable = true;
       gitsigns = {
         enable = true;
         settings.signs = {
