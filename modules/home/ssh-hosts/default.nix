@@ -53,9 +53,9 @@
             };
 
             # Explicitly add them so that ssh-perso is used to authentificate
-            "github.com" = { };
-            "gitlab.com" = { };
-            "codeberg.org" = { };
+            "github.com".user = "git";
+            "gitlab.com".user = "git";
+            "codeberg.org".user = "git";
 
             #################
             # Lepage Knives #
