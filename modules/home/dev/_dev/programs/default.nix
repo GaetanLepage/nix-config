@@ -3,6 +3,7 @@
     ./neovim
     ./shell
 
+    ./claude-code.nix
     ./git.nix
     ./jujutsu.nix
     ./misc.nix
