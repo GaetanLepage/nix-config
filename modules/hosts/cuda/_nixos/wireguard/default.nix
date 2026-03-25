@@ -3,7 +3,7 @@
     enable = true;
 
     privateKeyFile = ./private-key.age;
-    redirectAllTraffic = true;
+    redirectAllTraffic = false;
     ip = "10.10.10.5";
   };
 }
