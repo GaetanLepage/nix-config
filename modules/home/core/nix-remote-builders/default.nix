@@ -15,6 +15,13 @@
           let
             sshUser = "glepage";
             sshKey = "/run/user/1000/agenix/ssh-nix-community";
+
+            commonLinuxFeatures = [
+              "benchmark"
+              "big-parallel"
+              "kvm"
+              "nixos-test"
+            ];
           in
           [
             {
@@ -25,12 +32,7 @@
               publicHostKey = "c3NoLWVkMjU1MTkgQUFBQUMzTnphQzFsWkRJMU5URTVBQUFBSUc5dXlmaHlsaStCUnRrNjR5K25pcXRiK3NLcXVSR0daODdmNFlSYzhFRTEK";
               systems = [ "aarch64-linux" ];
               maxJobs = 3;
-              supportedFeatures = [
-                "benchmark"
-                "big-parallel"
-                "kvm"
-                "nixos-test"
-              ];
+              supportedFeatures = commonLinuxFeatures;
             }
             {
               # Darwin build box
@@ -63,12 +65,7 @@
                 "riscv64-linux"
                 "x86_64-linux"
               ];
-              supportedFeatures = [
-                "benchmark"
-                "big-parallel"
-                "kvm"
-                "nixos-test"
-              ];
+              supportedFeatures = commonLinuxFeatures;
             }
             {
               # Liberodark darwin builder
@@ -101,13 +98,7 @@
               systems = [
                 "x86_64-linux"
               ];
-              supportedFeatures = [
-                "benchmark"
-                "big-parallel"
-                "kvm"
-                "nixos-test"
-                "cuda"
-              ];
+              supportedFeatures = commonLinuxFeatures ++ [ "cuda" ];
               mandatoryFeatures = [ "cuda" ];
             }
           ];
