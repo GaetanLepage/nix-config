@@ -89,6 +89,27 @@
                 "nixos-test"
               ];
             }
+            {
+              # Ada (nixos-community)
+              hostName = "ada.nixos-cuda.org";
+              sshUser = "nix";
+              inherit sshKey;
+              # base64 -w0 /etc/ssh/ssh_host_ed25519_key.pub
+              publicHostKey = "c3NoLWVkMjU1MTkgQUFBQUMzTnphQzFsWkRJMU5URTVBQUFBSUp1RjdhSkZydXJUUHBMNjIxZU5mWlkxR2J0cHZhTkxIVlZKcTdKdDZ0YzYgcm9vdEBhZGEK";
+              maxJobs = 1;
+              speedFactor = 1;
+              systems = [
+                "x86_64-linux"
+              ];
+              supportedFeatures = [
+                "benchmark"
+                "big-parallel"
+                "kvm"
+                "nixos-test"
+                "cuda"
+              ];
+              mandatoryFeatures = [ "cuda" ];
+            }
           ];
       };
     };
