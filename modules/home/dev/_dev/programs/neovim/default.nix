@@ -1,4 +1,9 @@
-{ inputs, ... }:
+{
+  lib,
+  config,
+  inputs,
+  ...
+}:
 {
   imports = [
     inputs.nixvim.homeModules.nixvim
@@ -13,13 +18,15 @@
 
   home.shellAliases.v = "nvim";
 
-  programs.nixvim = {
-    enable = true;
-    defaultEditor = true;
+  programs.nixvim =
+    assert lib.versionOlder config.programs.neovim.package.version "0.12";
+    {
+      enable = true;
+      defaultEditor = true;
 
-    nixpkgs.useGlobalPackages = true;
+      nixpkgs.useGlobalPackages = true;
 
-    viAlias = true;
-    vimAlias = true;
-  };
+      viAlias = true;
+      vimAlias = true;
+    };
 }
