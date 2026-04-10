@@ -1,4 +1,4 @@
-{ lib, ... }:
+{ lib, pkgs, ... }:
 {
   programs.nixvim = {
     diagnostic.settings.virtual_text = true;
@@ -39,6 +39,13 @@
     plugins = {
       lsp-format = {
         enable = true;
+        package = pkgs.vimPlugins.lsp-format-nvim.overrideAttrs (old: {
+          src = old.src.override {
+            owner = "GaetanLepage";
+            rev = "new-api";
+            hash = "sha256-OoubWk1om8we3MWA73PCGkax0nbOc+NxJ6pLq9KRfVE=";
+          };
+        });
         lspServersToEnable = "all";
       };
 

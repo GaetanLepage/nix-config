@@ -12,7 +12,7 @@
     ./snacks.nix # TODO remove
     ./startify.nix
     ./telescope.nix
-    ./treesitter.nix
+    # ./treesitter.nix # TODO uncomment when fixed
   ];
 
   programs.nixvim = {
