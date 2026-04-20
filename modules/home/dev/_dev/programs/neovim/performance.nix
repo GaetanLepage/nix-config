@@ -7,7 +7,6 @@
         enable = true;
         standalonePlugins = [
           "hmts.nvim"
-          "neorg"
           "nvim-treesitter"
 
           # `queries/lua/highlights.scm` conflicts with nvim-treesitter-grammars

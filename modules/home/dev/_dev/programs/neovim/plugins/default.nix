@@ -7,7 +7,6 @@
     ./lsp.nix
     ./lualine.nix
     ./markdown-preview.nix
-    ./neorg.nix
     ./neo-tree.nix
     ./snacks.nix # TODO remove
     ./startify.nix
