@@ -1,9 +1,5 @@
-{ lib, pkgs, ... }:
+{ lib, ... }:
 {
-  home.packages = with pkgs; [
-    opencode-claude-auth
-  ];
-
   programs.opencode = {
     enable = true;
 
@@ -15,10 +11,6 @@
           "/nix/store" = "allow";
         };
       };
-
-      plugin = [
-        "opencode-claude-auth"
-      ];
     };
   };
 
