@@ -28,7 +28,7 @@
             vpsIpv6 = "2a01:4f8:1c1c:eb4::64";
             feroeIpv4 = "89.80.115.41";
 
-            hostRecords =
+            aRecords =
               lib.mapAttrsToList
                 (hostname: address: {
                   type = "a";
@@ -36,7 +36,6 @@
                   inherit address;
                 })
                 {
-                  cuda = feroeIpv4;
                   feroe = feroeIpv4;
                   tank = feroeIpv4;
                   vps = vpsIpv4;
@@ -86,7 +85,7 @@
             ];
 
             # Move this to host definitions
-            serviceRecords =
+            cnameRecords =
               lib.mapAttrsToList
                 (service: host: {
                   type = "cname";
@@ -94,6 +93,10 @@
                   target = host;
                 })
                 {
+                  # Systems
+                  cuda = "paris";
+
+                  # Services
                   bitwarden = "vps";
                   board = "vps";
                   paste = "vps";
@@ -115,8 +118,8 @@
                 };
 
             allRecords =
-              hostRecords
-              ++ serviceRecords
+              aRecords
+              ++ cnameRecords
               ++ mailRecords
               ++ [
                 {
