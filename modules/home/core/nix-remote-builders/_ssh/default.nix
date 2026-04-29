@@ -48,8 +48,9 @@
             identityFile = config.age.secrets.ssh-liberodark.path;
           })
           {
-            builder = "91.224.148.57";
-            darwin = "91.224.148.58";
+            arm-liberodark = "build04.ynh.ovh";
+            builder = "build02.ynh.ovh";
+            darwin = "build03.ynh.ovh";
           };
     in
     community-builders // liberodark-builders;

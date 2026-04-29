@@ -6,24 +6,29 @@ let
       priority = 1;
     }
     {
-      url = "https://nix-cache.ynh.ovh";
-      publicKey = "nix-cache.ynh.ovh:9qrjMrCm2hFYIuEgexkBxJTG0/6kT2jqd8muFtUezbk=";
+      url = "https://build02.ynh.ovh";
+      publicKey = "build02.ynh.ovh:0QeuH4uAfqbtMVDBDFlThOedamf3HBagsLp2G/WzsBg=";
       priority = 2;
+    }
+    {
+      url = "https://build04.ynh.ovh";
+      publicKey = "build04.ynh.ovh:f8QHFBwuIgxC15peJZfKQbGgKL2rDhJATl6ZZ4iN8Hk=";
+      priority = 3;
     }
     {
       url = "https://nix-community.cachix.org";
       publicKey = "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs=";
-      priority = 3;
+      priority = 4;
     }
     {
       url = "https://cache.flox.dev";
       publicKey = "flox-cache-public-1:7F4OyH7ZCnFhcze3fJdfyXYLQw/aV7GEed86nQ7IsOs=";
-      priority = 4;
+      priority = 5;
     }
     {
       url = "https://cache.nixos-cuda.org";
       publicKey = "cache.nixos-cuda.org:74DUi4Ye579gUqzH4ziL9IyiJBlDpMRn9MBN8oNan9M=";
-      priority = 5;
+      priority = 6;
     }
     # {
     #   url = "https://cache.jonringer.us";

@@ -4,6 +4,7 @@
     {
       imports = [
         ./_ssh
+        ./_liberodark.nix
       ];
 
       nix = {
@@ -32,6 +33,7 @@
               publicHostKey = "c3NoLWVkMjU1MTkgQUFBQUMzTnphQzFsWkRJMU5URTVBQUFBSUc5dXlmaHlsaStCUnRrNjR5K25pcXRiK3NLcXVSR0daODdmNFlSYzhFRTEK";
               systems = [ "aarch64-linux" ];
               maxJobs = 3;
+              speedFactor = 2;
               supportedFeatures = commonLinuxFeatures;
             }
             {
@@ -66,25 +68,6 @@
                 "x86_64-linux"
               ];
               supportedFeatures = commonLinuxFeatures;
-            }
-            {
-              # Liberodark darwin builder
-              hostName = config.programs.ssh.matchBlocks.darwin.data.hostname;
-              sshUser = "gaetan";
-              sshKey = "/run/user/1000/agenix/ssh-liberodark";
-              # base64 -w0 -i /etc/ssh/ssh_host_ed25519_key.pub
-              publicHostKey = "c3NoLWVkMjU1MTkgQUFBQUMzTnphQzFsWkRJMU5URTVBQUFBSUhWSjVIMnRtRy9JRzNUMU1KRGM2R0hyRWhNSHBDV0t2K0pUWTJveHRacDcgCg==";
-              maxJobs = 4;
-              speedFactor = 2;
-              systems = [
-                "aarch64-darwin"
-                "x86_64-darwin"
-              ];
-              supportedFeatures = [
-                "apple-virt"
-                "big-parallel"
-                "nixos-test"
-              ];
             }
             {
               # Ada (nixos-community)
