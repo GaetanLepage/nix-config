@@ -56,7 +56,10 @@
             }
             (lib.mkIf cfg.redirectAllTraffic {
 
-              wireguardClient.allowedIPs = lib.mkDefault "0.0.0.0/0, ::/0";
+              wireguardClient.allowedIPs = lib.mkDefault "0.0.0.0/0";
+              # Routing ipv6 traffic through the tunnel requires that the wg0 interface has an ipv6
+              # This is not currently configured, so disable ipv6 routing
+              # wireguardClient.allowedIPs = lib.mkDefault "0.0.0.0/0, ::/0";
 
               networking.wg-quick.interfaces.wg0 = commonConfig // {
                 address = [ localIp ];
