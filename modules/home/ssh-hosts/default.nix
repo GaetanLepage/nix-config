@@ -13,13 +13,13 @@
         ./_nixos_cuda.nix
       ];
 
-      programs.ssh.matchBlocks =
+      programs.ssh.settings =
         lib.mapAttrs
           (
             _: v:
             {
-              user = primaryUser;
-              identityFile = config.age.secrets.ssh-perso.path;
+              User = primaryUser;
+              IdentityFile = config.age.secrets.ssh-perso.path;
             }
             // v
           )
@@ -28,52 +28,52 @@
             # Home #
             ########
 
-            framework.hostname = "10.10.10.2";
-            cuda.hostname = "10.10.10.5";
+            framework.HostName = "10.10.10.2";
+            cuda.HostName = "10.10.10.5";
             jrs = {
-              hostname = "jonringer.us";
-              user = "glepage";
-              identityFile = config.age.secrets.ssh-jonringer-server.path;
-              port = 2222;
+              HostName = "jonringer.us";
+              User = "glepage";
+              IdentityFile = config.age.secrets.ssh-jonringer-server.path;
+              Port = 2222;
             };
             tank = {
-              hostname = "tank.glepage.com";
-              port = 222;
+              HostName = "tank.glepage.com";
+              Port = 222;
             };
             borg = {
-              hostname = "zh5071.rsync.net";
-              user = "zh5071";
+              HostName = "zh5071.rsync.net";
+              User = "zh5071";
             };
 
-            vps.hostname = "vps.glepage.com";
+            vps.HostName = "vps.glepage.com";
 
             pixel = {
-              hostname = "10.10.10.3";
-              port = 2222;
+              HostName = "10.10.10.3";
+              Port = 2222;
             };
 
             # Explicitly add them so that ssh-perso is used to authentificate
-            "github.com".user = "git";
-            "gitlab.com".user = "git";
-            "codeberg.org".user = "git";
+            "github.com".User = "git";
+            "gitlab.com".User = "git";
+            "codeberg.org".User = "git";
 
             #################
             # Lepage Knives #
             #################
             vps-lepage-knives = {
-              host = "lk lepage-knives vps.lepage-knives.com";
-              hostname = "vps.lepage-knives.com";
-              user = "root";
+              Host = "lk lepage-knives vps.lepage-knives.com";
+              HostName = "vps.lepage-knives.com";
+              User = "root";
             };
             borg-lk = {
-              hostname = "zh5001.rsync.net";
-              user = "zh5001";
+              HostName = "zh5001.rsync.net";
+              User = "zh5001";
             };
 
             ##############
             # Cordineaux #
             ##############
-            backup.hostname = "10.10.10.4";
+            backup.HostName = "10.10.10.4";
           };
     };
 }

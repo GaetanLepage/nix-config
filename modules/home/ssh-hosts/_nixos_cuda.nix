@@ -1,13 +1,13 @@
 { lib, config, ... }:
 {
-  programs.ssh.matchBlocks =
+  programs.ssh.settings =
     let
-      user = "root";
-      identityFile = config.age.secrets.ssh-perso.path;
+      User = "root";
+      IdentityFile = config.age.secrets.ssh-perso.path;
       domain = "nixos-cuda.org";
     in
     {
-      "*.${domain}" = { inherit user identityFile; };
+      "*.${domain}" = { inherit User IdentityFile; };
     }
     //
       lib.genAttrs
@@ -19,7 +19,7 @@
           "pascal"
         ]
         (hostname: {
-          hostname = "${hostname}.${domain}";
-          inherit user identityFile;
+          HostName = "${hostname}.${domain}";
+          inherit User IdentityFile;
         });
 }

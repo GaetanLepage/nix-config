@@ -24,15 +24,15 @@
     sba = "ssh builder -t zellij attach --create main";
   };
 
-  programs.ssh.matchBlocks =
+  programs.ssh.settings =
     let
       community-builders =
         lib.mapAttrs
-          (_: hostname: {
-            inherit hostname;
+          (_: HostName: {
+            inherit HostName;
             user = "glepage";
-            setEnv.TERM = "xterm-256color";
-            identityFile = config.age.secrets.ssh-nix-community.path;
+            SetEnv.TERM = "xterm-256color";
+            IdentityFile = config.age.secrets.ssh-nix-community.path;
           })
           {
             arm = "aarch64-build-box.nix-community.org";
@@ -42,10 +42,10 @@
 
       liberodark-builders =
         lib.mapAttrs
-          (_: hostname: {
-            user = "gaetan";
-            inherit hostname;
-            identityFile = config.age.secrets.ssh-liberodark.path;
+          (_: HostName: {
+            User = "gaetan";
+            inherit HostName;
+            IdentityFile = config.age.secrets.ssh-liberodark.path;
           })
           {
             arm-liberodark = "build04.ynh.ovh";

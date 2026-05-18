@@ -8,7 +8,7 @@
     [
       {
         # Liberodark arm builder
-        hostName = config.programs.ssh.matchBlocks.arm-liberodark.data.hostname;
+        hostName = config.programs.ssh.settings.arm-liberodark.data.HostName;
         inherit sshUser sshKey;
         # base64 -w0 -i /etc/ssh/ssh_host_ed25519_key.pub
         publicHostKey = "c3NoLWVkMjU1MTkgQUFBQUMzTnphQzFsWkRJMU5URTVBQUFBSUVCNjZqeTVhWWp2MUptYU9BbERzWUhkRkNDV29lMlhaeUhJS2U0cHNaOU8gcm9vdEBuaXhvcwo";
@@ -26,7 +26,7 @@
       }
       {
         # Liberodark darwin builder
-        hostName = config.programs.ssh.matchBlocks.darwin.data.hostname;
+        hostName = config.programs.ssh.settings.darwin.data.HostName;
         inherit sshUser sshKey;
         # base64 -w0 -i /etc/ssh/ssh_host_ed25519_key.pub
         publicHostKey = "c3NoLWVkMjU1MTkgQUFBQUMzTnphQzFsWkRJMU5URTVBQUFBSUhWSjVIMnRtRy9JRzNUMU1KRGM2R0hyRWhNSHBDV0t2K0pUWTJveHRacDcgCg==";
