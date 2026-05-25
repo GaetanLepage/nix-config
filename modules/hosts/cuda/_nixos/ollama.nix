@@ -10,8 +10,7 @@
     };
 
     open-webui = {
-      # TODO (2026-05-25) open-webui-frontend is broken
-      enable = false;
+      enable = true;
 
       openFirewall = true;
       host = "0.0.0.0";
