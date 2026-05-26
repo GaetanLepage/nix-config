@@ -46,9 +46,35 @@
       cl = "ssh cuda $argv | wl-copy";
 
       nix-remote-build = ''
-        nix-copy-closure --to $argv[1] $argv[2]
+        if test (count $argv) -lt 2
+          echo "Usage: nix-remote-build <host> [extra args...] <drv>"
+          return 1
+        end
 
-        ssh $argv[1] nom-build $argv[2..-1]
+        set -l host $argv[1]
+        set -l drv $argv[-1]
+        set -l extra_args $argv[2..-2]
+
+        # Step 1: Copy the derivation closure to the remote host
+        echo "=> Copying closure to $host..."
+        nix-copy-closure --to $host $drv
+        or return 1
+
+        # Step 2: Build on the remote host (nom-build with fallback to nix-build)
+        set -l build_cmd nix-build
+        if ssh $host command -v nom-build &>/dev/null
+          set build_cmd nom-build
+        end
+        echo "=> Building $drv on $host..."
+        ssh $host -t $build_cmd $extra_args $drv
+        or return 1
+
+        # Step 3: Fetch all output paths back
+        for p in (nix-store -q --outputs $drv)
+          echo "=> Fetching output $p from $host..."
+          nix-copy-closure --from $host $p
+          or return 1
+        end
       '';
     };
   };
