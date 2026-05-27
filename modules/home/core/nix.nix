@@ -2,7 +2,10 @@
   flake.modules.homeManager.nix = {
     nix.settings = {
       warn-dirty = false;
-      experimental-features = "nix-command flakes";
+      experimental-features = [
+        "flakes"
+        "nix-command"
+      ];
 
       max-jobs = "auto";
       use-xdg-base-directories = true;

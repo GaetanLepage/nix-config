@@ -8,7 +8,10 @@
 
       nix = {
         settings = {
-          experimental-features = "nix-command flakes";
+          experimental-features = [
+            "flakes"
+            "nix-command"
+          ];
 
           max-jobs = "auto";
 
