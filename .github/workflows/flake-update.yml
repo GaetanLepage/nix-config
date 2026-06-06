@@ -19,7 +19,7 @@ jobs:
     runs-on: self-hosted
     steps:
       - name: Checkout (full history for clean diffs)
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           fetch-depth: 0
 
@@ -43,7 +43,7 @@ jobs:
       - name: Create pull request
         if: steps.update.outputs.have_changes
         id: cpr
-        uses: peter-evans/create-pull-request@v7
+        uses: peter-evans/create-pull-request@v8
         with:
           token: ${{ secrets.BOT_GITHUB_TOKEN }}
           commit-message: "flake.lock: Update"
