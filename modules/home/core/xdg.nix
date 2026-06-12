@@ -19,6 +19,9 @@
 
         userDirs = {
           enable = true;
+
+          # Whether to set the XDG user dir environment variables, like XDG_DESKTOP_DIR
+          setSessionVariables = true;
         }
         // (lib.mapAttrs (_: folderName: "${config.home.homeDirectory}/${folderName}") {
           desktop = "desktop";
