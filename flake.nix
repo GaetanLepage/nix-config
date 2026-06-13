@@ -35,7 +35,7 @@
 
     deploy-rs.url = "github:serokell/deploy-rs";
     colmena = {
-      url = "github:zhaofengli/colmena";
+      url = "github:nix-community/colmena";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
