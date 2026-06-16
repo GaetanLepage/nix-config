@@ -3,9 +3,15 @@
   programs.nixvim = {
     lsp.servers.nil_ls = {
       enable = true;
-      config.settings.formatting.command = [
-        (lib.getExe pkgs.nixfmt)
-      ];
+
+      config.settings = {
+        formatting.command = [
+          (lib.getExe pkgs.nixfmt)
+        ];
+
+        # Don't try to archive the flake inputs
+        flake.autoArchive = false;
+      };
     };
 
     files."after/ftplugin/nix.lua" = {
