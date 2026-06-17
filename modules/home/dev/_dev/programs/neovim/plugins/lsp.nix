@@ -39,14 +39,6 @@
     plugins = {
       lsp-format = {
         enable = true;
-        package = pkgs.vimPlugins.lsp-format-nvim.overrideAttrs (old: {
-          src = pkgs.fetchFromGitHub {
-            owner = "GaetanLepage";
-            repo = "lsp-format.nvim";
-            rev = "new-api";
-            hash = "sha256-OoubWk1om8we3MWA73PCGkax0nbOc+NxJ6pLq9KRfVE=";
-          };
-        });
         lspServersToEnable = "all";
       };
 
