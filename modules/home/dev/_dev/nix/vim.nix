@@ -4,13 +4,13 @@
     lsp.servers.nil_ls = {
       enable = true;
 
-      config.settings = {
+      config.settings.nil = {
         formatting.command = [
           (lib.getExe pkgs.nixfmt)
         ];
 
         # Don't try to archive the flake inputs
-        flake.autoArchive = false;
+        nix.flake.autoArchive = false;
       };
     };
 
