@@ -11,7 +11,7 @@
     ./snacks.nix # TODO remove
     ./startify.nix
     ./telescope.nix
-    # ./treesitter.nix # TODO uncomment when fixed
+    ./treesitter.nix
   ];
 
   programs.nixvim = {
