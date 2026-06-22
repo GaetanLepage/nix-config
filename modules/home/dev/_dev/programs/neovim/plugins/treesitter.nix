@@ -12,6 +12,8 @@
       folding.enable = true;
     };
 
-    hmts.enable = true;
+    # Incompatible with neovim>=0.12.0
+    # https://github.com/calops/hmts.nvim/issues/39
+    hmts.enable = false;
   };
 }
