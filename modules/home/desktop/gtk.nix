@@ -46,6 +46,10 @@
 
         inherit cursorTheme;
 
+        # New default behavior since 26.05:
+        # -> The default value of `gtk.gtk4.theme` has changed from `config.gtk.theme` to `null`
+        gtk4.theme = null;
+
         gtk3.bookmarks = [
           "file://${config.xdg.userDirs.download}"
           "file://${config.home.homeDirectory}/temp"
