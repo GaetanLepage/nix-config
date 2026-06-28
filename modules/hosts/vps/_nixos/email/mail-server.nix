@@ -49,7 +49,7 @@ in
     # Reference the existing ACME configuration created by nginx
     x509.useACMEHost = config.mailserver.fqdn;
 
-    loginAccounts = import ./accounts.nix;
+    accounts = import ./accounts.nix;
 
     backup.enable = true;
   };
