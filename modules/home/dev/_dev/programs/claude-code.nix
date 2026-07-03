@@ -5,6 +5,9 @@
     enableMcpIntegration = true;
 
     settings = {
+      # flicker-free mode
+      tui = "fullscreen";
+
       permissions = {
         allow = [
           "Bash(grep:*)"
