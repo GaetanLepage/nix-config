@@ -30,9 +30,7 @@
         inherit sshUser sshKey;
         # base64 -w0 -i /etc/ssh/ssh_host_ed25519_key.pub
         publicHostKey = "c3NoLWVkMjU1MTkgQUFBQUMzTnphQzFsWkRJMU5URTVBQUFBSUhWSjVIMnRtRy9JRzNUMU1KRGM2R0hyRWhNSHBDV0t2K0pUWTJveHRacDcgCg==";
-        # TODO: re-enable when storage issue will be fixed
-        maxJobs = 0;
-        # maxJobs = 4;
+        maxJobs = 4;
         speedFactor = 2;
         systems = [
           "aarch64-darwin"
