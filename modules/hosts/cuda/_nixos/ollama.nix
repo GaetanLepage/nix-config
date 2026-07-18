@@ -10,7 +10,7 @@
     };
 
     open-webui = {
-      enable = true;
+      enable = false; # TODO frictionless is broken
 
       openFirewall = true;
       host = "0.0.0.0";
