@@ -4,7 +4,8 @@
     caddy.reverseProxies."photos.glepage.com".port = config.services.immich.port;
 
     immich = {
-      enable = true;
+      # TODO: albumentations is broken
+      enable = false;
     };
   };
 }
