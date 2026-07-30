@@ -32,10 +32,6 @@
           "bind \"Ctrl B\"".SwitchToMode._args = [ "tmux" ];
           "bind \"Ctrl P\"".SwitchToMode._args = [ "pane" ];
           "bind \"Ctrl S\"".SwitchToMode._args = [ "scroll" ];
-
-          # For easier navigation on MacOS
-          "bind \"Ctrl h\"".GoToPreviousTab._args = [ ];
-          "bind \"Ctrl l\"".GoToNextTab._args = [ ];
         };
       };
     };
