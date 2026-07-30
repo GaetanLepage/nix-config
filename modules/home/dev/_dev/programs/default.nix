@@ -5,7 +5,7 @@
     ./shell
 
     ./git.nix
-    ./jujutsu.nix
+    # ./jujutsu.nix
     ./misc.nix
     ./monitoring.nix
     ./ssh.nix
