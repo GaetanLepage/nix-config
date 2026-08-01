@@ -116,11 +116,11 @@
         "utils": "utils"
       },
       "locked": {
-        "lastModified": 1785448994,
-        "narHash": "sha256-pD8rBn57pNLOnWCz07D2HLzVE/DUFuuh0bzdEhc/dkw=",
+        "lastModified": 1785518313,
+        "narHash": "sha256-anlq3YQDCsNrkNlu3HTg4dEIpRugwnyAVUxoPcBmA/U=",
         "owner": "serokell",
         "repo": "deploy-rs",
-        "rev": "145da05e26235784581a31ba83beb9949b24da84",
+        "rev": "b974715a27b49fadbf3bf6d85e26bcb3109daa6d",
         "type": "github"
       },
       "original": {
@@ -199,11 +199,11 @@
         "treefmt-nix": "treefmt-nix_2"
       },
       "locked": {
-        "lastModified": 1754681896,
-        "narHash": "sha256-0K0jxLI9yQDDNJ6mfxCtZUapxBrPiUAvFcNNvDCI+/s=",
+        "lastModified": 1785267790,
+        "narHash": "sha256-djq/enFks16ntvdiihgD0g58F5hD/4MW0L/ri5iQf0o=",
         "ref": "refs/heads/main",
-        "rev": "91dbb68213faa7db12fa78ba7ef0c88cb59e69bb",
-        "revCount": 12,
+        "rev": "482254122a81e931b2326caadca0271cc994d128",
+        "revCount": 17,
         "type": "git",
         "url": "https://codeberg.org/hu5ky/dnscontrol-nix.git"
       },
@@ -472,11 +472,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1785496534,
-        "narHash": "sha256-EASdusMYLuPhOCrE3LmsAGOvGhX3vnKBLxFvj9lI8tU=",
+        "lastModified": 1785531816,
+        "narHash": "sha256-vkMnV0JIyw+g/NmcfoajlGaAO+9a0ezia+FZohQJrik=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "e8827fbbb12015a8dd9f66285aec79d655bcb9f6",
+        "rev": "bf9ce9fec78f95f374e8dd3b503863a3ec128ebe",
         "type": "github"
       },
       "original": {
@@ -578,11 +578,11 @@
     },
     "nixpkgs-stable": {
       "locked": {
-        "lastModified": 1785453677,
-        "narHash": "sha256-Kh+Sy7tfUtUigYHTazU8E2ilSI1uPa1uQzEYYHo5bGs=",
+        "lastModified": 1785541090,
+        "narHash": "sha256-KpfCHcis76oTTfJq7x/DRXmliCfUPbWizSqaxCnnQxE=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "c2d36c874f048a17f82185d52ea4701e4896245c",
+        "rev": "d08455725c2a6db3543d51aa66b7f5e3bb1838da",
         "type": "github"
       },
       "original": {
@@ -646,11 +646,11 @@
         "systems": "systems_5"
       },
       "locked": {
-        "lastModified": 1785364321,
-        "narHash": "sha256-BLuHl+nZKb+FDq3GAM6L+UBEiyVepXANA31fT1F56pw=",
+        "lastModified": 1785527278,
+        "narHash": "sha256-rYFSM491MFFA1V6oax5PngXbevGt6n0o8sKhwFoItE0=",
         "owner": "nix-community",
         "repo": "nixvim",
-        "rev": "acd69cc15d57004e8cb4495034320263a3d362ea",
+        "rev": "a19efae6c1afe426e8243d79f6dfbab186be6df8",
         "type": "github"
       },
       "original": {
