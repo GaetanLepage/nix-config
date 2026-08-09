@@ -95,6 +95,7 @@
                 {
                   # Systems
                   cuda = "paris";
+                  spark = "paris";
 
                   # Services
                   bitwarden = "vps";
