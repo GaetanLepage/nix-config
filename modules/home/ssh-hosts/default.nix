@@ -30,6 +30,7 @@
 
             framework.HostName = "10.10.10.2";
             cuda.HostName = "10.10.10.5";
+            spark.HostName = "10.10.10.9";
             jrs = {
               HostName = "jonringer.us";
               User = "glepage";

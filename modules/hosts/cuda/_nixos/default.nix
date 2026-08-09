@@ -17,4 +17,8 @@
   time.hardwareClockInLocalTime = true;
 
   system.stateVersion = "24.05";
+
+  # Allows deploying the Spark (aarch64-linux) config from this x86_64 system
+  # https://bhankas.org/blog/deploying_nixos_to_raspberry_pi_from_lapop
+  boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
 }

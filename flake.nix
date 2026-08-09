@@ -81,6 +81,15 @@
       url = "git+https://codeberg.org/hu5ky/dnscontrol-nix.git";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    dgx-spark = {
+      url = "github:graham33/nixos-dgx-spark";
+      inputs = {
+        flake-parts.follows = "flake-parts";
+        nixpkgs.follows = "nixpkgs";
+        disko.follows = "disko";
+      };
+    };
   };
 
   outputs =
