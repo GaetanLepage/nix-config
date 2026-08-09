@@ -97,7 +97,6 @@
                 {
                   # Systems
                   cuda = "paris";
-                  spark = "paris";
 
                   # Services
                   bitwarden = "vps";
@@ -135,6 +134,12 @@
                   type = "txt";
                   label = "_atproto";
                   text = "did=did:plc:dxqyu7dirrjse6jvviq7dyaw";
+                }
+                # DGX Spark
+                {
+                  type = "aaaa";
+                  label = "spark";
+                  address = "2a01:cb00:1653:7d00::100";
                 }
               ];
           in

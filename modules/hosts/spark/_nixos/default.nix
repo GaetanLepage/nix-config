@@ -10,6 +10,7 @@
 
     ./disko.nix
     ./hardware.nix
+    ./networking.nix
     ./nix-remote-builder.nix
   ];
 
