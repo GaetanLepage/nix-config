@@ -27,6 +27,7 @@
             vpsIpv4 = "91.99.205.143";
             vpsIpv6 = "2a01:4f8:1c1c:eb4::64";
             feroeIpv4 = "89.80.115.41";
+            parisIpv4 = "86.242.126.86";
 
             aRecords =
               lib.mapAttrsToList
@@ -39,6 +40,7 @@
                   feroe = feroeIpv4;
                   tank = feroeIpv4;
                   vps = vpsIpv4;
+                  paris = parisIpv4;
                 };
 
             mailRecords = [
