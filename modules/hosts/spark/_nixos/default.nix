@@ -10,6 +10,7 @@
 
     ./disko.nix
     ./hardware.nix
+    ./nix-remote-builder.nix
   ];
 
   hardware.dgx-spark.enable = true;

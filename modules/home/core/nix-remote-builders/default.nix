@@ -84,6 +84,17 @@
               supportedFeatures = commonLinuxFeatures ++ [ "cuda" ];
               mandatoryFeatures = [ "cuda" ];
             }
+            {
+              hostName = "spark.glepage.com";
+              sshUser = "nix";
+              inherit sshKey;
+              # base64 -w0 /etc/ssh/ssh_host_ed25519_key.pub
+              publicHostKey = "c3NoLWVkMjU1MTkgQUFBQUMzTnphQzFsWkRJMU5URTVBQUFBSU4yUTQrTjBvbU1wcmNBRWxCN0p0dktpcXcrc1VEa0p3a2Rhd2hYVnRWd20gcm9vdEBzcGFyawo=";
+              maxJobs = 2;
+              speedFactor = 1;
+              systems = [ "aarch64-linux" ];
+              supportedFeatures = commonLinuxFeatures ++ [ "cuda" ];
+            }
           ];
       };
     };

@@ -10,11 +10,5 @@
     ++ (with config.flake.modules.nixos; [
       dev
     ]);
-
-    # homeManagerModules = [
-    # ]
-    # ++ (with config.flake.modules.homeManager; [
-    #   ssh-hosts
-    # ]);
   };
 }
