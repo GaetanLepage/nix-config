@@ -1,6 +1,11 @@
 {
   flake.modules.homeManager.core =
-    { config, ... }:
+    {
+      config,
+      lib,
+      osConfig,
+      ...
+    }:
     {
       imports = [
         ./_ssh
@@ -84,6 +89,8 @@
               supportedFeatures = commonLinuxFeatures ++ [ "cuda" ];
               mandatoryFeatures = [ "cuda" ];
             }
+          ]
+          ++ lib.optionals (osConfig.networking.hostName or null != "spark") [
             {
               hostName = "spark.glepage.com";
               sshUser = "nix";
