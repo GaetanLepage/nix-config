@@ -3,6 +3,7 @@
   nixosHosts.spark = {
     system = "aarch64-linux";
     unstable = true;
+    tags = [ "server" ];
 
     modules = [
       ./_nixos
