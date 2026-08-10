@@ -31,6 +31,7 @@ Everything is stored under the `modules/` folder and imported automatically than
 | :------------ | :-------------| :-------------------------------- |
 | `framework`   | NixOS         | Laptop                            |
 | `cuda`        | NixOS         | Personal workstation              |
+| `spark`       | NixOS         | NVIDIA DGX Spark                  |
 | `builder`     | home-manager  | Linux x86 builder                 |
 | `jrs`         | home-manager  | Jon Ringer's x86 builder          |
 | `vps`         | NixOS         | VPS (VPN, mail server, etc.)      |
