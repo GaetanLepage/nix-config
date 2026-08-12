@@ -11,6 +11,7 @@
     ./jitsi.nix
     ./microbin
     ./mumble.nix
+    ./open-webui.nix
     ./vaultwarden
     ./vikunja.nix
     ./wireguard
