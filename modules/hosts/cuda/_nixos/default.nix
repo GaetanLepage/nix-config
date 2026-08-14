@@ -7,7 +7,6 @@
     # ./gaming.nix
     # ./gnome-desktop.nix
     # ./nix-remote-builder.nix
-    ./ollama.nix
     ./server-tank-nfs.nix
     ./wireguard
   ];
