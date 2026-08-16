@@ -26,7 +26,16 @@ in
       ...
     }:
     {
-      checks = deploy-rs.lib.${system}.deployChecks self.deploy;
+      # Only check the nodes which are built for the current system, otherwise `nix flake check`
+      # pulls in (and thus builds) the configurations of foreign-architecture hosts.
+      checks = deploy-rs.lib.${system}.deployChecks (
+        self.deploy
+        // {
+          nodes = lib.filterAttrs (
+            hostname: _: config.nixosHosts.${hostname}.system == system
+          ) self.deploy.nodes;
+        }
+      );
 
       devshells.default.packages = [
         inputs'.deploy-rs.packages.default
