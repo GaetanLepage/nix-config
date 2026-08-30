@@ -4,8 +4,8 @@
 
   networking.wg-quick.interfaces.mullvad =
     let
-      ipv4 = "10.72.78.222/32";
-      ipv6 = "fc00:bbbb:bbbb:bb01::9:4edd/128";
+      ipv4 = "10.72.213.58/32";
+      ipv6 = "fc00:bbbb:bbbb:bb01::9:d539/128";
     in
     {
       address = [ "${ipv4},${ipv6}" ];
