@@ -4,7 +4,7 @@
     enable = true;
 
     settings = {
-      model = lib.mkDefault "anthropic/claude-opus-4-6";
+      model = lib.mkDefault "mistral/zai-glm-5-2";
 
       # llama-server on spark, reached over wireguard.
       # See `modules/hosts/spark/_nixos/llama-cpp.nix`.
