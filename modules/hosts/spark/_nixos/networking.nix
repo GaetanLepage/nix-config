@@ -18,11 +18,5 @@
     useDHCP = false;
 
     tempAddresses = "disabled";
-    interfaces.enp1s0.ipv6.addresses = [
-      {
-        address = "2a01:cb00:1653:7d00::100";
-        prefixLength = 64;
-      }
-    ];
   };
 }
