@@ -4,7 +4,7 @@
 
     ./disko.nix
     ./hardware.nix
-    ./llama-cpp.nix
+    # ./llama-cpp.nix
     ./networking.nix
     ./nix-remote-builder.nix
     ./spark.nix
