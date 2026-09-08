@@ -38,7 +38,7 @@
               publicHostKey = "c3NoLWVkMjU1MTkgQUFBQUMzTnphQzFsWkRJMU5URTVBQUFBSUc5dXlmaHlsaStCUnRrNjR5K25pcXRiK3NLcXVSR0daODdmNFlSYzhFRTEK";
               systems = [ "aarch64-linux" ];
               maxJobs = 3;
-              speedFactor = 2;
+              speedFactor = 10;
               supportedFeatures = commonLinuxFeatures;
             }
             {
@@ -75,7 +75,7 @@
               supportedFeatures = commonLinuxFeatures;
             }
             {
-              # Ada (nixos-community)
+              # Ada (nixos-cuda)
               hostName = "ada.nixos-cuda.org";
               sshUser = "nix";
               inherit sshKey;
@@ -97,8 +97,8 @@
               inherit sshKey;
               # base64 -w0 /etc/ssh/ssh_host_ed25519_key.pub
               publicHostKey = "c3NoLWVkMjU1MTkgQUFBQUMzTnphQzFsWkRJMU5URTVBQUFBSU4yUTQrTjBvbU1wcmNBRWxCN0p0dktpcXcrc1VEa0p3a2Rhd2hYVnRWd20gcm9vdEBzcGFyawo=";
-              maxJobs = 2;
-              speedFactor = 1;
+              maxJobs = 6;
+              speedFactor = 2;
               systems = [ "aarch64-linux" ];
               supportedFeatures = commonLinuxFeatures ++ [ "cuda" ];
             }
