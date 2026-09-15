@@ -20,6 +20,7 @@
     ncf = "nix-copy-closure --from";
 
     nr = "nixpkgs-review";
+    P = "nixpkgs-review post-result";
 
     nu = "nix-update";
     nuc = "nix-update --commit";
