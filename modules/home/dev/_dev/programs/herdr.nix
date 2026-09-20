@@ -26,6 +26,8 @@
         rename_tab = [ "prefix+r" ];
         new_tab = [ "alt+n" ];
         close_tab = [ "prefix+x" ];
+        move_tab_previous = [ "alt+i" ];
+        move_tab_next = [ "alt+o" ];
 
         # Workspaces
         new_workspace = [ "ctrl+N" ];
