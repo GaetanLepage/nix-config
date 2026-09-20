@@ -14,6 +14,8 @@
         toast.delivery = "herdr";
         sound.enabled = true;
         prompt_new_tab_name = false;
+
+        tab_bar_position = "bottom";
       };
 
       keys = {
