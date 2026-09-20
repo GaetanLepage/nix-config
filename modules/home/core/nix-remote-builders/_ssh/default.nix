@@ -21,7 +21,7 @@
   home.shellAliases = {
     sb = "ssh builder";
     sd = "ssh darwin";
-    sba = "ssh builder -t zellij attach --create main";
+    sba = "ssh builder -t herdr";
   };
 
   programs.ssh.settings =
