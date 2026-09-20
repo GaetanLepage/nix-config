@@ -38,8 +38,8 @@
         next_workspace = [ "alt+j" ];
 
         # Agents
-        previous_agent = [ "ctrl+k" ];
-        next_agent = [ "ctrl+j" ];
+        previous_agent = [ "alt+K" ];
+        next_agent = [ "alt+J" ];
       };
     };
   };
