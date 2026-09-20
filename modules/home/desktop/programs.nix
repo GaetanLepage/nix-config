@@ -10,7 +10,7 @@
         signal-desktop
 
         # Office / productivity
-        libreoffice-fresh
+        libreoffice
 
         # Misc
         losslesscut-bin
