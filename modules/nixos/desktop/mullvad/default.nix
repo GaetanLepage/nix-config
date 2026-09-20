@@ -14,8 +14,8 @@
 
         peers = [
           {
-            endpoint = "193.32.127.66:51820";
-            publicKey = "/iivwlyqWqxQ0BVWmJRhcXIFdJeo0WbHQ/hZwuXaN3g=";
+            endpoint = "193.32.127.71:51820";
+            publicKey = "chvEpRH+05o+ESv8QLzNyY3Phirsym0mUvF03Kt7oCo=";
 
             allowedIPs = [ "0.0.0.0/0,::0/0" ];
 
