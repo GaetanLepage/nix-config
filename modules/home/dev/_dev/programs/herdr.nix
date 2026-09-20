@@ -30,8 +30,8 @@
         # Workspaces
         new_workspace = [ "ctrl+N" ];
         rename_workspace = [ "ctrl+R" ];
-        previous_workspace = [ "ctrl+K" ];
-        next_workspace = [ "ctrl+J" ];
+        previous_workspace = [ "alt+k" ];
+        next_workspace = [ "alt+j" ];
 
         # Agents
         previous_agent = [ "ctrl+k" ];
