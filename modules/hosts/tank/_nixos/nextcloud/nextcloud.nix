@@ -36,8 +36,15 @@
         calendar
         contacts
         cospend
-        onlyoffice
+        # onlyoffice
         ;
+      # TODO: fixed in https://github.com/NixOS/nixpkgs/pull/565798
+      onlyoffice = config.services.nextcloud.package.packages.apps.onlyoffice.overrideAttrs (old: {
+        src = pkgs.fetchurl {
+          url = "https://github.com/ONLYOFFICE/onlyoffice-nextcloud/releases/download/v10.2.0/onlyoffice.tar.gz";
+          hash = "sha256-QX2OJKoArx9pFoZBdeXXSc6K0UGzpUCZ6imZJSnBeQc=";
+        };
+      });
     };
 
     # https://docs.nextcloud.com/server/27/admin_manual/configuration_files/files_locking_transactional.html
