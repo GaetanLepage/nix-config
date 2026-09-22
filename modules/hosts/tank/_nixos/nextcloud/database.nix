@@ -21,6 +21,14 @@
             ensureDBOwnership = true;
           }
         ];
+
+        settings = {
+          # From Nextcloud:
+          #   A significant share of page reads are missing the shared buffer cache.
+          #   Cache hit ratio is 76.95%; aim for 99% or higher.
+          #   Increase shared_buffers (a common starting point is 25 % of system RAM).
+          shared_buffers = "256MB";
+        };
       };
   };
 }
