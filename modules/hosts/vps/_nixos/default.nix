@@ -9,6 +9,7 @@
     ./email
     ./hedgedoc.nix
     ./jitsi.nix
+    ./llm-api.nix
     ./microbin
     ./mumble.nix
     ./open-webui.nix

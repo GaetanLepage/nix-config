@@ -111,6 +111,7 @@
                   dns = "vps";
                   invidious = "tank";
                   jellyfin = "vps";
+                  llm = "vps";
                   meet = "vps";
                   mumble = "vps";
                   notes = "vps";

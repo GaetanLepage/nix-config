@@ -1,4 +1,4 @@
-{ config, ... }:
+{ config, lib, ... }:
 {
   services = {
     llama-cpp = {
@@ -8,6 +8,10 @@
         # wg0 address, so the server is only reachable over wireguard.
         host = "10.10.10.9";
         port = 8080;
+
+        # One key per line (`#` comments allowed), checked against `Authorization: Bearer <key>`.
+        # `%d` is the unit's credentials directory, see `LoadCredential` below.
+        api-key-file = "%d/api-keys";
 
         # Poolside Laguna S 2.1: 118B total / 8.5B active MoE, code/agent-focused.
         # Supported upstream since ggml-org/llama.cpp#25165 and #26233.
@@ -50,5 +54,17 @@
   systemd.services.llama-cpp = {
     wants = [ "wireguard-wg0.service" ];
     after = [ "wireguard-wg0.service" ];
+
+    # The unit runs with `DynamicUser`, so it cannot read the root-owned agenix secret directly.
+    serviceConfig = {
+      LoadCredential = [ "api-keys:${config.age.secrets.llama-cpp-api-keys.path}" ];
+
+      # On GB10 (unified memory), llama.cpp reads /proc/meminfo to know how much memory is
+      # free. The upstream `ProcSubset = "pid"` hides it, and the cudaMemGetInfo fallback
+      # underreports.
+      ProcSubset = lib.mkForce "all";
+    };
   };
+
+  age.secrets.llama-cpp-api-keys.rekeyFile = ./llama-cpp-api-keys.age;
 }
