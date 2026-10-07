@@ -16,10 +16,10 @@
 
         # Keys have to match the `id` served by /v1/models, which llama-server
         # takes from its `--alias`.
-        models.gpt-oss-120b = {
-          name = "gpt-oss-120b";
+        models."laguna-s-2.1" = {
+          name = "laguna-s-2.1";
           limit = {
-            context = 131072;
+            context = 262144;
             output = 32768;
           };
         };

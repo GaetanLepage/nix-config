@@ -9,12 +9,23 @@
         host = "10.10.10.9";
         port = 8080;
 
-        # 117B total / 5.1B active MoE, shipped natively in MXFP4 (no quantization loss).
-        # ~63 GB, downloaded to /var/cache/llama-cpp on first start.
-        hf-repo = "ggml-org/gpt-oss-120b-GGUF:MXFP4";
-        alias = "gpt-oss-120b";
+        # Poolside Laguna S 2.1: 118B total / 8.5B active MoE, code/agent-focused.
+        # Supported upstream since ggml-org/llama.cpp#25165 and #26233.
+        # unsloth's UD-Q4_K_XL is ~73 GB. Poolside's own Q4_K_M is 96 GB despite its README
+        # saying 68 GB, which leaves too little of the ~120 GB usable memory on GB10.
+        # Downloaded to /var/cache/llama-cpp on first start.
+        hf-repo = "unsloth/Laguna-S-2.1-GGUF:UD-Q4_K_XL";
+        alias = "laguna-s-2.1";
 
-        ctx-size = 131072;
+        # Only 1 in 4 layers is full attention (the rest use a 512-token sliding window), so
+        # the f16 KV cache costs ~48 KB/token: ~13 GB at the 256K the GGUFs are tuned for.
+        ctx-size = 262144;
+
+        # Sampling defaults from the model's generation_config.json.
+        temp = 1.0;
+        top-p = 1.0;
+        top-k = 20;
+        min-p = 0.0;
 
         # Both measurably matter on GB10:
         # https://github.com/ggml-org/llama.cpp/discussions/16578
@@ -22,10 +33,9 @@
         batch-size = 2048;
         ubatch-size = 2048;
 
-        # EAGLE-3 speculative decoding, using the draft model shipped in the same
-        # repo. Untested on GB10, should help token generation.
-        # hf-repo-draft = "ggml-org/gpt-oss-120b-GGUF:Q8_0";
-        # spec-type = "draft-eagle3";
+        # No speculative decoding: Poolside's DFlash drafter (`laguna-s-2.1-DFlash-BF16.gguf`)
+        # only loads with their llama.cpp fork. Upstream fails with
+        # "wrong number of tensors; expected 76, got 69".
       };
     };
   };
