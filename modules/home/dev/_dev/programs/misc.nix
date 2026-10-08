@@ -20,6 +20,7 @@
       ncdu
       nixos-anywhere
       tlrc
+      tokei
       wget
 
       # Network
