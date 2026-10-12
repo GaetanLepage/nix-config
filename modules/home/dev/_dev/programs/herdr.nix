@@ -26,10 +26,13 @@
         next_tab = [ "alt+l" ];
         previous_tab = [ "alt+h" ];
         rename_tab = [ "prefix+r" ];
-        new_tab = [ "alt+n" ];
+        new_tab = [ "prefix+n" ];
         close_tab = [ "prefix+x" ];
         move_tab_previous = [ "alt+i" ];
         move_tab_next = [ "alt+o" ];
+
+        # Splits
+        split_vertical = [ "alt+n" ];
 
         # Workspaces
         new_workspace = [ "ctrl+N" ];
