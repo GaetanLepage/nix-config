@@ -9,7 +9,6 @@
         ];
         dns = [ "10.64.0.1" ];
         autostart = false;
-        listenPort = 51820;
         privateKeyFile = config.age.secrets.mullvad-private-key.path;
 
         peers = [
