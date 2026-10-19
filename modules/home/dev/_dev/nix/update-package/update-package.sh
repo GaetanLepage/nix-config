@@ -47,11 +47,15 @@ if [ -n "$maintainers" ]; then
 cc $maintainers"
 fi
 
-pr_body=$(awk -v replacement="$pr_desc" '
-  BEGIN { found=0 }
-  /^<!-- Please check what applies\./ {
-    print replacement
-    found=1
+# Replace the leading "Please summarise the changes" comment block with the PR description
+pr_body=$(PR_DESC="$pr_desc" awk '
+  BEGIN { state=0 }
+  state == 0 && /^<!--/ { state=1 }
+  state == 1 {
+    if (/-->/) {
+      print ENVIRON["PR_DESC"]
+      state=2
+    }
     next
   }
   { print }
