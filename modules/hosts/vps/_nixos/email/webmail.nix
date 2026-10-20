@@ -12,7 +12,7 @@
     {
       nginx.enable = lib.mkForce false;
       caddy.virtualHosts.${hostName}.extraConfig = ''
-        root * ${config.services.roundcube.package}
+        root * ${config.services.roundcube.package}/public_html
         file_server
 
         php_fastcgi unix/${config.services.phpfpm.pools.roundcube.socket}
