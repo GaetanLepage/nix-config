@@ -16,6 +16,7 @@
           "atlas"
           "hydra"
           "oxide-1"
+          "oxide-2"
           "pascal"
         ]
         (hostname: {
