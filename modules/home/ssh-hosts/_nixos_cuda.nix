@@ -12,12 +12,15 @@
     //
       lib.genAttrs
         [
-          "ada"
-          "atlas"
           "hydra"
-          "oxide-1"
-          "oxide-2"
-          "pascal"
+
+          "htz1-01"
+          "htz1-02"
+          "htz1-03"
+          "htz1-04"
+
+          "oxi1-01"
+          "oxi1-02"
         ]
         (hostname: {
           HostName = "${hostname}.${domain}";
