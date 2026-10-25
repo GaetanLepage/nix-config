@@ -1,8 +1,12 @@
+{ config, ... }:
 {
   programs.claude-code = {
     enable = true;
 
     enableMcpIntegration = true;
+
+    # Default starting in newer home-manager versions
+    configDir = "${config.xdg.configHome}/claude";
 
     settings = {
       # flicker-free mode
