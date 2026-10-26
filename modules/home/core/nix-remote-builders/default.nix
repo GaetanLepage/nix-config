@@ -75,8 +75,8 @@
               supportedFeatures = commonLinuxFeatures;
             }
             {
-              # Ada (nixos-cuda)
-              hostName = "ada.nixos-cuda.org";
+              # Ada GPU builder (nixos-cuda)
+              hostName = "htz1-03.nixos-cuda.org";
               sshUser = "nix";
               inherit sshKey;
               # base64 -w0 /etc/ssh/ssh_host_ed25519_key.pub
