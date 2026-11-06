@@ -80,7 +80,7 @@
               sshUser = "nix";
               inherit sshKey;
               # base64 -w0 /etc/ssh/ssh_host_ed25519_key.pub
-              publicHostKey = "c3NoLWVkMjU1MTkgQUFBQUMzTnphQzFsWkRJMU5URTVBQUFBSUp1RjdhSkZydXJUUHBMNjIxZU5mWlkxR2J0cHZhTkxIVlZKcTdKdDZ0YzYgcm9vdEBhZGEK";
+              publicHostKey = "c3NoLWVkMjU1MTkgQUFBQUMzTnphQzFsWkRJMU5URTVBQUFBSUlKbk4yUXByU1cvUkJrUVF1VURlenNxakdyc0dhazVGbzg5N0NreXNHdkIgcm9vdEBodHoxLTAzCg==";
               maxJobs = 1;
               speedFactor = 1;
               systems = [
