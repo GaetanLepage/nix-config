@@ -56,6 +56,9 @@
     gfu = "git fetch upstream";
     gfo = "git fetch origin";
     gpc = "gh pr checkout";
+
+    gwl = "git worktree list";
+    gwr = "git worktree remove";
   };
 
   programs.fish.shellAbbrs = {
