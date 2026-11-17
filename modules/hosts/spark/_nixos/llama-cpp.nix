@@ -1,8 +1,11 @@
 { config, lib, ... }:
+let
+  cfg = config.services.llama-cpp;
+in
 {
   services = {
     llama-cpp = {
-      enable = true;
+      enable = false;
 
       settings = {
         # wg0 address, so the server is only reachable over wireguard.
@@ -44,14 +47,14 @@
     };
   };
 
-  networking.firewall.interfaces.wg0.allowedTCPPorts = [
-    config.services.llama-cpp.settings.port
+  networking.firewall.interfaces.wg0.allowedTCPPorts = lib.mkIf cfg.enable [
+    cfg.settings.port
   ];
 
   # The upstream unit is only ordered after `network.target`, which does not
   # guarantee that wg0 holds its address yet. Binding would then fail with
   # EADDRNOTAVAIL, and `RestartSec = 300` makes a lost race expensive.
-  systemd.services.llama-cpp = {
+  systemd.services.llama-cpp = lib.mkIf cfg.enable {
     wants = [ "wireguard-wg0.service" ];
     after = [ "wireguard-wg0.service" ];
 
