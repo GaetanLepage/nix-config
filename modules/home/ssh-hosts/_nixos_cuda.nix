@@ -2,7 +2,7 @@
 {
   programs.ssh.settings =
     let
-      User = "root";
+      User = "gaetan";
       IdentityFile = config.age.secrets.ssh-perso.path;
       domain = "nixos-cuda.org";
     in
