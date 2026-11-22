@@ -4,8 +4,8 @@
 
   networking.wg-quick.interfaces.mullvad =
     let
-      ipv4 = "10.72.213.58/32";
-      ipv6 = "fc00:bbbb:bbbb:bb01::9:d539/128";
+      ipv4 = "10.68.91.92/32";
+      ipv6 = "fc00:bbbb:bbbb:bb01::5:5b5b/128";
     in
     {
       address = [ "${ipv4},${ipv6}" ];
@@ -34,8 +34,8 @@
 
       peers = [
         {
-          endpoint = "193.32.127.66:51820";
-          publicKey = "/iivwlyqWqxQ0BVWmJRhcXIFdJeo0WbHQ/hZwuXaN3g=";
+          endpoint = "193.32.127.71:51820";
+          publicKey = "chvEpRH+05o+ESv8QLzNyY3Phirsym0mUvF03Kt7oCo=";
 
           allowedIPs = [ "0.0.0.0/0,::0/0" ];
 
