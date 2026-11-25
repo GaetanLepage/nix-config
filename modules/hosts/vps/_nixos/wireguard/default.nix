@@ -33,13 +33,7 @@
     in
     {
       # Open ports
-      firewall = {
-        allowedTCPPorts = [ 53 ];
-        allowedUDPPorts = [
-          53
-          port
-        ];
-      };
+      firewall.allowedUDPPorts = [ port ];
 
       # enable NAT
       nat = {

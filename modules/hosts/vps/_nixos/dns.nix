@@ -14,7 +14,9 @@ in
         "router.glepage.com"
       ];
     };
-    firewall = {
+    # Only expose the DNS resolver to VPN clients.
+    # Opening port 53 publicly turns AdGuard Home into an open resolver (DNS amplification).
+    firewall.interfaces.wg0 = {
       allowedTCPPorts = [ 53 ];
       allowedUDPPorts = [ 53 ];
     };
