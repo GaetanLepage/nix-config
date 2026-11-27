@@ -45,7 +45,8 @@
     wol
     dig
 
-    yt-dlp
+    # TODO: broken
+    # yt-dlp
   ];
 
   system.stateVersion = "22.05";
